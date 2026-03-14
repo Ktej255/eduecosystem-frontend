@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_20_SUBTOPICS: Subtopic[] = [
-    { id: 'gupta_society', name: 'Social Structure & Women' },
-    { id: 'gupta_economy', name: 'Agrarian Economy & Land Grants' },
-    { id: 'gupta_religion', name: 'Religion & Religious Art' },
-    { id: 'gupta_literature', name: 'Sanskrit Literature & Drama' },
-    { id: 'gupta_science', name: 'Science & Metallurgy' }
+export const ANCIENT_CHAPTER_20_SUBTOPICS: Question[] = [
+    {
+        "id": "gupta_society",
+        "name": "Social Structure & Women",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "gupta_economy",
+        "name": "Agrarian Economy & Land Grants",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "gupta_religion",
+        "name": "Religion & Religious Art",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "gupta_literature",
+        "name": "Sanskrit Literature & Drama",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "gupta_science",
+        "name": "Science & Metallurgy",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_20_MCQS: Question[] = [

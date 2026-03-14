@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_7_SUBTOPICS: Subtopic[] = [
-    { id: 'aryan_migration', name: 'Aryan Migration & Geography' },
-    { id: 'rig_vedic_society', name: 'Rig Vedic Society & Tribal Structure' },
-    { id: 'political_org', name: 'Political Organization & Assemblies' },
-    { id: 'religion_rituals', name: 'Religion, Gods & Rituals' },
-    { id: 'economy_technology', name: 'Economy, Technology & Material Life' }
+export const ANCIENT_CHAPTER_7_SUBTOPICS: Question[] = [
+    {
+        "id": "aryan_migration",
+        "name": "Aryan Migration & Geography",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "rig_vedic_society",
+        "name": "Rig Vedic Society & Tribal Structure",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "political_org",
+        "name": "Political Organization & Assemblies",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "religion_rituals",
+        "name": "Religion, Gods & Rituals",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "economy_technology",
+        "name": "Economy, Technology & Material Life",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_7_MCQS: Question[] = [

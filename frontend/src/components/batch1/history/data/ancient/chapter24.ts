@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_24_SUBTOPICS: Subtopic[] = [
-    { id: 'goals_of_life', name: 'Goals of Life & Overview' },
-    { id: 'samkhya_yoga', name: 'Samkhya & Yoga Systems' },
-    { id: 'nyaya_vaisheshika', name: 'Nyaya & Vaisheshika Systems' },
-    { id: 'mimamsa_vedanta', name: 'Mimamsa & Vedanta Systems' },
-    { id: 'charvaka_jain_buddhist', name: 'Charvaka, Buddhist & Jain Philosophy' }
+export const ANCIENT_CHAPTER_24_SUBTOPICS: Question[] = [
+    {
+        "id": "goals_of_life",
+        "name": "Goals of Life & Overview",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "samkhya_yoga",
+        "name": "Samkhya & Yoga Systems",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "nyaya_vaisheshika",
+        "name": "Nyaya & Vaisheshika Systems",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "mimamsa_vedanta",
+        "name": "Mimamsa & Vedanta Systems",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "charvaka_jain_buddhist",
+        "name": "Charvaka, Buddhist & Jain Philosophy",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_24_MCQS: Question[] = [

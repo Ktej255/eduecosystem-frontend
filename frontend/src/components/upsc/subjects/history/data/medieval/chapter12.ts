@@ -13,9 +13,17 @@ export interface Question {
     difficulty?: 'Easy' | 'Moderate' | 'Hard';
 }
 
-export const MEDIEVAL_CHAPTER_12_SUBTOPICS: Subtopic[] = [
-    { id: 'jahangir', name: 'Jahangir: Justice & Painting' },
-    { id: 'shahjahan', name: 'Shah Jahan: Golden Age of Architecture' }
+export const MEDIEVAL_CHAPTER_12_SUBTOPICS: Question[] = [
+    {
+        "id": "jahangir",
+        "name": "Jahangir: Justice & Painting",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "shahjahan",
+        "name": "Shah Jahan: Golden Age of Architecture",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const MEDIEVAL_CHAPTER_12_MCQS: Question[] = [

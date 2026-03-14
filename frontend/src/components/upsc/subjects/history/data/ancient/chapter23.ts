@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_23_SUBTOPICS: Subtopic[] = [
-    { id: 'pallavas', name: 'Pallavas of Kanchi' },
-    { id: 'chalukyas', name: 'Chalukyas of Badami' },
-    { id: 'south_admin', name: 'South Indian Administration' },
-    { id: 'south_religion', name: 'Bhakti Movement & Temples' },
-    { id: 'south_society', name: 'Society and Culture' }
+export const ANCIENT_CHAPTER_23_SUBTOPICS: Question[] = [
+    {
+        "id": "pallavas",
+        "name": "Pallavas of Kanchi",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "chalukyas",
+        "name": "Chalukyas of Badami",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "south_admin",
+        "name": "South Indian Administration",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "south_religion",
+        "name": "Bhakti Movement & Temples",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "south_society",
+        "name": "Society and Culture",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_23_MCQS: Question[] = [

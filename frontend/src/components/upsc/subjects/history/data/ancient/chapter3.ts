@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_3_SUBTOPICS: Subtopic[] = [
-    { id: 'physical_features', name: 'Physical Features of India' },
-    { id: 'river_systems', name: 'River Systems & Civilization' },
-    { id: 'climate_vegetation', name: 'Climate & Vegetation Zones' },
-    { id: 'minerals_resources', name: 'Minerals & Natural Resources' },
-    { id: 'geography_culture', name: 'Geography & Cultural Development' }
+export const ANCIENT_CHAPTER_3_SUBTOPICS: Question[] = [
+    {
+        "id": "physical_features",
+        "name": "Physical Features of India",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "river_systems",
+        "name": "River Systems & Civilization",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "climate_vegetation",
+        "name": "Climate & Vegetation Zones",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "minerals_resources",
+        "name": "Minerals & Natural Resources",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "geography_culture",
+        "name": "Geography & Cultural Development",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_3_MCQS: Question[] = [

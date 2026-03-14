@@ -88,11 +88,11 @@ import { DAY10_PAPER2_MCQS } from "./polity/data/day10-paper2-mcqs";
 // Common MCQ Type (Assume exported from day1-mcqs or similar, or define here if needed)
 import { MCQ as Question } from "./polity/data/mcq-utils";
 
-// === DYNAMIC IMPORTS ===
+import { POLITY_FLASHCARDS_DATA } from "./polity/data/polity-flashcards-data";
+import { getMCQsByChapter, getMCQsBySubtopics as getRepoMCQs } from "./polity/data/mcqs/mcq-repository";
 import { getMCQsForSubtopics } from "./polity/data/polity-mcqs-data";
 import { generateWeeklySchedule, LAXMIKANTH_CHAPTERS } from "./polity/data/polity-schedule-data";
 import { CHAPTER_SUBTOPICS } from "./polity/data/polity-subtopics";
-import { POLITY_FLASHCARDS_DATA } from "./polity/data/polity-flashcards-data";
 
 // === CSAT CONTENT REGISTRY === (EMPTIED - CSAT content removed)
 export const CSAT_CONTENT_REGISTRY: Record<number, SessionData | undefined> = {};
@@ -213,8 +213,8 @@ export function getFlashcardAvailableDays(): number[] {
 
 // Note: MCQ entries are now standardized to MCQ interface
 export const MCQ_CONTENT_REGISTRY: Record<number, Question[] | undefined> = {
-    // STARTING WITH DAY 1 (Ch 11, 12, 13, 14 Revision)
-    1: WEEK1_MCQS,
+    // STARTING WITH DAY 1 (Consolidated from Chapters 10, 11, 12, 13 Revision - Truth IDs)
+    1: [...getMCQsByChapter(10), ...getMCQsByChapter(11), ...getMCQsByChapter(12), ...getMCQsByChapter(13)],
     2: DAY2_MCQS, // Day 2 (Ch 15)
     3: DAY3_MCQS, // Day 3 (Ch 16, 17)
     4: DAY4_MCQS, // Day 4 (Ch 18, 19)

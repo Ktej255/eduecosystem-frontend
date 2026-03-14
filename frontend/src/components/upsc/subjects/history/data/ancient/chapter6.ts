@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_6_SUBTOPICS: Subtopic[] = [
-    { id: 'origin_phases', name: 'Origin, Extent & Phases' },
-    { id: 'town_planning', name: 'Town Planning & Urban Structure' },
-    { id: 'economy_trade', name: 'Agriculture, Crafts & Trade' },
-    { id: 'society_religion', name: 'Social Life, Scripts & Religion' },
-    { id: 'decline_legacy', name: 'Decline & Historical Legacy' }
+export const ANCIENT_CHAPTER_6_SUBTOPICS: Question[] = [
+    {
+        "id": "origin_phases",
+        "name": "Origin, Extent & Phases",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "town_planning",
+        "name": "Town Planning & Urban Structure",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "economy_trade",
+        "name": "Agriculture, Crafts & Trade",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "society_religion",
+        "name": "Social Life, Scripts & Religion",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "decline_legacy",
+        "name": "Decline & Historical Legacy",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_6_MCQS: Question[] = [

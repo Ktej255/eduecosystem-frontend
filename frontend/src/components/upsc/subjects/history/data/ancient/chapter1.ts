@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_1_SUBTOPICS: Subtopic[] = [
-    { id: 'importance', name: 'Why Study Ancient Indian History' },
-    { id: 'periodization', name: 'Periodization of Indian History' },
-    { id: 'sources_literary', name: 'Literary Sources' },
-    { id: 'sources_archaeological', name: 'Archaeological Sources' },
-    { id: 'historiography', name: 'Historiography & Colonial Impact' }
+export const ANCIENT_CHAPTER_1_SUBTOPICS: Question[] = [
+    {
+        "id": "importance",
+        "name": "Why Study Ancient Indian History",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "periodization",
+        "name": "Periodization of Indian History",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "sources_literary",
+        "name": "Literary Sources",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "sources_archaeological",
+        "name": "Archaeological Sources",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "historiography",
+        "name": "Historiography & Colonial Impact",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_1_MCQS: Question[] = [

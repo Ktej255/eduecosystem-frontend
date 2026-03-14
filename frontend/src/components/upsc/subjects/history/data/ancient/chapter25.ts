@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_25_SUBTOPICS: Subtopic[] = [
-    { id: 'central_asia_china', name: 'India\'s Link with Central Asia & China' },
-    { id: 'sri_lanka_myanmar', name: 'Relations with Sri Lanka & Myanmar' },
-    { id: 'southeast_asia', name: 'Suvarnabhumi & Southeast Asian Empire' },
-    { id: 'religion_culture', name: 'Spread of Religion, Language & Culture' },
-    { id: 'art_architecture', name: 'Art and Architecture in Greater India' }
+export const ANCIENT_CHAPTER_25_SUBTOPICS: Question[] = [
+    {
+        "id": "central_asia_china",
+        "name": "India's Link with Central Asia & China",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "sri_lanka_myanmar",
+        "name": "Relations with Sri Lanka & Myanmar",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "southeast_asia",
+        "name": "Suvarnabhumi & Southeast Asian Empire",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "religion_culture",
+        "name": "Spread of Religion, Language & Culture",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "art_architecture",
+        "name": "Art and Architecture in Greater India",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_25_MCQS: Question[] = [

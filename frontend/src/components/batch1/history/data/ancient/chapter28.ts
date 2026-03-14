@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_28_SUBTOPICS: Subtopic[] = [
-    { id: 'legacy_literary', name: 'Literary Achievements & Sanskrit' },
-    { id: 'legacy_science', name: 'Mathematics & Astronomy' },
-    { id: 'legacy_medicine', name: 'Medicine & Ayurveda' },
-    { id: 'legacy_tech', name: 'Metallurgy & Technology' },
-    { id: 'legacy_art', name: 'Art, Architecture & Spread of Culture' }
+export const ANCIENT_CHAPTER_28_SUBTOPICS: Question[] = [
+    {
+        "id": "legacy_literary",
+        "name": "Literary Achievements & Sanskrit",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "legacy_science",
+        "name": "Mathematics & Astronomy",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "legacy_medicine",
+        "name": "Medicine & Ayurveda",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "legacy_tech",
+        "name": "Metallurgy & Technology",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "legacy_art",
+        "name": "Art, Architecture & Spread of Culture",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_28_MCQS: Question[] = [

@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_8_SUBTOPICS: Subtopic[] = [
-    { id: 'geo_expansion', name: 'Expansion to Upper & Middle Ganga' },
-    { id: 'iron_impact', name: 'Iron Technology & Material Life' },
-    { id: 'political_consolidation', name: 'Political Consolidation & Statehood' },
-    { id: 'social_hierarchy', name: 'Varna, Gotra & Social Rigidity' },
-    { id: 'religious_evolution', name: 'Sacrifices, Deities & Philosophical Shift' }
+export const ANCIENT_CHAPTER_8_SUBTOPICS: Question[] = [
+    {
+        "id": "geo_expansion",
+        "name": "Expansion to Upper & Middle Ganga",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "iron_impact",
+        "name": "Iron Technology & Material Life",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "political_consolidation",
+        "name": "Political Consolidation & Statehood",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "social_hierarchy",
+        "name": "Varna, Gotra & Social Rigidity",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "religious_evolution",
+        "name": "Sacrifices, Deities & Philosophical Shift",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_8_MCQS: Question[] = [

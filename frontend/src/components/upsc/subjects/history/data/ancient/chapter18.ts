@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_18_SUBTOPICS: Subtopic[] = [
-    { id: 'crafts_guilds', name: 'Crafts & Merchant Guilds' },
-    { id: 'internal_trade', name: 'Internal Trade Routes (Silk Road)' },
-    { id: 'foreign_trade', name: 'Trade with Roman Empire' },
-    { id: 'urbanization', name: 'Growth of Towns & Urban Life' },
-    { id: 'monetary_economy', name: 'Coins & Monetary System' }
+export const ANCIENT_CHAPTER_18_SUBTOPICS: Question[] = [
+    {
+        "id": "crafts_guilds",
+        "name": "Crafts & Merchant Guilds",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "internal_trade",
+        "name": "Internal Trade Routes (Silk Road)",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "foreign_trade",
+        "name": "Trade with Roman Empire",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "urbanization",
+        "name": "Growth of Towns & Urban Life",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "monetary_economy",
+        "name": "Coins & Monetary System",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_18_MCQS: Question[] = [

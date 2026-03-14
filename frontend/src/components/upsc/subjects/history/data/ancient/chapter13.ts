@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_13_SUBTOPICS: Subtopic[] = [
-    { id: 'founding_maurya', name: 'Chandragupta Maurya & Founding' },
-    { id: 'bindusara_expansion', name: 'Bindusara & Imperial Expansion' },
-    { id: 'ashoka_rule', name: 'Ashoka: Kalinga War & Transformation' },
-    { id: 'dhamma_policy', name: 'Ashoka’s Dhamma: Nature & Principles' },
-    { id: 'decline_maurya', name: 'Decline of the Mauryan Empire' }
+export const ANCIENT_CHAPTER_13_SUBTOPICS: Question[] = [
+    {
+        "id": "founding_maurya",
+        "name": "Chandragupta Maurya & Founding",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "bindusara_expansion",
+        "name": "Bindusara & Imperial Expansion",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "ashoka_rule",
+        "name": "Ashoka: Kalinga War & Transformation",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "dhamma_policy",
+        "name": "Ashoka’s Dhamma: Nature & Principles",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "decline_maurya",
+        "name": "Decline of the Mauryan Empire",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_13_MCQS: Question[] = [

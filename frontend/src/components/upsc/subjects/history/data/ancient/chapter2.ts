@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_2_SUBTOPICS: Subtopic[] = [
-    { id: 'literary_sources', name: 'Literary & Textual Sources' },
-    { id: 'archaeological_sources', name: 'Archaeological Evidence' },
-    { id: 'foreign_accounts', name: 'Foreign Travellers & Accounts' },
-    { id: 'dating_methods', name: 'Methods of Dating' },
-    { id: 'limitations', name: 'Limitations & Reconstruction Challenges' }
+export const ANCIENT_CHAPTER_2_SUBTOPICS: Question[] = [
+    {
+        "id": "literary_sources",
+        "name": "Literary & Textual Sources",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "archaeological_sources",
+        "name": "Archaeological Evidence",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "foreign_accounts",
+        "name": "Foreign Travellers & Accounts",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "dating_methods",
+        "name": "Methods of Dating",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "limitations",
+        "name": "Limitations & Reconstruction Challenges",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_2_MCQS: Question[] = [

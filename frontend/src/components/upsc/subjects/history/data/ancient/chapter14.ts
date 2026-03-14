@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_14_SUBTOPICS: Subtopic[] = [
-    { id: 'state_economy', name: 'State Control of Economy' },
-    { id: 'admin_structure', name: 'Administrative Hierarchy & Justice' },
-    { id: 'social_changes', name: 'Social Life: Varna & Slavery' },
-    { id: 'art_architecture', name: 'Mauryan Art & Material Culture' },
-    { id: 'imperial_legacy', name: 'Spread of Material Culture & Legacy' }
+export const ANCIENT_CHAPTER_14_SUBTOPICS: Question[] = [
+    {
+        "id": "state_economy",
+        "name": "State Control of Economy",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "admin_structure",
+        "name": "Administrative Hierarchy & Justice",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "social_changes",
+        "name": "Social Life: Varna & Slavery",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "art_architecture",
+        "name": "Mauryan Art & Material Culture",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "imperial_legacy",
+        "name": "Spread of Material Culture & Legacy",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_14_MCQS: Question[] = [

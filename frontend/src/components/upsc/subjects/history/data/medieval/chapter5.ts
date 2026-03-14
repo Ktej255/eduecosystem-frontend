@@ -13,9 +13,17 @@ export interface Question {
     difficulty?: 'Easy' | 'Moderate' | 'Hard';
 }
 
-export const MEDIEVAL_CHAPTER_5_SUBTOPICS: Subtopic[] = [
-    { id: 'alauddin', name: 'Alauddin Khilji: Expansion' },
-    { id: 'reforms', name: 'Market & Military Reforms' }
+export const MEDIEVAL_CHAPTER_5_SUBTOPICS: Question[] = [
+    {
+        "id": "alauddin",
+        "name": "Alauddin Khilji: Expansion",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "reforms",
+        "name": "Market & Military Reforms",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const MEDIEVAL_CHAPTER_5_MCQS: Question[] = [

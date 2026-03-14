@@ -13,9 +13,17 @@ export interface Question {
     difficulty?: 'Easy' | 'Moderate' | 'Hard';
 }
 
-export const MEDIEVAL_CHAPTER_4_SUBTOPICS: Subtopic[] = [
-    { id: 'foundation', name: 'Foundation (Aibak & Iltutmish)' },
-    { id: 'balban', name: 'Razia Sultan & Balban' }
+export const MEDIEVAL_CHAPTER_4_SUBTOPICS: Question[] = [
+    {
+        "id": "foundation",
+        "name": "Foundation (Aibak & Iltutmish)",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "balban",
+        "name": "Razia Sultan & Balban",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const MEDIEVAL_CHAPTER_4_MCQS: Question[] = [

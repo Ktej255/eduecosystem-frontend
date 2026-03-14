@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_11_SUBTOPICS: Subtopic[] = [
-    { id: 'iranian_contact', name: 'Iranian (Persian) Invasions & Impact' },
-    { id: 'macedonian_invasion', name: 'Alexander’s Invasion: Progress & Battles' },
-    { id: 'impact_macedonian', name: 'Impact of Macedonian Invasion' },
-    { id: 'cultural_exchange', name: 'Cultural & Economic Exchanges' },
-    { id: 'political_backwash', name: 'Political Consequences for India' }
+export const ANCIENT_CHAPTER_11_SUBTOPICS: Question[] = [
+    {
+        "id": "iranian_contact",
+        "name": "Iranian (Persian) Invasions & Impact",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "macedonian_invasion",
+        "name": "Alexander’s Invasion: Progress & Battles",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "impact_macedonian",
+        "name": "Impact of Macedonian Invasion",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "cultural_exchange",
+        "name": "Cultural & Economic Exchanges",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "political_backwash",
+        "name": "Political Consequences for India",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_11_MCQS: Question[] = [

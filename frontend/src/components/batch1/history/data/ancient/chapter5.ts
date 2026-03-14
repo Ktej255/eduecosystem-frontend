@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_5_SUBTOPICS: Subtopic[] = [
-    { id: 'definition_features', name: 'Definition & General Features' },
-    { id: 'regional_cultures', name: 'Regional Chalcolithic Cultures' },
-    { id: 'technology_economy', name: 'Technology, Economy & Subsistence' },
-    { id: 'social_burial', name: 'Social Structure & Burial Practices' },
-    { id: 'importance_limitations', name: 'Historical Importance & Limitations' }
+export const ANCIENT_CHAPTER_5_SUBTOPICS: Question[] = [
+    {
+        "id": "definition_features",
+        "name": "Definition & General Features",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "regional_cultures",
+        "name": "Regional Chalcolithic Cultures",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "technology_economy",
+        "name": "Technology, Economy & Subsistence",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "social_burial",
+        "name": "Social Structure & Burial Practices",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "importance_limitations",
+        "name": "Historical Importance & Limitations",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_5_MCQS: Question[] = [

@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_15_SUBTOPICS: Subtopic[] = [
-    { id: 'indo_greeks', name: 'Indo-Greeks: Menander & Impact' },
-    { id: 'shakas_parthians', name: 'Shakas & Parthians in India' },
-    { id: 'kushanas_kanishka', name: 'Kushanas: Empire & Kanishka' },
-    { id: 'cultural_results', name: 'Impact: Art, Religion & Science' },
-    { id: 'economic_results', name: 'Trade: Silk Road & Money Economy' }
+export const ANCIENT_CHAPTER_15_SUBTOPICS: Question[] = [
+    {
+        "id": "indo_greeks",
+        "name": "Indo-Greeks: Menander & Impact",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "shakas_parthians",
+        "name": "Shakas & Parthians in India",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "kushanas_kanishka",
+        "name": "Kushanas: Empire & Kanishka",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "cultural_results",
+        "name": "Impact: Art, Religion & Science",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "economic_results",
+        "name": "Trade: Silk Road & Money Economy",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_15_MCQS: Question[] = [

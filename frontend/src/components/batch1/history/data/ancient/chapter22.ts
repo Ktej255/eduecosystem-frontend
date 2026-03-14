@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_22_SUBTOPICS: Subtopic[] = [
-    { id: 'harsha_rise', name: 'Rise of Vardhana Dynasty' },
-    { id: 'harsha_admin', name: 'Administration & Feudalism' },
-    { id: 'harsha_travel', name: 'Hiuen Tsang & Banabhatta' },
-    { id: 'harsha_religion', name: 'Religion, Assemblies & Nalanda' },
-    { id: 'harsha_economy', name: 'Decline of Trade & Towns' }
+export const ANCIENT_CHAPTER_22_SUBTOPICS: Question[] = [
+    {
+        "id": "harsha_rise",
+        "name": "Rise of Vardhana Dynasty",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "harsha_admin",
+        "name": "Administration & Feudalism",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "harsha_travel",
+        "name": "Hiuen Tsang & Banabhatta",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "harsha_religion",
+        "name": "Religion, Assemblies & Nalanda",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "harsha_economy",
+        "name": "Decline of Trade & Towns",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_22_MCQS: Question[] = [

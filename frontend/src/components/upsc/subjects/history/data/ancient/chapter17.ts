@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_17_SUBTOPICS: Subtopic[] = [
-    { id: 'megalithic_culture', name: 'Megalithic Background & Iron' },
-    { id: 'sangam_kingdoms', name: 'The Three Kingdoms (Chola, Pandya, Chera)' },
-    { id: 'social_hierarchy', name: 'Social Structure & Class Division' },
-    { id: 'economic_life', name: 'Agriculture, Trade & Roman Contact' },
-    { id: 'literature_religion', name: 'Sangam Literature & Religious Life' }
+export const ANCIENT_CHAPTER_17_SUBTOPICS: Question[] = [
+    {
+        "id": "megalithic_culture",
+        "name": "Megalithic Background & Iron",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "sangam_kingdoms",
+        "name": "The Three Kingdoms (Chola, Pandya, Chera)",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "social_hierarchy",
+        "name": "Social Structure & Class Division",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "economic_life",
+        "name": "Agriculture, Trade & Roman Contact",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "literature_religion",
+        "name": "Sangam Literature & Religious Life",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_17_MCQS: Question[] = [

@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_16_SUBTOPICS: Subtopic[] = [
-    { id: 'origin_growth', name: 'Origin & Growth of Satavahanas' },
-    { id: 'major_kings', name: 'Gautamiputra Satakarni & Expansion' },
-    { id: 'admin_society', name: 'Administration & Varna Society' },
-    { id: 'religion_art', name: 'Religion (Buddhism/Brahmanism) & Art' },
-    { id: 'economic_life', name: 'Economic Prosperity & Trade' }
+export const ANCIENT_CHAPTER_16_SUBTOPICS: Question[] = [
+    {
+        "id": "origin_growth",
+        "name": "Origin & Growth of Satavahanas",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "major_kings",
+        "name": "Gautamiputra Satakarni & Expansion",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "admin_society",
+        "name": "Administration & Varna Society",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "religion_art",
+        "name": "Religion (Buddhism/Brahmanism) & Art",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "economic_life",
+        "name": "Economic Prosperity & Trade",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_16_MCQS: Question[] = [

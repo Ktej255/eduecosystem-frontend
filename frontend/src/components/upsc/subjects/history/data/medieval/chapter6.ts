@@ -13,9 +13,17 @@ export interface Question {
     difficulty?: 'Easy' | 'Moderate' | 'Hard';
 }
 
-export const MEDIEVAL_CHAPTER_6_SUBTOPICS: Subtopic[] = [
-    { id: 'mbt', name: 'Experiments of Muhammad bin Tughlaq' },
-    { id: 'fst', name: 'Firoz Shah Tughlaq: Builder & Bigot' }
+export const MEDIEVAL_CHAPTER_6_SUBTOPICS: Question[] = [
+    {
+        "id": "mbt",
+        "name": "Experiments of Muhammad bin Tughlaq",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "fst",
+        "name": "Firoz Shah Tughlaq: Builder & Bigot",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const MEDIEVAL_CHAPTER_6_MCQS: Question[] = [

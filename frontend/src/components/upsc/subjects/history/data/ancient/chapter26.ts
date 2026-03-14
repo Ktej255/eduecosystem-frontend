@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_26_SUBTOPICS: Subtopic[] = [
-    { id: 'feudal_economy', name: 'Decline of Trade and Rise of Feudal Economy' },
-    { id: 'land_grants', name: 'Land Grants and Landed Intermediaries' },
-    { id: 'varna_system', name: 'Changes in the Varna System' },
-    { id: 'position_women', name: 'Position of Women and Society' },
-    { id: 'art_religion', name: 'Emergence of Regional Cultures and Bhakti' }
+export const ANCIENT_CHAPTER_26_SUBTOPICS: Question[] = [
+    {
+        "id": "feudal_economy",
+        "name": "Decline of Trade and Rise of Feudal Economy",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "land_grants",
+        "name": "Land Grants and Landed Intermediaries",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "varna_system",
+        "name": "Changes in the Varna System",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "position_women",
+        "name": "Position of Women and Society",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "art_religion",
+        "name": "Emergence of Regional Cultures and Bhakti",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_26_MCQS: Question[] = [

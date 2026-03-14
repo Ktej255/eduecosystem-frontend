@@ -13,9 +13,17 @@ export interface Question {
     difficulty?: 'Easy' | 'Moderate' | 'Hard';
 }
 
-export const MEDIEVAL_CHAPTER_7_SUBTOPICS: Subtopic[] = [
-    { id: 'timur', name: 'Timur\'s Invasion' },
-    { id: 'lodi', name: 'The Lodi Dynasty' }
+export const MEDIEVAL_CHAPTER_7_SUBTOPICS: Question[] = [
+    {
+        "id": "timur",
+        "name": "Timur's Invasion",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "lodi",
+        "name": "The Lodi Dynasty",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const MEDIEVAL_CHAPTER_7_MCQS: Question[] = [

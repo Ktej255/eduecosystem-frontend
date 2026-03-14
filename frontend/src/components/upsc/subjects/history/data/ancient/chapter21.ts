@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_21_SUBTOPICS: Subtopic[] = [
-    { id: 'east_intro', name: 'Expansion to Orissa & Bengal' },
-    { id: 'east_assam', name: 'Assam (Kamrupa) Civilization' },
-    { id: 'east_religion', name: 'Brahminical Culture & Land Grants' },
-    { id: 'east_tribe', name: 'Tribal Integration & State Formation' },
-    { id: 'east_impact', name: 'Socio-Economic Impact' }
+export const ANCIENT_CHAPTER_21_SUBTOPICS: Question[] = [
+    {
+        "id": "east_intro",
+        "name": "Expansion to Orissa & Bengal",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "east_assam",
+        "name": "Assam (Kamrupa) Civilization",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "east_religion",
+        "name": "Brahminical Culture & Land Grants",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "east_tribe",
+        "name": "Tribal Integration & State Formation",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "east_impact",
+        "name": "Socio-Economic Impact",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_21_MCQS: Question[] = [

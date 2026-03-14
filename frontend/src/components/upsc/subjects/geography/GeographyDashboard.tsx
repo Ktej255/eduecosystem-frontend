@@ -103,7 +103,12 @@ export default function GeographyDashboard() {
             };
         }).filter(b => b.total > 0);
 
-        return { total, totalCompleted, overallProgress, branchStats };
+        const ncClass11Branches = ['Geomorphology', 'Climatology', 'Oceanography'];
+        const ncClass11Topics = GEOGRAPHY_REGISTRY.filter(t => ncClass11Branches.includes(t.branch));
+        const ncClass11Completed = ncClass11Topics.filter(t => safeCompleted.includes(t.id)).length;
+        const ncClass11Progress = ncClass11Topics.length > 0 ? (ncClass11Completed / ncClass11Topics.length) * 100 : 0;
+
+        return { total, totalCompleted, overallProgress, branchStats, ncClass11Progress, ncClass11Completed };
     }, [completedTopics]);
 
     // Filtering
@@ -200,9 +205,10 @@ export default function GeographyDashboard() {
 
             {viewMode === 'sheet' ? (
                 <div className="space-y-6">
-                    {/* Stats HUD — All 5 Branches */}
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                    {/* Stats HUD — All Branches + NCERT */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
                         <StatHUDCard title="Overall" value={`${Math.round(stats.overallProgress)}%`} subtext={`${stats.totalCompleted}/${stats.total} Topics`} icon={<TargetIcon className="text-indigo-600" />} />
+                        <StatHUDCard title="NCERT Cl. 11" value={`${Math.round(stats.ncClass11Progress)}%`} subtext={`${stats.ncClass11Completed} Topics`} icon={<BookOpen className="text-violet-600" />} />
                         <StatHUDCard title="Geomorphology" value={`${Math.round(stats.branchStats.find(b => b.name === 'Geomorphology')?.progress || 0)}%`} subtext={`${stats.branchStats.find(b => b.name === 'Geomorphology')?.completed || 0} done`} icon={<Mountain className="text-amber-600" />} />
                         <StatHUDCard title="Climatology" value={`${Math.round(stats.branchStats.find(b => b.name === 'Climatology')?.progress || 0)}%`} subtext={`${stats.branchStats.find(b => b.name === 'Climatology')?.completed || 0} done`} icon={<Wind className="text-sky-600" />} />
                         <StatHUDCard title="Oceanography" value={`${Math.round(stats.branchStats.find(b => b.name === 'Oceanography')?.progress || 0)}%`} subtext={`${stats.branchStats.find(b => b.name === 'Oceanography')?.completed || 0} done`} icon={<Waves className="text-blue-600" />} />
@@ -425,6 +431,7 @@ export default function GeographyDashboard() {
                         <FeatureCard title="Interactive India Atlas" desc="Master 500+ UPSC Locations." icon={<MapPin className="w-6 h-6" />} color="bg-indigo-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/india-map')} />
                         <FeatureCard title="Monsoon Simulator" desc="Interactive El Niño & ITCZ dynamics." icon={<Wind className="w-6 h-6" />} color="bg-emerald-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/monsoon')} />
                         <FeatureCard title="Ocean Lab" desc="Track complex current patterns." icon={<Waves className="w-6 h-6" />} color="bg-blue-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/ocean-currents')} />
+                        <FeatureCard title="River System Explorer" desc="Flow dynamics & major dams." icon={<Droplets className="w-6 h-6" />} color="bg-sky-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/river-systems')} />
                         <FeatureCard title="Climate Zone Explorer" desc="Köppen Classifications & Biomes." icon={<Globe2 className="w-6 h-6" />} color="bg-amber-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/climate-zones')} />
                         <FeatureCard title="Plate Tectonics Sim" desc="Global Lithospheric Boundaries." icon={<Layers className="w-6 h-6" />} color="bg-red-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/tectonics')} />
                         <FeatureCard title="Resource Atlas" desc="India's Mineral & Energy Map." icon={<Pickaxe className="w-6 h-6" />} color="bg-yellow-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/resource-atlas')} />

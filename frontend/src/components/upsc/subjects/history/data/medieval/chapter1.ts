@@ -13,10 +13,22 @@ export interface Question {
     difficulty?: 'Easy' | 'Moderate' | 'Hard';
 }
 
-export const MEDIEVAL_CHAPTER_1_SUBTOPICS: Subtopic[] = [
-    { id: 'tripartite', name: 'Tripartite Struggle' },
-    { id: 'cholas', name: 'The Chola Empire' },
-    { id: 'early_medieval', name: 'Early Medieval Society' }
+export const MEDIEVAL_CHAPTER_1_SUBTOPICS: Question[] = [
+    {
+        "id": "tripartite",
+        "name": "Tripartite Struggle",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "cholas",
+        "name": "The Chola Empire",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "early_medieval",
+        "name": "Early Medieval Society",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const MEDIEVAL_CHAPTER_1_MCQS: Question[] = [

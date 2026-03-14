@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_9_SUBTOPICS: Subtopic[] = [
-    { id: 'causes_origin', name: 'Causes for Rise of New Religions' },
-    { id: 'jainism_teachings', name: 'Jainism: Vardhamana Mahavira & Doctrines' },
-    { id: 'buddhism_teachings', name: 'Buddhism: Gautama Buddha & Tenets' },
-    { id: 'spread_councils', name: 'Spread, Councils & Sects' },
-    { id: 'impact_legacy', name: 'Societal Impact & Historical Legacy' }
+export const ANCIENT_CHAPTER_9_SUBTOPICS: Question[] = [
+    {
+        "id": "causes_origin",
+        "name": "Causes for Rise of New Religions",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "jainism_teachings",
+        "name": "Jainism: Vardhamana Mahavira & Doctrines",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "buddhism_teachings",
+        "name": "Buddhism: Gautama Buddha & Tenets",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "spread_councils",
+        "name": "Spread, Councils & Sects",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "impact_legacy",
+        "name": "Societal Impact & Historical Legacy",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_9_MCQS: Question[] = [

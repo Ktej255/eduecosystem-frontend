@@ -13,9 +13,17 @@ export interface Question {
     difficulty?: 'Easy' | 'Moderate' | 'Hard';
 }
 
-export const MEDIEVAL_CHAPTER_10_SUBTOPICS: Subtopic[] = [
-    { id: 'babur', name: 'Babur & Foundation' },
-    { id: 'shershah', name: 'Sher Shah Suri & Administration' }
+export const MEDIEVAL_CHAPTER_10_SUBTOPICS: Question[] = [
+    {
+        "id": "babur",
+        "name": "Babur & Foundation",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "shershah",
+        "name": "Sher Shah Suri & Administration",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const MEDIEVAL_CHAPTER_10_MCQS: Question[] = [

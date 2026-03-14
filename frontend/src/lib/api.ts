@@ -38,4 +38,9 @@ api.interceptors.response.use(
   }
 );
 
+export const uploadBulkQuestions = async (payload: any) => {
+  const response = await api.post("/teacher/lms/questions/bulk", payload);
+  return response.data;
+};
+
 export default api;

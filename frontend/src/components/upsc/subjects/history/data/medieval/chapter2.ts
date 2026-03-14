@@ -13,10 +13,22 @@ export interface Question {
     difficulty?: 'Easy' | 'Moderate' | 'Hard';
 }
 
-export const MEDIEVAL_CHAPTER_2_SUBTOPICS: Subtopic[] = [
-    { id: 'ghazni', name: 'Mahmud of Ghazni' },
-    { id: 'ghori', name: 'Muhammad Ghori' },
-    { id: 'rajputs', name: 'Rajput States' }
+export const MEDIEVAL_CHAPTER_2_SUBTOPICS: Question[] = [
+    {
+        "id": "ghazni",
+        "name": "Mahmud of Ghazni",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "ghori",
+        "name": "Muhammad Ghori",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "rajputs",
+        "name": "Rajput States",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const MEDIEVAL_CHAPTER_2_MCQS: Question[] = [

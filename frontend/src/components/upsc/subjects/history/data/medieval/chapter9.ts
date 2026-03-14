@@ -13,9 +13,17 @@ export interface Question {
     difficulty?: 'Easy' | 'Moderate' | 'Hard';
 }
 
-export const MEDIEVAL_CHAPTER_9_SUBTOPICS: Subtopic[] = [
-    { id: 'bhakti', name: 'The Bhakti Movement' },
-    { id: 'sufi', name: 'The Sufi Movement' }
+export const MEDIEVAL_CHAPTER_9_SUBTOPICS: Question[] = [
+    {
+        "id": "bhakti",
+        "name": "The Bhakti Movement",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "sufi",
+        "name": "The Sufi Movement",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const MEDIEVAL_CHAPTER_9_MCQS: Question[] = [

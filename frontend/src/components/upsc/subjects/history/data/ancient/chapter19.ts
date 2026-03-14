@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_19_SUBTOPICS: Subtopic[] = [
-    { id: 'gupta_origins', name: 'Origins & Chandragupta I' },
-    { id: 'samudragupta_conquests', name: 'Samudragupta & Allahabad Pillar' },
-    { id: 'chandragupta_ii', name: 'Chandragupta II & Vikramaditya' },
-    { id: 'later_guptas', name: 'Kumaragupta, Skandagupta & Hunas' },
-    { id: 'gupta_administration', name: 'Administration & Governance' }
+export const ANCIENT_CHAPTER_19_SUBTOPICS: Question[] = [
+    {
+        "id": "gupta_origins",
+        "name": "Origins & Chandragupta I",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "samudragupta_conquests",
+        "name": "Samudragupta & Allahabad Pillar",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "chandragupta_ii",
+        "name": "Chandragupta II & Vikramaditya",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "later_guptas",
+        "name": "Kumaragupta, Skandagupta & Hunas",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "gupta_administration",
+        "name": "Administration & Governance",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_19_MCQS: Question[] = [

@@ -13,9 +13,17 @@ export interface Question {
     difficulty?: 'Easy' | 'Moderate' | 'Hard';
 }
 
-export const MEDIEVAL_CHAPTER_8_SUBTOPICS: Subtopic[] = [
-    { id: 'vijayanagar', name: 'Vijayanagar Empire & Krishnadevaraya' },
-    { id: 'bahmani', name: 'Bahmani Kingdom & Administration' }
+export const MEDIEVAL_CHAPTER_8_SUBTOPICS: Question[] = [
+    {
+        "id": "vijayanagar",
+        "name": "Vijayanagar Empire & Krishnadevaraya",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "bahmani",
+        "name": "Bahmani Kingdom & Administration",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const MEDIEVAL_CHAPTER_8_MCQS: Question[] = [

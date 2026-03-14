@@ -13,9 +13,17 @@ export interface Question {
     difficulty?: 'Easy' | 'Moderate' | 'Hard';
 }
 
-export const MEDIEVAL_CHAPTER_15_SUBTOPICS: Subtopic[] = [
-    { id: 'administration', name: 'Provincial & Local Admin' },
-    { id: 'culture', name: 'Literature & Music' }
+export const MEDIEVAL_CHAPTER_15_SUBTOPICS: Question[] = [
+    {
+        "id": "administration",
+        "name": "Provincial & Local Admin",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "culture",
+        "name": "Literature & Music",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const MEDIEVAL_CHAPTER_15_MCQS: Question[] = [

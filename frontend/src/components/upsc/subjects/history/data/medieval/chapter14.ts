@@ -13,9 +13,17 @@ export interface Question {
     difficulty?: 'Easy' | 'Moderate' | 'Hard';
 }
 
-export const MEDIEVAL_CHAPTER_14_SUBTOPICS: Subtopic[] = [
-    { id: 'shivaji', name: 'Chhatrapati Shivaji Maharaj' },
-    { id: 'peshwas', name: 'The Peshwa Rule' }
+export const MEDIEVAL_CHAPTER_14_SUBTOPICS: Question[] = [
+    {
+        "id": "shivaji",
+        "name": "Chhatrapati Shivaji Maharaj",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "peshwas",
+        "name": "The Peshwa Rule",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const MEDIEVAL_CHAPTER_14_MCQS: Question[] = [

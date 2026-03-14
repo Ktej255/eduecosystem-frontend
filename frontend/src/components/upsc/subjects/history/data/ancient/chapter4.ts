@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_4_SUBTOPICS: Subtopic[] = [
-    { id: 'paleolithic', name: 'Paleolithic Age' },
-    { id: 'mesolithic', name: 'Mesolithic Age' },
-    { id: 'neolithic', name: 'Neolithic Age' },
-    { id: 'tools_technology', name: 'Tools & Technology' },
-    { id: 'sites_discoveries', name: 'Key Sites & Discoveries' }
+export const ANCIENT_CHAPTER_4_SUBTOPICS: Question[] = [
+    {
+        "id": "paleolithic",
+        "name": "Paleolithic Age",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "mesolithic",
+        "name": "Mesolithic Age",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "neolithic",
+        "name": "Neolithic Age",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "tools_technology",
+        "name": "Tools & Technology",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "sites_discoveries",
+        "name": "Key Sites & Discoveries",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_4_MCQS: Question[] = [

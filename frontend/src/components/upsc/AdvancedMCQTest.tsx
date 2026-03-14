@@ -196,27 +196,29 @@ export default function AdvancedMCQTest({ questions, chapterId, bookId, chapterT
     }
 
     return (
-        <div className="max-w-3xl mx-auto">
-            {/* Header */}
-            <div className="flex justify-between items-center mb-6">
-                <span className="font-mono text-sm text-muted-foreground">
-                    Q{currentQIndex + 1}/{questions.length}
-                </span>
-                <div className="flex items-center gap-4">
+        <div className="flex flex-col lg:flex-row gap-6 max-w-6xl mx-auto">
+            {/* Main Question Area */}
+            <div className="flex-1">
+                {/* Header */}
+                <div className="flex justify-between items-center mb-6">
                     <span className="font-mono text-sm text-muted-foreground">
-                        {Math.floor(timer / 60)}:{(timer % 60).toString().padStart(2, '0')}
+                        Q{currentQIndex + 1}/{questions.length}
                     </span>
-                    <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={handleLifeline5050}
-                        disabled={lifelineUsed[currentQIndex]}
-                        className={lifelineUsed[currentQIndex] ? 'opacity-50' : 'text-purple-600 border-purple-200 bg-purple-50'}
-                    >
-                        <HelpCircle className="w-4 h-4 mr-1" /> 50:50 Lifeline
-                    </Button>
+                    <div className="flex items-center gap-4">
+                        <span className="font-mono text-sm text-muted-foreground">
+                            {Math.floor(timer / 60)}:{(timer % 60).toString().padStart(2, '0')}
+                        </span>
+                        <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={handleLifeline5050}
+                            disabled={lifelineUsed[currentQIndex]}
+                            className={lifelineUsed[currentQIndex] ? 'opacity-50' : 'text-purple-600 border-purple-200 bg-purple-50'}
+                        >
+                            <HelpCircle className="w-4 h-4 mr-1" /> 50:50 Lifeline
+                        </Button>
+                    </div>
                 </div>
-            </div>
 
             {/* Question Card */}
             <Card className="mb-6">
@@ -289,13 +291,64 @@ export default function AdvancedMCQTest({ questions, chapterId, bookId, chapterT
                     <Button
                         onClick={handleNext}
                         size="lg"
-                        disabled={!selectedConfidence}
+                        disabled={!selectedConfidence && selectedOption === null}
                         className="w-full"
                     >
                         {currentQIndex === questions.length - 1 ? 'Submit Test' : 'Next Question'} <ChevronRight className="w-4 h-4 ml-1" />
                     </Button>
                 </div>
             )}
+            </div>
+
+            {/* Question Navigation Side Panel */}
+            <div className="w-full lg:w-72 mt-8 lg:mt-0">
+                <Card className="sticky top-6">
+                    <CardHeader className="pb-3 border-b">
+                        <CardTitle className="text-lg">Question Palette</CardTitle>
+                        <div className="flex flex-wrap gap-2 text-xs mt-2 text-muted-foreground">
+                            <span className="flex items-center gap-1"><div className="w-3 h-3 rounded-full bg-blue-500"></div> Current</span>
+                            <span className="flex items-center gap-1"><div className="w-3 h-3 rounded-full bg-green-500"></div> Answered</span>
+                            <span className="flex items-center gap-1"><div className="w-3 h-3 rounded-full bg-muted border border-border"></div> Unanswered</span>
+                        </div>
+                    </CardHeader>
+                    <CardContent className="pt-4  max-h-[60vh] overflow-y-auto">
+                        <div className="grid grid-cols-5 gap-2">
+                            {Array.from({ length: questions.length }).map((_, i) => {
+                                const isCurrent = currentQIndex === i;
+                                const isAnswered = answers[i] !== undefined;
+                                
+                                return (
+                                    <button
+                                        key={i}
+                                        onClick={() => setCurrentQIndex(i)}
+                                        className={`w-10 h-10 rounded-md font-medium text-sm transition-all flex items-center justify-center
+                                            ${isCurrent ? 'bg-blue-600 text-white shadow-md ring-2 ring-blue-300 ring-offset-1' : 
+                                              isAnswered ? 'bg-green-100 text-green-800 border-green-200 border' : 
+                                              'bg-muted hover:bg-muted/80 text-muted-foreground border border-transparent'}
+                                        `}
+                                    >
+                                        {i + 1}
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    </CardContent>
+                    <CardFooter className="pt-4 border-t">
+                        <Button 
+                            variant="default" 
+                            className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                            onClick={() => {
+                                if (window.confirm("Are you sure you want to submit the test? Unanswered questions will be marked incorrect.")) {
+                                    handleNext(); 
+                                    setMode('result');
+                                }
+                            }}
+                        >
+                            Final Submit
+                        </Button>
+                    </CardFooter>
+                </Card>
+            </div>
         </div>
     );
 }

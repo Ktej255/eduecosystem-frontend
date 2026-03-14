@@ -13,10 +13,22 @@ export interface Question {
     difficulty?: 'Easy' | 'Moderate' | 'Hard';
 }
 
-export const MEDIEVAL_CHAPTER_3_SUBTOPICS: Subtopic[] = [
-    { id: 'slave', name: 'Slave Dynasty (Mamluks)' },
-    { id: 'khilji', name: 'Khilji Dynasty' },
-    { id: 'reforms', name: 'Market Reforms of Alauddin' }
+export const MEDIEVAL_CHAPTER_3_SUBTOPICS: Question[] = [
+    {
+        "id": "slave",
+        "name": "Slave Dynasty (Mamluks)",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "khilji",
+        "name": "Khilji Dynasty",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "reforms",
+        "name": "Market Reforms of Alauddin",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const MEDIEVAL_CHAPTER_3_MCQS: Question[] = [

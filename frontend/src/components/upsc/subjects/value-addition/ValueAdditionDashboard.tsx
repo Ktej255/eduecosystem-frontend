@@ -34,7 +34,7 @@ export default function ValueAdditionDashboard() {
                             </div>
                             <CardTitle className="text-xl">Governance & Schemes</CardTitle>
                             <CardDescription>
-                                Registry of Ministries, flagship schemes (allocation, objectives), and policies.
+                                Database of 50+ Ministries, flagship schemes (allocation, objectives), and newest policies.
                             </CardDescription>
                         </CardHeader>
                         <CardContent>
@@ -54,7 +54,7 @@ export default function ValueAdditionDashboard() {
                             </div>
                             <CardTitle className="text-xl">Interactive Atlas</CardTitle>
                             <CardDescription>
-                                Visual mastery of National Parks, Minerals, Ramsar Sites, and Industrial Corridors.
+                                Visual mastery of 106+ National Parks, 18 Biosphere Reserves, 80+ Ramsar Sites, and Minerals.
                             </CardDescription>
                         </CardHeader>
                         <CardContent>
@@ -138,15 +138,15 @@ export default function ValueAdditionDashboard() {
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div className="p-3 bg-muted rounded-lg border border-slate-100 flex justify-between items-center">
-                            <span className="text-sm font-medium">Lithium Reserves in J&K</span>
+                            <span className="text-sm font-medium">New Ramsar Sites Added (Feb 2026)</span>
                             <span className="text-xs bg-red-100 text-red-600 px-2 py-1 rounded">Critical</span>
                         </div>
                         <div className="p-3 bg-muted rounded-lg border border-slate-100 flex justify-between items-center">
-                            <span className="text-sm font-medium">New Ramsar Sites Added</span>
+                            <span className="text-sm font-medium">Green Hydrogen Mission Updates</span>
                             <span className="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded">Env</span>
                         </div>
                         <div className="p-3 bg-muted rounded-lg border border-slate-100 flex justify-between items-center">
-                            <span className="text-sm font-medium">PM-PVTG Mission</span>
+                            <span className="text-sm font-medium">PM-PVTG Mission Phase II</span>
                             <span className="text-xs bg-amber-100 text-amber-600 px-2 py-1 rounded">Schemes</span>
                         </div>
                     </CardContent>

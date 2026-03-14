@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_27_SUBTOPICS: Subtopic[] = [
-    { id: 'tribal_pastoral', name: 'Tribal and Pastoral Phase (Rig Veda)' },
-    { id: 'agriculture_state', name: 'Agriculture and State Formation (Later Vedic to Maurya)' },
-    { id: 'social_classes', name: 'Evolution of Varna & Social Classes' },
-    { id: 'crafts_guilds', name: 'Crafts, Guilds & Trade (Post-Maurya & Gupta)' },
-    { id: 'feudal_transition', name: 'The Feudal Transition & Legacy' }
+export const ANCIENT_CHAPTER_27_SUBTOPICS: Question[] = [
+    {
+        "id": "tribal_pastoral",
+        "name": "Tribal and Pastoral Phase (Rig Veda)",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "agriculture_state",
+        "name": "Agriculture and State Formation (Later Vedic to Maurya)",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "social_classes",
+        "name": "Evolution of Varna & Social Classes",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "crafts_guilds",
+        "name": "Crafts, Guilds & Trade (Post-Maurya & Gupta)",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "feudal_transition",
+        "name": "The Feudal Transition & Legacy",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_27_MCQS: Question[] = [

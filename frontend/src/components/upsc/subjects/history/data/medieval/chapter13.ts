@@ -13,9 +13,17 @@ export interface Question {
     difficulty?: 'Easy' | 'Moderate' | 'Hard';
 }
 
-export const MEDIEVAL_CHAPTER_13_SUBTOPICS: Subtopic[] = [
-    { id: 'policies', name: 'Religious Policy & Rebellions' },
-    { id: 'deccan', name: 'Deccan Policy & Decline' }
+export const MEDIEVAL_CHAPTER_13_SUBTOPICS: Question[] = [
+    {
+        "id": "policies",
+        "name": "Religious Policy & Rebellions",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "deccan",
+        "name": "Deccan Policy & Decline",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const MEDIEVAL_CHAPTER_13_MCQS: Question[] = [

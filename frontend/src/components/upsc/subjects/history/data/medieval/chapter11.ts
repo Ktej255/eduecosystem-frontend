@@ -13,9 +13,17 @@ export interface Question {
     difficulty?: 'Easy' | 'Moderate' | 'Hard';
 }
 
-export const MEDIEVAL_CHAPTER_11_SUBTOPICS: Subtopic[] = [
-    { id: 'administration', name: 'Mansabdari & Land Revenue' },
-    { id: 'religion', name: 'Religious Policy & Din-i-Ilahi' }
+export const MEDIEVAL_CHAPTER_11_SUBTOPICS: Question[] = [
+    {
+        "id": "administration",
+        "name": "Mansabdari & Land Revenue",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "religion",
+        "name": "Religious Policy & Din-i-Ilahi",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const MEDIEVAL_CHAPTER_11_MCQS: Question[] = [

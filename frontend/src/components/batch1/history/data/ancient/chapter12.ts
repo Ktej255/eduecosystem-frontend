@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_12_SUBTOPICS: Subtopic[] = [
-    { id: 'material_life', name: 'Material Life & Second Urbanization' },
-    { id: 'admin_centralization', name: 'Administrative Center & Bureaucracy' },
-    { id: 'taxation_system', name: 'Fiscal System & Revenue' },
-    { id: 'varna_society', name: 'Social Structure: The Varna System' },
-    { id: 'legal_system', name: 'Law, Justice & Legal Manuals' }
+export const ANCIENT_CHAPTER_12_SUBTOPICS: Question[] = [
+    {
+        "id": "material_life",
+        "name": "Material Life & Second Urbanization",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "admin_centralization",
+        "name": "Administrative Center & Bureaucracy",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "taxation_system",
+        "name": "Fiscal System & Revenue",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "varna_society",
+        "name": "Social Structure: The Varna System",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "legal_system",
+        "name": "Law, Justice & Legal Manuals",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_12_MCQS: Question[] = [

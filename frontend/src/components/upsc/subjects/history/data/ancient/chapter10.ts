@@ -1,11 +1,31 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_10_SUBTOPICS: Subtopic[] = [
-    { id: 'mahajanapadas', name: 'The 16 Mahajanapadas' },
-    { id: 'rise_magadha', name: 'Rise of Magadha: Haryanka & Shishunaga' },
-    { id: 'nanda_dynasty', name: 'The Nanda Dynasty & First Empire' },
-    { id: 'magadha_success', name: 'General Factors of Magadhan Success' },
-    { id: 'admin_society', name: 'Administration & Social Changes' }
+export const ANCIENT_CHAPTER_10_SUBTOPICS: Question[] = [
+    {
+        "id": "mahajanapadas",
+        "name": "The 16 Mahajanapadas",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "rise_magadha",
+        "name": "Rise of Magadha: Haryanka & Shishunaga",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "nanda_dynasty",
+        "name": "The Nanda Dynasty & First Empire",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "magadha_success",
+        "name": "General Factors of Magadhan Success",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    },
+    {
+        "id": "admin_society",
+        "name": "Administration & Social Changes",
+        "explanation": "The correct answer covers this historical event precisely: Information pending."
+    }
 ];
 
 export const ANCIENT_CHAPTER_10_MCQS: Question[] = [

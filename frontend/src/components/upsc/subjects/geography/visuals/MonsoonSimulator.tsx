@@ -2,7 +2,10 @@
 
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CloudRain, Sun, Wind, Activity, ThermometerSun, Thermometer, AlertTriangle, CheckCircle, Info } from 'lucide-react';
+import { CloudRain, Sun, Wind, Activity, ThermometerSun, Thermometer, AlertTriangle, CheckCircle, Info, Droplets } from 'lucide-react';
+import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
+
+const WORLD_TOPO_JSON = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
 interface Toggles {
   itcz: boolean;
@@ -14,12 +17,12 @@ interface Toggles {
 }
 
 const TOGGLE_INFO = {
-  itcz: { name: "ITCZ Active", icon: CloudRain, desc: "Inter Tropical Convergence Zone moves over Ganga plains. Acts as a magnet for monsoon winds, enhancing rainfall." },
-  elnino: { name: "El Niño", icon: ThermometerSun, desc: "Warming of central/eastern Pacific Ocean. Subsiding air over India suppresses cloud formation and monsoon rainfall." },
-  lanina: { name: "La Niña", icon: Thermometer, desc: "Cooling of eastern Pacific. Enhances the Walker Circulation, pushing intense moisture and heavy rainfall toward India." },
-  posIod: { name: "Positive IOD", icon: Activity, desc: "Western Indian Ocean becomes warmer than the eastern part. Pushes moisture toward India, often compensating for El Niño." },
-  negIod: { name: "Negative IOD", icon: Activity, desc: "Eastern Indian Ocean becomes warmer. Pulls moisture away from India towards Indonesia, suppressing monsoon." },
-  mjo: { name: "MJO Active Phase", icon: Wind, desc: "Madden-Julian Oscillation brings a pulse of clouds and rainfall moving eastward. Activates the monsoon burst." }
+  itcz: { name: "ITCZ Active", icon: CloudRain, desc: "Inter Tropical Convergence Zone moves over Ganga plains. Acts as a magnet for monsoon winds, enhancing rainfall.", color: '#facc15' },
+  elnino: { name: "El Niño", icon: ThermometerSun, desc: "Warming of central/eastern Pacific Ocean. Subsiding air over India suppresses cloud formation and monsoon rainfall.", color: '#ef4444' },
+  lanina: { name: "La Niña", icon: Thermometer, desc: "Cooling of eastern Pacific. Enhances the Walker Circulation, pushing intense moisture and heavy rainfall toward India.", color: '#818cf8' },
+  posIod: { name: "Positive IOD", icon: Activity, desc: "Western Indian Ocean becomes warmer than the eastern part. Pushes moisture toward India, often compensating for El Niño.", color: '#22c55e' },
+  negIod: { name: "Negative IOD", icon: Activity, desc: "Eastern Indian Ocean becomes warmer. Pulls moisture away from India towards Indonesia, suppressing monsoon.", color: '#f97316' },
+  mjo: { name: "MJO Active Phase", icon: Wind, desc: "Madden-Julian Oscillation brings a pulse of clouds and rainfall moving eastward. Activates the monsoon burst.", color: '#06b6d4' }
 };
 
 export default function MonsoonSimulator() {
@@ -101,95 +104,225 @@ export default function MonsoonSimulator() {
     return 2;
   }, [stats.value]);
 
+  // Glow intensity based on monsoon value
+  const glowIntensity = useMemo(() => {
+    if (stats.value < 75) return 'drought';
+    if (stats.value > 120) return 'flood';
+    return 'normal';
+  }, [stats.value]);
+
   return (
-    <div className="w-full max-w-7xl mx-auto bg-card dark:bg-[#0a0a0a] rounded-2xl border border-border shadow-2xl overflow-hidden flex flex-col font-sans">
+    <div className="w-full max-w-7xl mx-auto bg-slate-950 rounded-3xl border border-blue-900/30 shadow-2xl overflow-hidden flex flex-col font-sans">
       
-      {/* Header */}
-      <div className="bg-gradient-to-r from-blue-900 to-indigo-900 p-6 flex items-center justify-between border-b border-border text-white">
-        <div>
-          <h2 className="text-2xl font-bold flex items-center gap-2">
-            <CloudRain className="w-8 h-8 text-blue-300" />
+      {/* Header — Enhanced with atmospheric gradient & glow */}
+      <div className="bg-gradient-to-r from-slate-900 via-blue-950/60 to-indigo-950/40 p-6 flex items-center justify-between border-b border-blue-500/20 text-white relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/[0.03] to-transparent pointer-events-none" />
+        <div className="relative z-10">
+          <h2 className="text-2xl font-black flex items-center gap-3 uppercase tracking-wider">
+            <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30 relative">
+              <CloudRain className="w-5 h-5 text-blue-400 relative z-10" />
+              <div className="absolute inset-0 rounded-xl blur-lg bg-blue-500/15" />
+            </div>
             Monsoon Vector Simulator
           </h2>
-          <p className="text-blue-100 text-sm mt-1">Interactive visualization of El Niño, IOD, and Indian Monsoon coupling.</p>
+          <p className="text-blue-200/50 text-[10px] mt-1 font-bold tracking-widest uppercase">Interactive El Niño, IOD & Indian Monsoon Coupling</p>
         </div>
-        <div className="flex items-center gap-4 bg-black/30 px-4 py-2 rounded-xl backdrop-blur-md">
+        <div className="flex items-center gap-4 bg-black/40 px-5 py-3 rounded-2xl backdrop-blur-xl border border-white/10 relative z-10">
            <div className="text-right">
-             <div className="text-[10px] text-blue-200 uppercase tracking-wider font-bold">Monsoon Index</div>
-             <div className={`text-2xl font-black ${stats.value >= 100 ? 'text-green-400' : 'text-orange-400'}`}>
+             <div className="text-[9px] text-blue-200/60 uppercase tracking-[0.2em] font-black">Monsoon Index</div>
+             <div className={`text-3xl font-black ${stats.value >= 100 ? 'text-green-400' : 'text-orange-400'}`}
+                  style={{ textShadow: stats.value >= 100 ? '0 0 20px rgba(74,222,128,0.3)' : '0 0 20px rgba(251,146,60,0.3)' }}>
                {stats.value}
              </div>
            </div>
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row h-auto lg:h-[600px]">
-        {/* SECTION 1: MAP PANEL (60%) */}
-        <div className="w-full lg:w-[60%] bg-[#0f172a] relative overflow-hidden border-r border-border p-4">
+      <div className="flex flex-col lg:flex-row h-[700px] lg:h-[600px]">
+        {/* SECTION 1: MAP PANEL (60%) — Enhanced with atmospheric ocean depth */}
+        <div className="w-full lg:w-[60%] relative overflow-hidden border-r border-white/5 p-0"
+             style={{ background: 'radial-gradient(ellipse at 50% 40%, #091a2e 0%, #05101e 50%, #030810 100%)' }}>
           
-          <svg viewBox="0 0 800 600" className="w-full h-full drop-shadow-2xl">
+          {/* Deep ocean atmospheric overlay */}
+          <div className="absolute inset-0 pointer-events-none"
+               style={{ background: 'radial-gradient(ellipse at 30% 60%, rgba(56,189,248,0.04) 0%, transparent 50%), radial-gradient(ellipse at 70% 30%, rgba(59,130,246,0.03) 0%, transparent 40%)' }} />
+
+          {/* TopoJSON Base Map */}
+          <div className="absolute inset-0 z-0">
+            {/* Background Ocean base color */}
+            <motion.div 
+              className="absolute inset-0"
+              animate={{ backgroundColor: mapColors.ocean }}
+              transition={{ duration: 1 }}
+              style={{ opacity: 0.1 }}
+            />
+            {/* The actual Map projecting Indian Ocean region */}
+            <ComposableMap projection="geoMercator" projectionConfig={{ scale: 420, center: [80, 12] }} className="w-full h-full" width={800} height={600}>
+              <Geographies geography={WORLD_TOPO_JSON}>
+                {({ geographies }) =>
+                  geographies.map((geo) => {
+                    const isIndia = geo.properties.name === "India";
+                    // Color India according to the calculated monsoon strength mapColors
+                    const fillColor = isIndia ? mapColors.central : "#111827";
+                    
+                    return (
+                      <Geography
+                        key={geo.rsmKey}
+                        geography={geo}
+                        fill={fillColor}
+                        stroke="#1e3a5f"
+                        strokeWidth={0.6}
+                        style={{
+                          default: { outline: "none", transition: "all 0.5s" },
+                          hover: { outline: "none", fill: isIndia ? mapColors.central : "#1e293b" },
+                          pressed: { outline: "none" },
+                        }}
+                      />
+                    );
+                  })
+                }
+              </Geographies>
+            </ComposableMap>
+          </div>
+          
+          {/* Interactive Vectors Overlay Layer — Premium SVG Effects */}
+          <svg viewBox="0 0 800 600" className="w-full h-full relative z-10 pointer-events-none">
             <defs>
+              {/* Somali Jet gradient — enhanced */}
               <linearGradient id="somaliGrad" x1="0%" y1="100%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="#38bdf8" stopOpacity="0" />
-                <stop offset="100%" stopColor="#38bdf8" stopOpacity="1" />
+                <stop offset="40%" stopColor="#38bdf8" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#7dd3fc" stopOpacity="1" />
               </linearGradient>
-              <linearGradient id="walkerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#f87171" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="#f87171" stopOpacity="0" />
+              {/* Bay of Bengal gradient */}
+              <linearGradient id="bayGrad" x1="100%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" stopColor="#60a5fa" stopOpacity="0" />
+                <stop offset="40%" stopColor="#60a5fa" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#93c5fd" stopOpacity="1" />
               </linearGradient>
+              {/* Walker Circulation gradients */}
+              <linearGradient id="walkerElNinoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#fca5a5" stopOpacity="0.9" />
+                <stop offset="50%" stopColor="#ef4444" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#ef4444" stopOpacity="0" />
+              </linearGradient>
+              <linearGradient id="walkerLaNinaGrad" x1="100%" y1="0%" x2="0%" y2="0%">
+                <stop offset="0%" stopColor="#a5b4fc" stopOpacity="0.9" />
+                <stop offset="50%" stopColor="#818cf8" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#818cf8" stopOpacity="0" />
+              </linearGradient>
+              {/* ITCZ glow gradient */}
+              <linearGradient id="itczGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#fde047" stopOpacity="0.3" />
+                <stop offset="50%" stopColor="#facc15" stopOpacity="1" />
+                <stop offset="100%" stopColor="#eab308" stopOpacity="0.5" />
+              </linearGradient>
+
+              {/* IOD radial glows */}
+              <radialGradient id="iodWarmGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#ef4444" stopOpacity="0.6" />
+                <stop offset="40%" stopColor="#ef4444" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#ef4444" stopOpacity="0" />
+              </radialGradient>
+              <radialGradient id="iodCoolGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.6" />
+                <stop offset="40%" stopColor="#3b82f6" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+              </radialGradient>
+
+              {/* MJO pulse gradient */}
+              <radialGradient id="mjoGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.5" />
+                <stop offset="50%" stopColor="#06b6d4" stopOpacity="0.2" />
+                <stop offset="100%" stopColor="#06b6d4" stopOpacity="0" />
+              </radialGradient>
+
+              {/* Glow filter for wind vectors */}
+              <filter id="glowWind" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+                <feFlood floodColor="#38bdf8" floodOpacity="0.5" result="color" />
+                <feComposite in="color" in2="blur" operator="in" result="glow" />
+                <feMerge>
+                  <feMergeNode in="glow" />
+                  <feMergeNode in="glow" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+              {/* Glow filter for ITCZ */}
+              <filter id="glowItcz" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+                <feFlood floodColor="#facc15" floodOpacity="0.6" result="color" />
+                <feComposite in="color" in2="blur" operator="in" result="glow" />
+                <feMerge>
+                  <feMergeNode in="glow" />
+                  <feMergeNode in="glow" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+              {/* Walker glow filter */}
+              <filter id="glowWalker" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+                <feFlood floodColor="#ef4444" floodOpacity="0.6" result="color" />
+                <feComposite in="color" in2="blur" operator="in" result="glow" />
+                <feMerge>
+                  <feMergeNode in="glow" />
+                  <feMergeNode in="glow" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+              {/* IOD glow filter */}
+              <filter id="glowIod" x="-100%" y="-100%" width="300%" height="300%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
             </defs>
 
-            {/* Ocean Background */}
-            <motion.rect 
-              x="0" y="0" width="800" height="600" 
-              fill={mapColors.ocean} opacity="0.15"
-              animate={{ fill: mapColors.ocean }}
-              transition={{ duration: 1 }}
-            />
-            
-            <text x="50" y="300" className="text-2xl fill-white/20 font-bold uppercase tracking-widest">Arabian Sea</text>
-            <text x="600" y="300" className="text-2xl fill-white/20 font-bold uppercase tracking-widest">Bay of Bengal</text>
-            <text x="350" y="550" className="text-2xl fill-white/20 font-bold uppercase tracking-widest">Indian Ocean</text>
+            {/* CSS animations for wind vectors */}
+            <style>
+              {`
+              @keyframes wind-particle-flow {
+                from { stroke-dashoffset: 30; }
+                to { stroke-dashoffset: 0; }
+              }
+              @keyframes wind-shimmer {
+                from { stroke-dashoffset: 40; }
+                to { stroke-dashoffset: 0; }
+              }
+              @keyframes iod-pulse {
+                0%, 100% { r: 55; opacity: 0.25; }
+                50% { r: 65; opacity: 0.4; }
+              }
+              @keyframes mjo-wave {
+                0% { cx: 100; opacity: 0; }
+                30% { opacity: 0.6; }
+                70% { opacity: 0.6; }
+                100% { cx: 700; opacity: 0; }
+              }
+              .wind-particles {
+                animation: wind-particle-flow 1.2s linear infinite;
+              }
+              .wind-shimmer-line {
+                animation: wind-shimmer 0.8s linear infinite;
+              }
+              `}
+            </style>
 
-            {/* India Outline & Zones (Simplified Polygons for visualization) */}
-            <g transform="translate(150, 50) scale(1.1)">
-              {/* Central India */}
-              <motion.path
-                d="M 200 150 L 350 200 L 300 350 L 150 400 L 100 250 Z"
-                animate={{ fill: mapColors.central }}
-                transition={{ duration: 0.8 }}
-                opacity="0.6"
-              />
-              {/* North West India */}
-              <motion.path
-                d="M 100 80 L 200 150 L 100 250 L 20 180 Z"
-                animate={{ fill: mapColors.nw }}
-                transition={{ duration: 0.8 }}
-                opacity="0.7"
-              />
-              {/* North East India */}
-              <motion.path
-                d="M 350 200 L 450 180 L 480 250 L 380 300 Z"
-                animate={{ fill: mapColors.ne }}
-                transition={{ duration: 0.8 }}
-                opacity="0.8"
-              />
-              {/* Peninsula */}
-              <motion.path
-                d="M 100 250 L 150 400 L 180 500 L 250 450 L 300 350 Z"
-                animate={{ fill: mapColors.central }}
-                transition={{ duration: 0.8 }}
-                opacity="0.5"
-              />
+            {/* Ocean region labels — enhanced with glow */}
+            <text x="50" y="300" style={{ fontSize: '18px', fill: 'rgba(255,255,255,0.08)', fontWeight: 900, letterSpacing: '4px', textTransform: 'uppercase' as const }}>Arabian Sea</text>
+            <text x="600" y="300" style={{ fontSize: '18px', fill: 'rgba(255,255,255,0.08)', fontWeight: 900, letterSpacing: '4px', textTransform: 'uppercase' as const }}>Bay of Bengal</text>
+            <text x="350" y="550" style={{ fontSize: '18px', fill: 'rgba(255,255,255,0.08)', fontWeight: 900, letterSpacing: '4px', textTransform: 'uppercase' as const }}>Indian Ocean</text>
 
-              {/* Mountains representation */}
-              <path d="M 80 80 Q 200 40 400 120" fill="none" stroke="#475569" strokeWidth="12" strokeLinecap="round" opacity="0.8" />
-              <text x="250" y="70" className="fill-slate-400 text-xs font-bold">HIMALAYAS</text>
+            <g>
+              {/* Regional labels for context */}
+              <text x="380" y="240" style={{ fontSize: '10px', fill: 'rgba(148,163,184,0.7)', fontWeight: 900, letterSpacing: '3px' }}>INDIA</text>
+              <text x="580" y="470" style={{ fontSize: '10px', fill: 'rgba(100,116,139,0.5)', fontWeight: 700, letterSpacing: '2px' }}>INDONESIA</text>
+              <text x="20" y="280" style={{ fontSize: '10px', fill: 'rgba(100,116,139,0.5)', fontWeight: 700, letterSpacing: '2px' }}>SOMALIA</text>
+              <text x="640" y="580" style={{ fontSize: '10px', fill: 'rgba(100,116,139,0.5)', fontWeight: 700, letterSpacing: '2px' }}>AUSTRALIA</text>
 
-              <path d="M 100 250 Q 120 350 170 480" fill="none" stroke="#475569" strokeWidth="8" strokeLinecap="round" opacity="0.8" />
-              <text x="60" y="380" className="fill-slate-400 text-xs font-bold" transform="rotate(-65 60 380)">WESTERN GHATS</text>
-
-              {/* The ITCZ Trough Line Indicator */}
+              {/* The ITCZ Trough Line Indicator — Enhanced with glow */}
               <AnimatePresence>
                 {toggles.itcz && (
                   <motion.g
@@ -197,39 +330,89 @@ export default function MonsoonSimulator() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 50 }}
                   >
-                    <path d="M 50 180 Q 250 220 450 190" fill="none" stroke="#facc15" strokeWidth="4" strokeDasharray="10 5" className="animate-pulse" />
-                    <text x="220" y="170" className="fill-yellow-400 text-[10px] font-bold">Monsoon Trough (ITCZ)</text>
+                    {/* Outer glow halo */}
+                    <path d="M 50 180 Q 250 220 550 190" fill="none" stroke="#facc15" strokeWidth="12" opacity="0.08" filter="url(#glowItcz)" />
+                    {/* Main ITCZ line */}
+                    <path d="M 50 180 Q 250 220 550 190" fill="none" stroke="url(#itczGrad)" strokeWidth="4" strokeDasharray="10 5" filter="url(#glowItcz)" />
+                    {/* Flow particles along ITCZ */}
+                    <path d="M 50 180 Q 250 220 550 190" fill="none" stroke="rgba(250,204,21,0.4)" strokeWidth="1.5" strokeDasharray="2 14" className="wind-particles" />
+                    <text x="250" y="170" style={{ fontSize: '10px', fill: '#facc15', fontWeight: 900, filter: 'drop-shadow(0 0 6px rgba(250,204,21,0.5))' }}>Monsoon Trough (ITCZ)</text>
                   </motion.g>
                 )}
               </AnimatePresence>
             </g>
 
-            {/* Visual Effects & Arrows */}
+            {/* Visual Effects & Arrows — Premium Glowing Vectors */}
             
-            {/* 1. Somali Jet (Always active, intensity varies) */}
-            <motion.path
-              d="M 50 500 Q 150 350 250 350 Q 300 350 320 300"
-              fill="none"
-              stroke="url(#somaliGrad)"
-              strokeWidth={stats.value < 80 ? 4 : (stats.value > 115 ? 12 : 8)}
-              strokeDasharray="20 10"
-              animate={{ strokeDashoffset: [0, -100] }}
-              transition={{ repeat: Infinity, duration: vectorSpeed, ease: "linear" }}
-            />
-            <text x="130" y="420" className="fill-sky-400 text-xs font-bold shadow-black drop-shadow-md">Somali Jet</text>
+            {/* 1. Somali Jet (Always active, intensity varies) — Enhanced */}
+            <g>
+              {/* Outer glow halo */}
+              <motion.path
+                d="M 50 500 Q 150 350 250 350 Q 300 350 320 300"
+                fill="none"
+                stroke="#38bdf8"
+                strokeWidth={stats.value < 80 ? 10 : (stats.value > 115 ? 24 : 16)}
+                opacity={0.06}
+                filter="url(#glowWind)"
+              />
+              {/* Main gradient wind vector */}
+              <motion.path
+                d="M 50 500 Q 150 350 250 350 Q 300 350 320 300"
+                fill="none"
+                stroke="url(#somaliGrad)"
+                strokeWidth={stats.value < 80 ? 4 : (stats.value > 115 ? 12 : 8)}
+                strokeDasharray="20 10"
+                filter="url(#glowWind)"
+                animate={{ strokeDashoffset: [0, -100] }}
+                transition={{ repeat: Infinity, duration: vectorSpeed, ease: "linear" }}
+              />
+              {/* Wind flow particles */}
+              <path
+                d="M 50 500 Q 150 350 250 350 Q 300 350 320 300"
+                fill="none"
+                stroke="rgba(125,211,252,0.35)"
+                strokeWidth="1"
+                strokeDasharray="2 18"
+                className="wind-particles"
+              />
+              <text x="130" y="420" style={{ fontSize: '11px', fill: '#38bdf8', fontWeight: 900, filter: 'drop-shadow(0 0 8px rgba(56,189,248,0.4))', letterSpacing: '1px' }}>Somali Jet</text>
+            </g>
 
-            {/* 2. Bay of Bengal Branch */}
-            <motion.path
-              d="M 600 450 Q 550 300 450 250"
-              fill="none"
-              stroke="#60a5fa"
-              strokeWidth={stats.value < 80 ? 4 : (stats.value > 115 ? 12 : 8)}
-              strokeDasharray="15 10"
-              animate={{ strokeDashoffset: [0, -100] }}
-              transition={{ repeat: Infinity, duration: vectorSpeed + 0.5, ease: "linear" }}
-            />
+            {/* 2. Bay of Bengal Branch — Enhanced */}
+            <g>
+              {/* Outer glow */}
+              <motion.path
+                d="M 600 450 Q 550 300 450 250"
+                fill="none"
+                stroke="#60a5fa"
+                strokeWidth={stats.value < 80 ? 10 : (stats.value > 115 ? 24 : 16)}
+                opacity={0.06}
+                filter="url(#glowWind)"
+              />
+              {/* Main gradient vector */}
+              <motion.path
+                d="M 600 450 Q 550 300 450 250"
+                fill="none"
+                stroke="url(#bayGrad)"
+                strokeWidth={stats.value < 80 ? 4 : (stats.value > 115 ? 12 : 8)}
+                strokeDasharray="15 10"
+                filter="url(#glowWind)"
+                animate={{ strokeDashoffset: [0, -100] }}
+                transition={{ repeat: Infinity, duration: vectorSpeed + 0.5, ease: "linear" }}
+              />
+              {/* Flow particles */}
+              <path
+                d="M 600 450 Q 550 300 450 250"
+                fill="none"
+                stroke="rgba(147,197,253,0.3)"
+                strokeWidth="1"
+                strokeDasharray="2 16"
+                className="wind-particles"
+              />
+              <text x="530" y="380" style={{ fontSize: '10px', fill: '#60a5fa', fontWeight: 900, filter: 'drop-shadow(0 0 6px rgba(96,165,250,0.4))', letterSpacing: '1px' }}>Bay Branch</text>
+            </g>
 
-            {/* 3. Walker Circulation (El Nino / La Nina) */}
+            {/* 3. Walker Circulation (El Nino / La Nina) — Enhanced with glow */}
             <AnimatePresence>
               {(toggles.elnino || toggles.lanina) && (
                 <motion.g
@@ -237,66 +420,136 @@ export default function MonsoonSimulator() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
+                  {/* Walker glow halo */}
                   <motion.path
                     d="M 750 350 L 500 350"
                     fill="none"
-                    stroke={toggles.elnino ? "#f87171" : "#818cf8"}
+                    stroke={toggles.elnino ? "#ef4444" : "#818cf8"}
+                    strokeWidth="20"
+                    opacity={0.08}
+                    filter="url(#glowWalker)"
+                  />
+                  {/* Main walker vector */}
+                  <motion.path
+                    d="M 750 350 L 500 350"
+                    fill="none"
+                    stroke={toggles.elnino ? "url(#walkerElNinoGrad)" : "url(#walkerLaNinaGrad)"}
                     strokeWidth="10"
                     strokeDasharray="20 15"
+                    filter="url(#glowWalker)"
                     animate={{ strokeDashoffset: toggles.elnino ? [0, 100] : [0, -100] }} // Reverses direction
                     transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
                   />
-                  <text x="550" y="335" className={`${toggles.elnino ? 'fill-red-400' : 'fill-indigo-400'} text-[10px] font-bold`}>
+                  {/* Walker flow particles */}
+                  <path
+                    d="M 750 350 L 500 350"
+                    fill="none"
+                    stroke={toggles.elnino ? "rgba(252,165,165,0.3)" : "rgba(165,180,252,0.3)"}
+                    strokeWidth="1"
+                    strokeDasharray="2 20"
+                    className="wind-shimmer-line"
+                  />
+                  <text x="550" y="335" style={{ fontSize: '10px', fill: toggles.elnino ? '#fca5a5' : '#a5b4fc', fontWeight: 900, filter: `drop-shadow(0 0 6px ${toggles.elnino ? 'rgba(239,68,68,0.4)' : 'rgba(129,140,248,0.4)'})`, letterSpacing: '1px' }}>
                     Walker Circulation ({toggles.elnino ? 'Reversed/Weak' : 'Intensified'})
                   </text>
                 </motion.g>
               )}
             </AnimatePresence>
 
-            {/* 4. IOD representation */}
+            {/* 4. IOD representation — Enhanced with radial glow gradients */}
             <AnimatePresence>
               {(toggles.posIod || toggles.negIod) && (
-                <motion.circle
-                  cx="250" cy="450" r="60"
-                  fill={toggles.posIod ? "#ef4444" : "#3b82f6"} // Red warming for Pos IOD, Blue cooling for Neg
-                  opacity="0.3"
-                  className="animate-pulse"
-                />
+                <motion.g initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}>
+                  {/* Western Indian Ocean IOD pole */}
+                  <circle cx="250" cy="450" r="70" fill={toggles.posIod ? "url(#iodWarmGlow)" : "url(#iodCoolGlow)"} filter="url(#glowIod)" />
+                  <circle cx="250" cy="450" r="40" fill={toggles.posIod ? "#ef4444" : "#3b82f6"} opacity="0.15" className="animate-ping" />
+                  <circle cx="250" cy="450" r="4" fill={toggles.posIod ? "#ef4444" : "#3b82f6"} opacity="0.8" />
+                  <text x="220" y="520" style={{ fontSize: '8px', fill: toggles.posIod ? '#fca5a5' : '#93c5fd', fontWeight: 900, letterSpacing: '1px', textTransform: 'uppercase' as const }}>
+                    {toggles.posIod ? 'Warm' : 'Cool'} Pole
+                  </text>
+                  
+                  {/* Eastern Indian Ocean IOD pole */}
+                  <circle cx="650" cy="500" r="60" fill={toggles.posIod ? "url(#iodCoolGlow)" : "url(#iodWarmGlow)"} filter="url(#glowIod)" />
+                  <circle cx="650" cy="500" r="35" fill={toggles.posIod ? "#3b82f6" : "#ef4444"} opacity="0.15" className="animate-ping" />
+                  <circle cx="650" cy="500" r="4" fill={toggles.posIod ? "#3b82f6" : "#ef4444"} opacity="0.8" />
+                  <text x="620" y="565" style={{ fontSize: '8px', fill: toggles.posIod ? '#93c5fd' : '#fca5a5', fontWeight: 900, letterSpacing: '1px', textTransform: 'uppercase' as const }}>
+                    {toggles.posIod ? 'Cool' : 'Warm'} Pole
+                  </text>
+                </motion.g>
               )}
             </AnimatePresence>
+
+            {/* 5. MJO Active Phase — New eastward-moving pulse wave */}
             <AnimatePresence>
-              {(toggles.posIod || toggles.negIod) && (
-                <motion.circle
-                  cx="650" cy="500" r="50"
-                  fill={toggles.posIod ? "#3b82f6" : "#ef4444"} // Opposite for eastern pole
-                  opacity="0.3"
-                  className="animate-pulse"
-                />
+              {toggles.mjo && (
+                <motion.g initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                  <circle r="80" cy="350" fill="url(#mjoGlow)" className="animate-pulse" style={{ animation: 'mjo-wave 4s linear infinite' }} />
+                  <circle r="80" cy="350" fill="url(#mjoGlow)" className="animate-pulse" style={{ animation: 'mjo-wave 4s linear infinite', animationDelay: '2s' }} />
+                  <text x="200" y="380" style={{ fontSize: '9px', fill: '#06b6d4', fontWeight: 900, letterSpacing: '1px', filter: 'drop-shadow(0 0 4px rgba(6,182,212,0.4))' }}>
+                    MJO Pulse →
+                  </text>
+                </motion.g>
               )}
             </AnimatePresence>
             
           </svg>
           
-          {/* Status Overlay Badge on Map */}
-          {stats.value < 75 && (
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }}
-              className="absolute top-6 right-6 bg-red-900/80 border border-red-500 text-red-100 px-4 py-2 rounded-lg flex items-center gap-2 backdrop-blur-md"
-            >
-              <AlertTriangle className="w-5 h-5 text-red-400" />
-              <div className="font-bold text-sm">Severe Drought Risk</div>
-            </motion.div>
-          )}
+          {/* Status Overlay Badge on Map — Enhanced with dramatic glow */}
+          <AnimatePresence>
+            {stats.value < 75 && (
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8, y: -10 }} 
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                className="absolute top-6 right-6 bg-red-950/90 border border-red-500/50 text-red-100 px-5 py-3 rounded-2xl flex items-center gap-3 backdrop-blur-xl shadow-[0_0_30px_rgba(239,68,68,0.2)] z-20"
+              >
+                <div className="relative">
+                  <AlertTriangle className="w-5 h-5 text-red-400 relative z-10" />
+                  <div className="absolute inset-0 blur-md bg-red-500/30 animate-ping" />
+                </div>
+                <div className="font-black text-sm uppercase tracking-wider">Severe Drought Risk</div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <AnimatePresence>
+            {stats.value > 125 && (
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8, y: -10 }} 
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                className="absolute top-6 right-6 bg-blue-950/90 border border-blue-500/50 text-blue-100 px-5 py-3 rounded-2xl flex items-center gap-3 backdrop-blur-xl shadow-[0_0_30px_rgba(59,130,246,0.2)] z-20"
+              >
+                <div className="relative">
+                  <Droplets className="w-5 h-5 text-blue-400 relative z-10" />
+                  <div className="absolute inset-0 blur-md bg-blue-500/30 animate-ping" />
+                </div>
+                <div className="font-black text-sm uppercase tracking-wider">Flood Risk Alert</div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Wind vector legend */}
+          <div className="absolute bottom-4 left-4 bg-slate-900/90 backdrop-blur-xl border border-white/10 rounded-xl p-3 flex flex-col gap-2 z-10">
+            <div className="text-[8px] font-black text-blue-400/80 uppercase tracking-[0.2em]">Wind Vectors</div>
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-0.5 bg-gradient-to-r from-transparent to-sky-400 rounded-full shadow-[0_0_6px_rgba(56,189,248,0.5)]" />
+              <span className="text-[9px] text-slate-400 font-bold">Somali Jet</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-0.5 bg-gradient-to-r from-transparent to-blue-400 rounded-full shadow-[0_0_6px_rgba(96,165,250,0.5)]" />
+              <span className="text-[9px] text-slate-400 font-bold">Bay Branch</span>
+            </div>
+          </div>
         </div>
 
-        {/* SECTION 2: CONTROL PANEL (40%) */}
-        <div className="w-full lg:w-[40%] bg-card p-6 border-l border-border flex flex-col">
-          <h3 className="text-lg font-bold mb-4 text-foreground flex items-center gap-2">
+        {/* SECTION 2: CONTROL PANEL (40%) — Enhanced with premium styling */}
+        <div className="w-full lg:w-[40%] bg-slate-900/80 p-6 border-l border-white/5 flex flex-col">
+          <h3 className="text-base font-black mb-4 text-white uppercase tracking-widest flex items-center gap-2">
+            <div className="w-1.5 h-5 bg-indigo-500 rounded-full shadow-[0_0_8px_rgba(99,102,241,0.5)]" />
             Climate Drivers
-            <Info className="w-4 h-4 text-muted-foreground cursor-help" />
           </h3>
           
-          <div className="flex-1 overflow-y-auto pr-2 space-y-3">
+          <div className="flex-1 overflow-y-auto pr-2 space-y-3 custom-scrollbar">
             {(Object.keys(TOGGLE_INFO) as Array<keyof Toggles>).map((key) => {
               const info = TOGGLE_INFO[key];
               const isActive = toggles[key];
@@ -305,23 +558,34 @@ export default function MonsoonSimulator() {
               return (
                 <div 
                   key={key}
-                  className={`relative p-4 rounded-xl border-2 cursor-pointer transition-all duration-300 ${isActive ? 'bg-indigo-50 border-indigo-500 dark:bg-indigo-900/20 dark:border-indigo-500 shadow-md' : 'bg-transparent border-border hover:border-indigo-300'}`}
+                  className={`relative p-4 rounded-2xl border cursor-pointer transition-all duration-300 ${
+                    isActive 
+                      ? 'bg-slate-800/80 border-white/20 shadow-lg' 
+                      : 'bg-slate-900/40 border-white/5 hover:border-white/15 hover:bg-slate-800/40'
+                  }`}
+                  style={isActive ? { boxShadow: `0 0 20px ${info.color}15, 0 0 40px ${info.color}08` } : {}}
                   onClick={() => handleToggle(key)}
                   onMouseEnter={() => setHoveredToggle(key)}
                   onMouseLeave={() => setHoveredToggle(null)}
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className={`p-2 rounded-lg ${isActive ? 'bg-indigo-500 text-white' : 'bg-muted text-muted-foreground'}`}>
-                        <Icon className="w-5 h-5" />
+                      <div 
+                        className={`p-2 rounded-xl transition-all ${isActive ? 'text-white' : 'text-slate-500 bg-slate-800'}`}
+                        style={isActive ? { backgroundColor: `${info.color}25`, boxShadow: `0 0 12px ${info.color}30` } : {}}
+                      >
+                        <Icon className="w-5 h-5" style={isActive ? { color: info.color } : {}} />
                       </div>
-                      <span className={`font-bold ${isActive ? 'text-indigo-700 dark:text-indigo-300' : 'text-foreground'}`}>
+                      <span className={`font-black text-sm uppercase tracking-wider ${isActive ? 'text-white' : 'text-slate-400'}`}>
                         {info.name}
                       </span>
                     </div>
                     
-                    {/* Switch visually */}
-                    <div className={`w-10 h-6 rounded-full transition-colors flex items-center p-1 ${isActive ? 'bg-indigo-500' : 'bg-slate-300 dark:bg-slate-700'}`}>
+                    {/* Switch visually — Enhanced */}
+                    <div className={`w-10 h-6 rounded-full transition-all flex items-center p-1 ${
+                      isActive ? 'shadow-[0_0_8px_var(--switch-glow)]' : 'bg-slate-700'
+                    }`}
+                    style={isActive ? { backgroundColor: info.color, '--switch-glow': `${info.color}50` } as React.CSSProperties : {}}>
                       <motion.div 
                         className="w-4 h-4 bg-white rounded-full shadow-sm"
                         animate={{ x: isActive ? 16 : 0 }}
@@ -337,7 +601,7 @@ export default function MonsoonSimulator() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="mt-3 text-xs text-muted-foreground dark:text-slate-400 overflow-hidden"
+                        className="mt-3 text-xs text-slate-400 overflow-hidden leading-relaxed"
                       >
                         {info.desc}
                       </motion.div>
@@ -348,33 +612,43 @@ export default function MonsoonSimulator() {
             })}
           </div>
 
-          <div className="mt-4 p-4 bg-amber-50 dark:bg-amber-900/10 border border-amber-200 dark:border-amber-900 rounded-xl text-xs text-amber-800 dark:text-amber-500 flex gap-2">
-            <AlertTriangle className="w-4 h-4 shrink-0" />
-            <p><strong>Note:</strong> El Niño and La Niña cannot occur simultaneously. Similarly for Positive and Negative IOD. The system handles partial IOD compensation automatically.</p>
+          <div className="mt-4 p-4 bg-amber-500/5 border border-amber-500/20 rounded-2xl text-xs text-amber-400/80 flex gap-3">
+            <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
+            <p><strong className="text-amber-400">Note:</strong> El Niño and La Niña cannot occur simultaneously. Similarly for Positive and Negative IOD. The system handles partial IOD compensation automatically.</p>
           </div>
         </div>
       </div>
 
-      {/* SECTION 3: IMPACT PANEL (BOTTOM) */}
-      <div className="bg-slate-100 dark:bg-[#111] p-6 border-t border-border grid grid-cols-2 lg:grid-cols-4 gap-4">
+      {/* SECTION 3: IMPACT PANEL (BOTTOM) — Enhanced with glow-accented cards */}
+      <div className="bg-slate-950 p-6 border-t border-white/5 grid grid-cols-2 lg:grid-cols-4 gap-4">
         
-        <div className="bg-card p-4 rounded-xl border border-border shadow-sm flex flex-col items-center justify-center text-center">
-          <div className="text-xs font-bold uppercase text-muted-foreground mb-1">Monsoon Strength</div>
+        <div className={`bg-slate-900/80 p-5 rounded-2xl border shadow-lg flex flex-col items-center justify-center text-center transition-all ${
+          glowIntensity === 'drought' ? 'border-red-500/30 shadow-[0_0_15px_rgba(239,68,68,0.1)]' :
+          glowIntensity === 'flood' ? 'border-blue-500/30 shadow-[0_0_15px_rgba(59,130,246,0.1)]' :
+          'border-white/5'
+        }`}>
+          <div className="text-[9px] font-black uppercase text-slate-500 mb-2 tracking-[0.2em]">Monsoon Strength</div>
           <div className={`text-xl font-black ${stats.strengthColor}`}>{stats.strength}</div>
         </div>
 
-        <div className="bg-card p-4 rounded-xl border border-border shadow-sm flex flex-col items-center justify-center text-center">
-          <div className="text-xs font-bold uppercase text-muted-foreground mb-1">Rainfall Deviation</div>
+        <div className={`bg-slate-900/80 p-5 rounded-2xl border shadow-lg flex flex-col items-center justify-center text-center transition-all ${
+          stats.value < 90 ? 'border-red-500/20' : stats.value > 110 ? 'border-blue-500/20' : 'border-white/5'
+        }`}>
+          <div className="text-[9px] font-black uppercase text-slate-500 mb-2 tracking-[0.2em]">Rainfall Deviation</div>
           <div className={`text-xl font-black ${stats.devColor}`}>{stats.deviation}</div>
         </div>
 
-        <div className="bg-card p-4 rounded-xl border border-border shadow-sm flex flex-col items-center justify-center text-center">
-          <div className="text-xs font-bold uppercase text-muted-foreground mb-1">Onset Timing</div>
-          <div className={`text-xl font-black ${stats.value > 115 ? 'text-green-500' : (stats.value < 90 ? 'text-red-500' : 'text-foreground')}`}>{stats.onset}</div>
+        <div className={`bg-slate-900/80 p-5 rounded-2xl border border-white/5 shadow-lg flex flex-col items-center justify-center text-center`}>
+          <div className="text-[9px] font-black uppercase text-slate-500 mb-2 tracking-[0.2em]">Onset Timing</div>
+          <div className={`text-xl font-black ${stats.value > 115 ? 'text-green-500' : (stats.value < 90 ? 'text-red-500' : 'text-slate-300')}`}>{stats.onset}</div>
         </div>
 
-        <div className="bg-card p-4 rounded-xl border border-border shadow-sm flex flex-col items-center justify-center text-center">
-          <div className="text-xs font-bold uppercase text-muted-foreground mb-1">Disaster Risk Level</div>
+        <div className={`bg-slate-900/80 p-5 rounded-2xl border shadow-lg flex flex-col items-center justify-center text-center transition-all ${
+          stats.risk === 'Drought Risk' ? 'border-red-500/30 shadow-[0_0_20px_rgba(239,68,68,0.1)]' :
+          stats.risk === 'Flood Risk' ? 'border-blue-500/30 shadow-[0_0_20px_rgba(59,130,246,0.1)]' :
+          'border-white/5'
+        }`}>
+          <div className="text-[9px] font-black uppercase text-slate-500 mb-2 tracking-[0.2em]">Disaster Risk Level</div>
           <div className={`text-xl font-black flex items-center justify-center gap-2 ${stats.riskColor}`}>
             {stats.risk !== "Normal" && <AlertTriangle className="w-5 h-5" />}
             {stats.risk === "Normal" && <CheckCircle className="w-5 h-5" />}
