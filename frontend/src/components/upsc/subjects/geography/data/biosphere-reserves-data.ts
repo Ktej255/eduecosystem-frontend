@@ -52,7 +52,8 @@ export const BIOSPHERE_RESERVES_DATA: GeoFeature[] = [
       "Only mangrove forest in the world inhabited by tigers"
     ],
     upsc_relevance: "Mangrove adaptations (pneumatophores/breathing roots) and climate change threats (rising sea levels).",
-    pyq_years: [2015, 2018, 2020]
+    pyq_years: [2015, 2018, 2020],
+    images: ["C:/Users/Sarit/.gemini/antigravity/brain/80ee59d9-91e1-4fab-b37e-0a6d36de8688/sundarbans_mangroves_mockup_1773598766617.png"]
   },
   {
     id: "br-nanda-devi",

@@ -44,3 +44,18 @@ export interface GeoFeature {
   nodeType?: 'Origin' | 'Mouth' | 'Confluence'; // For node-specific rendering
 }
 
+export interface TourStep {
+  featureId: string;
+  title: string;
+  description: string;
+  zoom: number;
+  duration: number;
+}
+
+export interface Tour {
+  id: string;
+  name: string;
+  description: string;
+  steps: TourStep[];
+}
+

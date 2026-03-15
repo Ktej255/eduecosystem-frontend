@@ -3,8 +3,9 @@
 import React, { useState, useMemo } from 'react';
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup, Line, useMapContext } from 'react-simple-maps';
 import { INDIA_GEO_DATA } from '../data/india-geography-data';
-import { GeoFeature, FeatureType } from '../data/geo-types';
-import { Search, MapPin, Info, Crosshair, Map, Mountain, Waves, Droplets, Target, ShieldQuestion, Trophy, ChevronRight, AlertTriangle, CloudRain, Landmark, Triangle } from 'lucide-react';
+import { GeoFeature, FeatureType, Tour, TourStep } from '../data/geo-types';
+import { GEOGRAPHY_TOURS } from '../data/tours-data';
+import { Search, MapPin, Info, Crosshair, Map, Mountain, Waves, Droplets, Target, ShieldQuestion, Trophy, ChevronRight, ChevronLeft, AlertTriangle, CloudRain, Landmark, Triangle } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -92,8 +93,14 @@ export default function IndiaInteractiveMap() {
   const isDark = theme === 'dark' || theme === 'system'; // Fallback logic if needed
   const [activeLayers, setActiveLayers] = useState<Set<FeatureType | 'all'>>(new Set(['all']));
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedLocation, setSelectedLocation] = useState<GeoFeature | null>(null);
-  const [selectedRegion, setSelectedRegion] = useState<string>("all");
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  // Map Camera State for Tours/Zooming
+  const [mapCenter, setMapCenter] = useState<[number, number]>([78.9629, 22.5937]);
+  const [mapZoom, setMapZoom] = useState(1.2);
+  const [currentTour, setCurrentTour] = useState<Tour | null>(null);
+  const [activeStepIndex, setActiveStepIndex] = useState(0);
+
   const router = useRouter();
   
   const mapFill = isDark ? "#0b1120" : "#f8fafc";
@@ -205,6 +212,12 @@ export default function IndiaInteractiveMap() {
     }
 
     setSelectedLocation(location);
+    setCurrentImageIndex(0);
+    // Auto-center on click if not in quiz mode
+    if (!isQuizMode) {
+      setMapCenter([location.coordinates.lng, location.coordinates.lat]);
+      setMapZoom(3);
+    }
   };
 
   const filteredData = useMemo(() => {
@@ -225,6 +238,46 @@ export default function IndiaInteractiveMap() {
     const regions = new Set(INDIA_GEO_DATA.map(item => item.region));
     return Array.from(regions).sort();
   }, []);
+
+  // TOUR LOGIC
+  const startTour = (tour: Tour) => {
+    setCurrentTour(tour);
+    setActiveStepIndex(0);
+    setIsQuizMode(false);
+    setSelectedLocation(null);
+    executeTourStep(tour.steps[0]);
+  };
+
+  const executeTourStep = (step: TourStep) => {
+    const feature = INDIA_GEO_DATA.find(f => f.id === step.featureId);
+    if (feature) {
+      setMapCenter([feature.coordinates.lng, feature.coordinates.lat]);
+      setMapZoom(step.zoom);
+      setSelectedLocation(feature);
+    }
+  };
+
+  const nextTourStep = () => {
+    if (!currentTour) return;
+    const nextIdx = (activeStepIndex + 1) % currentTour.steps.length;
+    setActiveStepIndex(nextIdx);
+    executeTourStep(currentTour.steps[nextIdx]);
+  };
+
+  const prevTourStep = () => {
+    if (!currentTour) return;
+    const prevIdx = (activeStepIndex - 1 + currentTour.steps.length) % currentTour.steps.length;
+    setActiveStepIndex(prevIdx);
+    executeTourStep(currentTour.steps[prevIdx]);
+  };
+
+  const exitTour = () => {
+    setCurrentTour(null);
+    setActiveStepIndex(0);
+    setMapZoom(1.2);
+    setMapCenter([78.9629, 22.5937]);
+    setSelectedLocation(null);
+  };
 
   return (
     <div className="w-full h-full min-h-[750px] bg-slate-950 rounded-3xl border border-emerald-900/30 shadow-2xl overflow-hidden flex flex-col font-sans relative">
@@ -300,6 +353,25 @@ export default function IndiaInteractiveMap() {
       {/* Category Toggles (Hidden in Quiz Mode) — Enhanced with glowing active states */}
       {!isQuizMode && (
         <div className="bg-slate-900/80 p-2.5 flex items-center gap-2 overflow-x-auto border-b border-white/5 no-scrollbar z-10 relative px-5 shadow-lg backdrop-blur-md">
+          <div className="flex items-center gap-1.5 pr-2 border-r border-white/10 mr-1">
+            <Button 
+              size="sm" 
+              variant="ghost" 
+              onClick={() => setActiveLayers(new Set(['all']))}
+              className="h-8 px-2 text-[10px] uppercase font-bold text-emerald-400 hover:text-emerald-300 hover:bg-emerald-500/10"
+            >
+              Reset
+            </Button>
+            <Button 
+              size="sm" 
+              variant="ghost" 
+              onClick={() => setActiveLayers(new Set(['national-park', 'river', 'ramsar-site']))}
+              className="h-8 px-2 text-[10px] uppercase font-bold text-amber-400 hover:text-amber-300 hover:bg-amber-500/10"
+            >
+              UPSC Mode
+            </Button>
+          </div>
+          
           <FilterButton active={activeLayers.has('all')} onClick={() => toggleLayer('all')} label="All Features" color="#f8fafc" icon={<MapPin className="w-3.5 h-3.5" />} />
           <div className="w-px h-6 bg-white/10 mx-1 shrink-0" />
           <FilterButton active={activeLayers.has('national-park')} onClick={() => toggleLayer('national-park')} label="National Parks" color={CATEGORY_COLORS['national-park']} icon={<MapPin className="w-3.5 h-3.5" />} />
@@ -377,7 +449,17 @@ export default function IndiaInteractiveMap() {
             projectionConfig={{ scale: 1000, center: [80, 22] }}
             className="w-full h-full max-h-[800px]"
           >
-            <ZoomableGroup zoom={1} minZoom={1} maxZoom={8} translateExtent={[[0, 0], [800, 600]]}>
+            <ZoomableGroup 
+              center={mapCenter} 
+              zoom={mapZoom} 
+              onMoveEnd={({ coordinates, zoom }) => {
+                setMapCenter(coordinates as [number, number]);
+                setMapZoom(zoom);
+              }}
+              minZoom={1} 
+              maxZoom={8} 
+              translateExtent={[[0, 0], [800, 600]]}
+            >
               
               {/* 1. ALWAYS RENDER BASE MAP FIRST */}
               <Geographies geography={INDIA_TOPO_JSON}>
@@ -532,6 +614,68 @@ export default function IndiaInteractiveMap() {
             </ZoomableGroup>
           </ComposableMap>
 
+          {/* TOUR OVERLAY INTERFACE */}
+          <AnimatePresence>
+            {currentTour && (
+              <motion.div 
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 50 }}
+                className="absolute top-6 right-6 w-80 bg-slate-900/90 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl z-30 overflow-hidden"
+              >
+                <div className="p-5">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[10px] font-black text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+                      Story Tour Active
+                    </span>
+                    <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400" onClick={exitTour}>
+                      <ChevronRight className="w-4 h-4 rotate-45" /> 
+                    </Button>
+                  </div>
+                  
+                  <h4 className="text-xl font-black text-white leading-tight mb-2">{currentTour.steps[activeStepIndex].title}</h4>
+                  <p className="text-slate-400 text-sm italic mb-6 leading-relaxed">
+                    {currentTour.steps[activeStepIndex].description}
+                  </p>
+                  
+                  <div className="flex items-center gap-3">
+                    <Button variant="outline" size="icon" className="h-10 w-10 border-white/10 rounded-xl" onClick={prevTourStep}>
+                      <ChevronLeft className="w-4 h-4" />
+                    </Button>
+                    <div className="flex-1 bg-slate-950/80 h-10 rounded-xl border border-white/5 flex items-center justify-center gap-1.5 px-3">
+                      {currentTour.steps.map((_, idx) => (
+                        <div key={idx} className={`h-1.5 rounded-full transition-all ${idx === activeStepIndex ? 'bg-emerald-500 flex-1' : 'bg-slate-800 w-2'}`} />
+                      ))}
+                    </div>
+                    <Button variant="outline" size="icon" className="h-10 w-10 border-white/10 rounded-xl" onClick={nextTourStep}>
+                      <ChevronRight className="w-4 h-4" />
+                    </Button>
+                  </div>
+                </div>
+                
+                <div className="bg-emerald-500/5 px-5 py-3 border-t border-white/5 flex items-center justify-between">
+                   <p className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">{currentTour.name}</p>
+                   <p className="text-[9px] font-black text-emerald-400">STEP {activeStepIndex + 1}/{currentTour.steps.length}</p>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* TOUR START BUTTON (Visible when no tour is active) */}
+          {!currentTour && !isQuizMode && (
+            <div className="absolute top-6 right-6 z-10 flex flex-col gap-2">
+              {GEOGRAPHY_TOURS.map(tour => (
+                <Button 
+                  key={tour.id}
+                  onClick={() => startTour(tour)}
+                  className="bg-indigo-600 hover:bg-indigo-500 text-white font-black text-[10px] uppercase tracking-widest h-10 px-5 rounded-xl shadow-xl border border-indigo-400/30 group"
+                >
+                  <Map className="w-3.5 h-3.5 mr-2 group-hover:rotate-12 transition-transform" /> Start {tour.name}
+                </Button>
+              ))}
+            </div>
+          )}
+
           {/* Quiz HUD Overlay — Enhanced with dramatic glassmorphism */}
           <AnimatePresence>
             {isQuizMode && (
@@ -644,16 +788,63 @@ export default function IndiaInteractiveMap() {
                 {/* ENTHUSIAST IMAGE CAROUSEL */}
                 {selectedLocation.images && selectedLocation.images.length > 0 && (
                   <div className="mb-8 rounded-2xl overflow-hidden border border-white/10 bg-slate-950 aspect-video relative group">
-                    <motion.img 
-                      key={selectedLocation.images[0]}
-                      src={selectedLocation.images[0]} 
-                      alt={selectedLocation.name}
-                      initial={{ opacity: 0, scale: 1.1 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 to-transparent p-4">
-                      <p className="text-[10px] font-black text-white/50 uppercase tracking-[0.2em]">Visual Reference Layer</p>
+                    <AnimatePresence mode="wait">
+                      <motion.img 
+                        key={selectedLocation.images[currentImageIndex]}
+                        src={selectedLocation.images[currentImageIndex]} 
+                        alt={selectedLocation.name}
+                        initial={{ opacity: 0, scale: 1.1 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        transition={{ duration: 0.4 }}
+                        className="w-full h-full object-cover"
+                      />
+                    </AnimatePresence>
+                    
+                    {/* Navigation Overlays */}
+                    {selectedLocation.images.length > 1 && (
+                      <>
+                        <div className="absolute inset-0 flex items-center justify-between px-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                          <Button 
+                            variant="ghost" 
+                            size="icon" 
+                            className="bg-black/50 hover:bg-black/80 text-white rounded-full w-8 h-8"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setCurrentImageIndex(prev => (prev === 0 ? selectedLocation.images!.length - 1 : prev - 1));
+                            }}
+                          >
+                            <ChevronLeft className="w-4 h-4" />
+                          </Button>
+                          <Button 
+                            variant="ghost" 
+                            size="icon" 
+                            className="bg-black/50 hover:bg-black/80 text-white rounded-full w-8 h-8"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setCurrentImageIndex(prev => (prev === selectedLocation.images!.length - 1 ? 0 : prev + 1));
+                            }}
+                          >
+                            <ChevronRight className="w-4 h-4" />
+                          </Button>
+                        </div>
+                        
+                        {/* Dot Indicators */}
+                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 px-3 py-1.5 bg-black/40 backdrop-blur-md rounded-full">
+                          {selectedLocation.images.map((_, idx) => (
+                            <div 
+                              key={idx} 
+                              className={`w-1.5 h-1.5 rounded-full transition-all ${idx === currentImageIndex ? 'bg-white w-3' : 'bg-white/30'}`} 
+                            />
+                          ))}
+                        </div>
+                      </>
+                    )}
+                    
+                    <div className="absolute top-4 left-4">
+                      <div className="bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+                        <p className="text-[9px] font-black text-white uppercase tracking-[0.2em]">Visual Layer {currentImageIndex + 1}/{selectedLocation.images.length}</p>
+                      </div>
                     </div>
                   </div>
                 )}

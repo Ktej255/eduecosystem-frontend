@@ -41,7 +41,8 @@ export const INDIA_GEO_DATA: GeoFeature[] = [
     description: "The source stream of the Ganga. Originates at Gaumukh (Gangotri glacier).",
     characteristics: ["Meets Alaknanda at Devprayag", "Site of Tehri Dam", "Antecedent drainage"],
     upsc_relevance: "Panch Prayag matching and glacier origin points.", 
-    pyq_years: [2014, 2021], in_news_24m: true, news_context: "Silkyara tunnel rescue zone (2023)."
+    pyq_years: [2014, 2021], in_news_24m: true, news_context: "Silkyara tunnel rescue zone (2023).",
+    images: ["C:/Users/Sarit/.gemini/antigravity/brain/80ee59d9-91e1-4fab-b37e-0a6d36de8688/gangotri_glacier_mockup_1773598747053.png"]
   },
   {
     id: "riv-alaknanda",

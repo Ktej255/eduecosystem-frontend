@@ -137,9 +137,9 @@ export function PaymentGatewayDialog({
         mode: process.env.NEXT_PUBLIC_ENVIRONMENT === "production" ? "production" : "sandbox",
       });
 
-      let checkoutOptions = {
+      const checkoutOptions = {
         paymentSessionId: payment_session_id,
-        redirectTarget: "_self" // For modal experience, _modal is available in cashfree.js but _self relies on the native overlay Cashfree handles
+        redirectTarget: "_self"
       };
 
       console.log("CASHFREE DEBUG:", {
@@ -149,22 +149,32 @@ export function PaymentGatewayDialog({
                         typeof window.Cashfree !== 'undefined'
       });
 
-      cashfree.checkout(checkoutOptions).then((result: any) => {
+      try {
+        const result = await cashfree.checkout(checkoutOptions);
+
         if (result.error) {
-          // This is triggered if checkout fails
-          alert("Payment failed: " + result.error.message);
+          console.error("CASHFREE ERROR:", result.error);
+          alert(result.error.message || "Payment failed. Please try again.");
           setLoading(false);
+          return;
         }
+
         if (result.redirect) {
-          console.log("Redirecting for payment");
+          // Payment is redirecting — this is normal
+          console.log("CASHFREE: Redirecting to payment page...");
+          return;
         }
+
         if (result.paymentDetails) {
-          // Verify server-side if it passed successfully
-          // Polling or returning to a success screen is standard here
+          console.log("CASHFREE: Payment completed", result.paymentDetails);
           onSuccess();
           onClose();
         }
-      });
+      } catch (checkoutError: any) {
+        console.error("CASHFREE CHECKOUT EXCEPTION:", checkoutError);
+        alert("Could not open payment page. Please refresh and try again.");
+        setLoading(false);
+      }
 
     } catch (err: any) {
       console.error(err);
