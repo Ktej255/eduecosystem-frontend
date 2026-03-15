@@ -1191,5 +1191,148 @@ export const RAMSAR_SITES_DATA: GeoFeature[] = [
     characteristics: ["'Chhari' means salt and 'Dhand' means shallow wetland", "Only fills up during a good monsoon", "Attracts massive flocks of Cranes and Pelicans"],
     upsc_relevance: "Banni grassland ecology.",
     pyq_years: []
+  },
+  // ══════════════════════════════════════════════════════════════════
+  // RAMSAR WETLANDS BATCH 5: THE FINAL 12 (2024-2026 LATEST ADDITIONS)
+  // ══════════════════════════════════════════════════════════════════
+
+  // --- THE NEWEST STATE DEBUTS (SIKKIM & JHARKHAND) ---
+  {
+    id: "ramsar-khecheopalri",
+    name: "Khecheopalri Wetland",
+    type: "wetland", region: "Sikkim",
+    coordinates: { lat: 27.3800, lng: 88.2200 },
+    difficulty: "high-yield",
+    description: "Sikkim's FIRST and only Ramsar site. A highly sacred, high-altitude lake revered by both Buddhists and Hindus.",
+    characteristics: ["Believed to be a 'wishing lake'", "Surrounded by broad-leaved mixed temperate forests", "Locals believe birds actively pick up any leaves that fall on the water surface"],
+    upsc_relevance: "Sikkim's first Ramsar site; heavy Art & Culture/Buddhism crossover.",
+    pyq_years: []
+  },
+  {
+    id: "ramsar-udhwa",
+    name: "Udhwa Lake Bird Sanctuary",
+    type: "wetland", region: "Jharkhand",
+    coordinates: { lat: 24.9600, lng: 87.8200 },
+    difficulty: "high-yield",
+    description: "Jharkhand's FIRST Ramsar site. Comprises two interconnected oxbow lakes (Patauda and Berhale) on the Ganga floodplain.",
+    characteristics: ["Oxbow lake formation on the Ganga", "Only bird sanctuary in Jharkhand", "Major wintering site for migratory waterfowl"],
+    upsc_relevance: "Identifying the first Ramsar site of Jharkhand.",
+    pyq_years: []
+  },
+
+  // --- BIHAR (THE 2025 EXPANSION TRAPS) ---
+  {
+    id: "ramsar-udaipur-lake",
+    name: "Udaipur Lake",
+    type: "wetland", region: "Bihar",
+    coordinates: { lat: 26.8500, lng: 84.5000 },
+    difficulty: "high-yield",
+    description: "An oxbow lake located in West Champaran, NOT Rajasthan. Closely associated with the Valmiki Tiger Reserve.",
+    characteristics: ["Formed by the meandering of the Gandak River", "Surrounded by moist deciduous forests"],
+    upsc_relevance: "The ultimate naming trap (Udaipur in Bihar). Fluvial geomorphology of the Gandak.",
+    pyq_years: []
+  },
+  {
+    id: "ramsar-gogabeel",
+    name: "Gogabeel Lake",
+    type: "wetland", region: "Bihar",
+    coordinates: { lat: 25.3800, lng: 87.6500 },
+    difficulty: "medium",
+    description: "An oxbow lake in Katihar, formed by the flow of the Mahananda and Kosi rivers.",
+    characteristics: ["Bihar's first Community Reserve", "Crucial flood buffer in the Kosi basin"],
+    upsc_relevance: "Community Reserve legislation and Kosi/Mahananda basin geography.",
+    pyq_years: []
+  },
+  {
+    id: "ramsar-gokul",
+    name: "Gokul Reservoir",
+    type: "wetland", region: "Bihar",
+    coordinates: { lat: 25.5600, lng: 83.9800 },
+    difficulty: "low",
+    description: "A vital human-made wetland in the Buxar district, acting as a major water conservation sink.",
+    characteristics: ["Helps recharge groundwater in a heavily agricultural belt", "Important avian habitat in the Gangetic plains"],
+    upsc_relevance: "Buxar district water conservation.",
+    pyq_years: []
+  },
+
+  // --- RAJASTHAN (DESERT WETLANDS & BIRD VILLAGES) ---
+  {
+    id: "ramsar-khichan",
+    name: "Khichan Wetland",
+    type: "wetland", region: "Rajasthan",
+    coordinates: { lat: 27.1300, lng: 72.4200 },
+    difficulty: "high-yield",
+    description: "A small desert wetland famously known globally for hosting thousands of wintering Demoiselle Cranes.",
+    characteristics: ["Located in the arid Phalodi district", "Iconic community-driven feeding program by the local Jain and Bishnoi communities"],
+    upsc_relevance: "Demoiselle Crane (Kurja) migration routes and community-led conservation models.",
+    pyq_years: []
+  },
+  {
+    id: "ramsar-menar",
+    name: "Menar Wetland Complex",
+    type: "wetland", region: "Rajasthan",
+    coordinates: { lat: 24.6000, lng: 74.1500 },
+    difficulty: "medium",
+    description: "Known as the 'Bird Village' of India, comprising two lakes (Brahma and Dhand) protected fiercely by local volunteers.",
+    characteristics: ["Maintained purely by community action without formal protected area status", "Major stronghold for Pelicans and Flamingos"],
+    upsc_relevance: "Community Action in Bird Conservation.",
+    pyq_years: []
+  },
+  {
+    id: "ramsar-siliserh",
+    name: "Siliserh Lake",
+    type: "wetland", region: "Rajasthan",
+    coordinates: { lat: 27.5300, lng: 76.5300 },
+    difficulty: "medium",
+    description: "A human-made lake built by Maharaja Vinay Singh in the 19th century, serving as a buffer for the Sariska Tiger Reserve.",
+    characteristics: ["Created by damming a tributary of the Ruparel River", "Lies in the semi-arid zone bordering Sariska"],
+    upsc_relevance: "Overlap with the Sariska Tiger Reserve buffer zone.",
+    pyq_years: []
+  },
+
+  // --- CENTRAL & PENINSULAR (NEW DAMS & SANCTUARIES) ---
+  {
+    id: "ramsar-tawa",
+    name: "Tawa Reservoir",
+    type: "wetland", region: "Madhya Pradesh",
+    coordinates: { lat: 22.5667, lng: 77.9667 },
+    difficulty: "high-yield",
+    description: "A massive reservoir formed by damming the Tawa River, a major left-bank tributary of the Narmada.",
+    characteristics: ["Forms the western boundary of Satpura National Park and Bori Wildlife Sanctuary", "Crucial for irrigation and power generation"],
+    upsc_relevance: "Satpura Tiger Reserve boundaries and Narmada tributary matching.",
+    pyq_years: []
+  },
+  {
+    id: "ramsar-kopra",
+    name: "Kopra Reservoir",
+    type: "wetland", region: "Chhattisgarh",
+    coordinates: { lat: 22.0800, lng: 82.1500 },
+    difficulty: "medium",
+    description: "Chhattisgarh's FIRST Ramsar site, located in the upper catchments of the Mahanadi River basin.",
+    characteristics: ["Features shallow, nutrient-rich backwaters", "Faces severe threats from invasive non-native species and agricultural runoff"],
+    upsc_relevance: "Chhattisgarh's first Ramsar site; Mahanadi upper catchment geography.",
+    pyq_years: []
+  },
+  {
+    id: "ramsar-sakkarakottai",
+    name: "Sakkarakottai Bird Sanctuary",
+    type: "wetland", region: "Tamil Nadu",
+    coordinates: { lat: 9.3500, lng: 78.8300 },
+    difficulty: "low",
+    description: "An irrigation tank in the Ramanathapuram district serving as a vital drought-buffer and avian habitat.",
+    characteristics: ["Rain-fed irrigation tank", "Highly dependent on the Northeast Monsoon"],
+    upsc_relevance: "Drought resilience in Tamil Nadu.",
+    pyq_years: []
+  },
+  {
+    id: "ramsar-therthangal",
+    name: "Therthangal Bird Sanctuary",
+    type: "wetland", region: "Tamil Nadu",
+    coordinates: { lat: 9.4000, lng: 78.8500 },
+    difficulty: "low",
+    description: "A highly seasonal wetland in Tamil Nadu heavily utilized by breeding resident and migratory waterbirds.",
+    characteristics: ["Shallow irrigation tank", "Forms a crucial wetland complex with adjacent sanctuaries during the wintering season"],
+    upsc_relevance: "Seasonal wetland complexes in TN.",
+    pyq_years: []
   }
 ];

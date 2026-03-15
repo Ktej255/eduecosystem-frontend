@@ -262,3 +262,6 @@ from app.models.universal_progress import UniversalProgress
 
 # Holistic & 36 Skills
 from app.models.holistic import Skill, StudentSkillProgress
+
+# Geography Atlas Progress
+from app.models.geography_progress import GeographyProgress

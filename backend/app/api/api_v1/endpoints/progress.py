@@ -388,3 +388,81 @@ def get_universal_progress(
         raise HTTPException(status_code=404, detail="No sync state found")
     
     return progress
+
+
+# ══════════════════════════════════════════════════════════════════
+# GEOGRAPHY ATLAS PROGRESS ENDPOINTS
+# ══════════════════════════════════════════════════════════════════
+
+@router.get("/geography/mastered")
+def get_geography_progress(
+    *,
+    db: Session = Depends(deps.get_db),
+    current_user: models.User = Depends(deps.get_current_active_user),
+) -> Any:
+    """
+    Fetch all mastered geography location IDs for the current user.
+    Returns a list of location_id strings (e.g., 'ramsar-chilika', 'riv-ganga').
+    """
+    from app.models.geography_progress import GeographyProgress
+
+    records = (
+        db.query(GeographyProgress)
+        .filter(
+            GeographyProgress.user_id == current_user.id,
+            GeographyProgress.is_mastered == True,
+        )
+        .all()
+    )
+    mastered_ids = [r.location_id for r in records]
+    return {"masteredIds": mastered_ids, "count": len(mastered_ids)}
+
+
+@router.post("/geography/mastered")
+def toggle_geography_mastered(
+    *,
+    db: Session = Depends(deps.get_db),
+    current_user: models.User = Depends(deps.get_current_active_user),
+    payload: dict,
+) -> Any:
+    """
+    Toggle the 'mastered' status for a specific geography location.
+    Expects JSON body: { "locationId": "ramsar-chilika", "isMastered": true }
+    """
+    from app.models.geography_progress import GeographyProgress
+
+    location_id = payload.get("locationId")
+    is_mastered = payload.get("isMastered", False)
+
+    if not location_id:
+        raise HTTPException(status_code=400, detail="locationId is required")
+
+    # Upsert: find existing or create new
+    progress = (
+        db.query(GeographyProgress)
+        .filter(
+            GeographyProgress.user_id == current_user.id,
+            GeographyProgress.location_id == location_id,
+        )
+        .first()
+    )
+
+    if progress:
+        progress.is_mastered = is_mastered
+    else:
+        progress = GeographyProgress(
+            user_id=current_user.id,
+            location_id=location_id,
+            is_mastered=is_mastered,
+        )
+        db.add(progress)
+
+    db.commit()
+    db.refresh(progress)
+
+    return {
+        "success": True,
+        "locationId": progress.location_id,
+        "isMastered": progress.is_mastered,
+    }
+

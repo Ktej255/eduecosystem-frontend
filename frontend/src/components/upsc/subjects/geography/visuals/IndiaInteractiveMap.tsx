@@ -71,6 +71,19 @@ const BASIN_COLORS: Record<string, { dark: string, light: string }> = {
   'default': { dark: '#0ea5e9', light: '#0284c7' } // Cyan fallback
 };
 
+const AVAILABLE_LAYERS = [
+  { id: 'national-park', label: 'National Parks', icon: <MapPin className="w-3 h-3" /> },
+  { id: 'tiger-reserve', label: 'Tiger Reserves', icon: <Target className="w-3 h-3" /> },
+  { id: 'biosphere', label: 'Biosphere', icon: <ShieldQuestion className="w-3 h-3" /> },
+  { id: 'river', label: 'Rivers', icon: <Waves className="w-3 h-3" /> },
+  { id: 'ramsar-site', label: 'Ramsar Sites', icon: <CloudRain className="w-3 h-3" /> },
+  { id: 'mountain-range', label: 'Mountains', icon: <Mountain className="w-3 h-3" /> },
+  { id: 'mineral', label: 'Minerals', icon: <Mountain className="w-3 h-3" /> },
+  { id: 'pass', label: 'Passes', icon: <Target className="w-3 h-3" /> },
+  { id: 'dam', label: 'Dams', icon: <Droplets className="w-3 h-3" /> },
+  { id: 'unesco-site', label: 'UNESCO Sites', icon: <Landmark className="w-3 h-3" /> }
+];
+
 // Utility to generate a smoothed SVG path from an array of [x,y] points using Quadratic Bezier curves
 const getSmoothPath = (points: [number, number][]) => {
   if (!points || points.length === 0) return '';
@@ -91,7 +104,7 @@ const getSmoothPath = (points: [number, number][]) => {
 export default function IndiaInteractiveMap() {
   const { theme } = useTheme();
   const isDark = theme === 'dark' || theme === 'system'; // Fallback logic if needed
-  const [activeLayers, setActiveLayers] = useState<Set<FeatureType | 'all'>>(new Set(['all']));
+  const [activeLayers, setActiveLayers] = useState<Set<string>>(new Set(['river', 'ramsar-site', 'national-park']));
   const [searchQuery, setSearchQuery] = useState("");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
@@ -105,23 +118,32 @@ export default function IndiaInteractiveMap() {
   
   const mapFill = isDark ? "#0b1120" : "#f8fafc";
   const mapStroke = isDark ? "#1e293b" : "#cbd5e1";
-  const toggleLayer = (layer: FeatureType | 'all') => {
+  const toggleLayer = (layer: string) => {
     setActiveLayers(prev => {
       const next = new Set(prev);
       if (layer === 'all') {
-        return new Set(['all']);
-      }
-      
-      if (next.has('all')) next.delete('all');
-      
-      if (next.has(layer)) {
-        next.delete(layer);
-        if (next.size === 0) next.add('all');
+        if (next.size === AVAILABLE_LAYERS.length) {
+          next.clear();
+        } else {
+          AVAILABLE_LAYERS.forEach(l => next.add(l.id));
+        }
       } else {
-        next.add(layer);
+        if (next.has(layer)) {
+          next.delete(layer);
+        } else {
+          next.add(layer);
+        }
       }
       return next;
     });
+  };
+
+  const toggleAllLayers = () => {
+    if (activeLayers.size === AVAILABLE_LAYERS.length) {
+      setActiveLayers(new Set());
+    } else {
+      setActiveLayers(new Set(AVAILABLE_LAYERS.map(l => l.id)));
+    }
   };
 
   // Quiz Mode State
@@ -222,7 +244,7 @@ export default function IndiaInteractiveMap() {
 
   const filteredData = useMemo(() => {
     return INDIA_GEO_DATA.filter((item) => {
-      const matchesCategory = activeLayers.has('all') || activeLayers.has(item.type);
+      const matchesCategory = activeLayers.has(item.type);
       const matchesRegion = selectedRegion === 'all' || item.region === selectedRegion;
       const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                             item.region.toLowerCase().includes(searchQuery.toLowerCase());
@@ -350,40 +372,51 @@ export default function IndiaInteractiveMap() {
         </div>
       </div>
 
-      {/* Category Toggles (Hidden in Quiz Mode) — Enhanced with glowing active states */}
+      {/* Multi-Select Layer Toggle UI — Floating Pill Design */}
       {!isQuizMode && (
-        <div className="bg-slate-900/80 p-2.5 flex items-center gap-2 overflow-x-auto border-b border-white/5 no-scrollbar z-10 relative px-5 shadow-lg backdrop-blur-md">
-          <div className="flex items-center gap-1.5 pr-2 border-r border-white/10 mr-1">
-            <Button 
-              size="sm" 
-              variant="ghost" 
-              onClick={() => setActiveLayers(new Set(['all']))}
-              className="h-8 px-2 text-[10px] uppercase font-bold text-emerald-400 hover:text-emerald-300 hover:bg-emerald-500/10"
-            >
-              Reset
-            </Button>
-            <Button 
-              size="sm" 
-              variant="ghost" 
-              onClick={() => setActiveLayers(new Set(['national-park', 'river', 'ramsar-site']))}
-              className="h-8 px-2 text-[10px] uppercase font-bold text-amber-400 hover:text-amber-300 hover:bg-amber-500/10"
-            >
-              UPSC Mode
-            </Button>
-          </div>
-          
-          <FilterButton active={activeLayers.has('all')} onClick={() => toggleLayer('all')} label="All Features" color="#f8fafc" icon={<MapPin className="w-3.5 h-3.5" />} />
-          <div className="w-px h-6 bg-white/10 mx-1 shrink-0" />
-          <FilterButton active={activeLayers.has('national-park')} onClick={() => toggleLayer('national-park')} label="National Parks" color={CATEGORY_COLORS['national-park']} icon={<MapPin className="w-3.5 h-3.5" />} />
-          <FilterButton active={activeLayers.has('tiger-reserve')} onClick={() => toggleLayer('tiger-reserve')} label="Tiger Reserves" color={CATEGORY_COLORS['tiger-reserve']} icon={<Target className="w-3.5 h-3.5" />} />
-          <FilterButton active={activeLayers.has('biosphere')} onClick={() => toggleLayer('biosphere')} label="Biosphere" color={CATEGORY_COLORS['biosphere']} icon={<ShieldQuestion className="w-3.5 h-3.5" />} />
-          <FilterButton active={activeLayers.has('river')} onClick={() => toggleLayer('river')} label="Rivers" color={CATEGORY_COLORS['river']} icon={<Waves className="w-3.5 h-3.5" />} />
-          <FilterButton active={activeLayers.has('ramsar-site')} onClick={() => toggleLayer('ramsar-site')} label="Ramsar Sites" color={CATEGORY_COLORS['ramsar-site']} icon={<CloudRain className="w-3.5 h-3.5" />} />
-          <FilterButton active={activeLayers.has('mountain-range')} onClick={() => toggleLayer('mountain-range')} label="Mountains" color={CATEGORY_COLORS['mountain-range']} icon={<Mountain className="w-3.5 h-3.5" />} />
-          <FilterButton active={activeLayers.has('mineral')} onClick={() => toggleLayer('mineral')} label="Minerals" color={CATEGORY_COLORS['mineral']} icon={<Mountain className="w-3.5 h-3.5" />} />
-          <FilterButton active={activeLayers.has('pass')} onClick={() => toggleLayer('pass')} label="Passes" color={CATEGORY_COLORS['pass']} icon={<Target className="w-3.5 h-3.5" />} />
-          <FilterButton active={activeLayers.has('dam')} onClick={() => toggleLayer('dam')} label="Dams" color={CATEGORY_COLORS['dam']} icon={<Droplets className="w-3.5 h-3.5" />} />
-          <FilterButton active={activeLayers.has('unesco-site')} onClick={() => toggleLayer('unesco-site')} label="UNESCO Sites" color={CATEGORY_COLORS['unesco-site']} icon={<Landmark className="w-3.5 h-3.5" />} />
+        <div className="absolute top-24 left-1/2 -translate-x-1/2 z-30 flex flex-wrap justify-center gap-2 bg-slate-900/90 backdrop-blur-xl p-2 rounded-full border border-emerald-500/20 shadow-[0_20px_40px_rgba(0,0,0,0.4)] max-w-[95%] md:max-w-none">
+          <Button
+            size="sm"
+            variant="ghost"
+            onClick={toggleAllLayers}
+            className={`h-9 px-4 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${
+              activeLayers.size === AVAILABLE_LAYERS.length
+                ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            {activeLayers.size === AVAILABLE_LAYERS.length ? 'Clear All' : 'Show All'}
+          </Button>
+
+          <Button
+            size="sm"
+            variant="ghost"
+            onClick={() => setActiveLayers(new Set(['river', 'ramsar-site', 'national-park']))}
+            className="h-9 px-4 rounded-full text-[10px] font-black uppercase tracking-widest text-amber-400 hover:text-amber-300 hover:bg-amber-500/10 transition-all border border-transparent hover:border-amber-500/30"
+          >
+            UPSC Mode
+          </Button>
+
+          <div className="w-px h-6 bg-white/10 self-center mx-1" />
+
+          {AVAILABLE_LAYERS.map((layer) => {
+            const isActive = activeLayers.has(layer.id);
+            const color = CATEGORY_COLORS[layer.id as keyof typeof CATEGORY_COLORS];
+            return (
+              <button
+                key={layer.id}
+                onClick={() => toggleLayer(layer.id)}
+                className={`flex items-center gap-2 px-4 py-2 rounded-full text-[9px] font-black uppercase tracking-[0.1em] transition-all border ${
+                  isActive
+                    ? 'bg-slate-800 text-white border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.05)]'
+                    : 'bg-transparent text-slate-500 border-transparent hover:text-slate-300'
+                }`}
+              >
+                <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: isActive ? color : '#334155' }} />
+                {layer.label}
+              </button>
+            );
+          })}
         </div>
       )}
 
