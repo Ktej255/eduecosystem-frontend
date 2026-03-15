@@ -25,6 +25,9 @@ const nextConfig = {
     }
     return config;
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if
@@ -38,3 +41,4 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+

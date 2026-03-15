@@ -155,10 +155,55 @@ function getStatusColor(status: string) {
 
 export default function MobileDashboardPage() {
     const { user } = useAuth();
-    const [isCheckedIn, setIsCheckedIn] = useState(false);
-    const [currentTime, setCurrentTime] = useState("");
+    const [stats, setStats] = useState<any[]>(todayStats);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        const fetchDashboardData = async () => {
+            setLoading(true);
+            try {
+                const response = await api.get("/field-activities/dashboard");
+                // Map API data to our todayStats format
+                const apiStats = [
+                    {
+                        label: "Leads Contacted",
+                        value: response.data.leads_contacted?.toString() || "0",
+                        change: response.data.leads_change || "",
+                        icon: Phone,
+                        color: "text-emerald-400",
+                    },
+                    {
+                        label: "Meetings",
+                        value: response.data.total_meetings?.toString() || "0",
+                        change: "",
+                        icon: Calendar,
+                        color: "text-blue-400",
+                    },
+                    {
+                        label: "Check-ins",
+                        value: response.data.total_checkins?.toString() || "0",
+                        change: "",
+                        icon: MapPin,
+                        color: "text-purple-400",
+                    },
+                    {
+                        label: "Distance",
+                        value: `${response.data.total_distance_km || 0}km`,
+                        change: "",
+                        icon: Zap,
+                        color: "text-amber-400",
+                    }
+                ];
+                setStats(apiStats);
+            } catch (error) {
+                console.error("Failed to fetch dashboard stats:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchDashboardData();
+
         const updateTime = () => {
             const now = new Date();
             setCurrentTime(
@@ -234,10 +279,10 @@ export default function MobileDashboardPage() {
                     </h3>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
-                    {todayStats.map((stat, index) => (
+                    {stats.map((stat, index) => (
                         <Card
                             key={index}
-                            className="bg-gray-800/50 border-gray-700/50 hover:bg-gray-800/80 transition-colors"
+                            className={`bg-gray-800/50 border-gray-700/50 hover:bg-gray-800/80 transition-colors ${loading ? 'animate-pulse' : ''}`}
                         >
                             <CardContent className="p-3">
                                 <div className="flex items-start justify-between">

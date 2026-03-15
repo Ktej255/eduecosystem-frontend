@@ -4,27 +4,27 @@ export const ANCIENT_CHAPTER_15_SUBTOPICS: Question[] = [
     {
         "id": "indo_greeks",
         "name": "Indo-Greeks: Menander & Impact",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Chronicles the reign of Menander, the first use of bilingual gold coins, and the Buddhist dialogue 'Milinda Panho'."
     },
     {
         "id": "shakas_parthians",
         "name": "Shakas & Parthians in India",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Covers the migration of the Shakas, Rudradaman’s classic Sanskrit inscriptions at Junagadh, and the Parthian king Gondophernes."
     },
     {
         "id": "kushanas_kanishka",
         "name": "Kushanas: Empire & Kanishka",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Details the peak of the Kushana Empire under Kanishka, the 4th Buddhist Council, and the spread of Mahayana Buddhism."
     },
     {
         "id": "cultural_results",
         "name": "Impact: Art, Religion & Science",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Explores the synthesis of Gandhara Greco-Buddhist art, the introduction of equestrian technology, and the Sanskrit intellectual boom."
     },
     {
         "id": "economic_results",
         "name": "Trade: Silk Road & Money Economy",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Analyzes the Silk Road trade, the inflow of Roman gold, and the establishment of a robust Gold Dinar currency."
     }
 ];
 

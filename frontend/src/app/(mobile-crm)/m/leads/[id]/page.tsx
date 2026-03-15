@@ -102,23 +102,18 @@ export default function LeadDetailPage() {
         const fetchLead = async () => {
             setIsLoading(true);
             try {
-                // In production, fetch from API
-                // const response = await api.get(`/leads/${leadId}`);
-                // setLead(response.data);
-
-                // Mock for demo
-                setLead(mockLead);
-
-                // Fetch voice notes
-                // const notesResponse = await api.get(`/voice-notes/lead/${leadId}`);
-                // setVoiceNotes(notesResponse.data);
-
-                // Fetch call logs
-                // const callsResponse = await api.get(`/call-logs/lead/${leadId}`);
-                // setCallLogs(callsResponse.data);
+                // Fetch lead details, voice notes, and call logs from API
+                const [leadRes, notesRes, callsRes] = await Promise.all([
+                    api.get(`/leads/${leadId}`),
+                    api.get(`/voice-notes/lead/${leadId}`),
+                    api.get(`/call-logs/lead/${leadId}`)
+                ]);
+                
+                setLead(leadRes.data);
+                setVoiceNotes(notesRes.data);
+                setCallLogs(callsRes.data);
             } catch (error) {
-                console.error("Error fetching lead:", error);
-                setLead(mockLead);
+                console.error("Error fetching lead data:", error);
             } finally {
                 setIsLoading(false);
             }

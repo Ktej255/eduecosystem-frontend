@@ -4,27 +4,27 @@ export const ANCIENT_CHAPTER_23_SUBTOPICS: Question[] = [
     {
         "id": "pallavas",
         "name": "Pallavas of Kanchi",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Explores the rise of the Pallavas, their capital at Kanchi, and the evolution of the monolithic Ratha architecture at Mahabalipuram."
     },
     {
         "id": "chalukyas",
         "name": "Chalukyas of Badami",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Details Pulakeshin II’s victory over Harshavardhana and the development of the hybrid Vesara style in the Deccan."
     },
     {
         "id": "south_admin",
         "name": "South Indian Administration",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Examines the sophisticated village autonomy of the Sabha (Brahmin) and Ur (Peasant) assemblies in South Indian governance."
     },
     {
         "id": "south_religion",
         "name": "Bhakti Movement & Temples",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Analyzes the emotional devotionalism of the Alvars and Nayanars that revived Hinduism against Buddhist/Jain dominance."
     },
     {
         "id": "south_society",
         "name": "Society and Culture",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Covers the intellectual export from Kanchi’s Ghatikas and the integration of Aryan/Dravidian cultural traditions."
     }
 ];
 

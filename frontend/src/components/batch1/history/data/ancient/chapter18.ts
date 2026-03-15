@@ -4,27 +4,27 @@ export const ANCIENT_CHAPTER_18_SUBTOPICS: Question[] = [
     {
         "id": "crafts_guilds",
         "name": "Crafts & Merchant Guilds",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Examines the Sresthi-led merchant guilds and the specialization of 75+ occupational categories in the post-Mauryan urban boom."
     },
     {
         "id": "internal_trade",
         "name": "Internal Trade Routes (Silk Road)",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Details the transit economy of the Silk Road and the strategic location of Ujjain as the central hub for Eurasian trade."
     },
     {
         "id": "foreign_trade",
         "name": "Trade with Roman Empire",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Analyzes the massive 'Gold Drain' from Rome to India and the discovery of Monsoon winds by Hippalus."
     },
     {
         "id": "urbanization",
         "name": "Growth of Towns & Urban Life",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Covers the emergence of planned cities like Taxila and the secular reflection of common life in Terracotta art."
     },
     {
         "id": "monetary_economy",
         "name": "Coins & Monetary System",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Details the adoption of high-purity Gold Dinars for international trade and Copper currency for retail mass circulation."
     }
 ];
 
