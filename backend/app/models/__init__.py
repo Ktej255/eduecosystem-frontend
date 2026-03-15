@@ -15,7 +15,7 @@ from app.models.certificate import Certificate
 from app.models.category import Category, Tag
 from app.models.assignment import Assignment, Submission
 from app.models.lms import (
-    Assignment as LMSAssignment,
+    LMSAssignment,
     StudentSubmission,
     AIEvaluationLog,
 )
