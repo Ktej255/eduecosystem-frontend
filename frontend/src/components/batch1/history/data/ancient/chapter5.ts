@@ -4,27 +4,27 @@ export const ANCIENT_CHAPTER_5_SUBTOPICS: Question[] = [
     {
         "id": "definition_features",
         "name": "Definition & General Features",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "The Chalcolithic (Copper-Stone) age marks the first use of metal alongside stone tools, characterized by rural settlements and specialized pottery traditions."
     },
     {
         "id": "regional_cultures",
         "name": "Regional Chalcolithic Cultures",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Distinct regional cultures emerged, such as the Ahar (Rajasthan), Kayatha and Malwa (MP), and the Jorwe (Maharashtra), each with unique architectural and ceramic styles."
     },
     {
         "id": "technology_economy",
         "name": "Technology, Economy & Subsistence",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Chalcolithic societies practiced agriculture (wheat, rice, pulses) and animal husbandry, while developing advanced copper-smelting and wheel-turned pottery techniques."
     },
     {
         "id": "social_burial",
         "name": "Social Structure & Burial Practices",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Social stratification is evident in varied house sizes and elaborate burial practices, particularly the north-south urn burials common in the Deccan region."
     },
     {
         "id": "importance_limitations",
         "name": "Historical Importance & Limitations",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Despite significant progress in metallurgy and farming, these cultures were limited by a lack of writing, urban planning, and the relative scarcity of pure copper."
     }
 ];
 

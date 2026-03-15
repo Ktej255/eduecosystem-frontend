@@ -576,7 +576,35 @@ export default function GeographyDashboard() {
     );
 }
 
-function StatHUDCard({ title, value, subtext, icon }: { title: string, value: string, subtext: string, icon: React.ReactNode }) {
+const featureCardVariants = {
+    hover: { scale: 1.02, translateY: -5, transition: { type: 'spring', stiffness: 400, damping: 10 } }
+};
+
+const FeatureCard = React.memo(({ title, desc, icon, color, status, onClick }: { title: string, desc: string, icon: React.ReactNode, color: string, status?: string, onClick: () => void }) => {
+    const isLive = status === "Live Now";
+    return (
+        <motion.div variants={featureCardVariants} whileHover="hover">
+            <Card className={`group hover:shadow-xl transition-all cursor-pointer h-full overflow-hidden rounded-[1.5rem] ${isLive ? 'border-emerald-500/50 shadow-emerald-900/10' : 'border-border'}`} onClick={onClick}>
+                <CardContent className="p-6 space-y-4">
+                    <div className={`w-12 h-12 ${color} rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform`}>
+                        {icon}
+                    </div>
+                    <div>
+                        <h3 className="text-lg font-black uppercase tracking-tight">{title}</h3>
+                        <p className="text-xs text-muted-foreground font-medium leading-relaxed">{desc}</p>
+                    </div>
+                    <div className={`flex items-center gap-2 text-[10px] font-black uppercase tracking-widest ${isLive ? 'text-emerald-500' : 'text-amber-600'}`}>
+                        {isLive ? '✨ Play Now' : `🚀 ${status || 'Coming March 20'}`} <ChevronRight className="w-3 h-3" />
+                    </div>
+                </CardContent>
+            </Card>
+        </motion.div>
+    );
+});
+
+FeatureCard.displayName = "FeatureCard";
+
+const StatHUDCard = React.memo(({ title, value, subtext, icon }: { title: string, value: string, subtext: string, icon: React.ReactNode }) => {
     return (
         <Card className="border-none shadow-md overflow-hidden relative group">
             <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
@@ -589,24 +617,6 @@ function StatHUDCard({ title, value, subtext, icon }: { title: string, value: st
             </CardContent>
         </Card>
     );
-}
+});
 
-function FeatureCard({ title, desc, icon, color, status, onClick }: { title: string, desc: string, icon: React.ReactNode, color: string, status?: string, onClick: () => void }) {
-    const isLive = status === "Live Now";
-    return (
-        <Card className={`group hover:shadow-xl transition-all cursor-pointer overflow-hidden rounded-[1.5rem] ${isLive ? 'border-emerald-500/50 shadow-emerald-900/10' : 'border-border'}`} onClick={onClick}>
-            <CardContent className="p-6 space-y-4">
-                <div className={`w-12 h-12 ${color} rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform`}>
-                    {icon}
-                </div>
-                <div>
-                    <h3 className="text-lg font-black uppercase tracking-tight">{title}</h3>
-                    <p className="text-xs text-muted-foreground font-medium leading-relaxed">{desc}</p>
-                </div>
-                <div className={`flex items-center gap-2 text-[10px] font-black uppercase tracking-widest ${isLive ? 'text-emerald-500' : 'text-amber-600'}`}>
-                    {isLive ? '✨ Play Now' : `🚀 ${status || 'Coming March 20'}`} <ChevronRight className="w-3 h-3" />
-                </div>
-            </CardContent>
-        </Card>
-    );
-}
+StatHUDCard.displayName = "StatHUDCard";

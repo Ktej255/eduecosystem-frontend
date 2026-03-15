@@ -1,30 +1,30 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_11_SUBTOPICS: Question[] = [
+export const ANCIENT_CHAPTER_11_SUBTOPICS: Subtopic[] = [
     {
         "id": "iranian_contact",
         "name": "Iranian (Persian) Invasions & Impact",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Summarizes the fragmented political state of NW India before the Persian and Greek incursions."
     },
     {
         "id": "macedonian_invasion",
         "name": "Alexander’s Invasion: Progress & Battles",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Details the Persian conquest of the Indus valley and its cultural impact on Indian administration and script."
     },
     {
         "id": "impact_macedonian",
         "name": "Impact of Macedonian Invasion",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Covers Alexander's campaign, the Battle of Hydaspes, and the limit of his eastern expansion."
     },
     {
         "id": "cultural_exchange",
         "name": "Cultural & Economic Exchanges",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Analyzes the strategic and cultural consequences of the Greek invasion and the dawn of Indo-Greek contact."
     },
     {
         "id": "political_backwash",
         "name": "Political Consequences for India",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Explores how the vacuum left by Alexander facilitated the rise of the Mauryan Empire under Chandragupta."
     }
 ];
 

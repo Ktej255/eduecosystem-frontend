@@ -1,30 +1,30 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_20_SUBTOPICS: Question[] = [
+export const ANCIENT_CHAPTER_20_SUBTOPICS: Subtopic[] = [
     {
         "id": "gupta_society",
         "name": "Social Structure & Women",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Explores the hardening of the varna system and the declining social position of women in the classical age."
     },
     {
         "id": "gupta_economy",
         "name": "Agrarian Economy & Land Grants",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Analyzes the shift to a land-grant economy and the early signs of feudalization in rural India."
     },
     {
         "id": "gupta_religion",
         "name": "Religion & Religious Art",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Covers the rise of Puranic Hinduism and the evolution of the Bhakti tradition alongside classical temple art."
     },
     {
         "id": "gupta_literature",
         "name": "Sanskrit Literature & Drama",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Highlights the golden age of Sanskrit drama and poetry with figures like Kalidasa and Sudraka."
     },
     {
         "id": "gupta_science",
         "name": "Science & Metallurgy",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Summarizes the revolutionary mathematical and astronomical discoveries of Aryabhatta and Varahamihira."
     }
 ];
 

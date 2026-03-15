@@ -4,27 +4,27 @@ export const ANCIENT_CHAPTER_6_SUBTOPICS: Question[] = [
     {
         "id": "origin_phases",
         "name": "Origin, Extent & Phases",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "The Indus Valley Civilization (IVC) emerged from Neolithic roots in the 4th millennium BCE, reaching its urban peak between 2600-1900 BCE across vast regions of present-day India and Pakistan."
     },
     {
         "id": "town_planning",
         "name": "Town Planning & Urban Structure",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "IVC cities were defined by their sophisticated grid layouts, the use of standardized burnt bricks, and advanced covered drainage systems that were unparalleled in the ancient world."
     },
     {
         "id": "economy_trade",
         "name": "Agriculture, Crafts & Trade",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "A robust economy based on wheat/barley surplus, specialized crafts like bead-making, and extensive maritime trade with Mesopotamia characterized Harappan urban life."
     },
     {
         "id": "society_religion",
         "name": "Social Life, Scripts & Religion",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Harappan society was stratified and religiously focused on fertility deities, nature worship, and symbolic seals, while its pictographic script remains undeciphered."
     },
     {
         "id": "decline_legacy",
         "name": "Decline & Historical Legacy",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Environmental shifts, hydrological changes, and the drying of the Sarasvati river led to a gradual de-urbanization around 1900 BCE, though cultural elements persisted into later eras."
     }
 ];
 

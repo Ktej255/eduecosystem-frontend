@@ -4,27 +4,27 @@ export const ANCIENT_CHAPTER_21_SUBTOPICS: Question[] = [
     {
         "id": "east_intro",
         "name": "Expansion to Orissa & Bengal",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "The civilization spread significantly to Orissa (Odra/Kalinga) and Bengal (Pundra/Vanga) between the 4th and 7th centuries CE, driven by land grants and agrarian expansion."
     },
     {
         "id": "east_assam",
         "name": "Assam (Kamrupa) Civilization",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Assam, known as Kamrupa, entered the historical mainstream through the Varman dynasty and the patronage of learning, as recorded by the Chinese traveller Hiuen Tsang."
     },
     {
         "id": "east_religion",
         "name": "Brahminical Culture & Land Grants",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "The migration of Brahmins and the practice of providing land grants to priests and temples facilitated the spread of Sanskrit, Vedic rituals, and the Varna system into the East."
     },
     {
         "id": "east_tribe",
         "name": "Tribal Integration & State Formation",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Indigenous tribal groups were gradually integrated into the Hindu social fold through the process of 'Sanskritization', leading to the emergence of localized state structures."
     },
     {
         "id": "east_impact",
         "name": "Socio-Economic Impact",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "The expansion led to the development of better irrigation, new crop varieties (especially rice), and the growth of trade networks connecting Eastern India to Southeast Asia."
     }
 ];
 

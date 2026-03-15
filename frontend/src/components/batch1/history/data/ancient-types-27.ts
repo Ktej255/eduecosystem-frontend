@@ -60,6 +60,7 @@ export interface SequenceQuestion {
 export interface Subtopic {
     id: string;
     name: string;
+    explanation?: string;
 }
 
 export interface Question {

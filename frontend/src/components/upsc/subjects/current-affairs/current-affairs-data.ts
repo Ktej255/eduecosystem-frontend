@@ -1316,5 +1316,156 @@ export const GEOGRAPHY_CURRENT_AFFAIRS: CurrentAffairItem[] = [
         month: 'October',
         tags: ['Trade', 'EU-India', 'Bilateral'],
         chapter: 5
+    },
+    // --- Geography Current Affairs ---
+    {
+        id: 'geo-ca-001',
+        title: 'El Niño to La Niña Transition (ENSO)',
+        description: 'The swift transition from a strong El Niño to La Niña conditions greatly influenced the erratic Indian Southwest Monsoon of 2024, causing delayed onset but extreme rainfall events later.',
+        subject: 'Geography',
+        date: '2024-07-15',
+        month: 'July',
+        tags: ['Climatology', 'Monsoon', 'ENSO'],
+        chapter: 4 // Indian Monsoon
+    },
+    {
+        id: 'geo-ca-002',
+        title: 'Arctic Amplification',
+        description: 'WMO reports that the Arctic is warming four times faster than the global average. This "Arctic Amplification" is altering the Polar Jet Stream, causing extreme winter freezes in North America and heatwaves in Europe.',
+        subject: 'Geography',
+        date: '2024-02-10',
+        month: 'February',
+        tags: ['Climatology', 'Global Warming', 'Jet Streams'],
+        chapter: 12 // Climate Change
+    },
+    {
+        id: 'geo-ca-003',
+        title: 'BBNJ Treaty (High Seas Treaty)',
+        description: 'The UN formally adopted the Biodiversity Beyond National Jurisdiction (BBNJ) treaty aimed at protecting marine life in international waters, covering nearly two-thirds of the world\'s oceans.',
+        subject: 'Geography',
+        date: '2023-06-19',
+        month: 'June',
+        tags: ['Oceanography', 'Treaty', 'High Seas'],
+        chapter: 13 // Oceans
+    },
+    {
+        id: 'geo-ca-004',
+        title: 'Sikkim GLOF (South Lhonak Lake)',
+        description: 'A devastating Glacial Lake Outburst Flood (GLOF) occurred in Sikkim due to the breaching of South Lhonak Lake, highlighting the vulnerability of the Himalayan region to climate-induced disasters.',
+        subject: 'Geography',
+        date: '2023-10-04',
+        month: 'October',
+        tags: ['Disaster', 'Himalayas', 'Glaciers'],
+        chapter: 7 // Natural Hazards
+    },
+    {
+        id: 'geo-ca-005',
+        title: 'Joshimath Land Subsidence',
+        description: 'The sinking of Joshimath town in Uttarakhand brought focus to the fragile carrying capacity of the Himalayas, tectonic instability (MCT zone), and unplanned infrastructure development.',
+        subject: 'Geography',
+        date: '2023-01-10',
+        month: 'January',
+        tags: ['Geomorphology', 'Subsidence', 'Disaster'],
+        chapter: 6 // Mass Wasting
+    },
+    {
+        id: 'geo-ca-006',
+        title: 'Deep Ocean Mission & Matsya 6000',
+        description: 'India advances its Deep Ocean Mission with trials of the Matsya 6000 submersible, aiming to explore polymetallic nodules and map the Indian Ocean floor at a depth of 6,000 meters.',
+        subject: 'Geography',
+        date: '2024-03-22',
+        month: 'March',
+        tags: ['Oceanography', 'Resources', 'Exploration'],
+        chapter: 13 // Ocean Floor
+    },
+    {
+        id: 'geo-ca-007',
+        title: 'Lithium Discovery in J&K and Rajasthan',
+        description: 'GSI discovered substantial inferred resources of Lithium (white gold) in the Salal-Haimana area of Reasi, J&K, and later in Degana, Rajasthan, boosting India\'s EV battery supply chain.',
+        subject: 'Geography',
+        date: '2023-05-15',
+        month: 'May',
+        tags: ['Economic Geography', 'Minerals', 'Energy'],
+        chapter: 7 // Minerals and Energy Resources (India)
+    },
+    {
+        id: 'geo-ca-008',
+        title: 'AMOC Slowdown Warning',
+        description: 'New climate models warn that the Atlantic Meridional Overturning Circulation (AMOC), which includes the Gulf Stream, could collapse entirely within decades due to fresh water influx from melting Greenland ice.',
+        subject: 'Geography',
+        date: '2024-04-18',
+        month: 'April',
+        tags: ['Ocean Currents', 'Climatology', 'Climate Change'],
+        chapter: 14 // Ocean Circulation
+    },
+    {
+        id: 'geo-ca-009',
+        title: 'Panama Canal Drought',
+        description: 'Severe drought conditions driven by El Niño dramatically reduced water levels in Gatun Lake, forcing the Panama Canal Authority to slash daily ship crossings and causing global supply chain bottlenecks.',
+        subject: 'Geography',
+        date: '2023-11-25',
+        month: 'November',
+        tags: ['World Geography', 'Transport', 'Drought'],
+        chapter: 8 // Transport and Communication
+    },
+    {
+        id: 'geo-ca-010',
+        title: 'Great Nicobar Development Project',
+        description: 'Concerns mount over the ecological impact of the ₹72,000 crore mega-project on Great Nicobar Island, which includes a transshipment port, airport, and township in a sensitive rainforest ecosystem.',
+        subject: 'Geography',
+        date: '2024-01-20',
+        month: 'January',
+        tags: ['Indian Geography', 'Development', 'Ecology'],
+        chapter: 10 // Human Settlements
+    },
+    {
+        id: 'geo-ca-011',
+        title: 'India Adds New Ramsar Sites',
+        description: 'India significantly expanded its list of Wetlands of International Importance (Ramsar Sites), focusing on enhancing biodiversity conservation across states like Tamil Nadu and Odisha.',
+        subject: 'Geography',
+        date: '2024-02-02',
+        month: 'February',
+        tags: ['Wetlands', 'Conservation', 'India'],
+        chapter: 5 // Natural Vegetation
+    },
+    {
+        id: 'geo-ca-012',
+        title: 'Katchatheevu Island Dispute',
+        description: 'The historical transfer of the uninhabited Katchatheevu island to Sri Lanka in 1974 re-emerged in geopolitical debates, highlighting maritime boundary disputes and fishing rights in the Palk Strait.',
+        subject: 'Geography',
+        date: '2024-04-01',
+        month: 'April',
+        tags: ['Indian Geography', 'Boundaries', 'Geopolitics'],
+        chapter: 1 // India - Location
+    },
+    {
+        id: 'geo-ca-013',
+        title: 'Medicanes in the Mediterranean',
+        description: 'Rare Mediterranean hurricanes ("Medicanes"), fueled by unusually warm sea surface temperatures, struck North Africa (e.g., Storm Daniel in Libya), showing changing cyclone patterns due to warming.',
+        subject: 'Geography',
+        date: '2023-09-12',
+        month: 'September',
+        tags: ['Climatology', 'Cyclones', 'Extreme Weather'],
+        chapter: 10 // Atmospheric Circulation
+    },
+    {
+        id: 'geo-ca-014',
+        title: 'Urban Heat Island Effect in Indian Metros',
+        description: 'Record-breaking summer temperatures in Delhi and Mumbai highlighted the severe Urban Heat Island (UHI) effect, worsened by concrete expansion, lack of green cover, and high building density.',
+        subject: 'Geography',
+        date: '2024-05-30',
+        month: 'May',
+        tags: ['Human Geography', 'Urbanization', 'Climate'],
+        chapter: 12 // Environmental Issues
+    },
+    {
+        id: 'geo-ca-015',
+        title: 'Subarnarekha River Pollution',
+        description: 'Rampant illegal sand mining and untreated industrial effluents from mining belts have severely altered the geomorphology and water quality of the Subarnarekha River in Jharkhand/Odisha.',
+        subject: 'Geography',
+        date: '2024-03-10',
+        month: 'March',
+        tags: ['Drainage', 'Pollution', 'Resources'],
+        chapter: 3 // Drainage System
     }
 ];

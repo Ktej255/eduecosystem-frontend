@@ -4,27 +4,27 @@ export const ANCIENT_CHAPTER_9_SUBTOPICS: Question[] = [
     {
         "id": "causes_origin",
         "name": "Causes for Rise of New Religions",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "The 6th century BCE saw a reaction against rigid Vedic rituals and varna restrictions, fueled by economic shifts and the rise of a merchant class seeking simpler spiritual paths."
     },
     {
         "id": "jainism_teachings",
         "name": "Jainism: Vardhamana Mahavira & Doctrines",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Jainism, revitalized by Vardhamana Mahavira, emphasizes extreme non-violence (Ahimsa), self-discipline, and the 'Three Jewels' to achieve liberation from the cycle of birth."
     },
     {
         "id": "buddhism_teachings",
         "name": "Buddhism: Gautama Buddha & Tenets",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Founded by Gautama Buddha, Buddhism teaches the 'Middle Way' and the Four Noble Truths, focusing on the cessation of suffering through the Eightfold Path and Nirvana."
     },
     {
         "id": "spread_councils",
         "name": "Spread, Councils & Sects",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Both religions spread through royal patronage and monastic missions, leading to major councils that codified their scriptures and eventually resulted in various sects and branches."
     },
     {
         "id": "impact_legacy",
         "name": "Societal Impact & Historical Legacy",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Jainism and Buddhism profoundly influenced Indian art, architecture, and language, promoting vernaculars like Pali and Prakrit and fostering an ethical revolution centered on compassion."
     }
 ];
 

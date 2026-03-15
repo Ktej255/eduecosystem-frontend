@@ -4,27 +4,27 @@ export const ANCIENT_CHAPTER_7_SUBTOPICS: Question[] = [
     {
         "id": "aryan_migration",
         "name": "Aryan Migration & Geography",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "The early Aryans migrated into the Sapta Sindhu region (Land of Seven Rivers) around 1500 BCE, bringing Indo-European languages and a pastoral culture to the Indian subcontinent."
     },
     {
         "id": "rig_vedic_society",
         "name": "Rig Vedic Society & Tribal Structure",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Rig Vedic society was organized into patriarchal tribal units (Janas) headed by a Rajan, with the family (Kula) serving as the basic social unit."
     },
     {
         "id": "political_org",
         "name": "Political Organization & Assemblies",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Political power was decentralized and checked by tribal assemblies like the Sabha (elders), Samiti (general assembly), and Vidatha (military/religious council)."
     },
     {
         "id": "religion_rituals",
         "name": "Religion, Gods & Rituals",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Early Vedic religion was based on the personification of natural forces, centered on gods like Indra (war/weather), Agni (fire), and Varuna (cosmic order)."
     },
     {
         "id": "economy_technology",
         "name": "Economy, Technology & Material Life",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "The economy was predominantly pastoral, with cows serving as the primary measure of wealth, supplemented by barley cultivation and the use of horse-drawn chariots."
     }
 ];
 

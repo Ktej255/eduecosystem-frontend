@@ -4,27 +4,27 @@ export const ANCIENT_CHAPTER_8_SUBTOPICS: Question[] = [
     {
         "id": "geo_expansion",
         "name": "Expansion to Upper & Middle Ganga",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Later Vedic Aryans expanded from the Punjab into the fertile Upper and Middle Gangetic Plains, establishing core kingdoms like Kuru and Panchala."
     },
     {
         "id": "iron_impact",
         "name": "Iron Technology & Material Life",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "The discovery of iron (Shyama Ayas) around 1000 BCE enabled the clearing of dense jungles and revolutionized agriculture with iron-shod ploughshares."
     },
     {
         "id": "political_consolidation",
         "name": "Political Consolidation & Statehood",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Tribal structures evolved into territorial kingdoms (Janapadas), with kings gaining quasi-divine status through complex sacrifices like Rajasuya and Ashvamedha."
     },
     {
         "id": "social_hierarchy",
         "name": "Varna, Gotra & Social Rigidity",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Society became highly stratified, with a hereditary varna system, the institutionalization of gotras, and a decline in the social status of women and Shudras."
     },
     {
         "id": "religious_evolution",
         "name": "Sacrifices, Deities & Philosophical Shift",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Religious focus shifted toward elaborate animal sacrifices and new deities like Prajapati, eventually prompting the philosophical inquiry found in the Upanishads."
     }
 ];
 

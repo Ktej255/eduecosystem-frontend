@@ -51,7 +51,7 @@ export default function TerraLabLayout({
         <div className="flex h-screen w-full bg-gray-950 overflow-hidden relative font-sans">
             {/* Left Sidebar - Syllabus Navigator */}
             <div
-                className="w-80 h-full flex flex-col shrink-0 border-r border-white/10 z-20 transition-colors duration-500"
+                className="w-80 h-full flex flex-col shrink-0 border-r border-white/10 z-30 transition-colors duration-500 relative"
                 style={{ backgroundColor: `${activeModule.color}15` }} // 15 = low opacity hex
             >
                 {/* Sidebar Header */}
@@ -186,19 +186,23 @@ export default function TerraLabLayout({
                 </div>
 
                 {/* Children Content (The Interactive Globe or Module View) */}
-                <div className="w-full h-full">
+                <div className="w-full h-full relative z-0">
                     {children}
                 </div>
             </main>
 
-            <QuickViewGlassPane
-                topic={selectedTopic}
-                onClose={() => onSelectTopic(null)}
-                onStartLearning={(t) => {
-                    onSelectTopic(null);
-                    onStartLearning?.(t);
-                }}
-            />
+            <AnimatePresence>
+                {selectedTopic && (
+                    <QuickViewGlassPane
+                        topic={selectedTopic}
+                        onClose={() => onSelectTopic(null)}
+                        onStartLearning={(t) => {
+                            onSelectTopic(null);
+                            onStartLearning?.(t);
+                        }}
+                    />
+                )}
+            </AnimatePresence>
         </div>
     );
 }

@@ -2,7 +2,7 @@ import { HistoryMCQ } from '@/components/batch1/history/HistoryMCQSession';
 
 export const chapter1MCQs: HistoryMCQ[] = [
     {
-        "id": "c1q2",
+        "id": "c1q1",
         "question": "It is derived from the Greek words 'geo' meaning earth and 'graphos' meaning description.\nWhich of the statements given above is/are correct?",
         "options": [
             "1 only",
@@ -4421,6 +4421,18 @@ export const chapter10MCQs: HistoryMCQ[] = [
         "explanation": "When isobars are straight and when there is no friction, the pressure gradient force is balanced by the Coriolis force and the resultant wind blows parallel to the isobars. This wind is known as the geostrophic wind."
     },
     {
+        "id": "c10q7",
+        "question": "Which of the following is the main reason why we don't feel the massive atmospheric pressure on our bodies?",
+        "options": [
+            "We have evolved to ignore it.",
+            "Our internal body pressure (blood pressure, etc.) balances the external pressure.",
+            "The air pressure is only high at sea level.",
+            "Atmospheric pressure only acts in a downward direction."
+        ],
+        "correctAnswer": 1,
+        "explanation": "We do not feel the weight of the air because our internal body fluids and structures exert a pressure that approximately balances the external atmospheric pressure."
+    },
+    {
         "id": "c10q8",
         "question": "In terms of wind convergence and divergence, a 'Low Pressure' area at the Earth's surface is typically characterized by:",
         "options": [
@@ -4815,6 +4827,30 @@ export const chapter10MCQs: HistoryMCQ[] = [
         ],
         "correctAnswer": 0,
         "explanation": "Both are true. A rapid drop in atmospheric pressure (indicated by a falling barometer) signifies that a deep low-pressure system, such as a cyclone, is approaching."
+    },
+    {
+        "id": "c10q41",
+        "question": "Which of the following is true about the Vertical Distribution of Pressure?",
+        "options": [
+            "Pressure decreases rapidly with height in the lower atmosphere.",
+            "The vertical pressure gradient is significantly smaller than the horizontal pressure gradient.",
+            "Vertical pressure gradient is directly balanced by the Coriolis force.",
+            "Pressure increases with altitude due to higher ozone concentration."
+        ],
+        "correctAnswer": 0,
+        "explanation": "In the lower atmosphere, pressure decreases rapidly with height. This decrease is not at a constant rate, but in general, air pressure decreases by 1 mb for every 10 meters increase in elevation."
+    },
+    {
+        "id": "c10q42",
+        "question": "The 'Loo' wind, common in the northern plains of India during summers, is an example of:",
+        "options": [
+            "A planetary wind system.",
+            "A local wind caused by regional pressure differences and heating.",
+            "A katabatic wind descending from the Himalayas.",
+            "An ocean current-induced atmospheric circulation."
+        ],
+        "correctAnswer": 1,
+        "explanation": "Loo is a local wind. Local winds are results of local differences in the heating and cooling of earth surfaces and the cycles of those develop daily or annually, typically found in the lower levels of the troposphere."
     }
 ];
 
@@ -5495,6 +5531,18 @@ export const chapter12MCQs: HistoryMCQ[] = [
         "explanation": "Marine west coast climate (Cfb) is located poleward from the Mediterranean climate on the west coast of the continents. Due to marine influence, the temperature is moderate and precipitation occurs throughout the year."
     },
     {
+        "id": "c12q17",
+        "question": "The 'El Nino' phenomenon refers to which of the following?",
+        "options": [
+            "Normal cold water upwelling off the coast of Peru.",
+            "Warm water current replacing the cold Peruvian current.",
+            "Intense cooling of the Central Pacific.",
+            "Constant high pressure over the Indian Ocean."
+        ],
+        "correctAnswer": 1,
+        "explanation": "El Ni\u00f1o is a periodic climate event characterized by the warming of sea surface temperatures in the central and eastern tropical Pacific Ocean, replacing the cold Peru Current."
+    },
+    {
         "id": "c12q18",
         "question": "Consider the following statements about the Cold Climate with Dry Winters (Dw):\n                                                         1. It occurs mainly over Northeastern Asia.\n                                                         2. It experiences a monsoon-like reversal of wind due to the development of a pronounced winter anti-cyclone.\n                                                         3. Precipitation occurs heavily in winter and summers are completely dry.\nWhich of the statements given above is/are correct?",
         "options": [
@@ -5769,6 +5817,30 @@ export const chapter12MCQs: HistoryMCQ[] = [
         ],
         "correctAnswer": 1,
         "explanation": "According to Koeppen, the capital letters: A, C, D and E delineate humid climates and B dry climates."
+    },
+    {
+        "id": "c12q41",
+        "question": "The most widely used classification of climate is based on the data of:",
+        "options": [
+            "Humidity and Soil fertility.",
+            "Temperature and Precipitation.",
+            "Wind velocity and Cloud cover.",
+            "Altitude and Longitude."
+        ],
+        "correctAnswer": 1,
+        "explanation": "The most widely used classification of climate is the empirical climate classification scheme developed by V. Koeppen, which is based on the data of temperature and precipitation."
+    },
+    {
+        "id": "c12q42",
+        "question": "Which of the following is considered 'proxy data' for studying climates of the past?",
+        "options": [
+            "Satellite imagery from the last 50 years.",
+            "Tree rings and ice cores.",
+            "Current weather station records.",
+            "Real-time radar observations."
+        ],
+        "correctAnswer": 1,
+        "explanation": "Records of past climates can be reconstructed using 'proxy' data such as tree rings, ice cores, lake sediments, and marine organisms, as they record evidence of environmental changes."
     }
 ];
 

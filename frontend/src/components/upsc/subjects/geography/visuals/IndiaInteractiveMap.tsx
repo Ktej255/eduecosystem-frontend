@@ -11,8 +11,8 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Using a reliable absolute URL for India TopoJSON
-const INDIA_TOPO_JSON = "https://raw.githubusercontent.com/datameet/maps/master/Country/india-composite.json";
+// Using local official India TopoJSON with PIB-compliant boundaries
+const INDIA_TOPO_JSON = "/maps/india-official.json";
 
 // Enhanced vibrant color palette for features
 const CATEGORY_COLORS: Record<FeatureType, string> = {
@@ -403,7 +403,7 @@ export default function IndiaInteractiveMap() {
                   <div className="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 relative" 
                        style={{ backgroundColor: `${CATEGORY_COLORS[selectedLocation.type]}15`, border: `1px solid ${CATEGORY_COLORS[selectedLocation.type]}40` }}>
                     <span style={{ color: CATEGORY_COLORS[selectedLocation.type] }} className="relative z-10">
-                      {React.cloneElement((CATEGORY_ICONS[selectedLocation.type] || <MapPin />) as React.ReactElement, { className: "w-8 h-8" })}
+                      {React.cloneElement((CATEGORY_ICONS[selectedLocation.type] || <MapPin />) as React.ReactElement<any>, { className: "w-8 h-8" })}
                     </span>
                     <div className="absolute inset-0 blur-lg rounded-2xl" style={{ backgroundColor: `${CATEGORY_COLORS[selectedLocation.type]}20` }} />
                   </div>

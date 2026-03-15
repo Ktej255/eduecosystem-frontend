@@ -3,31 +3,31 @@ import { Subtopic, Question } from '../ancient-types-27';
 
 
 
-export const ANCIENT_CHAPTER_1_SUBTOPICS: Question[] = [
+export const ANCIENT_CHAPTER_1_SUBTOPICS: Subtopic[] = [
     {
         "id": "importance",
         "name": "Why Study Ancient Indian History",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Studying ancient history is crucial for understanding the origins of India's social institutions, religious diversity, and the foundational aspects of its modern civilization."
     },
     {
         "id": "periodization",
         "name": "Periodization of Indian History",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Modern historians prefer a socio-economic based periodization (Ancient-Medieval-Modern) over the communal divisions (Hindu-Muslim-British) introduced by colonial scholars."
     },
     {
         "id": "sources_literary",
         "name": "Literary Sources",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Literary evidence spans from the religious Vedas and Epics to secular treatises like Kautilya's Arthashastra and foreign accounts by travellers like Megasthenes."
     },
     {
         "id": "sources_archaeological",
         "name": "Archaeological Sources",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Archaeology provides objective data through inscriptions (epigraphy), coins (numismatics), and scientific dating methods like C-14 to reconstruct the material past."
     },
     {
         "id": "historiography",
         "name": "Historiography & Colonial Impact",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Historiography has evolved from colonial justifications for British rule to nationalist-orientalist studies and modern materialist interpretations of social change."
     }
 ];
 

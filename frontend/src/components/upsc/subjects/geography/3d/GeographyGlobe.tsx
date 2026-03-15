@@ -136,6 +136,19 @@ function SyllabusOrbit({ module, isActive, onSelectTopic }: { module: Module, is
 
 export default function GeographyGlobe({ activeModuleId, onSelectTopic }: GeographyGlobeProps) {
     const activeModule = GEOGRAPHY_SYLLABUS.find(m => m.id === activeModuleId);
+    const [isInteracting, setIsInteracting] = useState(false);
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+    const handleInteractionStart = () => {
+        setIsInteracting(true);
+        if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+
+    const handleInteractionEnd = () => {
+        timeoutRef.current = setTimeout(() => {
+            setIsInteracting(false);
+        }, 5000); // Resume auto-rotate after 5 seconds of inactivity
+    };
 
     return (
         <div className="w-full h-full bg-black relative">
@@ -166,8 +179,10 @@ export default function GeographyGlobe({ activeModuleId, onSelectTopic }: Geogra
                     enablePan={false}
                     minDistance={6}
                     maxDistance={30}
-                    autoRotate={true}
+                    autoRotate={!isInteracting}
                     autoRotateSpeed={0.5}
+                    onStart={handleInteractionStart}
+                    onEnd={handleInteractionEnd}
                 />
             </Canvas>
 

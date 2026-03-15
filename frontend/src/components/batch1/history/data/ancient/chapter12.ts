@@ -1,30 +1,30 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_12_SUBTOPICS: Question[] = [
+export const ANCIENT_CHAPTER_12_SUBTOPICS: Subtopic[] = [
     {
         "id": "material_life",
         "name": "Material Life & Second Urbanization",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Focuses on the technological shift to iron and the development of urban centers in the Ganga valley."
     },
     {
         "id": "admin_centralization",
         "name": "Administrative Center & Bureaucracy",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Explains the transition from tribal assemblies to a professional monarchical bureaucracy."
     },
     {
         "id": "taxation_system",
         "name": "Fiscal System & Revenue",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Details the institutionalization of land taxes and customs duties as the financial base of the state."
     },
     {
         "id": "varna_society",
         "name": "Social Structure: The Varna System",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Analyzes the rigidification of social classes and the specific roles of the four varnas in the economy."
     },
     {
         "id": "legal_system",
         "name": "Law, Justice & Legal Manuals",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Covers the emergence of the first codified legal manuals and the varna-based judicial system."
     }
 ];
 

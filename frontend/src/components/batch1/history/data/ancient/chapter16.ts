@@ -1,30 +1,30 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_16_SUBTOPICS: Question[] = [
+export const ANCIENT_CHAPTER_16_SUBTOPICS: Subtopic[] = [
     {
         "id": "origin_growth",
         "name": "Origin & Growth of Satavahanas",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Describes the emergence of the Satavahanas in the Deccan as successors to the Mauryan influence."
     },
     {
         "id": "major_kings",
         "name": "Gautamiputra Satakarni & Expansion",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Chronicles the military restoration and territorial expansion under the dynasty's greatest ruler."
     },
     {
         "id": "admin_society",
         "name": "Administration & Varna Society",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Covers the unique mix of matronymics and patriarchal rule, and the military administration of rural areas."
     },
     {
         "id": "religion_art",
         "name": "Religion (Buddhism/Brahmanism) & Art",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Analyzes the dual patronage of Brahmanism and Buddhism, and the peak of Deccan rock-cut architecture."
     },
     {
         "id": "economic_life",
         "name": "Economic Prosperity & Trade",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Focuses on the importance of maritime trade with Rome and the role of merchant guilds (Nigamas)."
     }
 ];
 

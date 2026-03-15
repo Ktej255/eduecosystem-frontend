@@ -4,27 +4,27 @@ export const ANCIENT_CHAPTER_22_SUBTOPICS: Question[] = [
     {
         "id": "harsha_rise",
         "name": "Rise of Vardhana Dynasty",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Harshavardhana unified North India after the Gupta collapse, moving his capital to Kanauj and establishing himself as a significant Buddhist patron and warrior."
     },
     {
         "id": "harsha_admin",
         "name": "Administration & Feudalism",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Harsha's administrative system was more decentralized than the Mauryas, relying heavily on feudal subordinates and 'Samantas' who provided military support."
     },
     {
         "id": "harsha_travel",
         "name": "Hiuen Tsang & Banabhatta",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Our knowledge of Harsha's reign comes primarily from the detailed travelogue of the Chinese pilgrim Hiuen Tsang and the biography 'Harshacharita' by his court poet Banabhatta."
     },
     {
         "id": "harsha_religion",
         "name": "Religion, Assemblies & Nalanda",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Harsha was a great patron of Nalanda University and convened grand religious assemblies at Kanauj and Prayag to promote Buddhism and discuss philosophical matters."
     },
     {
         "id": "harsha_economy",
         "name": "Decline of Trade & Towns",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "This period witnessed a gradual decline in long-distance trade and urban centers, leading to the rise of a self-sufficient agrarian economy and the spread of land grants."
     }
 ];
 

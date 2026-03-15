@@ -4,27 +4,27 @@ export const ANCIENT_CHAPTER_4_SUBTOPICS: Question[] = [
     {
         "id": "paleolithic",
         "name": "Paleolithic Age",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "The Paleolithic (Old Stone Age) was the longest phase of human history, where early humans lived as nomadic hunters and gatherers using crude stone tools."
     },
     {
         "id": "mesolithic",
         "name": "Mesolithic Age",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "A transitional period marked by post-glacial warming, the invention of microliths, and the earliest evidence of animal domestication in India."
     },
     {
         "id": "neolithic",
         "name": "Neolithic Age",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "The 'Neolithic Revolution' introduced settled agriculture, polished stone tools, pottery, and permanent village communities like Mehrgarh."
     },
     {
         "id": "tools_technology",
         "name": "Tools & Technology",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Stone tool technology evolved from large quartzite hand-axes in the Paleolithic to tiny microliths in the Mesolithic and finely polished celts in the Neolithic."
     },
     {
         "id": "sites_discoveries",
         "name": "Key Sites & Discoveries",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Critical prehistoric evidence comes from sites like Bhimbetka (cave art), Mehrgarh (early farming), and Burzahom (unique pit dwellings)."
     }
 ];
 

@@ -4,27 +4,27 @@ export const ANCIENT_CHAPTER_24_SUBTOPICS: Question[] = [
     {
         "id": "goals_of_life",
         "name": "Goals of Life & Overview",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Ancient Indian thought emphasized four goals of life (Purusharthas): Dharma (duty), Artha (wealth), Kama (pleasure), and Moksha (liberation), providing a holistic framework for human existence."
     },
     {
         "id": "samkhya_yoga",
         "name": "Samkhya & Yoga Systems",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Samkhya (dualism of Purusha and Prakriti) and Yoga (the practical path of meditation and physical control) focus on attaining liberation through self-realization and discipline."
     },
     {
         "id": "nyaya_vaisheshika",
         "name": "Nyaya & Vaisheshika Systems",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Nyaya established the foundations of Indian logic and epistemology, while Vaisheshika proposed a systematic atomic theory of the physical universe."
     },
     {
         "id": "mimamsa_vedanta",
         "name": "Mimamsa & Vedanta Systems",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Mimamsa focuses on the ritualistic interpretation of the Vedas, whereas Vedanta (Uttara Mimamsa) explores the ultimate reality (Brahman) and the nature of the self (Atman)."
     },
     {
         "id": "charvaka_jain_buddhist",
         "name": "Charvaka, Buddhist & Jain Philosophy",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Heterodox schools like the materialistic Charvaka, plus Jainism and Buddhism, challenged Vedic authority and introduced diverse perspectives on karma, non-violence, and enlightenment."
     }
 ];
 
