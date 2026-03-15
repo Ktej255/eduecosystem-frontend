@@ -587,6 +587,7 @@ export default function IndiaInteractiveMap() {
                   key={feature.id} 
                   feature={feature} 
                   isSelected={selectedLocation?.id === feature.id}
+                  isMastered={masteredLocations.has(feature.id)}
                   isDark={isDark}
                   onClick={(nodeType) => handleMarkerClick(nodeType ? { ...feature, nodeType } : feature)}
                 />
@@ -1089,7 +1090,7 @@ export default function IndiaInteractiveMap() {
   );
 }
 
-function FeaturePath({ feature, isSelected, isDark, onClick }: { feature: GeoFeature, isSelected: boolean, isDark: boolean, onClick: (nodeType?: 'origin' | 'mouth') => void }) {
+function FeaturePath({ feature, isSelected, isDark, onClick, isMastered }: { feature: GeoFeature, isSelected: boolean, isDark: boolean, onClick: (nodeType?: 'origin' | 'mouth') => void, isMastered: boolean }) {
   const { projection } = useMapContext();
   if (!feature.path || feature.path.length < 2) return null;
 
@@ -1138,7 +1139,7 @@ function FeaturePath({ feature, isSelected, isDark, onClick }: { feature: GeoFea
         strokeLinejoin="round" 
         strokeDasharray={isDistributary ? "4 4" : "none"}
         style={{ 
-          filter: `drop-shadow(0 0 ${isMountain ? 8 : (isSelected ? 6 : 2)}px ${color})`,
+          filter: `drop-shadow(0 0 ${isMountain ? 8 : (isSelected ? 6 : (isMastered ? 4 : 2))}px ${isMastered ? '#fbbf24' : color})`,
           opacity: isMountain ? 0.4 : 1,
           transition: 'all 0.3s ease'
         }}
@@ -1161,11 +1162,13 @@ function FeaturePath({ feature, isSelected, isDark, onClick }: { feature: GeoFea
 
           {/* Hierarchical Nodes: Origin (Source) and Mouth (Delta/Confluence) */}
           <Marker coordinates={feature.path[0] as [number, number]} onClick={() => onClick('origin')}>
+             {isMastered && <circle r={8} fill="url(#masteredGlow)" className="animate-pulse" style={{ animationDuration: '4s' }} />}
              <circle r={isSelected ? 3 : 2} fill={isDark ? "#fff" : "#000"} stroke={color} strokeWidth={1} />
              {isSelected && <text y={-8} textAnchor="middle" className="text-[4px] font-bold fill-white">SOURCE</text>}
           </Marker>
           
           <Marker coordinates={feature.path[feature.path.length - 1] as [number, number]} onClick={() => onClick('mouth')}>
+             {isMastered && <circle r={10} fill="url(#masteredGlow)" className="animate-pulse" style={{ animationDuration: '4s' }} />}
              <circle r={isSelected ? 4 : 2.5} fill="none" stroke={color} strokeWidth={isSelected ? 1.5 : 1} />
              <circle r={isSelected ? 1.5 : 1} fill={color} />
              {isSelected && <text y={8} textAnchor="middle" className="text-[4px] font-bold fill-white">MOUTH</text>}
