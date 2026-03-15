@@ -108,6 +108,7 @@ export function PaymentGatewayDialog({
   };
 
   const handleCashfreePayment = async () => {
+    console.log("PAYMENT DEBUG 1: Function started");
     try {
       setLoading(true);
       // 1. Get Session ID from backend
@@ -121,6 +122,11 @@ export function PaymentGatewayDialog({
       }
 
       const response = await api.post("/course-payments/create-cashfree-order", requestPayload);
+      console.log("PAYMENT DEBUG 2: Order created", {
+        payment_session_id: response?.data?.payment_session_id,
+        order_id: response?.data?.order_id,
+        status: response?.status
+      });
       const { payment_session_id } = response.data;
 
       if (!payment_session_id) {
@@ -136,6 +142,10 @@ export function PaymentGatewayDialog({
       const cashfree = window.Cashfree({
         mode: process.env.NEXT_PUBLIC_ENVIRONMENT === "production" ? "production" : "sandbox",
       });
+      console.log("PAYMENT DEBUG 3: Cashfree initialized", {
+        cashfreeExists: typeof cashfree !== 'undefined',
+        windowCashfree: typeof window.Cashfree !== 'undefined'
+      });
 
       const checkoutOptions = {
         paymentSessionId: payment_session_id,
@@ -147,6 +157,10 @@ export function PaymentGatewayDialog({
         mode: process.env.NEXT_PUBLIC_ENVIRONMENT,
         cashfreeLoaded: typeof window !== 'undefined' && 
                         typeof window.Cashfree !== 'undefined'
+      });
+
+      console.log("PAYMENT DEBUG 4: About to call checkout", {
+        checkoutOptions: checkoutOptions
       });
 
       try {

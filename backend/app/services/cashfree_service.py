@@ -56,7 +56,7 @@ class CashfreeService:
             payload["order_meta"] = order_meta
 
         try:
-            response = requests.post(url, json=payload, headers=self._get_headers())
+            response = requests.post(url, json=payload, headers=self._get_headers(), timeout=15)
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException as e:
@@ -93,7 +93,7 @@ class CashfreeService:
         url = f"{self.base_url}/orders/{order_id}"
         
         try:
-            response = requests.get(url, headers=self._get_headers())
+            response = requests.get(url, headers=self._get_headers(), timeout=15)
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException as e:

@@ -105,6 +105,9 @@ export default function IndiaInteractiveMap() {
   const { theme } = useTheme();
   const isDark = theme === 'dark' || theme === 'system'; // Fallback logic if needed
   const [activeLayers, setActiveLayers] = useState<Set<string>>(new Set(['river', 'ramsar-site', 'national-park']));
+  const [selectedLocation, setSelectedLocation] = useState<GeoFeature | null>(null);
+  const [selectedRegion, setSelectedRegion] = useState<string>('all');
+  const [masteredLocations, setMasteredLocations] = useState<Set<string>>(new Set());
   const [searchQuery, setSearchQuery] = useState("");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
@@ -115,6 +118,65 @@ export default function IndiaInteractiveMap() {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
 
   const router = useRouter();
+
+  // Fetch mastered locations on mount
+  React.useEffect(() => {
+    const fetchProgress = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        if (!token) return;
+
+        const res = await fetch('/api/user-progress', {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.masteredIds) {
+            setMasteredLocations(new Set(data.masteredIds));
+          }
+        }
+      } catch (err) {
+        console.error("Failed to fetch geography progress:", err);
+      }
+    };
+    fetchProgress();
+  }, []);
+
+  const toggleMasteredStatus = async (locationId: string) => {
+    const isCurrentlyMastered = masteredLocations.has(locationId);
+    const newStatus = !isCurrentlyMastered;
+
+    // 1. Optimistic UI Update
+    setMasteredLocations(prev => {
+      const next = new Set(prev);
+      if (newStatus) next.add(locationId);
+      else next.delete(locationId);
+      return next;
+    });
+
+    // 2. Persistent Backend Sync
+    try {
+      const token = localStorage.getItem('token');
+      await fetch('/api/user-progress', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ locationId, isMastered: newStatus })
+      });
+    } catch (err) {
+      console.error("Failed to sync progress:", err);
+      // Rollback on error
+      setMasteredLocations(prev => {
+        const next = new Set(prev);
+        if (isCurrentlyMastered) next.add(locationId);
+        else next.delete(locationId);
+        return next;
+      });
+    }
+  };
+
   
   const mapFill = isDark ? "#0b1120" : "#f8fafc";
   const mapStroke = isDark ? "#1e293b" : "#cbd5e1";
@@ -441,6 +503,11 @@ export default function IndiaInteractiveMap() {
                   <stop offset="100%" stopColor={color} stopOpacity="0" />
                 </radialGradient>
               ))}
+              <radialGradient id="masteredGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#fbbf24" stopOpacity="0.6" />
+                <stop offset="60%" stopColor="#10b981" stopOpacity="0.2" />
+                <stop offset="100%" stopColor="#10b981" stopOpacity="0" />
+              </radialGradient>
               <filter id="laserLineGlow" x="-20%" y="-20%" width="140%" height="140%">
                 <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
                 <feMerge>
@@ -551,6 +618,11 @@ export default function IndiaInteractiveMap() {
                     <motion.g animate={{ scale, opacity }} transition={{ type: 'spring', stiffness: 300, damping: 20 }}>
                       
                       <circle r={20} fill="transparent" style={{ cursor: isQuizMode ? 'crosshair' : 'pointer' }} />
+
+                      {/* Mastered Glow Layer */}
+                      {masteredLocations.has(marker.id) && !isQuizMode && (
+                        <circle r={12} fill="url(#masteredGlow)" className="animate-pulse" style={{ animationDuration: '4s' }} />
+                      )}
 
                       {marker.type === 'dam' && !isQuizMode && (
                         <g transform="translate(-12, -12)">
@@ -983,10 +1055,25 @@ export default function IndiaInteractiveMap() {
               
               <div className="p-5 bg-slate-950/90 border-t border-white/5 flex gap-3 backdrop-blur-xl min-w-[420px]">
                 <Button 
-                  className="flex-1 bg-white hover:bg-slate-200 text-black font-black uppercase tracking-widest text-xs h-12 rounded-xl shadow-lg"
+                  className={`flex-1 font-black uppercase tracking-widest text-xs h-12 rounded-xl shadow-lg transition-all ${
+                    masteredLocations.has(selectedLocation.id)
+                      ? 'bg-emerald-500 hover:bg-emerald-400 text-white shadow-[0_0_20px_rgba(16,185,129,0.3)]'
+                      : 'bg-white hover:bg-slate-200 text-black'
+                  }`}
+                  onClick={() => toggleMasteredStatus(selectedLocation.id)}
+                >
+                  {masteredLocations.has(selectedLocation.id) ? (
+                    <>Mastered <Trophy className="w-4 h-4 ml-2 fill-current" /></>
+                  ) : (
+                    <>Mark as Mastered <Target className="w-4 h-4 ml-2" /></>
+                  )}
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="flex-1 border-white/10 text-slate-400 hover:text-white font-black uppercase tracking-widest text-[9px] h-12 rounded-xl"
                   onClick={() => router.push(`/student/upsc/geography/session?block=${selectedLocation.type}`)}
                 >
-                  Launch Related Modules <ChevronRight className="w-4 h-4 ml-2" />
+                  Related Modules <ChevronRight className="w-3.5 h-3.5 ml-2" />
                 </Button>
                 <Button variant="outline" className="w-12 h-12 rounded-xl border-slate-700 text-slate-400 hover:text-white" onClick={() => setSelectedLocation(null)}>
                   <Crosshair className="w-4 h-4" />
