@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 from uuid import UUID
 
 from app.api import deps
-from app.models.lms import Assignment, StudentSubmission, AIEvaluationLog
+from app.models.lms import LMSAssignment as AssignmentModel, StudentSubmission, AIEvaluationLog
 from app.models.question_bank import QuestionBank, BankQuestion
 from app.models.user import User
 from app.schemas.lms import (
@@ -24,7 +24,7 @@ from app.services.gemini_service import gemini_service
 from app.schemas.user import UserBasic
 
 from app.schemas.lms_schemas import BulkQuestionUpload, QuestionResponse
-from app.models.lms import Assignment, StudentSubmission, AIEvaluationLog, Question, Option
+from app.models.lms import LMSAssignment as AssignmentModel, StudentSubmission, AIEvaluationLog, Question, Option
 
 router = APIRouter()
 
@@ -109,7 +109,7 @@ def get_teacher_assignments(
     """
     Get all assignments for the teacher's batches.
     """
-    return db.query(Assignment).all()
+    return db.query(AssignmentModel).all()
 
 @router.post("/assignments", response_model=LMSAssignment)
 def create_teacher_assignment(
@@ -121,7 +121,7 @@ def create_teacher_assignment(
     """
     Create a new assignment with a rubric.
     """
-    db_obj = Assignment(**assignment_in.model_dump())
+    db_obj = AssignmentModel(**assignment_in.model_dump())
     db.add(db_obj)
     db.commit()
     db.refresh(db_obj)

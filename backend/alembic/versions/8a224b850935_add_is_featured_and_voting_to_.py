@@ -36,7 +36,7 @@ def upgrade() -> None:
         batch_op.create_index(batch_op.f('ix_thread_votes_id'), ['id'], unique=False)
 
     with op.batch_alter_table('discussion_threads', schema=None) as batch_op:
-        batch_op.add_column(sa.Column('is_featured', sa.Boolean(), nullable=True, server_default=sa.text('0')))
+        batch_op.add_column(sa.Column('is_featured', sa.Boolean(), nullable=True, server_default=sa.text('false')))
         batch_op.add_column(sa.Column('upvotes', sa.Integer(), nullable=True, server_default=sa.text('0')))
 
     # ### end Alembic commands ###

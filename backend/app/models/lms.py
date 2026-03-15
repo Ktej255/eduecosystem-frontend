@@ -7,7 +7,7 @@ import enum
 
 from app.db.base import Base
 
-class Assignment(Base):
+class LMSAssignment(Base):
     __tablename__ = "lms_assignments"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
@@ -42,7 +42,7 @@ class StudentSubmission(Base):
     submitted_at = Column(DateTime(timezone=True), server_default=func.now())
     
     # Relationships
-    assignment = relationship("Assignment", back_populates="submissions")
+    assignment = relationship("LMSAssignment", back_populates="submissions")
     student = relationship("User", backref="lms_submissions")
     evaluation_logs = relationship("AIEvaluationLog", back_populates="submission", cascade="all, delete-orphan")
 
