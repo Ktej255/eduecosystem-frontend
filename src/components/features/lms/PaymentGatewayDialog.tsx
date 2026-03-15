@@ -123,7 +123,7 @@ export function PaymentGatewayDialog({
 
   const handleRazorpayPayment = async () => {
     // Create Razorpay order
-    const response = await api.post("/course-payments/create-razorpay-order", {
+    const response = await api.post("/course-payment/create-razorpay-order", {
       course_id: courseId,
     });
 
@@ -146,7 +146,7 @@ export function PaymentGatewayDialog({
         handler: async function (response: any) {
           try {
             // Verify payment
-            await api.post("/course-payments/verify-razorpay-payment", {
+            await api.post("/course-payment/verify-razorpay-payment", {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_signature: response.razorpay_signature,
@@ -180,7 +180,7 @@ export function PaymentGatewayDialog({
 
   const handleInstamojoPayment = async () => {
     const response = await api.post(
-      "/course-payments/create-instamojo-payment",
+      "/course-payment/create-instamojo-payment",
       {
         course_id: courseId,
       },
@@ -191,7 +191,7 @@ export function PaymentGatewayDialog({
   };
 
   const handleStripePayment = async () => {
-    const response = await api.post("/course-payments/create-stripe-checkout", {
+    const response = await api.post("/course-payment/create-stripe-checkout", {
       course_id: courseId,
     });
 

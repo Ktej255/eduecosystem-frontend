@@ -5,9 +5,9 @@ import {
     ChevronLeft, Settings, Info, Search,
     Filter, LayoutGrid, ListTodo, Map,
     Globe2, Mountain, Waves, BookOpen,
-    CheckCircle2, Circle,
+    CheckCircle2, Circle, GraduationCap, Award, Play,
     Target, ArrowRight, BarChart3, Clock,
-    BadgeCheck, Trophy,
+    BadgeCheck, Trophy, Pickaxe,
     Wind, ChevronRight, Activity, Thermometer, Layers, Droplets,
     ChevronDown, FileText, Zap, Globe
 } from 'lucide-react';

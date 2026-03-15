@@ -442,13 +442,13 @@ export default function GeographyDashboard() {
             ) : (
                 <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <FeatureCard title="Interactive India Atlas" desc="Master 500+ UPSC Locations." icon={<MapPin className="w-6 h-6" />} color="bg-indigo-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/india-map')} />
-                        <FeatureCard title="Monsoon Simulator" desc="Interactive El Niño & ITCZ dynamics." icon={<Wind className="w-6 h-6" />} color="bg-emerald-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/monsoon')} />
-                        <FeatureCard title="Ocean Lab" desc="Track complex current patterns." icon={<Waves className="w-6 h-6" />} color="bg-blue-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/ocean-currents')} />
-                        <FeatureCard title="River System Explorer" desc="Flow dynamics & major dams." icon={<Droplets className="w-6 h-6" />} color="bg-sky-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/river-systems')} />
-                        <FeatureCard title="Climate Zone Explorer" desc="Köppen Classifications & Biomes." icon={<Globe2 className="w-6 h-6" />} color="bg-amber-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/climate-zones')} />
-                        <FeatureCard title="Plate Tectonics Sim" desc="Global Lithospheric Boundaries." icon={<Layers className="w-6 h-6" />} color="bg-red-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/tectonics')} />
-                        <FeatureCard title="Resource Atlas" desc="India's Mineral & Energy Map." icon={<Pickaxe className="w-6 h-6" />} color="bg-yellow-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visuals/resource-atlas')} />
+                        <FeatureCard title="Interactive India Atlas" desc="Master 500+ UPSC Locations." icon={<MapPin className="w-6 h-6" />} color="bg-indigo-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visual/india-map')} />
+                        <FeatureCard title="Monsoon Simulator" desc="Interactive El Niño & ITCZ dynamics." icon={<Wind className="w-6 h-6" />} color="bg-emerald-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visual/monsoon')} />
+                        <FeatureCard title="Ocean Lab" desc="Track complex current patterns." icon={<Waves className="w-6 h-6" />} color="bg-blue-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visual/ocean-currents')} />
+                        <FeatureCard title="River System Explorer" desc="Flow dynamics & major dams." icon={<Droplets className="w-6 h-6" />} color="bg-sky-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visual/river-systems')} />
+                        <FeatureCard title="Climate Zone Explorer" desc="Köppen Classifications & Biomes." icon={<Globe2 className="w-6 h-6" />} color="bg-amber-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visual/climate-zones')} />
+                        <FeatureCard title="Plate Tectonics Sim" desc="Global Lithospheric Boundaries." icon={<Layers className="w-6 h-6" />} color="bg-red-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visual/tectonics')} />
+                        <FeatureCard title="Resource Atlas" desc="India's Mineral & Energy Map." icon={<Pickaxe className="w-6 h-6" />} color="bg-yellow-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/visual/resource-atlas')} />
                         <FeatureCard title="Savinder Singh Geomorphology" desc="45 Chapter Complete Mastery." icon={<BookOpen className="w-6 h-6" />} color="bg-rose-600" status="Live Now" onClick={() => router.push('/student/upsc/geography/savinder-singh')} />
                     </div>
                 </div>

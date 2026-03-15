@@ -27,7 +27,7 @@ export default function PaymentSuccessPage() {
     try {
       // Fetch payment status
       const paymentResponse = await api.get(
-        `/course-payments/payment-status/${courseId}`,
+        `/course-payment/payment-status/${courseId}`,
       );
 
       if (paymentResponse.data?.status === "succeeded") {

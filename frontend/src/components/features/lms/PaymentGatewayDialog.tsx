@@ -121,7 +121,7 @@ export function PaymentGatewayDialog({
         requestPayload.coupon_code = appliedCoupon.coupon.code;
       }
 
-      const response = await api.post("/course-payments/create-cashfree-order", requestPayload);
+      const response = await api.post("/course-payment/create-cashfree-order", requestPayload);
       console.log("PAYMENT DEBUG 2: Order created", {
         payment_session_id: response?.data?.payment_session_id,
         order_id: response?.data?.order_id,
