@@ -31,7 +31,7 @@ INSTAMOJO_ENDPOINT = os.getenv(
     "INSTAMOJO_ENDPOINT", "https://test.instamojo.com/api/1.1/"
 )
 
-FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:3000")
+FRONTEND_URL = os.getenv("FRONTEND_URL", "https://eduecosystem-frontend.vercel.app")
 
 router = APIRouter()
 

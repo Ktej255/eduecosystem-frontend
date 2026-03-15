@@ -56,9 +56,14 @@ export default function TerraLabLayout({
             >
                 {/* Sidebar Header */}
                 <div className="p-4 border-b border-white/10 bg-black/20 backdrop-blur-md">
-                    <Link href="/student/batch1">
-                        <Button variant="ghost" size="sm" className="mb-4 text-muted-foreground hover:text-white -ml-2">
-                            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Dashboard
+                    <Link href="/student/upsc/geography">
+                        <Button 
+                            variant="ghost" 
+                            size="sm" 
+                            className="mb-4 text-indigo-400 hover:text-white hover:bg-indigo-500/20 -ml-2 group transition-all"
+                        >
+                            <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" /> 
+                            Back to Module Dashboard
                         </Button>
                     </Link>
                     <h1 className="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 uppercase tracking-widest">

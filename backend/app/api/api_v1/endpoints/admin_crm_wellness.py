@@ -44,7 +44,7 @@ def get_crm_wellness_correlation(
         
         results.append({
             "lead_id": lead.id,
-            "name": lead.full_name,
+            "name": lead.name,
             "email": lead.email,
             "lead_status": lead.status,
             "lead_source": lead.source,

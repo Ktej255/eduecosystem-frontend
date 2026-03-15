@@ -1,32 +1,33 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_26_SUBTOPICS: Question[] = [
+export const ANCIENT_CHAPTER_26_SUBTOPICS: Subtopic[] = [
     {
         "id": "feudal_economy",
         "name": "Decline of Trade and Rise of Feudal Economy",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Documents the collapse of Roman trade, urban decay, and the shift to a self-sufficient village economy (Jajmani)."
     },
     {
         "id": "land_grants",
         "name": "Land Grants and Landed Intermediaries",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Explains the system of Brahmadeya and Agrahara grants that created a class of feudal lords (Samantas)."
     },
     {
         "id": "varna_system",
         "name": "Changes in the Varna System",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Focuses on the proliferation of sub-castes (Jatis) and the assimilation of tribes into the lower varna hierarchy."
     },
     {
         "id": "position_women",
         "name": "Position of Women and Society",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Analyzes the strengthening of patriarchy, the loss of property rights, and the institutionalization of Sati."
     },
     {
         "id": "art_religion",
         "name": "Emergence of Regional Cultures and Bhakti",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Traces the rise of regional languages, distinct temple architecture, and the dominance of Puranic Bhakti cults."
     }
 ];
+
 
 export const ANCIENT_CHAPTER_26_MCQS: Question[] = [
     // ═══════════════════════════════════════════

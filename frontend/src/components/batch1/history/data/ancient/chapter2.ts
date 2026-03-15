@@ -1,32 +1,33 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_2_SUBTOPICS: Question[] = [
+export const ANCIENT_CHAPTER_2_SUBTOPICS: Subtopic[] = [
     {
         "id": "literary_sources",
         "name": "Literary & Textual Sources",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Summarizes the role of Vedic, Buddhist, Jain, and secular texts in reconstructing ancient history."
     },
     {
         "id": "archaeological_sources",
         "name": "Archaeological Evidence",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Focuses on inscriptions (epigraphy), coins (numismatics), and material remains from excavations."
     },
     {
         "id": "foreign_accounts",
         "name": "Foreign Travellers & Accounts",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Covers the critical observations made by Greek, Chinese, and Arab travellers like Megasthenes and Hiuen Tsang."
     },
     {
         "id": "dating_methods",
         "name": "Methods of Dating",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Explains scientific and relative dating techniques like Carbon-14, Stratigraphy, and Paleography."
     },
     {
         "id": "limitations",
         "name": "Limitations & Reconstruction Challenges",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Discusses the scarcity of sources, oral tradition risks, and the impact of climate on preserving historical evidence."
     }
 ];
+
 
 export const ANCIENT_CHAPTER_2_MCQS: Question[] = [
     // ═══════════════════════════════════════════

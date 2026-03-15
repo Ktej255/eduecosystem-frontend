@@ -102,15 +102,15 @@ export default function SimulationView({ simulationType, onClose }: SimulationVi
     return (
         <div className="w-full h-full relative">
             {/* Back Button */}
-            <div className="absolute top-4 left-4 z-20">
+            <div className="absolute top-6 left-6 z-50">
                 <Button
                     variant="ghost"
-                    size="sm"
+                    size="lg"
                     onClick={onClose}
-                    className="bg-slate-900/80 backdrop-blur-sm text-white hover:bg-slate-800"
+                    className="bg-black/40 backdrop-blur-xl text-white border border-white/10 hover:bg-white/10 hover:border-white/20 rounded-2xl px-6 h-14 group transition-all shadow-2xl"
                 >
-                    <ArrowLeft className="w-4 h-4 mr-2" />
-                    Back to Lesson
+                    <ArrowLeft className="w-5 h-5 mr-3 group-hover:-translate-x-1 transition-transform" />
+                    <span className="font-black uppercase tracking-widest text-xs">Exit Lab & Return</span>
                 </Button>
             </div>
 

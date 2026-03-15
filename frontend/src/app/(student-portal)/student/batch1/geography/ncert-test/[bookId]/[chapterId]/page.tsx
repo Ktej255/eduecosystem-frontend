@@ -9,11 +9,33 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, CheckCircle2, XCircle, RotateCcw, AlertTriangle, BookOpen, Clock, Target, ArrowRight } from "lucide-react";
 import { ncertMcqBank } from '@/components/batch1/geography/data/mcqs/ncert-mcqs';
 
-export default function NCERTTestRunner({ params }: { params: { chapterId: string } }) {
+const bookModuleMap: Record<string, string> = {
+    'fundamentals-of-physical-geography': 'physical',
+    'fundamentals-of-human-geography': 'human_geography',
+    'indian-physical-environment': 'indian_physical',
+    'india-people-and-economy': 'india_people'
+};
+
+const bookTitleMap: Record<string, string> = {
+    'fundamentals-of-physical-geography': 'Fundamentals of Physical Geography',
+    'fundamentals-of-human-geography': 'Fundamentals of Human Geography',
+    'indian-physical-environment': 'Indian Physical Environment',
+    'india-people-and-economy': 'India: People and Economy'
+};
+
+export default function NCERTTestRunner({ params }: { params: { bookId: string, chapterId: string } }) {
     const router = useRouter();
-    const chapterId = params.chapterId;
+    const { bookId, chapterId } = params;
     
-    const [questions, setQuestions] = useState(ncertMcqBank.filter(q => q.chapter === chapterId));
+    const targetModule = bookModuleMap[bookId];
+    const bookTitle = bookTitleMap[bookId] || 'NCERT Practice';
+    
+    const [questions, setQuestions] = useState(() => {
+        return ncertMcqBank.filter(q => 
+            q.chapter === chapterId && (targetModule ? q.module === targetModule : true)
+        );
+    });
+
     const [currentIndex, setCurrentIndex] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
     const [isAnswered, setIsAnswered] = useState(false);
@@ -44,8 +66,9 @@ export default function NCERTTestRunner({ params }: { params: { chapterId: strin
             <div className="flex flex-col items-center justify-center min-h-[60vh] text-center p-8 space-y-4">
                 <AlertTriangle className="w-16 h-16 text-amber-500 mb-4" />
                 <h2 className="text-2xl font-black uppercase text-slate-800 dark:text-slate-100">Chapter Not Found</h2>
-                <p className="text-slate-500">No questions found for NCERT Chapter {chapterId}.</p>
-                <Button onClick={() => router.back()} className="mt-4" variant="outline">
+                <p className="text-slate-500 font-medium">{bookTitle}</p>
+                <p className="text-slate-400 text-sm">No questions found for Chapter {chapterId}.</p>
+                <Button onClick={() => router.back()} className="mt-4 border-slate-200" variant="outline">
                     <ArrowLeft className="w-4 h-4 mr-2" /> Return to Dashboard
                 </Button>
             </div>
@@ -68,15 +91,13 @@ export default function NCERTTestRunner({ params }: { params: { chapterId: strin
             setSelectedAnswer(null);
             setIsAnswered(false);
         } else {
-            // Assessment Complete
             setShowResults(true);
         }
     };
     
-    // Result screen
     if (showResults) {
         const percentage = Math.round((score / questions.length) * 100);
-        const passed = percentage >= 60; // 60% passing threshold for Level 1
+        const passed = percentage >= 60; 
         
         return (
             <div className="max-w-4xl mx-auto p-4 sm:p-8 pt-12">
@@ -84,7 +105,7 @@ export default function NCERTTestRunner({ params }: { params: { chapterId: strin
                     <ArrowLeft className="w-4 h-4 mr-2" /> Back to Dashboard
                 </Button>
                 
-                <Card className="text-center overflow-hidden border-0 shadow-2xl rounded-3xl">
+                <Card className="text-center overflow-hidden border-0 shadow-2xl rounded-3xl bg-white dark:bg-slate-900">
                     <div className={`h-32 ${passed ? 'bg-emerald-500' : 'bg-rose-500'} flex items-center justify-center`}>
                         {passed ? <CheckCircle2 className="w-16 h-16 text-white" /> : <XCircle className="w-16 h-16 text-white" />}
                     </div>
@@ -98,12 +119,15 @@ export default function NCERTTestRunner({ params }: { params: { chapterId: strin
                         <h2 className="text-3xl font-black text-slate-800 dark:text-white mt-8 mb-2">
                             {passed ? 'Level 1 Cleared!' : 'More Review Needed'}
                         </h2>
-                        <p className="text-slate-500 font-medium mb-8">
-                            You scored {score} out of {questions.length} on NCERT Chapter {chapterId}.
+                        <p className="text-slate-500 font-medium mb-1">
+                            {bookTitle}
+                        </p>
+                        <p className="text-slate-400 font-medium mb-8 text-sm">
+                            You scored {score} out of {questions.length} on Chapter {chapterId}.
                         </p>
                         
                         <div className="flex justify-center gap-4">
-                            <Button className="h-12 px-8 rounded-xl font-black uppercase text-xs tracking-widest bg-indigo-600 hover:bg-indigo-700 text-white" onClick={() => router.push('/student/batch1/geography')}>
+                            <Button className="h-12 px-8 rounded-xl font-black uppercase text-xs tracking-widest bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-600/30" onClick={() => router.push('/student/batch1/geography')}>
                                 Return to Dashboard
                             </Button>
                             {!passed && (
@@ -134,8 +158,10 @@ export default function NCERTTestRunner({ params }: { params: { chapterId: strin
                         CH {chapterId.padStart(2, '0')}
                     </div>
                     <div>
-                        <h2 className="text-sm font-black text-slate-800 dark:text-slate-100 uppercase tracking-widest">Level 1: NCERT Base</h2>
-                        <span className="text-xs text-slate-500 font-medium">{questions.length} MCQs</span>
+                        <h2 className="text-xs font-black text-slate-800 dark:text-slate-100 uppercase tracking-widest truncate max-w-[200px] sm:max-w-none">
+                            {bookTitle}
+                        </h2>
+                        <span className="text-[10px] text-slate-500 font-bold uppercase tracking-tighter">Level 1 Practice • {questions.length} MCQs</span>
                     </div>
                 </div>
                 
@@ -186,7 +212,7 @@ export default function NCERTTestRunner({ params }: { params: { chapterId: strin
                                     buttonStyle = "border-rose-400 bg-rose-50 text-rose-900";
                                     icon = <XCircle className="w-5 h-5 text-rose-500 flex-shrink-0 mr-4" />;
                                 } else {
-                                    buttonStyle = "border-slate-200 bg-slate-50/50 text-slate-400 opacity-50"; // Dim non-selected wrong answers
+                                    buttonStyle = "border-slate-200 bg-slate-50/50 text-slate-400 opacity-50"; 
                                 }
                             }
 

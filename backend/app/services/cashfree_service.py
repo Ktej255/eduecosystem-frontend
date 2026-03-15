@@ -80,7 +80,7 @@ class CashfreeService:
             hmac.new(
                 self.secret_key.encode('utf-8'),
                 signature_string.encode('utf-8'),
-                hashlib.sha256
+                digestmod='sha256'
             ).digest()
         ).decode()
 

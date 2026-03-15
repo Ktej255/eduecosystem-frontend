@@ -1,32 +1,33 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_17_SUBTOPICS: Question[] = [
+export const ANCIENT_CHAPTER_17_SUBTOPICS: Subtopic[] = [
     {
         "id": "megalithic_culture",
         "name": "Megalithic Background & Iron",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Explores the Iron Age Megalithic burials (Cists, Menhirs) and the technological foundation of South Indian agriculture."
     },
     {
         "id": "sangam_kingdoms",
         "name": "The Three Kingdoms (Chola, Pandya, Chera)",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Discusses the rise of the early Tamil chiefdoms, their royal emblems, and their struggle for peninsular hegemony."
     },
     {
         "id": "social_hierarchy",
         "name": "Social Structure & Class Division",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Analyzes the unique Tamil social landscape (Thinai) and the gradual integration of Northern social concepts."
     },
     {
         "id": "economic_life",
         "name": "Agriculture, Trade & Roman Contact",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Focuses on the lucrative maritime trade with Rome, the role of ports like Arikamedu, and the spice trade."
     },
     {
         "id": "literature_religion",
         "name": "Sangam Literature & Religious Life",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Covers the Tamil Sangam assemblies, secular poetry (Akam/Puram), and the deification of heroes (Nadukal)."
     }
 ];
+
 
 export const ANCIENT_CHAPTER_17_MCQS: Question[] = [
     // ═══════════════════════════════════════════

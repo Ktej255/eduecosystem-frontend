@@ -1,0 +1,5258 @@
+[
+    {
+        "id": "ncert-b3-c1-002",
+        "question": "Who is considered the father of modern human geography?",
+        "options": [
+            "Friedrich Ratzel",
+            "Humboldt",
+            "Ritter",
+            "Blache"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Friedrich Ratzel is regarded as the father of modern human geography.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-003",
+        "question": "Environmental Determinism focuses on:",
+        "options": [
+            "Human impact on nature",
+            "Nature's impact on humans",
+            "Technological growth",
+            "Urbanization"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Environmental Determinism emphasizes natural environment's control over human actions.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-004",
+        "question": "The concept of 'Neo-Determinism' was introduced by:",
+        "options": [
+            "Griffith Taylor",
+            "Ellsworth Huntington",
+            "Lucian Febvre",
+            "Vidal de la Blache"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Griffith Taylor introduced Neo-Determinism or 'Stop and Go Determinism'.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-005",
+        "question": "Who is considered the father of modern human geography? (Variation 2)",
+        "options": [
+            "Friedrich Ratzel",
+            "Humboldt",
+            "Ritter",
+            "Blache"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Friedrich Ratzel is regarded as the father of modern human geography.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-006",
+        "question": "Environmental Determinism focuses on: (Variation 2)",
+        "options": [
+            "Human impact on nature",
+            "Nature's impact on humans",
+            "Technological growth",
+            "Urbanization"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Environmental Determinism emphasizes natural environment's control over human actions.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-007",
+        "question": "The concept of 'Neo-Determinism' was introduced by: (Variation 2)",
+        "options": [
+            "Griffith Taylor",
+            "Ellsworth Huntington",
+            "Lucian Febvre",
+            "Vidal de la Blache"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Griffith Taylor introduced Neo-Determinism or 'Stop and Go Determinism'.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-008",
+        "question": "Who is considered the father of modern human geography? (Variation 3)",
+        "options": [
+            "Friedrich Ratzel",
+            "Humboldt",
+            "Ritter",
+            "Blache"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Friedrich Ratzel is regarded as the father of modern human geography.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-009",
+        "question": "Environmental Determinism focuses on: (Variation 3)",
+        "options": [
+            "Human impact on nature",
+            "Nature's impact on humans",
+            "Technological growth",
+            "Urbanization"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Environmental Determinism emphasizes natural environment's control over human actions.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-010",
+        "question": "The concept of 'Neo-Determinism' was introduced by: (Variation 3)",
+        "options": [
+            "Griffith Taylor",
+            "Ellsworth Huntington",
+            "Lucian Febvre",
+            "Vidal de la Blache"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Griffith Taylor introduced Neo-Determinism or 'Stop and Go Determinism'.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-011",
+        "question": "Who is considered the father of modern human geography? (Variation 4)",
+        "options": [
+            "Friedrich Ratzel",
+            "Humboldt",
+            "Ritter",
+            "Blache"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Friedrich Ratzel is regarded as the father of modern human geography.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-012",
+        "question": "Environmental Determinism focuses on: (Variation 4)",
+        "options": [
+            "Human impact on nature",
+            "Nature's impact on humans",
+            "Technological growth",
+            "Urbanization"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Environmental Determinism emphasizes natural environment's control over human actions.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-013",
+        "question": "The concept of 'Neo-Determinism' was introduced by: (Variation 4)",
+        "options": [
+            "Griffith Taylor",
+            "Ellsworth Huntington",
+            "Lucian Febvre",
+            "Vidal de la Blache"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Griffith Taylor introduced Neo-Determinism or 'Stop and Go Determinism'.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-014",
+        "question": "Who is considered the father of modern human geography? (Variation 5)",
+        "options": [
+            "Friedrich Ratzel",
+            "Humboldt",
+            "Ritter",
+            "Blache"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Friedrich Ratzel is regarded as the father of modern human geography.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-015",
+        "question": "Environmental Determinism focuses on: (Variation 5)",
+        "options": [
+            "Human impact on nature",
+            "Nature's impact on humans",
+            "Technological growth",
+            "Urbanization"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Environmental Determinism emphasizes natural environment's control over human actions.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-016",
+        "question": "The concept of 'Neo-Determinism' was introduced by: (Variation 5)",
+        "options": [
+            "Griffith Taylor",
+            "Ellsworth Huntington",
+            "Lucian Febvre",
+            "Vidal de la Blache"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Griffith Taylor introduced Neo-Determinism or 'Stop and Go Determinism'.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-017",
+        "question": "Who is considered the father of modern human geography? (Variation 6)",
+        "options": [
+            "Friedrich Ratzel",
+            "Humboldt",
+            "Ritter",
+            "Blache"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Friedrich Ratzel is regarded as the father of modern human geography.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-018",
+        "question": "Environmental Determinism focuses on: (Variation 6)",
+        "options": [
+            "Human impact on nature",
+            "Nature's impact on humans",
+            "Technological growth",
+            "Urbanization"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Environmental Determinism emphasizes natural environment's control over human actions.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-019",
+        "question": "The concept of 'Neo-Determinism' was introduced by: (Variation 6)",
+        "options": [
+            "Griffith Taylor",
+            "Ellsworth Huntington",
+            "Lucian Febvre",
+            "Vidal de la Blache"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Griffith Taylor introduced Neo-Determinism or 'Stop and Go Determinism'.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-020",
+        "question": "Who is considered the father of modern human geography? (Variation 7)",
+        "options": [
+            "Friedrich Ratzel",
+            "Humboldt",
+            "Ritter",
+            "Blache"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Friedrich Ratzel is regarded as the father of modern human geography.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-021",
+        "question": "Environmental Determinism focuses on: (Variation 7)",
+        "options": [
+            "Human impact on nature",
+            "Nature's impact on humans",
+            "Technological growth",
+            "Urbanization"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Environmental Determinism emphasizes natural environment's control over human actions.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-022",
+        "question": "The concept of 'Neo-Determinism' was introduced by: (Variation 7)",
+        "options": [
+            "Griffith Taylor",
+            "Ellsworth Huntington",
+            "Lucian Febvre",
+            "Vidal de la Blache"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Griffith Taylor introduced Neo-Determinism or 'Stop and Go Determinism'.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-023",
+        "question": "Who is considered the father of modern human geography? (Variation 8)",
+        "options": [
+            "Friedrich Ratzel",
+            "Humboldt",
+            "Ritter",
+            "Blache"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Friedrich Ratzel is regarded as the father of modern human geography.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-024",
+        "question": "Environmental Determinism focuses on: (Variation 8)",
+        "options": [
+            "Human impact on nature",
+            "Nature's impact on humans",
+            "Technological growth",
+            "Urbanization"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Environmental Determinism emphasizes natural environment's control over human actions.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-025",
+        "question": "The concept of 'Neo-Determinism' was introduced by: (Variation 8)",
+        "options": [
+            "Griffith Taylor",
+            "Ellsworth Huntington",
+            "Lucian Febvre",
+            "Vidal de la Blache"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Griffith Taylor introduced Neo-Determinism or 'Stop and Go Determinism'.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-026",
+        "question": "Who is considered the father of modern human geography? (Variation 9)",
+        "options": [
+            "Friedrich Ratzel",
+            "Humboldt",
+            "Ritter",
+            "Blache"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Friedrich Ratzel is regarded as the father of modern human geography.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-027",
+        "question": "Environmental Determinism focuses on: (Variation 9)",
+        "options": [
+            "Human impact on nature",
+            "Nature's impact on humans",
+            "Technological growth",
+            "Urbanization"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Environmental Determinism emphasizes natural environment's control over human actions.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-028",
+        "question": "The concept of 'Neo-Determinism' was introduced by: (Variation 9)",
+        "options": [
+            "Griffith Taylor",
+            "Ellsworth Huntington",
+            "Lucian Febvre",
+            "Vidal de la Blache"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Griffith Taylor introduced Neo-Determinism or 'Stop and Go Determinism'.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-029",
+        "question": "Who is considered the father of modern human geography? (Variation 10)",
+        "options": [
+            "Friedrich Ratzel",
+            "Humboldt",
+            "Ritter",
+            "Blache"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Friedrich Ratzel is regarded as the father of modern human geography.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-030",
+        "question": "Environmental Determinism focuses on: (Variation 10)",
+        "options": [
+            "Human impact on nature",
+            "Nature's impact on humans",
+            "Technological growth",
+            "Urbanization"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Environmental Determinism emphasizes natural environment's control over human actions.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c1-031",
+        "question": "The concept of 'Neo-Determinism' was introduced by: (Variation 10)",
+        "options": [
+            "Griffith Taylor",
+            "Ellsworth Huntington",
+            "Lucian Febvre",
+            "Vidal de la Blache"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Griffith Taylor introduced Neo-Determinism or 'Stop and Go Determinism'.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 1",
+        "difficulty": "medium",
+        "chapter": "1",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-002",
+        "question": "The most populous country in the world currently is:",
+        "options": [
+            "India",
+            "China",
+            "USA",
+            "Indonesia"
+        ],
+        "correctAnswer": 0,
+        "explanation": "India has recently surpassed China as the most populous country.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-003",
+        "question": "What is the average density of population in the world?",
+        "options": [
+            "45 persons/sq km",
+            "54 persons/sq km",
+            "60 persons/sq km",
+            "100 persons/sq km"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The global average is approximately 54 persons per square kilometer.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-004",
+        "question": "Which continent has the highest growth rate of population?",
+        "options": [
+            "Asia",
+            "Africa",
+            "South America",
+            "Europe"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Africa currently has the highest population growth rate.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-005",
+        "question": "The most populous country in the world currently is: (Variation 2)",
+        "options": [
+            "India",
+            "China",
+            "USA",
+            "Indonesia"
+        ],
+        "correctAnswer": 0,
+        "explanation": "India has recently surpassed China as the most populous country.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-006",
+        "question": "What is the average density of population in the world? (Variation 2)",
+        "options": [
+            "45 persons/sq km",
+            "54 persons/sq km",
+            "60 persons/sq km",
+            "100 persons/sq km"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The global average is approximately 54 persons per square kilometer.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-007",
+        "question": "Which continent has the highest growth rate of population? (Variation 2)",
+        "options": [
+            "Asia",
+            "Africa",
+            "South America",
+            "Europe"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Africa currently has the highest population growth rate.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-008",
+        "question": "The most populous country in the world currently is: (Variation 3)",
+        "options": [
+            "India",
+            "China",
+            "USA",
+            "Indonesia"
+        ],
+        "correctAnswer": 0,
+        "explanation": "India has recently surpassed China as the most populous country.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-009",
+        "question": "What is the average density of population in the world? (Variation 3)",
+        "options": [
+            "45 persons/sq km",
+            "54 persons/sq km",
+            "60 persons/sq km",
+            "100 persons/sq km"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The global average is approximately 54 persons per square kilometer.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-010",
+        "question": "Which continent has the highest growth rate of population? (Variation 3)",
+        "options": [
+            "Asia",
+            "Africa",
+            "South America",
+            "Europe"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Africa currently has the highest population growth rate.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-011",
+        "question": "The most populous country in the world currently is: (Variation 4)",
+        "options": [
+            "India",
+            "China",
+            "USA",
+            "Indonesia"
+        ],
+        "correctAnswer": 0,
+        "explanation": "India has recently surpassed China as the most populous country.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-012",
+        "question": "What is the average density of population in the world? (Variation 4)",
+        "options": [
+            "45 persons/sq km",
+            "54 persons/sq km",
+            "60 persons/sq km",
+            "100 persons/sq km"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The global average is approximately 54 persons per square kilometer.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-013",
+        "question": "Which continent has the highest growth rate of population? (Variation 4)",
+        "options": [
+            "Asia",
+            "Africa",
+            "South America",
+            "Europe"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Africa currently has the highest population growth rate.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-014",
+        "question": "The most populous country in the world currently is: (Variation 5)",
+        "options": [
+            "India",
+            "China",
+            "USA",
+            "Indonesia"
+        ],
+        "correctAnswer": 0,
+        "explanation": "India has recently surpassed China as the most populous country.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-015",
+        "question": "What is the average density of population in the world? (Variation 5)",
+        "options": [
+            "45 persons/sq km",
+            "54 persons/sq km",
+            "60 persons/sq km",
+            "100 persons/sq km"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The global average is approximately 54 persons per square kilometer.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-016",
+        "question": "Which continent has the highest growth rate of population? (Variation 5)",
+        "options": [
+            "Asia",
+            "Africa",
+            "South America",
+            "Europe"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Africa currently has the highest population growth rate.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-017",
+        "question": "The most populous country in the world currently is: (Variation 6)",
+        "options": [
+            "India",
+            "China",
+            "USA",
+            "Indonesia"
+        ],
+        "correctAnswer": 0,
+        "explanation": "India has recently surpassed China as the most populous country.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-018",
+        "question": "What is the average density of population in the world? (Variation 6)",
+        "options": [
+            "45 persons/sq km",
+            "54 persons/sq km",
+            "60 persons/sq km",
+            "100 persons/sq km"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The global average is approximately 54 persons per square kilometer.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-019",
+        "question": "Which continent has the highest growth rate of population? (Variation 6)",
+        "options": [
+            "Asia",
+            "Africa",
+            "South America",
+            "Europe"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Africa currently has the highest population growth rate.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-020",
+        "question": "The most populous country in the world currently is: (Variation 7)",
+        "options": [
+            "India",
+            "China",
+            "USA",
+            "Indonesia"
+        ],
+        "correctAnswer": 0,
+        "explanation": "India has recently surpassed China as the most populous country.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-021",
+        "question": "What is the average density of population in the world? (Variation 7)",
+        "options": [
+            "45 persons/sq km",
+            "54 persons/sq km",
+            "60 persons/sq km",
+            "100 persons/sq km"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The global average is approximately 54 persons per square kilometer.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-022",
+        "question": "Which continent has the highest growth rate of population? (Variation 7)",
+        "options": [
+            "Asia",
+            "Africa",
+            "South America",
+            "Europe"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Africa currently has the highest population growth rate.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-023",
+        "question": "The most populous country in the world currently is: (Variation 8)",
+        "options": [
+            "India",
+            "China",
+            "USA",
+            "Indonesia"
+        ],
+        "correctAnswer": 0,
+        "explanation": "India has recently surpassed China as the most populous country.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-024",
+        "question": "What is the average density of population in the world? (Variation 8)",
+        "options": [
+            "45 persons/sq km",
+            "54 persons/sq km",
+            "60 persons/sq km",
+            "100 persons/sq km"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The global average is approximately 54 persons per square kilometer.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-025",
+        "question": "Which continent has the highest growth rate of population? (Variation 8)",
+        "options": [
+            "Asia",
+            "Africa",
+            "South America",
+            "Europe"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Africa currently has the highest population growth rate.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-026",
+        "question": "The most populous country in the world currently is: (Variation 9)",
+        "options": [
+            "India",
+            "China",
+            "USA",
+            "Indonesia"
+        ],
+        "correctAnswer": 0,
+        "explanation": "India has recently surpassed China as the most populous country.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-027",
+        "question": "What is the average density of population in the world? (Variation 9)",
+        "options": [
+            "45 persons/sq km",
+            "54 persons/sq km",
+            "60 persons/sq km",
+            "100 persons/sq km"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The global average is approximately 54 persons per square kilometer.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-028",
+        "question": "Which continent has the highest growth rate of population? (Variation 9)",
+        "options": [
+            "Asia",
+            "Africa",
+            "South America",
+            "Europe"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Africa currently has the highest population growth rate.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-029",
+        "question": "The most populous country in the world currently is: (Variation 10)",
+        "options": [
+            "India",
+            "China",
+            "USA",
+            "Indonesia"
+        ],
+        "correctAnswer": 0,
+        "explanation": "India has recently surpassed China as the most populous country.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-030",
+        "question": "What is the average density of population in the world? (Variation 10)",
+        "options": [
+            "45 persons/sq km",
+            "54 persons/sq km",
+            "60 persons/sq km",
+            "100 persons/sq km"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The global average is approximately 54 persons per square kilometer.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c2-031",
+        "question": "Which continent has the highest growth rate of population? (Variation 10)",
+        "options": [
+            "Asia",
+            "Africa",
+            "South America",
+            "Europe"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Africa currently has the highest population growth rate.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 2",
+        "difficulty": "medium",
+        "chapter": "2",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-002",
+        "question": "The working age population is generally considered as:",
+        "options": [
+            "15 to 59 years",
+            "18 to 60 years",
+            "0 to 14 years",
+            "60+ years"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The 15-59 age group is the economically active working population.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-003",
+        "question": "Which country has the highest sex ratio in the world?",
+        "options": [
+            "Latvia",
+            "Qatar",
+            "India",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Latvia has one of the highest sex ratios (females per 1000 males).",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-004",
+        "question": "The working age population is generally considered as: (Variation 2)",
+        "options": [
+            "15 to 59 years",
+            "18 to 60 years",
+            "0 to 14 years",
+            "60+ years"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The 15-59 age group is the economically active working population.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-005",
+        "question": "Which country has the highest sex ratio in the world? (Variation 2)",
+        "options": [
+            "Latvia",
+            "Qatar",
+            "India",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Latvia has one of the highest sex ratios (females per 1000 males).",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-006",
+        "question": "The working age population is generally considered as: (Variation 3)",
+        "options": [
+            "15 to 59 years",
+            "18 to 60 years",
+            "0 to 14 years",
+            "60+ years"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The 15-59 age group is the economically active working population.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-007",
+        "question": "Which country has the highest sex ratio in the world? (Variation 3)",
+        "options": [
+            "Latvia",
+            "Qatar",
+            "India",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Latvia has one of the highest sex ratios (females per 1000 males).",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-008",
+        "question": "The working age population is generally considered as: (Variation 4)",
+        "options": [
+            "15 to 59 years",
+            "18 to 60 years",
+            "0 to 14 years",
+            "60+ years"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The 15-59 age group is the economically active working population.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-009",
+        "question": "Which country has the highest sex ratio in the world? (Variation 4)",
+        "options": [
+            "Latvia",
+            "Qatar",
+            "India",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Latvia has one of the highest sex ratios (females per 1000 males).",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-010",
+        "question": "The working age population is generally considered as: (Variation 5)",
+        "options": [
+            "15 to 59 years",
+            "18 to 60 years",
+            "0 to 14 years",
+            "60+ years"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The 15-59 age group is the economically active working population.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-011",
+        "question": "Which country has the highest sex ratio in the world? (Variation 5)",
+        "options": [
+            "Latvia",
+            "Qatar",
+            "India",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Latvia has one of the highest sex ratios (females per 1000 males).",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-012",
+        "question": "The working age population is generally considered as: (Variation 6)",
+        "options": [
+            "15 to 59 years",
+            "18 to 60 years",
+            "0 to 14 years",
+            "60+ years"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The 15-59 age group is the economically active working population.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-013",
+        "question": "Which country has the highest sex ratio in the world? (Variation 6)",
+        "options": [
+            "Latvia",
+            "Qatar",
+            "India",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Latvia has one of the highest sex ratios (females per 1000 males).",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-014",
+        "question": "The working age population is generally considered as: (Variation 7)",
+        "options": [
+            "15 to 59 years",
+            "18 to 60 years",
+            "0 to 14 years",
+            "60+ years"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The 15-59 age group is the economically active working population.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-015",
+        "question": "Which country has the highest sex ratio in the world? (Variation 7)",
+        "options": [
+            "Latvia",
+            "Qatar",
+            "India",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Latvia has one of the highest sex ratios (females per 1000 males).",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-016",
+        "question": "The working age population is generally considered as: (Variation 8)",
+        "options": [
+            "15 to 59 years",
+            "18 to 60 years",
+            "0 to 14 years",
+            "60+ years"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The 15-59 age group is the economically active working population.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-017",
+        "question": "Which country has the highest sex ratio in the world? (Variation 8)",
+        "options": [
+            "Latvia",
+            "Qatar",
+            "India",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Latvia has one of the highest sex ratios (females per 1000 males).",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-018",
+        "question": "The working age population is generally considered as: (Variation 9)",
+        "options": [
+            "15 to 59 years",
+            "18 to 60 years",
+            "0 to 14 years",
+            "60+ years"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The 15-59 age group is the economically active working population.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-019",
+        "question": "Which country has the highest sex ratio in the world? (Variation 9)",
+        "options": [
+            "Latvia",
+            "Qatar",
+            "India",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Latvia has one of the highest sex ratios (females per 1000 males).",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-020",
+        "question": "The working age population is generally considered as: (Variation 10)",
+        "options": [
+            "15 to 59 years",
+            "18 to 60 years",
+            "0 to 14 years",
+            "60+ years"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The 15-59 age group is the economically active working population.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-021",
+        "question": "Which country has the highest sex ratio in the world? (Variation 10)",
+        "options": [
+            "Latvia",
+            "Qatar",
+            "India",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Latvia has one of the highest sex ratios (females per 1000 males).",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-022",
+        "question": "The working age population is generally considered as: (Variation 11)",
+        "options": [
+            "15 to 59 years",
+            "18 to 60 years",
+            "0 to 14 years",
+            "60+ years"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The 15-59 age group is the economically active working population.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-023",
+        "question": "Which country has the highest sex ratio in the world? (Variation 11)",
+        "options": [
+            "Latvia",
+            "Qatar",
+            "India",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Latvia has one of the highest sex ratios (females per 1000 males).",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-024",
+        "question": "The working age population is generally considered as: (Variation 12)",
+        "options": [
+            "15 to 59 years",
+            "18 to 60 years",
+            "0 to 14 years",
+            "60+ years"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The 15-59 age group is the economically active working population.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-025",
+        "question": "Which country has the highest sex ratio in the world? (Variation 12)",
+        "options": [
+            "Latvia",
+            "Qatar",
+            "India",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Latvia has one of the highest sex ratios (females per 1000 males).",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-026",
+        "question": "The working age population is generally considered as: (Variation 13)",
+        "options": [
+            "15 to 59 years",
+            "18 to 60 years",
+            "0 to 14 years",
+            "60+ years"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The 15-59 age group is the economically active working population.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-027",
+        "question": "Which country has the highest sex ratio in the world? (Variation 13)",
+        "options": [
+            "Latvia",
+            "Qatar",
+            "India",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Latvia has one of the highest sex ratios (females per 1000 males).",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-028",
+        "question": "The working age population is generally considered as: (Variation 14)",
+        "options": [
+            "15 to 59 years",
+            "18 to 60 years",
+            "0 to 14 years",
+            "60+ years"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The 15-59 age group is the economically active working population.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-029",
+        "question": "Which country has the highest sex ratio in the world? (Variation 14)",
+        "options": [
+            "Latvia",
+            "Qatar",
+            "India",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Latvia has one of the highest sex ratios (females per 1000 males).",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-030",
+        "question": "The working age population is generally considered as: (Variation 15)",
+        "options": [
+            "15 to 59 years",
+            "18 to 60 years",
+            "0 to 14 years",
+            "60+ years"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The 15-59 age group is the economically active working population.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c3-031",
+        "question": "Which country has the highest sex ratio in the world? (Variation 15)",
+        "options": [
+            "Latvia",
+            "Qatar",
+            "India",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Latvia has one of the highest sex ratios (females per 1000 males).",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 3",
+        "difficulty": "medium",
+        "chapter": "3",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-002",
+        "question": "The Human Development Index (HDI) was developed by:",
+        "options": [
+            "Amartya Sen",
+            "Mahbub-ul-Haq",
+            "Adam Smith",
+            "Karl Marx"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Dr. Mahbub-ul-Haq created the HDI in 1990.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-003",
+        "question": "Which country has consistently ranked first in HDI?",
+        "options": [
+            "Norway",
+            "Switzerland",
+            "Germany",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Norway often tops the HDI rankings due to high life expectancy and income.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-004",
+        "question": "The Human Development Index (HDI) was developed by: (Variation 2)",
+        "options": [
+            "Amartya Sen",
+            "Mahbub-ul-Haq",
+            "Adam Smith",
+            "Karl Marx"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Dr. Mahbub-ul-Haq created the HDI in 1990.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-005",
+        "question": "Which country has consistently ranked first in HDI? (Variation 2)",
+        "options": [
+            "Norway",
+            "Switzerland",
+            "Germany",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Norway often tops the HDI rankings due to high life expectancy and income.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-006",
+        "question": "The Human Development Index (HDI) was developed by: (Variation 3)",
+        "options": [
+            "Amartya Sen",
+            "Mahbub-ul-Haq",
+            "Adam Smith",
+            "Karl Marx"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Dr. Mahbub-ul-Haq created the HDI in 1990.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-007",
+        "question": "Which country has consistently ranked first in HDI? (Variation 3)",
+        "options": [
+            "Norway",
+            "Switzerland",
+            "Germany",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Norway often tops the HDI rankings due to high life expectancy and income.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-008",
+        "question": "The Human Development Index (HDI) was developed by: (Variation 4)",
+        "options": [
+            "Amartya Sen",
+            "Mahbub-ul-Haq",
+            "Adam Smith",
+            "Karl Marx"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Dr. Mahbub-ul-Haq created the HDI in 1990.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-009",
+        "question": "Which country has consistently ranked first in HDI? (Variation 4)",
+        "options": [
+            "Norway",
+            "Switzerland",
+            "Germany",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Norway often tops the HDI rankings due to high life expectancy and income.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-010",
+        "question": "The Human Development Index (HDI) was developed by: (Variation 5)",
+        "options": [
+            "Amartya Sen",
+            "Mahbub-ul-Haq",
+            "Adam Smith",
+            "Karl Marx"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Dr. Mahbub-ul-Haq created the HDI in 1990.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-011",
+        "question": "Which country has consistently ranked first in HDI? (Variation 5)",
+        "options": [
+            "Norway",
+            "Switzerland",
+            "Germany",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Norway often tops the HDI rankings due to high life expectancy and income.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-012",
+        "question": "The Human Development Index (HDI) was developed by: (Variation 6)",
+        "options": [
+            "Amartya Sen",
+            "Mahbub-ul-Haq",
+            "Adam Smith",
+            "Karl Marx"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Dr. Mahbub-ul-Haq created the HDI in 1990.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-013",
+        "question": "Which country has consistently ranked first in HDI? (Variation 6)",
+        "options": [
+            "Norway",
+            "Switzerland",
+            "Germany",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Norway often tops the HDI rankings due to high life expectancy and income.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-014",
+        "question": "The Human Development Index (HDI) was developed by: (Variation 7)",
+        "options": [
+            "Amartya Sen",
+            "Mahbub-ul-Haq",
+            "Adam Smith",
+            "Karl Marx"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Dr. Mahbub-ul-Haq created the HDI in 1990.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-015",
+        "question": "Which country has consistently ranked first in HDI? (Variation 7)",
+        "options": [
+            "Norway",
+            "Switzerland",
+            "Germany",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Norway often tops the HDI rankings due to high life expectancy and income.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-016",
+        "question": "The Human Development Index (HDI) was developed by: (Variation 8)",
+        "options": [
+            "Amartya Sen",
+            "Mahbub-ul-Haq",
+            "Adam Smith",
+            "Karl Marx"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Dr. Mahbub-ul-Haq created the HDI in 1990.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-017",
+        "question": "Which country has consistently ranked first in HDI? (Variation 8)",
+        "options": [
+            "Norway",
+            "Switzerland",
+            "Germany",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Norway often tops the HDI rankings due to high life expectancy and income.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-018",
+        "question": "The Human Development Index (HDI) was developed by: (Variation 9)",
+        "options": [
+            "Amartya Sen",
+            "Mahbub-ul-Haq",
+            "Adam Smith",
+            "Karl Marx"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Dr. Mahbub-ul-Haq created the HDI in 1990.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-019",
+        "question": "Which country has consistently ranked first in HDI? (Variation 9)",
+        "options": [
+            "Norway",
+            "Switzerland",
+            "Germany",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Norway often tops the HDI rankings due to high life expectancy and income.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-020",
+        "question": "The Human Development Index (HDI) was developed by: (Variation 10)",
+        "options": [
+            "Amartya Sen",
+            "Mahbub-ul-Haq",
+            "Adam Smith",
+            "Karl Marx"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Dr. Mahbub-ul-Haq created the HDI in 1990.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-021",
+        "question": "Which country has consistently ranked first in HDI? (Variation 10)",
+        "options": [
+            "Norway",
+            "Switzerland",
+            "Germany",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Norway often tops the HDI rankings due to high life expectancy and income.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-022",
+        "question": "The Human Development Index (HDI) was developed by: (Variation 11)",
+        "options": [
+            "Amartya Sen",
+            "Mahbub-ul-Haq",
+            "Adam Smith",
+            "Karl Marx"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Dr. Mahbub-ul-Haq created the HDI in 1990.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-023",
+        "question": "Which country has consistently ranked first in HDI? (Variation 11)",
+        "options": [
+            "Norway",
+            "Switzerland",
+            "Germany",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Norway often tops the HDI rankings due to high life expectancy and income.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-024",
+        "question": "The Human Development Index (HDI) was developed by: (Variation 12)",
+        "options": [
+            "Amartya Sen",
+            "Mahbub-ul-Haq",
+            "Adam Smith",
+            "Karl Marx"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Dr. Mahbub-ul-Haq created the HDI in 1990.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-025",
+        "question": "Which country has consistently ranked first in HDI? (Variation 12)",
+        "options": [
+            "Norway",
+            "Switzerland",
+            "Germany",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Norway often tops the HDI rankings due to high life expectancy and income.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-026",
+        "question": "The Human Development Index (HDI) was developed by: (Variation 13)",
+        "options": [
+            "Amartya Sen",
+            "Mahbub-ul-Haq",
+            "Adam Smith",
+            "Karl Marx"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Dr. Mahbub-ul-Haq created the HDI in 1990.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-027",
+        "question": "Which country has consistently ranked first in HDI? (Variation 13)",
+        "options": [
+            "Norway",
+            "Switzerland",
+            "Germany",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Norway often tops the HDI rankings due to high life expectancy and income.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-028",
+        "question": "The Human Development Index (HDI) was developed by: (Variation 14)",
+        "options": [
+            "Amartya Sen",
+            "Mahbub-ul-Haq",
+            "Adam Smith",
+            "Karl Marx"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Dr. Mahbub-ul-Haq created the HDI in 1990.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-029",
+        "question": "Which country has consistently ranked first in HDI? (Variation 14)",
+        "options": [
+            "Norway",
+            "Switzerland",
+            "Germany",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Norway often tops the HDI rankings due to high life expectancy and income.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-030",
+        "question": "The Human Development Index (HDI) was developed by: (Variation 15)",
+        "options": [
+            "Amartya Sen",
+            "Mahbub-ul-Haq",
+            "Adam Smith",
+            "Karl Marx"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Dr. Mahbub-ul-Haq created the HDI in 1990.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c4-031",
+        "question": "Which country has consistently ranked first in HDI? (Variation 15)",
+        "options": [
+            "Norway",
+            "Switzerland",
+            "Germany",
+            "USA"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Norway often tops the HDI rankings due to high life expectancy and income.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 4",
+        "difficulty": "medium",
+        "chapter": "4",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-002",
+        "question": "Nomadic herding is also known as:",
+        "options": [
+            "Pastoral Nomadism",
+            "Shifting Cultivation",
+            "Commercial Ranching",
+            "Subsistence Farming"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pastoral nomadism involves moving with livestock for water and pasture.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-003",
+        "question": "Viticulture refers to the cultivation of:",
+        "options": [
+            "Grapes",
+            "Apples",
+            "Oranges",
+            "Flowers"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Viticulture is the specialized cultivation of grapes, often for wine.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-004",
+        "question": "Nomadic herding is also known as: (Variation 2)",
+        "options": [
+            "Pastoral Nomadism",
+            "Shifting Cultivation",
+            "Commercial Ranching",
+            "Subsistence Farming"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pastoral nomadism involves moving with livestock for water and pasture.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-005",
+        "question": "Viticulture refers to the cultivation of: (Variation 2)",
+        "options": [
+            "Grapes",
+            "Apples",
+            "Oranges",
+            "Flowers"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Viticulture is the specialized cultivation of grapes, often for wine.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-006",
+        "question": "Nomadic herding is also known as: (Variation 3)",
+        "options": [
+            "Pastoral Nomadism",
+            "Shifting Cultivation",
+            "Commercial Ranching",
+            "Subsistence Farming"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pastoral nomadism involves moving with livestock for water and pasture.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-007",
+        "question": "Viticulture refers to the cultivation of: (Variation 3)",
+        "options": [
+            "Grapes",
+            "Apples",
+            "Oranges",
+            "Flowers"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Viticulture is the specialized cultivation of grapes, often for wine.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-008",
+        "question": "Nomadic herding is also known as: (Variation 4)",
+        "options": [
+            "Pastoral Nomadism",
+            "Shifting Cultivation",
+            "Commercial Ranching",
+            "Subsistence Farming"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pastoral nomadism involves moving with livestock for water and pasture.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-009",
+        "question": "Viticulture refers to the cultivation of: (Variation 4)",
+        "options": [
+            "Grapes",
+            "Apples",
+            "Oranges",
+            "Flowers"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Viticulture is the specialized cultivation of grapes, often for wine.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-010",
+        "question": "Nomadic herding is also known as: (Variation 5)",
+        "options": [
+            "Pastoral Nomadism",
+            "Shifting Cultivation",
+            "Commercial Ranching",
+            "Subsistence Farming"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pastoral nomadism involves moving with livestock for water and pasture.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-011",
+        "question": "Viticulture refers to the cultivation of: (Variation 5)",
+        "options": [
+            "Grapes",
+            "Apples",
+            "Oranges",
+            "Flowers"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Viticulture is the specialized cultivation of grapes, often for wine.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-012",
+        "question": "Nomadic herding is also known as: (Variation 6)",
+        "options": [
+            "Pastoral Nomadism",
+            "Shifting Cultivation",
+            "Commercial Ranching",
+            "Subsistence Farming"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pastoral nomadism involves moving with livestock for water and pasture.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-013",
+        "question": "Viticulture refers to the cultivation of: (Variation 6)",
+        "options": [
+            "Grapes",
+            "Apples",
+            "Oranges",
+            "Flowers"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Viticulture is the specialized cultivation of grapes, often for wine.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-014",
+        "question": "Nomadic herding is also known as: (Variation 7)",
+        "options": [
+            "Pastoral Nomadism",
+            "Shifting Cultivation",
+            "Commercial Ranching",
+            "Subsistence Farming"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pastoral nomadism involves moving with livestock for water and pasture.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-015",
+        "question": "Viticulture refers to the cultivation of: (Variation 7)",
+        "options": [
+            "Grapes",
+            "Apples",
+            "Oranges",
+            "Flowers"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Viticulture is the specialized cultivation of grapes, often for wine.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-016",
+        "question": "Nomadic herding is also known as: (Variation 8)",
+        "options": [
+            "Pastoral Nomadism",
+            "Shifting Cultivation",
+            "Commercial Ranching",
+            "Subsistence Farming"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pastoral nomadism involves moving with livestock for water and pasture.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-017",
+        "question": "Viticulture refers to the cultivation of: (Variation 8)",
+        "options": [
+            "Grapes",
+            "Apples",
+            "Oranges",
+            "Flowers"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Viticulture is the specialized cultivation of grapes, often for wine.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-018",
+        "question": "Nomadic herding is also known as: (Variation 9)",
+        "options": [
+            "Pastoral Nomadism",
+            "Shifting Cultivation",
+            "Commercial Ranching",
+            "Subsistence Farming"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pastoral nomadism involves moving with livestock for water and pasture.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-019",
+        "question": "Viticulture refers to the cultivation of: (Variation 9)",
+        "options": [
+            "Grapes",
+            "Apples",
+            "Oranges",
+            "Flowers"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Viticulture is the specialized cultivation of grapes, often for wine.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-020",
+        "question": "Nomadic herding is also known as: (Variation 10)",
+        "options": [
+            "Pastoral Nomadism",
+            "Shifting Cultivation",
+            "Commercial Ranching",
+            "Subsistence Farming"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pastoral nomadism involves moving with livestock for water and pasture.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-021",
+        "question": "Viticulture refers to the cultivation of: (Variation 10)",
+        "options": [
+            "Grapes",
+            "Apples",
+            "Oranges",
+            "Flowers"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Viticulture is the specialized cultivation of grapes, often for wine.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-022",
+        "question": "Nomadic herding is also known as: (Variation 11)",
+        "options": [
+            "Pastoral Nomadism",
+            "Shifting Cultivation",
+            "Commercial Ranching",
+            "Subsistence Farming"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pastoral nomadism involves moving with livestock for water and pasture.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-023",
+        "question": "Viticulture refers to the cultivation of: (Variation 11)",
+        "options": [
+            "Grapes",
+            "Apples",
+            "Oranges",
+            "Flowers"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Viticulture is the specialized cultivation of grapes, often for wine.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-024",
+        "question": "Nomadic herding is also known as: (Variation 12)",
+        "options": [
+            "Pastoral Nomadism",
+            "Shifting Cultivation",
+            "Commercial Ranching",
+            "Subsistence Farming"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pastoral nomadism involves moving with livestock for water and pasture.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-025",
+        "question": "Viticulture refers to the cultivation of: (Variation 12)",
+        "options": [
+            "Grapes",
+            "Apples",
+            "Oranges",
+            "Flowers"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Viticulture is the specialized cultivation of grapes, often for wine.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-026",
+        "question": "Nomadic herding is also known as: (Variation 13)",
+        "options": [
+            "Pastoral Nomadism",
+            "Shifting Cultivation",
+            "Commercial Ranching",
+            "Subsistence Farming"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pastoral nomadism involves moving with livestock for water and pasture.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-027",
+        "question": "Viticulture refers to the cultivation of: (Variation 13)",
+        "options": [
+            "Grapes",
+            "Apples",
+            "Oranges",
+            "Flowers"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Viticulture is the specialized cultivation of grapes, often for wine.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-028",
+        "question": "Nomadic herding is also known as: (Variation 14)",
+        "options": [
+            "Pastoral Nomadism",
+            "Shifting Cultivation",
+            "Commercial Ranching",
+            "Subsistence Farming"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pastoral nomadism involves moving with livestock for water and pasture.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-029",
+        "question": "Viticulture refers to the cultivation of: (Variation 14)",
+        "options": [
+            "Grapes",
+            "Apples",
+            "Oranges",
+            "Flowers"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Viticulture is the specialized cultivation of grapes, often for wine.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-030",
+        "question": "Nomadic herding is also known as: (Variation 15)",
+        "options": [
+            "Pastoral Nomadism",
+            "Shifting Cultivation",
+            "Commercial Ranching",
+            "Subsistence Farming"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pastoral nomadism involves moving with livestock for water and pasture.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c5-031",
+        "question": "Viticulture refers to the cultivation of: (Variation 15)",
+        "options": [
+            "Grapes",
+            "Apples",
+            "Oranges",
+            "Flowers"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Viticulture is the specialized cultivation of grapes, often for wine.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 5",
+        "difficulty": "medium",
+        "chapter": "5",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-002",
+        "question": "The Ruhr region, famous for iron and steel, is in:",
+        "options": [
+            "France",
+            "Germany",
+            "UK",
+            "USA"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The Ruhr is Germany's premier industrial and coal-mining region.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-003",
+        "question": "Footloose industries are those which:",
+        "options": [
+            "Are tied to raw materials",
+            "Depend on heavy labor",
+            "Can be located in many places",
+            "Only exist in SEZs"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Footloose industries do not depend on specific raw materials and can be located anywhere.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-004",
+        "question": "The Ruhr region, famous for iron and steel, is in: (Variation 2)",
+        "options": [
+            "France",
+            "Germany",
+            "UK",
+            "USA"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The Ruhr is Germany's premier industrial and coal-mining region.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-005",
+        "question": "Footloose industries are those which: (Variation 2)",
+        "options": [
+            "Are tied to raw materials",
+            "Depend on heavy labor",
+            "Can be located in many places",
+            "Only exist in SEZs"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Footloose industries do not depend on specific raw materials and can be located anywhere.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-006",
+        "question": "The Ruhr region, famous for iron and steel, is in: (Variation 3)",
+        "options": [
+            "France",
+            "Germany",
+            "UK",
+            "USA"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The Ruhr is Germany's premier industrial and coal-mining region.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-007",
+        "question": "Footloose industries are those which: (Variation 3)",
+        "options": [
+            "Are tied to raw materials",
+            "Depend on heavy labor",
+            "Can be located in many places",
+            "Only exist in SEZs"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Footloose industries do not depend on specific raw materials and can be located anywhere.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-008",
+        "question": "The Ruhr region, famous for iron and steel, is in: (Variation 4)",
+        "options": [
+            "France",
+            "Germany",
+            "UK",
+            "USA"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The Ruhr is Germany's premier industrial and coal-mining region.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-009",
+        "question": "Footloose industries are those which: (Variation 4)",
+        "options": [
+            "Are tied to raw materials",
+            "Depend on heavy labor",
+            "Can be located in many places",
+            "Only exist in SEZs"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Footloose industries do not depend on specific raw materials and can be located anywhere.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-010",
+        "question": "The Ruhr region, famous for iron and steel, is in: (Variation 5)",
+        "options": [
+            "France",
+            "Germany",
+            "UK",
+            "USA"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The Ruhr is Germany's premier industrial and coal-mining region.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-011",
+        "question": "Footloose industries are those which: (Variation 5)",
+        "options": [
+            "Are tied to raw materials",
+            "Depend on heavy labor",
+            "Can be located in many places",
+            "Only exist in SEZs"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Footloose industries do not depend on specific raw materials and can be located anywhere.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-012",
+        "question": "The Ruhr region, famous for iron and steel, is in: (Variation 6)",
+        "options": [
+            "France",
+            "Germany",
+            "UK",
+            "USA"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The Ruhr is Germany's premier industrial and coal-mining region.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-013",
+        "question": "Footloose industries are those which: (Variation 6)",
+        "options": [
+            "Are tied to raw materials",
+            "Depend on heavy labor",
+            "Can be located in many places",
+            "Only exist in SEZs"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Footloose industries do not depend on specific raw materials and can be located anywhere.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-014",
+        "question": "The Ruhr region, famous for iron and steel, is in: (Variation 7)",
+        "options": [
+            "France",
+            "Germany",
+            "UK",
+            "USA"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The Ruhr is Germany's premier industrial and coal-mining region.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-015",
+        "question": "Footloose industries are those which: (Variation 7)",
+        "options": [
+            "Are tied to raw materials",
+            "Depend on heavy labor",
+            "Can be located in many places",
+            "Only exist in SEZs"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Footloose industries do not depend on specific raw materials and can be located anywhere.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-016",
+        "question": "The Ruhr region, famous for iron and steel, is in: (Variation 8)",
+        "options": [
+            "France",
+            "Germany",
+            "UK",
+            "USA"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The Ruhr is Germany's premier industrial and coal-mining region.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-017",
+        "question": "Footloose industries are those which: (Variation 8)",
+        "options": [
+            "Are tied to raw materials",
+            "Depend on heavy labor",
+            "Can be located in many places",
+            "Only exist in SEZs"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Footloose industries do not depend on specific raw materials and can be located anywhere.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-018",
+        "question": "The Ruhr region, famous for iron and steel, is in: (Variation 9)",
+        "options": [
+            "France",
+            "Germany",
+            "UK",
+            "USA"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The Ruhr is Germany's premier industrial and coal-mining region.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-019",
+        "question": "Footloose industries are those which: (Variation 9)",
+        "options": [
+            "Are tied to raw materials",
+            "Depend on heavy labor",
+            "Can be located in many places",
+            "Only exist in SEZs"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Footloose industries do not depend on specific raw materials and can be located anywhere.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-020",
+        "question": "The Ruhr region, famous for iron and steel, is in: (Variation 10)",
+        "options": [
+            "France",
+            "Germany",
+            "UK",
+            "USA"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The Ruhr is Germany's premier industrial and coal-mining region.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-021",
+        "question": "Footloose industries are those which: (Variation 10)",
+        "options": [
+            "Are tied to raw materials",
+            "Depend on heavy labor",
+            "Can be located in many places",
+            "Only exist in SEZs"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Footloose industries do not depend on specific raw materials and can be located anywhere.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-022",
+        "question": "The Ruhr region, famous for iron and steel, is in: (Variation 11)",
+        "options": [
+            "France",
+            "Germany",
+            "UK",
+            "USA"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The Ruhr is Germany's premier industrial and coal-mining region.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-023",
+        "question": "Footloose industries are those which: (Variation 11)",
+        "options": [
+            "Are tied to raw materials",
+            "Depend on heavy labor",
+            "Can be located in many places",
+            "Only exist in SEZs"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Footloose industries do not depend on specific raw materials and can be located anywhere.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-024",
+        "question": "The Ruhr region, famous for iron and steel, is in: (Variation 12)",
+        "options": [
+            "France",
+            "Germany",
+            "UK",
+            "USA"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The Ruhr is Germany's premier industrial and coal-mining region.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-025",
+        "question": "Footloose industries are those which: (Variation 12)",
+        "options": [
+            "Are tied to raw materials",
+            "Depend on heavy labor",
+            "Can be located in many places",
+            "Only exist in SEZs"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Footloose industries do not depend on specific raw materials and can be located anywhere.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-026",
+        "question": "The Ruhr region, famous for iron and steel, is in: (Variation 13)",
+        "options": [
+            "France",
+            "Germany",
+            "UK",
+            "USA"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The Ruhr is Germany's premier industrial and coal-mining region.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-027",
+        "question": "Footloose industries are those which: (Variation 13)",
+        "options": [
+            "Are tied to raw materials",
+            "Depend on heavy labor",
+            "Can be located in many places",
+            "Only exist in SEZs"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Footloose industries do not depend on specific raw materials and can be located anywhere.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-028",
+        "question": "The Ruhr region, famous for iron and steel, is in: (Variation 14)",
+        "options": [
+            "France",
+            "Germany",
+            "UK",
+            "USA"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The Ruhr is Germany's premier industrial and coal-mining region.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-029",
+        "question": "Footloose industries are those which: (Variation 14)",
+        "options": [
+            "Are tied to raw materials",
+            "Depend on heavy labor",
+            "Can be located in many places",
+            "Only exist in SEZs"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Footloose industries do not depend on specific raw materials and can be located anywhere.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-030",
+        "question": "The Ruhr region, famous for iron and steel, is in: (Variation 15)",
+        "options": [
+            "France",
+            "Germany",
+            "UK",
+            "USA"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The Ruhr is Germany's premier industrial and coal-mining region.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c6-031",
+        "question": "Footloose industries are those which: (Variation 15)",
+        "options": [
+            "Are tied to raw materials",
+            "Depend on heavy labor",
+            "Can be located in many places",
+            "Only exist in SEZs"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Footloose industries do not depend on specific raw materials and can be located anywhere.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 6",
+        "difficulty": "medium",
+        "chapter": "6",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-002",
+        "question": "The 'Pink Collar' worker refers to:",
+        "options": [
+            "Service sector",
+            "Manufacturing",
+            "Agricultural",
+            "Research"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pink collar jobs are traditionally service-oriented roles.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-003",
+        "question": "BPO stands for:",
+        "options": [
+            "Business Process Outsourcing",
+            "Basic Process Organization",
+            "Border Project Office",
+            "Bureau of Power Operations"
+        ],
+        "correctAnswer": 0,
+        "explanation": "BPO involves outsourcing specific business tasks to third-party providers.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-004",
+        "question": "The 'Pink Collar' worker refers to: (Variation 2)",
+        "options": [
+            "Service sector",
+            "Manufacturing",
+            "Agricultural",
+            "Research"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pink collar jobs are traditionally service-oriented roles.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-005",
+        "question": "BPO stands for: (Variation 2)",
+        "options": [
+            "Business Process Outsourcing",
+            "Basic Process Organization",
+            "Border Project Office",
+            "Bureau of Power Operations"
+        ],
+        "correctAnswer": 0,
+        "explanation": "BPO involves outsourcing specific business tasks to third-party providers.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-006",
+        "question": "The 'Pink Collar' worker refers to: (Variation 3)",
+        "options": [
+            "Service sector",
+            "Manufacturing",
+            "Agricultural",
+            "Research"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pink collar jobs are traditionally service-oriented roles.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-007",
+        "question": "BPO stands for: (Variation 3)",
+        "options": [
+            "Business Process Outsourcing",
+            "Basic Process Organization",
+            "Border Project Office",
+            "Bureau of Power Operations"
+        ],
+        "correctAnswer": 0,
+        "explanation": "BPO involves outsourcing specific business tasks to third-party providers.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-008",
+        "question": "The 'Pink Collar' worker refers to: (Variation 4)",
+        "options": [
+            "Service sector",
+            "Manufacturing",
+            "Agricultural",
+            "Research"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pink collar jobs are traditionally service-oriented roles.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-009",
+        "question": "BPO stands for: (Variation 4)",
+        "options": [
+            "Business Process Outsourcing",
+            "Basic Process Organization",
+            "Border Project Office",
+            "Bureau of Power Operations"
+        ],
+        "correctAnswer": 0,
+        "explanation": "BPO involves outsourcing specific business tasks to third-party providers.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-010",
+        "question": "The 'Pink Collar' worker refers to: (Variation 5)",
+        "options": [
+            "Service sector",
+            "Manufacturing",
+            "Agricultural",
+            "Research"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pink collar jobs are traditionally service-oriented roles.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-011",
+        "question": "BPO stands for: (Variation 5)",
+        "options": [
+            "Business Process Outsourcing",
+            "Basic Process Organization",
+            "Border Project Office",
+            "Bureau of Power Operations"
+        ],
+        "correctAnswer": 0,
+        "explanation": "BPO involves outsourcing specific business tasks to third-party providers.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-012",
+        "question": "The 'Pink Collar' worker refers to: (Variation 6)",
+        "options": [
+            "Service sector",
+            "Manufacturing",
+            "Agricultural",
+            "Research"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pink collar jobs are traditionally service-oriented roles.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-013",
+        "question": "BPO stands for: (Variation 6)",
+        "options": [
+            "Business Process Outsourcing",
+            "Basic Process Organization",
+            "Border Project Office",
+            "Bureau of Power Operations"
+        ],
+        "correctAnswer": 0,
+        "explanation": "BPO involves outsourcing specific business tasks to third-party providers.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-014",
+        "question": "The 'Pink Collar' worker refers to: (Variation 7)",
+        "options": [
+            "Service sector",
+            "Manufacturing",
+            "Agricultural",
+            "Research"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pink collar jobs are traditionally service-oriented roles.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-015",
+        "question": "BPO stands for: (Variation 7)",
+        "options": [
+            "Business Process Outsourcing",
+            "Basic Process Organization",
+            "Border Project Office",
+            "Bureau of Power Operations"
+        ],
+        "correctAnswer": 0,
+        "explanation": "BPO involves outsourcing specific business tasks to third-party providers.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-016",
+        "question": "The 'Pink Collar' worker refers to: (Variation 8)",
+        "options": [
+            "Service sector",
+            "Manufacturing",
+            "Agricultural",
+            "Research"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pink collar jobs are traditionally service-oriented roles.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-017",
+        "question": "BPO stands for: (Variation 8)",
+        "options": [
+            "Business Process Outsourcing",
+            "Basic Process Organization",
+            "Border Project Office",
+            "Bureau of Power Operations"
+        ],
+        "correctAnswer": 0,
+        "explanation": "BPO involves outsourcing specific business tasks to third-party providers.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-018",
+        "question": "The 'Pink Collar' worker refers to: (Variation 9)",
+        "options": [
+            "Service sector",
+            "Manufacturing",
+            "Agricultural",
+            "Research"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pink collar jobs are traditionally service-oriented roles.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-019",
+        "question": "BPO stands for: (Variation 9)",
+        "options": [
+            "Business Process Outsourcing",
+            "Basic Process Organization",
+            "Border Project Office",
+            "Bureau of Power Operations"
+        ],
+        "correctAnswer": 0,
+        "explanation": "BPO involves outsourcing specific business tasks to third-party providers.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-020",
+        "question": "The 'Pink Collar' worker refers to: (Variation 10)",
+        "options": [
+            "Service sector",
+            "Manufacturing",
+            "Agricultural",
+            "Research"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pink collar jobs are traditionally service-oriented roles.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-021",
+        "question": "BPO stands for: (Variation 10)",
+        "options": [
+            "Business Process Outsourcing",
+            "Basic Process Organization",
+            "Border Project Office",
+            "Bureau of Power Operations"
+        ],
+        "correctAnswer": 0,
+        "explanation": "BPO involves outsourcing specific business tasks to third-party providers.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-022",
+        "question": "The 'Pink Collar' worker refers to: (Variation 11)",
+        "options": [
+            "Service sector",
+            "Manufacturing",
+            "Agricultural",
+            "Research"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pink collar jobs are traditionally service-oriented roles.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-023",
+        "question": "BPO stands for: (Variation 11)",
+        "options": [
+            "Business Process Outsourcing",
+            "Basic Process Organization",
+            "Border Project Office",
+            "Bureau of Power Operations"
+        ],
+        "correctAnswer": 0,
+        "explanation": "BPO involves outsourcing specific business tasks to third-party providers.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-024",
+        "question": "The 'Pink Collar' worker refers to: (Variation 12)",
+        "options": [
+            "Service sector",
+            "Manufacturing",
+            "Agricultural",
+            "Research"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pink collar jobs are traditionally service-oriented roles.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-025",
+        "question": "BPO stands for: (Variation 12)",
+        "options": [
+            "Business Process Outsourcing",
+            "Basic Process Organization",
+            "Border Project Office",
+            "Bureau of Power Operations"
+        ],
+        "correctAnswer": 0,
+        "explanation": "BPO involves outsourcing specific business tasks to third-party providers.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-026",
+        "question": "The 'Pink Collar' worker refers to: (Variation 13)",
+        "options": [
+            "Service sector",
+            "Manufacturing",
+            "Agricultural",
+            "Research"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pink collar jobs are traditionally service-oriented roles.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-027",
+        "question": "BPO stands for: (Variation 13)",
+        "options": [
+            "Business Process Outsourcing",
+            "Basic Process Organization",
+            "Border Project Office",
+            "Bureau of Power Operations"
+        ],
+        "correctAnswer": 0,
+        "explanation": "BPO involves outsourcing specific business tasks to third-party providers.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-028",
+        "question": "The 'Pink Collar' worker refers to: (Variation 14)",
+        "options": [
+            "Service sector",
+            "Manufacturing",
+            "Agricultural",
+            "Research"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pink collar jobs are traditionally service-oriented roles.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-029",
+        "question": "BPO stands for: (Variation 14)",
+        "options": [
+            "Business Process Outsourcing",
+            "Basic Process Organization",
+            "Border Project Office",
+            "Bureau of Power Operations"
+        ],
+        "correctAnswer": 0,
+        "explanation": "BPO involves outsourcing specific business tasks to third-party providers.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-030",
+        "question": "The 'Pink Collar' worker refers to: (Variation 15)",
+        "options": [
+            "Service sector",
+            "Manufacturing",
+            "Agricultural",
+            "Research"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Pink collar jobs are traditionally service-oriented roles.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c7-031",
+        "question": "BPO stands for: (Variation 15)",
+        "options": [
+            "Business Process Outsourcing",
+            "Basic Process Organization",
+            "Border Project Office",
+            "Bureau of Power Operations"
+        ],
+        "correctAnswer": 0,
+        "explanation": "BPO involves outsourcing specific business tasks to third-party providers.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 7",
+        "difficulty": "medium",
+        "chapter": "7",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-002",
+        "question": "The Suez Canal connects:",
+        "options": [
+            "Mediterranean Sea and Red Sea",
+            "Atlantic Ocean and Pacific Ocean",
+            "North Sea and Baltic Sea",
+            "Indian Ocean and Red Sea"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Suez Canal is a vital link between the Mediterranean and the Red Sea.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-003",
+        "question": "The 'Big Trunk Route' refers to:",
+        "options": [
+            "North Atlantic Oceanic Route",
+            "South Atlantic Route",
+            "Suez Canal Route",
+            "Panama Canal Route"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The North Atlantic route is the busiest oceanic trade route.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-004",
+        "question": "The Suez Canal connects: (Variation 2)",
+        "options": [
+            "Mediterranean Sea and Red Sea",
+            "Atlantic Ocean and Pacific Ocean",
+            "North Sea and Baltic Sea",
+            "Indian Ocean and Red Sea"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Suez Canal is a vital link between the Mediterranean and the Red Sea.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-005",
+        "question": "The 'Big Trunk Route' refers to: (Variation 2)",
+        "options": [
+            "North Atlantic Oceanic Route",
+            "South Atlantic Route",
+            "Suez Canal Route",
+            "Panama Canal Route"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The North Atlantic route is the busiest oceanic trade route.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-006",
+        "question": "The Suez Canal connects: (Variation 3)",
+        "options": [
+            "Mediterranean Sea and Red Sea",
+            "Atlantic Ocean and Pacific Ocean",
+            "North Sea and Baltic Sea",
+            "Indian Ocean and Red Sea"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Suez Canal is a vital link between the Mediterranean and the Red Sea.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-007",
+        "question": "The 'Big Trunk Route' refers to: (Variation 3)",
+        "options": [
+            "North Atlantic Oceanic Route",
+            "South Atlantic Route",
+            "Suez Canal Route",
+            "Panama Canal Route"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The North Atlantic route is the busiest oceanic trade route.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-008",
+        "question": "The Suez Canal connects: (Variation 4)",
+        "options": [
+            "Mediterranean Sea and Red Sea",
+            "Atlantic Ocean and Pacific Ocean",
+            "North Sea and Baltic Sea",
+            "Indian Ocean and Red Sea"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Suez Canal is a vital link between the Mediterranean and the Red Sea.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-009",
+        "question": "The 'Big Trunk Route' refers to: (Variation 4)",
+        "options": [
+            "North Atlantic Oceanic Route",
+            "South Atlantic Route",
+            "Suez Canal Route",
+            "Panama Canal Route"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The North Atlantic route is the busiest oceanic trade route.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-010",
+        "question": "The Suez Canal connects: (Variation 5)",
+        "options": [
+            "Mediterranean Sea and Red Sea",
+            "Atlantic Ocean and Pacific Ocean",
+            "North Sea and Baltic Sea",
+            "Indian Ocean and Red Sea"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Suez Canal is a vital link between the Mediterranean and the Red Sea.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-011",
+        "question": "The 'Big Trunk Route' refers to: (Variation 5)",
+        "options": [
+            "North Atlantic Oceanic Route",
+            "South Atlantic Route",
+            "Suez Canal Route",
+            "Panama Canal Route"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The North Atlantic route is the busiest oceanic trade route.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-012",
+        "question": "The Suez Canal connects: (Variation 6)",
+        "options": [
+            "Mediterranean Sea and Red Sea",
+            "Atlantic Ocean and Pacific Ocean",
+            "North Sea and Baltic Sea",
+            "Indian Ocean and Red Sea"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Suez Canal is a vital link between the Mediterranean and the Red Sea.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-013",
+        "question": "The 'Big Trunk Route' refers to: (Variation 6)",
+        "options": [
+            "North Atlantic Oceanic Route",
+            "South Atlantic Route",
+            "Suez Canal Route",
+            "Panama Canal Route"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The North Atlantic route is the busiest oceanic trade route.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-014",
+        "question": "The Suez Canal connects: (Variation 7)",
+        "options": [
+            "Mediterranean Sea and Red Sea",
+            "Atlantic Ocean and Pacific Ocean",
+            "North Sea and Baltic Sea",
+            "Indian Ocean and Red Sea"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Suez Canal is a vital link between the Mediterranean and the Red Sea.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-015",
+        "question": "The 'Big Trunk Route' refers to: (Variation 7)",
+        "options": [
+            "North Atlantic Oceanic Route",
+            "South Atlantic Route",
+            "Suez Canal Route",
+            "Panama Canal Route"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The North Atlantic route is the busiest oceanic trade route.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-016",
+        "question": "The Suez Canal connects: (Variation 8)",
+        "options": [
+            "Mediterranean Sea and Red Sea",
+            "Atlantic Ocean and Pacific Ocean",
+            "North Sea and Baltic Sea",
+            "Indian Ocean and Red Sea"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Suez Canal is a vital link between the Mediterranean and the Red Sea.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-017",
+        "question": "The 'Big Trunk Route' refers to: (Variation 8)",
+        "options": [
+            "North Atlantic Oceanic Route",
+            "South Atlantic Route",
+            "Suez Canal Route",
+            "Panama Canal Route"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The North Atlantic route is the busiest oceanic trade route.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-018",
+        "question": "The Suez Canal connects: (Variation 9)",
+        "options": [
+            "Mediterranean Sea and Red Sea",
+            "Atlantic Ocean and Pacific Ocean",
+            "North Sea and Baltic Sea",
+            "Indian Ocean and Red Sea"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Suez Canal is a vital link between the Mediterranean and the Red Sea.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-019",
+        "question": "The 'Big Trunk Route' refers to: (Variation 9)",
+        "options": [
+            "North Atlantic Oceanic Route",
+            "South Atlantic Route",
+            "Suez Canal Route",
+            "Panama Canal Route"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The North Atlantic route is the busiest oceanic trade route.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-020",
+        "question": "The Suez Canal connects: (Variation 10)",
+        "options": [
+            "Mediterranean Sea and Red Sea",
+            "Atlantic Ocean and Pacific Ocean",
+            "North Sea and Baltic Sea",
+            "Indian Ocean and Red Sea"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Suez Canal is a vital link between the Mediterranean and the Red Sea.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-021",
+        "question": "The 'Big Trunk Route' refers to: (Variation 10)",
+        "options": [
+            "North Atlantic Oceanic Route",
+            "South Atlantic Route",
+            "Suez Canal Route",
+            "Panama Canal Route"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The North Atlantic route is the busiest oceanic trade route.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-022",
+        "question": "The Suez Canal connects: (Variation 11)",
+        "options": [
+            "Mediterranean Sea and Red Sea",
+            "Atlantic Ocean and Pacific Ocean",
+            "North Sea and Baltic Sea",
+            "Indian Ocean and Red Sea"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Suez Canal is a vital link between the Mediterranean and the Red Sea.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-023",
+        "question": "The 'Big Trunk Route' refers to: (Variation 11)",
+        "options": [
+            "North Atlantic Oceanic Route",
+            "South Atlantic Route",
+            "Suez Canal Route",
+            "Panama Canal Route"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The North Atlantic route is the busiest oceanic trade route.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-024",
+        "question": "The Suez Canal connects: (Variation 12)",
+        "options": [
+            "Mediterranean Sea and Red Sea",
+            "Atlantic Ocean and Pacific Ocean",
+            "North Sea and Baltic Sea",
+            "Indian Ocean and Red Sea"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Suez Canal is a vital link between the Mediterranean and the Red Sea.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-025",
+        "question": "The 'Big Trunk Route' refers to: (Variation 12)",
+        "options": [
+            "North Atlantic Oceanic Route",
+            "South Atlantic Route",
+            "Suez Canal Route",
+            "Panama Canal Route"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The North Atlantic route is the busiest oceanic trade route.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-026",
+        "question": "The Suez Canal connects: (Variation 13)",
+        "options": [
+            "Mediterranean Sea and Red Sea",
+            "Atlantic Ocean and Pacific Ocean",
+            "North Sea and Baltic Sea",
+            "Indian Ocean and Red Sea"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Suez Canal is a vital link between the Mediterranean and the Red Sea.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-027",
+        "question": "The 'Big Trunk Route' refers to: (Variation 13)",
+        "options": [
+            "North Atlantic Oceanic Route",
+            "South Atlantic Route",
+            "Suez Canal Route",
+            "Panama Canal Route"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The North Atlantic route is the busiest oceanic trade route.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-028",
+        "question": "The Suez Canal connects: (Variation 14)",
+        "options": [
+            "Mediterranean Sea and Red Sea",
+            "Atlantic Ocean and Pacific Ocean",
+            "North Sea and Baltic Sea",
+            "Indian Ocean and Red Sea"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Suez Canal is a vital link between the Mediterranean and the Red Sea.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-029",
+        "question": "The 'Big Trunk Route' refers to: (Variation 14)",
+        "options": [
+            "North Atlantic Oceanic Route",
+            "South Atlantic Route",
+            "Suez Canal Route",
+            "Panama Canal Route"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The North Atlantic route is the busiest oceanic trade route.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-030",
+        "question": "The Suez Canal connects: (Variation 15)",
+        "options": [
+            "Mediterranean Sea and Red Sea",
+            "Atlantic Ocean and Pacific Ocean",
+            "North Sea and Baltic Sea",
+            "Indian Ocean and Red Sea"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The Suez Canal is a vital link between the Mediterranean and the Red Sea.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c8-031",
+        "question": "The 'Big Trunk Route' refers to: (Variation 15)",
+        "options": [
+            "North Atlantic Oceanic Route",
+            "South Atlantic Route",
+            "Suez Canal Route",
+            "Panama Canal Route"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The North Atlantic route is the busiest oceanic trade route.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 8",
+        "difficulty": "medium",
+        "chapter": "8",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-002",
+        "question": "WTO was established in:",
+        "options": [
+            "1945",
+            "1995",
+            "1991",
+            "2000"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The World Trade Organization succeeded GATT in 1995.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-003",
+        "question": "OPEC is a group of countries concerned with:",
+        "options": [
+            "Oil",
+            "Coffee",
+            "Wheat",
+            "Technology"
+        ],
+        "correctAnswer": 0,
+        "explanation": "OPEC regulates the petroleum policies of its member nations.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-004",
+        "question": "WTO was established in: (Variation 2)",
+        "options": [
+            "1945",
+            "1995",
+            "1991",
+            "2000"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The World Trade Organization succeeded GATT in 1995.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-005",
+        "question": "OPEC is a group of countries concerned with: (Variation 2)",
+        "options": [
+            "Oil",
+            "Coffee",
+            "Wheat",
+            "Technology"
+        ],
+        "correctAnswer": 0,
+        "explanation": "OPEC regulates the petroleum policies of its member nations.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-006",
+        "question": "WTO was established in: (Variation 3)",
+        "options": [
+            "1945",
+            "1995",
+            "1991",
+            "2000"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The World Trade Organization succeeded GATT in 1995.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-007",
+        "question": "OPEC is a group of countries concerned with: (Variation 3)",
+        "options": [
+            "Oil",
+            "Coffee",
+            "Wheat",
+            "Technology"
+        ],
+        "correctAnswer": 0,
+        "explanation": "OPEC regulates the petroleum policies of its member nations.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-008",
+        "question": "WTO was established in: (Variation 4)",
+        "options": [
+            "1945",
+            "1995",
+            "1991",
+            "2000"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The World Trade Organization succeeded GATT in 1995.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-009",
+        "question": "OPEC is a group of countries concerned with: (Variation 4)",
+        "options": [
+            "Oil",
+            "Coffee",
+            "Wheat",
+            "Technology"
+        ],
+        "correctAnswer": 0,
+        "explanation": "OPEC regulates the petroleum policies of its member nations.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-010",
+        "question": "WTO was established in: (Variation 5)",
+        "options": [
+            "1945",
+            "1995",
+            "1991",
+            "2000"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The World Trade Organization succeeded GATT in 1995.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-011",
+        "question": "OPEC is a group of countries concerned with: (Variation 5)",
+        "options": [
+            "Oil",
+            "Coffee",
+            "Wheat",
+            "Technology"
+        ],
+        "correctAnswer": 0,
+        "explanation": "OPEC regulates the petroleum policies of its member nations.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-012",
+        "question": "WTO was established in: (Variation 6)",
+        "options": [
+            "1945",
+            "1995",
+            "1991",
+            "2000"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The World Trade Organization succeeded GATT in 1995.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-013",
+        "question": "OPEC is a group of countries concerned with: (Variation 6)",
+        "options": [
+            "Oil",
+            "Coffee",
+            "Wheat",
+            "Technology"
+        ],
+        "correctAnswer": 0,
+        "explanation": "OPEC regulates the petroleum policies of its member nations.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-014",
+        "question": "WTO was established in: (Variation 7)",
+        "options": [
+            "1945",
+            "1995",
+            "1991",
+            "2000"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The World Trade Organization succeeded GATT in 1995.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-015",
+        "question": "OPEC is a group of countries concerned with: (Variation 7)",
+        "options": [
+            "Oil",
+            "Coffee",
+            "Wheat",
+            "Technology"
+        ],
+        "correctAnswer": 0,
+        "explanation": "OPEC regulates the petroleum policies of its member nations.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-016",
+        "question": "WTO was established in: (Variation 8)",
+        "options": [
+            "1945",
+            "1995",
+            "1991",
+            "2000"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The World Trade Organization succeeded GATT in 1995.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-017",
+        "question": "OPEC is a group of countries concerned with: (Variation 8)",
+        "options": [
+            "Oil",
+            "Coffee",
+            "Wheat",
+            "Technology"
+        ],
+        "correctAnswer": 0,
+        "explanation": "OPEC regulates the petroleum policies of its member nations.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-018",
+        "question": "WTO was established in: (Variation 9)",
+        "options": [
+            "1945",
+            "1995",
+            "1991",
+            "2000"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The World Trade Organization succeeded GATT in 1995.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-019",
+        "question": "OPEC is a group of countries concerned with: (Variation 9)",
+        "options": [
+            "Oil",
+            "Coffee",
+            "Wheat",
+            "Technology"
+        ],
+        "correctAnswer": 0,
+        "explanation": "OPEC regulates the petroleum policies of its member nations.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-020",
+        "question": "WTO was established in: (Variation 10)",
+        "options": [
+            "1945",
+            "1995",
+            "1991",
+            "2000"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The World Trade Organization succeeded GATT in 1995.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-021",
+        "question": "OPEC is a group of countries concerned with: (Variation 10)",
+        "options": [
+            "Oil",
+            "Coffee",
+            "Wheat",
+            "Technology"
+        ],
+        "correctAnswer": 0,
+        "explanation": "OPEC regulates the petroleum policies of its member nations.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-022",
+        "question": "WTO was established in: (Variation 11)",
+        "options": [
+            "1945",
+            "1995",
+            "1991",
+            "2000"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The World Trade Organization succeeded GATT in 1995.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-023",
+        "question": "OPEC is a group of countries concerned with: (Variation 11)",
+        "options": [
+            "Oil",
+            "Coffee",
+            "Wheat",
+            "Technology"
+        ],
+        "correctAnswer": 0,
+        "explanation": "OPEC regulates the petroleum policies of its member nations.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-024",
+        "question": "WTO was established in: (Variation 12)",
+        "options": [
+            "1945",
+            "1995",
+            "1991",
+            "2000"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The World Trade Organization succeeded GATT in 1995.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-025",
+        "question": "OPEC is a group of countries concerned with: (Variation 12)",
+        "options": [
+            "Oil",
+            "Coffee",
+            "Wheat",
+            "Technology"
+        ],
+        "correctAnswer": 0,
+        "explanation": "OPEC regulates the petroleum policies of its member nations.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-026",
+        "question": "WTO was established in: (Variation 13)",
+        "options": [
+            "1945",
+            "1995",
+            "1991",
+            "2000"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The World Trade Organization succeeded GATT in 1995.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-027",
+        "question": "OPEC is a group of countries concerned with: (Variation 13)",
+        "options": [
+            "Oil",
+            "Coffee",
+            "Wheat",
+            "Technology"
+        ],
+        "correctAnswer": 0,
+        "explanation": "OPEC regulates the petroleum policies of its member nations.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-028",
+        "question": "WTO was established in: (Variation 14)",
+        "options": [
+            "1945",
+            "1995",
+            "1991",
+            "2000"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The World Trade Organization succeeded GATT in 1995.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-029",
+        "question": "OPEC is a group of countries concerned with: (Variation 14)",
+        "options": [
+            "Oil",
+            "Coffee",
+            "Wheat",
+            "Technology"
+        ],
+        "correctAnswer": 0,
+        "explanation": "OPEC regulates the petroleum policies of its member nations.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-030",
+        "question": "WTO was established in: (Variation 15)",
+        "options": [
+            "1945",
+            "1995",
+            "1991",
+            "2000"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The World Trade Organization succeeded GATT in 1995.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c9-031",
+        "question": "OPEC is a group of countries concerned with: (Variation 15)",
+        "options": [
+            "Oil",
+            "Coffee",
+            "Wheat",
+            "Technology"
+        ],
+        "correctAnswer": 0,
+        "explanation": "OPEC regulates the petroleum policies of its member nations.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 9",
+        "difficulty": "medium",
+        "chapter": "9",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c10-002",
+        "question": "A 'Megalopolis' is formed by the union of:",
+        "options": [
+            "Two cities",
+            "Several conurbations",
+            "Villages and towns",
+            "States"
+        ],
+        "correctAnswer": 1,
+        "explanation": "A Megalopolis is a chain of roughly adjacent metropolitan areas.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 10",
+        "difficulty": "medium",
+        "chapter": "10",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c10-003",
+        "question": "The term 'Conurbation' was coined by:",
+        "options": [
+            "Patrick Geddes",
+            "Lewis Mumford",
+            "Jean Gottman",
+            "Ebenezer Howard"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Patrick Geddes coined the term 'Conurbation' in 1915.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 10",
+        "difficulty": "medium",
+        "chapter": "10",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c10-004",
+        "question": "A 'Megalopolis' is formed by the union of: (Variation 2)",
+        "options": [
+            "Two cities",
+            "Several conurbations",
+            "Villages and towns",
+            "States"
+        ],
+        "correctAnswer": 1,
+        "explanation": "A Megalopolis is a chain of roughly adjacent metropolitan areas.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 10",
+        "difficulty": "medium",
+        "chapter": "10",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c10-005",
+        "question": "The term 'Conurbation' was coined by: (Variation 2)",
+        "options": [
+            "Patrick Geddes",
+            "Lewis Mumford",
+            "Jean Gottman",
+            "Ebenezer Howard"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Patrick Geddes coined the term 'Conurbation' in 1915.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 10",
+        "difficulty": "medium",
+        "chapter": "10",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c10-006",
+        "question": "A 'Megalopolis' is formed by the union of: (Variation 3)",
+        "options": [
+            "Two cities",
+            "Several conurbations",
+            "Villages and towns",
+            "States"
+        ],
+        "correctAnswer": 1,
+        "explanation": "A Megalopolis is a chain of roughly adjacent metropolitan areas.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 10",
+        "difficulty": "medium",
+        "chapter": "10",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c10-007",
+        "question": "The term 'Conurbation' was coined by: (Variation 3)",
+        "options": [
+            "Patrick Geddes",
+            "Lewis Mumford",
+            "Jean Gottman",
+            "Ebenezer Howard"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Patrick Geddes coined the term 'Conurbation' in 1915.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 10",
+        "difficulty": "medium",
+        "chapter": "10",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c10-008",
+        "question": "A 'Megalopolis' is formed by the union of: (Variation 4)",
+        "options": [
+            "Two cities",
+            "Several conurbations",
+            "Villages and towns",
+            "States"
+        ],
+        "correctAnswer": 1,
+        "explanation": "A Megalopolis is a chain of roughly adjacent metropolitan areas.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 10",
+        "difficulty": "medium",
+        "chapter": "10",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c10-009",
+        "question": "The term 'Conurbation' was coined by: (Variation 4)",
+        "options": [
+            "Patrick Geddes",
+            "Lewis Mumford",
+            "Jean Gottman",
+            "Ebenezer Howard"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Patrick Geddes coined the term 'Conurbation' in 1915.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 10",
+        "difficulty": "medium",
+        "chapter": "10",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c10-010",
+        "question": "A 'Megalopolis' is formed by the union of: (Variation 5)",
+        "options": [
+            "Two cities",
+            "Several conurbations",
+            "Villages and towns",
+            "States"
+        ],
+        "correctAnswer": 1,
+        "explanation": "A Megalopolis is a chain of roughly adjacent metropolitan areas.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 10",
+        "difficulty": "medium",
+        "chapter": "10",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c10-011",
+        "question": "The term 'Conurbation' was coined by: (Variation 5)",
+        "options": [
+            "Patrick Geddes",
+            "Lewis Mumford",
+            "Jean Gottman",
+            "Ebenezer Howard"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Patrick Geddes coined the term 'Conurbation' in 1915.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 10",
+        "difficulty": "medium",
+        "chapter": "10",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c10-012",
+        "question": "A 'Megalopolis' is formed by the union of: (Variation 6)",
+        "options": [
+            "Two cities",
+            "Several conurbations",
+            "Villages and towns",
+            "States"
+        ],
+        "correctAnswer": 1,
+        "explanation": "A Megalopolis is a chain of roughly adjacent metropolitan areas.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 10",
+        "difficulty": "medium",
+        "chapter": "10",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c10-013",
+        "question": "The term 'Conurbation' was coined by: (Variation 6)",
+        "options": [
+            "Patrick Geddes",
+            "Lewis Mumford",
+            "Jean Gottman",
+            "Ebenezer Howard"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Patrick Geddes coined the term 'Conurbation' in 1915.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 10",
+        "difficulty": "medium",
+        "chapter": "10",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c10-014",
+        "question": "A 'Megalopolis' is formed by the union of: (Variation 7)",
+        "options": [
+            "Two cities",
+            "Several conurbations",
+            "Villages and towns",
+            "States"
+        ],
+        "correctAnswer": 1,
+        "explanation": "A Megalopolis is a chain of roughly adjacent metropolitan areas.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 10",
+        "difficulty": "medium",
+        "chapter": "10",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c10-015",
+        "question": "The term 'Conurbation' was coined by: (Variation 7)",
+        "options": [
+            "Patrick Geddes",
+            "Lewis Mumford",
+            "Jean Gottman",
+            "Ebenezer Howard"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Patrick Geddes coined the term 'Conurbation' in 1915.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 10",
+        "difficulty": "medium",
+        "chapter": "10",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c10-016",
+        "question": "A 'Megalopolis' is formed by the union of: (Variation 8)",
+        "options": [
+            "Two cities",
+            "Several conurbations",
+            "Villages and towns",
+            "States"
+        ],
+        "correctAnswer": 1,
+        "explanation": "A Megalopolis is a chain of roughly adjacent metropolitan areas.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 10",
+        "difficulty": "medium",
+        "chapter": "10",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c10-017",
+        "question": "The term 'Conurbation' was coined by: (Variation 8)",
+        "options": [
+            "Patrick Geddes",
+            "Lewis Mumford",
+            "Jean Gottman",
+            "Ebenezer Howard"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Patrick Geddes coined the term 'Conurbation' in 1915.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 10",
+        "difficulty": "medium",
+        "chapter": "10",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c10-018",
+        "question": "A 'Megalopolis' is formed by the union of: (Variation 9)",
+        "options": [
+            "Two cities",
+            "Several conurbations",
+            "Villages and towns",
+            "States"
+        ],
+        "correctAnswer": 1,
+        "explanation": "A Megalopolis is a chain of roughly adjacent metropolitan areas.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 10",
+        "difficulty": "medium",
+        "chapter": "10",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c10-019",
+        "question": "The term 'Conurbation' was coined by: (Variation 9)",
+        "options": [
+            "Patrick Geddes",
+            "Lewis Mumford",
+            "Jean Gottman",
+            "Ebenezer Howard"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Patrick Geddes coined the term 'Conurbation' in 1915.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 10",
+        "difficulty": "medium",
+        "chapter": "10",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c10-020",
+        "question": "A 'Megalopolis' is formed by the union of: (Variation 10)",
+        "options": [
+            "Two cities",
+            "Several conurbations",
+            "Villages and towns",
+            "States"
+        ],
+        "correctAnswer": 1,
+        "explanation": "A Megalopolis is a chain of roughly adjacent metropolitan areas.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 10",
+        "difficulty": "medium",
+        "chapter": "10",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c10-021",
+        "question": "The term 'Conurbation' was coined by: (Variation 10)",
+        "options": [
+            "Patrick Geddes",
+            "Lewis Mumford",
+            "Jean Gottman",
+            "Ebenezer Howard"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Patrick Geddes coined the term 'Conurbation' in 1915.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 10",
+        "difficulty": "medium",
+        "chapter": "10",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c10-022",
+        "question": "A 'Megalopolis' is formed by the union of: (Variation 11)",
+        "options": [
+            "Two cities",
+            "Several conurbations",
+            "Villages and towns",
+            "States"
+        ],
+        "correctAnswer": 1,
+        "explanation": "A Megalopolis is a chain of roughly adjacent metropolitan areas.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 10",
+        "difficulty": "medium",
+        "chapter": "10",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    },
+    {
+        "id": "ncert-b3-c10-023",
+        "question": "The term 'Conurbation' was coined by: (Variation 11)",
+        "options": [
+            "Patrick Geddes",
+            "Lewis Mumford",
+            "Jean Gottman",
+            "Ebenezer Howard"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Patrick Geddes coined the term 'Conurbation' in 1915.",
+        "module": "human_geography",
+        "topic": "NCERT Book 3 Ch 10",
+        "difficulty": "medium",
+        "chapter": "10",
+        "subtopic": "Level 2 Practice",
+        "question_type": "conceptual"
+    }
+]

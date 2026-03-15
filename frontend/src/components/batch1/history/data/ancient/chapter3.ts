@@ -1,32 +1,33 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_3_SUBTOPICS: Question[] = [
+export const ANCIENT_CHAPTER_3_SUBTOPICS: Subtopic[] = [
     {
         "id": "physical_features",
         "name": "Physical Features of India",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Explores the major geographic divisions of the subcontinent, including mountains, plains, and plateaus."
     },
     {
         "id": "river_systems",
         "name": "River Systems & Civilization",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Discusses how major rivers like the Indus and Ganga shaped settlement patterns and urban centers."
     },
     {
         "id": "climate_vegetation",
         "name": "Climate & Vegetation Zones",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Analyzes the impact of monsoons and diverse ecological zones on agricultural and cultural history."
     },
     {
         "id": "minerals_resources",
         "name": "Minerals & Natural Resources",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Examines the role of iron, copper, and gold deposits in state formation and economic development."
     },
     {
         "id": "geography_culture",
         "name": "Geography & Cultural Development",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Highlights how terrain influenced regional identities, trade routes (Uttarapatha), and political boundaries."
     }
 ];
+
 
 export const ANCIENT_CHAPTER_3_MCQS: Question[] = [
     // ═══════════════════════════════════════════

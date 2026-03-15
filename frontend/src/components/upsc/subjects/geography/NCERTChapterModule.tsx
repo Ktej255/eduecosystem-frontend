@@ -21,12 +21,13 @@ interface Props {
     chapterTitle: string;
     bookTitle: string;
     mcqDataId?: string;
+    initialTab?: string;
     onBack: () => void;
 }
 
-export default function NCERTChapterModule({ chapterId, chapterTitle, bookTitle, mcqDataId, onBack }: Props) {
+export default function NCERTChapterModule({ chapterId, chapterTitle, bookTitle, mcqDataId, initialTab = "note", onBack }: Props) {
     const router = useRouter();
-    const [activeTab, setActiveTab] = useState("note");
+    const [activeTab, setActiveTab] = useState(initialTab);
     const [isMCQActive, setIsMCQActive] = useState(false);
     const [mcqResults, setMcqResults] = useState<any>(null);
     const [flippedCards, setFlippedCards] = useState<Record<number, boolean>>({});

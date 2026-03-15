@@ -296,10 +296,10 @@ export default function MonsoonSimulator() {
                 50% { r: 65; opacity: 0.4; }
               }
               @keyframes mjo-wave {
-                0% { cx: 100; opacity: 0; }
+                0% { opacity: 0; }
                 30% { opacity: 0.6; }
                 70% { opacity: 0.6; }
-                100% { cx: 700; opacity: 0; }
+                100% { opacity: 0; }
               }
               .wind-particles {
                 animation: wind-particle-flow 1.2s linear infinite;
@@ -479,12 +479,26 @@ export default function MonsoonSimulator() {
               )}
             </AnimatePresence>
 
-            {/* 5. MJO Active Phase — New eastward-moving pulse wave */}
+            {/* 5. MJO Active Phase — Eastward-moving pulse wave (Framer Motion Fix) */}
             <AnimatePresence>
               {toggles.mjo && (
                 <motion.g initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                  <circle r="80" cy="350" fill="url(#mjoGlow)" className="animate-pulse" style={{ animation: 'mjo-wave 4s linear infinite' }} />
-                  <circle r="80" cy="350" fill="url(#mjoGlow)" className="animate-pulse" style={{ animation: 'mjo-wave 4s linear infinite', animationDelay: '2s' }} />
+                  <motion.circle 
+                    r="80" 
+                    cy="350" 
+                    fill="url(#mjoGlow)" 
+                    className="animate-pulse"
+                    animate={{ cx: [100, 700], opacity: [0, 0.6, 0.6, 0] }}
+                    transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
+                  />
+                  <motion.circle 
+                    r="80" 
+                    cy="350" 
+                    fill="url(#mjoGlow)" 
+                    className="animate-pulse"
+                    animate={{ cx: [100, 700], opacity: [0, 0.6, 0.6, 0] }}
+                    transition={{ repeat: Infinity, duration: 4, ease: "linear", delay: 2 }}
+                  />
                   <text x="200" y="380" style={{ fontSize: '9px', fill: '#06b6d4', fontWeight: 900, letterSpacing: '1px', filter: 'drop-shadow(0 0 4px rgba(6,182,212,0.4))' }}>
                     MJO Pulse →
                   </text>

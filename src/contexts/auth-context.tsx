@@ -124,7 +124,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       };
     }
 
-    // Auto-login after registration for students removed to allow Verification UI
+    // Auto-login after registration for students
+    if (data.access_token) {
+      localStorage.setItem("token", data.access_token);
+      setToken(data.access_token);
+      await fetchCurrentUser();
+      router.push("/student/dashboard");
+    }
+
     return { pending_approval: false, success: true };
   };
 

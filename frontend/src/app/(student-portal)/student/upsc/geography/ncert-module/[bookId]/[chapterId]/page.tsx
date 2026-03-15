@@ -5,9 +5,10 @@ import { notFound, useRouter } from 'next/navigation';
 import NCERTChapterModule from '@/components/upsc/subjects/geography/NCERTChapterModule';
 import { NCERT_GEOGRAPHY_BOOKS } from '@/components/upsc/subjects/geography/data/ncert-geography-data';
 
-export default function NCERTChapterPage({ params }: { params: { bookId: string; chapterId: string } }) {
+export default function NCERTChapterPage({ params, searchParams }: { params: { bookId: string; chapterId: string }; searchParams: { tab?: string } }) {
     const router = useRouter();
     const { bookId, chapterId } = params;
+    const initialTab = searchParams.tab || "note";
 
     const book = NCERT_GEOGRAPHY_BOOKS.find(b => b.id === bookId);
     if (!book) return notFound();
@@ -22,7 +23,8 @@ export default function NCERTChapterPage({ params }: { params: { bookId: string;
                 chapterTitle={chapter.title}
                 bookTitle={book.title}
                 mcqDataId={chapter.mcqDataId}
-                onBack={() => router.push(`/student/upsc/geography`)}
+                initialTab={initialTab}
+                onBack={() => router.push(`/student/batch1/geography`)}
             />
         </div>
     );

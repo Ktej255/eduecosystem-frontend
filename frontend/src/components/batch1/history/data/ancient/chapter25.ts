@@ -1,32 +1,33 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_25_SUBTOPICS: Question[] = [
+export const ANCIENT_CHAPTER_25_SUBTOPICS: Subtopic[] = [
     {
         "id": "central_asia_china",
         "name": "India's Link with Central Asia & China",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Summarizes the spread of Mahayana Buddhism and Indian medical/astronomical knowledge to China via the Silk Route."
     },
     {
         "id": "sri_lanka_myanmar",
         "name": "Relations with Sri Lanka & Myanmar",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Covers the missions of Ashoka's children and the establishment of Theravada Buddhism as the baseline for cultural ties."
     },
     {
         "id": "southeast_asia",
         "name": "Suvarnabhumi & Southeast Asian Empire",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Explores the maritime trade for gold and spices and the rise of Indianized states like Shrivijaya and Funan."
     },
     {
         "id": "religion_culture",
         "name": "Spread of Religion, Language & Culture",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Analyzes the adoption of Sanskrit, the Ramayana, and the Devaraja (God-King) cult by Southeast Asian elites."
     },
     {
         "id": "art_architecture",
         "name": "Art and Architecture in Greater India",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Highlights monumental achievements like Angkor Wat (Cambodia) and Borobudur (Java) as syntheses of Indian and local genius."
     }
 ];
+
 
 export const ANCIENT_CHAPTER_25_MCQS: Question[] = [
     // ═══════════════════════════════════════════

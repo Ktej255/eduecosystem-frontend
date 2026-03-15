@@ -1,15 +1,25 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
-import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup, Line } from 'react-simple-maps';
+import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup, Line, useMapContext } from 'react-simple-maps';
 import { INDIA_GEO_DATA } from '../data/india-geography-data';
 import { GeoFeature, FeatureType } from '../data/geo-types';
-import { Search, MapPin, Info, Crosshair, Map, Mountain, Waves, Droplets, Target, ShieldQuestion, Trophy, ChevronRight } from 'lucide-react';
+import { Search, MapPin, Info, Crosshair, Map, Mountain, Waves, Droplets, Target, ShieldQuestion, Trophy, ChevronRight, AlertTriangle, CloudRain, Landmark, Triangle } from 'lucide-react';
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/navigation';
+import { useTheme } from 'next-themes';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 // Using local official India TopoJSON with PIB-compliant boundaries
 const INDIA_TOPO_JSON = "/maps/india-official.json";
@@ -25,7 +35,11 @@ const CATEGORY_COLORS: Record<FeatureType, string> = {
   'plate': '#94a3b8', // Slate
   'soil': '#d97706', // Brown/Dark Amber
   'volcano': '#f97316', // Orange
-  'biosphere': '#10b981' // Emerald
+  'biosphere': '#10b981', // Emerald
+  'ramsar-site': '#14b8a6', // Teal
+  'mountain-range': '#71717a', // Zinc
+  'peak': '#f43f5e', // Rose
+  'unesco-site': '#eab308' // Yellow
 };
 
 const CATEGORY_ICONS: Partial<Record<FeatureType, React.ReactNode>> = {
@@ -33,14 +47,70 @@ const CATEGORY_ICONS: Partial<Record<FeatureType, React.ReactNode>> = {
   'river': <Waves className="w-4 h-4" />,
   'mineral': <Mountain className="w-4 h-4" />,
   'pass': <Target className="w-4 h-4" />,
-  'dam': <Droplets className="w-4 h-4" />
+  'dam': <Droplets className="w-4 h-4" />,
+  'ramsar-site': <CloudRain className="w-4 h-4" />,
+  'mountain-range': <Mountain className="w-4 h-4" />,
+  'peak': <Triangle className="w-4 h-4" />,
+  'unesco-site': <Landmark className="w-4 h-4" />
+};
+
+const BASIN_COLORS: Record<string, { dark: string, light: string }> = {
+  'Ganga': { dark: '#3b82f6', light: '#2563eb' }, // Blue
+  'Brahmaputra': { dark: '#a855f7', light: '#9333ea' }, // Purple
+  'Indus': { dark: '#10b981', light: '#059669' }, // Emerald
+  'Peninsular-East': { dark: '#f59e0b', light: '#d97706' }, // Amber
+  'Peninsular-West': { dark: '#f43f5e', light: '#e11d48' }, // Rose
+  'Inland': { dark: '#94a3b8', light: '#64748b' }, // Slate
+  'default': { dark: '#0ea5e9', light: '#0284c7' } // Cyan fallback
+};
+
+// Utility to generate a smoothed SVG path from an array of [x,y] points using Quadratic Bezier curves
+const getSmoothPath = (points: [number, number][]) => {
+  if (!points || points.length === 0) return '';
+  if (points.length === 1) return `M ${points[0][0]},${points[0][1]}`;
+  
+  let d = `M ${points[0][0]},${points[0][1]}`;
+  for (let i = 1; i < points.length - 1; i++) {
+    // Calculate midpoints to use as curve anchors
+    const xc = (points[i][0] + points[i + 1][0]) / 2;
+    const yc = (points[i][1] + points[i + 1][1]) / 2;
+    d += ` Q ${points[i][0]},${points[i][1]} ${xc},${yc}`;
+  }
+  // Connect to the final point
+  d += ` L ${points[points.length - 1][0]},${points[points.length - 1][1]}`;
+  return d;
 };
 
 export default function IndiaInteractiveMap() {
-  const [activeCategory, setActiveCategory] = useState<FeatureType | 'all'>('all');
+  const { theme } = useTheme();
+  const isDark = theme === 'dark' || theme === 'system'; // Fallback logic if needed
+  const [activeLayers, setActiveLayers] = useState<Set<FeatureType | 'all'>>(new Set(['all']));
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedLocation, setSelectedLocation] = useState<GeoFeature | null>(null);
+  const [selectedRegion, setSelectedRegion] = useState<string>("all");
+  const router = useRouter();
   
+  const mapFill = isDark ? "#0b1120" : "#f8fafc";
+  const mapStroke = isDark ? "#1e293b" : "#cbd5e1";
+  const toggleLayer = (layer: FeatureType | 'all') => {
+    setActiveLayers(prev => {
+      const next = new Set(prev);
+      if (layer === 'all') {
+        return new Set(['all']);
+      }
+      
+      if (next.has('all')) next.delete('all');
+      
+      if (next.has(layer)) {
+        next.delete(layer);
+        if (next.size === 0) next.add('all');
+      } else {
+        next.add(layer);
+      }
+      return next;
+    });
+  };
+
   // Quiz Mode State
   const [isQuizMode, setIsQuizMode] = useState(false);
   const [quizQuestion, setQuizQuestion] = useState<GeoFeature | null>(null);
@@ -72,7 +142,6 @@ export default function IndiaInteractiveMap() {
       const isCorrect = location.id === quizQuestion.id;
       setQuizScore(prev => ({ correct: prev.correct + (isCorrect ? 1 : 0), total: prev.total + 1 }));
       
-      // Calculate distance line (visual representation from clicked to correct)
       setShowAnswerLine({
         from: [location.coordinates.lng, location.coordinates.lat],
         to: [quizQuestion.coordinates.lng, quizQuestion.coordinates.lat],
@@ -90,12 +159,22 @@ export default function IndiaInteractiveMap() {
 
   const filteredData = useMemo(() => {
     return INDIA_GEO_DATA.filter((item) => {
-      const matchesCategory = activeCategory === 'all' || item.type === activeCategory;
+      const matchesCategory = activeLayers.has('all') || activeLayers.has(item.type);
+      const matchesRegion = selectedRegion === 'all' || item.region === selectedRegion;
       const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                             item.region.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesCategory && matchesSearch;
+      return matchesCategory && matchesRegion && matchesSearch;
     });
-  }, [activeCategory, searchQuery]);
+  }, [activeLayers, selectedRegion, searchQuery]);
+
+  const lineFeatures = useMemo(() => filteredData.filter(item => item.path), [filteredData]);
+  const pointFeatures = useMemo(() => filteredData.filter(item => !item.path), [filteredData]);
+
+
+  const uniqueRegions = useMemo(() => {
+    const regions = new Set(INDIA_GEO_DATA.map(item => item.region));
+    return Array.from(regions).sort();
+  }, []);
 
   return (
     <div className="w-full h-full min-h-[750px] bg-slate-950 rounded-3xl border border-emerald-900/30 shadow-2xl overflow-hidden flex flex-col font-sans relative">
@@ -127,6 +206,20 @@ export default function IndiaInteractiveMap() {
             />
           </div>
 
+          <div className="hidden lg:block">
+            <Select value={selectedRegion} onValueChange={setSelectedRegion} disabled={isQuizMode}>
+              <SelectTrigger className="w-[180px] bg-slate-900/80 border-white/10 text-white rounded-xl h-10 focus:ring-emerald-500/50 transition-all">
+                <SelectValue placeholder="All Regions" />
+              </SelectTrigger>
+              <SelectContent className="bg-slate-900 border-white/10 text-white">
+                <SelectItem value="all">All Regions</SelectItem>
+                {uniqueRegions.map(region => (
+                  <SelectItem key={region} value={region}>{region}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
           {!isQuizMode ? (
             <Button 
               onClick={startQuiz}
@@ -149,21 +242,24 @@ export default function IndiaInteractiveMap() {
       {/* Category Toggles (Hidden in Quiz Mode) — Enhanced with glowing active states */}
       {!isQuizMode && (
         <div className="bg-slate-900/80 p-2.5 flex items-center gap-2 overflow-x-auto border-b border-white/5 no-scrollbar z-10 relative px-5 shadow-lg backdrop-blur-md">
-          <FilterButton active={activeCategory === 'all'} onClick={() => setActiveCategory('all')} label="All Features" color="#f8fafc" icon={<MapPin className="w-3.5 h-3.5" />} />
+          <FilterButton active={activeLayers.has('all')} onClick={() => toggleLayer('all')} label="All Features" color="#f8fafc" icon={<MapPin className="w-3.5 h-3.5" />} />
           <div className="w-px h-6 bg-white/10 mx-1 shrink-0" />
-          <FilterButton active={activeCategory === 'national-park'} onClick={() => setActiveCategory('national-park')} label="National Parks" color={CATEGORY_COLORS['national-park']} icon={<MapPin className="w-3.5 h-3.5" />} />
-          <FilterButton active={activeCategory === 'river'} onClick={() => setActiveCategory('river')} label="Rivers" color={CATEGORY_COLORS['river']} icon={<Waves className="w-3.5 h-3.5" />} />
-          <FilterButton active={activeCategory === 'mineral'} onClick={() => setActiveCategory('mineral')} label="Minerals" color={CATEGORY_COLORS['mineral']} icon={<Mountain className="w-3.5 h-3.5" />} />
-          <FilterButton active={activeCategory === 'pass'} onClick={() => setActiveCategory('pass')} label="Passes" color={CATEGORY_COLORS['pass']} icon={<Target className="w-3.5 h-3.5" />} />
-          <FilterButton active={activeCategory === 'dam'} onClick={() => setActiveCategory('dam')} label="Dams" color={CATEGORY_COLORS['dam']} icon={<Droplets className="w-3.5 h-3.5" />} />
+          <FilterButton active={activeLayers.has('national-park')} onClick={() => toggleLayer('national-park')} label="National Parks" color={CATEGORY_COLORS['national-park']} icon={<MapPin className="w-3.5 h-3.5" />} />
+          <FilterButton active={activeLayers.has('river')} onClick={() => toggleLayer('river')} label="Rivers" color={CATEGORY_COLORS['river']} icon={<Waves className="w-3.5 h-3.5" />} />
+          <FilterButton active={activeLayers.has('ramsar-site')} onClick={() => toggleLayer('ramsar-site')} label="Ramsar Sites" color={CATEGORY_COLORS['ramsar-site']} icon={<CloudRain className="w-3.5 h-3.5" />} />
+          <FilterButton active={activeLayers.has('mountain-range')} onClick={() => toggleLayer('mountain-range')} label="Mountains" color={CATEGORY_COLORS['mountain-range']} icon={<Mountain className="w-3.5 h-3.5" />} />
+          <FilterButton active={activeLayers.has('mineral')} onClick={() => toggleLayer('mineral')} label="Minerals" color={CATEGORY_COLORS['mineral']} icon={<Mountain className="w-3.5 h-3.5" />} />
+          <FilterButton active={activeLayers.has('pass')} onClick={() => toggleLayer('pass')} label="Passes" color={CATEGORY_COLORS['pass']} icon={<Target className="w-3.5 h-3.5" />} />
+          <FilterButton active={activeLayers.has('dam')} onClick={() => toggleLayer('dam')} label="Dams" color={CATEGORY_COLORS['dam']} icon={<Droplets className="w-3.5 h-3.5" />} />
+          <FilterButton active={activeLayers.has('unesco-site')} onClick={() => toggleLayer('unesco-site')} label="UNESCO Sites" color={CATEGORY_COLORS['unesco-site']} icon={<Landmark className="w-3.5 h-3.5" />} />
         </div>
       )}
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col md:flex-row relative">
+      <div className="flex-1 flex relative overflow-hidden">
         
-        {/* SVG MAP ENGINE — Enhanced with deep atmospheric background */}
-        <div className="flex-1 relative overflow-hidden flex items-center justify-center cursor-crosshair"
+        {/* SVG MAP ENGINE — Using flex-1 to expand when sidebar closes */}
+        <div className="flex-1 relative overflow-hidden flex items-center justify-center cursor-crosshair transition-all duration-300"
              style={{ background: 'radial-gradient(circle at 50% 50%, #080f1a 0%, #03060a 100%)' }}>
           
           {/* Map Grid & Fog Backgrounds */}
@@ -189,7 +285,6 @@ export default function IndiaInteractiveMap() {
               </filter>
             </defs>
           </svg>
-
           <style>{`
             @keyframes marker-pulse {
               0%, 100% { transform: scale(1); opacity: 0.8; }
@@ -199,14 +294,21 @@ export default function IndiaInteractiveMap() {
               0% { r: 6; opacity: 1; stroke-width: 2; }
               100% { r: 25; opacity: 0; stroke-width: 0; }
             }
-            @keyframes laser-dash {
-              to { stroke-dashoffset: -20; }
+            @keyframes flow-animation {
+              from { stroke-dashoffset: 24; }
+              to { stroke-dashoffset: 0; }
             }
             .quiz-ping-anim {
               animation: quiz-target-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
             }
             .laser-line-anim {
-              animation: laser-dash 1s linear infinite;
+              animation: flow-animation 1s linear infinite;
+            }
+            .river-flow {
+              animation: flow-animation 1.5s linear infinite;
+            }
+            .water-release-anim {
+              animation: flow-animation 0.8s linear infinite;
             }
           `}</style>
 
@@ -217,34 +319,43 @@ export default function IndiaInteractiveMap() {
           >
             <ZoomableGroup zoom={1} minZoom={1} maxZoom={8} translateExtent={[[0, 0], [800, 600]]}>
               
-              {/* India Base Map — Metallic styling */}
+              {/* 1. ALWAYS RENDER BASE MAP FIRST */}
               <Geographies geography={INDIA_TOPO_JSON}>
                 {({ geographies }) =>
                   geographies.map((geo) => (
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}
-                      fill="#0b1120"
-                      stroke="#1e293b"
+                      fill={mapFill}
+                      stroke={mapStroke}
                       strokeWidth={0.6}
                       style={{
                         default: { outline: 'none' },
-                        hover: { fill: '#162032', outline: 'none', stroke: '#334155' },
-                        pressed: { fill: '#0f172a', outline: 'none' },
+                        hover: { fill: isDark ? '#162032' : '#e2e8f0', outline: 'none', stroke: isDark ? '#334155' : '#94a3b8' },
+                        pressed: { fill: isDark ? '#0f172a' : '#cbd5e1', outline: 'none' },
                       }}
                     />
                   ))
                 }
               </Geographies>
 
-              {/* Data Markers — Upgraded with glowing nested groups */}
-              {filteredData.map((marker) => {
+              {/* 2. RENDER LINE FEATURES (Rivers, Mountain Ranges) */}
+              {lineFeatures.map((feature) => (
+                <FeaturePath 
+                  key={feature.id} 
+                  feature={feature} 
+                  isSelected={selectedLocation?.id === feature.id}
+                  isDark={isDark}
+                  onClick={(nodeType) => handleMarkerClick(nodeType ? { ...feature, nodeType } : feature)}
+                />
+              ))}
+
+              {/* 3. RENDER POINT FEATURES (Markers) */}
+              {pointFeatures.map((marker) => {
                 const isSelected = selectedLocation?.id === marker.id;
                 const isActualTarget = isQuizMode && quizQuestion?.id === marker.id;
                 const color = CATEGORY_COLORS[marker.type];
                 
-                // Dim non-selected markers slightly in exploration mode.
-                // In quiz mode, hide markers strongly unless it's the target being revealed.
                 let opacity = isSelected ? 1 : 0.6;
                 if (isQuizMode) opacity = (showAnswerLine && isActualTarget) ? 1 : 0.2;
                 
@@ -264,33 +375,41 @@ export default function IndiaInteractiveMap() {
                   >
                     <motion.g animate={{ scale, opacity }} transition={{ type: 'spring', stiffness: 300, damping: 20 }}>
                       
-                      {/* Base Map Dot (Exploration Mode) */}
-                      {!isQuizMode && (
+                      <circle r={20} fill="transparent" style={{ cursor: isQuizMode ? 'crosshair' : 'pointer' }} />
+
+                      {marker.type === 'dam' && !isQuizMode && (
+                        <g transform="translate(-12, -12)">
+                          {/* Architectural Dam Vector */}
+                          <path d="M4,20 L20,20 L16,6 L8,6 Z" fill={isDark ? "#334155" : "#64748b"} stroke={isDark ? "#cbd5e1" : "#334155"} strokeWidth="1.5" />
+                          {/* Water Release Vector */}
+                          <path d="M12,14 L12,22 M9,16 L9,22 M15,16 L15,22" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="2 2" className="water-release-anim" />
+                        </g>
+                      )}
+
+                      {!isQuizMode && marker.type !== 'dam' && (
                         <>
                           <circle r={8} fill={`url(#radialGlow-${marker.type})`} opacity={isSelected ? 1 : 0} />
-                          <circle r={3} fill={color} stroke="#000" strokeWidth={0.5} />
+                          <circle r={3.5} fill={color} stroke={isDark ? "#000" : "#fff"} strokeWidth={0.5} />
                           {isSelected && (
                             <circle r={6} fill="none" stroke={color} strokeWidth={1} style={{ animation: 'marker-pulse 2s infinite' }} />
                           )}
                         </>
                       )}
 
-                      {/* Quiz Mode Dots */}
                       {isQuizMode && (
                         <>
-                          <circle r={3.5} fill={showAnswerLine && isActualTarget ? "#22c55e" : "#475569"} stroke="#0f172a" strokeWidth={1} />
+                          <circle r={3.5} fill={showAnswerLine && isActualTarget ? "#22c55e" : "#475569"} stroke={isDark ? "#0f172a" : "#fff"} strokeWidth={1} />
                         </>
                       )}
                     </motion.g>
 
-                    {/* Hover labels (Disabled in quiz mode) */}
                     {!isQuizMode && (
                       <text
                         textAnchor="middle"
                         y={-10}
                         style={{ 
                           fontFamily: "system-ui", 
-                          fontSize: isSelected ? "5px" : "4px", 
+                          fontSize: isSelected ? "5.5px" : "4.5px", 
                           fill: isSelected ? "#ffffff" : "#cbd5e1", 
                           fontWeight: isSelected ? 900 : 700, 
                           opacity: isSelected ? 1 : 0,
@@ -386,17 +505,17 @@ export default function IndiaInteractiveMap() {
           </AnimatePresence>
         </div>
 
-        {/* DETAILS SIDE PANEL (35%) — Enhanced with glow styling */}
+        {/* DETAILS SIDE PANEL — Using motion.div with dynamic width for flex expansion */}
         <AnimatePresence>
           {!isQuizMode && selectedLocation && (
             <motion.div 
-              initial={{ x: "100%", opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "100%", opacity: 0 }}
+              initial={{ width: 0, opacity: 0, x: "100%" }}
+              animate={{ width: "420px", opacity: 1, x: 0 }}
+              exit={{ width: 0, opacity: 0, x: "100%" }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="absolute right-0 top-0 bottom-0 w-full md:w-[420px] bg-slate-900/95 backdrop-blur-2xl border-l border-white/10 shadow-2xl z-20 flex flex-col"
+              className="h-full bg-slate-900/95 backdrop-blur-2xl border-l border-white/10 shadow-2xl z-20 flex flex-col shrink-0 overflow-hidden"
             >
-              <div className="p-8 overflow-y-auto flex-1 custom-scrollbar">
+              <div className="p-8 overflow-y-auto flex-1 custom-scrollbar min-w-[420px]">
                 
                 {/* Header Profile */}
                 <div className="flex items-center gap-4 mb-8">
@@ -413,6 +532,23 @@ export default function IndiaInteractiveMap() {
                   </div>
                 </div>
 
+                {/* ENTHUSIAST IMAGE CAROUSEL */}
+                {selectedLocation.images && selectedLocation.images.length > 0 && (
+                  <div className="mb-8 rounded-2xl overflow-hidden border border-white/10 bg-slate-950 aspect-video relative group">
+                    <motion.img 
+                      key={selectedLocation.images[0]}
+                      src={selectedLocation.images[0]} 
+                      alt={selectedLocation.name}
+                      initial={{ opacity: 0, scale: 1.1 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 to-transparent p-4">
+                      <p className="text-[10px] font-black text-white/50 uppercase tracking-[0.2em]">Visual Reference Layer</p>
+                    </div>
+                  </div>
+                )}
+
                 <div className="flex flex-wrap gap-2 mb-8">
                   <Badge className="border-0 font-black px-3 py-1.5 uppercase tracking-widest text-[9px] text-white shadow-lg"
                          style={{ backgroundColor: CATEGORY_COLORS[selectedLocation.type], boxShadow: `0 0 12px ${CATEGORY_COLORS[selectedLocation.type]}40` }}>
@@ -426,6 +562,23 @@ export default function IndiaInteractiveMap() {
                     {selectedLocation.difficulty}
                   </Badge>
                 </div>
+
+                {/* CURRENT AFFAIRS ALERT */}
+                {selectedLocation.in_news_24m && (
+                  <motion.div 
+                    initial={{ scale: 0.9, opacity: 0 }} 
+                    animate={{ scale: 1, opacity: 1 }}
+                    className="mb-8"
+                  >
+                    <Alert className="bg-rose-950/40 border-rose-500/50 text-rose-200">
+                      <AlertTriangle className="h-4 w-4 text-rose-400" />
+                      <AlertTitle className="text-rose-400 font-black uppercase tracking-widest text-[10px] mb-2 leading-none">🚨 Current Affairs Alert</AlertTitle>
+                      <AlertDescription className="text-sm font-medium leading-relaxed italic">
+                        {selectedLocation.news_context}
+                      </AlertDescription>
+                    </Alert>
+                  </motion.div>
+                )}
 
                 <div className="space-y-6">
                   {/* Context Block */}
@@ -459,6 +612,12 @@ export default function IndiaInteractiveMap() {
                     </h4>
                     <p className="text-indigo-100 text-sm leading-relaxed font-medium relative z-10">{selectedLocation.upsc_relevance}</p>
                     
+                    {selectedLocation.pyq_details && (
+                      <div className="mt-4 p-3 bg-indigo-500/10 rounded-xl border border-indigo-500/20 relative z-10">
+                         <p className="text-indigo-300 text-[11px] leading-relaxed italic">{selectedLocation.pyq_details}</p>
+                      </div>
+                    )}
+
                     {selectedLocation.pyq_years.length > 0 && (
                       <div className="mt-5 flex flex-wrap items-center gap-2 relative z-10 pt-4 border-t border-indigo-500/20">
                         <span className="text-[9px] text-indigo-400/80 font-black uppercase tracking-widest flex items-center">PYQ Mentions:</span>
@@ -474,8 +633,11 @@ export default function IndiaInteractiveMap() {
 
               </div>
               
-              <div className="p-5 bg-slate-950/90 border-t border-white/5 flex gap-3 backdrop-blur-xl">
-                <Button className="flex-1 bg-white hover:bg-slate-200 text-black font-black uppercase tracking-widest text-xs h-12 rounded-xl shadow-lg">
+              <div className="p-5 bg-slate-950/90 border-t border-white/5 flex gap-3 backdrop-blur-xl min-w-[420px]">
+                <Button 
+                  className="flex-1 bg-white hover:bg-slate-200 text-black font-black uppercase tracking-widest text-xs h-12 rounded-xl shadow-lg"
+                  onClick={() => router.push(`/student/upsc/geography/session?block=${selectedLocation.type}`)}
+                >
                   Launch Related Modules <ChevronRight className="w-4 h-4 ml-2" />
                 </Button>
                 <Button variant="outline" className="w-12 h-12 rounded-xl border-slate-700 text-slate-400 hover:text-white" onClick={() => setSelectedLocation(null)}>
@@ -486,22 +648,118 @@ export default function IndiaInteractiveMap() {
           )}
         </AnimatePresence>
         
-        {/* Placeholder when nothing is selected */}
-        {!isQuizMode && !selectedLocation && (
-          <div className="hidden md:flex absolute right-0 top-0 bottom-0 w-[420px] bg-slate-900/60 backdrop-blur-xl border-l border-white/5 z-10 flex-col items-center justify-center p-10 text-center transition-all">
-            <div className="w-24 h-24 rounded-full border border-slate-700 bg-slate-800/50 flex items-center justify-center mb-8 text-slate-500 relative">
-              <Crosshair className="w-10 h-10 relative z-10" />
-              <div className="absolute inset-0 rounded-full bg-slate-700/20 blur-xl animate-pulse" />
-            </div>
-            <h3 className="text-2xl font-black text-white/50 uppercase tracking-widest mb-4">Location Matrix</h3>
-            <p className="text-sm text-slate-500 font-bold leading-relaxed max-w-xs tracking-wider">
-              Select any marker on the map to view deep geographic insights, characteristics, and historical <span className="text-indigo-400">UPSC Prelims</span> relevance.
-            </p>
-          </div>
-        )}
 
       </div>
     </div>
+  );
+}
+
+function FeaturePath({ feature, isSelected, isDark, onClick }: { feature: GeoFeature, isSelected: boolean, isDark: boolean, onClick: (nodeType?: 'origin' | 'mouth') => void }) {
+  const { projection } = useMapContext();
+  if (!feature.path || feature.path.length < 2) return null;
+
+  const projectedPoints = feature.path
+    .map(coord => projection ? projection(coord as [number, number]) : null)
+    .filter(Boolean) as [number, number][];
+
+  const pathString = getSmoothPath(projectedPoints);
+  if (!pathString) return null;
+
+  const isMountain = feature.type === 'mountain-range';
+  const isRiver = feature.type === 'river';
+  
+  // Get color based on basin or category
+  let color = CATEGORY_COLORS[feature.type];
+  if (isRiver && feature.basin && BASIN_COLORS[feature.basin]) {
+    color = isDark ? BASIN_COLORS[feature.basin].dark : BASIN_COLORS[feature.basin].light;
+  } else if (isRiver && BASIN_COLORS['default']) {
+    color = isDark ? BASIN_COLORS['default'].dark : BASIN_COLORS['default'].light;
+  }
+
+  // River Hierarchy logic
+  const isMain = feature.river_hierarchy === 'main';
+  const isDistributary = feature.river_hierarchy === 'distributary';
+  const strokeWidth = isMountain 
+    ? (isSelected ? 6 : 4) 
+    : isRiver 
+      ? (isMain ? (isSelected ? 5 : 3) : (isSelected ? 3 : 1.5))
+      : (isSelected ? 3.5 : 2);
+
+  return (
+    <motion.g 
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }} 
+      style={{ cursor: 'pointer' }}
+    >
+      {/* Interaction Buffer */}
+      <path d={pathString} fill="none" stroke="transparent" strokeWidth={20} onClick={() => onClick()} />
+      
+      <path 
+        d={pathString} 
+        fill="none" 
+        stroke={isSelected ? (isDark ? "#ffffff" : "#000000") : color} 
+        strokeWidth={strokeWidth} 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+        strokeDasharray={isDistributary ? "4 4" : "none"}
+        style={{ 
+          filter: `drop-shadow(0 0 ${isMountain ? 8 : (isSelected ? 6 : 2)}px ${color})`,
+          opacity: isMountain ? 0.4 : 1,
+          transition: 'all 0.3s ease'
+        }}
+        onClick={() => onClick()}
+      />
+      
+      {isRiver && (
+        <>
+          <path 
+            d={pathString} 
+            fill="none" 
+            stroke={isDark ? "#cffafe" : "#0ea5e9"} 
+            strokeWidth={isSelected ? 1.5 : 0.75} 
+            strokeDasharray="4 8" 
+            strokeLinecap="round"
+            className="river-flow"
+            style={{ opacity: isSelected ? 1 : 0.4 }}
+            pointerEvents="none"
+          />
+
+          {/* Hierarchical Nodes: Origin (Source) and Mouth (Delta/Confluence) */}
+          <Marker coordinates={feature.path[0] as [number, number]} onClick={() => onClick('origin')}>
+             <circle r={isSelected ? 3 : 2} fill={isDark ? "#fff" : "#000"} stroke={color} strokeWidth={1} />
+             {isSelected && <text y={-8} textAnchor="middle" className="text-[4px] font-bold fill-white">SOURCE</text>}
+          </Marker>
+          
+          <Marker coordinates={feature.path[feature.path.length - 1] as [number, number]} onClick={() => onClick('mouth')}>
+             <circle r={isSelected ? 4 : 2.5} fill="none" stroke={color} strokeWidth={isSelected ? 1.5 : 1} />
+             <circle r={isSelected ? 1.5 : 1} fill={color} />
+             {isSelected && <text y={8} textAnchor="middle" className="text-[4px] font-bold fill-white">MOUTH</text>}
+          </Marker>
+        </>
+      )}
+
+      {/* Label */}
+      <Marker coordinates={[feature.coordinates.lng, feature.coordinates.lat]} pointerEvents="none">
+        <text
+          textAnchor="middle"
+          y={-10}
+          style={{ 
+            fontFamily: "system-ui", 
+            fontSize: isSelected ? "5.5px" : "3.8px", 
+            fill: isSelected ? (isDark ? "#ffffff" : "#000000") : color, 
+            fontWeight: isSelected ? 900 : 700, 
+            opacity: isSelected ? 1 : (isMountain ? 0 : 0.5),
+            filter: isSelected ? `drop-shadow(0 0 4px ${color})` : 'none',
+            transition: 'all 0.2s',
+            pointerEvents: 'none',
+            textTransform: 'uppercase',
+            letterSpacing: '0.12em'
+          }}
+        >
+          {feature.name}
+        </text>
+      </Marker>
+    </motion.g>
   );
 }
 

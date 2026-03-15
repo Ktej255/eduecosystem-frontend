@@ -5,11 +5,17 @@ import {
     ChevronLeft, Settings, Info, Search,
     Filter, LayoutGrid, ListTodo, Map,
     Globe2, Mountain, Waves, BookOpen,
-    GraduationCap, Play, CheckCircle2, Circle,
+    CheckCircle2, Circle,
     Target, ArrowRight, BarChart3, Clock,
-    BadgeCheck, Trophy, Target as TargetIcon,
-    Wind, ChevronRight, Activity, Thermometer, Layers, Droplets
+    BadgeCheck, Trophy,
+    Wind, ChevronRight, Activity, Thermometer, Layers, Droplets,
+    ChevronDown, FileText, Zap, Globe
 } from 'lucide-react';
+import { NCERT_GEOGRAPHY_BOOKS } from '@/components/upsc/subjects/geography/data/ncert-geography-data';
+import { NCERT_GEOGRAPHY_NOTES } from '@/components/upsc/subjects/geography/data/ncert-geography-notes';
+import { NCERT_FLASHCARDS_DATA } from '@/components/upsc/subjects/geography/data/ncert-flashcards-data';
+import { NCERT_MCQ_COLLECTION } from '@/components/upsc/subjects/geography/data/mcqs/consolidated-ncert';
+const TargetIcon = Target;
 import { SimulationType } from './content/types';
 import dynamic from 'next/dynamic';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -148,53 +154,74 @@ export default function GeographyDashboard() {
     }
 
     return (
-        <div className="max-w-7xl mx-auto px-4 py-8 space-y-8 min-h-screen">
-            {/* Header Section */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                <div className="space-y-4">
-                    <div className="flex items-center gap-3">
-                        <div className="p-3 bg-indigo-600 rounded-2xl text-white shadow-lg shadow-indigo-600/20">
-                            <Globe2 className="w-8 h-8" />
-                        </div>
-                        <div>
-                            <h1 className="text-4xl font-black tracking-tight text-slate-900 dark:text-white uppercase">
-                                Geography <span className="text-indigo-600">Module</span>
-                            </h1>
-                            <div className="flex items-center gap-2 mt-1">
-                                <Badge variant="outline" className="bg-indigo-50 border-indigo-200 text-indigo-700 font-bold px-2 py-0 text-[10px] uppercase">
-                                    Master Syllabus 2026
-                                </Badge>
-                                <span className="text-xs text-muted-foreground font-medium">• 16 Topics Daily Target</span>
+        <div className="max-w-7xl mx-auto px-6 py-12 space-y-12 min-h-screen">
+            {/* Immersive Header Section */}
+            <div className="relative overflow-hidden rounded-[3rem] bg-slate-950 p-12 border border-white/5 shadow-2xl">
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
+                <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-500/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
+                
+                <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-10">
+                    <div className="space-y-6">
+                        <motion.div 
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            className="flex items-center gap-4"
+                        >
+                            <div className="p-4 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-3xl text-white shadow-2xl shadow-indigo-500/40 relative group overflow-hidden">
+                                <Globe2 className="w-10 h-10 group-hover:rotate-12 transition-transform duration-500" />
+                                <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                             </div>
-                        </div>
+                            <div>
+                                <h1 className="text-5xl font-black tracking-tighter text-white uppercase leading-none">
+                                    Geography <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-blue-400">Mastery</span>
+                                </h1>
+                                <div className="flex items-center gap-3 mt-3">
+                                    <Badge className="bg-white/10 backdrop-blur-md border-white/10 text-indigo-300 font-black px-3 py-1 text-[10px] uppercase tracking-widest">
+                                        Batch 1.1 • Professional Series
+                                    </Badge>
+                                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest flex items-center gap-1.5">
+                                        <Activity className="w-3.5 h-3.5 text-emerald-500" /> Live Progress: {Math.round(stats.overallProgress)}%
+                                    </span>
+                                </div>
+                            </div>
+                        </motion.div>
+                        
+                        <p className="text-slate-400 max-w-xl text-lg font-medium leading-relaxed">
+                            A spatial-first learning experience designed for high-stakes UPSC preparation.
+                            Visualize topographic systems, climatic zones, and Indian physiography.
+                        </p>
                     </div>
-                </div>
 
-                <div className="flex gap-2 bg-slate-100 dark:bg-slate-900/50 p-1.5 rounded-2xl w-fit">
-                    <Button
-                        variant={viewMode === 'sheet' ? 'default' : 'ghost'}
-                        size="sm"
-                        className={`h-10 rounded-xl px-6 text-xs font-black uppercase tracking-widest ${viewMode === 'sheet' ? 'bg-indigo-600 shadow-lg shadow-indigo-600/20' : ''}`}
-                        onClick={() => setViewMode('sheet')}
-                    >
-                        <ListTodo className="w-4 h-4 mr-2" /> Tracking Sheet
-                    </Button>
-                    <Button
-                        variant={viewMode === 'planner' ? 'default' : 'ghost'}
-                        size="sm"
-                        className={`h-10 rounded-xl px-6 text-xs font-black uppercase tracking-widest ${viewMode === 'planner' ? 'bg-indigo-600 shadow-lg shadow-indigo-600/20' : ''}`}
-                        onClick={() => setViewMode('planner')}
-                    >
-                        <LayoutGrid className="w-4 h-4 mr-2" /> Dashboard
-                    </Button>
-                    <Button
-                        variant="ghost"
-                        size="sm"
-                        className="h-10 rounded-xl px-6 text-xs font-black uppercase tracking-widest text-cyan-600 hover:text-cyan-700 hover:bg-cyan-50"
-                        onClick={() => setTerraLabOpen(true)}
-                    >
-                        <Play className="w-4 h-4 mr-2" /> TerraLab 3D
-                    </Button>
+                    <div className="flex flex-col sm:flex-row gap-3 bg-white/5 backdrop-blur-xl p-2 rounded-[2rem] border border-white/10 w-fit">
+                        <Button
+                            variant={viewMode === 'sheet' ? 'default' : 'ghost'}
+                            size="lg"
+                            className={`h-14 rounded-2xl px-8 text-[11px] font-black uppercase tracking-widest transition-all ${viewMode === 'sheet' ? 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-xl shadow-indigo-600/30' : 'text-slate-400 hover:text-white'}`}
+                            onClick={() => setViewMode('sheet')}
+                        >
+                            <ListTodo className="w-4 h-4 mr-2" /> Tracking Sheet
+                        </Button>
+                        <Button
+                            variant={viewMode === 'planner' ? 'default' : 'ghost'}
+                            size="lg"
+                            className={`h-14 rounded-2xl px-8 text-[11px] font-black uppercase tracking-widest transition-all ${viewMode === 'planner' ? 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-xl shadow-indigo-600/30' : 'text-slate-400 hover:text-white'}`}
+                            onClick={() => setViewMode('planner')}
+                        >
+                            <LayoutGrid className="w-4 h-4 mr-2" /> Module Feed
+                        </Button>
+                        <Button
+                            variant="ghost"
+                            size="lg"
+                            className="h-14 rounded-2xl px-8 text-[11px] font-black uppercase tracking-widest text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10"
+                            onClick={() => setTerraLabOpen(true)}
+                        >
+                             <div className="relative">
+                                <Play className="w-4 h-4 mr-2 fill-current" />
+                                <div className="absolute inset-0 animate-ping opacity-20 bg-cyan-400 rounded-full" />
+                             </div>
+                             TerraLab 3D
+                        </Button>
+                    </div>
                 </div>
             </div>
 
@@ -440,16 +467,16 @@ export default function GeographyDashboard() {
                                 {comingSoonFeature} — Coming Soon
                             </DialogTitle>
                             <DialogDescription className="text-base text-muted-foreground leading-relaxed">
-                                You have early <span className="font-bold text-indigo-600">Founding Member Access</span>. We are building {comingSoonFeature} specifically for deep UPSC geography practice. You'll be notified the moment it goes live.
+                                You have early <span className="font-bold text-indigo-600">Founding Member Access</span>. We are building {comingSoonFeature} specifically for deep UPSC geography practice. 
                             </DialogDescription>
                             <div className="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-100 dark:border-indigo-800 rounded-xl p-4 text-sm text-indigo-700 dark:text-indigo-300 font-medium">
-                                Estimated launch: <span className="font-black">March 20, 2026</span>
+                                Status: <span className="font-black">Active Development</span>
                             </div>
                             <button
                                 onClick={() => setComingSoonFeature(null)}
                                 className="w-full py-3 bg-slate-900 hover:bg-indigo-600 text-white rounded-xl font-black text-sm uppercase tracking-widest transition-all"
                             >
-                                Got It — I'll Check Back Soon
+                                Got It
                             </button>
                         </div>
                     </DialogHeader>
@@ -532,29 +559,84 @@ export default function GeographyDashboard() {
                         <p className="text-[11px] font-black uppercase tracking-widest text-muted-foreground mb-6 pl-2 flex items-center gap-2">
                             <Target className="w-4 h-4 text-indigo-500" /> Select a chapter to launch its practice test (40 MCQs each)
                         </p>
-                        <ScrollArea className="h-[400px] pr-4">
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                {Array.from({length: 14}).map((_, i) => (
-                                    <Button 
-                                        key={i} 
-                                        variant="outline" 
-                                        className="justify-between h-16 font-bold text-slate-700 bg-slate-50 hover:bg-slate-100 hover:text-indigo-700 hover:border-indigo-300 transition-all text-left px-6 rounded-xl border-slate-200 group relative overflow-hidden shadow-sm"
-                                        onClick={() => {
-                                            router.push(`/student/batch1/geography/ncert-test/${i + 1}`);
+                        <div className="space-y-4">
+                        <div className="flex items-center justify-between px-2 mb-2">
+                            <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Chapters & Feature Mastery</span>
+                            <div className="flex gap-4 text-[10px] font-black text-slate-400 uppercase tracking-tighter">
+                                <span className="flex items-center gap-1"><FileText className="w-3 h-3"/> Note</span>
+                                <span className="flex items-center gap-1"><Zap className="w-3 h-3"/> Flash</span>
+                                <span className="flex items-center gap-1"><Target className="w-3 h-3"/> MCQ</span>
+                                <span className="flex items-center gap-1"><Globe className="w-3 h-3"/> CA</span>
+                            </div>
+                        </div>
+                        <ScrollArea className="h-[450px] pr-4">
+                            <div className="grid grid-cols-1 gap-3 pb-4">
+                                {(() => {
+                                    // Map dashboard titles to data registry IDs
+                                    const registryIdMap: Record<string, string> = {
+                                        'Fundamentals of Physical Geo (Class 11)': 'class11-physical',
+                                        'Indian Physical Environment (Class 11)': 'class11-india',
+                                        'Fundamentals of Human Geo (Class 12)': 'class12-human',
+                                        'India: People and Economy (Class 12)': 'class12-india'
+                                    };
+                                    
+                                    const book = NCERT_GEOGRAPHY_BOOKS.find(b => b.id === registryIdMap[selectedNcertBook]);
+                                    if (!book) return null;
+                                    
+                                    return book.chapters.map(chapter => {
+                                        const hasNote = !!NCERT_GEOGRAPHY_NOTES[chapter.id];
+                                        const hasFlash = (NCERT_FLASHCARDS_DATA[chapter.id]?.length || 0) > 0;
+                                        const mcqKey = (chapter.mcqDataId || `chapter${chapter.chapterNumber}MCQs`) as keyof typeof NCERT_MCQ_COLLECTION;
+                                        const hasMCQ = (NCERT_MCQ_COLLECTION[mcqKey]?.length || 0) > 0;
+                                        const hasCA = false;
+
+                                        const features = [
+                                            { id: 'note', icon: FileText, active: hasNote, color: 'text-emerald-500 bg-emerald-50 border-emerald-100', hover: 'hover:bg-emerald-600 hover:text-white' },
+                                            { id: 'flashcard', icon: Zap, active: hasFlash, color: 'text-amber-500 bg-amber-50 border-amber-100', hover: 'hover:bg-amber-600 hover:text-white' },
+                                            { id: 'mcq', icon: Target, active: hasMCQ, color: 'text-rose-500 bg-rose-50 border-rose-100', hover: 'hover:bg-rose-600 hover:text-white' },
+                                            { id: 'current', icon: Globe, active: hasCA, color: 'text-blue-500 bg-blue-50 border-blue-100', hover: 'hover:bg-blue-600 hover:text-white' }
+                                        ];
+
+                                        const handleNavigate = (tab: string) => {
+                                            router.push(`/student/upsc/geography/ncert-module/${book.id}/${chapter.id}?tab=${tab}`);
                                             setNcertModalOpen(false);
-                                        }}
-                                    >
-                                        <div className="flex items-center gap-4 relative z-10">
-                                            <div className="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center font-black text-xs group-hover:bg-indigo-600 group-hover:text-white transition-colors">
-                                                {String(i + 1).padStart(2, '0')}
+                                        };
+
+                                        return (
+                                            <div 
+                                                key={chapter.id} 
+                                                className="group flex flex-col md:flex-row md:items-center justify-between p-4 bg-slate-50 border border-slate-200 rounded-2xl hover:border-indigo-200 hover:bg-white transition-all shadow-sm gap-4"
+                                            >
+                                                <div className="flex items-center gap-4">
+                                                    <div className="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-black text-xs group-hover:bg-indigo-600 group-hover:text-white transition-all">
+                                                        {chapter.chapterNumber}
+                                                    </div>
+                                                    <div>
+                                                        <h4 className="text-sm font-bold text-slate-800">{chapter.title}</h4>
+                                                        <p className="text-[10px] text-slate-400 font-medium">UPSC Standard Revision</p>
+                                                    </div>
+                                                </div>
+
+                                                <div className="flex items-center gap-2">
+                                                    {features.map((feature) => (
+                                                        <button
+                                                            key={feature.id}
+                                                            disabled={!feature.active}
+                                                            onClick={() => handleNavigate(feature.id)}
+                                                            className={`w-9 h-9 rounded-lg border flex items-center justify-center transition-all ${feature.active ? `${feature.color} ${feature.hover} shadow-sm group/btn` : 'opacity-20 cursor-not-allowed grayscale'}`}
+                                                            title={feature.active ? `Launch ${feature.id}` : 'Coming Soon'}
+                                                        >
+                                                            <feature.icon className={`w-4 h-4 transition-transform ${feature.active ? 'group-hover/btn:scale-110' : ''}`} />
+                                                        </button>
+                                                    ))}
+                                                </div>
                                             </div>
-                                            <span className="text-sm truncate">Chapter {i + 1}</span>
-                                        </div>
-                                        <ArrowRight className="w-4 h-4 text-indigo-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all relative z-10" />
-                                    </Button>
-                                ))}
+                                        );
+                                    });
+                                })()}
                             </div>
                         </ScrollArea>
+                    </div>
                     </div>
                 </DialogContent>
             </Dialog>
@@ -564,14 +646,17 @@ export default function GeographyDashboard() {
 
 function StatHUDCard({ title, value, subtext, icon }: { title: string, value: string, subtext: string, icon: React.ReactNode }) {
     return (
-        <Card className="border-none shadow-md overflow-hidden relative group">
-            <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+        <Card className="border-white/5 bg-white/5 backdrop-blur-xl shadow-2xl overflow-hidden relative group hover:border-white/20 transition-all duration-500 rounded-[2rem]">
+            <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 group-hover:scale-110 transition-all duration-500 text-white">
                 {icon}
             </div>
-            <CardContent className="p-6">
-                <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">{title}</p>
-                <h3 className="text-3xl font-black mb-1">{value}</h3>
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-tight">{subtext}</p>
+            <CardContent className="p-8">
+                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-2">{title}</p>
+                <h3 className="text-4xl font-black mb-2 text-white tabular-nums tracking-tighter">{value}</h3>
+                <div className="flex items-center gap-2">
+                    <div className="h-1 w-8 bg-indigo-500/50 rounded-full" />
+                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{subtext}</p>
+                </div>
             </CardContent>
         </Card>
     );
@@ -579,17 +664,21 @@ function StatHUDCard({ title, value, subtext, icon }: { title: string, value: st
 
 function FeatureCard({ title, desc, icon, color, onClick }: { title: string, desc: string, icon: React.ReactNode, color: string, onClick: () => void }) {
     return (
-        <Card className="group hover:shadow-xl transition-all cursor-pointer border-border overflow-hidden rounded-[1.5rem]" onClick={onClick}>
-            <CardContent className="p-6 space-y-4">
-                <div className={`w-12 h-12 ${color} rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform`}>
+        <Card 
+            className="group hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 cursor-pointer border-white/5 bg-slate-900/50 backdrop-blur-xl overflow-hidden rounded-[2.5rem] relative" 
+            onClick={onClick}
+        >
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            <CardContent className="p-10 space-y-6 relative z-10">
+                <div className={`w-16 h-16 ${color} rounded-[1.5rem] flex items-center justify-center text-white shadow-2xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
                     {icon}
                 </div>
-                <div>
-                    <h3 className="text-lg font-black uppercase tracking-tight">{title}</h3>
-                    <p className="text-xs text-muted-foreground font-medium leading-relaxed">{desc}</p>
+                <div className="space-y-2">
+                    <h3 className="text-xl font-black uppercase tracking-tight text-white">{title}</h3>
+                    <p className="text-sm text-slate-400 font-medium leading-relaxed">{desc}</p>
                 </div>
-                <div className="flex items-center gap-2 text-[10px] font-black text-amber-600 uppercase tracking-widest">
-                    🚀 Coming March 20 <ChevronRight className="w-3 h-3" />
+                <div className="flex items-center gap-2 text-[10px] font-black text-indigo-400 uppercase tracking-widest group-hover:gap-3 transition-all">
+                    🚀 Founding Edition Access <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                 </div>
             </CardContent>
         </Card>

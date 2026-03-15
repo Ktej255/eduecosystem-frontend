@@ -1,32 +1,33 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_14_SUBTOPICS: Question[] = [
+export const ANCIENT_CHAPTER_14_SUBTOPICS: Subtopic[] = [
     {
         "id": "state_economy",
         "name": "State Control of Economy",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Examines the Mauryan state's regulation of trade, mining monopolies, and systematic taxation systems."
     },
     {
         "id": "admin_structure",
         "name": "Administrative Hierarchy & Justice",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Discusses the tiered bureaucracy, the role of superintendents (Adhyakshas), and the judicial system."
     },
     {
         "id": "social_changes",
         "name": "Social Life: Varna & Slavery",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Analyzes social structures during Mauryan rule, including Megasthenes' seven classes and the nature of labor."
     },
     {
         "id": "art_architecture",
         "name": "Mauryan Art & Material Culture",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Highlights the technical excellence of Mauryan polish, monolithic pillars, and the birth of cave architecture."
     },
     {
         "id": "imperial_legacy",
         "name": "Spread of Material Culture & Legacy",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Evaluates how Mauryan rule integrated the subcontinent and spread urban elements like NBPW and script."
     }
 ];
+
 
 export const ANCIENT_CHAPTER_14_MCQS: Question[] = [
     // ═══════════════════════════════════════════

@@ -7,9 +7,15 @@ import {
     Globe2, Mountain, Waves, BookOpen,
     GraduationCap, Play, CheckCircle2, Circle,
     Target, ArrowRight, BarChart3, Clock,
-    BadgeCheck, Trophy, Target as TargetIcon,
-    Wind, ChevronRight, Activity, Thermometer, Layers, Droplets, MapPin, Pickaxe
+    BadgeCheck, Trophy,
+    Wind, ChevronRight, Activity, Thermometer, Layers, Droplets, MapPin, Pickaxe,
+    FileText, Zap, Globe
 } from 'lucide-react';
+import { NCERT_GEOGRAPHY_BOOKS } from './data/ncert-geography-data';
+import { NCERT_GEOGRAPHY_NOTES } from './data/ncert-geography-notes';
+import { NCERT_FLASHCARDS_DATA } from './data/ncert-flashcards-data';
+import { NCERT_MCQ_COLLECTION } from './data/mcqs/consolidated-ncert';
+const TargetIcon = Target;
 import { SimulationType } from './content/types';
 import dynamic from 'next/dynamic';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -120,14 +126,22 @@ export default function GeographyDashboard() {
         });
     }, [searchQuery, activeBranch]);
 
-    // Sync progress with backend (Placeholder for March 20 implementation)
+    // Sync progress with backend
     useEffect(() => {
         const syncProgress = async () => {
             if (completedTopics.length > 0) {
-                console.log("Syncing Geography Progress to Backend...", completedTopics);
-                // Proposed API: await fetch('/api/v1/student/progress/geography', { 
-                //    method: 'POST', body: JSON.stringify({ completed: completedTopics }) 
-                // });
+                try {
+                    console.log("Syncing Geography Progress to Backend...", completedTopics);
+                    const response = await fetch('/api/v1/student/progress/geography', { 
+                        method: 'POST', 
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ completed: completedTopics }) 
+                    });
+                    if (!response.ok) throw new Error('Failed to sync progress');
+                } catch (error) {
+                    console.error("Progress sync error:", error);
+                    // Fallback to local toast if needed, but avoid spamming
+                }
             }
         };
         syncProgress();
@@ -450,16 +464,16 @@ export default function GeographyDashboard() {
                                 {comingSoonFeature} — Coming Soon
                             </DialogTitle>
                             <DialogDescription className="text-base text-muted-foreground leading-relaxed">
-                                You have early <span className="font-bold text-indigo-600">Founding Member Access</span>. We are building {comingSoonFeature} specifically for deep UPSC geography practice. You'll be notified the moment it goes live.
+                                You have early <span className="font-bold text-indigo-600">Founding Member Access</span>. We are building {comingSoonFeature} specifically for deep UPSC geography practice. 
                             </DialogDescription>
                             <div className="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-100 dark:border-indigo-800 rounded-xl p-4 text-sm text-indigo-700 dark:text-indigo-300 font-medium">
-                                Estimated launch: <span className="font-black">March 20, 2026</span>
+                                Status: <span className="font-black">Active Development</span>
                             </div>
                             <button
                                 onClick={() => setComingSoonFeature(null)}
                                 className="w-full py-3 bg-slate-900 hover:bg-indigo-600 text-white rounded-xl font-black text-sm uppercase tracking-widest transition-all"
                             >
-                                Got It — I'll Check Back Soon
+                                Got It
                             </button>
                         </div>
                     </DialogHeader>
@@ -543,30 +557,67 @@ export default function GeographyDashboard() {
                             <Target className="w-4 h-4 text-indigo-500" /> Select a chapter to launch its practice test (40 MCQs each)
                         </p>
                         <ScrollArea className="h-[400px] pr-4">
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                {Array.from({length: selectedNcertBook?.includes('Physical Environment') ? 7 : selectedNcertBook?.includes('Human Geo') ? 10 : selectedNcertBook?.includes('People and Economy') ? 12 : 16}).map((_, i) => {
-                                    const bookId = selectedNcertBook?.includes('Physical Environment') ? 'class11-india' : selectedNcertBook?.includes('Human Geo') ? 'class12-human' : selectedNcertBook?.includes('People and Economy') ? 'class12-india' : 'class11-physical';
-                                    let cPrefix = bookId === 'class11-physical' ? 'c11-p' : bookId === 'class11-india' ? 'c11-i' : bookId === 'class12-human' ? 'c12-h' : 'c12-ie';
+                            <div className="grid grid-cols-1 gap-4">
+                                {(() => {
+                                    const registryIdMap: Record<string, string> = {
+                                        'Fundamentals of Physical Geo (Class 11)': 'class11-physical',
+                                        'Indian Physical Environment (Class 11)': 'class11-india',
+                                        'Fundamentals of Human Geo (Class 12)': 'class12-human',
+                                        'India: People and Economy (Class 12)': 'class12-india'
+                                    };
                                     
-                                    return (
-                                    <Button 
-                                        key={i} 
-                                        variant="outline" 
-                                        className="justify-between h-16 font-bold text-slate-700 bg-slate-50 hover:bg-slate-100 hover:text-indigo-700 hover:border-indigo-300 transition-all text-left px-6 rounded-xl border-slate-200 group relative overflow-hidden shadow-sm"
-                                        onClick={() => {
-                                            router.push(`/student/upsc/geography/ncert-module/${bookId}/${cPrefix}-${i + 1}`);
-                                            setNcertModalOpen(false);
-                                        }}
-                                    >
-                                        <div className="flex items-center gap-4 relative z-10">
-                                            <div className="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center font-black text-xs group-hover:bg-indigo-600 group-hover:text-white transition-colors">
-                                                {String(i + 1).padStart(2, '0')}
+                                    const book = NCERT_GEOGRAPHY_BOOKS.find(b => b.id === registryIdMap[selectedNcertBook || '']);
+                                    if (!book) return null;
+                                    
+                                    return book.chapters.map(chapter => {
+                                        const hasNote = !!NCERT_GEOGRAPHY_NOTES[chapter.id];
+                                        const hasFlash = (NCERT_FLASHCARDS_DATA[chapter.id]?.length || 0) > 0;
+                                        const mcqKey = (chapter.mcqDataId || `chapter${chapter.chapterNumber}MCQs`) as keyof typeof NCERT_MCQ_COLLECTION;
+                                        const hasMCQ = (NCERT_MCQ_COLLECTION[mcqKey]?.length || 0) > 0;
+                                        const hasCA = false;
+
+                                        const features = [
+                                            { id: 'note', icon: FileText, active: hasNote, color: 'text-emerald-500 bg-emerald-50 border-emerald-100', hover: 'hover:bg-emerald-600 hover:text-white' },
+                                            { id: 'flashcard', icon: Zap, active: hasFlash, color: 'text-amber-500 bg-amber-50 border-amber-100', hover: 'hover:bg-amber-600 hover:text-white' },
+                                            { id: 'mcq', icon: Target, active: hasMCQ, color: 'text-rose-500 bg-rose-50 border-rose-100', hover: 'hover:bg-rose-600 hover:text-white' },
+                                            { id: 'current', icon: Globe, active: hasCA, color: 'text-blue-500 bg-blue-50 border-blue-100', hover: 'hover:bg-blue-600 hover:text-white' }
+                                        ];
+
+                                        return (
+                                            <div 
+                                                key={chapter.id} 
+                                                className="group flex flex-col md:flex-row md:items-center justify-between p-4 bg-slate-50 border border-slate-200 rounded-2xl hover:border-indigo-200 hover:bg-white transition-all shadow-sm gap-4"
+                                            >
+                                                <div className="flex items-center gap-4">
+                                                    <div className="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-black text-xs group-hover:bg-indigo-600 group-hover:text-white transition-all">
+                                                        {chapter.chapterNumber}
+                                                    </div>
+                                                    <div>
+                                                        <h4 className="text-sm font-bold text-slate-800">{chapter.title}</h4>
+                                                        <p className="text-[10px] text-slate-400 font-medium uppercase tracking-widest">UPSC Standard Revision</p>
+                                                    </div>
+                                                </div>
+
+                                                <div className="flex items-center gap-2">
+                                                    {features.map((feature) => (
+                                                        <button
+                                                            key={feature.id}
+                                                            disabled={!feature.active}
+                                                            onClick={() => {
+                                                                router.push(`/student/upsc/geography/ncert-module/${book.id}/${chapter.id}?tab=${feature.id}`);
+                                                                setNcertModalOpen(false);
+                                                            }}
+                                                            className={`w-9 h-9 rounded-lg border flex items-center justify-center transition-all ${feature.active ? `${feature.color} ${feature.hover} shadow-sm group/btn` : 'opacity-20 cursor-not-allowed grayscale'}`}
+                                                            title={feature.active ? `Launch ${feature.id}` : 'Coming Soon'}
+                                                        >
+                                                            <feature.icon className={`w-4 h-4 transition-transform ${feature.active ? 'group-hover/btn:scale-110' : ''}`} />
+                                                        </button>
+                                                    ))}
+                                                </div>
                                             </div>
-                                            <span className="text-sm truncate">Chapter {i + 1}</span>
-                                        </div>
-                                        <ArrowRight className="w-4 h-4 text-indigo-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all relative z-10" />
-                                    </Button>
-                                )})}
+                                        );
+                                    });
+                                })()}
                             </div>
                         </ScrollArea>
                     </div>
@@ -577,7 +628,7 @@ export default function GeographyDashboard() {
 }
 
 const featureCardVariants = {
-    hover: { scale: 1.02, translateY: -5, transition: { type: 'spring', stiffness: 400, damping: 10 } }
+    hover: { scale: 1.02, translateY: -5, transition: { type: 'spring' as any, stiffness: 400, damping: 10 } }
 };
 
 const FeatureCard = React.memo(({ title, desc, icon, color, status, onClick }: { title: string, desc: string, icon: React.ReactNode, color: string, status?: string, onClick: () => void }) => {

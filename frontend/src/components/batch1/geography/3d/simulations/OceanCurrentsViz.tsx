@@ -4,7 +4,7 @@ import React, { useState, Suspense, useMemo, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Html, Stars } from "@react-three/drei";
 import * as THREE from "three";
-import { Info, Globe, ThermometerSun, Snowflake } from "lucide-react";
+import { Info, Globe, ThermometerSun, Snowflake, Compass } from "lucide-react";
 
 // --- Types & Data ---
 
@@ -194,10 +194,11 @@ function GlobeScene({ onSelectCurrent }: { onSelectCurrent: (c: CurrentData) => 
 
             <OrbitControls
                 enablePan={false}
-                minDistance={3.5}
-                maxDistance={8}
+                minDistance={3}
+                maxDistance={12}
                 autoRotate
                 autoRotateSpeed={0.5}
+                makeDefault
             />
         </>
     );
@@ -215,12 +216,23 @@ export default function OceanCurrentsViz() {
             </Canvas>
 
             {/* Title */}
-            <div className="absolute top-4 left-4 pointer-events-none z-10">
-                <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-                    <Globe className="text-blue-400" />
-                    Major Ocean Currents
+            <div className="absolute top-6 left-6 pointer-events-none z-10">
+                <h1 className="text-2xl font-black text-white flex items-center gap-3 uppercase tracking-tighter">
+                    <Globe className="text-cyan-400 w-8 h-8" />
+                    Ocean <span className="text-cyan-400">Currents</span>
                 </h1>
-                <p className="text-muted-foreground text-sm">Global circulation of warm & cold water</p>
+                <p className="text-muted-foreground text-[10px] font-black tracking-[0.2em] uppercase mt-1">Global circulation network</p>
+            </div>
+
+            {/* Reset View */}
+            <div className="absolute bottom-6 left-6 flex flex-col gap-3">
+                <button
+                    onClick={() => window.location.reload()}
+                    className="p-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl text-white hover:bg-white/10 transition-all group pointer-events-auto"
+                    title="Reset Camera View"
+                >
+                    <Compass className="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" />
+                </button>
             </div>
 
             {/* Legend */}

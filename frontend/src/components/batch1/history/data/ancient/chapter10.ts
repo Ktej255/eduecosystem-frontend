@@ -1,32 +1,33 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_10_SUBTOPICS: Question[] = [
+export const ANCIENT_CHAPTER_10_SUBTOPICS: Subtopic[] = [
     {
         "id": "mahajanapadas",
         "name": "The 16 Mahajanapadas",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Discusses the transition from tribal to territorial states and the list of 16 major powers in 6th Century BCE."
     },
     {
         "id": "rise_magadha",
         "name": "Rise of Magadha: Haryanka & Shishunaga",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Analyzes why Magadha emerged supreme through military innovations, diplomacy, and strategic capitals."
     },
     {
         "id": "nanda_dynasty",
         "name": "The Nanda Dynasty & First Empire",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Focuses on Mahapadma Nanda's empire-building and the massive military/fiscal strength of the Nandas."
     },
     {
         "id": "magadha_success",
         "name": "General Factors of Magadhan Success",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Explores the geographical, economic, and military advantages (iron, elephants, fertile soil) of Magadha."
     },
     {
         "id": "admin_society",
         "name": "Administration & Social Changes",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Covers the rise of professional bureaucracy, money economy (coins), and new social structures."
     }
 ];
+
 
 export const ANCIENT_CHAPTER_10_MCQS: Question[] = [
     // ═══════════════════════════════════════════

@@ -1,32 +1,33 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_19_SUBTOPICS: Question[] = [
+export const ANCIENT_CHAPTER_19_SUBTOPICS: Subtopic[] = [
     {
         "id": "gupta_origins",
         "name": "Origins & Chandragupta I",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Covers the rise of the Guptas in Magadha and the importance of the Lichchhavi marriage alliance for legitimacy."
     },
     {
         "id": "samudragupta_conquests",
         "name": "Samudragupta & Allahabad Pillar",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Analyzes the military genius of Samudragupta and his differing policies for Northern and Southern conquests."
     },
     {
         "id": "chandragupta_ii",
         "name": "Chandragupta II & Vikramaditya",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Discusses the defeat of the Shakas, the second capital at Ujjain, and the visit of the Chinese monk Fa-Hien."
     },
     {
         "id": "later_guptas",
         "name": "Kumaragupta, Skandagupta & Hunas",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Examines the founding of Nalanda University and the impact of the Huna invasions on the Gupta economy."
     },
     {
         "id": "gupta_administration",
         "name": "Administration & Governance",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Explores the decentralized administration, land grants (Agraharas), and the rise of feudal tendencies."
     }
 ];
+
 
 export const ANCIENT_CHAPTER_19_MCQS: Question[] = [
     // ═══════════════════════════════════════════

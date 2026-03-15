@@ -2,6 +2,7 @@
 
 import React, { useRef, useState, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
+import { Compass } from 'lucide-react';
 import { OrbitControls, Stars, Text, Html, Sphere, Line } from '@react-three/drei';
 import * as THREE from 'three';
 import { GEOGRAPHY_SYLLABUS, Module, SubTopic, MicroTopic } from '../data/geography-syllabus-data';
@@ -164,25 +165,38 @@ export default function GeographyGlobe({ activeModuleId, onSelectTopic }: Geogra
 
                 <OrbitControls
                     enablePan={false}
-                    minDistance={6}
-                    maxDistance={30}
+                    minDistance={5}
+                    maxDistance={25}
                     autoRotate={true}
                     autoRotateSpeed={0.5}
+                    makeDefault
                 />
             </Canvas>
 
-            {/* Overlay Info */}
-            <div className="absolute top-6 left-6 pointer-events-none">
-                <h2
-                    className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-600 uppercase tracking-tighter"
-                    style={{ textShadow: `0 0 30px ${activeModule?.color}40` }}
-                >
-                    {activeModule?.id.toUpperCase()}
-                </h2>
-                <div className="flex items-center gap-2 mt-2">
-                    <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: activeModule?.color }}></div>
-                    <span className="text-muted-foreground text-sm font-mono tracking-widest">LIVE DATA FEED</span>
+            {/* Overlay Info & Reset */}
+            <div className="absolute top-6 left-6 pointer-events-none select-none">
+                <div className="space-y-1">
+                    <h2
+                        className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-600 uppercase tracking-tighter"
+                        style={{ textShadow: `0 0 30px ${activeModule?.color}40` }}
+                    >
+                        {activeModule?.id.toUpperCase()}
+                    </h2>
+                    <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: activeModule?.color }}></div>
+                        <span className="text-muted-foreground text-[10px] font-black tracking-[0.2em] uppercase">Earth Systems Feed</span>
+                    </div>
                 </div>
+            </div>
+
+            <div className="absolute bottom-6 left-6 flex flex-col gap-3">
+                <button
+                    onClick={() => window.location.reload()} // Quickest way to reset the scene state and camera
+                    className="p-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl text-white hover:bg-white/10 transition-all group pointer-events-auto"
+                    title="Reset Camera View"
+                >
+                    <Compass className="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" />
+                </button>
             </div>
         </div>
     );

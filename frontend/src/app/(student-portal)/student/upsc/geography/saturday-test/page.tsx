@@ -105,7 +105,7 @@ export default function SaturdayTestPage() {
     // LANDING PAGE
     return (
         <div className="max-w-5xl mx-auto p-4 sm:p-8 pt-12">
-            <Button variant="ghost" onClick={() => router.push('/student/upsc/geography')} className="mb-6 -ml-4 font-bold text-slate-500 hover:text-indigo-600">
+            <Button variant="ghost" onClick={() => router.push('/student/batch1/geography')} className="mb-6 -ml-4 font-bold text-slate-500 hover:text-indigo-600">
                 <ArrowLeft className="w-4 h-4 mr-2" /> Back to Geography Dashboard
             </Button>
             

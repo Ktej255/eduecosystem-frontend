@@ -1,32 +1,33 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_27_SUBTOPICS: Question[] = [
+export const ANCIENT_CHAPTER_27_SUBTOPICS: Subtopic[] = [
     {
         "id": "tribal_pastoral",
         "name": "Tribal and Pastoral Phase (Rig Veda)",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Summarizes the early Vedic era of kinship-based, semi-nomadic cattle rearing with minimal social stratification."
     },
     {
         "id": "agriculture_state",
         "name": "Agriculture and State Formation (Later Vedic to Maurya)",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Traces how iron technology and settled farming led to surplus, territorial states (Janapadas), and centralized bureaucracy."
     },
     {
         "id": "social_classes",
         "name": "Evolution of Varna & Social Classes",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Analyzes the hardening of the varna system as a tool for surplus extraction and the subsequent heterodox reaction."
     },
     {
         "id": "crafts_guilds",
         "name": "Crafts, Guilds & Trade (Post-Maurya & Gupta)",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Highlights the peak of ancient commerce, monetized economy, and the powerful role of autonomous merchant guilds."
     },
     {
         "id": "feudal_transition",
         "name": "The Feudal Transition & Legacy",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Concludes with the transition to a decentralized feudal order, the proliferation of Jatis, and its long-term impact on India."
     }
 ];
+
 
 export const ANCIENT_CHAPTER_27_MCQS: Question[] = [
     // ═══════════════════════════════════════════

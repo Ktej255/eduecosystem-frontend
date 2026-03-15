@@ -9,191 +9,25 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Using a reliable absolute URL for India TopoJSON
-const INDIA_TOPO_JSON = "https://raw.githubusercontent.com/datameet/maps/master/Country/india-composite.json";
+import { INDIA_GEO_DATA } from '../data/india-geography-data';
+import { GeoFeature } from '../data/geo-types';
+
+// Using local official India TopoJSON
+const INDIA_TOPO_JSON = "/maps/india-official.json";
 
 // --- Types ---
 type RiverType = 'himalayan' | 'peninsular';
 type ItemType = 'river' | 'dam' | 'flood-zone';
 
-interface RiverData {
-    id: string;
-    name: string;
-    type: RiverType;
-    origin: string;
-    length: string;
-    tributaries: string[];
-    states: string[];
-    drainage_pattern: string;
-    seasonal_nature: string;
-    major_dams: string[];
-    upsc_fact: string;
-    coordinates: [number, number][]; // [longitude, latitude] array for the polyline
-}
+// --- Mappers & Helpers ---
+const isHimalayan = (river: GeoFeature): boolean => {
+    const himalayanRegions = ['Ladakh', 'Uttarakhand', 'Himachal', 'Arunachal', 'Sikkim', 'Assam', 'Jammu', 'Kashmir', 'Tibet'];
+    return himalayanRegions.some(reg => river.region.includes(reg));
+};
 
-interface DamData {
-    id: string;
-    name: string;
-    river: string;
-    state: string;
-    year: string;
-    purpose: string;
-    capacity: string;
-    coordinates: [number, number];
-}
-
-// --- Data Definitions ---
-const RIVERS: RiverData[] = [
-    {
-        id: 'ganga',
-        name: 'Ganga',
-        type: 'himalayan',
-        origin: 'Gangotri Glacier (Gomukh), Uttarakhand',
-        length: '2,525 km',
-        tributaries: ['Yamuna', 'Son', 'Ghaghara', 'Gandak', 'Kosi', 'Ramganga'],
-        states: ['Uttarakhand', 'Uttar Pradesh', 'Bihar', 'West Bengal'],
-        drainage_pattern: 'Dendritic pattern',
-        seasonal_nature: 'Perennial (Glacier-fed & Rain-fed)',
-        major_dams: ['Farakka Barrage', 'Tehri Dam (on Bhagirathi)'],
-        upsc_fact: 'The Ganga basin covers about 8.6 lakh sq. km in India alone, making it the largest river basin in the country.',
-        coordinates: [
-            [79.0, 31.0], [78.2, 30.1], [78.1, 29.9], [78.0, 29.0], [79.5, 27.5], [80.3, 26.5], [81.8, 25.4], [83.0, 25.6], [85.1, 25.6], [87.9, 24.8], [88.1, 23.9], [88.3, 22.5]
-        ]
-    },
-    {
-        id: 'indus',
-        name: 'Indus (Sindhu)',
-        type: 'himalayan',
-        origin: 'Bokhar Chu (near Mansarovar Lake), Tibet',
-        length: '3,180 km (1,114 km in India)',
-        tributaries: ['Jhelum', 'Chenab', 'Ravi', 'Beas', 'Sutlej', 'Zaskar', 'Shyok'],
-        states: ['Ladakh', 'Jammu & Kashmir'],
-        drainage_pattern: 'Antecedent drainage',
-        seasonal_nature: 'Perennial',
-        major_dams: ['Tarbela Dam (Pak)', 'Mangla Dam (Pak)', 'Bhakra Nangal (on Sutlej)'],
-        upsc_fact: 'Under the Indus Water Treaty (1960), India has exclusive rights over the waters of three eastern rivers (Ravi, Beas, Sutlej).',
-        coordinates: [
-            [81.2, 31.2], [79.0, 32.5], [77.6, 34.1], [76.8, 34.6], [75.8, 35.3], [74.5, 35.6], [73.5, 34.8], [72.0, 33.5]
-        ]
-    },
-    {
-        id: 'brahmaputra',
-        name: 'Brahmaputra',
-        type: 'himalayan',
-        origin: 'Chemayungdung Glacier, Tibet',
-        length: '2,900 km (916 km in India)',
-        tributaries: ['Subansiri', 'Kameng', 'Dhansiri', 'Lohit', 'Teesta', 'Manas'],
-        states: ['Arunachal Pradesh', 'Assam'],
-        drainage_pattern: 'Braided channel in Assam plain',
-        seasonal_nature: 'Perennial (prone to devastating annual floods)',
-        major_dams: ['Pagladiya Dam (proposed)'],
-        upsc_fact: 'Known as Tsangpo in Tibet and Dihang in Arunachal Pradesh. It carries the largest volume of water among Indian rivers.',
-        coordinates: [
-            [82.0, 30.5], [85.0, 29.5], [88.0, 29.2], [91.0, 29.3], [94.0, 29.5], [95.5, 29.2], [95.2, 28.0], [93.5, 26.7], [91.5, 26.1], [89.8, 25.8]
-        ]
-    },
-    {
-        id: 'narmada',
-        name: 'Narmada',
-        type: 'peninsular',
-        origin: 'Amarkantak Plateau, Madhya Pradesh',
-        length: '1,312 km',
-        tributaries: ['Barna', 'Tawa', 'Hiran', 'Orsang', 'Kolar'],
-        states: ['Madhya Pradesh', 'Maharashtra', 'Gujarat'],
-        drainage_pattern: 'Trellis / Rift Valley drainage',
-        seasonal_nature: 'Seasonal (Rain-fed)',
-        major_dams: ['Sardar Sarovar', 'Indira Sagar', 'Omkareshwar'],
-        upsc_fact: 'It is the longest west-flowing river in India and flows through a rift valley between the Vindhya and Satpura ranges.',
-        coordinates: [
-            [81.7, 22.7], [79.9, 23.1], [78.5, 22.8], [76.5, 22.5], [74.5, 22.0], [73.0, 21.7]
-        ]
-    },
-    {
-        id: 'godavari',
-        name: 'Godavari',
-        type: 'peninsular',
-        origin: 'Trimbakeshwar (Nashik), Maharashtra',
-        length: '1,465 km',
-        tributaries: ['Purna', 'Wardha', 'Pranhita', 'Manjira', 'Indravati', 'Sabari'],
-        states: ['Maharashtra', 'Telangana', 'Andhra Pradesh', 'Chhattisgarh', 'Odisha'],
-        drainage_pattern: 'Dendritic pattern',
-        seasonal_nature: 'Seasonal',
-        major_dams: ['Polavaram Project', 'Jayakwadi Dam', 'Sriram Sagar'],
-        upsc_fact: 'Often referred to as the "Dakshin Ganga" (Ganges of the South), it is the largest river system of Peninsular India.',
-        coordinates: [
-            [73.5, 19.9], [75.0, 19.5], [77.5, 18.8], [79.5, 18.5], [81.0, 17.5], [82.2, 16.5]
-        ]
-    },
-    {
-        id: 'krishna',
-        name: 'Krishna',
-        type: 'peninsular',
-        origin: 'Mahabaleshwar, Maharashtra',
-        length: '1,400 km',
-        tributaries: ['Tungabhadra', 'Koyna', 'Bhima', 'Ghataprabha', 'Malaprabha', 'Musi'],
-        states: ['Maharashtra', 'Karnataka', 'Telangana', 'Andhra Pradesh'],
-        drainage_pattern: 'Dendritic',
-        seasonal_nature: 'Seasonal',
-        major_dams: ['Nagarjuna Sagar', 'Srisailam', 'Almatti Dam'],
-        upsc_fact: 'The Tungabhadra river, its largest tributary, was the lifeline of the historical Vijayanagara Empire.',
-        coordinates: [
-            [73.6, 17.9], [75.5, 16.5], [77.0, 16.2], [79.0, 16.5], [80.5, 16.2], [81.0, 15.8]
-        ]
-    },
-    {
-        id: 'kaveri',
-        name: 'Kaveri (Cauvery)',
-        type: 'peninsular',
-        origin: 'Talakaveri (Brahmagiri Hills), Karnataka',
-        length: '800 km',
-        tributaries: ['Harangi', 'Hemavati', 'Kabini', 'Bhavani', 'Arkavathi', 'Amaravati'],
-        states: ['Karnataka', 'Tamil Nadu', 'Kerala (tributaries)', 'Puducherry'],
-        drainage_pattern: 'Dendritic',
-        seasonal_nature: 'Relatively perennial (receives rainfall from both SW and NE monsoons)',
-        major_dams: ['Krishna Raja Sagara (KRS)', 'Mettur Dam', 'Grand Anicut (Kallanai)'],
-        upsc_fact: 'Unlike other peninsular rivers, the Kaveri brings water all year round because its upper catchment receives rainfall from SW monsoon and lower catchment from NE monsoon.',
-        coordinates: [
-            [75.6, 12.3], [76.5, 12.4], [77.5, 11.4], [78.5, 11.0], [79.5, 10.8], [79.8, 11.1]
-        ]
-    },
-    {
-        id: 'mahanadi',
-        name: 'Mahanadi',
-        type: 'peninsular',
-        origin: 'Sihawa (Raipur district), Chhattisgarh',
-        length: '851 km',
-        tributaries: ['Seonath', 'Hasdeo', 'Mand', 'Ib', 'Jonk', 'Tel'],
-        states: ['Chhattisgarh', 'Odisha'],
-        drainage_pattern: 'Radial (in upper reaches) / Dendritic',
-        seasonal_nature: 'Seasonal (high flood fluctuations)',
-        major_dams: ['Hirakud Dam', 'Ravishankar Sagar'],
-        upsc_fact: 'The Hirakud Dam on the Mahanadi represents the longest earthen dam in the world.',
-        coordinates: [
-            [81.9, 20.3], [82.5, 20.7], [83.5, 21.5], [84.0, 21.0], [85.5, 20.5], [86.7, 20.2]
-        ]
-    }
-];
-
-const DAMS: DamData[] = [
-    {
-        id: 'bhakra', name: 'Bhakra-Nangal', river: 'Sutlej', state: 'Himachal Pradesh / Punjab', year: '1963', purpose: 'Power & Irrigation', capacity: '9.34 billion c.m.', coordinates: [76.4, 31.4]
-    },
-    {
-        id: 'tehri', name: 'Tehri Dam', river: 'Bhagirathi (Ganga)', state: 'Uttarakhand', year: '2006', purpose: 'Power & Water Supply', capacity: '3.54 billion c.m.', coordinates: [78.4, 30.3]
-    },
-    {
-        id: 'sardar', name: 'Sardar Sarovar', river: 'Narmada', state: 'Gujarat', year: '2017', purpose: 'Power & Irrigation', capacity: '9.50 billion c.m.', coordinates: [73.7, 21.8]
-    },
-    {
-        id: 'hirakud', name: 'Hirakud Dam', river: 'Mahanadi', state: 'Odisha', year: '1957', purpose: 'Flood Control & Power', capacity: '5.89 billion c.m.', coordinates: [83.8, 21.5]
-    },
-    {
-        id: 'nagarjuna', name: 'Nagarjuna Sagar', river: 'Krishna', state: 'Telangana / Andhra Pradesh', year: '1967', purpose: 'Power & Irrigation', capacity: '11.4 billion c.m.', coordinates: [79.3, 16.5]
-    },
-    {
-        id: 'mettur', name: 'Mettur Dam', river: 'Kaveri', state: 'Tamil Nadu', year: '1934', purpose: 'Irrigation & Power', capacity: '2.64 billion c.m.', coordinates: [77.8, 11.8]
-    }
-];
+// Map global data to local expectations
+const GLOBAL_RIVERS: GeoFeature[] = INDIA_GEO_DATA.filter(f => f.type === 'river');
+const GLOBAL_DAMS: GeoFeature[] = INDIA_GEO_DATA.filter(f => f.type === 'dam');
 
 // Flood zones represented as rough bounding box centers and radii for visualization
 const FLOOD_ZONES = [
@@ -201,25 +35,27 @@ const FLOOD_ZONES = [
     { id: 'bihar_flood', name: 'Bihar Plains (Kosi)', coordinates: [86.0, 26.0], radius: 10 },
 ];
 
-
 export default function RiverSystemExplorer() {
     const [filter, setFilter] = useState<'all' | 'himalayan' | 'peninsular'>('all');
     const [showDams, setShowDams] = useState(true);
     const [showFloodZones, setShowFloodZones] = useState(false);
     
-    const [selectedItem, setSelectedItem] = useState<{type: ItemType, data: any} | null>(null);
+    const [selectedItem, setSelectedItem] = useState<{type: ItemType, data: GeoFeature | any} | null>(null);
 
-    const handleSelectRiver = (river: RiverData) => {
+    const handleSelectRiver = (river: GeoFeature) => {
         setSelectedItem({ type: 'river', data: river });
     };
 
-    const handleSelectDam = (dam: DamData) => {
+    const handleSelectDam = (dam: GeoFeature) => {
         setSelectedItem({ type: 'dam', data: dam });
     };
 
     const filteredRivers = useMemo(() => {
-        if (filter === 'all') return RIVERS;
-        return RIVERS.filter(r => r.type === filter);
+        if (filter === 'all') return GLOBAL_RIVERS;
+        return GLOBAL_RIVERS.filter(r => {
+            const h = isHimalayan(r);
+            return filter === 'himalayan' ? h : !h;
+        });
     }, [filter]);
 
     return (
@@ -474,15 +310,15 @@ export default function RiverSystemExplorer() {
                                     <g key={river.id} onClick={() => handleSelectRiver(river)} style={{ cursor: 'pointer' }}>
                                         {/* Hit area for easier clicking */}
                                         <Line
-                                            coordinates={river.coordinates}
+                                            coordinates={river.path || []}
                                             stroke="transparent"
                                             strokeWidth={15}
                                             style={{ outline: "none" }}
                                         />
                                         {/* Outer glow halo (wide, soft) */}
                                         <Line
-                                            coordinates={river.coordinates}
-                                            stroke={isSelected ? '#e879f9' : (river.type === 'himalayan' ? '#38bdf8' : '#fb923c')}
+                                            coordinates={river.path || []}
+                                            stroke={isSelected ? '#e879f9' : (isHimalayan(river) ? '#38bdf8' : '#fb923c')}
                                             strokeWidth={isSelected ? 8 : 5}
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
@@ -491,7 +327,7 @@ export default function RiverSystemExplorer() {
                                         />
                                         {/* Main gradient river line */}
                                         <Line
-                                            coordinates={river.coordinates}
+                                            coordinates={river.path || []}
                                             stroke={gradientId}
                                             strokeWidth={isSelected ? 3.5 : 2}
                                             strokeLinecap="round"
@@ -501,7 +337,7 @@ export default function RiverSystemExplorer() {
                                         />
                                         {/* Animated flow particles (white dash overlay) */}
                                         <Line
-                                            coordinates={river.coordinates}
+                                            coordinates={river.path || []}
                                             stroke="rgba(255,255,255,0.5)"
                                             strokeWidth={isSelected ? 1.5 : 0.8}
                                             strokeLinecap="round"
@@ -512,7 +348,7 @@ export default function RiverSystemExplorer() {
                                         />
                                         {/* Secondary animated shimmer (faster, offset) */}
                                         <Line
-                                            coordinates={river.coordinates}
+                                            coordinates={river.path || []}
                                             stroke="rgba(255,255,255,0.3)"
                                             strokeWidth={isSelected ? 1 : 0.5}
                                             strokeLinecap="round"
@@ -522,13 +358,13 @@ export default function RiverSystemExplorer() {
                                             style={{ pointerEvents: 'none' }}
                                         />
                                         {/* Origin point glow marker */}
-                                        <Marker coordinates={river.coordinates[0]}>
+                                        <Marker coordinates={(river.path && river.path[0]) || [0,0]}>
                                             <circle r={isSelected ? 4 : 2.5} fill="url(#originGlow)" className="origin-pulse" />
                                             <circle r={isSelected ? 1.5 : 1} fill="#ffffff" opacity={0.9} />
                                         </Marker>
                                         {/* River name label at midpoint */}
-                                        {isSelected && (
-                                            <Marker coordinates={river.coordinates[Math.floor(river.coordinates.length / 2)]}>
+                                        {isSelected && river.path && (
+                                            <Marker coordinates={river.path[Math.floor(river.path.length / 2)]}>
                                                 <text 
                                                     textAnchor="middle" 
                                                     y={-8} 
@@ -601,12 +437,12 @@ export default function RiverSystemExplorer() {
                             </style>
 
                             {/* Dams Layer — Enhanced with Glowing Beacons */}
-                            {showDams && DAMS.map((dam) => {
+                            {showDams && GLOBAL_DAMS.map((dam) => {
                                 const isSelected = selectedItem?.type === 'dam' && selectedItem.data.id === dam.id;
                                 return (
                                     <Marker 
                                         key={dam.id} 
-                                        coordinates={dam.coordinates}
+                                        coordinates={[dam.coordinates.lng, dam.coordinates.lat]}
                                         onClick={() => handleSelectDam(dam)}
                                         style={{ cursor: 'pointer' }}
                                     >
@@ -734,27 +570,27 @@ export default function RiverSystemExplorer() {
                                         </div>
 
                                         <div className="space-y-6">
-                                            <FactCard title="Origin" value={selectedItem.data.origin} />
+                                            <FactCard title="Origin & Region" value={selectedItem.data.region} />
                                             
                                             <div className="grid grid-cols-2 gap-4">
-                                                <FactCard title="Total Length" value={selectedItem.data.length} />
-                                                <FactCard title="Drainage Pattern" value={selectedItem.data.drainage_pattern} />
+                                                <FactCard title="Difficulty" value={selectedItem.data.difficulty} />
+                                                <FactCard title="Type" value={isHimalayan(selectedItem.data) ? 'Himalayan' : 'Peninsular'} />
                                             </div>
 
                                             <div>
-                                                <h4 className="text-[10px] text-slate-500 font-black uppercase tracking-widest mb-2">Major Tributaries</h4>
+                                                <h4 className="text-[10px] text-slate-500 font-black uppercase tracking-widest mb-2">Key Characteristics</h4>
                                                 <div className="flex flex-wrap gap-2">
-                                                    {selectedItem.data.tributaries.map((trib: string) => (
-                                                        <Badge key={trib} className="bg-slate-800 text-slate-300 hover:bg-slate-700 font-medium px-3 border-0 rounded-md py-1">
-                                                            {trib}
+                                                    {selectedItem.data.characteristics.map((char: string) => (
+                                                        <Badge key={char} className="bg-slate-800 text-slate-300 hover:bg-slate-700 font-medium px-3 border-0 rounded-md py-1">
+                                                            {char}
                                                         </Badge>
                                                     ))}
                                                 </div>
                                             </div>
 
                                             <div>
-                                                <h4 className="text-[10px] text-slate-500 font-black uppercase tracking-widest mb-2">Flows Through</h4>
-                                                <p className="text-sm text-slate-300 font-medium leading-relaxed">{selectedItem.data.states.join(' • ')}</p>
+                                                <h4 className="text-[10px] text-slate-500 font-black uppercase tracking-widest mb-2">Detailed Context</h4>
+                                                <p className="text-sm text-slate-300 font-medium leading-relaxed">{selectedItem.data.description}</p>
                                             </div>
 
                                             <div className="bg-indigo-900/20 border border-indigo-500/20 rounded-2xl p-5 relative overflow-hidden">
@@ -762,7 +598,13 @@ export default function RiverSystemExplorer() {
                                                 <h4 className="text-[10px] text-indigo-400 font-black uppercase tracking-widest mb-3 flex items-center gap-2 relative z-10">
                                                     <Target className="w-4 h-4" /> UPSC Objective Note
                                                 </h4>
-                                                <p className="text-indigo-100 text-sm leading-relaxed relative z-10">{selectedItem.data.upsc_fact}</p>
+                                                <p className="text-indigo-100 text-sm leading-relaxed relative z-10">{selectedItem.data.upsc_relevance}</p>
+                                                {selectedItem.data.news_context && (
+                                                    <p className="text-amber-300 text-xs mt-3 border-t border-indigo-500/20 pt-3 relative z-10">
+                                                        <Info className="w-3 h-3 inline mr-1" /> 
+                                                        {selectedItem.data.news_context}
+                                                    </p>
+                                                )}
                                             </div>
                                         </div>
                                     </>
@@ -782,10 +624,10 @@ export default function RiverSystemExplorer() {
                                         </div>
 
                                         <div className="bg-slate-800/50 border border-white/5 rounded-2xl p-6 space-y-5">
-                                            <FactRow label="River" value={selectedItem.data.river} highlight={true} />
-                                            <FactRow label="Commissioned" value={selectedItem.data.year} />
-                                            <FactRow label="Primary Purpose" value={selectedItem.data.purpose} />
-                                            <FactRow label="Reservoir Capacity" value={selectedItem.data.capacity} />
+                                            <FactRow label="River/System" value={selectedItem.data.characteristics[0] || 'N/A'} highlight={true} />
+                                            <FactRow label="Region" value={selectedItem.data.region} />
+                                            <FactRow label="Description" value={selectedItem.data.description} />
+                                            <FactRow label="PYQ Years" value={selectedItem.data.pyq_years.join(', ')} />
                                         </div>
                                     </>
                                 )}
