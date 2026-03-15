@@ -20,7 +20,8 @@ def session_heartbeat(
     Update or create a user session heartbeat.
     Called by the frontend every 60s to track platform usage.
     """
-    now = datetime.now(timezone.utc)
+    # Use naive UTC time to match SQLAlchemy defaults
+    now = datetime.utcnow()
     
     # Check for an active session (last heartbeat within 5 minutes)
     five_mins_ago = now - timedelta(minutes=5)

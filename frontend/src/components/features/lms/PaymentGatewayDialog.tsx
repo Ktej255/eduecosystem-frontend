@@ -142,6 +142,13 @@ export function PaymentGatewayDialog({
         redirectTarget: "_self" // For modal experience, _modal is available in cashfree.js but _self relies on the native overlay Cashfree handles
       };
 
+      console.log("CASHFREE DEBUG:", {
+        sessionId: payment_session_id,
+        mode: process.env.NEXT_PUBLIC_ENVIRONMENT,
+        cashfreeLoaded: typeof window !== 'undefined' && 
+                        typeof window.Cashfree !== 'undefined'
+      });
+
       cashfree.checkout(checkoutOptions).then((result: any) => {
         if (result.error) {
           // This is triggered if checkout fails

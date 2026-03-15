@@ -2,6 +2,9 @@ import { GeoFeature } from './geo-types';
 import { NATIONAL_PARKS_DATA } from './national-parks-data';
 import { RAMSAR_SITES_DATA } from './ramsar-sites-data'; // New
 import { MOUNTAINS_DATA } from './mountains-data'; // New
+import { BIOSPHERE_RESERVES_DATA } from './biosphere-reserves-data';
+import { TIGER_RESERVES_DATA } from './tiger-reserves-data';
+import { UNESCO_SITES_DATA } from './unesco-sites-data';
 
 export const INDIA_GEO_DATA: GeoFeature[] = [
   // NATIONAL PARKS (106+)
@@ -12,6 +15,15 @@ export const INDIA_GEO_DATA: GeoFeature[] = [
 
   // MOUNTAIN RANGES & PEAKS
   ...MOUNTAINS_DATA,
+
+  // BIOSPHERE RESERVES
+  ...BIOSPHERE_RESERVES_DATA,
+
+  // TIGER RESERVES
+  ...TIGER_RESERVES_DATA,
+
+  // UNESCO WORLD HERITAGE SITES
+  ...UNESCO_SITES_DATA,
 
   // ══════════════════════════════════════════════════════════════════
   // THE GANGA RIVER SYSTEM (MASTER INJECTION - 35+ MICRO RIVERS)

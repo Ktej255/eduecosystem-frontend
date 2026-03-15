@@ -39,7 +39,10 @@ const CATEGORY_COLORS: Record<FeatureType, string> = {
   'ramsar-site': '#14b8a6', // Teal
   'mountain-range': '#71717a', // Zinc
   'peak': '#f43f5e', // Rose
-  'unesco-site': '#eab308' // Yellow
+  'unesco-site': '#eab308', // Yellow
+  'tiger-reserve': '#f97316', // Orange
+  'biosphere': '#10b981', // Emerald
+  'wetland': '#06b6d4' // Cyan
 };
 
 const CATEGORY_ICONS: Partial<Record<FeatureType, React.ReactNode>> = {
@@ -51,7 +54,10 @@ const CATEGORY_ICONS: Partial<Record<FeatureType, React.ReactNode>> = {
   'ramsar-site': <CloudRain className="w-4 h-4" />,
   'mountain-range': <Mountain className="w-4 h-4" />,
   'peak': <Triangle className="w-4 h-4" />,
-  'unesco-site': <Landmark className="w-4 h-4" />
+  'unesco-site': <Landmark className="w-4 h-4" />,
+  'tiger-reserve': <Target className="w-4 h-4" />,
+  'biosphere': <ShieldQuestion className="w-4 h-4" />,
+  'wetland': <CloudRain className="w-4 h-4" />
 };
 
 const BASIN_COLORS: Record<string, { dark: string, light: string }> = {
@@ -113,20 +119,42 @@ export default function IndiaInteractiveMap() {
 
   // Quiz Mode State
   const [isQuizMode, setIsQuizMode] = useState(false);
+  const [quizType, setQuizType] = useState<'pin' | 'sequence'>('pin');
   const [quizQuestion, setQuizQuestion] = useState<GeoFeature | null>(null);
+  const [sequenceTargets, setSequenceTargets] = useState<GeoFeature[]>([]);
+  const [userSequence, setUserSequence] = useState<GeoFeature[]>([]);
+  const [sequenceCriteria, setSequenceCriteria] = useState<'N-S' | 'E-W'>('N-S');
   const [quizScore, setQuizScore] = useState({ correct: 0, total: 0 });
   const [showAnswerLine, setShowAnswerLine] = useState<{from: [number, number], to: [number, number], correct: boolean} | null>(null);
 
-  const startQuiz = () => {
+  const startQuiz = (type: 'pin' | 'sequence' = 'pin') => {
     setIsQuizMode(true);
+    setQuizType(type);
     setSelectedLocation(null);
     setShowAnswerLine(null);
-    pickNextQuestion();
+    setUserSequence([]);
+    if (type === 'pin') {
+      pickNextQuestion();
+    } else {
+      pickNextSequence();
+    }
   };
 
   const pickNextQuestion = () => {
     const random = INDIA_GEO_DATA[Math.floor(Math.random() * INDIA_GEO_DATA.length)];
     setQuizQuestion(random);
+    setShowAnswerLine(null);
+  };
+
+  const pickNextSequence = () => {
+    // Pick 4 random features
+    const shuffled = [...INDIA_GEO_DATA].sort(() => 0.5 - Math.random());
+    const selected = shuffled.slice(0, 4);
+    const criteria = Math.random() > 0.5 ? 'N-S' : 'E-W';
+    
+    setSequenceTargets(selected);
+    setSequenceCriteria(criteria);
+    setUserSequence([]);
     setShowAnswerLine(null);
   };
 
@@ -138,19 +166,41 @@ export default function IndiaInteractiveMap() {
   };
 
   const handleMarkerClick = (location: GeoFeature) => {
-    if (isQuizMode && quizQuestion) {
-      const isCorrect = location.id === quizQuestion.id;
-      setQuizScore(prev => ({ correct: prev.correct + (isCorrect ? 1 : 0), total: prev.total + 1 }));
-      
-      setShowAnswerLine({
-        from: [location.coordinates.lng, location.coordinates.lat],
-        to: [quizQuestion.coordinates.lng, quizQuestion.coordinates.lat],
-        correct: isCorrect
-      });
+    if (isQuizMode) {
+      if (quizType === 'pin' && quizQuestion) {
+        const isCorrect = location.id === quizQuestion.id;
+        setQuizScore(prev => ({ correct: prev.correct + (isCorrect ? 1 : 0), total: prev.total + 1 }));
+        
+        setShowAnswerLine({
+          from: [location.coordinates.lng, location.coordinates.lat],
+          to: [quizQuestion.coordinates.lng, quizQuestion.coordinates.lat],
+          correct: isCorrect
+        });
 
-      setTimeout(() => {
-        pickNextQuestion();
-      }, 2500);
+        setTimeout(() => {
+          pickNextQuestion();
+        }, 2500);
+      } else if (quizType === 'sequence') {
+        if (userSequence.find(item => item.id === location.id)) return;
+        
+        const nextSeq = [...userSequence, location];
+        setUserSequence(nextSeq);
+        
+        if (nextSeq.length === 4) {
+          // Verify
+          const sorted = [...nextSeq].sort((a, b) => {
+            if (sequenceCriteria === 'N-S') return b.coordinates.lat - a.coordinates.lat;
+            return a.coordinates.lng - b.coordinates.lng;
+          });
+          
+          const isCorrect = nextSeq.every((val, index) => val.id === sorted[index].id);
+          setQuizScore(prev => ({ correct: prev.correct + (isCorrect ? 1 : 0), total: prev.total + 1 }));
+          
+          setTimeout(() => {
+            pickNextSequence();
+          }, 3000);
+        }
+      }
       return;
     }
 
@@ -221,19 +271,27 @@ export default function IndiaInteractiveMap() {
           </div>
 
           {!isQuizMode ? (
-            <Button 
-              onClick={startQuiz}
-              className="bg-amber-500 hover:bg-amber-400 text-black font-black uppercase tracking-widest text-xs h-10 px-6 rounded-xl shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:shadow-[0_0_25px_rgba(245,158,11,0.5)] whitespace-nowrap transition-all border border-amber-400"
-            >
-              <ShieldQuestion className="w-4 h-4 mr-2" /> Start Map Quiz
-            </Button>
+            <div className="flex items-center gap-2">
+              <Button 
+                onClick={() => startQuiz('pin')}
+                className="bg-amber-500 hover:bg-amber-400 text-black font-black uppercase tracking-widest text-[9px] h-9 px-4 rounded-xl shadow-[0_0_15px_rgba(245,158,11,0.2)] whitespace-nowrap transition-all border border-amber-400"
+              >
+                <ShieldQuestion className="w-3.5 h-3.5 mr-2" /> Pin Point
+              </Button>
+              <Button 
+                onClick={() => startQuiz('sequence')}
+                className="bg-indigo-500 hover:bg-indigo-400 text-white font-black uppercase tracking-widest text-[9px] h-9 px-4 rounded-xl shadow-[0_0_15px_rgba(99,102,241,0.2)] whitespace-nowrap transition-all border border-indigo-400"
+              >
+                <Trophy className="w-3.5 h-3.5 mr-2" /> sequence
+              </Button>
+            </div>
           ) : (
             <Button 
               onClick={endQuiz}
               variant="destructive"
-              className="font-black uppercase tracking-widest text-xs h-10 px-6 rounded-xl shadow-[0_0_20px_rgba(239,68,68,0.3)] whitespace-nowrap bg-red-600 hover:bg-red-500 border border-red-500"
+              className="font-black uppercase tracking-widest text-[9px] h-9 px-4 rounded-xl shadow-[0_0_15px_rgba(239,68,68,0.2)] whitespace-nowrap bg-red-600 hover:bg-red-500 border border-red-500"
             >
-              End Quiz Phase
+              Exit Mission
             </Button>
           )}
         </div>
@@ -245,6 +303,8 @@ export default function IndiaInteractiveMap() {
           <FilterButton active={activeLayers.has('all')} onClick={() => toggleLayer('all')} label="All Features" color="#f8fafc" icon={<MapPin className="w-3.5 h-3.5" />} />
           <div className="w-px h-6 bg-white/10 mx-1 shrink-0" />
           <FilterButton active={activeLayers.has('national-park')} onClick={() => toggleLayer('national-park')} label="National Parks" color={CATEGORY_COLORS['national-park']} icon={<MapPin className="w-3.5 h-3.5" />} />
+          <FilterButton active={activeLayers.has('tiger-reserve')} onClick={() => toggleLayer('tiger-reserve')} label="Tiger Reserves" color={CATEGORY_COLORS['tiger-reserve']} icon={<Target className="w-3.5 h-3.5" />} />
+          <FilterButton active={activeLayers.has('biosphere')} onClick={() => toggleLayer('biosphere')} label="Biosphere" color={CATEGORY_COLORS['biosphere']} icon={<ShieldQuestion className="w-3.5 h-3.5" />} />
           <FilterButton active={activeLayers.has('river')} onClick={() => toggleLayer('river')} label="Rivers" color={CATEGORY_COLORS['river']} icon={<Waves className="w-3.5 h-3.5" />} />
           <FilterButton active={activeLayers.has('ramsar-site')} onClick={() => toggleLayer('ramsar-site')} label="Ramsar Sites" color={CATEGORY_COLORS['ramsar-site']} icon={<CloudRain className="w-3.5 h-3.5" />} />
           <FilterButton active={activeLayers.has('mountain-range')} onClick={() => toggleLayer('mountain-range')} label="Mountains" color={CATEGORY_COLORS['mountain-range']} icon={<Mountain className="w-3.5 h-3.5" />} />
@@ -386,7 +446,7 @@ export default function IndiaInteractiveMap() {
                         </g>
                       )}
 
-                      {!isQuizMode && marker.type !== 'dam' && (
+                      {!isQuizMode && marker.type !== 'dam' && marker.type !== 'biosphere' && (
                         <>
                           <circle r={8} fill={`url(#radialGlow-${marker.type})`} opacity={isSelected ? 1 : 0} />
                           <circle r={3.5} fill={color} stroke={isDark ? "#000" : "#fff"} strokeWidth={0.5} />
@@ -394,6 +454,29 @@ export default function IndiaInteractiveMap() {
                             <circle r={6} fill="none" stroke={color} strokeWidth={1} style={{ animation: 'marker-pulse 2s infinite' }} />
                           )}
                         </>
+                      )}
+
+                      {marker.type === 'biosphere' && !isQuizMode && (
+                        <g style={{ cursor: 'pointer' }}>
+                          {/* Transition Zone (Outer Pulse) */}
+                          <circle r={14} fill="rgba(16, 185, 129, 0.15)" className="animate-ping" style={{ animationDuration: '3s' }} />
+                          {/* Buffer Zone (Middle) */}
+                          <circle r={9} fill="rgba(16, 185, 129, 0.4)" stroke="#10b981" strokeWidth={1} />
+                          {/* Core Zone (Center Solid) */}
+                          <circle r={4} fill="#059669" stroke="#ffffff" strokeWidth={1.5} />
+                        </g>
+                      )}
+
+                      {marker.type === 'wetland' && !isQuizMode && (
+                        <g style={{ cursor: 'pointer' }}>
+                          {/* Outer Water Ripple (Animated) */}
+                          <circle r={12} fill="rgba(6, 182, 212, 0.2)" className="animate-ping" style={{ animationDuration: '2.5s' }} />
+                          {/* Inner Wetland Base */}
+                          <circle r={6} fill="#0891b2" stroke="#cffafe" strokeWidth={1.5} />
+                          {/* Stylized wave/water line inside the dot */}
+                          <path d="M -3 1 Q 0 -2 3 1" fill="none" stroke="#ffffff" strokeWidth={1} />
+                          <path d="M -3 -1 Q 0 2 3 -1" fill="none" stroke="#ffffff" strokeWidth={1} />
+                        </g>
                       )}
 
                       {isQuizMode && (
@@ -451,50 +534,76 @@ export default function IndiaInteractiveMap() {
 
           {/* Quiz HUD Overlay — Enhanced with dramatic glassmorphism */}
           <AnimatePresence>
-            {isQuizMode && quizQuestion && (
+            {isQuizMode && (
               <motion.div 
                 initial={{ y: 50, opacity: 0, scale: 0.95 }} 
                 animate={{ y: 0, opacity: 1, scale: 1 }}
                 exit={{ y: 50, opacity: 0, scale: 0.95 }}
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-slate-900/95 backdrop-blur-2xl border border-white/10 p-6 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col items-center text-center max-w-lg w-[calc(100%-40px)] z-20"
+                className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-slate-900/95 backdrop-blur-2xl border border-white/10 p-5 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col items-center text-center max-w-lg w-[calc(100%-40px)] z-20"
               >
-                <div className="flex items-center gap-4 w-full mb-5">
-                  <div className="bg-amber-500/10 border border-amber-500/30 text-amber-500 p-3 rounded-2xl shadow-[0_0_15px_rgba(245,158,11,0.15)]">
-                    <Trophy className="w-6 h-6" />
+                <div className="flex items-center gap-4 w-full mb-4">
+                  <div className="bg-amber-500/10 border border-amber-500/30 text-amber-500 p-2.5 rounded-xl">
+                    <Trophy className="w-5 h-5" />
                   </div>
                   <div className="flex-1 text-left">
-                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-1.5">Mission Control Status</p>
-                    <div className="flex items-end gap-2 mb-1.5">
-                      <span className="text-2xl font-black text-white leading-none">{quizScore.correct}</span>
-                      <span className="text-sm font-bold text-slate-500 leading-none pb-0.5">/ {quizScore.total}</span>
+                    <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] mb-1">Mission Progress</p>
+                    <div className="flex items-end gap-2 mb-1">
+                      <span className="text-xl font-black text-white leading-none">{quizScore.correct}</span>
+                      <span className="text-xs font-bold text-slate-500 leading-none pb-0.5">/ {quizScore.total}</span>
                     </div>
                     <div className="w-full bg-slate-800/80 h-1.5 rounded-full overflow-hidden border border-white/5">
                       <motion.div 
-                        className="bg-amber-500 h-full rounded-full shadow-[0_0_10px_rgba(245,158,11,0.8)]" 
+                        className="bg-amber-500 h-full rounded-full" 
                         initial={{ width: 0 }}
                         animate={{ width: `${quizScore.total === 0 ? 0 : (quizScore.correct/quizScore.total)*100}%` }}
-                        transition={{ duration: 0.5 }}
                       />
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-slate-950/80 p-5 border border-white/5 rounded-2xl w-full relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-sky-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-                  <p className="text-sky-500/80 text-[10px] font-black uppercase tracking-[0.2em] mb-2 flex items-center justify-center gap-2 relative z-10">
-                    <Target className="w-3 h-3" /> Target Acquisition Coordinate
-                  </p>
-                  <h3 className="text-3xl font-black text-white tracking-tight relative z-10">{quizQuestion.name}</h3>
-                  <p className="text-slate-400 text-sm font-bold mt-1.5 uppercase tracking-widest relative z-10">{quizQuestion.region}</p>
-                </div>
+                {quizType === 'pin' && quizQuestion && (
+                  <div className="bg-slate-950/80 p-4 border border-white/5 rounded-2xl w-full relative overflow-hidden">
+                    <p className="text-sky-500/80 text-[9px] font-black uppercase tracking-[0.2em] mb-1.5 flex items-center justify-center gap-2 relative z-10">
+                      <Target className="w-3 h-3" /> Acquisition Target
+                    </p>
+                    <h3 className="text-2xl font-black text-white tracking-tight relative z-10">{quizQuestion.name}</h3>
+                    <p className="text-slate-400 text-xs font-bold mt-1 uppercase tracking-widest relative z-10">{quizQuestion.region}</p>
+                  </div>
+                )}
+
+                {quizType === 'sequence' && (
+                  <div className="w-full space-y-3">
+                    <div className="bg-indigo-500/10 p-3 border border-indigo-500/20 rounded-2xl">
+                      <p className="text-indigo-400 text-[9px] font-black uppercase tracking-[0.2em] mb-1">Objective</p>
+                      <h4 className="text-white font-black text-lg">Order from {sequenceCriteria === 'N-S' ? 'North to South' : 'West to East'}</h4>
+                      <div className="mt-2 flex gap-1.5 justify-center">
+                        {[0, 1, 2, 3].map(i => (
+                          <div key={i} className={`w-3.5 h-3.5 rounded-full border ${userSequence[i] ? 'bg-indigo-500 border-indigo-400 shadow-[0_0_8px_rgba(99,102,241,0.6)]' : 'bg-slate-800 border-white/5'}`} />
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      {sequenceTargets.map(target => (
+                        <div key={target.id} className={`px-3 py-1.5 rounded-lg border text-[10px] font-bold transition-all ${
+                          userSequence.find(u => u.id === target.id) 
+                            ? 'bg-slate-800 text-slate-500 border-white/5' 
+                            : 'bg-slate-950 text-white border-white/10'
+                        }`}>
+                          {target.name}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 {showAnswerLine && (
                   <motion.div 
                     initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
-                    className={`mt-5 font-black uppercase tracking-[0.2em] text-sm py-2 px-6 rounded-xl border ${
+                    className={`mt-4 font-black uppercase tracking-[0.2em] text-[10px] py-1.5 px-4 rounded-xl border ${
                       showAnswerLine.correct 
-                        ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30 shadow-[0_0_20px_rgba(16,185,129,0.2)]' 
-                        : 'bg-red-500/10 text-red-400 border-red-500/30 shadow-[0_0_20px_rgba(239,68,68,0.2)]'
+                        ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.15)]' 
+                        : 'bg-red-500/10 text-red-400 border-red-500/30'
                     }`}
                   >
                     {showAnswerLine.correct ? 'Target Verified' : 'Missed Coordinate'}
@@ -561,6 +670,21 @@ export default function IndiaInteractiveMap() {
                   }`}>
                     {selectedLocation.difficulty}
                   </Badge>
+                  {selectedLocation.type === 'unesco-site' && (
+                    <Badge className="bg-amber-500/20 text-amber-500 border border-amber-500/30 font-black px-3 py-1.5 uppercase tracking-widest text-[9px]">
+                      World Heritage
+                    </Badge>
+                  )}
+                  {selectedLocation.type === 'tiger-reserve' && (
+                    <Badge className="bg-orange-500/20 text-orange-500 border border-orange-500/30 font-black px-3 py-1.5 uppercase tracking-widest text-[9px]">
+                      Project Tiger
+                    </Badge>
+                  )}
+                  {selectedLocation.type === 'biosphere' && (
+                    <Badge className="bg-emerald-500/20 text-emerald-500 border border-emerald-500/30 font-black px-3 py-1.5 uppercase tracking-widest text-[9px]">
+                      MAB (UNESCO)
+                    </Badge>
+                  )}
                 </div>
 
                 {/* CURRENT AFFAIRS ALERT */}

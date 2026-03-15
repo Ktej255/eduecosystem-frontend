@@ -12,7 +12,9 @@ export type FeatureType =
   | 'ramsar-site'
   | 'mountain-range'
   | 'peak'
-  | 'unesco-site';
+  | 'unesco-site'
+  | 'tiger-reserve'
+  | 'wetland';
 
 export interface GeoFeature {
   id: string;

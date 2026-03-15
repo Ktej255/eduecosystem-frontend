@@ -1,237 +1,251 @@
 import { GeoFeature } from './geo-types';
 
 export const RAMSAR_SITES_DATA: GeoFeature[] = [
+  // ══════════════════════════════════════════════════════════════════
+  // THE RAMSAR WETLANDS OF INDIA (HIGH-YIELD MASTER LIST)
+  // ══════════════════════════════════════════════════════════════════
+  
+  // --- PART 1: THE MONTREUX RECORD & HISTORIC SITES ---
   {
-    id: 'ramsar-chilika',
-    name: 'Chilika Lake',
-    type: 'ramsar-site',
-    coordinates: { lat: 19.6801, lng: 85.3247 },
-    region: 'Odisha',
-    description: 'The largest coastal lagoon in India and the second largest brackish water lagoon in the world.',
+    id: "ramsar-keoladeo",
+    name: "Keoladeo National Park",
+    type: "wetland", region: "Rajasthan",
+    coordinates: { lat: 27.1667, lng: 77.5167 },
+    difficulty: "high-yield",
+    description: "One of India's first two Ramsar sites (1981). A man-made and man-managed wetland currently on the Montreux Record for ecological degradation.",
     characteristics: [
-      'First Indian wetland of international importance under the Ramsar Convention (1981).',
-      'Home to the Irrawaddy dolphin (Endangered).',
-      'Major wintering ground for migratory birds from as far as Siberia.'
+      "Currently ON the Montreux Record",
+      "Man-made wetland (created by damming Gambhir and Banganga rivers)",
+      "Critical wintering ground for Palearctic migratory waterfowl",
+      "UNESCO World Heritage Site"
     ],
-    upsc_relevance: 'Often tested on Montreux Record (it was removed from it in 2002), Irrawaddy dolphins, and migratory routes.',
-    pyq_years: [2014, 2011, 2020],
-    difficulty: 'high-yield',
-    images: ['https://images.unsplash.com/photo-1589118949245-7d38baf380d6?q=80&w=2070&auto=format&fit=crop']
+    upsc_relevance: "The Montreux Record status and its man-made origin are classic UPSC traps.",
+    pyq_years: [2014, 2017, 2020]
   },
   {
-    id: 'ramsar-keoladeo',
-    name: 'Keoladeo Ghana National Park',
-    type: 'ramsar-site',
-    coordinates: { lat: 27.1592, lng: 77.5225 },
-    region: 'Rajasthan',
-    description: 'A man-made and man-managed wetland and one of the world\'s most important bird breeding and feeding grounds.',
+    id: "ramsar-loktak",
+    name: "Loktak Lake",
+    type: "wetland", region: "Manipur",
+    coordinates: { lat: 24.5500, lng: 93.8167 },
+    difficulty: "high-yield",
+    description: "The largest freshwater lake in Northeast India. Currently on the Montreux Record due to ecological problems caused by the Ithai Barrage.",
     characteristics: [
-      'UNESCO World Heritage Site.',
-      'Currently on the Montreux Record due to water shortage and invasive species (Prosopis juliflora).',
-      'Strategic location in the Central Asian Flyway.'
+      "Currently ON the Montreux Record",
+      "Features 'Phumdis' (floating heterogeneous biomass)",
+      "Contains Keibul Lamjao, the world's only floating National Park"
     ],
-    upsc_relevance: 'Montreux Record status is a frequent UPSC trap. Water supply comes from Ajan Dam.',
-    pyq_years: [2010, 2015, 2018],
-    difficulty: 'high-yield',
-    images: ['https://images.unsplash.com/photo-1623945410151-5a468757099d?q=80&w=2070&auto=format&fit=crop']
+    upsc_relevance: "Montreux Record status, Phumdis, and the Sangai deer habitat.",
+    pyq_years: [2015, 2019, 2022],
+    in_news_24m: true,
+    news_context: "State government efforts to decommission the controversial Ithai Barrage to restore the lake's natural flushing cycle."
   },
   {
-    id: 'ramsar-loktak',
-    name: 'Loktak Lake',
-    type: 'ramsar-site',
-    coordinates: { lat: 24.5501, lng: 93.7667 },
-    region: 'Manipur',
-    description: 'The largest freshwater lake in Northeast India, famous for the phumdis (heterogeneous mass of vegetation, soil, and organic matter) floating over it.',
+    id: "ramsar-chilika",
+    name: "Chilika Lake",
+    type: "wetland", region: "Odisha",
+    coordinates: { lat: 19.7000, lng: 85.3167 },
+    difficulty: "high-yield",
+    description: "India's largest coastal lagoon and first Ramsar site. A massive global success story, as it was REMOVED from the Montreux Record in 2002.",
     characteristics: [
-      'Keibul Lamjao National Park (the world\'s only floating national park) is located here.',
-      'Last natural refuge of the endangered Sangai (Dancing Deer).',
-      'Currently on the Montreux Record.'
+      "Brackish water lagoon fed by the Daya and Bhargavi rivers",
+      "Removed from Montreux Record (Conservation success)",
+      "Nalabana Bird Sanctuary located within",
+      "Major habitat for Irrawaddy Dolphins"
     ],
-    upsc_relevance: 'Sangai deer and Phumdis are extremely high-yield keywords.',
-    pyq_years: [2015, 2017, 2021],
-    difficulty: 'high-yield'
+    upsc_relevance: "The 'removed from Montreux' fact is highly tested. Irrawaddy dolphin distribution.",
+    pyq_years: [2018, 2021]
+  },
+
+  // --- PART 2: THE GEOLOGICAL & GEOGRAPHICAL EXTREMES ---
+  {
+    id: "ramsar-wular",
+    name: "Wular Lake",
+    type: "wetland", region: "Jammu & Kashmir",
+    coordinates: { lat: 34.3333, lng: 74.6000 },
+    difficulty: "medium",
+    description: "One of the largest freshwater lakes in Asia, formed by tectonic activity.",
+    characteristics: [
+      "Tectonic origin (unlike most oxbow or creator lakes)",
+      "Fed by the Jhelum River",
+      "The Tulbul Navigation Project is located at its mouth"
+    ],
+    upsc_relevance: "Tectonic origin concept and Indus Water Treaty (Tulbul project) connections.",
+    pyq_years: [2014]
   },
   {
-    id: 'ramsar-haiderpur',
-    name: 'Haiderpur Wetland',
-    type: 'ramsar-site',
-    coordinates: { lat: 29.4168, lng: 78.0008 },
-    region: 'Uttar Pradesh',
-    description: 'A human-made wetland formed in 1984 by the construction of the Madhya Ganga Barrage.',
+    id: "ramsar-vembanad",
+    name: "Vembanad-Kol Wetland",
+    type: "wetland", region: "Kerala",
+    coordinates: { lat: 9.6000, lng: 76.4000 },
+    difficulty: "high-yield",
+    description: "The longest lake in India and the largest Ramsar site in Kerala. A complex estuarine system.",
     characteristics: [
-      'Designated as India\'s 47th Ramsar site in 2021.',
-      'Important stopover for migratory birds in the Upper Ganga region.',
-      'Boundary of Hastinapur Wildlife Sanctuary.'
+      "Longest lake in India",
+      "Includes the Kuttanad region (below sea-level farming)",
+      "Fed by 10 rivers including Pamba and Periyar",
+      "Famous for Nehru Trophy Boat Race"
     ],
-    upsc_relevance: 'Significant as a relatively new addition in a high-density area.',
+    upsc_relevance: "Kuttanad's below-sea-level farming (Globally Important Agricultural Heritage System).",
+    pyq_years: [2019]
+  },
+  {
+    id: "ramsar-renuka",
+    name: "Renuka Lake",
+    type: "wetland", region: "Himachal Pradesh",
+    coordinates: { lat: 30.6000, lng: 77.4500 },
+    difficulty: "high-yield",
+    description: "The SMALLEST Ramsar site in India, located in the Sirmaur district.",
+    characteristics: [
+      "Smallest Ramsar Site in India (approx 20 hectares)",
+      "Natural freshwater lake fed by underground springs",
+      "Named after the goddess Renuka (mother of Parashurama)"
+    ],
+    upsc_relevance: "Frequently tested as a 'Smallest/Largest' superlative.",
+    pyq_years: [2016]
+  },
+  {
+    id: "ramsar-kolleru",
+    name: "Kolleru Lake",
+    type: "wetland", region: "Andhra Pradesh",
+    coordinates: { lat: 16.6000, lng: 81.2000 },
+    difficulty: "high-yield",
+    description: "One of the largest freshwater lakes in India, uniquely positioned between two massive river deltas.",
+    characteristics: [
+      "Located strictly between the deltas of the Krishna and Godavari rivers",
+      "Freshwater lake (NOT a saltwater lagoon like Chilika or Pulicat)",
+      "Fed by seasonal streams like Tammileru and Budameru"
+    ],
+    upsc_relevance: "The 'between Krishna and Godavari' geographical trap. Often confused with Pulicat (which is saltwater).",
+    pyq_years: [2015, 2021]
+  },
+
+  // --- PART 3: HIGH-ALTITUDE & TRANS-BOUNDARY ---
+  {
+    id: "ramsar-tso-moriri",
+    name: "Tso Moriri",
+    type: "wetland", region: "Ladakh",
+    coordinates: { lat: 32.9000, lng: 78.3000 },
+    difficulty: "medium",
+    description: "A high-altitude oligotrophic (low nutrient) lake in the Changthang plateau.",
+    characteristics: [
+      "Brackish/Saline water endorheic (inland drainage) lake",
+      "Only breeding ground in India for the Bar-headed goose and Black-necked crane",
+      "Highest Ramsar site in India"
+    ],
+    upsc_relevance: "Oligotrophic lake ecology and Black-necked crane habitat.",
+    pyq_years: [2018]
+  },
+  {
+    id: "ramsar-tso-kar",
+    name: "Tso Kar Wetland Complex",
+    type: "wetland", region: "Ladakh",
+    coordinates: { lat: 33.3000, lng: 78.0000 },
+    difficulty: "high-yield",
+    description: "Known as the 'White Lake' due to the thick crust of salt forming on its margins.",
+    characteristics: [
+      "Consists of two connected lakes: Startsapuk Tso (freshwater) and Tso Kar (hypersaline)",
+      "A-1 Category Important Bird Area (IBA)",
+      "Added to the Ramsar list in 2020"
+    ],
+    upsc_relevance: "Hypersaline lake ecology in high-altitude cold deserts.",
+    pyq_years: [2022]
+  },
+  {
+    id: "ramsar-pangong",
+    name: "Pangong Tso",
+    type: "wetland", region: "Ladakh / Tibet",
+    coordinates: { lat: 33.7500, lng: 78.6667 },
+    difficulty: "high-yield",
+    description: "A massive, high-altitude endorheic lake spanning India and China. (Note: Currently in process/proposed for Ramsar, but geographically critical).",
+    characteristics: [
+      "Trans-boundary lake (1/3 in India, 2/3 in China)",
+      "Saline water, yet completely freezes in winter",
+      "Features 'Fingers' (mountain spurs) that are major border dispute points"
+    ],
+    upsc_relevance: "Geopolitics: The Line of Actual Control (LAC) passes directly through the lake at Finger 8.",
     pyq_years: [],
-    difficulty: 'medium'
+    in_news_24m: true,
+    news_context: "China's construction of a dual-purpose bridge across the lake to quickly mobilize troops between the north and south banks."
+  },
+
+  // --- PART 4: MAN-MADE & CONFLUENCE WETLANDS ---
+  {
+    id: "ramsar-harike",
+    name: "Harike Wetland",
+    type: "wetland", region: "Punjab",
+    coordinates: { lat: 31.1333, lng: 74.9500 },
+    difficulty: "high-yield",
+    description: "A vital man-made riverine wetland formed by the Harike Barrage.",
+    characteristics: [
+      "Located at the exact confluence of the Beas and Sutlej rivers",
+      "Source of the Indira Gandhi Canal (Rajasthan Canal)",
+      "Crucial wintering site for Indus Dolphins and migratory birds"
+    ],
+    upsc_relevance: "Confluence matching (Beas + Sutlej) and Indira Gandhi Canal origin.",
+    pyq_years: [2016, 2020]
   },
   {
-    id: 'ramsar-pichavaram',
-    name: 'Pichavaram Mangrove',
-    type: 'ramsar-site',
-    coordinates: { lat: 11.4283, lng: 79.7811 },
-    region: 'Tamil Nadu',
-    description: 'One of the largest mangrove forests in India, separated from the Bay of Bengal by a sand bar.',
+    id: "ramsar-bhoj",
+    name: "Bhoj Wetland",
+    type: "wetland", region: "Madhya Pradesh",
+    coordinates: { lat: 23.2333, lng: 77.3333 },
+    difficulty: "medium",
+    description: "Consists of two contiguous human-made lakes (Upper and Lower Lake) situated right in the city of Bhopal.",
     characteristics: [
-      'Added in 2022.',
-      'Unique ecosystem with numerous island-like patches covered with mangroves.',
-      'Vital for coastal protection against tsunamis and storm surges.'
+      "Created in the 11th century by Paramara Raja Bhoj",
+      "Urban wetland facing heavy encroachment and pollution",
+      "Largest bird of India, the Sarus Crane, is found here"
     ],
-    upsc_relevance: 'Bio-shield properties of mangroves are frequently tested.',
-    pyq_years: [2022],
-    difficulty: 'high-yield'
+    upsc_relevance: "Urban wetland conservation issues.",
+    pyq_years: [2013]
   },
   {
-    id: 'ramsar-tsokar',
-    name: 'Tso Kar Wetland Complex',
-    type: 'ramsar-site',
-    coordinates: { lat: 33.3167, lng: 78.0000 },
-    region: 'Ladakh',
-    description: 'A high-altitude wetland complex consisting of two principal waterbodies: Startsapuk Tso (freshwater) and Tso Kar (hypersaline).',
+    id: "ramsar-pong-dam",
+    name: "Pong Dam Lake",
+    type: "wetland", region: "Himachal Pradesh",
+    coordinates: { lat: 32.0167, lng: 76.0833 },
+    difficulty: "medium",
+    description: "Also known as Maharana Pratap Sagar. Created by damming the Beas river.",
     characteristics: [
-      'Important breeding ground for the Black-necked Crane.',
-      'Highest Ramsar site in India.',
-      'Essential for the livelihoods of the Changpa nomadic communities.'
+      "Man-made reservoir on the Beas River",
+      "Located in the Kangra district in the Shivalik foothills",
+      "Major stopover for trans-Himalayan migratory birds"
     ],
-    upsc_relevance: 'High-altitude wetlands and Black-necked crane are favorite UPSC themes.',
+    upsc_relevance: "Matching reservoirs to their rivers (Pong = Beas, Bhakra = Sutlej).",
+    pyq_years: [2017]
+  },
+  {
+    id: "ramsar-deepor-beel",
+    name: "Deepor Beel",
+    type: "wetland", region: "Assam",
+    coordinates: { lat: 26.1167, lng: 91.6500 },
+    difficulty: "high-yield",
+    description: "A permanent freshwater lake, in a former channel of the Brahmaputra River, to the south of Guwahati city.",
+    characteristics: [
+      "Only Ramsar site in Assam",
+      "Major elephant corridor",
+      "Threatened by a railway line passing directly through the wetland area"
+    ],
+    upsc_relevance: "Elephant-train collision disasters and urban encroachment.",
     pyq_years: [2021],
-    difficulty: 'high-yield'
-  },
-  {
-    id: 'ramsar-pallikaranai',
-    name: 'Pallikaranai Marsh Reserve Forest',
-    type: 'ramsar-site',
-    coordinates: { lat: 12.9347, lng: 80.2214 },
-    region: 'Tamil Nadu',
-    description: 'One of the few remaining natural wetlands in Chennai, serving as a vital urban sponge.',
-    characteristics: [
-      'Designated in 2022.',
-      'Critical for flood mitigation in Chennai.',
-      'Home to several endemic and endangered species.'
-    ],
-    upsc_relevance: 'Urban wetland importance and flood management connection.',
-    pyq_years: [2023],
-    difficulty: 'medium'
-  },
-  {
-    id: 'ramsar-bhoj',
-    name: 'Bhoj Wetland',
-    type: 'ramsar-site',
-    coordinates: { lat: 23.2392, lng: 77.3467 },
-    region: 'Madhya Pradesh',
-    description: 'Comprises two lakes (Upper and Lower) that are the primary source of water for Bhopal.',
-    characteristics: [
-      'Man-made reservoir dating back to the 11th century (built by Raja Bhoj).',
-      'Supports a large population of Sarus Cranes.'
-    ],
-    upsc_relevance: 'Historical context combined with biological importance.',
-    pyq_years: [2012],
-    difficulty: 'medium'
-  },
-  {
-    id: 'ramsar-chhari-dhand',
-    name: 'Chhari-Dhand Conservation Reserve',
-    type: 'ramsar-site',
-    coordinates: { lat: 23.4912, lng: 69.3145 },
-    region: 'Gujarat',
-    description: 'A seasonal saline wetland in the Kutch district, drawing thousands of migratory flamingos.',
-    characteristics: [
-      'Designated in Jan 2026 (One of the newest).',
-      'Located on the edge of the Banni grasslands.',
-      'Vital staging ground for the Common Crane and Greater Flamingo.'
-    ],
-    upsc_relevance: 'Crucial for 2026 examination as a "Current Affairs" addition.',
-    pyq_years: [],
-    difficulty: 'high-yield',
     in_news_24m: true,
-    news_context: 'Designated as India\'s newest Ramsar site in early 2026 to protect the Banni grassland ecosystem.'
+    news_context: "Ongoing NGT (National Green Tribunal) interventions regarding the doubling of railway tracks through this critical elephant corridor."
   },
   {
-    id: 'ramsar-patna',
-    name: 'Patna Bird Sanctuary',
-    type: 'ramsar-site',
-    coordinates: { lat: 27.5181, lng: 78.2806 },
-    region: 'Uttar Pradesh',
-    description: 'A fresh-water wetland and the smallest bird sanctuary in UP.',
+    id: "ramsar-pallikaranai",
+    name: "Pallikaranai Marsh Reserve Forest",
+    type: "wetland", region: "Tamil Nadu",
+    coordinates: { lat: 12.9333, lng: 80.2167 },
+    difficulty: "high-yield",
+    description: "One of the last remaining natural wetlands of Chennai. Added to the Ramsar list recently during India's major expansion.",
     characteristics: [
-      'Added to Ramsar list in Jan 2026.',
-      'Dense cover of date palms and aquatic vegetation.',
-      'Major hub for Pied Myna and other resident birds.'
+      "Freshwater marsh and partly saline",
+      "Acts as a natural flood sink for the city of Chennai",
+      "Severely threatened by massive garbage dumping (Perungudi dump yard)"
     ],
-    upsc_relevance: 'Newly added in 2026; high probability of inclusion in pairing-based questions.',
+    upsc_relevance: "Urban flood management (Chennai floods) and waste management intersecting with Ramsar ecology.",
     pyq_years: [],
-    difficulty: 'high-yield',
     in_news_24m: true,
-    news_context: 'Designated as a Ramsar site in January 2026.'
-  },
-  {
-    id: 'ramsar-sambhar',
-    name: 'Sambhar Lake',
-    type: 'ramsar-site',
-    coordinates: { lat: 26.9634, lng: 75.2016 },
-    region: 'Rajasthan',
-    description: 'India\'s largest inland salt lake.',
-    characteristics: [
-      'Produces a significant percentage of India\'s salt.',
-      'Suffered high avian botulism mortality in 2019.',
-      'Fed by several rivers including Mandha, Runpangarh, Khandel, and Ariyan.'
-    ],
-    upsc_relevance: 'Salt lake ecology and avian botulism event (2019-20).',
-    pyq_years: [2013, 2020],
-    difficulty: 'high-yield'
-  },
-  {
-    id: 'ramsar-asiliserh',
-    name: 'Siliserh Lake',
-    type: 'ramsar-site',
-    coordinates: { lat: 27.5308, lng: 76.5292 },
-    region: 'Rajasthan',
-    description: 'A man-made lake built by Maharaja Vinay Singh in 1845 for the people of Alwar.',
-    characteristics: [
-      'Designated in Dec 2025.',
-      'Surrounded by the Aravalli hills.',
-      'Important source of water and tourist hub in Eastern Rajasthan.'
-    ],
-    upsc_relevance: 'Latest addition from Rajasthan (Late 2025).',
-    pyq_years: [],
-    difficulty: 'medium',
-    in_news_24m: true,
-    news_context: 'Added to the Ramsar list in December 2025.'
-  },
-  {
-    id: 'ramsar-kopra',
-    name: 'Kopra Jalashay',
-    type: 'ramsar-site',
-    coordinates: { lat: 22.0801, lng: 82.1501 },
-    region: 'Chhattisgarh',
-    description: 'Chhattisgarh\'s first Ramsar site, an important reservoir supporting biodiversity.',
-    characteristics: [
-      'Designated in Dec 2025.',
-      'Vital for the irrigation and eco-balance of the Bilaspur region.',
-      'Home to over 100 species of resident and migratory birds.'
-    ],
-    upsc_relevance: 'First site from Chhattisgarh; extremely high yield for "Firsts" category.',
-    pyq_years: [],
-    difficulty: 'high-yield',
-    in_news_24m: true,
-    news_context: 'Became Chhattisgarh\'s inaugural Ramsar site in December 2025.'
-  },
-  {
-    id: 'ramsar-vembanad',
-    name: 'Vembanad-Kol Wetland',
-    type: 'ramsar-site',
-    coordinates: { lat: 9.5833, lng: 76.4167 },
-    region: 'Kerala',
-    description: 'The longest lake in India and the largest in Kerala.',
-    characteristics: [
-      'Known for the Thanneermukkom Bund (saltwater barrier).',
-      'Host to the famous Nehru Trophy Boat Race.',
-      'Located at the heart of the Kerala Backwaters.'
-    ],
-    upsc_relevance: 'Saltwater barriers and backwater ecology.',
-    pyq_years: [2015, 2022],
-    difficulty: 'high-yield'
+    news_context: "Chennai's catastrophic urban flooding is directly linked to the choking of the Pallikaranai marsh by real estate and landfill expansion."
   }
 ];
