@@ -18,6 +18,8 @@ from app.models.lms import (
     LMSAssignment,
     StudentSubmission,
     AIEvaluationLog,
+    LMSQuestion,
+    LMSOption,
 )
 from app.models.discussion import (
     DiscussionCategory,

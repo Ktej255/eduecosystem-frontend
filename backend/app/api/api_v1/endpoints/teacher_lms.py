@@ -24,7 +24,7 @@ from app.services.gemini_service import gemini_service
 from app.schemas.user import UserBasic
 
 from app.schemas.lms_schemas import BulkQuestionUpload, QuestionResponse
-from app.models.lms import LMSAssignment as AssignmentModel, StudentSubmission, AIEvaluationLog, Question, Option
+from app.models.lms import LMSAssignment as AssignmentModel, StudentSubmission, AIEvaluationLog, LMSQuestion as Question, LMSOption as Option
 
 router = APIRouter()
 
