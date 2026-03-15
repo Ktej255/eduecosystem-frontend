@@ -1,38 +1,35 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_13_SUBTOPICS: Question[] = [
+export const ANCIENT_CHAPTER_13_SUBTOPICS: Subtopic[] = [
     {
         "id": "founding_maurya",
         "name": "Chandragupta Maurya & Founding",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Covers the overthrow of the Nandas, the role of Chanakya, and the establishment of the pan-Indian state."
     },
     {
         "id": "bindusara_expansion",
         "name": "Bindusara & Imperial Expansion",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Discusses the reign of 'Amitraghata' and the maintenance of diplomatic ties with Hellenistic kings."
     },
     {
         "id": "ashoka_rule",
         "name": "Ashoka: Kalinga War & Transformation",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Analyzes the impact of the Kalinga War and Ashoka's conversion from military conquest to moral conquest."
     },
     {
         "id": "dhamma_policy",
         "name": "Ashoka’s Dhamma: Nature & Principles",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Explains Dhamma as a universal ethical code for social harmony and the role of Dhamma Mahamatras."
     },
     {
         "id": "decline_maurya",
         "name": "Decline of the Mauryan Empire",
-        "explanation": "The correct answer covers this historical event precisely: Information pending."
+        "explanation": "Examines the multiple factors (fiscal, weak successors, partitions) that led to the empire's collapse."
     }
 ];
 
 export const ANCIENT_CHAPTER_13_MCQS: Question[] = [
-    // ═══════════════════════════════════════════
-    // LEVEL 1 — EASY (30 Questions): Book Recall
-    // ═══════════════════════════════════════════
-    { id: 1, question: "Who was the founder of the Mauryan Empire?", options: ["Ashoka", "Bindusara", "Chandragupta Maurya", "Dasharatha"], correctAnswer: 2, explanation: "Chandragupta Maurya founded the empire in 321 BCE with the help of Chanakya.", subtopic: 'founding_maurya', difficulty: 'Easy' },
+    { id: 1, question: "Who was the founder of the Mauryan Empire?", options: ["Ashoka", "Chandragupta Maurya", "Bindusara", "Kanishka"], correctAnswer: 1, explanation: "Chandragupta Maurya founded the empire in 322 BCE with the help of Chanakya.", subtopic: 'founding_maurya', difficulty: 'Easy' },
     { id: 2, question: "The famous advisor to Chandragupta Maurya was:", options: ["Chanakya (Kautilya)", "Megasthenes", "Upagupta", "Tissa"], correctAnswer: 0, explanation: "Chanakya was the mastermind behind the Mauryan revolution against the Nandas.", subtopic: 'founding_maurya', difficulty: 'Easy' },
     { id: 3, question: "Which Greek ruler was defeated by Chandragupta Maurya in 305 BCE?", options: ["Alexander", "Seleucus Nicator", "Antiochus", "Menander"], correctAnswer: 1, explanation: "Seleucus Nicator, Alexander's general, surrendered the NW territories to Chandragupta.", subtopic: 'founding_maurya', difficulty: 'Easy' },
     { id: 4, question: "The Greek ambassador Megasthenes was sent to the court of Chandragupta by:", options: ["Alexander", "Seleucus", "Darius", "King Porus"], correctAnswer: 1, explanation: "Megasthenes wrote the 'Indika', a prime source for Mauryan administration.", subtopic: 'founding_maurya', difficulty: 'Easy' },
@@ -62,10 +59,6 @@ export const ANCIENT_CHAPTER_13_MCQS: Question[] = [
     { id: 28, question: "Which Maurya king's name is found in the Junagadh Inscription of Rudradaman?", options: ["Chandragupta AND Ashoka", "Only Chandragupta", "Only Ashoka", "Only Bindusara"], correctAnswer: 0, explanation: "The inscription mentions both regarding the construction and repair of the Sudarshana lake.", subtopic: 'founding_maurya', difficulty: 'Easy' },
     { id: 29, question: "The term 'Bherighosha' was replaced by Ashoka with:", options: ["War-noise", "Dhammaghosha", "Silence", "Songs"], correctAnswer: 1, explanation: "Replacement of the drum of war with the sound of righteousness.", subtopic: 'dhamma_policy', difficulty: 'Easy' },
     { id: 30, question: "How many major rock edicts of Ashoka have been found?", options: ["10", "12", "14", "20"], correctAnswer: 2, explanation: "There are 14 Major Rock Edicts (sets of 14) found at various sites.", subtopic: 'ashoka_rule', difficulty: 'Easy' },
-
-    // ══════════════════════════════════════════════════
-    // LEVEL 2 — MODERATE (30 Questions): Conceptual
-    // ══════════════════════════════════════════════════
     { id: 31, question: "Why did Chandragupta Maurya and Chanakya successfully overthrow the Nandas?", options: ["Nandas had no army", "They exploited the internal unpopularity of Dhana Nanda and used sophisticated strategy", "Luck", "Nandas surrendered"], correctAnswer: 1, explanation: "Nanda tyranny and Chanakya's 'Niti' (diplomacy) Were decisive.", subtopic: 'founding_maurya', difficulty: 'Moderate' },
     { id: 32, question: "The Sudarshana Lake in Saurashtra was built by:", options: ["Chandragupta Maurya's provincial governor Pushyagupta", "Ashoka directly", "Bindusara", "A local farmer"], correctAnswer: 0, explanation: "This shows the state's initiative in irrigation works in distant provinces.", subtopic: 'founding_maurya', difficulty: 'Moderate' },
     { id: 33, question: "What was the significance of the treaty with Seleucus Nicator?", options: ["Chandragupta became a slave", "Mauryas got Trans-Indus territories (Aria, Arachosia, etc.) and a matrimonial alliance", "Nothing happened", "Greeks took over Magadha"], correctAnswer: 1, explanation: "It pushed the Indian border to the Hindu Kush mountains.", subtopic: 'founding_maurya', difficulty: 'Moderate' },
@@ -164,4 +157,3 @@ export const ANCIENT_CHAPTER_13_CONTENT = `
 - **Factors:** Financial crisis, hyper-centralization, weak successors, and Greco-Bactrian invasions.
 - **The End:** In 185 BCE, **Pushyamitra Sunga** assassinated the last Maurya Brihadratha, ending the dynasty.
 `;
-
