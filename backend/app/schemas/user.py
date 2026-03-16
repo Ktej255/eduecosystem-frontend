@@ -7,14 +7,15 @@ class UserBase(BaseModel):
     email: Optional[EmailStr] = None
     username: Optional[str] = None
     is_active: Optional[bool] = True
-    is_superuser: bool = False
+    is_superuser: Optional[bool] = False
     full_name: Optional[str] = None
     email_notifications: Optional[bool] = True
     is_premium: Optional[bool] = False
     subscription_status: Optional[str] = "free"
-    is_ras_authorized: bool = False
-    is_batch1_authorized: bool = False
-    is_batch2_authorized: bool = False
+    is_ras_authorized: Optional[bool] = False
+    is_batch1_authorized: Optional[bool] = False
+    is_batch2_authorized: Optional[bool] = False
+    is_graphotherapy_exclusive: Optional[bool] = False
     revision_level: Optional[str] = None
     revision_exam_id: Optional[str] = None
 
