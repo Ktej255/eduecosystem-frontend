@@ -1,30 +1,45 @@
 "use client";
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Loader2 } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { Button } from "@/components/ui/button";
 
 // Only load the heavy 3D viz when requested
 const OceanCurrentsViz = dynamic(
-    () => import('@/components/batch1/geography/3d/simulations/OceanCurrentsViz'),
-    { ssr: false, loading: () => <div className="text-white">Loading Ocean Lab...</div> }
+    () => import('@/components/upsc/subjects/geography/3d/simulations/OceanCurrentsViz'),
+    { ssr: false, loading: () => <div className="text-white bg-slate-950 h-full flex items-center justify-center"><Loader2 className="animate-spin mr-2" /> Loading Ocean Lab...</div> }
 );
 
 const ClimateClassificationViz = dynamic(
-    () => import('@/components/batch1/geography/3d/simulations/ClimateClassificationViz'),
-    { ssr: false, loading: () => <div className="text-white">Loading Climate Explorer...</div> }
+    () => import('@/components/upsc/subjects/geography/3d/simulations/ClimateClassificationViz'),
+    { ssr: false, loading: () => <div className="text-white bg-slate-950 h-full flex items-center justify-center"><Loader2 className="animate-spin mr-2" /> Loading Climate Explorer...</div> }
 );
 
 const IndiaInteractiveMap = dynamic(
     () => import('@/components/upsc/subjects/geography/visuals/IndiaInteractiveMap'),
-    { ssr: false, loading: () => <div className="text-white">Loading Atlas...</div> }
+    { ssr: false, loading: () => <div className="text-white bg-slate-950 h-full flex items-center justify-center"><Loader2 className="animate-spin mr-2" /> Loading Atlas...</div> }
 );
 
 const ResourceAtlasSimulator = dynamic(
     () => import('@/components/upsc/subjects/geography/visuals/ResourceAtlasSimulator'),
-    { ssr: false, loading: () => <div className="text-white">Loading Resource Atlas...</div> }
+    { ssr: false, loading: () => <div className="text-white bg-slate-950 h-full flex items-center justify-center"><Loader2 className="animate-spin mr-2" /> Loading Resource Atlas...</div> }
+);
+
+const PlateTectonicsViz = dynamic(
+    () => import('@/components/upsc/subjects/geography/3d/simulations/PlateTectonicsViz'),
+    { ssr: false, loading: () => <div className="text-white bg-slate-950 h-full flex items-center justify-center"><Loader2 className="animate-spin mr-2" /> Loading Plate Tectonics...</div> }
+);
+
+const MonsoonViz = dynamic(
+    () => import('@/components/upsc/subjects/geography/3d/simulations/MonsoonViz'),
+    { ssr: false, loading: () => <div className="text-white bg-slate-950 h-full flex items-center justify-center"><Loader2 className="animate-spin mr-2" /> Loading Monsoon simulation...</div> }
+);
+
+const RiverSystemViz = dynamic(
+    () => import('@/components/upsc/subjects/geography/3d/simulations/RiverSystemViz'),
+    { ssr: false, loading: () => <div className="text-white bg-slate-950 h-full flex items-center justify-center"><Loader2 className="animate-spin mr-2" /> Loading River System...</div> }
 );
 
 export default function VisualModulePage() {
@@ -38,10 +53,10 @@ export default function VisualModulePage() {
             <Button
                 variant="ghost"
                 className="text-white bg-slate-900/40 hover:bg-white/10 backdrop-blur-md border border-white/5"
-                onClick={() => router.back()}
+                onClick={() => router.push('/student/upsc/geography')}
             >
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Visual Hub
+                Back to geography
             </Button>
         </div>
     );
@@ -109,7 +124,7 @@ export default function VisualModulePage() {
         <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center">
             <div className="text-center">
                 <h1 className="text-2xl font-bold mb-4">Module Not Found ({moduleId})</h1>
-                <Button onClick={() => router.back()}>Go Back</Button>
+                <Button onClick={() => router.push('/student/upsc/geography')}>Go Back</Button>
             </div>
         </div>
     );

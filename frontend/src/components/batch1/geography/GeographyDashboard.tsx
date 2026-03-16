@@ -15,6 +15,8 @@ import { NCERT_GEOGRAPHY_BOOKS } from '@/components/upsc/subjects/geography/data
 import { NCERT_GEOGRAPHY_NOTES } from '@/components/upsc/subjects/geography/data/ncert-geography-notes';
 import { NCERT_FLASHCARDS_DATA } from '@/components/upsc/subjects/geography/data/ncert-flashcards-data';
 import { NCERT_MCQ_COLLECTION } from '@/components/upsc/subjects/geography/data/mcqs/consolidated-ncert';
+import { GEOGRAPHY_CURRENT_AFFAIRS } from '@/components/upsc/subjects/current-affairs/current-affairs-data';
+
 const TargetIcon = Target;
 import { SimulationType } from './content/types';
 import dynamic from 'next/dynamic';
@@ -592,7 +594,11 @@ export default function GeographyDashboard() {
                                         const hasFlash = (NCERT_FLASHCARDS_DATA[chapter.id]?.length || 0) > 0;
                                         const mcqKey = (chapter.mcqDataId || `chapter${chapter.chapterNumber}MCQs`) as keyof typeof NCERT_MCQ_COLLECTION;
                                         const hasMCQ = (NCERT_MCQ_COLLECTION[mcqKey]?.length || 0) > 0;
-                                        const hasCA = false;
+                                        const hasCA = GEOGRAPHY_CURRENT_AFFAIRS.some(item => 
+                                            item.chapter === chapter.chapterNumber || 
+                                            (item.related_topic_id && chapter.title.toLowerCase().includes(item.related_topic_id.replace(/-/g, ' ')))
+                                        );
+
 
                                         const features = [
                                             { id: 'note', icon: FileText, active: hasNote, color: 'text-emerald-500 bg-emerald-50 border-emerald-100', hover: 'hover:bg-emerald-600 hover:text-white' },

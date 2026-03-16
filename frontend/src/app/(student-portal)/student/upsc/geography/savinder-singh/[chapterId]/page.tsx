@@ -1,13 +1,14 @@
 "use client";
 
-import React from 'react';
+import React, { use } from 'react';
 import { notFound, useRouter } from 'next/navigation';
 import SavinderSinghModule from '@/components/upsc/subjects/geography/SavinderSinghModule';
 import { SAVINDER_SINGH_CHAPTERS } from '@/components/upsc/subjects/geography/data/savinder-singh-data';
 
-export default function SavinderSinghChapterPage({ params }: { params: { chapterId: string } }) {
+export default function SavinderSinghChapterPage({ params }: { params: Promise<{ chapterId: string }> }) {
     const router = useRouter();
-    const chapter = SAVINDER_SINGH_CHAPTERS.find(c => c.id === params.chapterId);
+    const resolvedParams = use(params);
+    const chapter = SAVINDER_SINGH_CHAPTERS.find(c => c.id === resolvedParams.chapterId);
 
     if (!chapter) return notFound();
 
