@@ -374,6 +374,10 @@ api_router.include_router(order.router, prefix="/orders", tags=["orders"])
 from app.api.api_v1.endpoints import payment
 api_router.include_router(payment.router, prefix="/payment", tags=["payment"])
 
+# Course Payment (LMS course purchases via Cashfree/Instamojo)
+from app.api.api_v1.endpoints import course_payment
+api_router.include_router(course_payment.router, prefix="/course-payment", tags=["course-payment"])
+
 # Cart
 from app.api.api_v1.endpoints import cart
 api_router.include_router(cart.router, prefix="/cart", tags=["cart"])
