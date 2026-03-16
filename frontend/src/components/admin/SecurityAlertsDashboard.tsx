@@ -20,7 +20,7 @@ export function SecurityAlertsDashboard() {
     const fetchAlerts = async () => {
         try {
             const token = localStorage.getItem("access_token");
-            const res = await axios.get(`${API_URL}/api/v1/admin/security/alerts`, {
+            const res = await axios.get(`${API_URL}/admin/security/alerts`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             if (Array.isArray(res.data)) {
@@ -41,7 +41,7 @@ export function SecurityAlertsDashboard() {
 
         try {
             const token = localStorage.getItem("access_token");
-            await axios.post(`${API_URL}/api/v1/admin/security/alerts/${id}/resolve?notes=${encodeURIComponent(notes)}`, {}, {
+            await axios.post(`${API_URL}/admin/security/alerts/${id}/resolve?notes=${encodeURIComponent(notes)}`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             fetchAlerts();

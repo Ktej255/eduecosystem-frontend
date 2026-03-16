@@ -35,8 +35,8 @@ export default function BookmarkButton({
       const token = localStorage.getItem("token");
       const endpoint =
         type === "lesson"
-          ? `${API_URL}/api/v1/notes/lessons/${lessonId}/is-bookmarked`
-          : `${API_URL}/api/v1/notes/courses/${courseId}/is-bookmarked`;
+          ? `${API_URL}/notes/lessons/${lessonId}/is-bookmarked`
+          : `${API_URL}/notes/courses/${courseId}/is-bookmarked`;
 
       const response = await axios.get(endpoint, {
         headers: { Authorization: `Bearer ${token}` },
@@ -56,8 +56,8 @@ export default function BookmarkButton({
         // Remove bookmark
         const endpoint =
           type === "lesson"
-            ? `${API_URL}/api/v1/notes/bookmarks/lessons/${lessonId}`
-            : `${API_URL}/api/v1/notes/bookmarks/courses/${courseId}`;
+            ? `${API_URL}/notes/bookmarks/lessons/${lessonId}`
+            : `${API_URL}/notes/bookmarks/courses/${courseId}`;
 
         await axios.delete(endpoint, {
           headers: { Authorization: `Bearer ${token}` },
@@ -68,8 +68,8 @@ export default function BookmarkButton({
         // Add bookmark
         const endpoint =
           type === "lesson"
-            ? `${API_URL}/api/v1/notes/bookmarks/lessons`
-            : `${API_URL}/api/v1/notes/bookmarks/courses`;
+            ? `${API_URL}/notes/bookmarks/lessons`
+            : `${API_URL}/notes/bookmarks/courses`;
 
         const data =
           type === "lesson"

@@ -50,7 +50,7 @@ export function WebcamAnalysis() {
             // Strip prefix "data:image/jpeg;base64,"
             const rawBase64 = base64Image.split(",")[1];
 
-            const res = await axios.post(`${API_URL}/api/v1/grapho-vision/analyze-stream`, {
+            const res = await axios.post(`${API_URL}/grapho-vision/analyze-stream`, {
                 image_base64: rawBase64
             }, {
                 headers: { Authorization: `Bearer ${token}` }

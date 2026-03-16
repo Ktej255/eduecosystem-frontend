@@ -8,7 +8,7 @@ export function useClassConfig() {
         const fetchConfig = async () => {
             try {
                 // E.g. /api/v1/app-config/journey_classes
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/app-config/journey_classes`);
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/app-config/journey_classes`);
                 if (res.ok) {
                     const data = await res.json();
                     if (data.value) {

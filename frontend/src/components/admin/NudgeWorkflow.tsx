@@ -42,8 +42,8 @@ export function NudgeWorkflow() {
         try {
             const token = localStorage.getItem("access_token");
             const [wRes, hRes] = await Promise.all([
-                axios.get(`${API_URL}/api/v1/admin/nudges/workflows`, { headers: { Authorization: `Bearer ${token}` } }),
-                axios.get(`${API_URL}/api/v1/admin/nudges/history`, { headers: { Authorization: `Bearer ${token}` } })
+                axios.get(`${API_URL}/admin/nudges/workflows`, { headers: { Authorization: `Bearer ${token}` } }),
+                axios.get(`${API_URL}/admin/nudges/history`, { headers: { Authorization: `Bearer ${token}` } })
             ]);
             if (Array.isArray(wRes.data)) {
                 setWorkflows(wRes.data);
@@ -70,7 +70,7 @@ export function NudgeWorkflow() {
 
         try {
             const token = localStorage.getItem("access_token");
-            await axios.post(`${API_URL}/api/v1/admin/nudges/workflows`, null, {
+            await axios.post(`${API_URL}/admin/nudges/workflows`, null, {
                 params: newWorkflow,
                 headers: { Authorization: `Bearer ${token}` }
             });
@@ -85,7 +85,7 @@ export function NudgeWorkflow() {
     const runEvaluation = async () => {
         try {
             const token = localStorage.getItem("access_token");
-            await axios.post(`${API_URL}/api/v1/admin/nudges/run-evaluation`, {}, {
+            await axios.post(`${API_URL}/admin/nudges/run-evaluation`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             toast.success("Nudge evaluation cycle triggered");

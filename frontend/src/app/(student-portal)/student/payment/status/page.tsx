@@ -29,7 +29,7 @@ function PaymentStatusContent() {
                 }
 
                 const res = await fetch(
-                    `${process.env.NEXT_PUBLIC_API_URL}/api/v1/payment/verify/${orderId}`,
+                    `${process.env.NEXT_PUBLIC_API_URL}/payment/verify/${orderId}`,
                     { headers: { 'Authorization': `Bearer ${token}` } }
                 );
 

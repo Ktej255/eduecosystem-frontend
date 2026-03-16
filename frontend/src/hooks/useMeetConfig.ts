@@ -7,7 +7,7 @@ export function useMeetConfig() {
     useEffect(() => {
         const fetchConfig = async () => {
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/app-config/live_classes`);
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/app-config/live_classes`);
                 if (res.ok) {
                     const data = await res.json();
                     if (data.value) {

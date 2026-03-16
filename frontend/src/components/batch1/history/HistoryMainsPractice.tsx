@@ -71,7 +71,7 @@ export default function HistoryMainsPractice({ config }: HistoryMainsPracticePro
         setEvaluationError({ ...evaluationError, [questionId]: "" });
 
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || ''}/api/v1/mains/evaluate`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || ''}/mains/evaluate`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ question, answer, marks })

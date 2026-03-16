@@ -46,7 +46,7 @@ export default function ExperienceReport({ isOpen, onClose, onSubmit, title = "P
 
         try {
             // Real API Call
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/retention/experience`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/retention/experience`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -47,7 +47,7 @@ export default function SubscriptionPage() {
       setIsLoading(true);
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/payment/create-order`,
+        `${process.env.NEXT_PUBLIC_API_URL}/payment/create-order`,
         { tier: "premium" },
         { headers: { Authorization: `Bearer ${token}` } },
       );

@@ -27,7 +27,7 @@ export default function DailyBriefing() {
         setLoading(true);
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/productivity/news-quiz`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/productivity/news-quiz`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

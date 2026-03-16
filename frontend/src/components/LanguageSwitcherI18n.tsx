@@ -41,7 +41,7 @@ export default function LanguageSwitcherI18n({
         const token = localStorage.getItem("accessToken");
         if (token) {
           await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}/api/v1/i18n/preferences`,
+            `${process.env.NEXT_PUBLIC_API_URL}/i18n/preferences`,
             {
               method: "PATCH",
               headers: {

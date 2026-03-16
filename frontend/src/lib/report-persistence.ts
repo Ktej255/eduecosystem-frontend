@@ -30,7 +30,7 @@ export async function saveChapterReport(
     try {
         const token = localStorage.getItem("token");
         if (token) {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/student-reports/?report_type=chapter_report&report_key=${key}`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/student-reports/?report_type=chapter_report&report_key=${key}`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             if (res.ok) {
@@ -72,7 +72,7 @@ export async function saveChapterReport(
     try {
         const token = localStorage.getItem("token");
         if (token) {
-            await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/student-reports/`, {
+            await fetch(`${process.env.NEXT_PUBLIC_API_URL}/student-reports/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -97,7 +97,7 @@ export async function getChapterReports(subject: ChapterReportEntry['subject']):
     try {
         const token = localStorage.getItem("token");
         if (token) {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/student-reports/?report_type=chapter_report&report_key=${key}`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/student-reports/?report_type=chapter_report&report_key=${key}`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             if (res.ok) {
@@ -200,7 +200,7 @@ export async function saveSRSDataToDB(srsData: Record<string, any>) {
     try {
         const token = localStorage.getItem("token");
         if (token) {
-            await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/student-reports/`, {
+            await fetch(`${process.env.NEXT_PUBLIC_API_URL}/student-reports/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -222,7 +222,7 @@ export async function getSRSDataFromDB(): Promise<Record<string, any>> {
     try {
         const token = localStorage.getItem("token");
         if (token) {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/student-reports/?report_type=srs_retention_data&report_key=${SRS_STORAGE_KEY}`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/student-reports/?report_type=srs_retention_data&report_key=${SRS_STORAGE_KEY}`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             if (res.ok) {

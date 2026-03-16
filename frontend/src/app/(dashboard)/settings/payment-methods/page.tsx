@@ -40,7 +40,7 @@ export default function PaymentMethodsPage() {
 
   const fetchPaymentMethods = async () => {
     try {
-      const response = await axios.get(`${API_URL}/api/v1/payment-methods`, {
+      const response = await axios.get(`${API_URL}/payment-methods`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -56,7 +56,7 @@ export default function PaymentMethodsPage() {
   const handleSetDefault = async (methodId: number) => {
     try {
       await axios.post(
-        `${API_URL}/api/v1/payment-methods/${methodId}/set-default`,
+        `${API_URL}/payment-methods/${methodId}/set-default`,
         {},
         {
           headers: {
@@ -76,7 +76,7 @@ export default function PaymentMethodsPage() {
       return;
 
     try {
-      await axios.delete(`${API_URL}/api/v1/payment-methods/${methodId}`, {
+      await axios.delete(`${API_URL}/payment-methods/${methodId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

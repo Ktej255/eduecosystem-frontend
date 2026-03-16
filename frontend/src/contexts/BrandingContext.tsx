@@ -42,7 +42,7 @@ export function BrandingProvider({ children }: { children: React.ReactNode }) {
     useEffect(() => {
         const fetchBranding = async () => {
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/public/branding`);
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/public/branding`);
                 if (res.ok) {
                     const data = await res.json();
                     setBranding(data);

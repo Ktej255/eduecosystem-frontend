@@ -188,7 +188,7 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                 // Fetch all 3 parts
                 for (const part of parts) {
                     const response = await fetch(
-                        `${API_URL}/api/v1/batch1/cycle/${cycleId}/day/${dayNumber}/part/${part}`
+                        `${API_URL}/batch1/cycle/${cycleId}/day/${dayNumber}/part/${part}`
                     );
                     if (response.ok) {
                         const data = await response.json();
@@ -272,7 +272,7 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                         }
 
                         const response = await fetch(
-                            `${API_URL}/api/v1/batch1/cycle/${cycleId}/day/${dayNumber}/part/${part}/segment/${seg}`,
+                            `${API_URL}/batch1/cycle/${cycleId}/day/${dayNumber}/part/${part}/segment/${seg}`,
                             {
                                 method: "POST",
                                 body: formData,
@@ -298,7 +298,7 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
                         pdfFormData.append("pdf_file", pdf.file);
 
                         const pdfResponse = await fetch(
-                            `${API_URL}/api/v1/pdf-study/upload`,
+                            `${API_URL}/pdf-study/upload`,
                             {
                                 method: "POST",
                                 body: pdfFormData,

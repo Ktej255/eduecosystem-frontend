@@ -42,7 +42,7 @@ export default function AdminQuestionsPage() {
 
             const token = localStorage.getItem("token") || localStorage.getItem("access_token");
             const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-            const response = await fetch(`${apiUrl}/api/v1/admin/drill/questions?${params}`, {
+            const response = await fetch(`${apiUrl}/admin/drill/questions?${params}`, {
                 headers: {
                     "Authorization": `Bearer ${token}`,
                     "Content-Type": "application/json"
@@ -64,7 +64,7 @@ export default function AdminQuestionsPage() {
         try {
             const token = localStorage.getItem("token") || localStorage.getItem("access_token");
             const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-            await fetch(`${apiUrl}/api/v1/admin/drill/questions/${id}`, {
+            await fetch(`${apiUrl}/admin/drill/questions/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Authorization": `Bearer ${token}`

@@ -40,11 +40,11 @@ function ExportButton({ type, courseId, label }: ExportButtonProps) {
 
       // Build URL based on type
       if (type === "analytics") {
-        url = `${API_URL}/api/v1/exports/analytics?format=${format}`;
+        url = `${API_URL}/exports/analytics?format=${format}`;
       } else if (type === "user-data") {
-        url = `${API_URL}/api/v1/exports/user-data?format=${format === "csv" ? "json" : format}`;
+        url = `${API_URL}/exports/user-data?format=${format === "csv" ? "json" : format}`;
       } else if (type === "course" && courseId) {
-        url = `${API_URL}/api/v1/exports/course/${courseId}?format=${format === "csv" ? "json" : format}`;
+        url = `${API_URL}/exports/course/${courseId}?format=${format === "csv" ? "json" : format}`;
       }
 
       const response = await axios.get(url, {

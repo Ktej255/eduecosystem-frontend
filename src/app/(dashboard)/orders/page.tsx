@@ -33,7 +33,7 @@ export default function OrderHistoryPage() {
   const fetchOrders = async () => {
     try {
       const response = await axios.get(
-        `${API_URL}/api/v1/orders?page=${page}&page_size=10`,
+        `${API_URL}/orders?page=${page}&page_size=10`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

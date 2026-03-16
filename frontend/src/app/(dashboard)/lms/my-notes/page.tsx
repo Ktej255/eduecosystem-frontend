@@ -58,7 +58,7 @@ export default function MyNotesPage() {
       setLoading(true);
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `${API_URL}/api/v1/notes/my-notes-and-bookmarks`,
+        `${API_URL}/notes/my-notes-and-bookmarks`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },

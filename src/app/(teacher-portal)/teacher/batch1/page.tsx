@@ -189,7 +189,7 @@ const DayContentUpload = ({ cycleId, cycleName, dayNumber, color, onBack }: {
                 // Fetch all 3 parts
                 for (const part of parts) {
                     const response = await fetch(
-                        `${API_URL}/api/v1/batch1/cycle/${cycleId}/day/${dayNumber}/part/${part}`
+                        `${API_URL}/batch1/cycle/${cycleId}/day/${dayNumber}/part/${part}`
                     );
                     if (response.ok) {
                         const data = await response.json();
@@ -270,7 +270,7 @@ const DayContentUpload = ({ cycleId, cycleName, dayNumber, color, onBack }: {
                     setUploadProgress(`Uploading Part ${part} combined PDF...`);
                     const pdfFormData = new FormData();
                     pdfFormData.append("file", partPdfs[part].file!);
-                    await fetch(`${API_URL}/api/v1/batch1/cycle/${cycleId}/day/${dayNumber}/part/${part}/pdf`, {
+                    await fetch(`${API_URL}/batch1/cycle/${cycleId}/day/${dayNumber}/part/${part}/pdf`, {
                         method: "POST",
                         body: pdfFormData
                     });
@@ -294,7 +294,7 @@ const DayContentUpload = ({ cycleId, cycleName, dayNumber, color, onBack }: {
 
                         // Call backend API
                         const response = await fetch(
-                            `${API_URL}/api/v1/batch1/cycle/${cycleId}/day/${dayNumber}/part/${part}/segment/${seg}`,
+                            `${API_URL}/batch1/cycle/${cycleId}/day/${dayNumber}/part/${part}/segment/${seg}`,
                             {
                                 method: "POST",
                                 body: formData,

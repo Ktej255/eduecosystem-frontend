@@ -56,7 +56,7 @@ export default function NotesPanel({ lessonId }: { lessonId: number }) {
       setLoading(true);
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `${API_URL}/api/v1/notes/lessons/${lessonId}/notes`,
+        `${API_URL}/notes/lessons/${lessonId}/notes`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -78,7 +78,7 @@ export default function NotesPanel({ lessonId }: { lessonId: number }) {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        `${API_URL}/api/v1/notes/notes`,
+        `${API_URL}/notes/notes`,
         {
           lesson_id: lessonId,
           ...newNote,
@@ -104,7 +104,7 @@ export default function NotesPanel({ lessonId }: { lessonId: number }) {
   const handleUpdate = async (noteId: number) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.put(`${API_URL}/api/v1/notes/notes/${noteId}`, editData, {
+      await axios.put(`${API_URL}/notes/notes/${noteId}`, editData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setEditingId(null);
@@ -121,7 +121,7 @@ export default function NotesPanel({ lessonId }: { lessonId: number }) {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`${API_URL}/api/v1/notes/notes/${noteId}`, {
+      await axios.delete(`${API_URL}/notes/notes/${noteId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success("Note deleted!");

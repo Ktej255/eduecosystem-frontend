@@ -35,7 +35,7 @@ export default function NotificationManager() {
                 });
 
                 const token = localStorage.getItem('token');
-                await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/notifications/subscribe`, {
+                await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/notifications/subscribe`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

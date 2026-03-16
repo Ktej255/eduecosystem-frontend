@@ -170,7 +170,7 @@ export function LiveClassViewer({
     // Also persist via API
     try {
       await axios.post(
-        `${API_URL}/api/v1/live-class-interactive/classes/${liveClass.id}/chat`,
+        `${API_URL}/live-class-interactive/classes/${liveClass.id}/chat`,
         { message: text },
         { headers: getAuthHeader() },
       );
@@ -183,7 +183,7 @@ export function LiveClassViewer({
   const handleReaction = async (emoji: string) => {
     try {
       await axios.post(
-        `${API_URL}/api/v1/live-class-interactive/classes/${liveClass.id}/reactions`,
+        `${API_URL}/live-class-interactive/classes/${liveClass.id}/reactions`,
         { reaction: emoji },
         { headers: getAuthHeader() },
       );
@@ -197,7 +197,7 @@ export function LiveClassViewer({
   const handleVote = async (pollId: number, optionIndex: number) => {
     try {
       await axios.post(
-        `${API_URL}/api/v1/live-class-interactive/polls/${pollId}/vote`,
+        `${API_URL}/live-class-interactive/polls/${pollId}/vote`,
         { option_index: optionIndex },
         { headers: getAuthHeader() },
       );
@@ -212,7 +212,7 @@ export function LiveClassViewer({
   const handleCreatePoll = async (question: string, options: string[]) => {
     try {
       await axios.post(
-        `${API_URL}/api/v1/live-class-interactive/classes/${liveClass.id}/polls`,
+        `${API_URL}/live-class-interactive/classes/${liveClass.id}/polls`,
         {
           question,
           options,
@@ -231,7 +231,7 @@ export function LiveClassViewer({
   const handleEndPoll = async (pollId: number) => {
     try {
       await axios.patch(
-        `${API_URL}/api/v1/live-class-interactive/polls/${pollId}/status`,
+        `${API_URL}/live-class-interactive/polls/${pollId}/status`,
         { status: "ended" },
         { headers: getAuthHeader() },
       );
@@ -246,7 +246,7 @@ export function LiveClassViewer({
   const handleAskQuestion = async (text: string) => {
     try {
       await axios.post(
-        `${API_URL}/api/v1/live-class-interactive/classes/${liveClass.id}/questions`,
+        `${API_URL}/live-class-interactive/classes/${liveClass.id}/questions`,
         { question: text },
         { headers: getAuthHeader() },
       );
@@ -261,7 +261,7 @@ export function LiveClassViewer({
   const handleUpvoteQuestion = async (questionId: number) => {
     try {
       await axios.post(
-        `${API_URL}/api/v1/live-class-interactive/questions/${questionId}/upvote`,
+        `${API_URL}/live-class-interactive/questions/${questionId}/upvote`,
         {},
         { headers: getAuthHeader() },
       );
@@ -277,7 +277,7 @@ export function LiveClassViewer({
   const handleAnswerQuestion = async (questionId: number, answer: string) => {
     try {
       await axios.post(
-        `${API_URL}/api/v1/live-class-interactive/questions/${questionId}/answer`,
+        `${API_URL}/live-class-interactive/questions/${questionId}/answer`,
         { answer },
         { headers: getAuthHeader() },
       );
@@ -295,15 +295,15 @@ export function LiveClassViewer({
       try {
         const [pollsData, questionsData, chatData] = await Promise.all([
           axios.get(
-            `${API_URL}/api/v1/live-class-interactive/classes/${liveClass.id}/polls`,
+            `${API_URL}/live-class-interactive/classes/${liveClass.id}/polls`,
             { headers: getAuthHeader() },
           ),
           axios.get(
-            `${API_URL}/api/v1/live-class-interactive/classes/${liveClass.id}/questions`,
+            `${API_URL}/live-class-interactive/classes/${liveClass.id}/questions`,
             { headers: getAuthHeader() },
           ),
           axios.get(
-            `${API_URL}/api/v1/live-class-interactive/classes/${liveClass.id}/chat`,
+            `${API_URL}/live-class-interactive/classes/${liveClass.id}/chat`,
             { headers: getAuthHeader() },
           ),
         ]);

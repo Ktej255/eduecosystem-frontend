@@ -49,7 +49,7 @@ export function SundayTestModal({ isOpen, onClose }: SundayTestModalProps) {
     const fetchTest = async () => {
         setLoading(true);
         try {
-            const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/antigravity/test/sunday`);
+            const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/antigravity/test/sunday`);
             setTestData(res.data);
         } catch (error) {
             console.error("Failed to load test", error);
@@ -75,7 +75,7 @@ export function SundayTestModal({ isOpen, onClose }: SundayTestModalProps) {
                 }, {} as Record<number, number>)
             };
 
-            const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/antigravity/test/submit`, payload);
+            const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/antigravity/test/submit`, payload);
             setResult(res.data);
             setSubmitted(true);
         } catch (error) {

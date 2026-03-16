@@ -130,7 +130,7 @@ export default function SettingsPage() {
         }
 
         // Fetch user profile
-        const userResponse = await axios.get(`${API_URL}/api/v1/users/me`, {
+        const userResponse = await axios.get(`${API_URL}/users/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(userResponse.data);
@@ -144,7 +144,7 @@ export default function SettingsPage() {
 
         // Fetch email notification preferences
         const emailPrefsResponse = await axios.get(
-          `${API_URL}/api/v1/email-notifications/preferences`,
+          `${API_URL}/email-notifications/preferences`,
           { headers: { Authorization: `Bearer ${token}` } },
         );
         emailNotificationForm.reset(emailPrefsResponse.data);
@@ -163,7 +163,7 @@ export default function SettingsPage() {
   const onProfileSubmit = async (data: z.infer<typeof profileSchema>) => {
     try {
       const token = localStorage.getItem("access_token");
-      await axios.patch(`${API_URL}/api/v1/users/me`, data, {
+      await axios.patch(`${API_URL}/users/me`, data, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success("Profile updated successfully!");
@@ -178,7 +178,7 @@ export default function SettingsPage() {
     try {
       const token = localStorage.getItem("access_token");
       await axios.post(
-        `${API_URL}/api/v1/auth/change-password`,
+        `${API_URL}/auth/change-password`,
         {
           current_password: data.current_password,
           new_password: data.new_password,
@@ -202,7 +202,7 @@ export default function SettingsPage() {
     try {
       const token = localStorage.getItem("access_token");
       await axios.patch(
-        `${API_URL}/api/v1/email-notifications/preferences`,
+        `${API_URL}/email-notifications/preferences`,
         data,
         { headers: { Authorization: `Bearer ${token}` } },
       );
@@ -220,7 +220,7 @@ export default function SettingsPage() {
     try {
       const token = localStorage.getItem("access_token");
       const response = await axios.put(
-        `${API_URL}/api/v1/email-notifications/preferences/reset`,
+        `${API_URL}/email-notifications/preferences/reset`,
         {},
         { headers: { Authorization: `Bearer ${token}` } },
       );
@@ -256,7 +256,7 @@ export default function SettingsPage() {
       formData.append("file", file);
 
       const response = await axios.post(
-        `${API_URL}/api/v1/users/me/avatar`,
+        `${API_URL}/users/me/avatar`,
         formData,
         {
           headers: {

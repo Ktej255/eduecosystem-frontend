@@ -106,7 +106,7 @@ export default function GenericFlashcardSession({ flashcards: initialFlashcards,
     const handleAudioRecording = async (base64Audio: string) => {
         setIsAnalyzing(true);
         try {
-            const response = await fetch(`${API_URL}/api/v1/audio-analysis/analyze-flashcard`, {
+            const response = await fetch(`${API_URL}/audio-analysis/analyze-flashcard`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

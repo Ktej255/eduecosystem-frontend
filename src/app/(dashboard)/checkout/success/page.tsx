@@ -29,7 +29,7 @@ export default function OrderSuccessPage() {
 
   const fetchOrder = async (orderId: number) => {
     try {
-      const response = await axios.get(`${API_URL}/api/v1/orders/${orderId}`, {
+      const response = await axios.get(`${API_URL}/orders/${orderId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

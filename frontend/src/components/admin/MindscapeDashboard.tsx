@@ -48,8 +48,8 @@ export function MindscapeDashboard() {
             const config = { headers: { Authorization: `Bearer ${token}` } };
 
             const [pulseRes, trendsRes] = await Promise.all([
-                axios.get(`${API_URL}/api/v1/admin/sentiment/vibe-pulse?batch_name=Global`, config),
-                axios.get(`${API_URL}/api/v1/admin/sentiment/trends?batch_name=Global&days=7`, config)
+                axios.get(`${API_URL}/admin/sentiment/vibe-pulse?batch_name=Global`, config),
+                axios.get(`${API_URL}/admin/sentiment/trends?batch_name=Global&days=7`, config)
             ]);
 
             // Verify pulseData type and set fallback if invalid

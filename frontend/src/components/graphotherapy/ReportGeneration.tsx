@@ -36,7 +36,7 @@ export default function ReportGeneration() {
             const formData = new FormData();
             formData.append('files', file);
 
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/funnel/analyze`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/funnel/analyze`, {
                 method: 'POST',
                 body: formData
             });

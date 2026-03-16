@@ -48,7 +48,7 @@ export default function PricingPage() {
   const fetchPlans = async () => {
     try {
       const response = await axios.get(
-        `${API_URL}/api/v1/subscriptions/plans`,
+        `${API_URL}/subscriptions/plans`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -68,7 +68,7 @@ export default function PricingPage() {
 
     try {
       await axios.post(
-        `${API_URL}/api/v1/subscriptions/subscribe`,
+        `${API_URL}/subscriptions/subscribe`,
         { plan_id: planId, billing_cycle: billingCycle },
         {
           headers: {

@@ -61,7 +61,7 @@ export default function TaxConfigPage() {
 
   const fetchRates = async () => {
     try {
-      const response = await axios.get(`${API_URL}/api/v1/tax/rates`, {
+      const response = await axios.get(`${API_URL}/tax/rates`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -86,7 +86,7 @@ export default function TaxConfigPage() {
 
       if (editingRate) {
         await axios.put(
-          `${API_URL}/api/v1/tax/rates/${editingRate.id}`,
+          `${API_URL}/tax/rates/${editingRate.id}`,
           payload,
           {
             headers: {
@@ -95,7 +95,7 @@ export default function TaxConfigPage() {
           },
         );
       } else {
-        await axios.post(`${API_URL}/api/v1/tax/rates`, payload, {
+        await axios.post(`${API_URL}/tax/rates`, payload, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -132,7 +132,7 @@ export default function TaxConfigPage() {
     if (!confirm("Are you sure you want to deactivate this tax rate?")) return;
 
     try {
-      await axios.delete(`${API_URL}/api/v1/tax/rates/${id}`, {
+      await axios.delete(`${API_URL}/tax/rates/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

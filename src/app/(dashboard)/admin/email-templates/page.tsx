@@ -89,7 +89,7 @@ export default function EmailTemplatesPage() {
     try {
       const token = localStorage.getItem("access_token");
       const response = await axios.get(
-        `${API_URL}/api/v1/email-notifications/templates`,
+        `${API_URL}/email-notifications/templates`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -109,7 +109,7 @@ export default function EmailTemplatesPage() {
     try {
       const token = localStorage.getItem("access_token");
       await axios.post(
-        `${API_URL}/api/v1/email-notifications/templates`,
+        `${API_URL}/email-notifications/templates`,
         data,
         { headers: { Authorization: `Bearer ${token}` } },
       );
@@ -129,7 +129,7 @@ export default function EmailTemplatesPage() {
     try {
       const token = localStorage.getItem("access_token");
       await axios.patch(
-        `${API_URL}/api/v1/email-notifications/templates/${selectedTemplate.id}`,
+        `${API_URL}/email-notifications/templates/${selectedTemplate.id}`,
         data,
         { headers: { Authorization: `Bearer ${token}` } },
       );
@@ -150,7 +150,7 @@ export default function EmailTemplatesPage() {
     try {
       const token = localStorage.getItem("access_token");
       await axios.delete(
-        `${API_URL}/api/v1/email-notifications/templates/${templateId}`,
+        `${API_URL}/email-notifications/templates/${templateId}`,
         { headers: { Authorization: `Bearer ${token}` } },
       );
       toast.success("Email template deleted successfully!");

@@ -78,7 +78,7 @@ async function syncCycleToBackend(session: CycleSession) {
     const token = localStorage.getItem('token');
 
     // Use retention v1 endpoint
-    const response = await fetch(`${API_URL}/api/v1/retention/cycle`, {
+    const response = await fetch(`${API_URL}/retention/cycle`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -216,7 +216,7 @@ export async function fetchKnowledgeTree(): Promise<TreeBranch[]> {
 
     try {
         // Redirect to new Anti-Gravity Mastery API
-        const response = await fetch(`${API_URL}/api/v1/antigravity/reports/mastery-hierarchy`, {
+        const response = await fetch(`${API_URL}/antigravity/reports/mastery-hierarchy`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

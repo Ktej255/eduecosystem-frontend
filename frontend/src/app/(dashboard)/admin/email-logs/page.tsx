@@ -101,7 +101,7 @@ export default function EmailLogsPage() {
       }
 
       const response = await axios.get(
-        `${API_URL}/api/v1/email-notifications/logs?${params.toString()}`,
+        `${API_URL}/email-notifications/logs?${params.toString()}`,
         { headers: { Authorization: `Bearer ${token}` } },
       );
       setLogs(response.data);

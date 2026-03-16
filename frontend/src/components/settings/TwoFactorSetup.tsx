@@ -19,7 +19,7 @@ export default function TwoFactorSetup() {
         setLoading(true);
         try {
             const token = localStorage.getItem("token") || localStorage.getItem("access_token");
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/2fa/setup`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/2fa/setup`, {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${token}`
@@ -43,7 +43,7 @@ export default function TwoFactorSetup() {
         setLoading(true);
         try {
             const token = localStorage.getItem("token") || localStorage.getItem("access_token");
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/2fa/verify`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/2fa/verify`, {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${token}`,

@@ -41,7 +41,7 @@ export default function NewAnnouncementPage() {
       setSubmitting(true);
       const token = localStorage.getItem("token");
       await axios.post(
-        `${API_URL}/api/v1/announcements/courses/${courseId}/announcements`,
+        `${API_URL}/announcements/courses/${courseId}/announcements`,
         { ...formData, course_id: parseInt(courseId) },
         {
           headers: { Authorization: `Bearer ${token}` },

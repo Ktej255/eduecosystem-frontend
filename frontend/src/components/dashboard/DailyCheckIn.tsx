@@ -20,7 +20,7 @@ export function DailyCheckIn() {
                 const token = localStorage.getItem("token") || localStorage.getItem("access_token");
                 if (!token) return;
 
-                const res = await axios.get(`${API_URL}/api/v1/gamification/streaks`, {
+                const res = await axios.get(`${API_URL}/gamification/streaks`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
 
@@ -44,7 +44,7 @@ export function DailyCheckIn() {
         setLoading(true);
         try {
             const token = localStorage.getItem("token") || localStorage.getItem("access_token");
-            const res = await axios.post(`${API_URL}/api/v1/gamification/activity/daily_checkin`, {}, {
+            const res = await axios.post(`${API_URL}/gamification/activity/daily_checkin`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
 

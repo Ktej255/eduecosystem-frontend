@@ -31,7 +31,7 @@ const MorningSessionPartCard = ({
     useEffect(() => {
         const fetchPartData = async () => {
             try {
-                const response = await fetch(`${apiUrl}/api/v1/batch1/cycle/${cycleId}/day/${day}/part/${part}`);
+                const response = await fetch(`${apiUrl}/batch1/cycle/${cycleId}/day/${day}/part/${part}`);
                 if (response.ok) {
                     const data = await response.json();
                     setPartData(data);

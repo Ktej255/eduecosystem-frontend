@@ -21,7 +21,7 @@ export default function OrgDashboardPage() {
     const fetchDashboardData = async () => {
         try {
             const token = localStorage.getItem("token") || localStorage.getItem("access_token");
-            const res = await axios.get(`${API_URL}/api/v1/b2b/orgs/dashboard`, {
+            const res = await axios.get(`${API_URL}/b2b/orgs/dashboard`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setData(res.data);

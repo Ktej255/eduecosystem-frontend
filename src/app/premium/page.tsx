@@ -26,7 +26,7 @@ export default function SubscriptionPage() {
       setIsLoading(true);
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/payment/checkout-session`,
+        `${process.env.NEXT_PUBLIC_API_URL}/payment/checkout-session`,
         {},
         { headers: { Authorization: `Bearer ${token}` } },
       );
@@ -45,7 +45,7 @@ export default function SubscriptionPage() {
       setIsLoading(true);
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/payment/portal`,
+        `${process.env.NEXT_PUBLIC_API_URL}/payment/portal`,
         {},
         { headers: { Authorization: `Bearer ${token}` } },
       );

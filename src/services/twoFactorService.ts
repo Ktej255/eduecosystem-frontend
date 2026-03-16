@@ -29,7 +29,7 @@ class TwoFactorService {
    */
   async setup(): Promise<TwoFactorSetupResponse> {
     const response = await axios.post(
-      `${API_URL}/api/v1/2fa/setup`,
+      `${API_URL}/2fa/setup`,
       {},
       {
         headers: {
@@ -48,7 +48,7 @@ class TwoFactorService {
     code: string,
   ): Promise<TwoFactorVerifyResponse> {
     const response = await axios.post(
-      `${API_URL}/api/v1/2fa/verify-setup`,
+      `${API_URL}/2fa/verify-setup`,
       { secret, code },
       {
         headers: {
@@ -64,7 +64,7 @@ class TwoFactorService {
    */
   async disable(code: string): Promise<TwoFactorVerifyResponse> {
     const response = await axios.post(
-      `${API_URL}/api/v1/2fa/disable`,
+      `${API_URL}/2fa/disable`,
       { code },
       {
         headers: {
@@ -84,7 +84,7 @@ class TwoFactorService {
     require_2fa: boolean;
   }> {
     const response = await axios.post(
-      `${API_URL}/api/v1/2fa/verify-login`,
+      `${API_URL}/2fa/verify-login`,
       { code },
       {
         headers: {
@@ -99,7 +99,7 @@ class TwoFactorService {
    * Get 2FA status for current user
    */
   async getStatus(): Promise<TwoFactorStatusResponse> {
-    const response = await axios.get(`${API_URL}/api/v1/2fa/status`, {
+    const response = await axios.get(`${API_URL}/2fa/status`, {
       headers: {
         Authorization: `Bearer ${this.getToken()}`,
       },

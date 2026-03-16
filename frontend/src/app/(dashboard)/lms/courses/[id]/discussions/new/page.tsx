@@ -47,7 +47,7 @@ export default function NewThreadPage() {
       setFetchingCategories(true);
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `${API_URL}/api/v1/discussions/courses/${courseId}/categories`,
+        `${API_URL}/discussions/courses/${courseId}/categories`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -87,7 +87,7 @@ export default function NewThreadPage() {
       setLoading(true);
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        `${API_URL}/api/v1/discussions/threads`,
+        `${API_URL}/discussions/threads`,
         {
           title: title.trim(),
           content: content.trim(),

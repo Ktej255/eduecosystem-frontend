@@ -17,7 +17,7 @@ export function SadhanaStreak() {
         const token = localStorage.getItem("access_token");
         if (!token) return;
 
-        const res = await axios.get(`${API_URL}/api/v1/gamification/streaks`, {
+        const res = await axios.get(`${API_URL}/gamification/streaks`, {
           headers: { Authorization: `Bearer ${token}` }
         });
 

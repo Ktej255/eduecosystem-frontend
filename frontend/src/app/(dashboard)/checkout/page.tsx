@@ -90,7 +90,7 @@ export default function CheckoutPage() {
 
   const fetchSavedPaymentMethods = async () => {
     try {
-      const response = await axios.get(`${API_URL}/api/v1/payment-methods`, {
+      const response = await axios.get(`${API_URL}/payment-methods`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

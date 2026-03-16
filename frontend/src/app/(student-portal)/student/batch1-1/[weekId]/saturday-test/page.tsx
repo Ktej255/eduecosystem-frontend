@@ -60,7 +60,7 @@ export default function SaturdayTestPage({ params }: PageProps) {
             let loaded = false;
             if (token) {
                 try {
-                    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/student-reports/batch11_saturday_results_v2_w${weekId}`, {
+                    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/student-reports/batch11_saturday_results_v2_w${weekId}`, {
                         headers: { 'Authorization': `Bearer ${token}` }
                     });
                     if (res.ok) {
@@ -97,7 +97,7 @@ export default function SaturdayTestPage({ params }: PageProps) {
         const token = localStorage.getItem("token");
         if (token) {
             try {
-                await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/student-reports/`, {
+                await fetch(`${process.env.NEXT_PUBLIC_API_URL}/student-reports/`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

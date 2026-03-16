@@ -31,7 +31,7 @@ export default function VirtualLibrary() {
         /*
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/community/presence`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/community/presence`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             if (!response.ok) throw new Error("API Error");
@@ -60,7 +60,7 @@ export default function VirtualLibrary() {
         const interval = setInterval(() => {
             // Update my status
             const token = localStorage.getItem('token');
-            fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/community/presence`, {
+            fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/community/presence`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

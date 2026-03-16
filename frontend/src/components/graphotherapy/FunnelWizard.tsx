@@ -117,7 +117,7 @@ export default function FunnelWizard() {
                             onClick={async () => {
                                 // Save lead to backend
                                 try {
-                                    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/leads/funnel`, {
+                                    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/leads/funnel`, {
                                         method: 'POST',
                                         headers: { 'Content-Type': 'application/json' },
                                         body: JSON.stringify({

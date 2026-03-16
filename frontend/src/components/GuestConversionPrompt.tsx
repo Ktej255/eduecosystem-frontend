@@ -29,7 +29,7 @@ export default function GuestConversionPrompt() {
   const checkGuestOrders = async (email: string) => {
     try {
       const response = await axios.get(
-        `${API_URL}/api/v1/guest/orders/${encodeURIComponent(email)}`,
+        `${API_URL}/guest/orders/${encodeURIComponent(email)}`,
       );
       setOrderCount(response.data.order_count || 0);
     } catch (error) {
@@ -44,7 +44,7 @@ export default function GuestConversionPrompt() {
 
     try {
       const response = await axios.post(
-        `${API_URL}/api/v1/guest/convert-to-user`,
+        `${API_URL}/guest/convert-to-user`,
         { guest_email: guestEmail },
         {
           headers: {

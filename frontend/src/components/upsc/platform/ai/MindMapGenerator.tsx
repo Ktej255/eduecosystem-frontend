@@ -57,7 +57,7 @@ export default function MindMapGenerator() {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/ai/mindmap`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/ai/mindmap`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

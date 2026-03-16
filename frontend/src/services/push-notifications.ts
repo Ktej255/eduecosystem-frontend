@@ -47,7 +47,7 @@ export const subscribeToNotifications = async () => {
 
     // 3. Send to Backend
     const token = localStorage.getItem("token") || localStorage.getItem("access_token");
-    await axios.post(`${API_URL}/api/v1/notifications/subscribe`, subscription, {
+    await axios.post(`${API_URL}/notifications/subscribe`, subscription, {
         headers: { Authorization: `Bearer ${token}` }
     });
 

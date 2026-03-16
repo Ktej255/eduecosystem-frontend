@@ -23,7 +23,7 @@ function PaymentStatusContent() {
       const token = localStorage.getItem("token");
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
       
-      const response = await fetch(`${apiUrl}/api/v1/payment/verify/${orderId}`, {
+      const response = await fetch(`${apiUrl}/payment/verify/${orderId}`, {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`,

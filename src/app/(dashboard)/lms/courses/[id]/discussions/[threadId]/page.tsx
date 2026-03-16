@@ -68,7 +68,7 @@ export default function ThreadDetailPage() {
       setLoading(true);
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `${API_URL}/api/v1/discussions/threads/${threadId}`,
+        `${API_URL}/discussions/threads/${threadId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -88,7 +88,7 @@ export default function ThreadDetailPage() {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        `${API_URL}/api/v1/discussions/posts`,
+        `${API_URL}/discussions/posts`,
         {
           thread_id: parseInt(threadId),
           content: newPost,
@@ -112,7 +112,7 @@ export default function ThreadDetailPage() {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        `${API_URL}/api/v1/discussions/posts/${postId}/vote`,
+        `${API_URL}/discussions/posts/${postId}/vote`,
         { vote_type: voteType },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -129,7 +129,7 @@ export default function ThreadDetailPage() {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        `${API_URL}/api/v1/discussions/posts/${postId}/mark-answer`,
+        `${API_URL}/discussions/posts/${postId}/mark-answer`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },

@@ -38,7 +38,7 @@ export function AtRiskStudentsTable() {
         try {
             const token = localStorage.getItem("token") || localStorage.getItem("access_token");
             // Use mock data for now if endpoint returns empty/error, or assume it works
-            const res = await axios.get(`${API_URL}/api/v1/analytics/at-risk`, {
+            const res = await axios.get(`${API_URL}/analytics/at-risk`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setStudents(res.data);

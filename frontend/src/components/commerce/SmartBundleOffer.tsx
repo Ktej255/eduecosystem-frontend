@@ -37,7 +37,7 @@ export function SmartBundleOffer() {
     const fetchOffer = async () => {
         try {
             const token = localStorage.getItem("token") || localStorage.getItem("access_token");
-            const res = await axios.get(`${API_URL}/api/v1/commerce/smart-bundle`, {
+            const res = await axios.get(`${API_URL}/commerce/smart-bundle`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setOffer(res.data);

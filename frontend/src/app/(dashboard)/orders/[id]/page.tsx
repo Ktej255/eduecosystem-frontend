@@ -52,7 +52,7 @@ export default function OrderDetailPage() {
 
   const fetchOrderDetails = async (orderId: number) => {
     try {
-      const response = await axios.get(`${API_URL}/api/v1/orders/${orderId}`, {
+      const response = await axios.get(`${API_URL}/orders/${orderId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -70,7 +70,7 @@ export default function OrderDetailPage() {
 
     try {
       const response = await axios.get(
-        `${API_URL}/api/v1/invoices/order/${order.id}`,
+        `${API_URL}/invoices/order/${order.id}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

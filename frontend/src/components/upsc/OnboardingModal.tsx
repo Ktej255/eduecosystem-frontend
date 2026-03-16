@@ -20,7 +20,7 @@ export default function UPSCOnboarding() {
                 return;
             }
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/student-reports/upsc_onboarding`, {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/student-reports/upsc_onboarding`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 if (res.ok) {
@@ -46,7 +46,7 @@ export default function UPSCOnboarding() {
         const token = localStorage.getItem("token");
         if (token) {
             try {
-                await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/student-reports/`, {
+                await fetch(`${process.env.NEXT_PUBLIC_API_URL}/student-reports/`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

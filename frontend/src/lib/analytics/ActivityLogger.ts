@@ -50,7 +50,7 @@ export const ActivityLogger = {
             const token = localStorage.getItem("token");
             if (!token) return;
 
-            await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/student-reports/`, {
+            await fetch(`${process.env.NEXT_PUBLIC_API_URL}/student-reports/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ export const ActivityLogger = {
         try {
             const token = localStorage.getItem("token");
             if (token) {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/student-reports/?report_type=activity_log&report_key=${ACTIVITY_STORAGE_KEY}`, {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/student-reports/?report_type=activity_log&report_key=${ACTIVITY_STORAGE_KEY}`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 if (res.ok) {

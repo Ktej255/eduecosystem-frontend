@@ -33,8 +33,8 @@ export const SSOConfigForm: React.FC<SSOConfigFormProps> = ({ orgId }) => {
   const [copiedField, setCopiedField] = useState<string | null>(null);
 
   const baseUrl = typeof window !== "undefined" ? window.location.origin : "https://app.eduecosystem.com";
-  const samlAcsUrl = `${baseUrl}/api/v1/sso/callback/saml`;
-  const oauthRedirectUri = `${baseUrl}/api/v1/sso/callback/oauth`;
+  const samlAcsUrl = `${baseUrl}/sso/callback/saml`;
+  const oauthRedirectUri = `${baseUrl}/sso/callback/oauth`;
 
   const [providerType, setProviderType] = useState("SAML");
   const [formData, setFormData] = useState({

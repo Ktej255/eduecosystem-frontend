@@ -32,7 +32,7 @@ export default function GraphotherapyDashboard() {
             if (!token) return;
 
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/graphotherapy/overview`, {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/graphotherapy/overview`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
 

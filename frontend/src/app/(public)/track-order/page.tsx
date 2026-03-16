@@ -36,7 +36,7 @@ export default function TrackOrderPage() {
     setShowAllOrders(false);
 
     try {
-      const response = await axios.post(`${API_URL}/api/v1/guest/track-order`, {
+      const response = await axios.post(`${API_URL}/guest/track-order`, {
         email,
         order_number: orderNumber,
       });
@@ -64,7 +64,7 @@ export default function TrackOrderPage() {
 
     try {
       const response = await axios.get(
-        `${API_URL}/api/v1/guest/orders/${encodeURIComponent(email)}`,
+        `${API_URL}/guest/orders/${encodeURIComponent(email)}`,
       );
       setAllOrders(response.data.orders || []);
       setShowAllOrders(true);

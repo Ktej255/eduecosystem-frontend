@@ -100,7 +100,7 @@ export function VoiceRecorder({ context }: VoiceRecorderProps) {
                 const token = localStorage.getItem("token") || localStorage.getItem("access_token");
 
                 const res = await axios.post(
-                    `${API_URL}/api/v1/voice-tutor/analyze`,
+                    `${API_URL}/voice-tutor/analyze`,
                     {
                         audio_base64: base64Audio,
                         context: context,

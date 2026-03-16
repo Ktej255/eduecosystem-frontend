@@ -153,7 +153,7 @@ function StorePageContent() {
                 return;
             }
 
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/payment/create-order`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/payment/create-order`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -185,7 +185,7 @@ function StorePageContent() {
                         setError(result.error.message || 'Payment cancelled');
                     } else if (result.paymentDetails) {
                         console.log('[CASHFREE DEBUG] Payment details received, verifying order:', order_id);
-                        const vRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/payment/verify/${order_id}`, {
+                        const vRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/payment/verify/${order_id}`, {
                             headers: { 'Authorization': `Bearer ${token}` }
                         });
                         if (vRes.ok) {

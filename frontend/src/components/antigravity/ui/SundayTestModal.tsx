@@ -41,7 +41,7 @@ export default function SundayTestModal({ testId, questions, onClose }: Props) {
     const handleSubmit = async () => {
         setSubmitting(true);
         try {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/antigravity/test/submit`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/antigravity/test/submit`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ answers })

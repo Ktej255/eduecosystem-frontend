@@ -59,7 +59,7 @@ export default function AIPlanningPage() {
         setIsLogging(true);
         try {
             const token = localStorage.getItem("access_token");
-            await axios.post(`${API_URL}/api/v1/admin/ai/log-development`, null, {
+            await axios.post(`${API_URL}/admin/ai/log-development`, null, {
                 params: logForm,
                 headers: { Authorization: `Bearer ${token}` }
             });
@@ -76,7 +76,7 @@ export default function AIPlanningPage() {
         setIsGenerating(true);
         try {
             const token = localStorage.getItem("access_token");
-            const response = await axios.get(`${API_URL}/api/v1/admin/ai/plan`, {
+            const response = await axios.get(`${API_URL}/admin/ai/plan`, {
                 params: { lookback: daysToAnalyze },
                 headers: { Authorization: `Bearer ${token}` }
             });

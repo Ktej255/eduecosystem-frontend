@@ -82,7 +82,7 @@ export default function DiscussionsPage() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `${API_URL}/api/v1/discussions/courses/${courseId}/categories`,
+        `${API_URL}/discussions/courses/${courseId}/categories`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -102,8 +102,8 @@ export default function DiscussionsPage() {
 
       // Use search endpoint if search query exists, otherwise use regular list
       const endpoint = searchTerm
-        ? `${API_URL}/api/v1/discussions/courses/${courseId}/threads/search`
-        : `${API_URL}/api/v1/discussions/courses/${courseId}/threads`;
+        ? `${API_URL}/discussions/courses/${courseId}/threads/search`
+        : `${API_URL}/discussions/courses/${courseId}/threads`;
 
       if (searchTerm) {
         params.query = searchTerm;

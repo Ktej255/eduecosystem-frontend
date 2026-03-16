@@ -46,7 +46,7 @@ export default function SubscriptionPage() {
 
   const fetchSubscription = async () => {
     try {
-      const response = await axios.get(`${API_URL}/api/v1/subscriptions/me`, {
+      const response = await axios.get(`${API_URL}/subscriptions/me`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -77,7 +77,7 @@ export default function SubscriptionPage() {
 
     try {
       await axios.post(
-        `${API_URL}/api/v1/subscriptions/cancel?immediate=${immediate}`,
+        `${API_URL}/subscriptions/cancel?immediate=${immediate}`,
         {},
         {
           headers: {

@@ -43,7 +43,7 @@ export default function AnnouncementsPage() {
             setLoading(true);
             const token = localStorage.getItem("token");
             const response = await axios.get(
-                `${API_URL}/api/v1/announcements/courses/${courseId}/announcements`,
+                `${API_URL}/announcements/courses/${courseId}/announcements`,
                 {
                     headers: { Authorization: `Bearer ${token}` },
                 }
@@ -61,7 +61,7 @@ export default function AnnouncementsPage() {
         try {
             const token = localStorage.getItem("token");
             const response = await axios.get(
-                `${API_URL}/api/v1/announcements/courses/${courseId}/announcements/unread-count`,
+                `${API_URL}/announcements/courses/${courseId}/announcements/unread-count`,
                 {
                     headers: { Authorization: `Bearer ${token}` },
                 }
@@ -81,7 +81,7 @@ export default function AnnouncementsPage() {
         try {
             const token = localStorage.getItem("token");
             await axios.post(
-                `${API_URL}/api/v1/announcements/announcements/${announcementId}/mark-read`,
+                `${API_URL}/announcements/announcements/${announcementId}/mark-read`,
                 {},
                 {
                     headers: { Authorization: `Bearer ${token}` },

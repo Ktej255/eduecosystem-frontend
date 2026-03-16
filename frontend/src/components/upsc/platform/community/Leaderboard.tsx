@@ -35,7 +35,7 @@ export default function Leaderboard() {
         const fetchLeaderboard = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/community/leaderboard`, {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/community/leaderboard`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 if (!response.ok) throw new Error("API Error");
