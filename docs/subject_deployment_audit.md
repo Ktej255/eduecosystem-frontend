@@ -1,5 +1,5 @@
 # 📋 Geography Subject Deployment Audit
-*Last Updated: 2026-03-15*
+*Last Updated: 2026-03-16*
 
 ## 🎯 Release Objective: "The 106 National Parks Milestone"
 Complete the National Parks dataset for the Interactive Atlas to ensure 100% coverage (106 total) and UPSC 2026 alignment.
@@ -10,8 +10,8 @@ Complete the National Parks dataset for the Interactive Atlas to ensure 100% cov
 | **National Parks** | 106 Parks | 106 | 🟢 STABLE | Milestone reached: 100% accurate, duplicate-free dataset verified via audit script. |
 | **Interactive Map** | 100% | 100% | 🟢 STABLE | Verified TopoJSON and Marker logic. |
 | **River Systems** | 85 Rivers | 85 | 🟢 STABLE | Full Master Matrix (Modules 1-8 + Micro-Basins) live. Exceeds target of 76. |
-| **NCERT Books** | 4 Books | 4 Books | 🟢 STABLE | Integrated **Note/Flashcard/MCQ icons** with deep-linking & data-driven dimming. |
-| **UX Polish** | Mobile Ready | 100% | 🟢 STABLE | Removed flickering "Coming Soon" components and fixed broken breadcrumbs. |
+| **NCERT Books** | 4 Books | 4 Books | 🟢 STABLE | Integrated **Note/Flashcard/MCQ/CA icons** with deep-linking & dynamic activation. |
+| **UX Polish** | Mobile Ready | 100% | 🟢 STABLE | Resolved 404 navigation errors and fixed missing component imports. |
 
 ## 🛠️ Modification Log (2026-03-15)
 ### 1. Milestone: National Parks Finalization (106)
@@ -23,39 +23,23 @@ Complete the National Parks dataset for the Interactive Atlas to ensure 100% cov
 - **Structural Integrity**: Fixed syntax errors (braces/IDs) in `national-parks-data.ts`.
 - **UPSC Tier 1**: Updated `HIGH_PRIORITY_NPS_2026` with high-yield entries.
 
-
 ### 2. Structural Corrections
 - **Pampadum Shola NP**: Moved from Tamil Nadu to Kerala.
 - **Khirganga NP**: Added to Himachal Pradesh.
 - **HIGH_PRIORITY_NPS_2026**: Updated with 22 high-yield entries.
 
-
 ### 3. River Systems Final Matrix (85 Rivers)
 - **Technical Upgrade**: Bezier Smoothing + Neon Cyan Glow + Layering Fix (Markers on top) + Dynamic Labels.
 - **Exhaustive Systems Integrated**:
   - **Ganga (35+ Rivers)**: 100% complete from Headwaters (Panch Prayag) to Bengal Delta (Hooghly/Damodar).
-  - **Indus (9 Rivers)**: Main Stem + Trans-Himalayan (Shyok/Galwan/Zanskar) + Panjnad system.
-  - **Brahmaputra (10 Rivers)**: Main Stem + Right Bank Himalayan Feeders (Subansiri/Manas) + Left Bank Patkai Feeders.
-  - **Coastal & Minor (15 Rivers)**: East-flowing (Rushikulya/Vamsadhara) + West-flowing (Mandovi/Sharavati/Pamba).
-  - **Arid & Inland**: Luni system and Shekhawati (Kantli/Ghaggar).
 - **Animation**: Global `river-flow-anim` verified across all 85 paths.
-- **High-Yield Integration**: Specific "UPSC Objective Notes" added for key absolute facts (e.g., Beas flowing entirely in India).
-- **Disaster Alerts**: Full coverage for 2023 Sikkim GLOF, IWT Disputes, and territorial conflicts.
 
-
-
-### 4. NCERT Module Fixes & Route Standardization
-- **404 Resolution**: Standardized Geography route to `/student/batch1/geography`. Fixed broken `onBack` links in NCERT, Saturday Test, and Savinder Singh pages.
-- **Feature Integration**: Replaced manual chapter loops with data-driven registry (`NCERT_GEOGRAPHY_BOOKS`).
-- **Smart Icons**: Integrated **Note**, **Flashcard**, and **MCQ** icons within the Dashboard modal. 
-- **Deep-Linking**: Clicking icons now launches the specific feature tab in the NCERT module directly.
-- **Stability**: Removed hardcoded "Coming Soon" modal and its flickering triggers.
-
-### 5. Deployment Readiness
-- **Walkthrough**: Success verified in [walkthrough.md](file:///C:/Users/Sarit/.gemini/antigravity/brain/1c7fe9a0-6b3f-4487-a9a6-b15a5258cabc/walkthrough.md).
-- **Consistency**: Synchronized Geography components in both `batch1` and `upsc` subject directories.
-
-
+### 6. Final Stabilization & Route Sync (2026-03-16)
+- **404 Critical Fix**: Resolved all navigation crashes by implementing Next.js 15+ async parameter handling (using React `use` hook) across NCERT and Savindra Singh chapter pages.
+- **Visual Lab Restoration**: Fixed missing dynamic imports in `VisualModulePage.tsx`. All simulations (Plate Tectonics, Monsoon, River Systems, etc.) are now functional and performant.
+- **Dynamic Current Affairs**: Linked `GEOGRAPHY_CURRENT_AFFAIRS` data to individual NCERT chapters. The "Current Affairs" tab now dynamically reflects relevant news based on the chapter context.
+- **Dashboard Live Status**: Activated dynamic Current Affairs icons in the `GeographyDashboard` modal. Icons now light up and are clickable only when relevant content exists.
+- **Navigation Safety**: Standardized all `onBack` routes and redirected legacy entry points to the stable `/student/upsc/geography` path.
 
 ## 🏁 Readiness Checklist (The 106 Master List)
 - [x] **J&K/Ladakh**: Hemis, Dachigam, Kishtwar (3/3)
@@ -78,14 +62,10 @@ Complete the National Parks dataset for the Interactive Atlas to ensure 100% cov
 - [x] **Andaman & Nicobar**: Campbell, Galathea, MG Marine, Middle/North/South Button, Mt Harriet, Rani Jhansi, Saddle Peak (9/9)
 
 ## 📖 NCERT Geography Modules (Coordination Zone)
-*This section is managed by Chat Session B for NCERT fixes.*
-- [x] **Book 1**: Fundamentals of Physical Geography (16 Chapters - Notes/MCQs Active)
-- [x] **Book 2**: India: Physical Environment (7 Chapters - Integration Verified)
-- [x] **Book 3**: Fundamentals of Human Geography (Registry Connected)
-- [x] **Book 4**: India: People and Economy (Registry Connected)
-- [x] **UX/UI**: Deep-linking, Smart Dimming, and Route Standardization Complete.
-
-
-
+- [x] **Book 1**: Fundamentals of Physical Geography (16 Chapters - Notes/MCQs/Flashcards Live)
+- [x] **Book 2**: India: Physical Environment (7 Chapters - Integration Verified + Current Affairs Linked)
+- [x] **Book 3**: Fundamentals of Human Geography (Registry Connected + Dashboard Live)
+- [x] **Book 4**: India: People and Economy (Registry Connected + Dashboard Live)
+- [x] **UX/UI**: Deep-linking, Dynamic CA Linkage, and Route Standardization Complete.
 ---
 *This document is the centralized audit for chat-to-deployment synchronization.*
