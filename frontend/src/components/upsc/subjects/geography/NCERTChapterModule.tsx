@@ -61,7 +61,7 @@ export default function NCERTChapterModule({ chapterId, chapterTitle, bookTitle,
     return (
         <div className="space-y-6 max-w-6xl mx-auto p-4 md:p-6 pb-20">
             <div className="flex items-center gap-4 mb-8 border-b pb-6">
-                <Button variant="ghost" className="rounded-xl px-2" onClick={onBack}>
+                <Button variant="ghost" className="rounded-xl px-2" onClick={() => router.push('/student/upsc/geography')}>
                     &larr; Back
                 </Button>
                 <div>

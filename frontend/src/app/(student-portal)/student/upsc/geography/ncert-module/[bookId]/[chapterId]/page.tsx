@@ -24,7 +24,7 @@ export default function NCERTChapterPage({ params, searchParams }: { params: { b
                 bookTitle={book.title}
                 mcqDataId={chapter.mcqDataId}
                 initialTab={initialTab}
-                onBack={() => router.push(`/student/batch1/geography`)}
+                onBack={() => router.push(`/student/upsc/geography`)}
             />
         </div>
     );

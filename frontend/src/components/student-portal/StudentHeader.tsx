@@ -77,7 +77,7 @@ export default function StudentHeader() {
                             title="GS 1"
                             items={[
                                 { label: "History", href: "/student/batch1/history" },
-                                { label: "Geography", href: "/student/batch1/geography" },
+                                { label: "Geography", href: "/student/upsc/geography" },
                                 { label: "Art & Culture", href: "/student/batch1/art-culture" },
                                 { label: "Indian Society", href: "/student/batch1/society" },
                             ]}
@@ -97,8 +97,9 @@ export default function StudentHeader() {
                                 { label: "Economy", href: "/student/batch1/economy" },
                                 { label: "Environment", href: "/student/batch1/environment" },
                                 { label: "Science & Tech", href: "/student/batch1/science-tech" },
+                                { label: "Geography", href: "/student/upsc/geography" },
                                 { label: "Security", href: "/student/batch1/security" },
-                                { label: "Disaster Mgmt", href: "/student/batch1/geography" }, // Fallback to Geography
+                                { label: "Disaster Mgmt", href: "/student/upsc/geography" }, // Fallback to Geography
                             ]}
                         />
                         <NavDropdown

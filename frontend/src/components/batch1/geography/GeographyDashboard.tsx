@@ -153,6 +153,10 @@ export default function GeographyDashboard() {
         );
     }
 
+    const safeTotal = stats?.total || 1;
+    const safeOverallProgress = stats?.overallProgress || 0;
+
+
     return (
         <div className="max-w-7xl mx-auto px-6 py-12 space-y-12 min-h-screen">
             {/* Immersive Header Section */}
@@ -449,10 +453,10 @@ export default function GeographyDashboard() {
             ) : (
                 <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <FeatureCard title="Interactive Maps" desc="Explore geographic terrain in 3D." icon={<Globe2 className="w-6 h-6" />} color="bg-indigo-600" onClick={() => setComingSoonFeature('Interactive Maps')} />
-                        <FeatureCard title="Climatology Sim" desc="Real-time Koppen classifications." icon={<Wind className="w-6 h-6" />} color="bg-emerald-600" onClick={() => setComingSoonFeature('Climatology Simulator')} />
-                        <FeatureCard title="Ocean Lab" desc="Track complex current patterns." icon={<Waves className="w-6 h-6" />} color="bg-blue-600" onClick={() => setComingSoonFeature('Ocean Lab')} />
-                        <FeatureCard title="Resource Atlas" desc="Mineral deposits across India." icon={<Mountain className="w-6 h-6" />} color="bg-amber-600" onClick={() => setComingSoonFeature('Resource Atlas')} />
+                        <FeatureCard title="Interactive Maps" desc="Explore geographic terrain in 3D." icon={<Globe2 className="w-6 h-6" />} color="bg-indigo-600" onClick={() => router.push('/student/upsc/geography/visual/india-map')} />
+                        <FeatureCard title="Climatology Sim" desc="Real-time Koppen classifications." icon={<Wind className="w-6 h-6" />} color="bg-emerald-600" onClick={() => router.push('/student/upsc/geography/visual/climate-zones')} />
+                        <FeatureCard title="Ocean Lab" desc="Track complex current patterns." icon={<Waves className="w-6 h-6" />} color="bg-blue-600" onClick={() => router.push('/student/upsc/geography/visual/ocean-currents')} />
+                        <FeatureCard title="Resource Atlas" desc="India's Mineral & Energy Map." icon={<Mountain className="w-6 h-6" />} color="bg-amber-600" onClick={() => router.push('/student/upsc/geography/visual/resource-atlas')} />
                     </div>
                 </div>
             )}
@@ -580,10 +584,10 @@ export default function GeographyDashboard() {
                                         'India: People and Economy (Class 12)': 'class12-india'
                                     };
                                     
-                                    const book = NCERT_GEOGRAPHY_BOOKS.find(b => b.id === registryIdMap[selectedNcertBook]);
-                                    if (!book) return null;
-                                    
-                                    return book.chapters.map(chapter => {
+                                     const book = NCERT_GEOGRAPHY_BOOKS.find(b => b.id === registryIdMap[selectedNcertBook || '']);
+                                     if (!book || !book.chapters) return null;
+                                     
+                                     return book.chapters.map(chapter => {
                                         const hasNote = !!NCERT_GEOGRAPHY_NOTES[chapter.id];
                                         const hasFlash = (NCERT_FLASHCARDS_DATA[chapter.id]?.length || 0) > 0;
                                         const mcqKey = (chapter.mcqDataId || `chapter${chapter.chapterNumber}MCQs`) as keyof typeof NCERT_MCQ_COLLECTION;

@@ -16,7 +16,7 @@ export default function SavinderSinghIndexPage() {
             <div className="max-w-6xl mx-auto space-y-8">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-slate-200">
                     <div>
-                        <Button variant="ghost" className="mb-4 text-slate-500 rounded-xl" onClick={() => router.push('/student/batch1/geography')}>
+                        <Button variant="ghost" className="mb-4 text-slate-500 rounded-xl" onClick={() => router.push('/student/upsc/geography')}>
                             &larr; Back to Geography Hub
                         </Button>
                         <div className="flex items-center gap-3">

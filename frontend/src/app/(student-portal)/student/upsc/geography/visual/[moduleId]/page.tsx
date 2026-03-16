@@ -74,7 +74,7 @@ export default function VisualModulePage() {
                     <Button
                         variant="ghost"
                         className="text-white"
-                        onClick={() => router.back()}
+                        onClick={() => router.push('/student/upsc/geography')}
                     >
                         <ArrowLeft className="w-4 h-4 mr-2" /> Back
                     </Button>

@@ -124,7 +124,7 @@ const menuItems = [
     },
     {
         name: "Geography",
-        href: "/student/batch1/geography",
+        href: "/student/upsc/geography",
         icon: Globe2,
         accessKey: "geography",
     },

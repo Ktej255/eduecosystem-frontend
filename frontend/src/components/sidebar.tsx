@@ -121,7 +121,7 @@ const routes: Route[] = [
   {
     label: "Geography Study",
     icon: Globe,
-    href: "/student/batch1/geography",
+    href: "/student/upsc/geography",
     color: "text-emerald-500",
     badge: "NEW",
     children: [],
@@ -347,7 +347,7 @@ export default function Sidebar() {
       if (route.href === "/revision") return true;
 
       // Allow Geography and Polity access for students
-      if (route.href === "/student/batch1/geography") return true;
+      if (route.href === "/student/upsc/geography") return true;
       if (route.href === "/student/batch1-1/polity") return true;
       if (route.href === "/student/pyq") return true;
 
