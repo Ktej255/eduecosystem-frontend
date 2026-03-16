@@ -5,8 +5,10 @@ from app.models.user import User
 from app.schemas.user import UserCreate
 
 
+from sqlalchemy import func
+
 def get_by_email(db: Session, email: str) -> Optional[User]:
-    return db.query(User).filter(User.email == email).first()
+    return db.query(User).filter(func.lower(User.email) == email.lower().strip()).first()
 
 
 def get(db: Session, id: int) -> Optional[User]:
@@ -15,6 +17,10 @@ def get(db: Session, id: int) -> Optional[User]:
 
 def create(db: Session, *, obj_in: UserCreate) -> User:
     obj_in_data = obj_in.model_dump(exclude={"password"})
+    # Normalize email to lowercase
+    if "email" in obj_in_data:
+        obj_in_data["email"] = obj_in_data["email"].lower().strip()
+    
     db_obj = User(**obj_in_data)
     db_obj.hashed_password = get_password_hash(obj_in.password)
     db.add(db_obj)
@@ -24,6 +30,7 @@ def create(db: Session, *, obj_in: UserCreate) -> User:
 
 
 def authenticate(db: Session, *, email: str, password: str) -> Optional[User]:
+    # get_by_email is already case-insensitive now
     user = get_by_email(db, email=email)
     if not user:
         return None

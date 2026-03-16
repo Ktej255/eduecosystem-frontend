@@ -80,6 +80,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const login = async (email: string, password: string) => {
+    const normalizedEmail = email.toLowerCase().trim();
     // CRITICAL FIX: Ensure API URL always includes /api/v1 suffix
     let baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com";
     // Remove trailing slash if present
@@ -89,7 +90,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     // FastAPI OAuth2 expects form data
     const formData = new URLSearchParams();
-    formData.append("username", email); // FastAPI uses 'username' field
+    formData.append("username", normalizedEmail); // FastAPI uses 'username' field
     formData.append("password", password);
 
     // Use direct fetch instead of api module to ensure correct URL
@@ -133,8 +134,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     fullName: string,
     role: string = "student",
   ) => {
+    const normalizedEmail = email.toLowerCase().trim();
     const response = await api.post("/login/register", {
-      email,
+      email: normalizedEmail,
       password,
       full_name: fullName,
       role,
