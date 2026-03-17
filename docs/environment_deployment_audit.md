@@ -29,6 +29,11 @@ Full integration of the 22-module chronological and foundational curriculum, ali
 - **Dashboard**: Integrated `StatCards` and updated `Visual Hub` to handle both Basic and Chronology views.
 - **Home Navigation**: Cleaned up redundant Question Bank buttons and synchronized module titles.
 
+### 4. Production Stability Hotfixes (2026-03-17)
+- **ReferenceError Fix**: Resolved `Leaf is not defined` in `EnvironmentDashboard.tsx` by restoring missing Lucide icon imports and UI component registrations.
+- **Syntax Repair**: Corrected `environment-config.ts` by restoring the missing `ENVIRONMENT_TOPICS` declaration and fixing property delimiters (changed `:` to `,` in object IDs 57-60).
+- **Backend-Frontend Sync**: Triggered a full manual backend zip/upload to S3 and App Runner deployment to ensure API-Client parity.
+
 ## 🏁 Readiness Checklist (The 22-Module Master List)
 ### Part 1: Basics (Foundational)
 - [x] **B1-B4**: Ecology, Interactions, Succession, Niche
