@@ -1,109 +1,94 @@
 import { SubjectConfig, WeeklyScheduleData } from "../../../common/framework/SubjectPlanner";
-import { Leaf, Warehouse, CloudFog, Scale } from "lucide-react"; // Warehouse as placeholder for conservation/bank, CloudFog for pollution
+import { Leaf, Warehouse, CloudFog, Scale, Sprout, Footprints, GitBranch, Binary, Zap, Layers, RefreshCw, Waves, Droplets, Target, ShieldCheck, FileText, History, Compass, Globe, Anchor, Mountain } from "lucide-react";
 import React from "react";
 
 // --- Syllabus Data ---
 
-const ENVIRONMENT_MODULES = [
-    {
-        id: "1",
-        title: "Ecology & Ecosystems",
-        description: "Functions of ecosystems, energy flow, productivity, and biomes.",
-        icon: React.createElement(Leaf),
-        color: "green",
-        topicRange: [1, 15] as [number, number]
-    },
-    {
-        id: "2",
-        title: "Biodiversity & Conservation",
-        description: "Flora, fauna, protected areas, red data book, and conservation efforts.",
-        icon: React.createElement(Warehouse), // Using warehouse as 'store' of nature
-        color: "emerald",
-        topicRange: [16, 30] as [number, number]
-    },
-    {
-        id: "3",
-        title: "Climate Change & Organizations",
-        description: "Global warming, UNFCCC, Kyoto, Paris Agreement, and international bodies.",
-        icon: React.createElement(CloudFog),
-        color: "cyan",
-        topicRange: [31, 45] as [number, number]
-    },
-    {
-        id: "4",
-        title: "Pollution & Acts",
-        description: "Air, Water, Noise pollution, and environmental legislation in India.",
-        icon: React.createElement(Scale), // Scale for Laws/Acts
-        color: "red",
-        topicRange: [46, 55] as [number, number]
-    }
+export const ENVIRONMENT_MODULES = [
+    // PART 1: BASICS OF ENVIRONMENT
+    { id: "B1", title: "Ecology & Organisation", description: "Organism to Biosphere, Biotic/Abiotic components.", icon: React.createElement(Leaf), color: "green", topicRange: [1, 5] as [number, number] },
+    { id: "B2", title: "Biotic Interactions", description: "Mutualism, Commensalism, Parasitism, etc.", icon: React.createElement(RefreshCw), color: "emerald", topicRange: [6, 10] as [number, number] },
+    { id: "B3", title: "Ecological Succession", description: "Primary vs Secondary, Pioneer species to Climax.", icon: React.createElement(GitBranch), color: "teal", topicRange: [11, 15] as [number, number] },
+    { id: "B4", title: "Ecological Niche & Population", description: "Functional roles and population growth curves.", icon: React.createElement(Target), color: "cyan", topicRange: [16, 20] as [number, number] },
+    { id: "B5", title: "Adaptations", description: "Morphological, Physiological, and Behavioural.", icon: React.createElement(Zap), color: "yellow", topicRange: [21, 25] as [number, number] },
+    { id: "B6", title: "Food Chain & Energy Flow", description: "Trophic levels, 10% Law, and Pyramids.", icon: React.createElement(Layers), color: "orange", topicRange: [26, 30] as [number, number] },
+    { id: "B7", title: "Productivity", description: "GPP vs NPP and Ecosystem rankings.", icon: React.createElement(Sprout), color: "lime", topicRange: [31, 35] as [number, number] },
+    { id: "B8", title: "Biogeochemical Cycles", description: "Carbon, Nitrogen, Phosphorus, and Sulphur cycles.", icon: React.createElement(RefreshCw), color: "blue", topicRange: [36, 40] as [number, number] },
+    { id: "B9", title: "Ecosystems", description: "Forest, Grassland, Desert, Aquatic ecosystems.", icon: React.createElement(Mountain), color: "emerald", topicRange: [41, 45] as [number, number] },
+    { id: "B10", title: "Wetlands", description: "Ramsar Convention, Montreux Record, and Functions.", icon: React.createElement(Waves), color: "blue", topicRange: [46, 50] as [number, number] },
+    { id: "B11", title: "Biodiversity & Species", description: "In-situ/Ex-situ, Hotspots, and Endangered Species.", icon: React.createElement(ShieldCheck), color: "green", topicRange: [51, 55] as [number, number] },
+    { id: "B12", title: "Greenhouse Effect & GHGs", description: "Science of Warming, GHGs and Feedback loops.", icon: React.createElement(CloudFog), color: "red", topicRange: [56, 60] as [number, number] },
+    { id: "B13", title: "Soil & Bioremediation", description: "Soil profiles, Types, and Cleanup technology.", icon: React.createElement(Footprints), color: "amber", topicRange: [61, 65] as [number, number] },
+    { id: "B14", title: "Pollution", description: "Photochemical smog, BOD/DO, and Diseases.", icon: React.createElement(Droplets), color: "red", topicRange: [66, 70] as [number, number] },
+    { id: "B15", title: "Protected Areas & Wildlife", description: "NP, WLS, Biosphere Reserves, and ESZ.", icon: React.createElement(Anchor), color: "teal", topicRange: [71, 75] as [number, number] },
+    { id: "B16", title: "Sustainable Dev + EIA + Laws", description: "EIA process, EPA 1986, and WPA 1972.", icon: React.createElement(Scale), color: "slate", topicRange: [76, 80] as [number, number] },
+
+    // PART 2: THE GRAND STORY (CHRONOLOGY)
+    { id: "C1", title: "The Awakening (1960s–1972)", description: "Silent Spring to Stockholm Conference.", icon: React.createElement(History), color: "stone", topicRange: [81, 85] as [number, number] },
+    { id: "C2", title: "Building the Framework (1972–1992)", description: "CITES, Montreal, and Brundtland Report.", icon: React.createElement(Compass), color: "gray", topicRange: [86, 90] as [number, number] },
+    { id: "C3", title: "Rio & The Promises (1992–1997)", description: "Earth Summit, Rio to Kyoto Protocol.", icon: React.createElement(Globe), color: "orange", topicRange: [91, 95] as [number, number] },
+    { id: "C4", title: "Struggles & Setbacks (1998–2009)", description: "Marrakesh to Copenhagen failure.", icon: React.createElement(Waves), color: "red", topicRange: [96, 100] as [number, number] },
+    { id: "C5", title: "New Pathways (2010–2015)", description: "Paris Agreement to SDGs adoption.", icon: React.createElement(GitBranch), color: "green", topicRange: [101, 105] as [number, number] },
+    { id: "C6", title: "Implementation & Crisis (2016–2026)", description: "Glasgow, Dubai, to COP30 Belém.", icon: React.createElement(Zap), color: "rose", topicRange: [106, 110] as [number, number] }
 ];
 
-// Real UPSC Environment & Ecology Topics organized by Module
-const ENVIRONMENT_TOPICS = [
-    // Module 1: Ecology & Ecosystems (1-15)
-    { id: 1, title: "Ecology: Basic Concepts", moduleId: "1", priority: "High", staticFocus: "Autotrophs, heterotrophs, producers, consumers", keyConcepts: ["Food Chain", "Food Web"], currentAffairsCount: 2 },
-    { id: 2, title: "Ecosystem Structure & Functions", moduleId: "1", priority: "High", staticFocus: "Biotic and abiotic components", keyConcepts: ["Producers", "Decomposers"], currentAffairsCount: 2 },
-    { id: 3, title: "Energy Flow in Ecosystem", moduleId: "1", priority: "High", staticFocus: "10% rule, trophic levels", keyConcepts: ["Pyramid of Energy", "Biomass"], currentAffairsCount: 2 },
-    { id: 4, title: "Nutrient Cycles", moduleId: "1", priority: "High", staticFocus: "Carbon, nitrogen, phosphorus cycles", keyConcepts: ["Biogeochemical Cycles", "Nitrogen Fixation"], currentAffairsCount: 3 },
-    { id: 5, title: "Ecological Succession", moduleId: "1", priority: "Medium", staticFocus: "Primary and secondary succession", keyConcepts: ["Pioneer Species", "Climax Community"], currentAffairsCount: 1 },
-    { id: 6, title: "Biomes of the World", moduleId: "1", priority: "Medium", staticFocus: "Forests, grasslands, deserts, tundra", keyConcepts: ["Tropical Rainforest", "Taiga"], currentAffairsCount: 2 },
-    { id: 7, title: "Forest Ecosystem", moduleId: "1", priority: "High", staticFocus: "Types of forests, forest cover in India", keyConcepts: ["Evergreen", "Deciduous", "Mangroves"], currentAffairsCount: 4 },
-    { id: 8, title: "Grassland & Desert Ecosystem", moduleId: "1", priority: "Medium", staticFocus: "Savanna, steppes, hot and cold deserts", keyConcepts: ["Xerophytes", "Adaptations"], currentAffairsCount: 2 },
-    { id: 9, title: "Aquatic Ecosystems", moduleId: "1", priority: "Medium", staticFocus: "Freshwater and marine", keyConcepts: ["Limnetic Zone", "Photic Zone"], currentAffairsCount: 3 },
-    { id: 10, title: "Wetland Ecosystems", moduleId: "1", priority: "High", staticFocus: "Ramsar sites, functions", keyConcepts: ["Ramsar Convention", "75+ Sites in India"], currentAffairsCount: 5 },
-    { id: 11, title: "Coral Reefs", moduleId: "1", priority: "High", staticFocus: "Distribution, threats, bleaching", keyConcepts: ["Zooxanthellae", "Coral Triangle"], currentAffairsCount: 4 },
-    { id: 12, title: "Mangrove Ecosystems", moduleId: "1", priority: "High", staticFocus: "Sundarbans, Gulf of Kutch", keyConcepts: ["Pneumatophores", "Coastal Protection"], currentAffairsCount: 4 },
-    { id: 13, title: "Environmental Gradients", moduleId: "1", priority: "Low", staticFocus: "Ecotones, edge effect", keyConcepts: ["Transition Zones", "Biodiversity"], currentAffairsCount: 1 },
-    { id: 14, title: "Ecological Interactions", moduleId: "1", priority: "Medium", staticFocus: "Symbiosis, predation, competition", keyConcepts: ["Mutualism", "Commensalism"], currentAffairsCount: 1 },
-    { id: 15, title: "Ecological Niche", moduleId: "1", priority: "Medium", staticFocus: "Fundamental vs realized niche", keyConcepts: ["Gause's Principle", "Niche Partitioning"], currentAffairsCount: 1 },
+export const ENVIRONMENT_TOPICS = [
+    // Module B1: Ecology (1-5)
+    { id: 1, title: "Ecology: Basic Concepts", moduleId: "B1", priority: "High" as const, staticFocus: "Levels of organisation, Organism to Biosphere", keyConcepts: ["Organism", "Biosphere"], currentAffairsCount: 2 },
+    { id: 2, title: "Levels of Organisation", moduleId: "B1", priority: "High" as const, staticFocus: "Population, Community, Ecosystem, Biome", keyConcepts: ["Population", "Community"], currentAffairsCount: 2 },
+    { id: 3, title: "Biotic & Abiotic Components", moduleId: "B1", priority: "High" as const, staticFocus: "Factors affecting ecosystems", keyConcepts: ["Temperature", "Water", "Light"], currentAffairsCount: 1 },
+    { id: 4, title: "Ecological Adaptations", moduleId: "B1", priority: "Medium" as const, staticFocus: "Survival strategies of organisms", keyConcepts: ["Morphological", "Behavioral"], currentAffairsCount: 2 },
+    { id: 5, title: "Ecosystem Functions", moduleId: "B1", priority: "Medium" as const, staticFocus: "Interaction and flow in systems", keyConcepts: ["Energy Flow", "Cycling"], currentAffairsCount: 1 },
 
-    // Module 2: Biodiversity & Conservation (16-30)
-    { id: 16, title: "Biodiversity: Types & Levels", moduleId: "2", priority: "High", staticFocus: "Genetic, species, ecosystem diversity", keyConcepts: ["Alpha", "Beta", "Gamma"], currentAffairsCount: 3 },
-    { id: 17, title: "Biodiversity Hotspots", moduleId: "2", priority: "High", staticFocus: "34 global, 4 in India", keyConcepts: ["Western Ghats", "Eastern Himalayas"], currentAffairsCount: 4 },
-    { id: 18, title: "Endemic & Endangered Species", moduleId: "2", priority: "High", staticFocus: "India's unique species", keyConcepts: ["Lion-tailed Macaque", "Nilgiri Tahr"], currentAffairsCount: 5 },
-    { id: 19, title: "IUCN Red List", moduleId: "2", priority: "High", staticFocus: "Categories and criteria", keyConcepts: ["CR", "EN", "VU", "NT", "LC"], currentAffairsCount: 4 },
-    { id: 20, title: "Protected Area Network", moduleId: "2", priority: "High", staticFocus: "National Parks, Sanctuaries", keyConcepts: ["Wildlife Protection Act 1972"], currentAffairsCount: 5 },
-    { id: 21, title: "Biosphere Reserves", moduleId: "2", priority: "High", staticFocus: "MAB Programme, zones", keyConcepts: ["18 in India", "UNESCO"], currentAffairsCount: 4 },
-    { id: 22, title: "Tiger Conservation", moduleId: "2", priority: "High", staticFocus: "Project Tiger, tiger census", keyConcepts: ["NTCA", "3000+ Tigers"], currentAffairsCount: 6 },
-    { id: 23, title: "Elephant Conservation", moduleId: "2", priority: "Medium", staticFocus: "Project Elephant, corridors", keyConcepts: ["Human-Wildlife Conflict"], currentAffairsCount: 4 },
-    { id: 24, title: "In-situ Conservation", moduleId: "2", priority: "High", staticFocus: "On-site protection methods", keyConcepts: ["Core Zone", "Buffer Zone"], currentAffairsCount: 3 },
-    { id: 25, title: "Ex-situ Conservation", moduleId: "2", priority: "Medium", staticFocus: "Zoos, gene banks, seed banks", keyConcepts: ["Cryopreservation", "NBPGR"], currentAffairsCount: 3 },
-    { id: 26, title: "CITES Convention", moduleId: "2", priority: "High", staticFocus: "Trade in wildlife", keyConcepts: ["Appendix I, II, III"], currentAffairsCount: 4 },
-    { id: 27, title: "CBD & Nagoya Protocol", moduleId: "2", priority: "High", staticFocus: "Access and benefit sharing", keyConcepts: ["ABS", "Genetic Resources"], currentAffairsCount: 4 },
-    { id: 28, title: "Wildlife Crime & TRAFFIC", moduleId: "2", priority: "Medium", staticFocus: "Illegal trade, enforcement", keyConcepts: ["Poaching", "WCCB"], currentAffairsCount: 3 },
-    { id: 29, title: "Community Conservation", moduleId: "2", priority: "Medium", staticFocus: "CCAs, sacred groves", keyConcepts: ["Khasi Hills", "Joint Forest Management"], currentAffairsCount: 3 },
-    { id: 30, title: "Indian Wildlife Protection Act", moduleId: "2", priority: "High", staticFocus: "Schedules, provisions, amendments", keyConcepts: ["Schedule I-VI", "WLPA 1972"], currentAffairsCount: 4 },
+    // Module B2: Interactions (6-10)
+    { id: 6, title: "Mutualism & Commensalism", moduleId: "B2", priority: "High" as const, staticFocus: "Symbiotic associations, Lichens", keyConcepts: ["Symbiosis", "Lichens"], currentAffairsCount: 3 },
+    { id: 7, title: "Parasitism & Predation", moduleId: "B2", priority: "High" as const, staticFocus: "Negative interactions", keyConcepts: ["Host", "Parasite"], currentAffairsCount: 2 },
+    { id: 8, title: "Competition", moduleId: "B2", priority: "High" as const, staticFocus: "Gause's Principle", keyConcepts: ["Niche", "Resources"], currentAffairsCount: 1 },
+    { id: 9, title: "Amensalism", moduleId: "B2", priority: "Medium" as const, staticFocus: "One species inhibited, other unaffected", keyConcepts: ["Antibiosis"], currentAffairsCount: 1 },
+    { id: 10, title: "Protocooperation", moduleId: "B2", priority: "Low" as const, staticFocus: "Non-obligatory mutualism", keyConcepts: ["Bird", "Crocodile"], currentAffairsCount: 0 },
+];
 
-    // Module 3: Climate Change & Organizations (31-45)
-    { id: 31, title: "Climate Change Science", moduleId: "3", priority: "High", staticFocus: "Greenhouse effect, GHGs", keyConcepts: ["CO2", "Methane", "Radiative Forcing"], currentAffairsCount: 5 },
-    { id: 32, title: "IPCC Reports", moduleId: "3", priority: "High", staticFocus: "Assessment reports, scenarios", keyConcepts: ["AR6", "1.5°C Pathway"], currentAffairsCount: 6 },
-    { id: 33, title: "Global Warming Impacts", moduleId: "3", priority: "High", staticFocus: "Sea level rise, extreme weather", keyConcepts: ["Heat Waves", "Glacier Melt"], currentAffairsCount: 6 },
-    { id: 34, title: "UNFCCC Framework", moduleId: "3", priority: "High", staticFocus: "COP structure, principles", keyConcepts: ["CBDR", "Historical Responsibility"], currentAffairsCount: 5 },
-    { id: 35, title: "Kyoto Protocol", moduleId: "3", priority: "Medium", staticFocus: "First commitment period", keyConcepts: ["CDM", "Carbon Credits"], currentAffairsCount: 2 },
-    { id: 36, title: "Paris Agreement", moduleId: "3", priority: "High", staticFocus: "NDCs, 1.5-2°C target", keyConcepts: ["India's NDC", "Net Zero 2070"], currentAffairsCount: 7 },
-    { id: 37, title: "Carbon Markets", moduleId: "3", priority: "High", staticFocus: "Emissions trading, Article 6", keyConcepts: ["Carbon Offset", "Cap and Trade"], currentAffairsCount: 5 },
-    { id: 38, title: "India's Climate Action", moduleId: "3", priority: "High", staticFocus: "NAPCC, 8 missions", keyConcepts: ["Solar Mission", "FAME"], currentAffairsCount: 6 },
-    { id: 39, title: "Ozone Layer & Montreal Protocol", moduleId: "3", priority: "Medium", staticFocus: "CFCs, ozone hole, recovery", keyConcepts: ["Kigali Amendment", "HFCs"], currentAffairsCount: 3 },
-    { id: 40, title: "International Environmental Bodies", moduleId: "3", priority: "Medium", staticFocus: "UNEP, GEF, IUCN", keyConcepts: ["Nairobi HQ", "Green Climate Fund"], currentAffairsCount: 3 },
-    { id: 41, title: "Sustainable Development Goals", moduleId: "3", priority: "High", staticFocus: "Agenda 2030, environmental SDGs", keyConcepts: ["SDG 13-15", "Climate Action"], currentAffairsCount: 5 },
-    { id: 42, title: "Climate Finance", moduleId: "3", priority: "Medium", staticFocus: "$100 billion pledge, NCEF", keyConcepts: ["Loss and Damage Fund"], currentAffairsCount: 4 },
-    { id: 43, title: "Renewable Energy Transition", moduleId: "3", priority: "High", staticFocus: "Solar, wind targets", keyConcepts: ["500 GW by 2030", "ISA"], currentAffairsCount: 6 },
-    { id: 44, title: "Carbon Sequestration", moduleId: "3", priority: "Medium", staticFocus: "Forests, oceans, CCS", keyConcepts: ["Blue Carbon", "BECCS"], currentAffairsCount: 3 },
-    { id: 45, title: "Climate Adaptation Strategies", moduleId: "3", priority: "Medium", staticFocus: "Resilience, early warning", keyConcepts: ["NAPCC Adaptation", "CDRI"], currentAffairsCount: 4 },
+export interface StoryEvent {
+    id: string;
+    year: string;
+    title: string;
+    description: string;
+    moduleId: string;
+    thread: 'Finance' | 'Biodiversity' | 'Ozone' | 'Pollution' | 'Governance';
+    details?: string;
+}
 
-    // Module 4: Pollution & Acts (46-55)
-    { id: 46, title: "Air Pollution", moduleId: "4", priority: "High", staticFocus: "Sources, AQI, health impacts", keyConcepts: ["PM2.5", "NCAP"], currentAffairsCount: 6 },
-    { id: 47, title: "Water Pollution", moduleId: "4", priority: "High", staticFocus: "BOD, COD, eutrophication", keyConcepts: ["CPCB", "Namami Gange"], currentAffairsCount: 5 },
-    { id: 48, title: "Soil Pollution", moduleId: "4", priority: "Medium", staticFocus: "Pesticides, heavy metals", keyConcepts: ["Bioremediation", "Soil Health Card"], currentAffairsCount: 3 },
-    { id: 49, title: "Noise Pollution", moduleId: "4", priority: "Low", staticFocus: "Decibel limits, health effects", keyConcepts: ["Noise Rules 2000", "Silence Zones"], currentAffairsCount: 2 },
-    { id: 50, title: "Plastic Pollution", moduleId: "4", priority: "High", staticFocus: "SUP ban, microplastics", keyConcepts: ["Extended Producer Responsibility"], currentAffairsCount: 6 },
-    { id: 51, title: "E-Waste Management", moduleId: "4", priority: "Medium", staticFocus: "Hazardous components, recycling", keyConcepts: ["E-Waste Rules 2022", "PRO"], currentAffairsCount: 4 },
-    { id: 52, title: "Environment Protection Act 1986", moduleId: "4", priority: "High", staticFocus: "EPA umbrella act", keyConcepts: ["MoEFCC Powers", "EIA"], currentAffairsCount: 4 },
-    { id: 53, title: "EIA Notification", moduleId: "4", priority: "High", staticFocus: "2006 notification, process", keyConcepts: ["Scoping", "Public Hearing"], currentAffairsCount: 5 },
-    { id: 54, title: "NGT: Structure & Powers", moduleId: "4", priority: "High", staticFocus: "Environmental judiciary", keyConcepts: ["NGT Act 2010", "Appellate"], currentAffairsCount: 4 },
-    { id: 55, title: "Forest Rights Act 2006", moduleId: "4", priority: "High", staticFocus: "Tribal rights, recognition", keyConcepts: ["Community Forest Rights", "PVTG"], currentAffairsCount: 4 }
-] as any[];
+export const ENVIRONMENT_STORY_EVENTS: StoryEvent[] = [
+    // Era 1: The Awakening (C1)
+    { id: "S1", year: "1962", title: "Silent Spring Published", description: "Rachel Carson exposes DDT dangers.", moduleId: "C1", thread: "Pollution" },
+    { id: "S2", year: "1966", title: "Ernst Haeckel's Ecology", description: "First formal definition of Ecology.", moduleId: "C1", thread: "Governance" },
+    { id: "S3", year: "1972", title: "Stockholm Conference", description: "UNEP creation & Right to Environment.", moduleId: "C1", thread: "Governance" },
+
+    // Era 2: Building Framework (C2)
+    { id: "S4", year: "1973", title: "CITES Signed", description: "Regulating international wildlife trade.", moduleId: "C2", thread: "Biodiversity" },
+    { id: "S5", year: "1985", title: "Vienna Convention", description: "First global move against Ozone depletion.", moduleId: "C2", thread: "Ozone" },
+    { id: "S6", year: "1987", title: "Montreal Protocol", description: "Landmark agreement to ban CFCs.", moduleId: "C2", thread: "Ozone" },
+    { id: "S7", year: "1987", title: "Brundtland Report", description: "Defining 'Sustainable Development'.", moduleId: "C2", thread: "Governance" },
+
+    // Era 3: Rio & Promises (C3)
+    { id: "S8", year: "1992", title: "Rio Earth Summit", description: "UNFCCC, CBD, & Agenda 21 established.", moduleId: "C3", thread: "Governance" },
+    { id: "S9", year: "1997", title: "Kyoto Protocol", description: "First legally binding carbon targets.", moduleId: "C3", thread: "Finance" },
+
+    // Era 4: Struggles (C4)
+    { id: "S10", year: "2002", title: "Earth Summit (Johannesburg)", description: "Focus on poverty and environment link.", moduleId: "C4", thread: "Governance" },
+    { id: "S11", year: "2009", title: "Copenhagen Accord", description: "The failure of mandatory targets.", moduleId: "C4", thread: "Finance" },
+
+    // Era 5: New Pathways (C5)
+    { id: "S12", year: "2010", title: "Nagoya Protocol", description: "Access and Benefit Sharing of genetics.", moduleId: "C5", thread: "Biodiversity" },
+    { id: "S13", year: "2015", title: "Paris Agreement", description: "The 1.5°C global goal and NDCs.", moduleId: "C5", thread: "Governance" },
+    { id: "S14", year: "2015", title: "SDGs Adopted", description: "17 goals for the 2030 Agenda.", moduleId: "C5", thread: "Governance" },
+
+    // Era 6: Implementation (C6)
+    { id: "S15", year: "2021", title: "Glasgow Climate Pact", description: "Phase down of coal explicitly mentioned.", moduleId: "C6", thread: "Finance" },
+    { id: "S16", year: "2023", title: "COP28 Dubai", description: "Conclusion of the first Global Stocktake.", moduleId: "C6", thread: "Governance" },
+    { id: "S17", year: "2024", title: "COP29 Baku", description: "Focus on the New Collective Finance Goal.", moduleId: "C6", thread: "Finance" },
+    { id: "S18", year: "2025", title: "COP30 Belém", description: "Critical target for 2030 biodiversity goals.", moduleId: "C6", thread: "Biodiversity" }
+];
 
 const ENVIRONMENT_CHAPTERS = ENVIRONMENT_TOPICS.map(t => ({
     chapter: t.id,
@@ -119,38 +104,23 @@ const ENVIRONMENT_SCHEDULE: WeeklyScheduleData[] = [
         totalSlots: 24,
         totalPages: 80,
         days: {
-            monday: [1, 2, 3],
-            tuesday: [4, 5],
+            monday: [1, 2],
+            tuesday: [3, 4],
             wednesday: [6, 7],
-            thursday: [8, 9, 10],
-            friday: [11],
-            saturday: ["Ecology Mock Test"],
-            sunday: [1, 2, 3, 4]
+            thursday: [8, 9],
+            friday: [11, 12],
+            saturday: ["Foundation Mock"],
+            sunday: [1, 2, 6, 11]
         }
-    },
-    {
-        week: 2,
-        totalSlots: 24,
-        totalPages: 90,
-        days: {
-            monday: [16, 17, 18],
-            tuesday: [19, 20],
-            wednesday: [21, 22],
-            thursday: [23, 24],
-            friday: [25, 26],
-            saturday: ["Biodiversity Mock"],
-            sunday: [16, 17, 18]
-        }
-    },
-    // More weeks
+    }
 ];
 
 export const ENVIRONMENT_CONFIG: SubjectConfig = {
     id: "environment",
     title: "Environment & Ecology",
-    subtitle: "Conservation, Climate Change, and Sustainable Development",
-    totalChapters: 55,
-    totalParts: 4,
+    subtitle: "The Grand Story & Foundation",
+    totalChapters: 110,
+    totalParts: 22,
     modules: ENVIRONMENT_MODULES,
     topics: ENVIRONMENT_TOPICS,
     chapters: ENVIRONMENT_CHAPTERS,

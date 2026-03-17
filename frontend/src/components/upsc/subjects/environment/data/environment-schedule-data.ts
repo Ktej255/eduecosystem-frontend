@@ -1,68 +1,43 @@
+import { Leaf, Warehouse, CloudFog, Scale, Sprout, Footprints, GitBranch, Binary, Zap, Layers, RefreshCw, Waves, Droplets, Target, ShieldCheck, FileText, History, Compass, Globe, Anchor, Mountain } from "lucide-react";
+import React from "react";
+
 export interface EnvironmentTopic {
     id: string;
     title: string;
     description: string;
     subtopics: string[];
     days: number;
-    category: 'Ecology' | 'Biodiversity' | 'Climate' | 'Pollution' | 'Acts';
+    category: 'Basics' | 'Chronology';
 }
 
 export const ENVIRONMENT_SYLLABUS: EnvironmentTopic[] = [
-    {
-        id: 'ecology-ecosystems',
-        title: "Ecology & Ecosystems",
-        description: "Functions of Ecosystem, Terrestrial & Aquatic Systems.",
-        subtopics: [
-            "Ecotones & Ecological Niche",
-            "Energy Flow (10% Law)",
-            "Biomagnification vs Bioaccumulation",
-            "Ecological Pyramids"
-        ],
-        days: 3,
-        category: 'Ecology'
-    },
-    {
-        id: 'biodiversity',
-        title: "Biodiversity & Conservation",
-        description: "Flora, Fauna, and Protected Area Networks.",
-        subtopics: [
-            "Levels of Biodiversity (Genetic, Species)",
-            "IUCN Red List Categories",
-            "Biosphere Reserves (MAB Program)",
-            "Biodiversity Hotspots"
-        ],
-        days: 4,
-        category: 'Biodiversity'
-    },
-    {
-        id: 'climate-change',
-        title: "Climate Change & Conventions",
-        description: "UNFCCC, Kyoto Protocol, Paris Agreement & COP Summits.",
-        subtopics: [
-            "Greenhouse Effect & Global Warming",
-            "Kyoto Mechanisms (CDM, Carbon Trading)",
-            "Paris Agreement (NDCs)",
-            "IPCC Reports"
-        ],
-        days: 4,
-        category: 'Climate'
-    },
-    {
-        id: 'acts-policies',
-        title: "Environmental Acts & Policies",
-        description: "Indian Laws for Wildlife and Pollution Control.",
-        subtopics: [
-            "Wildlife Protection Act 1972",
-            "Environment Protection Act 1986",
-            "Forest Rights Act 2006",
-            "Biological Diversity Act 2002"
-        ],
-        days: 3,
-        category: 'Acts'
-    }
-];
+    // PART 1: BASICS
+    { id: 'B1', title: "Ecology & Organisation", description: "Organism to Biosphere, Biotic/Abiotic components.", subtopics: ["Levels of Organisation", "Biotic Components", "Abiotic Components", "Ecological Adaptations"], days: 2, category: 'Basics' as const },
+    { id: 'B2', title: "Biotic Interactions", description: "+/− matrix showing all 6 types with examples.", subtopics: ["Mutualism", "Commensalism", "Parasitism", "Predation", "Amensalism"], days: 1, category: 'Basics' as const },
+    { id: 'B3', title: "Ecological Succession", description: "Primary vs Secondary, Pioneer species to Climax.", subtopics: ["Primary Succession", "Secondary Succession", "Hydrosere", "Lithosere"], days: 1, category: 'Basics' as const },
+    { id: 'B4', title: "Ecological Niche & Population", description: "Functional roles and population growth curves.", subtopics: ["Fundamental vs Realised Niche", "Competitive Exclusion", "Carrying Capacity", "Growth Curves"], days: 2, category: 'Basics' as const },
+    { id: 'B5', title: "Adaptations", description: "Morphological, Physiological, and Behavioural.", subtopics: ["Xerophytic", "Hydrophytic", "Cryophytic", "Conformers vs Regulators"], days: 2, category: 'Basics' as const },
+    { id: 'B6', title: "Food Chain & Energy Flow", description: "Trophic levels, 10% Law, and Pyramids.", subtopics: ["10% Energy Law", "Ecological Pyramids", "Trophic Levels", "Biomagnification"], days: 2, category: 'Basics' as const },
+    { id: 'B7', title: "Productivity", description: "GPP vs NPP and Ecosystem rankings.", subtopics: ["GPP vs NPP", "Productivity Rankings", "Energy Transfer Efficiency"], days: 1, category: 'Basics' as const },
+    { id: 'B8', title: "Biogeochemical Cycles", description: "Carbon, Nitrogen, Phosphorus, and Sulphur cycles.", subtopics: ["Nitrogen Cycle", "Carbon Cycle", "Phosphorus Cycle", "Sulphur Cycle"], days: 2, category: 'Basics' as const },
+    { id: 'B9', title: "Ecosystems", description: "Forest, Grassland, Desert, Aquatic ecosystems.", subtopics: ["Forest Ecosystem", "Grassland Ecosystem", "Desert Ecosystem", "Marine Ecosystem"], days: 2, category: 'Basics' as const },
+    { id: 'B10', title: "Wetlands", description: "Ramsar Convention, Montreux Record, and Functions.", subtopics: ["Ramsar Criteria", "Montreux Record", "Wetland Functions", "India's sites"], days: 2, category: 'Basics' as const },
+    { id: 'B11', title: "Biodiversity & Species", description: "In-situ/Ex-situ, Hotspots, and Endangered Species.", subtopics: ["Biodiversity Hotspots", "In-situ vs Ex-situ", "IUCN Red List", "Schedule I Animals"], days: 3, category: 'Basics' as const },
+    { id: 'B12', title: "Greenhouse Effect & GHGs", description: "Science of Warming, GHGs and Feedback loops.", subtopics: ["Greenhouse Gases", "GWP Values", "Feedback Loops", "Global Warming"], days: 2, category: 'Basics' as const },
+    { id: "B13", title: "Soil & Bioremediation", description: "Soil profiles, Types, and Cleanup technology.", subtopics: ["Soil Horizons", "Bioremediation", "Phytoremediation", "Soil Types"], days: 2, category: 'Basics' as const },
+    { id: 'B14', title: "Pollution", description: "Photochemical smog, BOD/DO, and Diseases.", subtopics: ["Air Pollution (Smog)", "Water Pollution (BOD)", "Pollutant-Disease Links", "Microplastics"], days: 3, category: 'Basics' as const },
+    { id: 'B15', title: "Protected Areas & Wildlife", description: "NP, WLS, Biosphere Reserves, and ESZ.", subtopics: ["National Parks", "Wildlife Sanctuaries", "Biosphere Reserves", "Eco-Sensitive Zones"], days: 2, category: 'Basics' as const },
+    { id: 'B16', title: "Sustainable Dev + EIA + Laws", description: "EIA process, EPA 1986, and WPA 1972.", subtopics: ["EIA Stages", "EPA 1986", "WPA 1972", "Forest Rights Act 2006"], days: 2, category: 'Basics' as const },
 
-// Day-wise schedule used by EnvironmentSectionPlanner
+    // PART 2: THE GRAND STORY
+    { id: 'C1', title: "The Awakening (1960s–1972)", description: "Silent Spring to Stockholm Conference.", subtopics: ["Rachel Carson's Silent Spring", "UNSECO Biosphere", "Club of Rome", "Stockholm 1972"], days: 2, category: 'Chronology' as const },
+    { id: 'C2', title: "Building the Framework (1972–1992)", description: "CITES, Montreal, and Brundtland Report.", subtopics: ["CITES 1973", "Vienna Convention", "Brundtland Report", "IPCC 1988"], days: 2, category: 'Chronology' as const },
+    { id: 'C3', title: "Rio & The Promises (1992–1997)", description: "Earth Summit, Rio to Kyoto Protocol.", subtopics: ["Rio Earth Summit", "Agenda 21", "UNFCCC", "Kyoto Protocol 1997"], days: 2, category: 'Chronology' as const },
+    { id: 'C4', title: "Struggles & Setbacks (1998–2009)", description: "Marrakesh to Copenhagen failure.", subtopics: ["Marrakesh Accords", "WSSD Johannesburg", "Copenhagen Accord"], days: 2, category: 'Chronology' as const },
+    { id: 'C5', title: "New Pathways (2010–2015)", description: "Paris Agreement to SDGs adoption.", subtopics: ["Nagoya Protocol", "Paris Agreement 2015", "SDGs", "Sendai Framework"], days: 2, category: 'Chronology' as const },
+    { id: 'C6', title: "Implementation & Crisis (2016–2026)", description: "Glasgow, Dubai, to COP30 Belém.", subtopics: ["Glasgow COP26", "Kunming-Montreal GBF", "Dubai COP28", "COP29 Baku"], days: 2, category: 'Chronology' as const }
+]; // Small cleanup
+
 export interface EnvironmentScheduleDay {
     day: number;
     title: string;
@@ -73,19 +48,11 @@ export interface EnvironmentScheduleDay {
 }
 
 export const ENVIRONMENT_SCHEDULE: EnvironmentScheduleDay[] = [
-    { day: 1, title: "Ecology Basics", date: "Day 1", description: "Ecosystem structure, energy flow, and ecological pyramids", topics: ["ecology-ecosystems"], moduleId: "ecology-ecosystems" },
-    { day: 2, title: "Food Chains & Webs", date: "Day 2", description: "Trophic levels, biomagnification, and bioaccumulation", topics: ["ecology-ecosystems"], moduleId: "ecology-ecosystems" },
-    { day: 3, title: "Ecotones & Niches", date: "Day 3", description: "Ecological succession, ecotones, and ecological niche", topics: ["ecology-ecosystems"], moduleId: "ecology-ecosystems" },
-    { day: 4, title: "Biodiversity Intro", date: "Day 4", description: "Levels of biodiversity — genetic, species, and ecosystem", topics: ["biodiversity"], moduleId: "biodiversity" },
-    { day: 5, title: "IUCN & Red List", date: "Day 5", description: "IUCN categories, endangered species of India", topics: ["biodiversity"], moduleId: "biodiversity" },
-    { day: 6, title: "Protected Areas", date: "Day 6", description: "National Parks, Wildlife Sanctuaries, Biosphere Reserves", topics: ["biodiversity"], moduleId: "biodiversity" },
-    { day: 7, title: "Biodiversity Hotspots", date: "Day 7", description: "Global hotspots, Western Ghats, Eastern Himalayas", topics: ["biodiversity"], moduleId: "biodiversity" },
-    { day: 8, title: "Climate Change Basics", date: "Day 8", description: "Greenhouse effect, global warming, and ozone depletion", topics: ["climate-change"], moduleId: "climate-change" },
-    { day: 9, title: "UNFCCC & Kyoto", date: "Day 9", description: "UNFCCC framework, Kyoto Protocol mechanisms (CDM)", topics: ["climate-change"], moduleId: "climate-change" },
-    { day: 10, title: "Paris Agreement", date: "Day 10", description: "NDCs, carbon neutrality targets, and COP summits", topics: ["climate-change"], moduleId: "climate-change" },
-    { day: 11, title: "IPCC Reports", date: "Day 11", description: "IPCC assessment reports and India's climate action", topics: ["climate-change"], moduleId: "climate-change" },
-    { day: 12, title: "Wildlife Protection Act", date: "Day 12", description: "WPA 1972 — schedules, provisions, and amendments", topics: ["acts-policies"], moduleId: "acts-policies" },
-    { day: 13, title: "EPA & Forest Rights", date: "Day 13", description: "Environment Protection Act 1986 and FRA 2006", topics: ["acts-policies"], moduleId: "acts-policies" },
-    { day: 14, title: "Biodiversity Act & NGT", date: "Day 14", description: "Biological Diversity Act 2002 and National Green Tribunal", topics: ["acts-policies"], moduleId: "acts-policies" },
-    { day: 15, title: "Revision & Practice", date: "Day 15", description: "Full revision of Environment & Ecology with MCQs", topics: ["ecology-ecosystems", "biodiversity", "climate-change", "acts-policies"], moduleId: "revision" },
+    { day: 1, title: "Ecology Basics", date: "Week 1 - Mon", description: "Organism to Biosphere, components", topics: ["B1"], moduleId: "B1" },
+    { day: 2, title: "Interactions", date: "Week 1 - Tue", description: "Mutualism, Commensalism, etc.", topics: ["B2"], moduleId: "B2" },
+    { day: 3, title: "Succession", date: "Week 1 - Wed", description: "Primary to Climax", topics: ["B3"], moduleId: "B3" },
+    { day: 4, title: "Niche & Population", date: "Week 1 - Thu", description: "Carrying Capacity, Growth curves", topics: ["B4"], moduleId: "B4" },
+    { day: 5, title: "Adaptations", date: "Week 1 - Fri", description: "Survival mechanisms", topics: ["B5"], moduleId: "B5" },
+    { day: 6, title: "Practice", date: "Week 1 - Sat", description: "Ecology Mock Test", topics: ["B1", "B2", "B3", "B4", "B5"], moduleId: "practice" },
+    // ... further schedule rows would be added for the full 15-week plan
 ];

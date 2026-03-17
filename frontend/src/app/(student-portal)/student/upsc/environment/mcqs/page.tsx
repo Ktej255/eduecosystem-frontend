@@ -10,7 +10,7 @@ import { Loader2 } from 'lucide-react';
 
 function EnvironmentMCQContent() {
     const searchParams = useSearchParams();
-    const chapterParam = searchParams.get('chapter');
+    const moduleParam = searchParams.get('module') || searchParams.get('chapter');
     const levelParam = searchParams.get('level') || '1';
 
     const [questions, setQuestions] = useState<MCQ[]>([]);
@@ -18,24 +18,24 @@ function EnvironmentMCQContent() {
     const [showReport, setShowReport] = useState(false);
     const [testResult, setTestResult] = useState<any>(null);
 
-    const chapterIds = chapterParam ? chapterParam.split(',').map(Number) : [];
+    const moduleIds = moduleParam ? moduleParam.split(',') : [];
     const level = parseInt(levelParam);
 
     useEffect(() => {
-        if (chapterIds.length > 0) {
+        if (moduleIds.length > 0) {
             const timer = setTimeout(() => {
                 const filtered = environmentMCQs.filter(m =>
-                    chapterIds.includes(m.chapter) &&
+                    moduleIds.includes(m.moduleId) &&
                     (m.difficulty === (level === 3 ? 'hard' : level === 2 ? 'medium' : 'easy'))
                 );
 
                 const formattedMCQs: MCQ[] = filtered.map((m, idx) => ({
-                    id: m.id || `env-${m.chapter}-${idx}`,
+                    id: m.id || `env-${m.moduleId}-${idx}`,
                     question: m.question,
                     options: m.options,
                     correctAnswer: m.correctAnswer,
                     explanation: m.explanation || "No explanation provided.",
-                    chapter: `Topic ${m.chapter}`,
+                    chapter: `Module ${m.moduleId}`,
                     subtopic: m.subtopic || "General",
                     difficulty: m.difficulty as any
                 }));
@@ -47,7 +47,7 @@ function EnvironmentMCQContent() {
         } else {
             setLoading(false);
         }
-    }, [chapterParam, level]);
+    }, [moduleParam, level]);
 
     const handleComplete = (result: any[], totalTime: number) => {
         const stats = {
@@ -79,7 +79,7 @@ function EnvironmentMCQContent() {
         };
 
         // Save to universal persistence
-        saveChapterReport('environment', chapterIds[0], finalResult, level);
+        saveChapterReport('environment', moduleIds[0], finalResult, level);
 
         setTestResult(finalResult);
         setShowReport(true);
@@ -103,7 +103,7 @@ function EnvironmentMCQContent() {
             <StandardMCQInterface
                 questions={questions}
                 onComplete={handleComplete}
-                title={`Environment Topic ${chapterIds.join(', ')}`}
+                title={`Environment Module ${moduleIds.join(', ')}`}
                 subtitle={`Level ${level} Practice`}
                 onExit={() => window.history.back()}
             />
