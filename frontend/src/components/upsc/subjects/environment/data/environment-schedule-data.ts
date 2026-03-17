@@ -30,12 +30,12 @@ export const ENVIRONMENT_SYLLABUS: EnvironmentTopic[] = [
     { id: 'B16', title: "Sustainable Dev + EIA + Laws", description: "EIA process, EPA 1986, and WPA 1972.", subtopics: ["EIA Stages", "EPA 1986", "WPA 1972", "Forest Rights Act 2006"], days: 2, category: 'Basics' as const },
 
     // PART 2: THE GRAND STORY
-    { id: 'C1', title: "The Awakening (1960s–1972)", description: "Silent Spring to Stockholm Conference.", subtopics: ["Rachel Carson's Silent Spring", "UNSECO Biosphere", "Club of Rome", "Stockholm 1972"], days: 2, category: 'Chronology' as const },
-    { id: 'C2', title: "Building the Framework (1972–1992)", description: "CITES, Montreal, and Brundtland Report.", subtopics: ["CITES 1973", "Vienna Convention", "Brundtland Report", "IPCC 1988"], days: 2, category: 'Chronology' as const },
-    { id: 'C3', title: "Rio & The Promises (1992–1997)", description: "Earth Summit, Rio to Kyoto Protocol.", subtopics: ["Rio Earth Summit", "Agenda 21", "UNFCCC", "Kyoto Protocol 1997"], days: 2, category: 'Chronology' as const },
-    { id: 'C4', title: "Struggles & Setbacks (1998–2009)", description: "Marrakesh to Copenhagen failure.", subtopics: ["Marrakesh Accords", "WSSD Johannesburg", "Copenhagen Accord"], days: 2, category: 'Chronology' as const },
-    { id: 'C5', title: "New Pathways (2010–2015)", description: "Paris Agreement to SDGs adoption.", subtopics: ["Nagoya Protocol", "Paris Agreement 2015", "SDGs", "Sendai Framework"], days: 2, category: 'Chronology' as const },
-    { id: 'C6', title: "Implementation & Crisis (2016–2026)", description: "Glasgow, Dubai, to COP30 Belém.", subtopics: ["Glasgow COP26", "Kunming-Montreal GBF", "Dubai COP28", "COP29 Baku"], days: 2, category: 'Chronology' as const }
+    { id: 'C1', title: "The Awakening (1962–1972)", description: "Silent Spring to Stockholm Conference.", subtopics: ["Rachel Carson's Silent Spring", "UNSECO Biosphere", "Club of Rome", "Stockholm 1972"], days: 2, category: 'Chronology' as const },
+    { id: 'C2', title: "Building the Architecture (1972–1991)", description: "CITES, Montreal, and Brundtland Report.", subtopics: ["CITES 1973", "Vienna Convention", "Brundtland Report", "IPCC 1988"], days: 2, category: 'Chronology' as const },
+    { id: 'C3', title: "The Rio Moment (1992)", description: "Earth Summit, Rio to Agenda 21.", subtopics: ["Rio Earth Summit", "Agenda 21", "UNFCCC", "CBD", "UNCCD"], days: 2, category: 'Chronology' as const },
+    { id: 'C4', title: "Kyoto & Setbacks (1997–2009)", description: "Kyoto Protocol and Copenhagen Summit.", subtopics: ["Kyoto Protocol", "CDM Markets", "Copenhagen Accord"], days: 2, category: 'Chronology' as const },
+    { id: 'C5', title: "The Paris Shift (2010–2015)", description: "Paris Agreement and Solar Alliance.", subtopics: ["Nagoya Protocol", "Paris Agreement 2015", "SDGs", "ISA"], days: 2, category: 'Chronology' as const },
+    { id: 'C6', title: "The Crisis Era (2016–2026)", description: "Glasgow, Dubai, to COP30 Belém.", subtopics: ["Glasgow COP26", "Kunming-Montreal GBF", "Dubai COP28", "COP29 Baku"], days: 2, category: 'Chronology' as const }
 ]; // Small cleanup
 
 export interface EnvironmentScheduleDay {

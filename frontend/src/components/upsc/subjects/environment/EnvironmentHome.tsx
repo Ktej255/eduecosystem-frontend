@@ -67,16 +67,6 @@ export default function EnvironmentHome() {
                                 Question Bank
                             </button>
                             <button
-                                onClick={() => setActiveTab('question_bank')}
-                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${activeTab === 'question_bank'
-                                    ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-200'
-                                    : 'text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800'
-                                    }`}
-                            >
-                                <Database className="w-4 h-4" />
-                                Question Bank
-                            </button>
-                            <button
                                 onClick={() => window.location.href = '/student/upsc/current-affairs?subject=Environment'}
                                 className="px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-900/20"
                             >

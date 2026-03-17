@@ -25,6 +25,12 @@ const SUBJECT_META: Record<string, { label: string; icon: React.ReactNode; color
         color: 'from-rose-500 to-red-600',
         price: 299,
     },
+    environment: {
+        label: 'Environment & Ecology 2026',
+        icon: <Leaf className="w-10 h-10" />,
+        color: 'from-emerald-600 to-teal-700',
+        price: 499,
+    },
 };
 
 interface SubjectAccessGateProps {
@@ -62,7 +68,10 @@ export default function SubjectAccessGate({ subject, children }: SubjectAccessGa
         );
     }
 
-    if (!hasAccess(subject)) {
+    // Dev/Staff Bypass
+    const isStaff = hasAccess('teacher') || hasAccess('admin');
+    
+    if (!hasAccess(subject) && !isStaff) {
         return (
             <div className="min-h-screen bg-[#0a0a1a] flex items-center justify-center p-6">
                 {/* Background glow */}

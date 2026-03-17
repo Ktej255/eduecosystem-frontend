@@ -491,42 +491,80 @@ export const ENVIRONMENT_MODULE_CONTENT: Record<string, ModuleContent> = {
   },
   "C1": {
     id: "C1",
-    title: "The Awakening (1960s–1972)",
+    title: "The Awakening (1962–1972)",
     coreConcepts: [
       {
-        title: "Silent Spring (1962)",
-        content: "Rachel Carson's book exposed the dangers of pesticides (DDT), sparking the modern environmental movement.",
+        title: "The Pre-Stockholm Era",
+        content: "Before 1972, the world lacked a unified environmental framework. Action was driven by grassroots shocks and scientific awakenings.",
       },
       {
-        title: "Stockholm Conference (1972)",
-        content: "The UN Conference on the Human Environment was the first major international meeting on the environment. It led to the creation of UNEP and established the right to a healthy environment.",
+        title: "Silent Spring (1962) — The Spark",
+        content: "**Cause:** Unregulated use of DDT and pesticides. **Effect:** Rachel Carson documented the death of birds and 'biomagnification' of toxins. **Therefore:** Public demand for environmental accountability was born. US banned DDT in 1972; Carson is considered the 'Mother of the Environmental Movement'.",
+      },
+      {
+        title: "Key Milestones (1969-1971)",
+        content: "The Cuyahoga River fire (1969) shocked the US into creating the EPA. The first Earth Day (1970) saw 20 million people protest. The 'Club of Rome' (1972) published 'Limits to Growth', providing the first scientific proof that infinite growth on a finite planet is impossible.",
+        table: {
+          headers: ["Year", "Event", "Significance"],
+          rows: [
+            ["1969", "Cuyahoga River Fire", "Sparked the US Clean Water Act"],
+            ["1970", "First Earth Day", "Largest civic demonstration for nature"],
+            ["1971", "Ramsar Convention", "First modern treaty; protected wetlands"],
+            ["1972", "Stockholm (UNCHE)", "First UN Conference; created UNEP"]
+          ]
+        }
       }
     ],
     pyqs: [
       {
-        question: "The 'Stockholm Conference' of 1972 resulted in the creation of which international body?",
-        year: "2015",
-        options: ["IPCC", "UNEP", "IUCN", "GEF"],
+        question: "Rachel Carson's 'Silent Spring' is related to:",
+        year: "2019",
+        options: ["Conservation of forests", "Environmental effects of DDT and other pesticides", "Impact of nuclear testing", "Marine pollution"],
         answer: "B",
-        explanation: "United Nations Environment Programme (UNEP) was established in 1972."
+        explanation: "Silent Spring (1962) documented how DDT was killing birds and contaminating ecosystems."
+      },
+      {
+        question: "The term 'Wise Use' in the context of wetlands refers to:",
+        year: "2021",
+        options: ["Total prohibition of human activity", "Sustainable utilisation compatible with maintenance", "Conversion to agriculture", "Scientific research only"],
+        answer: "B",
+        explanation: "Ramsar's 'Wise Use' means sustainable use that maintains the natural properties of the ecosystem."
       }
     ],
     predictions: [
       "The influence of 1960s grassroots activism on modern 'End-of-Pipe' pollution regulations.",
-      "Relevance of Stockholm Principle 1 in the context of recent climate litigation cases."
-    ]
+      "UPSC Statement: 'World Earth Day' vs 'World Environment Day' — distinguishing grassroots origins vs UN official status."
+    ],
+    flowchart: "Silent Spring -> Earth Day -> Limits to Growth -> Ramsar -> Stockholm 1972"
   },
   "C2": {
     id: "C2",
-    title: "Building the Framework (1972–1992)",
+    title: "Building the Architecture (1972–1991)",
     coreConcepts: [
       {
-        title: "Brundtland Report (1987)",
-        content: "Defined 'Sustainable Development' as development that meets the needs of the present without compromising the ability of future generations to meet their own needs.",
+        title: "The Era of Institution Building",
+        content: "Post-Stockholm, the world began creating the legal architecture for environmental protection. This period saw the creation of UNEP and the first major species-protection acts.",
       },
       {
-        title: "Montreal Protocol (1987)",
-        content: "A landmark agreement to phase out Ozone Depleting Substances (CFCs). Often cited as the most successful environmental treaty.",
+        title: "Montreal Protocol (1987) — The Success Story",
+        content: "**Cause:** Discovery of the 'Antarctic Ozone Hole' caused by CFCs. **Effect:** The Vienna Convention (1985) and Montreal Protocol (1987) mandated the phase-out of Ozone Depleting Substances (ODS). **Therefore:** It remains the only universal treaty with 198 parties; ozone layer projected to recover by 2065-2070.",
+      },
+      {
+        title: "Brundtland Report (1987)",
+        content: "Chaired by Gro Harlem Brundtland, the report 'Our Common Future' defined Sustainable Development as 'meeting present needs without compromising future generations'. It reconciled the North-South divide between development and environment.",
+      },
+      {
+        title: "Emergence of Scientific Authority",
+        content: "The creation of the IPCC in 1988 by WMO and UNEP provided a unified scientific voice for climate change. It does not conduct research but synthesizes global knowledge.",
+        table: {
+          headers: ["Body", "Year", "Focus"],
+          rows: [
+            ["UNEP", "1972", "Global environmental monitor; HQ Nairobi"],
+            ["CITES", "1973", "Wildlife trade; Appendices I, II, III"],
+            ["Montreal", "1987", "Ozone protection; Universal ratification"],
+            ["IPCC", "1988", "Climate science assessment; Nobel Prize 2007"]
+          ]
+        }
       }
     ],
     pyqs: [
@@ -535,25 +573,46 @@ export const ENVIRONMENT_MODULE_CONTENT: Record<string, ModuleContent> = {
         year: "2018",
         options: ["Limits to Growth", "Brundtland Report", "Agenda 21", "Nairobi Declaration"],
         answer: "B",
-        explanation: "Also known as 'Our Common Future' (1987)."
+        explanation: "The 1987 report 'Our Common Future' gave the standard definition of SD."
+      },
+      {
+        question: "The Keeling Curve is associated with:",
+        year: "2022",
+        options: ["Rise in sea levels", "CO2 concentration measurements since 1958", "Ozone depletion", "Temperature fluctuation"],
+        answer: "B",
+        explanation: "Measured at Mauna Loa, it shows the steady increase in atmospheric CO2."
       }
     ],
     predictions: [
       "The success model of Montreal Protocol as a blueprint for the Global Methane Pledge.",
-      "Impact of the 'Our Common Future' definition on modern ESG (Environmental, Social, and Governance) scores."
-    ]
+      "Distinction: IPCC does NOT conduct original research (UPSC frequent trap statement)."
+    ],
+    flowchart: "UNEP Created -> CITES -> Montreal Protocol -> Brundtland Report -> IPCC 1988"
   },
   "C3": {
     id: "C3",
-    title: "Rio & The Promises (1992–1997)",
+    title: "The Rio Moment (1992)",
     coreConcepts: [
       {
-        title: "Rio Earth Summit (1992)",
-        content: "UN Conference on Environment and Development (UNCED). Produced 'Agenda 21' and the three 'Rio Conventions': UNFCCC, CBD, and UNCCD.",
+        title: "The Earth Summit (UNCED)",
+        content: "The 1992 Rio Summit was the single most important meeting in environmental history. It produced the three 'Rio Conventions' and the Agenda 21 action plan.",
       },
       {
-        title: "Kyoto Protocol (1997)",
-        content: "First legally binding agreement for greenhouse gas reductions, introducing 'Common but Differentiated Responsibilities' (CBDR).",
+        title: "The Three 'Rivers' of Governance",
+        content: "Rio gave birth to three vital frameworks: **UNFCCC** (Climate), **CBD** (Biodiversity), and **UNCCD** (Land/Desertification). All modern policy flows from these three.",
+      },
+      {
+        title: "CBDR & Biopiracy",
+        content: "Rio established the principle of 'Common but Differentiated Responsibilities' (CBDR). It also sparked the fight against 'Biopiracy', where traditional knowledge (like India's Neem and Turmeric) was being patented by foreign corporations.",
+        table: {
+          headers: ["Convention", "Focus", "India Relevance"],
+          rows: [
+            ["UNFCCC", "Climate Change", "Foundation of all COPs"],
+            ["CBD", "Biodiversity", "Led to Biological Diversity Act 2002"],
+            ["UNCCD", "Desertification", "Target: Land Degradation Neutrality"],
+            ["Agenda 21", "Action Plan", "Seeds of the SDGs (2015)"]
+          ]
+        }
       }
     ],
     pyqs: [
@@ -562,48 +621,94 @@ export const ENVIRONMENT_MODULE_CONTENT: Record<string, ModuleContent> = {
         year: "2014",
         options: ["Stockholm Conference", "Rio Earth Summit", "Kyoto Protocol", "Montreal Protocol"],
         answer: "B",
-        explanation: "Agenda 21 is a non-binding, voluntarily implemented action plan of the UN with regard to sustainable development."
+        explanation: "Agenda 21 is a comprehensive action plan for sustainable development adopted at Rio."
+      },
+      {
+        question: "The 'Common But Differentiated Responsibilities' (CBDR) principle means:",
+        year: "2020",
+        options: ["Equal responsibility for all", "Developed nations bear greater historical responsibility", "Only developing nations act", "Current emissions matter most"],
+        answer: "B",
+        explanation: "Developed nations must lead because they are historical emitters."
       }
     ],
     predictions: [
-      "Re-evaluating 'Agenda 21' in the digital era: Successes and failures of local governance.",
-      "The evolution of CBDR (Common But Differentiated Responsibilities) in post-Kyoto negotiations."
-    ]
+      "The evolution of CBDR in post-Kyoto negotiations.",
+      "UPSC Connection: India's TKDL (Traditional Knowledge Digital Library) as a response to Rio-era biopiracy."
+    ],
+    flowchart: "Rio Summit 1992 -> UNFCCC + CBD + UNCCD -> Agenda 21 -> CBDR Principle"
   },
   "C4": {
     id: "C4",
-    title: "Struggles & Setbacks (1998–2009)",
+    title: "Kyoto & Setbacks (1997–2009)",
     coreConcepts: [
       {
-        title: "Copenhagen Climate Summit (2009)",
-        content: "Failed to produce a legally binding successor to the Kyoto Protocol, reflecting a deep divide between developed and developing nations.",
+        title: "Kyoto Protocol (1997) — The First Promise",
+        content: "**Cause:** Science confirmed human-induced warming was accelerating. **Effect:** The first legally binding treaty was signed, requiring 'Annex-I' (developed) nations to cut emissions by ~5%. **Therefore:** It introduced carbon markets like CDM, but the US withdrawal in 2001 significantly weakened its impact.",
+      },
+      {
+        title: "Clean Development Mechanism (CDM)",
+        content: "A Kyoto-era tool where developed nations earn 'Carbon Credits' by investing in green projects in developing nations. India became the world's largest host for CDM, earning billions in carbon revenue.",
+      },
+      {
+        title: "Copenhagen (2009) — The 'Phoenix' Moment",
+        content: "The summit was declared a failure as it failed to produce a legally binding successor to Kyoto. However, it saw the emergence of the **BASIC bloc** (Brazil, South Africa, India, China) and the first voluntary emission pledges.",
+        table: {
+          headers: ["Concept", "Details", "Significance"],
+          rows: [
+            ["Annex-I", "Developed nations", "Had binding targets"],
+            ["Non-Annex-I", "Developing nations", "No binding targets yet"],
+            ["CDM", "Carbon Trading", "India's solar/wind boom started here"],
+            ["BASIC", "Diplomatic Bloc", "Protected developing world interests"]
+          ]
+        }
       }
     ],
     pyqs: [
       {
-        question: "The 'Copenhagen Accord' was a result of which COP?",
-        year: "2010",
-        options: ["COP 13", "COP 15", "COP 21", "COP 17"],
+        question: "The 'Clean Development Mechanism' (CDM) of Kyoto Protocol is managed by:",
+        year: "2016",
+        options: ["GEF", "UNFCCC Secretariat", "World Bank", "UNEP"],
         answer: "B",
-        explanation: "COP 15 was held in Copenhagen, Denmark."
+        explanation: "The CDM is supervised by the CDM Executive Board under the guidance of the COP/MOP."
+      },
+      {
+        question: "The BASIC countries include:",
+        year: "2019",
+        options: ["Brazil, India, South Africa, China", "Britain, Australia, Sweden, Israel, China", "Belgium, Argentina, Spain, Iran, Canada", "Brazil, Australia, Saudi Arabia, India, China"],
+        answer: "A",
+        explanation: "BASIC = Brazil, South Africa, India, and China; they negotiate collectively."
       }
     ],
     predictions: [
-      "Lessons from the 'Copenhagen Failure' for the Global Stocktake process.",
-      "The role of 'Climate Finance' deadlock in stalling global progress during the 2000s."
-    ]
+      "The role of CDM credits in the new Article 6.4 market (Paris Agreement).",
+      "UPSC Analytical: Why Copenhagen is seen as a 'successful failure' for developing nations."
+    ],
+    flowchart: "Kyoto Signed -> US Withdrawal -> CDM Boom -> Copenhagen 2009 -> BASIC Bloc"
   },
   "C5": {
     id: "C5",
-    title: "New Pathways (2010–2015)",
+    title: "The Paris Shift (2010–2015)",
     coreConcepts: [
       {
-        title: "Paris Agreement (2015)",
-        content: "A global agreement to limit warming to well below 2°C, preferably 1.5°C. Introduced 'Nationally Determined Contributions' (NDCs).",
+        title: "Paris Agreement (2015) — The Breakthrough",
+        content: "**Cause:** The failure of top-down targets (Kyoto) led to a demand for a flexible, 'bottom-up' approach. **Effect:** 196 nations signed the Paris Agreement, aiming to limit warming to 1.5°C. It introduced **Nationally Determined Contributions (NDCs)**.",
       },
       {
-        title: "Sustainable Development Goals (2015)",
-        content: "17 global goals adopted by the UN to be achieved by 2030, covering social, economic, and environmental aspects.",
+        title: "International Solar Alliance (ISA)",
+        content: "Co-founded by India and France at COP21, it was India's first major leadership role in global climate governance. Its goal is to mobilize $1 trillion for solar energy by 2030.",
+      },
+      {
+        title: "The 1.5°C Goal",
+        content: "Initially a demand by small island nations (AOSIS), the 1.5°C target became the new scientific benchmark for 'survival', as identified by the IPCC Special Report on 1.5°C.",
+        table: {
+          headers: ["Feature", "Kyoto (Old)", "Paris (New)"],
+          rows: [
+            ["Approach", "Top-Down (Binding)", "Bottom-Up (Voluntary)"],
+            ["Scope", "Only Developed Nations", "All Nations (Universal)"],
+            ["Mechanism", "Carbon Trading (CDM)", "Direct NDCs & Article 6"],
+            ["UPSC Tip", "Phased approach", "Ratchet mechanism (every 5 years)"]
+          ]
+        }
       }
     ],
     pyqs: [
@@ -612,39 +717,68 @@ export const ENVIRONMENT_MODULE_CONTENT: Record<string, ModuleContent> = {
         year: "2016",
         options: ["1 and 2 only", "2 and 3 only", "1 only", "1, 2 and 3"],
         answer: "A",
-        explanation: "Statement 3 is partially incorrect; not all provisions are legally binding."
+        explanation: "Statement 3 is incorrect; the NDCs themselves are not legally binding; only the reporting is."
+      },
+      {
+        question: "The International Solar Alliance (ISA) was launched at:",
+        year: "2021",
+        options: ["Rio+20", "COP 21 (Paris)", "COP 26 (Glasgow)", "G20 Brisbane"],
+        answer: "B",
+        explanation: "PM Modi and French President Hollande launched ISA at the sidelines of COP 21."
       }
     ],
     predictions: [
-      "Evolution of NDCs into 'Binding Carbon Budgets' by 2030.",
-      "SDG 13 (Climate Action) as a driver for trade-related carbon measures (like CBAM)."
-    ]
+      "The 'Ratchet Mechanism' of Paris Agreement as a driver for India's 2070 Net Zero target.",
+      "UPSC Analytical: How US's reentry into Paris changed the momentum for COP 26."
+    ],
+    flowchart: "INDCs Submitted -> Paris Agreement Signed -> ISA Launched -> SDGs Adopted -> 1.5°C Target"
   },
   "C6": {
     id: "C6",
-    title: "Implementation & Crisis (2016–2026)",
+    title: "The Crisis Era (2016–2026)",
     coreConcepts: [
       {
-        title: "Glasgow Climate Pact (2021 - COP26)",
-        content: "Called for 'phase down' of unabated coal power and inefficient fossil fuel subsidies. First time fossil fuels were explicitly mentioned.",
+        title: "Glasgow COP 26 (2021) — Fossil Fuels Named",
+        content: "**Cause:** Science (SR1.5) showed 1.5°C was slipping away. **Effect:** The Glasgow Climate Pact was signed, being the first COP text to mention 'phasing down' coal. **Therefore:** It marked the end of the 'fossil fuel silence' in climate talks. India announced its **Panchamrit** targets here.",
       },
       {
-        title: "Global Stocktake (COP28 Dubai)",
-        content: "The first ever Global Stocktake concluded in 2023, assessing global progress under Paris Agreement and calling for a transition away from fossil fuels.",
+        title: "Sharm El-Sheikh COP 27 (2022) — Justice Delivered",
+        content: "After 30 years of demands, a **Loss and Damage Fund** was established to help vulnerable nations deal with climate impacts that cannot be adapted to (like sea-level rise).",
+      },
+      {
+        title: "Dubai COP 28 (2023) — The Transition",
+        content: "The First Global Stocktake (GST) concluded that the world is NOT on track for 1.5°C. The 'UAE Consensus' called for 'transitioning away from fossil fuels' in energy systems.",
+        table: {
+          headers: ["COP", "Year", "Key Outcome"],
+          rows: [
+            ["COP 26", "2021", "Coal Phasedown; Panchamrit"],
+            ["COP 27", "2022", "Loss & Damage Fund established"],
+            ["COP 28", "2023", "First Global Stocktake (GST)"],
+            ["COP 29", "2024", "NCQG ($300bn Finance Goal)"]
+          ]
+        }
       }
     ],
     pyqs: [
       {
-        question: "Which COP witnessed the adoption of the 'Loss and Damage Fund'?",
-        year: "2023",
-        options: ["COP 26", "COP 27", "COP 28", "COP 21"],
+        question: "India's 'Panchamrit' includes which of the following?",
+        year: "2022",
+        options: ["Net Zero by 2050", "Net Zero by 2070", "100% Renewables by 2030", "Phase out coal by 2040"],
         answer: "B",
-        explanation: "COP 27 in Sharm el-Sheikh saw the historic agreement to establish a Loss and Damage Fund."
+        explanation: "Panchamrit targets include Net Zero by 2070 and 500GW non-fossil capacity."
+      },
+      {
+        question: "The 'Cali Fund' established at CBD COP 16 is for:",
+        year: "2025",
+        options: ["Carbon offsets", "Digital Sequence Information (DSI) benefit sharing", "Plastic cleanup", "Ocean protection"],
+        answer: "B",
+        explanation: "Cali Fund shares benefits from the use of digital genetic data from biodiversity."
       }
     ],
     predictions: [
-      "The impact of 'Nature-Based Solutions' (NbS) in the COP30 Belém biodiversity targets.",
-      "Shift from 'Climate Finance' to 'Climate Justice' in the New Collective Quantified Goal (NCQG)."
-    ]
+      "The impact of the US 2024 election on the Paris Agreement implementation.",
+      "Shift from 'Adaptation' to 'Loss and Damage' as the primary focus for Global South."
+    ],
+    flowchart: "Glasgow Pact -> Loss & Damage Fund -> GST Dubai -> NCQG Baku -> Belém 2025"
   }
 };

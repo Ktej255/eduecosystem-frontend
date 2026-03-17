@@ -1,10 +1,25 @@
 "use client";
 
 import React, { useState } from 'react';
+import Link from 'next/link';
+import { 
+    Leaf, 
+    Calendar, 
+    LayoutGrid, 
+    Layers, 
+    ThermometerSun, 
+    ChevronRight, 
+    History, 
+    BookOpenCheck 
+} from 'lucide-react';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import FoodWebViz from './visualizations/FoodWebViz';
 import CarbonCycleViz from './visualizations/CarbonCycleViz';
 import ClimateAgreementsViz from './visualizations/ClimateAgreementsViz';
 import EnvironmentStoryTimeline from './visualizations/EnvironmentStoryTimeline';
+import ClimateTimeMachine from './visualizations/ClimateTimeMachine';
+import EnvironmentSectionPlanner from './EnvironmentSectionPlanner';
+import { ENVIRONMENT_SYLLABUS } from './data/environment-schedule-data';
 
 export default function EnvironmentDashboard() {
     const [viewMode, setViewMode] = useState<'planner' | 'visual' | 'syllabus'>('planner');
@@ -145,7 +160,7 @@ export default function EnvironmentDashboard() {
                                     <CardHeader className="pb-3">
                                         <div className="flex justify-between items-start mb-2">
                                             <div className={`p-2 rounded-lg ${topic.category === 'Chronology' ? 'bg-stone-100 text-stone-600' : 'bg-emerald-100 text-emerald-600'}`}>
-                                                {topic.category === 'Chronology' ? <HistoryIcon className="w-4 h-4" /> : <BookOpenCheck className="w-4 h-4" />}
+                                                {topic.category === 'Chronology' ? <History className="w-4 h-4" /> : <BookOpenCheck className="w-4 h-4" />}
                                             </div>
                                             <span className="text-[10px] font-mono font-bold px-2 py-0.5 bg-muted rounded-full">
                                                 {topic.id}
