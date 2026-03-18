@@ -43,6 +43,7 @@ interface AuthContextType {
   logout: () => void;
   isAuthenticated: boolean;
   token: string | null;
+  branding: any;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -50,6 +51,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(null);
+  const [branding, setBranding] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
@@ -63,6 +65,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     } else {
       setLoading(false);
     }
+  }, []);
+
+  useEffect(() => {
+    const fetchBranding = async () => {
+      try {
+        const response = await fetch('https://eduecosystem-backend-503001969959.us-central1.run.app/api/v1/public/branding');
+        const data = await response.json();
+        setBranding(data);
+      } catch (error) {
+        console.error('Error fetching branding:', error);
+      }
+    };
+    fetchBranding();
   }, []);
 
   const fetchCurrentUser = async () => {
@@ -82,7 +97,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const login = async (email: string, password: string) => {
     const normalizedEmail = email.toLowerCase().trim();
     // CRITICAL FIX: Ensure API URL always includes /api/v1 suffix
-    let baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com";
+    let baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app";
     // Remove trailing slash if present
     baseUrl = baseUrl.replace(/\/$/, "");
     // Add /api/v1 if not already present
@@ -174,6 +189,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         logout,
         isAuthenticated: !!user,
         token,
+        branding,
       }}
     >
       {children}
@@ -188,3 +204,4 @@ export function useAuth() {
   }
   return context;
 }
+

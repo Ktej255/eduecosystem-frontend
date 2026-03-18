@@ -28,7 +28,7 @@ export default function TeacherStudentsPage() {
     const [searchQuery, setSearchQuery] = useState("");
     const [filterType, setFilterType] = useState<"all" | "batch1" | "ras">("all");
 
-    const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+    const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app/api/v1";
 
     useEffect(() => {
         fetchStudents();
@@ -208,3 +208,4 @@ export default function TeacherStudentsPage() {
         </div>
     );
 }
+

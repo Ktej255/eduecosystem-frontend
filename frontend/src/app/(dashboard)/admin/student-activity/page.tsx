@@ -56,7 +56,7 @@ export default function StudentActivityPage() {
 
     useEffect(() => {
         if (selectedStudent) {
-            fetchTimeline(selectedStudent.id);
+            fetchTimeline(selectedStudent?.id);
         }
     }, [selectedStudent]);
 
@@ -86,8 +86,8 @@ export default function StudentActivityPage() {
 
             // Map backend response to component state
             const activityData = (response.data || []).map((user: any) => ({
-                id: user.id,
-                email: user.email,
+                id: user?.id,
+                email: user?.email,
                 full_name: user.name,
                 role: 'student', // default
                 coins: 0, // Not in summary yet
@@ -252,21 +252,21 @@ export default function StudentActivityPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {filteredStudents.map((student) => (
                             <Card
-                                key={student.id}
-                                className={`cursor-pointer transition-all hover:shadow-lg ${selectedStudent?.id === student.id ? 'ring-2 ring-indigo-500' : ''
+                                key={student?.id}
+                                className={`cursor-pointer transition-all hover:shadow-lg ${selectedStudent?.id === student?.id ? 'ring-2 ring-indigo-500' : ''
                                     }`}
-                                onClick={() => setSelectedStudent(selectedStudent?.id === student.id ? null : student)}
+                                onClick={() => setSelectedStudent(selectedStudent?.id === student?.id ? null : student)}
                             >
                                 <CardContent className="p-5">
                                     <div className="flex items-start justify-between mb-4">
                                         <div>
                                             <h3 className="font-semibold text-foreground">
-                                                {student.full_name || "No Name"}
+                                                {student?.full_name || "No Name"}
                                             </h3>
-                                            <p className="text-sm text-muted-foreground">{student.email}</p>
+                                            <p className="text-sm text-muted-foreground">{student?.email}</p>
                                         </div>
                                         <div className="flex items-center gap-1">
-                                            {student.is_active ? (
+                                            {student?.is_active ? (
                                                 <span className="w-2 h-2 rounded-full bg-green-500"></span>
                                             ) : (
                                                 <span className="w-2 h-2 rounded-full bg-gray-400"></span>
@@ -281,7 +281,7 @@ export default function StudentActivityPage() {
                                             <div className="flex items-center gap-1.5">
                                                 <Timer className="w-4 h-4 text-purple-600" />
                                                 <span className="text-sm font-medium text-foreground">
-                                                    {student.pomodoro_sessions || 0}
+                                                    {student?.pomodoro_sessions || 0}
                                                 </span>
                                             </div>
                                             <p className="text-xs text-muted-foreground mt-0.5">Pomodoros</p>
@@ -290,7 +290,7 @@ export default function StudentActivityPage() {
                                             <div className="flex items-center gap-1.5">
                                                 <BookOpen className="w-4 h-4 text-blue-600" />
                                                 <span className="text-sm font-medium text-foreground">
-                                                    {student.mcqs_completed || 0}
+                                                    {student?.mcqs_completed || 0}
                                                 </span>
                                             </div>
                                             <p className="text-xs text-muted-foreground mt-0.5">MCQs</p>
@@ -314,14 +314,14 @@ export default function StudentActivityPage() {
                                             size="sm" 
                                             variant="outline" 
                                             className="h-8 text-[10px] font-black uppercase tracking-widest bg-indigo-600 text-white hover:bg-indigo-700 border-none flex items-center gap-1 px-3"
-                                            onClick={() => router.push(`/admin/interventions?studentId=${selectedStudent.id}`)}
+                                            onClick={() => router.push(`/admin/interventions?studentId=${selectedStudent?.id}`)}
                                         >
                                             <Zap className="w-3 h-3" /> Intervene
                                         </Button>
                                         <Button variant="ghost" size="sm" onClick={() => setSelectedStudent(null)}>Close</Button>
                                     </div>
                                 </div>
-                                <p className="text-xs text-muted-foreground">{selectedStudent.full_name}</p>
+                                <p className="text-xs text-muted-foreground">{selectedStudent?.full_name}</p>
                             </CardHeader>
                             <CardContent>
                                 {timelineLoading ? (

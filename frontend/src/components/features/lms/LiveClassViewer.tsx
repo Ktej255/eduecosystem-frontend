@@ -156,10 +156,10 @@ export function LiveClassViewer({
     // Optimistic update
     const tempMsg: ChatMessage = {
       id: Date.now(),
-      user_id: currentUser.id,
+      user_id: currentUser?.id,
       user_name: currentUser.name,
       message: text,
-      is_instructor: currentUser.role === "instructor",
+      is_instructor: currentUser?.role === "instructor",
       created_at: new Date().toISOString(),
     };
     setMessages((prev) => [...prev, tempMsg]);
@@ -451,7 +451,7 @@ export function LiveClassViewer({
             >
               <LiveClassChatPanel
                 messages={messages}
-                currentUserId={currentUser.id}
+                currentUserId={currentUser?.id}
                 onSendMessage={handleSendMessage}
                 onTyping={sendTyping}
                 onStopTyping={sendStopTyping}
@@ -465,7 +465,7 @@ export function LiveClassViewer({
             >
               <LiveClassQAPanel
                 questions={questions}
-                userRole={currentUser.role}
+                userRole={currentUser?.role}
                 onAskQuestion={handleAskQuestion}
                 onUpvote={handleUpvoteQuestion}
                 onAnswer={handleAnswerQuestion}
@@ -479,7 +479,7 @@ export function LiveClassViewer({
               <LiveClassPollPanel
                 polls={polls}
                 activePollId={activePollId}
-                userRole={currentUser.role}
+                userRole={currentUser?.role}
                 onVote={handleVote}
                 onCreatePoll={handleCreatePoll}
                 onEndPoll={handleEndPoll}

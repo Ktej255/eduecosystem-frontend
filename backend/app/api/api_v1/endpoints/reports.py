@@ -183,21 +183,33 @@ def export_revenue_pdf(
     """
     # Get revenue data
     service = RevenueAnalyticsService(db)
+    instructor_id = current_user.id if not current_user.is_superuser else None
+    
+    breakdown = service.get_revenue_breakdown(
+        instructor_id=instructor_id,
+        start_date=start_date,
+        end_date=end_date
+    )
+    
+    comparison = service.compare_periods(
+        instructor_id=instructor_id,
+        comparison_type="mom"
+    )
+    
     revenue_data = {
         "revenue_summary": {
-            "total": 50000,  # Would get from actual analytics
-            "monthly": 12000,
-            "growth_rate": 15.5,
-            "avg_order": 150,
+            "total": breakdown["total_revenue"],
+            "monthly": comparison["current_period"]["revenue"],
+            "growth_rate": comparison["change"]["percentage"],
+            "avg_order": breakdown["average_order_value"],
         },
         "monthly_data": [
-            {"month": "2025-01", "revenue": 10000},
-            {"month": "2025-02", "revenue": 11000},
-            {"month": "2025-03", "revenue": 12000},
+            {"month": comparison["previous_period"]["start"][:7], "revenue": comparison["previous_period"]["revenue"]},
+            {"month": comparison["current_period"]["start"][:7], "revenue": comparison["current_period"]["revenue"]},
         ],
         "top_courses": [
-            {"name": "Python Basics", "revenue": 5000, "enrollments": 50},
-            {"name": "Web Development", "revenue": 4500, "enrollments": 40},
+            {"name": c["course"], "revenue": c["revenue"], "enrollments": 0} # enrollments not directly in breakdown
+            for c in breakdown["by_course"][:5]
         ],
     }
 

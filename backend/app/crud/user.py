@@ -1,5 +1,5 @@
-from typing import Optional, Union
-from sqlalchemy.orm import Session
+from typing import Optional, Union, List
+from sqlalchemy.orm import Session, joinedload
 from app.core.security import get_password_hash, verify_password
 from app.models.user import User
 from app.schemas.user import UserCreate
@@ -13,6 +13,15 @@ def get_by_email(db: Session, email: str) -> Optional[User]:
 
 def get(db: Session, id: int) -> Optional[User]:
     return db.query(User).filter(User.id == id).first()
+
+
+def get_multi(
+    db: Session, *, skip: int = 0, limit: int = 100, role: str = None
+) -> List[User]:
+    query = db.query(User).options(joinedload(User.subscription))
+    if role:
+        query = query.filter(User.role == role)
+    return query.offset(skip).limit(limit).all()
 
 
 def create(db: Session, *, obj_in: UserCreate) -> User:

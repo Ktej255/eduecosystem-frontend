@@ -187,7 +187,7 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
     onBack: () => void;
 }) {
     // FORCE AWS URL to avoid any Vercel env var issues
-    let _apiUrl = "https://a7z4kjysmp.us-east-1.awsapprunner.com";
+    let _apiUrl = "https://eduecosystem-backend-503001969959.us-central1.run.app";
     _apiUrl = _apiUrl.replace(/\/$/, "");
     const API_URL = _apiUrl.endsWith("/api/v1") ? _apiUrl : `${_apiUrl}/api/v1`;
     const { showToast } = useToast();
@@ -598,3 +598,4 @@ function DayContentUpload({ cycleId, cycleName, dayNumber, color, onBack }: {
         </div>
     );
 }
+

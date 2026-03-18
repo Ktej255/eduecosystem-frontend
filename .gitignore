@@ -117,6 +117,8 @@ Thumbs.db
 
 # Large build artifacts (too big for GitHub)
 *.zip
+*.tar
+*.tar.gz
 backend.zip
 backend-*.zip
 frontend-deploy.zip
@@ -125,6 +127,7 @@ amplify-ssr-final.zip
 ssr-root-deploy.zip
 static-hosting-deploy.zip
 test-deploy.zip
+build_frontend_tmp/
 
 # Build deployment folders
 amplify-deploy/

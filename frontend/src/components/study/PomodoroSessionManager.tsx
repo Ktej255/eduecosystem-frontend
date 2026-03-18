@@ -139,7 +139,7 @@ export default function PomodoroSessionManager({
             if (user?.email && !sessionType.startsWith("explanation")) {
                 try {
                     await getStudySessionService().recordSession({
-                        email: user.email,
+                        email: user?.email,
                         session_type: sessionType,
                         topic_id: selectedTopic?.id,
                         topic_name: selectedTopic?.name,
@@ -274,7 +274,7 @@ export default function PomodoroSessionManager({
 
             try {
                 await getStudySessionService().recordSession({
-                    email: user.email,
+                    email: user?.email,
                     session_type: explanationType,
                     topic_id: selectedTopic?.id,
                     topic_name: selectedTopic?.name,

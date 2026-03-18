@@ -203,18 +203,18 @@ export default function StudyGroupDetailPage() {
                             <div className="space-y-3">
                                 {members.map((member) => (
                                     <div
-                                        key={member.id}
+                                        key={member?.id}
                                         className="flex items-center justify-between py-3 border-b last:border-b-0"
                                     >
                                         <div className="flex items-center gap-3">
                                             <Avatar>
                                                 <AvatarFallback>
-                                                    {member.user.full_name.charAt(0).toUpperCase()}
+                                                    {member?.user?.full_name?.charAt(0).toUpperCase()}
                                                 </AvatarFallback>
                                             </Avatar>
                                             <div>
-                                                <p className="font-medium">{member.user.full_name}</p>
-                                                <p className="text-sm text-muted-foreground">{member.user.email}</p>
+                                                <p className="font-medium">{member?.user?.full_name}</p>
+                                                <p className="text-sm text-muted-foreground">{member?.user?.email}</p>
                                             </div>
                                         </div>
                                         {member.role === "admin" && (

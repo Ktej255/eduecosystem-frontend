@@ -85,8 +85,9 @@ class CodeAnalyzerService:
                                 if ext == ".tsx" or "components" in root.split(os.sep):
                                     component_count += 1
                                     
-                        except Exception:
-                            pass # Skip files that can't be read (e.g. binary/images with wrong ext)
+                        except Exception as e:
+                            logger.warning(f"Could not read file {filepath}: {e}")
+                            continue
 
         # Scan Backend
         if backend_dir.exists():

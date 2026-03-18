@@ -1,0 +1,23 @@
+FROM node:22-slim AS runner
+WORKDIR /app
+ENV NODE_ENV production
+ENV HOSTNAME "0.0.0.0"
+ENV PORT 8080
+
+# When using standalone output, Next.js creates a folder structure that matches your project
+# If your project is in a folder called 'frontend', it will be at .next/standalone/frontend/
+# The server.js file will be at .next/standalone/frontend/server.js
+
+# Copy the standalone output (this includes its own node_modules and .next folder)
+COPY .next/standalone ./
+# Copy static and public assets specifically to where the standalone server expects them
+COPY .next/static ./frontend/.next/static
+COPY public ./frontend/public
+
+# Switch to the project directory where the build was generated
+WORKDIR /app/frontend
+
+# Verification
+RUN ls -la server.js
+
+CMD ["node", "server.js"]

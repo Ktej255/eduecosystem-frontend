@@ -36,7 +36,7 @@ export function useRealtimeNotifications() {
     if (!user || !token) return;
 
     // Connect to notifications WebSocket
-    const wsUrl = `/api/v1/ws/notifications/${user.id}`;
+    const wsUrl = `/api/v1/ws/notifications/${user?.id}`;
     notificationsWS.connect(token);
 
     // Handle connection

@@ -1,0 +1,9 @@
+node_modules/
+.next/
+.vercel/
+.git/
+.npm/
+*.log
+.env.local
+.env.*.local
+all_mcqs_extracted.json

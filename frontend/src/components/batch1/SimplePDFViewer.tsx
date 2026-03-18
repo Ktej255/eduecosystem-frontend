@@ -65,7 +65,7 @@ export default function SimplePDFViewer({ segmentTitle, pdfFiles, onBack, onComp
             return pdf.url;
         }
         // Relative path - prepend API base
-        const apiBase = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com";
+        const apiBase = process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app";
         return `${apiBase.replace(/\/api\/v1$/, "")}${pdf.url}`;
     };
 
@@ -221,3 +221,4 @@ export default function SimplePDFViewer({ segmentTitle, pdfFiles, onBack, onComp
         </div>
     );
 }
+

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // API Base URL - ensure /api/v1 suffix is always present
-let baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com";
+let baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app";
 baseUrl = baseUrl.replace(/\/$/, ""); // Remove trailing slash
 const API_BASE = baseUrl.endsWith("/api/v1") ? baseUrl : `${baseUrl}/api/v1`;
 

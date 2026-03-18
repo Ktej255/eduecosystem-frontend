@@ -1,0 +1,28 @@
+steps:
+  # 1. Build the frontend image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', '$_GCP_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/frontend:latest', '-f', 'frontend/Dockerfile', '.']
+
+  # 2. Push to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', '$_GCP_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/frontend:latest']
+
+  # 3. Deploy to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'eduecosystem-frontend'
+      - '--image=$_GCP_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/frontend:latest'
+      - '--region=$_GCP_REGION'
+      - '--platform=managed'
+      - '--allow-unauthenticated'
+      - '--port=8080'
+
+substitutions:
+  _GCP_REGION: 'us-east1'
+  _REPO_NAME: 'eduecosystem-repo'
+
+options:
+  logging: CLOUD_LOGGING_ONLY

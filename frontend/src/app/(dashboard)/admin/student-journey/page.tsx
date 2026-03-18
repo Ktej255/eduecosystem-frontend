@@ -81,20 +81,20 @@ export default function StudentJourneyPage() {
                 <CardContent className="p-0">
                     <div className="divide-y divide-slate-800">
                         {users.length > 0 ? users.map((user) => (
-                            <div key={user.id} className="p-6 hover:bg-white/5 transition-colors flex items-center justify-between group">
+                            <div key={user?.id} className="p-6 hover:bg-white/5 transition-colors flex items-center justify-between group">
                                 <div className="flex items-center gap-4">
                                     <div className="w-12 h-12 rounded-2xl bg-slate-800 flex items-center justify-center text-indigo-400 font-bold">
-                                        {user.full_name?.charAt(0) || user.email.charAt(0).toUpperCase()}
+                                        {user?.full_name?.charAt(0) || user?.email?.charAt(0).toUpperCase()}
                                     </div>
                                     <div>
-                                        <p className="font-bold text-white">{user.full_name || "N/A"}</p>
-                                        <p className="text-xs text-slate-500 font-mono">{user.email}</p>
+                                        <p className="font-bold text-white">{user?.full_name || "N/A"}</p>
+                                        <p className="text-xs text-slate-500 font-mono">{user?.email}</p>
                                     </div>
                                 </div>
                                 <Button 
                                     variant="outline" 
                                     size="sm" 
-                                    onClick={() => setSelectedStudentId(user.id)}
+                                    onClick={() => setSelectedStudentId(user?.id)}
                                     className="border-slate-800 text-slate-400 hover:text-white hover:bg-indigo-600 hover:border-indigo-600 rounded-xl gap-2"
                                 >
                                     View Journey <ArrowRight className="w-3 h-3" />

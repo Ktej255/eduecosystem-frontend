@@ -254,8 +254,8 @@ export default function LeadsPage() {
                                         </SelectTrigger>
                                         <SelectContent className="bg-slate-800 border-slate-700 text-white">
                                             {assignees.map(user => (
-                                                <SelectItem key={user.id} value={user.id.toString()}>
-                                                    {user.full_name || user.email}
+                                                <SelectItem key={user?.id} value={user?.id?.toString() || ""}>
+                                                    {user?.full_name || user?.email}
                                                 </SelectItem>
                                             ))}
                                         </SelectContent>

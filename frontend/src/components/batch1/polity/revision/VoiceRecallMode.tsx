@@ -90,7 +90,7 @@ export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallM
     const [aiResult, setAiResult] = useState<any>(null);
     const [results, setResults] = useState<any[]>([]);
 
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app/api/v1";
 
     const toggleChapter = (id: number) => {
         if (selectedChapters.includes(id)) {
@@ -496,3 +496,4 @@ function Trophy(props: any) {
         </svg>
     )
 }
+

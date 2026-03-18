@@ -257,8 +257,8 @@ export default function TeacherLeadsPage() {
                                         </SelectTrigger>
                                         <SelectContent>
                                             {assignees.map(user => (
-                                                <SelectItem key={user.id} value={user.id.toString()}>
-                                                    {user.full_name || user.email}
+                                                <SelectItem key={user?.id} value={user?.id?.toString() || ""}>
+                                                    {user?.full_name || user?.email}
                                                 </SelectItem>
                                             ))}
                                         </SelectContent>

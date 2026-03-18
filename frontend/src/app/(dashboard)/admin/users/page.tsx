@@ -152,30 +152,30 @@ export default function UsersPage() {
               <tbody>
                 {users.map((user) => (
                   <tr
-                    key={user.id}
+                    key={user?.id}
                     className="border-b border-gray-800 hover:bg-gray-800/50"
                   >
-                    <td className="p-4 text-white">{user.id}</td>
-                    <td className="p-4 text-white">{user.email}</td>
-                    <td className="p-4 text-white">{user.full_name || "-"}</td>
+                    <td className="p-4 text-white">{user?.id}</td>
+                    <td className="p-4 text-white">{user?.email}</td>
+                    <td className="p-4 text-white">{user?.full_name || "-"}</td>
                     <td className="p-4">
                       <span
-                        className={`px-2 py-1 rounded text-xs font-semibold ${user.role === "admin"
+                        className={`px-2 py-1 rounded text-xs font-semibold ${user?.role === "admin"
                           ? "bg-purple-600 text-white"
                           : "bg-gray-700 text-muted-foreground"
                           }`}
                       >
-                        {user.role}
+                        {user?.role}
                       </span>
                     </td>
-                    <td className="p-4 text-white">{user.coins}</td>
-                    <td className="p-4 text-white">{user.streak_days}</td>
+                    <td className="p-4 text-white">{user?.coins}</td>
+                    <td className="p-4 text-white">{user?.streak_days}</td>
                     <td className="p-4">
-                      {user.is_banned ? (
+                      {user?.is_banned ? (
                         <span className="px-2 py-1 rounded text-xs font-semibold bg-red-600 text-white">
                           Banned
                         </span>
-                      ) : user.is_active ? (
+                      ) : user?.is_active ? (
                         <span className="px-2 py-1 rounded text-xs font-semibold bg-green-600 text-white">
                           Active
                         </span>
@@ -186,7 +186,7 @@ export default function UsersPage() {
                       )}
                     </td>
                     <td className="p-4">
-                      {user.is_batch1_authorized ? (
+                      {user?.is_batch1_authorized ? (
                         <span className="text-green-500 text-xs font-bold">Yes</span>
                       ) : (
                         <span className="text-muted-foreground text-xs">No</span>
@@ -194,9 +194,9 @@ export default function UsersPage() {
                     </td>
                     <td className="p-4">
                       <div className="flex space-x-2">
-                        {user.is_banned ? (
+                        {user?.is_banned ? (
                           <button
-                            onClick={() => handleUnban(user.id)}
+                            onClick={() => handleUnban(user?.id)}
                             className="p-2 bg-green-600 hover:bg-green-700 rounded text-white"
                             title="Unban user"
                           >
@@ -204,7 +204,7 @@ export default function UsersPage() {
                           </button>
                         ) : (
                           <button
-                            onClick={() => handleBan(user.id)}
+                            onClick={() => handleBan(user?.id)}
                             className="p-2 bg-red-600 hover:bg-red-700 rounded text-white"
                             title="Ban user"
                           >
@@ -212,27 +212,27 @@ export default function UsersPage() {
                           </button>
                         )}
 
-                        {user.role !== "admin" && (
+                        {user?.role !== "admin" && (
                           <>
                             <button
-                              onClick={() => handleToggleBatch1(user.id, !user.is_batch1_authorized)}
-                              className={`p-2 rounded text-white ${user.is_batch1_authorized
+                              onClick={() => handleToggleBatch1(user?.id, !user?.is_batch1_authorized)}
+                              className={`p-2 rounded text-white ${user?.is_batch1_authorized
                                 ? "bg-blue-600 hover:bg-blue-700"
                                 : "bg-gray-600 hover:bg-gray-700"
                                 }`}
-                              title={user.is_batch1_authorized ? "Revoke Batch 1 Access" : "Grant Batch 1 Access"}
+                              title={user?.is_batch1_authorized ? "Revoke Batch 1 Access" : "Grant Batch 1 Access"}
                             >
                               <BookOpen className="h-4 w-4" />
                             </button>
                             <button
-                              onClick={() => handlePromote(user.id)}
+                              onClick={() => handlePromote(user?.id)}
                               className="p-2 bg-purple-600 hover:bg-purple-700 rounded text-white"
                               title="Promote to admin"
                             >
                               <ShieldCheck className="h-4 w-4" />
                             </button>
                             <button
-                              onClick={() => handleDelete(user.id)}
+                              onClick={() => handleDelete(user?.id)}
                               className="p-2 bg-gray-600 hover:bg-gray-700 rounded text-white"
                               title="Delete user"
                             >

@@ -128,7 +128,7 @@ export default function MessageThread({
           </p>
         ) : (
           messages.map((msg) => {
-            const isMe = msg.sender_id === currentUser.id;
+            const isMe = msg.sender_id === currentUser?.id;
             return (
               <div
                 key={msg.id}

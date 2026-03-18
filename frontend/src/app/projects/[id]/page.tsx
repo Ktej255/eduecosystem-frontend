@@ -112,7 +112,7 @@ export default function ProjectDetailPage() {
 
       const currentUserId = parseInt(localStorage.getItem("userId") || "0");
       const myTeam = response.data.find((team: Team) =>
-        team.members.some((m) => m.user.id === currentUserId),
+        team.members.some((m) => m.user?.id === currentUserId),
       );
       setUserTeam(myTeam || null);
     } catch (error) {

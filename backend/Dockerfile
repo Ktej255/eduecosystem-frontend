@@ -33,4 +33,4 @@ EXPOSE 8000
 # Run migrations and start app
 # NOTE: Removed 'alembic upgrade head' from startup to prevent container hanging
 # when database is unreachable. Run migrations separately when needed.
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--timeout-keep-alive", "30"]
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000} --timeout-keep-alive 30"]

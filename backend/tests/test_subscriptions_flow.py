@@ -124,13 +124,14 @@ async def test_duplicate_subscription(db: Session, test_user: User):
         )
 
 
-def test_cancel_subscription_at_period_end(db: Session, test_user: User):
+@pytest.mark.asyncio
+async def test_cancel_subscription_at_period_end(db: Session, test_user: User):
     """Test cancelling subscription at period end"""
     plan = SubscriptionService.create_plan(
         db=db, name="Cancel Test", monthly_price=Decimal("9.99")
     )
 
-    subscription = SubscriptionService.subscribe_user(
+    subscription = await SubscriptionService.subscribe_user(
         db=db, user_id=test_user.id, plan_id=plan.id
     )
 
@@ -144,13 +145,14 @@ def test_cancel_subscription_at_period_end(db: Session, test_user: User):
     assert cancelled.status != "cancelled"  # Not cancelled yet
 
 
-def test_cancel_subscription_immediately(db: Session, test_user: User):
+@pytest.mark.asyncio
+async def test_cancel_subscription_immediately(db: Session, test_user: User):
     """Test immediate subscription cancellation"""
     plan = SubscriptionService.create_plan(
         db=db, name="Immediate Cancel", monthly_price=Decimal("14.99")
     )
 
-    subscription = SubscriptionService.subscribe_user(
+    subscription = await SubscriptionService.subscribe_user(
         db=db, user_id=test_user.id, plan_id=plan.id
     )
 
@@ -167,7 +169,8 @@ def test_cancel_subscription_immediately(db: Session, test_user: User):
     assert plan.active_subscriptions == initial_active_count - 1
 
 
-def test_check_access(db: Session, test_user: User):
+@pytest.mark.asyncio
+async def test_check_access(db: Session, test_user: User):
     """Test access control checks"""
     plan = SubscriptionService.create_plan(
         db=db,
@@ -180,7 +183,7 @@ def test_check_access(db: Session, test_user: User):
     assert SubscriptionService.check_access(db, test_user.id, "standard") is False
 
     # Subscribe user
-    SubscriptionService.subscribe_user(db=db, user_id=test_user.id, plan_id=plan.id)
+    await SubscriptionService.subscribe_user(db=db, user_id=test_user.id, plan_id=plan.id)
 
     # Check access levels
     assert SubscriptionService.check_access(db, test_user.id, "limited") is True
@@ -219,7 +222,8 @@ def test_get_active_plans(db: Session):
     assert active_plans[1].name == "Plan B"
 
 
-def test_get_user_subscription(db: Session, test_user: User):
+@pytest.mark.asyncio
+async def test_get_user_subscription(db: Session, test_user: User):
     """Test getting user's current subscription"""
     # No subscription initially
     assert SubscriptionService.get_user_subscription(db, test_user.id) is None
@@ -229,7 +233,7 @@ def test_get_user_subscription(db: Session, test_user: User):
         db=db, name="User Sub Test", monthly_price=Decimal("12.99")
     )
 
-    subscription = SubscriptionService.subscribe_user(
+    subscription = await SubscriptionService.subscribe_user(
         db=db, user_id=test_user.id, plan_id=plan.id
     )
 

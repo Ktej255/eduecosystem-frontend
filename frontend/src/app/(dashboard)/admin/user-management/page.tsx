@@ -65,11 +65,11 @@ export default function UserManagementPage() {
     };
 
     const filteredUsers = users.filter(user => {
-        const matchesSearch = user.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            (user.full_name && user.full_name.toLowerCase().includes(searchQuery.toLowerCase()));
+        const matchesSearch = user?.email?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            (user?.full_name && user?.full_name.toLowerCase().includes(searchQuery.toLowerCase()));
 
-        const matchesRole = filterRole === "all" || user.role === filterRole;
-        if (filterRole === "batch1") return matchesSearch && user.is_batch1_authorized;
+        const matchesRole = filterRole === "all" || user?.role === filterRole;
+        if (filterRole === "batch1") return matchesSearch && user?.is_batch1_authorized;
 
         return matchesSearch && matchesRole;
     });
@@ -140,35 +140,35 @@ export default function UserManagementPage() {
                                     </TableRow>
                                 ) : (
                                     filteredUsers.map((user) => (
-                                        <TableRow key={user.id}>
+                                        <TableRow key={user?.id}>
                                             <TableCell>
                                                 <div className="flex flex-col">
-                                                    <span className="font-medium">{user.full_name || "N/A"}</span>
-                                                    <span className="text-xs text-muted-foreground">{user.email}</span>
+                                                    <span className="font-medium">{user?.full_name || "N/A"}</span>
+                                                    <span className="text-xs text-muted-foreground">{user?.email}</span>
                                                 </div>
                                             </TableCell>
                                             <TableCell>
                                                 <Badge variant="outline" className={
-                                                    user.role === 'admin' ? 'bg-red-50 text-red-700' :
-                                                        user.role === 'teacher' ? 'bg-green-50 text-green-700' :
+                                                    user?.role === 'admin' ? 'bg-red-50 text-red-700' :
+                                                        user?.role === 'teacher' ? 'bg-green-50 text-green-700' :
                                                             'bg-blue-50 text-blue-700'
                                                 }>
-                                                    {user.role}
+                                                    {user?.role}
                                                 </Badge>
                                             </TableCell>
                                             <TableCell>
                                                 <div className="flex gap-1">
-                                                    {user.is_batch1_authorized && (
+                                                    {user?.is_batch1_authorized && (
                                                         <Badge className="bg-purple-100 text-purple-700 text-[10px] pointer-events-none hover:bg-purple-100">Batch 1</Badge>
                                                     )}
-                                                    {user.is_ras_authorized && (
+                                                    {user?.is_ras_authorized && (
                                                         <Badge className="bg-orange-100 text-orange-700 text-[10px] pointer-events-none hover:bg-orange-100">RAS</Badge>
                                                     )}
                                                 </div>
                                             </TableCell>
                                             <TableCell>
-                                                <button onClick={() => toggleStatus(user.id, user.is_active)}>
-                                                    {user.is_active ? (
+                                                <button onClick={() => toggleStatus(user?.id, user?.is_active)}>
+                                                    {user?.is_active ? (
                                                         <div className="flex items-center text-green-600 text-xs font-medium">
                                                             <CheckCircle2 className="h-4 w-4 mr-1" /> Active
                                                         </div>
@@ -180,11 +180,11 @@ export default function UserManagementPage() {
                                                 </button>
                                             </TableCell>
                                             <TableCell className="text-muted-foreground text-xs">
-                                                {user.created_at ? format(new Date(user.created_at), 'MMM d, yyyy') : 'N/A'}
+                                                {user?.created_at ? format(new Date(user.created_at), 'MMM d, yyyy') : 'N/A'}
                                             </TableCell>
                                             <TableCell className="text-right">
                                                 <div className="flex justify-end gap-2">
-                                                    <Link href={`/admin/users/${user.id}`}>
+                                                    <Link href={`/admin/users/${user?.id}`}>
                                                         <Button variant="ghost" size="icon" className="h-8 w-8">
                                                             <Edit className="h-4 w-4" />
                                                         </Button>

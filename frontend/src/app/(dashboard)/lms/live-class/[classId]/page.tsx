@@ -33,13 +33,13 @@ export default function LiveClassSessionPage() {
 
         // Determine role based on class instructor
         const role =
-          user.id === classResponse.data.instructor_id
+          user?.id === classResponse.data.instructor_id
             ? "instructor"
             : "student";
 
         setCurrentUser({
-          id: user.id,
-          name: user.full_name,
+          id: user?.id,
+          name: user?.full_name,
           role: role,
         });
 

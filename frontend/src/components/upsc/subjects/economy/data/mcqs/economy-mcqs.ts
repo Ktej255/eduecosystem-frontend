@@ -30,7 +30,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "GDP measures production within a country's borders. Goods produced by Indian companies abroad are part of GNP, not GDP.",
         module: "macro",
         topic: "National Income",
-        difficulty: "medium",
+        difficulty: "medium"
+,
         chapter: "1"
     },
     {
@@ -41,7 +42,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "MPC has 6 members: 3 from RBI (Governor as Chairman, Deputy Governor, one RBI official) and 3 external members nominated by Government.",
         module: "macro",
         topic: "Monetary Policy",
-        difficulty: "easy",
+        difficulty: "easy"
+,
         chapter: "2"
     },
     {
@@ -57,7 +59,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "Increasing CRR reduces money available for lending, contracts money supply, and helps control inflation. Decreasing rates would increase money supply.",
         module: "macro",
         topic: "Monetary Policy",
-        difficulty: "medium",
+        difficulty: "medium"
+,
         chapter: "2"
     },
     {
@@ -73,7 +76,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "Primary Deficit = Fiscal Deficit - Interest Payments. It shows borrowing requirement excluding interest burden on past borrowings.",
         module: "macro",
         topic: "Fiscal Policy",
-        difficulty: "medium",
+        difficulty: "medium"
+,
         chapter: "3"
     },
     {
@@ -89,7 +93,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "Cost-push inflation occurs when production costs (wages, raw materials, energy) rise, pushing up prices even without excess demand.",
         module: "macro",
         topic: "Inflation",
-        difficulty: "easy",
+        difficulty: "easy"
+,
         chapter: "1"
     },
 
@@ -107,7 +112,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "CACP recommends MSP, but the final decision is taken by Cabinet Committee on Economic Affairs (CCEA). FCI is the procurement agency.",
         module: "sectors",
         topic: "Agriculture",
-        difficulty: "medium",
+        difficulty: "medium"
+,
         chapter: "5"
     },
     {
@@ -123,7 +129,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "About 42-45% of India's workforce is in agriculture, but it contributes only 15-17% to GDP, indicating low productivity and disguised unemployment.",
         module: "sectors",
         topic: "Agriculture",
-        difficulty: "easy",
+        difficulty: "easy"
+,
         chapter: "5"
     },
     {
@@ -134,7 +141,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "PLI scheme covers 14 sectors including electronics, pharmaceuticals, automobiles, textiles, food processing, etc.",
         module: "sectors",
         topic: "Industry",
-        difficulty: "medium",
+        difficulty: "medium"
+,
         chapter: "5"
     },
     {
@@ -145,7 +153,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "Services sector contributes about 55% of GDP, followed by Industry (~30%) and Agriculture (~15%).",
         module: "sectors",
         topic: "Services",
-        difficulty: "easy",
+        difficulty: "easy"
+,
         chapter: "5"
     },
 
@@ -163,7 +172,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "Current Account = Trade in goods + Trade in services + Primary income (investment income) + Secondary income (remittances, transfers).",
         module: "international",
         topic: "BoP",
-        difficulty: "hard",
+        difficulty: "hard"
+,
         chapter: "4"
     },
     {
@@ -174,7 +184,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "FDI requires at least 10% equity stake in a company with management control. Below 10% is considered FPI (portfolio investment).",
         module: "international",
         topic: "Investment",
-        difficulty: "medium",
+        difficulty: "medium"
+,
         chapter: "4"
     },
     {
@@ -185,7 +196,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "India is a founding member of WTO (World Trade Organization) established in 1995, replacing GATT.",
         module: "international",
         topic: "Trade",
-        difficulty: "easy",
+        difficulty: "easy"
+,
         chapter: "4"
     },
     {
@@ -196,7 +208,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "SDRs are supplementary foreign exchange reserve assets created by IMF. Their value is based on a basket of five major currencies.",
         module: "international",
         topic: "IMF",
-        difficulty: "medium",
+        difficulty: "medium"
+,
         chapter: "4"
     },
 
@@ -209,7 +222,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "MGNREGA guarantees 100 days of wage employment per year to every rural household whose adult members volunteer to do unskilled manual work.",
         module: "social",
         topic: "Employment",
-        difficulty: "easy",
+        difficulty: "easy"
+,
         chapter: "6"
     },
     {
@@ -220,7 +234,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "UNDP publishes HDI annually in Human Development Report. It measures health, education, and standard of living.",
         module: "social",
         topic: "Development",
-        difficulty: "easy",
+        difficulty: "easy"
+,
         chapter: "6"
     },
     {
@@ -231,7 +246,8 @@ export const economyMCQs: EconomyMCQ[] = [
         explanation: "PM-JAY provides ₹5 lakh per family per year for secondary and tertiary hospitalization. It covers ~50 crore beneficiaries.",
         module: "social",
         topic: "Health",
-        difficulty: "easy",
+        difficulty: "easy"
+,
         chapter: "6"
     },
     {
@@ -248,7 +264,8 @@ export const economyMCQs: EconomyMCQ[] = [
         module: "social",
         topic: "Inequality",
         difficulty: "medium",
-        subtopic: "Social Development",
+        subtopic: "Social Development"
+,
         chapter: "6"
     },
     {
@@ -260,7 +277,8 @@ export const economyMCQs: EconomyMCQ[] = [
         module: "social",
         topic: "Demographics",
         difficulty: "medium",
-        subtopic: "Social Development",
+        subtopic: "Social Development"
+,
         chapter: "6"
     }
 ,

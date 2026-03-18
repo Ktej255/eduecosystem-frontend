@@ -14,6 +14,9 @@ class PlagiarismService:
         try:
             response = gemini_service.generate_text(prompt=prompt, user=user)
             return float(response.strip())
-        except: return 0.0
+        except Exception as e:
+            import logging
+            logging.error(f"Plagiarism check failed: {e}")
+            return 0.0
 
 plagiarism_service = PlagiarismService()

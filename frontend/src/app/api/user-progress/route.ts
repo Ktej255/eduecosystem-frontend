@@ -7,7 +7,7 @@ import { NextResponse } from 'next/server';
  * Handles authentication by forwarding the Bearer token from the client.
  */
 
-const BACKEND_BASE = process.env.NEXT_PUBLIC_API_URL || 'https://a7z4kjysmp.us-east-1.awsapprunner.com';
+const BACKEND_BASE = process.env.NEXT_PUBLIC_API_URL || 'https://eduecosystem-backend-503001969959.us-central1.run.app';
 const API_URL = BACKEND_BASE.replace(/\/$/, '').endsWith('/api/v1')
     ? BACKEND_BASE.replace(/\/$/, '')
     : `${BACKEND_BASE.replace(/\/$/, '')}/api/v1`;
@@ -86,3 +86,4 @@ export async function POST(req: Request) {
         );
     }
 }
+

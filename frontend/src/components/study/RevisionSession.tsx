@@ -68,7 +68,7 @@ export default function RevisionSession({
             if (user?.email) {
                 try {
                     await getStudySessionService().recordSession({
-                        email: user.email,
+                        email: user?.email,
                         session_type: "revision_25",
                         topic_name: "Evening Revision",
                         start_time: new Date(Date.now() - 25 * 60 * 1000).toISOString(),
@@ -103,7 +103,7 @@ export default function RevisionSession({
         if (user?.email && audioBlob) {
             try {
                 await getStudySessionService().recordSession({
-                    email: user.email,
+                    email: user?.email,
                     session_type: "explanation_5",
                     topic_name: "Revision Explanation",
                     start_time: new Date(Date.now() - 5 * 60 * 1000).toISOString(),

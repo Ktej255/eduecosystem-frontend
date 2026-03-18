@@ -19,6 +19,8 @@ class TopicValidationService:
             import re
             json_match = re.search(r"\{.*\}", response, re.DOTALL)
             return json.loads(json_match.group()) if json_match else {}
-        except: return {}
+        except Exception as e:
+            logger.error(f"Topic extraction failed: {e}")
+            return {}
 
 topic_validation_service = TopicValidationService()

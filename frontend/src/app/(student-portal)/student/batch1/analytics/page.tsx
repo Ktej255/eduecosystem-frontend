@@ -76,7 +76,7 @@ function AnalyticsContent() {
     const [analytics, setAnalytics] = useState<AnalyticsData | null>(null);
 
     // FORCE AWS URL
-    const API_BASE = "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+    const API_BASE = "https://eduecosystem-backend-503001969959.us-central1.run.app/api/v1";
 
     const [mounted, setMounted] = useState(false);
 
@@ -457,3 +457,4 @@ export default function AnalyticsPage() {
         </Suspense>
     );
 }
+

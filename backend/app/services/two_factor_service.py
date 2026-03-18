@@ -163,7 +163,9 @@ class TwoFactorService:
                     backup.is_used = True
                     db.commit()
                     return True
-            except Exception:
+            except Exception as e:
+                import logging
+                logging.error(f"Error decrypting backup code: {e}")
                 continue
 
         return False

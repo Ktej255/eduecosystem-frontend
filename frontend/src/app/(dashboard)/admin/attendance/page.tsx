@@ -98,18 +98,18 @@ export default function AdminAttendancePage() {
                     <div className="space-y-4">
                         {records.map((record) => (
                             <div
-                                key={record.id}
+                                key={record?.id}
                                 className="flex items-center justify-between p-4 border rounded-lg bg-muted/50"
                             >
                                 <div className="flex items-center gap-4">
                                     <div className="h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold">
-                                        {record.user.full_name?.[0] || "U"}
+                                        {record?.user?.full_name?.[0] || "U"}
                                     </div>
                                     <div>
                                         <p className="font-medium text-foreground">
-                                            {record.user.full_name}
+                                            {record?.user?.full_name}
                                         </p>
-                                        <p className="text-sm text-muted-foreground">{record.user.email}</p>
+                                        <p className="text-sm text-muted-foreground">{record?.user?.email}</p>
                                     </div>
                                 </div>
                                 <div className="text-right">

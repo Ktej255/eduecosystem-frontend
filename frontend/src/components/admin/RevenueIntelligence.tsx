@@ -151,7 +151,7 @@ export default function RevenueIntelligence() {
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-800">
-                            {roi?.campaigns?.map((c: any, idx: number) => (
+                            {(roi?.campaigns || []).map((c: any, idx: number) => (
                                 <tr key={idx} className="hover:bg-indigo-500/5 transition-colors border-l-4 border-transparent hover:border-indigo-500">
                                     <td className="px-8 py-6 font-black text-white text-sm">{c.campaign_name}</td>
                                     <td className="px-8 py-6 text-center text-slate-400 text-xs">{c.messages_sent.toLocaleString()}</td>

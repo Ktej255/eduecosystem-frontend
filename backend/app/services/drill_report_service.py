@@ -121,7 +121,9 @@ Return JSON:
             import re
             json_match = re.search(r"\{.*\}", response, re.DOTALL)
             return json.loads(json_match.group()) if json_match else {}
-        except:
+        except Exception as e:
+            import logging
+            logging.error(f"Error generating drill summary: {e}")
             return {"overall_score": 0, "insights": "Summary generation failed."}
 
 # Global instance

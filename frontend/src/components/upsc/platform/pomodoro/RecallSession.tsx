@@ -32,7 +32,7 @@ export default function RecallSession({
     const [result, setResult] = useState<RecallResult | null>(null);
     const [error, setError] = useState<string | null>(null);
 
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://a7z4kjysmp.us-east-1.awsapprunner.com/api/v1";
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app/api/v1";
 
     const handleRecordingComplete = async (base64Audio: string) => {
         setIsRecording(false);
@@ -203,3 +203,4 @@ export default function RecallSession({
         </Card>
     );
 }
+

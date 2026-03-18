@@ -58,7 +58,7 @@ export function useSubjectAccess(): SubjectAccess {
             if (!user) return false;
             // Master users and Staff always have full access
             const masterEmails = process.env.NEXT_PUBLIC_MASTER_EMAILS?.split(',') || [];
-            if (masterEmails.includes(user.email) || user.role === 'teacher' || user.role === 'admin') return true;
+            if (masterEmails.includes(user?.email) || user?.role === 'teacher' || user?.role === 'admin') return true;
             // Check subject-level access
             return (
                 purchasedSubjects.includes(subject) ||

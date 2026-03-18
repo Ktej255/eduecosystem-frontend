@@ -68,8 +68,8 @@ export default function StudentProfilePage() {
     useEffect(() => {
         if (user) {
             setFormData({
-                full_name: user.full_name || "",
-                email: user.email || "",
+                full_name: user?.full_name || "",
+                email: user?.email || "",
                 bio: "",
             });
         }
