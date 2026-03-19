@@ -121,9 +121,15 @@ export default function StudentDashboardPage() {
       <div className="mb-8 flex justify-between items-start">
         <div>
           <h1 className="text-3xl font-bold mb-2">Welcome back! 👋</h1>
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground mb-4">
             Ready to continue your learning journey?
           </p>
+          <Button 
+            onClick={() => router.push('/student/ai-portal')} 
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-md transition-all group"
+          >
+            Open AI Study Portal <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+          </Button>
         </div>
         <SadhanaStreak />
       </div>

@@ -173,4 +173,42 @@ ANSWER:"""
             "sources": [d["text"][:50] + "..." for d in relevant_docs]
         }
 
+    def chat_for_ai_portal(self, query: str, student_name: str, topic: str = "General", history: List[Dict[str, str]] = []) -> Dict[str, Any]:
+        """
+        Special chat flow for the new AI portal, strictly acting as a UPSC study companion.
+        """
+        relevant_docs = self.store.search(query, k=3)
+        context_str = "\n".join([f"- {d['text']}" for d in relevant_docs])
+        
+        system_prompt = f"""You are a focused UPSC study companion. 
+The student's name is {student_name}.
+Keep responses concise and clear.
+After every response ask one thinking question to deepen understanding.
+Never give more than 3 paragraphs at a time."""
+
+        history_str = ""
+        if history:
+            history_str = "\nCHAT HISTORY:\n"
+            for msg in history[-5:]:
+                role = "Student" if msg.get("role") == "user" else "Companion"
+                history_str += f"{role}: {msg.get('content')}\n"
+
+        full_prompt = f"""{system_prompt}
+
+CONTEXT:
+{context_str}
+
+{history_str}
+STUDENT QUESTION [{topic}]:
+{query}
+
+ANSWER:"""
+
+        response = gemini_service.generate_text(full_prompt, temperature=0.7)
+        
+        return {
+            "answer": response,
+            "sources": [d["text"][:50] + "..." for d in relevant_docs]
+        }
+
 rag_service = RagService()
