@@ -69,7 +69,7 @@ export default function SmartUploadWizard() {
             toast({
                 title: "AI Analysis Complete!",
                 description: "Metadata generated successfully.",
-                variant: "success"
+                variant: "default"
             });
         } catch (error) {
             console.error("AI Analysis failed:", error);
