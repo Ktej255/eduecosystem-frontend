@@ -32,6 +32,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
 import { cn } from "@/lib/utils";
+import { aiService } from "@/lib/services/aiService";
 
 export default function SmartUploadWizard() {
     const { toast } = useToast();
@@ -153,7 +154,7 @@ export default function SmartUploadWizard() {
                                 type="file"
                                 className="hidden"
                                 ref={fileInputRef}
-                                onChange={handleFileSelect}
+                                onChange={handleFileChange}
                             />
                             <div className="h-16 w-16 bg-muted rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                                 <Upload className="h-8 w-8 text-muted-foreground group-hover:text-emerald-500" />
