@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
     MessageSquare,
     ClipboardCheck,
@@ -19,6 +19,8 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import api from "@/lib/api";
+import { toast } from "sonner";
 
 // Mock Data Types
 type InboxItemType = 'query' | 'review' | 'alert';
@@ -115,6 +117,11 @@ export default function PriorityInbox() {
     const [activeTab, setActiveTab] = useState("all");
     const [items, setItems] = useState<InboxItem[]>([]);
     const [loading, setLoading] = useState(true);
+
+    const filteredItems = items.filter(item => {
+        if (activeTab === "all") return true;
+        return item.type === activeTab;
+    });
 
     const fetchInbox = async () => {
         try {

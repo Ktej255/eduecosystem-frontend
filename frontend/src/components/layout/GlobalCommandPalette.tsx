@@ -61,16 +61,6 @@ export function GlobalCommandPalette() {
                         <span>Student Dashboard</span>
                         <CommandShortcut>⌘D</CommandShortcut>
                     </CommandItem>
-                    <CommandItem onSelect={() => runCommand(() => router.push("/teacher/dashboard"))}>
-                        <Activity className="mr-2 h-4 w-4" />
-                        <span>Teacher Live Center</span>
-                        <CommandShortcut>⌘L</CommandShortcut>
-                    </CommandItem>
-                    <CommandItem onSelect={() => runCommand(() => router.push("/teacher/crm"))}>
-                        <User className="mr-2 h-4 w-4" />
-                        <span>CRM & Leads</span>
-                        <CommandShortcut>⌘R</CommandShortcut>
-                    </CommandItem>
                 </CommandGroup>
 
                 <CommandSeparator />

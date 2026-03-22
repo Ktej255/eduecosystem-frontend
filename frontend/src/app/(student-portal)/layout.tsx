@@ -6,6 +6,7 @@ import StudentHeader from "@/components/student-portal/StudentHeader";
 import ProtectedRoute from "@/components/protected-route";
 import FloatingVoiceAssistant from "@/components/shared/voice/FloatingVoiceAssistant";
 import { Batch2UIProvider } from "@/components/batch2/context/Batch2UIContext";
+import { LanguageProvider } from "@/contexts/language-context";
 
 export default function StudentPortalLayout({
     children,
@@ -15,8 +16,9 @@ export default function StudentPortalLayout({
     const [isCollapsed, setIsCollapsed] = useState(false);
 
     return (
-        <ProtectedRoute>
-            <Batch2UIProvider>
+        <LanguageProvider>
+            <ProtectedRoute>
+                <Batch2UIProvider>
                 <div className="min-h-screen bg-muted">
                     <StudentHeader />
                     <div className="flex">
@@ -40,5 +42,6 @@ export default function StudentPortalLayout({
                 </div>
             </Batch2UIProvider>
         </ProtectedRoute>
+    </LanguageProvider>
     );
 }

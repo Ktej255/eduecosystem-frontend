@@ -43,4 +43,5 @@ export const uploadBulkQuestions = async (payload: any) => {
   return response.data;
 };
 
+export { api };
 export default api;

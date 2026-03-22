@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 interface WeakTopic {
     subject: string;
-    chapterId: number;
+    chapterId: string | number;
     accuracy: number;
 }
 

@@ -12,7 +12,7 @@ export default function NCERTChapterTestPage() {
     const chapterId = params.chapterId as string;
 
     const [isFinished, setIsFinished] = useState(false);
-    const [testResults, setTestResults] = useState<any[]>([]);
+    const [testResult, setTestResult] = useState<any>(null);
     const [timeSpent, setTimeSpent] = useState(0);
 
     const questions = useMemo(() => {
@@ -21,8 +21,24 @@ export default function NCERTChapterTestPage() {
         return ncertMcqBank.filter(q => q.chapter === chapterId || q.chapter === String(chapterId));
     }, [chapterId]);
 
-    const handleComplete = (results: any[], totalTimeSeconds: number) => {
-        setTestResults(results);
+    const handleComplete = (resultArray: any[], totalTimeSeconds: number) => {
+        const correctCount = resultArray.filter(q => q.isCorrect).length;
+        const totalQuestions = resultArray.length;
+        const accuracy = totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0;
+        
+        const finalResult = {
+            testTitle: `Geography NCERT - Chapter ${chapterId}`,
+            totalTimeTaken: totalTimeSeconds,
+            score: correctCount, // Simple score for now
+            accuracy: accuracy,
+            totalQuestions: totalQuestions,
+            correctCount: correctCount,
+            incorrectCount: totalQuestions - correctCount - resultArray.filter(q => q.userAnswer === null).length,
+            unansweredCount: resultArray.filter(q => q.userAnswer === null).length,
+            questions: resultArray
+        };
+
+        setTestResult(finalResult);
         setTimeSpent(totalTimeSeconds);
         setIsFinished(true);
     };
@@ -46,14 +62,12 @@ export default function NCERTChapterTestPage() {
             <div className="min-h-screen bg-slate-50 dark:bg-slate-950 pt-20 pb-12">
                 <div className="max-w-7xl mx-auto px-4">
                     <StandardTestReport
-                        results={testResults}
-                        totalTimeSeconds={timeSpent}
-                        title={`Class 11 NCERT - Chapter ${chapterId} Results`}
-                        onRetry={() => {
+                        results={testResult}
+                        onBack={() => router.push('/student/upsc/geography')}
+                        onRetake={() => {
                             setIsFinished(false);
-                            setTestResults([]);
+                            setTestResult(null);
                         }}
-                        onExit={() => router.push('/student/upsc/geography')}
                     />
                 </div>
             </div>

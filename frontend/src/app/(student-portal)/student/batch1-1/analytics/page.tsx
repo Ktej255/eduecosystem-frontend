@@ -303,7 +303,7 @@ export default function Batch11AnalyticsPage() {
                                                 <Cell key={`cell-${index}`} fill={entry.color} />
                                             ))}
                                         </Pie>
-                                        <Tooltip formatter={(value: number | undefined) => [`${value} days`, '']} />
+                                        <Tooltip formatter={(value: any) => [`${value} days`, '']} />
                                     </PieChart>
                                 </ResponsiveContainer>
                             </div>

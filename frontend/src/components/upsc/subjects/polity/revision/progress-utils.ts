@@ -2,7 +2,7 @@
 // Manages localStorage persistence for chapter progress
 
 export interface RevisionProgress {
-    chapterId: number;
+    chapterId: string | number;
     flashcardsCompleted: number;
     flashcardsTotal: number;
     mcqsCompleted: number;
@@ -26,7 +26,7 @@ const getKeys = (subjectId: string) => ({
 });
 
 // Get all progress from localStorage
-export function getAllProgress(subjectId: string = 'polity'): Record<number, RevisionProgress> {
+export function getAllProgress(subjectId: string = 'polity'): Record<string | number, RevisionProgress> {
     if (typeof window === 'undefined') return {};
     try {
         const { PROGRESS_KEY } = getKeys(subjectId);
@@ -38,7 +38,7 @@ export function getAllProgress(subjectId: string = 'polity'): Record<number, Rev
 }
 
 // Get progress for a specific chapter
-export function getChapterProgress(chapterId: number, subjectId: string = 'polity'): RevisionProgress | null {
+export function getChapterProgress(chapterId: string | number, subjectId: string = 'polity'): RevisionProgress | null {
     const all = getAllProgress(subjectId);
     return all[chapterId] || null;
 }
@@ -57,7 +57,7 @@ export function saveChapterProgress(progress: RevisionProgress, subjectId: strin
 }
 
 // Update flashcard progress for a chapter
-export function updateFlashcardProgress(chapterId: number, currentIdx: number, totalFlashcards: number, subjectId: string = 'polity') {
+export function updateFlashcardProgress(chapterId: string | number, currentIdx: number, totalFlashcards: number, subjectId: string = 'polity') {
     const existing = getChapterProgress(chapterId, subjectId) || {
         chapterId,
         flashcardsCompleted: 0,
@@ -85,7 +85,7 @@ export function updateFlashcardProgress(chapterId: number, currentIdx: number, t
 }
 
 // Update MCQ progress for a chapter
-export function updateMcqProgress(chapterId: number, score: number, totalMcqs: number, subjectId: string = 'polity') {
+export function updateMcqProgress(chapterId: string | number, score: number, totalMcqs: number, subjectId: string = 'polity') {
     const existing = getChapterProgress(chapterId, subjectId) || {
         chapterId,
         flashcardsCompleted: 0,

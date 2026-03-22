@@ -2,14 +2,14 @@ import { getSRSData } from '@/components/batch1/polity/revision/srs-engine';
 import { getChapterReports } from '@/lib/report-persistence';
 
 export type VulnerabilityProfile = {
-    chapterId: number;
+    chapterId: string | number;
     title: string;
     riskScore: number;
     trapType: 'concept_confusion' | 'memory_fade' | 'overconfidence_bias' | 'speed_error';
     examinerNote: string;
 };
 
-const CHAPTER_MAP: Record<number, string> = {
+const CHAPTER_MAP: Record<string | number, string> = {
     1: 'Historical Background',
     2: 'Making of the Constitution',
     3: 'Salient Features',

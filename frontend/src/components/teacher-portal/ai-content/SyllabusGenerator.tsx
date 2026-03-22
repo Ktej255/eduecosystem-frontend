@@ -9,7 +9,8 @@ import { Bot, Sparkles, ChevronRight, ChevronDown, Check, BookOpen, Layers } fro
 import { motion, AnimatePresence } from 'framer-motion';
 import { toast } from 'sonner';
 
-import { aiService, SyllabusUnit } from '@/lib/services/aiService';
+import { aiService } from '@/lib/services/aiService';
+import type { SyllabusUnit } from '@/lib/services/aiService';
 
 export default function SyllabusGenerator() {
     const [subject, setSubject] = useState("");

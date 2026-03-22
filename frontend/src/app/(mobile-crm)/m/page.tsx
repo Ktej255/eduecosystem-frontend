@@ -18,6 +18,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/contexts/auth-context";
+import { api } from "@/lib/api";
 
 // Quick action buttons
 const quickActions = [
@@ -157,6 +158,8 @@ export default function MobileDashboardPage() {
     const { user } = useAuth();
     const [stats, setStats] = useState<any[]>(todayStats);
     const [loading, setLoading] = useState(false);
+    const [currentTime, setCurrentTime] = useState("");
+    const [isCheckedIn, setIsCheckedIn] = useState(false);
 
     useEffect(() => {
         const fetchDashboardData = async () => {

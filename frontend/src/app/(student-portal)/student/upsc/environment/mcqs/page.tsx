@@ -79,7 +79,7 @@ function EnvironmentMCQContent() {
         };
 
         // Save to universal persistence
-        saveChapterReport('environment', moduleIds[0], finalResult, level);
+        saveChapterReport('environment', moduleIds[0] || 'unknown', finalResult, level);
 
         setTestResult(finalResult);
         setShowReport(true);

@@ -34,5 +34,5 @@ export interface MCQ {
     
     cognitive_tag?: string;
     associated_product_id?: string;
-    chapterId: number; // Required for all Polity MCQs
+    chapterId?: number | string; // Optional to support lazy data padding
 }

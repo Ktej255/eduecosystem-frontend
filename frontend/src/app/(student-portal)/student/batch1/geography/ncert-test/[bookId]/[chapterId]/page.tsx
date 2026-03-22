@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, use } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -23,18 +23,23 @@ const bookTitleMap: Record<string, string> = {
     'india-people-and-economy': 'India: People and Economy'
 };
 
-export default function NCERTTestRunner({ params }: { params: { bookId: string, chapterId: string } }) {
+export default function NCERTTestRunner({ params }: { params: Promise<{ bookId: string, chapterId: string }> }) {
+    const resolvedParams = use(params);
+    const bookId = resolvedParams.bookId;
+    const chapterId = resolvedParams.chapterId;
     const router = useRouter();
-    const { bookId, chapterId } = params;
     
     const targetModule = bookModuleMap[bookId];
     const bookTitle = bookTitleMap[bookId] || 'NCERT Practice';
     
-    const [questions, setQuestions] = useState(() => {
-        return ncertMcqBank.filter(q => 
+    const [questions, setQuestions] = useState<any[]>([]);
+    
+    useEffect(() => {
+        const filtered = ncertMcqBank.filter(q => 
             q.chapter === chapterId && (targetModule ? q.module === targetModule : true)
         );
-    });
+        setQuestions(filtered);
+    }, [chapterId, targetModule]);
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
@@ -196,7 +201,7 @@ export default function NCERTTestRunner({ params }: { params: { bookId: string, 
                     </h3>
                     
                     <div className="space-y-4">
-                        {currentQuestion.options.map((option, idx) => {
+                        {currentQuestion.options.map((option: string, idx: number) => {
                             const isSelected = selectedAnswer === idx;
                             const isCorrect = idx === currentQuestion.correctAnswer;
                             const showStatus = isAnswered;

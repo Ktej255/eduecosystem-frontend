@@ -16,6 +16,8 @@ import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useGamification } from "@/context/GamificationContext";
+import { LanguageToggle } from "@/components/LanguageToggle";
+import { useLanguage } from "@/contexts/language-context";
 // Import the RAS Dashboard (Anti-Gravity)
 import RASDashboard from "@/components/ras/RASDashboard";
 import HabitTracker from "@/components/engagement/HabitTracker";
@@ -56,6 +58,19 @@ export default function StudentDashboard() {
     // --------------------------------
 
     // State
+    const [aiMode, setAiMode] = useState(false);
+    
+    useEffect(() => {
+        const savedMode = localStorage.getItem("aiMode");
+        if (savedMode === "true") setAiMode(true);
+    }, []);
+    
+    const toggleAiMode = () => {
+        const newMode = !aiMode;
+        setAiMode(newMode);
+        localStorage.setItem("aiMode", String(newMode));
+    };
+
     const [stats, setStats] = useState<StudentStats | null>(null);
     const [lastUpdated, setLastUpdated] = useState<Date>(new Date());
     const [isRefreshing, setIsRefreshing] = useState(false);
@@ -132,12 +147,14 @@ export default function StudentDashboard() {
     }, [stats, completedSteps]);
 
 
+    const { t, language } = useLanguage();
+
     if (!stats || !dayPlan) {
         return (
             <div className="flex items-center justify-center h-screen bg-muted dark:bg-[#000]">
                 <div className="flex flex-col items-center gap-4">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-                    <p className="text-muted-foreground animate-pulse">Calculating your optimal journey...</p>
+                    <p className="text-muted-foreground animate-pulse">{t("common.loading")}</p>
                 </div>
             </div>
         );
@@ -150,15 +167,19 @@ export default function StudentDashboard() {
             <div className="sticky top-0 z-30 bg-card/80 dark:bg-[#000]/80 backdrop-blur-md border-b border-border px-4 py-3">
                 <div className="max-w-4xl mx-auto flex justify-between items-center">
                     <div>
+                        <h2 className="text-[10px] font-bold text-muted-foreground/60 uppercase tracking-wider mb-0.5">
+                            {t("dashboard.welcome")}, {user?.full_name?.split(' ')[0] || 'Student'}!
+                        </h2>
                         <h1 className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
-                            Day {dayPlan.dayNumber}
+                            {t("dashboard.day")} {dayPlan.dayNumber}
                         </h1>
-                        <p className="text-xs text-muted-foreground">
-                            {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
+                        <p className="text-xs text-muted-foreground capitalize">
+                            {new Date().toLocaleDateString(language === 'hi' ? 'hi-IN' : 'en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
                         </p>
                     </div>
 
                     <div className="flex items-center gap-3">
+                        <LanguageToggle />
                         <div className="hidden md:block">
                             <StreakWidget
                                 data={{
@@ -190,7 +211,37 @@ export default function StudentDashboard() {
                 </div>
             </div>
 
-            <div className="max-w-4xl mx-auto px-4 pt-6">
+            <div className={`max-w-4xl mx-auto px-4 pt-6 ${aiMode ? 'border-x border-blue-500/10 shadow-[0_0_15px_rgba(59,130,246,0.02)]' : ''}`}>
+                <div className={`flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 rounded-2xl mb-6 transition-all border ${aiMode ? 'bg-blue-50/50 border-blue-200 dark:bg-blue-900/10 dark:border-blue-800' : 'bg-card border-border'}`}>
+                  <div className="flex items-center gap-3">
+                    <span className="text-sm font-medium text-muted-foreground">
+                      {t("dashboard.studyMode")}:
+                    </span>
+                    <button
+                      onClick={toggleAiMode}
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                        aiMode 
+                          ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20' 
+                          : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                      }`}
+                    >
+                      {aiMode ? t("dashboard.aiModeOn") : t("dashboard.manualMode")}
+                    </button>
+                  </div>
+                  {aiMode && (
+                    <div className="flex flex-col sm:items-end gap-2">
+                      <span className="text-xs text-blue-600 dark:text-blue-400 font-medium">
+                        {t("dashboard.voiceActive")}
+                      </span>
+                      <Link href="/student/ai-portal">
+                        <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full text-sm px-6 h-9">
+                           {t("dashboard.openPortal")} <Sparkles className="w-3.5 h-3.5 ml-2" />
+                        </Button>
+                      </Link>
+                    </div>
+                  )}
+                </div>
+
                 <div className="grid grid-cols-1 gap-6">
                     <DailyMissionCard />
                     <LifeMasteryReport />
@@ -239,14 +290,14 @@ export default function StudentDashboard() {
             <div className="max-w-4xl mx-auto px-4 md:px-8 mt-12">
                 <h2 className="text-lg font-bold text-foreground mb-6 flex items-center gap-2">
                     <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                    Jump to Module
+                    {t("dashboard.jumpToModule")}
                 </h2>
                 <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                     {[
-                        { name: 'Meditation', href: '/student/meditation', emoji: '🧘', color: 'from-indigo-500 to-purple-600', accessKey: 'meditation' },
-                        { name: 'Graphotherapy', href: '/student/graphotherapy', emoji: '✍️', color: 'from-emerald-500 to-teal-600', accessKey: 'graphotherapy' },
+                        { name: t('dashboard.meditation'), href: '/student/meditation', emoji: '🧘', color: 'from-indigo-500 to-purple-600', accessKey: 'meditation' },
+                        { name: t('dashboard.graphotherapy'), href: '/student/graphotherapy', emoji: '✍️', color: 'from-emerald-500 to-teal-600', accessKey: 'graphotherapy' },
                         { name: 'Evening Section', href: '/student/batch1-1/evening', emoji: '🔦', color: 'from-purple-500 to-pink-600', accessKey: 'batch1' },
-                        { name: 'Revision', href: '/student/revision', emoji: '🧠', color: 'from-amber-500 to-orange-600', accessKey: 'revisionPortal' },
+                        { name: t('dashboard.drill'), href: '/student/revision', emoji: '🧠', color: 'from-amber-500 to-orange-600', accessKey: 'revisionPortal' },
                         { name: 'Polity Study', href: '/student/batch1-1/polity', emoji: '📚', color: 'from-blue-500 to-cyan-600', accessKey: 'batch1Polity' },
                         { name: 'Geography Study', href: '/student/batch1/geography', emoji: '🌍', color: 'from-emerald-500 to-green-600', accessKey: 'batch1' },
                         { name: 'Ancient History', href: '/student/batch1-1/ancient-history', emoji: '🏛️', color: 'from-stone-500 to-amber-700', accessKey: 'batch1Polity' },
@@ -267,7 +318,7 @@ export default function StudentDashboard() {
                                 <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${module.color} opacity-10 rounded-bl-full group-hover:opacity-20 transition-opacity`} />
                                 <div className="text-3xl mb-3">{module.emoji}</div>
                                 <div className="font-bold text-foreground">{module.name}</div>
-                                <div className="text-xs text-muted-foreground mt-1">Explore →</div>
+                                <div className="text-xs text-muted-foreground mt-1">{t('dashboard.explore')} →</div>
                             </a>
                         ))}
                 </div>

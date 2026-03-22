@@ -1,0 +1,17 @@
+node_modules/
+.next/
+.vercel/
+.git/
+.npm/
+*.log
+*.txt
+*.py
+*.js
+*.dump
+src/components/upsc/subjects/polity/data/raw_mcqs/
+**/*.pdf
+**/*.mp4
+**/*.mov
+**/*.tar
+**/*.zip
+# But keep important ones if needed (none are needed for build)

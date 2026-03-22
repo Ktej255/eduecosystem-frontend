@@ -97,7 +97,6 @@ const menuItems = [
         name: "Quick Actions",
         icon: Zap,
         children: [
-            { name: "Teacher Portal", href: "/teacher/dashboard", icon: GraduationCap },
             { name: "Student Portal", href: "/student/dashboard", icon: Users },
             { name: "Master Resume", href: "/resume", icon: FileText },
             { name: "Settings", href: "/admin/settings", icon: Settings },

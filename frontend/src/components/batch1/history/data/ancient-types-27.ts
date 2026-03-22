@@ -64,7 +64,7 @@ export interface Subtopic {
 }
 
 export interface Question {
-    id: number;
+    id: string | number;
     question: string;
     options: string[];
     correctAnswer: number;
@@ -97,7 +97,7 @@ export interface ChapterProgress {
 }
 
 export interface AncientTopic27 {
-    id: number;
+    id: string | number;
     part: PartId;
     title: string;
 
@@ -175,7 +175,7 @@ export const ANCIENT_PARTS: AncientPart[] = [
     }
 ];
 
-export const ANCIENT_TOPICS: { id: number; title: string; part: PartId }[] = [
+export const ANCIENT_TOPICS: { id: string | number; title: string; part: PartId }[] = [
     // Part I: Foundations & Early Cultures (1-6)
     { id: 1, title: 'The Importance of Ancient Indian History', part: 'I' },
     { id: 2, title: 'The Construction of Ancient Indian History', part: 'I' },
@@ -217,7 +217,7 @@ export function getAncientPartById(partId: PartId): AncientPart | undefined {
     return ANCIENT_PARTS.find(p => p.id === partId);
 }
 
-export function getAncientTopicById(topicId: number) {
+export function getAncientTopicById(topicId: string | number) {
     return ANCIENT_TOPICS.find(t => t.id === topicId);
 }
 

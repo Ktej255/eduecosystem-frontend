@@ -30,7 +30,11 @@ export default function SubjectAnalytics() {
             // Fetch History Progress (Legacy Store)
             const histStore = getHistoryProgressStore();
             const hData = Object.values(histStore.chapters)
-                .sort((a, b) => a.chapterId - b.chapterId)
+                .sort((a, b) => {
+                    const aid = typeof a.chapterId === 'number' ? a.chapterId : parseInt(a.chapterId);
+                    const bid = typeof b.chapterId === 'number' ? b.chapterId : parseInt(b.chapterId);
+                    return (isNaN(aid) || isNaN(bid)) ? 0 : aid - bid;
+                })
                 .map(c => ({
                     chapter: `Ch ${c.chapterId}`,
                     score: c.mcqScore || 0,
@@ -40,12 +44,16 @@ export default function SubjectAnalytics() {
             // Fetch Polity Progress (New Universal Store)
             const pReports = await getChapterReports('polity');
             // Group by chapterId and get max accuracy
-            const pMastery: Record<number, number> = {};
+            const pMastery: Record<string | number, number> = {};
             pReports.forEach(r => {
                 pMastery[r.chapterId] = Math.max(pMastery[r.chapterId] || 0, r.accuracy || 0);
             });
             const pData = Object.entries(pMastery)
-                .sort((a, b) => parseInt(a[0]) - parseInt(b[0]))
+                .sort((a, b) => {
+                    const aid = parseInt(a[0]);
+                    const bid = parseInt(b[0]);
+                    return (isNaN(aid) || isNaN(bid)) ? a[0].toString().localeCompare(b[0].toString()) : aid - bid;
+                })
                 .map(([chapterId, accuracy]) => ({
                     chapter: `Ch ${chapterId}`,
                     score: accuracy,

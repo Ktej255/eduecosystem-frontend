@@ -223,7 +223,7 @@ export function PaymentGatewayDialog({
         {/* Course Summary */}
         <div className="bg-gray-800/50 rounded-lg p-4 mb-4">
           <div className="flex justify-between items-center mb-2">
-            <span className="text-muted-foreground text-sm">Course</span>
+            <span className="text-muted-foreground text-sm">Item</span>
             <span className="text-white font-medium text-sm">
               {courseTitle}
             </span>

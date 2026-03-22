@@ -13,7 +13,7 @@ import {
     Layers
 } from 'lucide-react';
 import { environmentFlashcards } from '@/components/upsc/subjects/environment/data/flashcards/environment-flashcards';
-import { ENVIRONMENT_MODULES } from '@/components/upsc/subjects/environment/environment-config';
+import { ENVIRONMENT_MODULES } from '@/components/upsc/subjects/environment/data/environment-config';
 
 function FlashcardContent() {
     const searchParams = useSearchParams();

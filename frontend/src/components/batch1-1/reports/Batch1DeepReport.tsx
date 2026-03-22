@@ -671,7 +671,7 @@ function SaturdayTestsReport() {
 
 // --- Chapter MCQ Reports Aggregation ---
 function ChapterMCQReport() {
-    const [allReports, setAllReports] = useState<{ chapterId: number; reports: ChapterTestResult[], subject?: string }[]>([]);
+    const [allReports, setAllReports] = useState<{ chapterId: string | number; reports: ChapterTestResult[], subject?: string }[]>([]);
     const [selectedReport, setSelectedReport] = useState<ChapterTestResult | null>(null);
     const [selectedSubject, setSelectedSubject] = useState<'polity' | 'history' | 'geography' | 'economy' | 'environment' | 'science-tech'>('polity');
 
@@ -704,7 +704,7 @@ function ChapterMCQReport() {
                 const scienceTechReports = await mod.getChapterReports('science-tech');
 
                 // Group by chapter - Geography
-                const geographyByChapter: Record<number, ChapterTestResult[]> = {};
+                const geographyByChapter: Record<string | number, ChapterTestResult[]> = {};
                 geographyReports.forEach(r => {
                     if (!geographyByChapter[r.chapterId]) geographyByChapter[r.chapterId] = [];
                     const mapped: ChapterTestResult = {
@@ -724,11 +724,12 @@ function ChapterMCQReport() {
                 });
 
                 Object.entries(geographyByChapter).forEach(([cid, reports]) => {
-                    chapters.push({ chapterId: parseInt(cid), reports, subject: 'Geography' });
+                    const id = isNaN(parseInt(cid)) ? cid : parseInt(cid);
+                    chapters.push({ chapterId: id, reports, subject: 'Geography' });
                 });
 
                 // Group by chapter - Economy
-                const economyByChapter: Record<number, ChapterTestResult[]> = {};
+                const economyByChapter: Record<string | number, ChapterTestResult[]> = {};
                 economyReports.forEach(r => {
                     if (!economyByChapter[r.chapterId]) economyByChapter[r.chapterId] = [];
                     const mapped: ChapterTestResult = {
@@ -748,11 +749,12 @@ function ChapterMCQReport() {
                 });
 
                 Object.entries(economyByChapter).forEach(([cid, reports]) => {
-                    chapters.push({ chapterId: parseInt(cid), reports, subject: 'Economy' });
+                    const id = isNaN(parseInt(cid)) ? cid : parseInt(cid);
+                    chapters.push({ chapterId: id, reports, subject: 'Economy' });
                 });
 
                 // Group by chapter - Environment
-                const environmentByChapter: Record<number, ChapterTestResult[]> = {};
+                const environmentByChapter: Record<string | number, ChapterTestResult[]> = {};
                 environmentReports.forEach(r => {
                     if (!environmentByChapter[r.chapterId]) environmentByChapter[r.chapterId] = [];
                     const mapped: ChapterTestResult = {
@@ -772,11 +774,12 @@ function ChapterMCQReport() {
                 });
 
                 Object.entries(environmentByChapter).forEach(([cid, reports]) => {
-                    chapters.push({ chapterId: parseInt(cid), reports, subject: 'Environment' });
+                    const id = isNaN(parseInt(cid)) ? cid : parseInt(cid);
+                    chapters.push({ chapterId: id, reports, subject: 'Environment' });
                 });
 
                 // Group by chapter - Sci-Tech
-                const scienceTechByChapter: Record<number, ChapterTestResult[]> = {};
+                const scienceTechByChapter: Record<string | number, ChapterTestResult[]> = {};
                 scienceTechReports.forEach(r => {
                     if (!scienceTechByChapter[r.chapterId]) scienceTechByChapter[r.chapterId] = [];
                     const mapped: ChapterTestResult = {
@@ -796,11 +799,12 @@ function ChapterMCQReport() {
                 });
 
                 Object.entries(scienceTechByChapter).forEach(([cid, reports]) => {
-                    chapters.push({ chapterId: parseInt(cid), reports, subject: 'Science & Tech' });
+                    const id = isNaN(parseInt(cid)) ? cid : parseInt(cid);
+                    chapters.push({ chapterId: id, reports, subject: 'Science & Tech' });
                 });
 
                 // Group by chapter - History
-                const historyByChapter: Record<number, ChapterTestResult[]> = {};
+                const historyByChapter: Record<string | number, ChapterTestResult[]> = {};
 
                 historyReports.forEach(r => {
                     if (!historyByChapter[r.chapterId]) historyByChapter[r.chapterId] = [];
@@ -824,11 +828,12 @@ function ChapterMCQReport() {
                 });
 
                 Object.entries(historyByChapter).forEach(([cid, reports]) => {
-                    chapters.push({ chapterId: parseInt(cid), reports, subject: 'History' });
+                    const id = isNaN(parseInt(cid)) ? cid : parseInt(cid);
+                    chapters.push({ chapterId: id, reports, subject: 'History' });
                 });
 
                 // Group by chapter - Polity (Universal Format)
-                const polityByChapter: Record<number, ChapterTestResult[]> = {};
+                const polityByChapter: Record<string | number, ChapterTestResult[]> = {};
 
                 polityUniversalReports.forEach(r => {
                     if (!polityByChapter[r.chapterId]) polityByChapter[r.chapterId] = [];
@@ -864,14 +869,14 @@ function ChapterMCQReport() {
                 // Update state
                 setAllReports(chapters.sort((a, b) => {
                     if (a.subject !== b.subject) return (a.subject || '').localeCompare(b.subject || '');
-                    return a.chapterId - b.chapterId;
+                    return String(a.chapterId).localeCompare(String(b.chapterId), undefined, { numeric: true });
                 }));
             }).catch(err => {
                 console.error('Error loading universal reports:', err);
-                setAllReports(chapters.sort((a, b) => a.chapterId - b.chapterId));
+                setAllReports(chapters.sort((a, b) => String(a.chapterId).localeCompare(String(b.chapterId), undefined, { numeric: true })));
             });
         } else {
-            setAllReports(chapters.sort((a, b) => a.chapterId - b.chapterId));
+            setAllReports(chapters.sort((a, b) => String(a.chapterId).localeCompare(String(b.chapterId), undefined, { numeric: true })));
         }
 
     }, []);

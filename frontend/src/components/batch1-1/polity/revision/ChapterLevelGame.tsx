@@ -29,7 +29,7 @@ export interface QuestionResult {
 }
 
 export interface ChapterTestResult {
-    chapterNumber: number;
+    chapterNumber: number | string;
     topicName: string;
     levelId: 1 | 2 | 3;
     levelTitle: string;

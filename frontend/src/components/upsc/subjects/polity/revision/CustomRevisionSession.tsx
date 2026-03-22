@@ -32,7 +32,7 @@ interface MCQ {
     question: string;
     options: string[];
     correctAnswer: number;
-    explanation: string;
+    explanation?: string;
 }
 
 export default function CustomRevisionSession() {
@@ -61,12 +61,12 @@ function CustomRevisionSessionContent() {
     // Parse chapter IDs from URL
     const chapterIds = useMemo(() => {
         if (!chaptersParam) return [];
-        return chaptersParam.split(',').map(id => parseInt(id)).filter(id => !isNaN(id));
+        return chaptersParam.split(',').map(id => isNaN(parseInt(id)) ? id : parseInt(id));
     }, [chaptersParam]);
 
     // Get all flashcards from selected chapters
     const flashcards = useMemo(() => {
-        const cards: (Flashcard & { chapterId: number; chapterTitle: string })[] = [];
+        const cards: (Flashcard & { chapterId: string | number; chapterTitle: string })[] = [];
         chapterIds.forEach(id => {
             const chapter = POLITY_REVISION_CHAPTERS.find(ch => ch.id === id);
             if (chapter?.flashcards) {
@@ -81,7 +81,7 @@ function CustomRevisionSessionContent() {
 
     // Get all MCQs from selected chapters
     const mcqs = useMemo(() => {
-        const questions: (MCQ & { chapterId: number; chapterTitle: string })[] = [];
+        const questions: (MCQ & { chapterId: string | number; chapterTitle: string })[] = [];
         chapterIds.forEach(id => {
             const chapter = POLITY_REVISION_CHAPTERS.find(ch => ch.id === id);
             if (chapter?.mcqs) {

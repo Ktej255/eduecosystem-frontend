@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Suspense } from 'react';
 import PaymentFunnelModal from '@/components/upsc/PaymentFunnelModal';
+import { api } from '@/lib/api';
 
 // Product catalog — mirrors backend SUBJECT_PRODUCTS
 const PRODUCTS = [
@@ -31,7 +32,7 @@ const PRODUCTS = [
     {
         id: 'polity',
         title: "Logic Masterclass (Polity)",
-        price: 499,
+        price: 1,
         originalPrice: 1999,
         description: "Master the 'Why' behind every constitutional article. Statement-based MCQs for all 80+ chapters (Laxmikanth Standard).",
         features: ["80+ Chapters (Laxmikanth)", "Statement MCQ Drills", "Revision Flashcards"],
@@ -147,27 +148,11 @@ function StorePageContent() {
         setPurchasing(finalId);
         setError(null);
         try {
-            const token = localStorage.getItem('token');
-            if (!token) {
-                router.push('/login');
-                return;
-            }
-
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/payment/create-order`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify({ subject_id: finalId })
+            const res = await api.post('/payment/create-order', {
+                subject_id: finalId
             });
 
-            if (!res.ok) {
-                const errData = await res.json();
-                throw new Error(errData.detail || 'Order creation failed');
-            }
-
-            const { order_id, payment_session_id } = await res.json();
+            const { order_id, payment_session_id } = res.data;
 
             console.log('[CASHFREE DEBUG] Order created:', { order_id, payment_session_id });
             console.log('[CASHFREE DEBUG] payment_session_id is:', payment_session_id ? 'PRESENT' : '⚠️ NULL/UNDEFINED');
@@ -185,12 +170,9 @@ function StorePageContent() {
                         setError(result.error.message || 'Payment cancelled');
                     } else if (result.paymentDetails) {
                         console.log('[CASHFREE DEBUG] Payment details received, verifying order:', order_id);
-                        const vRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/payment/verify/${order_id}`, {
-                            headers: { 'Authorization': `Bearer ${token}` }
-                        });
-                        if (vRes.ok) {
-                            const vData = await vRes.json();
-                            console.log('[CASHFREE DEBUG] Verification response:', vData);
+                        const vRes = await api.get(`/payment/verify/${order_id}`);
+                        const vData = vRes.data;
+                        console.log('[CASHFREE DEBUG] Verification response:', vData);
                             if (vData.status === 'success') {
                                 router.push(`/student/batch1/${subjectIds[0] === 'polity' || subjectIds[0] === 'level2' ? 'polity' :
                                         subjectIds[0] === 'history_modern' ? 'history' :
@@ -200,8 +182,7 @@ function StorePageContent() {
                                     }?unlocked=1`);
                             }
                         }
-                    }
-                });
+                    });
             } else {
                 console.error('[CASHFREE DEBUG] ⚠️ window.Cashfree is NOT loaded! SDK script may not have loaded yet.');
                 setError('Payment system loading. Please refresh and try again.');

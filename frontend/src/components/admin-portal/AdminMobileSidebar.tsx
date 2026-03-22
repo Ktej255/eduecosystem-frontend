@@ -193,14 +193,6 @@ export default function AdminMobileSidebar() {
                         </h3>
                         <div className="space-y-2 text-sm">
                             <Link
-                                href="/teacher/dashboard"
-                                onClick={() => setIsOpen(false)}
-                                className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 hover:underline py-2 min-h-[44px]"
-                            >
-                                <GraduationCap className="h-4 w-4" />
-                                Teacher Portal
-                            </Link>
-                            <Link
                                 href="/student/dashboard"
                                 onClick={() => setIsOpen(false)}
                                 className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 hover:underline py-2 min-h-[44px]"

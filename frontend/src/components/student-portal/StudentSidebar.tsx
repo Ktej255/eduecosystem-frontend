@@ -40,9 +40,15 @@ const menuItems = [
 
     {
         name: "UPSC",
-        href: "/student/batch1",
+        href: "/student/upsc",
         icon: BookOpen,
-        accessKey: "batch1", // Maps to UserAccess.batch1
+        accessKey: "dashboard", // Available to all as a hub
+    },
+    {
+        name: "UPSC Store",
+        href: "/student/upsc-store",
+        icon: ShoppingBag,
+        accessKey: "dashboard",
     },
     {
         name: "Batch 2",
@@ -111,22 +117,10 @@ const menuItems = [
         accessKey: "community",
     },
     {
-        name: "UPSC Store",
-        href: "/student/upsc-store",
-        icon: ShoppingBag,
-        accessKey: "dashboard",
-    },
-    {
         name: "Revision Portal",
         href: "/student/revision",
         icon: Layers,
         accessKey: "revisionPortal", // Maps to UserAccess.revisionPortal
-    },
-    {
-        name: "Geography",
-        href: "/student/upsc/geography",
-        icon: Globe2,
-        accessKey: "geography",
     },
 ];
 
@@ -402,13 +396,6 @@ export default function StudentSidebar({ isCollapsed, onToggle }: StudentSidebar
                     >
                         <Shield className="h-5 w-5" />
                         <span className="font-medium">Admin Portal</span>
-                    </Link>
-                    <Link
-                        href="/teacher/dashboard"
-                        className="mt-2 flex items-center gap-3 px-4 py-3 rounded-lg bg-gradient-to-r from-emerald-500 to-teal-600 text-white hover:from-emerald-600 hover:to-teal-700 transition-all shadow-lg"
-                    >
-                        <GraduationCap className="h-5 w-5" />
-                        <span className="font-medium">Teacher Portal</span>
                     </Link>
                 </div>
             )}

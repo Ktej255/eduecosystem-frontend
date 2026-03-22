@@ -1,6 +1,6 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_18_SUBTOPICS: Question[] = [
+export const ANCIENT_CHAPTER_18_SUBTOPICS: Subtopic[] = [
     {
         "id": "crafts_guilds",
         "name": "Crafts & Merchant Guilds",

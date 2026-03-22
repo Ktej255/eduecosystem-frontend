@@ -73,6 +73,9 @@ export default function StudentHeader() {
 
                     {/* Desktop Navigation */}
                     <nav className="hidden xl:flex items-center gap-1">
+                        <Button variant="ghost" className="h-9 px-4 py-2 text-sm font-medium text-blue-600 hover:bg-muted dark:hover:bg-gray-800 transition-colors" onClick={() => window.location.href = "/student/upsc"}>
+                            UPSC Hub
+                        </Button>
                         <NavDropdown
                             title="GS 1"
                             items={[

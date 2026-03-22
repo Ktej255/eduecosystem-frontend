@@ -317,7 +317,7 @@ function AnalyticsContent() {
                                                     <YAxis domain={[0, 100]} stroke="#6B7280" fontSize={12} />
                                                     <Tooltip
                                                         contentStyle={{ backgroundColor: '#fff', border: '1px solid #E5E7EB', borderRadius: '8px' }}
-                                                        formatter={(value: number | undefined) => [`${value}%`, 'Score']}
+                                                        formatter={(value: any) => [`${value}%`, 'Score']}
                                                     />
                                                     <Line
                                                         type="monotone"
@@ -360,7 +360,7 @@ function AnalyticsContent() {
                                                             <Cell key={`cell-${index}`} fill={entry.color} />
                                                         ))}
                                                     </Pie>
-                                                    <Tooltip formatter={(value: number | undefined) => [value, 'Questions']} />
+                                                    <Tooltip formatter={(value: any) => [value, 'Questions']} />
                                                     <Legend />
                                                 </PieChart>
                                             </ResponsiveContainer>

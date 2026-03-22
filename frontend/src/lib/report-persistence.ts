@@ -3,7 +3,7 @@ import { TestResult } from '@/components/common/reports/StandardTestReport';
 export interface ChapterReportEntry {
     id: string; // unique ID
     timestamp: string;
-    chapterId: number;
+    chapterId: string | number;
     subject: 'polity' | 'history' | 'geography' | 'economy' | 'environment' | 'science-tech' | 'international-relations' | 'csat';
     score: number;
     totalQuestions: number;
@@ -17,7 +17,7 @@ const STORAGE_KEY_PREFIX = 'universal_chapter_reports_';
 
 export async function saveChapterReport(
     subject: ChapterReportEntry['subject'],
-    chapterId: number,
+    chapterId: string | number,
     result: TestResult,
     level: number = 1
 ) {
@@ -131,8 +131,8 @@ export interface SubjectStats {
     totalQuestions: number;
     totalAttempts: number;
     averageAccuracy: number;
-    masteryByChapter: Record<number, number>; // chapterId -> highest accuracy
-    weakAreas: number[]; // chapterIds with < 50% accuracy
+    masteryByChapter: Record<string | number, number>; // chapterId -> highest accuracy
+    weakAreas: (string | number)[]; // chapterIds with < 50% accuracy
 }
 
 export async function getSubjectStats(subject: ChapterReportEntry['subject']): Promise<SubjectStats> {
@@ -175,7 +175,7 @@ export async function getSubjectStats(subject: ChapterReportEntry['subject']): P
 export interface TrendDataPoint {
     date: string;
     accuracy: number;
-    chapterId: number;
+    chapterId: string | number;
 }
 
 export async function getSubjectTrendData(subject: ChapterReportEntry['subject']): Promise<TrendDataPoint[]> {

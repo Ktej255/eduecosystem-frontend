@@ -29,8 +29,8 @@ const menuItems = [
         icon: LayoutDashboard,
     },
     {
-        name: "Learn",
-        href: "/student/learn",
+        name: "UPSC Hub",
+        href: "/student/upsc",
         icon: BookOpen,
     },
     {
@@ -125,7 +125,7 @@ export default function StudentMobileSidebar() {
                             <AccordionContent className="pl-12 space-y-2 pb-2">
                                 {[
                                     { label: "History", href: "/student/batch1/history" },
-                                    { label: "Geography", href: "/student/upsc/geography" },
+                                    { label: "Geography", href: "/student/upsc" },
                                     { label: "Art & Culture", href: "/student/batch1/art-culture" },
                                     { label: "Indian Society", href: "/student/batch1/society" },
                                 ].map(sub => (

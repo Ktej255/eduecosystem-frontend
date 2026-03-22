@@ -208,7 +208,7 @@ import {
 
 export interface RevisionFlashcard {
     id: number;
-    chapterId: number;
+    chapterId: string | number;
     question: string;
     answer: string;
     category: string;
@@ -217,7 +217,7 @@ export interface RevisionFlashcard {
 
 export interface MCQ {
     id: string | number;
-    chapterId: number;
+    chapterId?: string | number;
     question: string;
     options: string[];
     correctAnswer: number;
@@ -227,7 +227,7 @@ export interface MCQ {
 }
 
 export interface ChapterRevisionData {
-    id: number;
+    id: string | number;
     title: string;
     content: any;
     flashcards: RevisionFlashcard[];

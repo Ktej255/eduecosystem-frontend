@@ -1,0 +1,18 @@
+steps:
+  # 1. Build the frontend image from the localized frontend context
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', '$_GCP_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/frontend:latest', '-f', 'Dockerfile', '--build-arg', 'NEXT_PUBLIC_API_URL=$_BACKEND_URL', '.']
+
+  # 2. Push to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', '$_GCP_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/frontend:latest']
+
+
+substitutions:
+  _GCP_REGION: 'us-central1'
+  _REPO_NAME: 'eduecosystem-repo'
+  _BACKEND_URL: 'https://eduecosystem-backend-503001969959.us-central1.run.app/api/v1'
+
+options:
+  machineType: 'E2_HIGHCPU_8'
+  logging: CLOUD_LOGGING_ONLY

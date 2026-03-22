@@ -33,7 +33,13 @@ import {
     Play,
     Calendar,
     Unlock,
-    Lock
+    Lock,
+    Edit2,
+    ArrowLeft,
+    Download,
+    Eye,
+    Sparkles,
+    Save
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";

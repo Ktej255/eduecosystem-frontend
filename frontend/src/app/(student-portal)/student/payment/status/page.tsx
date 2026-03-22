@@ -4,6 +4,7 @@ import React, { useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { CheckCircle, XCircle, Loader2, ArrowRight, RefreshCw } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { api } from '@/lib/api';
 
 function PaymentStatusContent() {
     const searchParams = useSearchParams();
@@ -22,22 +23,8 @@ function PaymentStatusContent() {
 
         const verifyPayment = async () => {
             try {
-                const token = localStorage.getItem('token');
-                if (!token) {
-                    router.push('/login');
-                    return;
-                }
-
-                const res = await fetch(
-                    `${process.env.NEXT_PUBLIC_API_URL}/payment/verify/${orderId}`,
-                    { headers: { 'Authorization': `Bearer ${token}` } }
-                );
-
-                if (!res.ok) {
-                    throw new Error('Verification request failed');
-                }
-
-                const data = await res.json();
+                const res = await api.get(`/payment/verify/${orderId}`);
+                const data = res.data;
                 setOrderStatus(data.order_status || '');
 
                 if (data.status === 'success') {

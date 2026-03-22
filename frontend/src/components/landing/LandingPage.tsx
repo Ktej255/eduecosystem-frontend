@@ -152,14 +152,6 @@ export default function LandingPage() {
                         delay={0.1}
                     />
                     <PortalCard
-                        title="Teacher Portal"
-                        description="Manage batches, create content, and track student growth."
-                        icon={Users}
-                        href="/teacher/dashboard"
-                        color="bg-accent-green"
-                        delay={0.2}
-                    />
-                    <PortalCard
                         title="Admin CRM"
                         description="Full system control, lead management, and advanced analytics."
                         icon={ShieldCheck}

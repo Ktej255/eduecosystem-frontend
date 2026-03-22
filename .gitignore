@@ -142,4 +142,6 @@ build_temp*/
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+# MCP Config
+.agent/
+.gemini/
