@@ -3,7 +3,9 @@ export interface EnvironmentFlashcard {
     question: string;
     answer: string;
     moduleId: string;
-    hint: string; // UPSC-specific hint or mnemonic
+    hint: string;
+    substitute?: string;
+    topic?: string;
 }
 
 export const environmentFlashcards: EnvironmentFlashcard[] = [

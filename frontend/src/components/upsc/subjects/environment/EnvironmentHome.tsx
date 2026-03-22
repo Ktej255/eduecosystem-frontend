@@ -95,10 +95,14 @@ export default function EnvironmentHome() {
                         </div>
                         <GenericFlashcardSession
                             flashcards={ENVIRONMENT_FLASHCARDS.map(fc => ({
-                                ...fc,
+                                id: fc.id,
+                                front: fc.question,
+                                back: fc.answer,
                                 category: 'concept' as const,
-                                source: fc.topic
-                            }))}
+                                source: fc.topic || fc.moduleId,
+                                moduleId: fc.moduleId,
+                                hint: fc.hint
+                            })) as any}
                             title="Environment"
                             onClose={() => setActiveTab('planner')}
                         />

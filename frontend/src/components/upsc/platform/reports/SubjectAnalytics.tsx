@@ -40,7 +40,7 @@ export default function SubjectAnalytics() {
             // Fetch Polity Progress (New Universal Store)
             const pReports = await getChapterReports('polity');
             // Group by chapterId and get max accuracy
-            const pMastery: Record<number, number> = {};
+            const pMastery: Record<string | number, number> = {};
             pReports.forEach(r => {
                 pMastery[r.chapterId] = Math.max(pMastery[r.chapterId] || 0, r.accuracy);
             });

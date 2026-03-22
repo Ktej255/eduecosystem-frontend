@@ -445,7 +445,7 @@ function ActivityReport() {
                     </CardHeader>
                     <CardContent>
                         <div className="space-y-4">
-                            {Object.entries(stats.byTopic).sort((a, b) => (b[1] as number) - (a[1] as number)).slice(0, 8).map(([topic, count], i) => (
+                            {Object.entries(stats.byTopic).sort((a, b) => (b[1] as any) - (a[1] as any)).slice(0, 8).map(([topic, count], i) => (
                                 <div key={i} className="space-y-1">
                                     <div className="flex justify-between text-xs font-medium">
                                         <span className="text-muted-foreground">{topic}</span>
@@ -508,7 +508,7 @@ function SaturdayTestsReport() {
                         isV2: true,
                         ...data
                     };
-                } catch (e) {
+                } catch (e: any) {
                     console.error('Failed to parse savedV2 for week ' + week.id, e);
                 }
             }
@@ -525,7 +525,7 @@ function SaturdayTestsReport() {
                         paper2Results: { score: data.paper2Score },
                         lastUpdated: data.lastUpdated
                     };
-                } catch (e) {
+                } catch (e: any) {
                     console.error('Failed to parse savedLegacy for week ' + week.id, e);
                 }
             }
@@ -552,7 +552,7 @@ function SaturdayTestsReport() {
                         lastUpdated: data.endTime,
                         specialTitle: test.name
                     } as SaturdayTestResult;
-                } catch (e) {
+                } catch (e: any) {
                     console.error(`Failed to parse saved history for ${test.key}`, e);
                 }
             }
@@ -671,13 +671,13 @@ function SaturdayTestsReport() {
 
 // --- Chapter MCQ Reports Aggregation ---
 function ChapterMCQReport() {
-    const [allReports, setAllReports] = useState<{ chapterId: number; reports: ChapterTestResult[], subject?: string }[]>([]);
+    const [allReports, setAllReports] = useState<{ chapterId: any; reports: ChapterTestResult[], subject?: string }[]>([]);
     const [selectedReport, setSelectedReport] = useState<ChapterTestResult | null>(null);
     const [selectedSubject, setSelectedSubject] = useState<'polity' | 'history' | 'geography' | 'economy' | 'environment' | 'science-tech'>('polity');
 
     useEffect(() => {
         // Scan localStorage for all chapter reports
-        const chapters: { chapterId: number; reports: ChapterTestResult[]; subject?: string }[] = [];
+        const chapters: { chapterId: any; reports: ChapterTestResult[]; subject?: string }[] = [];
 
         // 1. Polygon Reports (Legacy format)
         for (let i = 1; i <= 53; i++) {
@@ -689,7 +689,7 @@ function ChapterMCQReport() {
                     if (reports.length > 0) {
                         chapters.push({ chapterId: i, reports, subject: 'Polity' });
                     }
-                } catch { }
+                } catch (e: any) { }
             }
         }
 
@@ -703,12 +703,12 @@ function ChapterMCQReport() {
                 const scitechReports = await mod.getChapterReports('science-tech');
 
                 // Group by chapter - Geography
-                const geographyByChapter: Record<number, ChapterTestResult[]> = {};
+                const geographyByChapter: Record<string | number, ChapterTestResult[]> = {};
                 geographyReports.forEach(r => {
                     if (!geographyByChapter[r.chapterId]) geographyByChapter[r.chapterId] = [];
                     const mapped: ChapterTestResult = {
-                        chapterNumber: r.chapterId,
-                        chapterId: r.chapterId,
+                        chapterNumber: r.chapterId as any,
+                        chapterId: r.chapterId as any,
                         chapterTitle: `Geography Day ${r.chapterId}`,
                         topicName: `Geography Day ${r.chapterId}`,
                         levelId: (r.level || 1) as 1 | 2 | 3,
@@ -729,12 +729,12 @@ function ChapterMCQReport() {
                 });
 
                 // Group by chapter - Economy
-                const economyByChapter: Record<number, ChapterTestResult[]> = {};
+                const economyByChapter: Record<string | number, ChapterTestResult[]> = {};
                 economyReports.forEach(r => {
                     if (!economyByChapter[r.chapterId]) economyByChapter[r.chapterId] = [];
                     const mapped: ChapterTestResult = {
-                        chapterNumber: r.chapterId,
-                        chapterId: r.chapterId,
+                        chapterNumber: r.chapterId as any,
+                        chapterId: r.chapterId as any,
                         chapterTitle: `Economy Topic ${r.chapterId}`,
                         topicName: `Economy Topic ${r.chapterId}`,
                         levelId: (r.level || 1) as 1 | 2 | 3,
@@ -755,12 +755,12 @@ function ChapterMCQReport() {
                 });
 
                 // Group by chapter - Environment
-                const environmentByChapter: Record<number, ChapterTestResult[]> = {};
+                const environmentByChapter: Record<string | number, ChapterTestResult[]> = {};
                 environmentReports.forEach(r => {
                     if (!environmentByChapter[r.chapterId]) environmentByChapter[r.chapterId] = [];
                     const mapped: ChapterTestResult = {
-                        chapterNumber: r.chapterId,
-                        chapterId: r.chapterId,
+                        chapterNumber: r.chapterId as any,
+                        chapterId: r.chapterId as any,
                         chapterTitle: `Environment Topic ${r.chapterId}`,
                         topicName: `Environment Topic ${r.chapterId}`,
                         levelId: (r.level || 1) as 1 | 2 | 3,
@@ -781,12 +781,12 @@ function ChapterMCQReport() {
                 });
 
                 // Group by chapter - Sci-Tech
-                const scitechByChapter: Record<number, ChapterTestResult[]> = {};
+                const scitechByChapter: Record<string | number, ChapterTestResult[]> = {};
                 scitechReports.forEach(r => {
                     if (!scitechByChapter[r.chapterId]) scitechByChapter[r.chapterId] = [];
                     const mapped: ChapterTestResult = {
-                        chapterNumber: r.chapterId,
-                        chapterId: r.chapterId,
+                        chapterNumber: r.chapterId as any,
+                        chapterId: r.chapterId as any,
                         chapterTitle: `Science & Tech Topic ${r.chapterId}`,
                         topicName: `Science & Tech Topic ${r.chapterId}`,
                         levelId: (r.level || 1) as 1 | 2 | 3,
@@ -807,7 +807,7 @@ function ChapterMCQReport() {
                 });
 
                 // Group by chapter - History
-                const historyByChapter: Record<number, ChapterTestResult[]> = {};
+                const historyByChapter: Record<string | number, ChapterTestResult[]> = {};
 
                 historyReports.forEach(r => {
                     if (!historyByChapter[r.chapterId]) historyByChapter[r.chapterId] = [];
@@ -815,8 +815,8 @@ function ChapterMCQReport() {
                     // Convert Universal format to ChapterTestResult format expected by this component
                     const levelTitles: Record<number, string> = { 1: 'Fundamentals', 2: 'Intermediate', 3: 'Applied' };
                     const mapped: ChapterTestResult = {
-                        chapterNumber: r.chapterId,
-                        chapterId: r.chapterId,
+                        chapterNumber: r.chapterId as any,
+                        chapterId: r.chapterId as any,
                         chapterTitle: `History Chapter ${r.chapterId}`,
                         topicName: `History Chapter ${r.chapterId}`,
                         levelId: (r.level || 1) as 1 | 2 | 3,
@@ -837,15 +837,15 @@ function ChapterMCQReport() {
                 });
 
                 // Group by chapter - Polity (Universal Format)
-                const polityByChapter: Record<number, ChapterTestResult[]> = {};
+                const polityByChapter: Record<string | number, ChapterTestResult[]> = {};
 
                 polityUniversalReports.forEach(r => {
                     if (!polityByChapter[r.chapterId]) polityByChapter[r.chapterId] = [];
 
                     const levelTitles: Record<number, string> = { 1: 'Fundamentals', 2: 'Intermediate', 3: 'Applied' };
                     const mapped: ChapterTestResult = {
-                        chapterNumber: r.chapterId,
-                        chapterId: r.chapterId,
+                        chapterNumber: r.chapterId as any,
+                        chapterId: r.chapterId as any,
                         chapterTitle: `Polity Chapter ${r.chapterId}`,
                         topicName: `Polity Chapter ${r.chapterId}`,
                         levelId: (r.level || 1) as 1 | 2 | 3,
@@ -863,7 +863,7 @@ function ChapterMCQReport() {
 
                 // Merge Polity universal reports with existing legacy reports
                 Object.entries(polityByChapter).forEach(([cid, reports]) => {
-                    const existingIdx = chapters.findIndex(c => c.chapterId === parseInt(cid) && c.subject === 'Polity');
+                    const existingIdx = chapters.findIndex(c => String(c.chapterId) === String(cid) && c.subject === 'Polity');
                     if (existingIdx >= 0) {
                         // Merge with existing
                         chapters[existingIdx].reports = [...reports, ...chapters[existingIdx].reports];
@@ -888,7 +888,7 @@ function ChapterMCQReport() {
     }, []);
 
     const filteredReports = React.useMemo(() => {
-        return allReports.filter(c => (c.subject || 'Polity').toLowerCase() === selectedSubject);
+        return allReports.filter(c => (c.subject || "Polity").toLowerCase() === (selectedSubject as string));
     }, [allReports, selectedSubject]);
 
     // Calculate aggregated stats
@@ -918,14 +918,14 @@ function ChapterMCQReport() {
 
                 // Level stats
                 const level = report.levelId;
-                levelData[level].total += report.questions.length;
-                levelData[level].correct += report.score;
+                (levelData as any)[level].total += report.questions.length;
+                (levelData as any)[level].correct += report.score;
 
                 // Confidence stats
                 report.questions.forEach(q => {
-                    if (q.confidence && confidenceData[q.confidence]) {
-                        confidenceData[q.confidence].total++;
-                        if (q.isCorrect) confidenceData[q.confidence].correct++;
+                    if (q.confidence && (aggregatedStats.confidenceData as any)[q.confidence]) {
+                        (aggregatedStats.confidenceData as any)[q.confidence].total++;
+                        if (q.isCorrect) (aggregatedStats.confidenceData as any)[q.confidence].correct++;
                     }
                 });
             });
@@ -1031,7 +1031,7 @@ function ChapterMCQReport() {
                 </h3>
                 <div className="grid grid-cols-3 gap-4">
                     {[1, 2, 3].map(level => {
-                        const data = aggregatedStats.levelData[level];
+                        const data = (aggregatedStats.levelData as any)[level];
                         const acc = data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0;
                         return (
                             <div key={level} className="p-4 bg-muted rounded-xl text-center">
@@ -1060,7 +1060,7 @@ function ChapterMCQReport() {
                             'blind': 'text-muted-foreground bg-muted',
                         };
                         return (
-                            <div key={level} className={`p-4 rounded-xl text-center ${colors[level] || 'bg-muted'}`}>
+                            <div key={level} className={`p-4 rounded-xl text-center ${(colors as any)[level] || 'bg-muted'}`}>
                                 <p className="text-xs font-bold uppercase">{level.replace('-', ' ')}</p>
                                 <p className="text-2xl font-black">{acc}%</p>
                                 <p className="text-xs opacity-70">{data.correct}/{data.total} correct</p>
