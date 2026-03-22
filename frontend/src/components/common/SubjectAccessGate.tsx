@@ -3,7 +3,7 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { useSubjectAccess } from '@/hooks/useSubjectAccess';
-import { Lock, ShoppingBag, ArrowRight, Globe2, BookOpen, Loader2 } from 'lucide-react';
+import { Lock, ShoppingBag, ArrowRight, Globe2, BookOpen, Loader2, Leaf } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const SUBJECT_META: Record<string, { label: string; icon: React.ReactNode; color: string; price: number }> = {
