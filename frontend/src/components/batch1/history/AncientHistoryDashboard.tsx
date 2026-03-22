@@ -87,7 +87,7 @@ function SectionDots({ progress }: { progress?: ChapterProgress }) {
 
 export default function AncientHistoryDashboard() {
     const router = useRouter();
-    const [progressData, setProgressData] = useState<Record<number, any>>({});
+    const [progressData, setProgressData] = useState<Record<string | number, any>>({});
     const [stats, setStats] = useState({
         completed: 0,
         total: 27,
@@ -175,7 +175,7 @@ export default function AncientHistoryDashboard() {
         }
     };
 
-    const handleTopicClick = (id: number) => {
+    const handleTopicClick = (id: string | number) => {
         router.push(`/student/batch1-1/ancient-history/${id}`);
     };
 
