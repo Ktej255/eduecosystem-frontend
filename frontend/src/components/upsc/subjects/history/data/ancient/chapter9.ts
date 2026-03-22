@@ -1,6 +1,6 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_9_SUBTOPICS: Question[] = [
+export const ANCIENT_CHAPTER_9_SUBTOPICS: Subtopic[] = [
     {
         "id": "causes_origin",
         "name": "Causes for Rise of New Religions",

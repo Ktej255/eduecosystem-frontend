@@ -1,6 +1,6 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_13_SUBTOPICS: Question[] = [
+export const ANCIENT_CHAPTER_13_SUBTOPICS: Subtopic[] = [
     {
         "id": "founding_maurya",
         "name": "Chandragupta Maurya & Founding",

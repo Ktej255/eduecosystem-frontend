@@ -1,6 +1,6 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_14_SUBTOPICS: Question[] = [
+export const ANCIENT_CHAPTER_14_SUBTOPICS: Subtopic[] = [
     {
         "id": "state_economy",
         "name": "State Control of Economy",

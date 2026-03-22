@@ -1,6 +1,6 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_4_SUBTOPICS: Question[] = [
+export const ANCIENT_CHAPTER_4_SUBTOPICS: Subtopic[] = [
     {
         "id": "paleolithic",
         "name": "Paleolithic Age",

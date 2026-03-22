@@ -1,6 +1,6 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_15_SUBTOPICS: Question[] = [
+export const ANCIENT_CHAPTER_15_SUBTOPICS: Subtopic[] = [
     {
         "id": "indo_greeks",
         "name": "Indo-Greeks: Menander & Impact",

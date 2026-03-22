@@ -51,6 +51,7 @@ export interface MCQ {
 export interface Subtopic {
     id: string;
     name: string;
+    explanation?: string;
 }
 
 export interface Question {
@@ -64,7 +65,7 @@ export interface Question {
 }
 
 export interface ChapterData {
-    subtopics: Subtopic[];
+    subtopics: (Subtopic | Question)[]; // Accepts both Subtopic and Question arrays
     mcqs: Question[];
     content: string;
 }

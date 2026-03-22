@@ -143,7 +143,7 @@ export async function analyzeWeakTopics(): Promise<WeakTopic[]> {
             : 2.5;
 
         weakTopics.push({
-            chapterId: chapter.id,
+            chapterId: Number(chapter.id),
             chapterTitle: chapter.title,
             weaknessScore: score,
             reasons,

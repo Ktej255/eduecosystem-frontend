@@ -1,3 +1,13 @@
+export interface MCQ {
+    id: string | number;
+    question: string;
+    options: string[];
+    correctAnswer?: number;
+    explanation?: string;
+    chapterId?: number | string;
+    difficulty?: string;
+}
+
 export const chapter24MCQs: MCQ[] = [
     {
         "id": "24-1",

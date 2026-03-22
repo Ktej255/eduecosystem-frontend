@@ -50,7 +50,7 @@ export default function SRSReviewMode() {
             // Initialize all chapters into SRS system
             for (const ch of POLITY_REVISION_CHAPTERS) {
                 if (ch.flashcards && ch.flashcards.length > 0) {
-                    await initializeChapterForSRS(ch.id, ch.flashcards.length);
+                    await initializeChapterForSRS(Number(ch.id), ch.flashcards.length);
                 }
             }
 

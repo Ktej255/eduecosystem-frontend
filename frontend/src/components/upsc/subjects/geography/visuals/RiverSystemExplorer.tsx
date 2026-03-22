@@ -303,8 +303,8 @@ export default function RiverSystemExplorer() {
                             {/* Rivers Layer — Premium Glowing Gradient Lines */}
                             {filteredRivers.map((river) => {
                                 const isSelected = selectedItem?.type === 'river' && selectedItem.data.id === river.id;
-                                const gradientId = isSelected ? 'url(#selectedGrad)' : (river.type === 'himalayan' ? 'url(#himalayanGrad)' : 'url(#peninsularGrad)');
-                                const glowFilter = isSelected ? 'url(#glowSelected)' : (river.type === 'himalayan' ? 'url(#glowHimalayan)' : 'url(#glowPeninsular)');
+                                const gradientId = isSelected ? 'url(#selectedGrad)' : ((river.type as string) === 'himalayan' ? 'url(#himalayanGrad)' : 'url(#peninsularGrad)');
+                                const glowFilter = isSelected ? 'url(#glowSelected)' : ((river.type as string) === 'himalayan' ? 'url(#glowHimalayan)' : 'url(#glowPeninsular)');
                                 
                                 return (
                                     <g key={river.id} onClick={() => handleSelectRiver(river)} style={{ cursor: 'pointer' }}>
@@ -444,7 +444,7 @@ export default function RiverSystemExplorer() {
                                         key={dam.id} 
                                         coordinates={[dam.coordinates.lng, dam.coordinates.lat]}
                                         onClick={() => handleSelectDam(dam)}
-                                        style={{ cursor: 'pointer' }}
+                                        style={{ cursor: 'pointer' } as any}
                                     >
                                         <g transform={`scale(${isSelected ? 1.5 : 1})`} className="transition-transform duration-200">
                                             {/* Outer beacon ring (always visible) */}

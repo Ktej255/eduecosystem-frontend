@@ -22,6 +22,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 export default function AffiliateDashboardPage() {
   const [stats, setStats] = useState<AffiliateStats | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [registering, setRegistering] = useState(false);
   const [registrationData, setRegistrationData] = useState<AffiliateRegister>({
     payment_method: "paypal",
@@ -32,12 +33,16 @@ export default function AffiliateDashboardPage() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
+        setError(null);
         const data = await affiliateService.getStats();
         setStats(data);
-      } catch (error: any) {
-        // If 404, user is not registered yet
-        if (error.response?.status !== 404) {
-          console.error("Failed to fetch affiliate stats:", error);
+      } catch (err: any) {
+        // If 404, user is not registered yet -- this is not an error
+        if (err.response?.status === 404) {
+          setStats(null);
+        } else {
+          console.error("Failed to fetch affiliate stats:", err);
+          setError("Failed to load affiliate data. Please try again later.");
         }
       } finally {
         setLoading(false);
@@ -72,6 +77,20 @@ export default function AffiliateDashboardPage() {
     return (
       <div className="flex items-center justify-center h-screen">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="container mx-auto py-12 px-4 max-w-2xl">
+        <Alert variant="destructive">
+          <AlertTitle>Error</AlertTitle>
+          <AlertDescription>{error}</AlertDescription>
+        </Alert>
+        <div className="mt-4 flex justify-center">
+            <Button onClick={() => window.location.reload()}>Retry</Button>
+        </div>
       </div>
     );
   }

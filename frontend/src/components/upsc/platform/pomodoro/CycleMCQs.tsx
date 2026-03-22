@@ -35,6 +35,7 @@ function generateMCQsForSubtopics(subtopics: SubTopic[]): MCQ[] {
                     'Option D related to comparative analysis'
                 ],
                 correctIndex: correctIdx,
+                correctAnswer: correctIdx,
                 explanation: `The correct answer explains the key aspects of ${subtopic.label} as defined in the Constitution. [Detailed explanation to be added]`
             });
         }

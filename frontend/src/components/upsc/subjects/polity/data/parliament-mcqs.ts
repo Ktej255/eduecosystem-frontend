@@ -13,6 +13,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'All union territories have representation in the Rajya Sabha as per the allocation of seats based on population.'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'Not all UTs are represented; the text states: "Out of the eight union territories, only three... have representation in Rajya Sabha."',
         difficulty: 'Moderate'
     },
@@ -27,6 +28,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, and 3'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'All three statements are explicitly found in the text.',
         difficulty: 'Moderate'
     },
@@ -41,6 +43,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, and 3'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Statement 1 is incorrect; the Constitution adopted "Territorial Representation" for Lok Sabha, not proportional.',
         difficulty: 'Moderate'
     },
@@ -57,6 +60,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Retiring members are not eligible for re-nomination.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'The text explicitly says: "The Constitution has not fixed the term of office... and left it to the Parliament."',
         difficulty: 'Tough'
     },
@@ -71,6 +75,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, and 3'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'All statements are correct as per the "Duration of Lok Sabha" section.',
         difficulty: 'Moderate'
     },
@@ -87,6 +92,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'The President of India, according to the opinion of the Supreme Court'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'The President\'s decision is final, but he "should obtain the opinion of the election commission and act accordingly".',
         difficulty: 'Moderate'
     },
@@ -101,6 +107,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Director of a private company'
         ],
         correctIndex: 0,
+        correctAnswer: 0,
         explanation: 'The text lists disqualifications but notes: "except that of a minister or any other office exempted by Parliament".',
         difficulty: 'Easy'
     },
@@ -115,6 +122,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'If elected to both Parliament and State Legislature, State seat becomes vacant if he does not resign Parliament within 14 days.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Statement A is wrong; Rajya Sabha seat becomes vacant. Statement D is wrong; Parliament seat becomes vacant.',
         difficulty: 'Tough'
     },
@@ -131,6 +139,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, and 3'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'The text confirms effective majority, 14 days notice, and the right to vote in the first instance.',
         difficulty: 'Moderate'
     },
@@ -145,6 +154,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Has a casting vote in every instance.'
         ],
         correctIndex: 2,
+        correctAnswer: 2,
         explanation: 'Salaries are charged (not voted), removal requires effective majority, casting vote is only for ties.',
         difficulty: 'Easy'
     },
@@ -161,6 +171,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Cannot be disqualified for defying whip if Speaker permits.'
         ],
         correctIndex: 2,
+        correctAnswer: 2,
         explanation: 'The Whip is mentioned neither in the Constitution, nor Rules, nor Statute, but is based on conventions.',
         difficulty: 'Moderate'
     },
@@ -177,6 +188,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 3, and 4 only'
         ],
         correctIndex: 0,
+        correctAnswer: 0,
         explanation: 'Statement 3 is incorrect; Adjournment is done by presiding officer, Prorogation by President.',
         difficulty: 'Moderate'
     },
@@ -191,6 +203,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Bill passed by both Houses returned by President.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'A bill does not lapse if the President has notified a joint sitting before dissolution.',
         difficulty: 'Moderate'
     },
@@ -205,6 +218,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'One-third of members present.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'The Constitution fixes quorum as one-tenth of total membership, including the presiding officer.',
         difficulty: 'Easy'
     },
@@ -221,6 +235,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, and 3'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'All definitions provided are strictly accurate as per the "Question Hour" section.',
         difficulty: 'Easy'
     },
@@ -235,6 +250,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Introduced in 1952.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Zero Hour is an Indian innovation from 1962, not in Rules, and fills the gap between Question Hour and the agenda.',
         difficulty: 'Easy'
     },
@@ -249,6 +265,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Censure Motion'
         ],
         correctIndex: 2,
+        correctAnswer: 2,
         explanation: 'Adjournment Motion. Calling Attention Motion does not require the support of 50 members.',
         difficulty: 'Moderate'
     },
@@ -263,6 +280,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, and 3'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Statement 1 is reversed; Censure motion must state the grounds, whereas No-Confidence motion need not state grounds.',
         difficulty: 'Moderate'
     },
@@ -279,6 +297,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Consideration Stage'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'Clause-by-clause discussion and voting happen during the Consideration Stage of the Second Reading.',
         difficulty: 'Easy'
     },
@@ -293,6 +312,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'President can return for reconsideration.'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'The President cannot return a Money Bill for reconsideration. He can only give assent or withhold assent.',
         difficulty: 'Easy'
     },
@@ -307,6 +327,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Leader of the House'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'If Speaker and Deputy Speaker are absent, the Deputy Chairman presides. The Chairman of Rajya Sabha never presides over a joint sitting.',
         difficulty: 'Moderate'
     },
@@ -323,6 +344,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Presentation -> General Discussion -> Scrutiny -> Voting -> Finance -> Approp'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'The correct order is: Presentation -> General Discussion -> Scrutiny by Departmental Committees -> Voting on Demands for Grants -> Passing of Appropriation Bill -> Passing of Finance Bill.',
         difficulty: 'Moderate'
     },
@@ -337,6 +359,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1-Excess, 2-Exceptional, 3-Vote of Credit'
         ],
         correctIndex: 0,
+        correctAnswer: 0,
         explanation: 'Vote of Credit = blank cheque; Exceptional Grant = special purpose; Excess Grant = spent in excess.',
         difficulty: 'Moderate'
     },
@@ -351,6 +374,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, and 3'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'All definitions are strictly correct.',
         difficulty: 'Easy'
     },
@@ -365,6 +389,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Authorizes expenditure from Contingency Fund.'
         ],
         correctIndex: 0,
+        correctAnswer: 0,
         explanation: 'No amendment can be proposed which will have the effect of varying the amount or altering the destination of any grant.',
         difficulty: 'Moderate'
     },
@@ -381,6 +406,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, 3, and 4'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Approval of ordinances requires assent of both Houses (Equal status). In Money Bills, Voting on Grants, and No-Confidence, RS is unequal.',
         difficulty: 'Moderate'
     },
@@ -395,6 +421,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, and 3'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'All three are special powers exclusive to Rajya Sabha.',
         difficulty: 'Easy'
     },
@@ -411,6 +438,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 3, and 4 only'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Freedom from arrest is an Individual Privilege, not Collective.',
         difficulty: 'Moderate'
     },
@@ -425,6 +453,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, and 3'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Privilege applies only to civil cases, NOT criminal or preventive detention.',
         difficulty: 'Moderate'
     },
@@ -441,6 +470,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, 3, and 4'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'All four factors limit the sovereignty of the Indian Parliament.',
         difficulty: 'Easy'
     },
@@ -457,6 +487,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 3, and 4 only'
         ],
         correctIndex: 0,
+        correctAnswer: 0,
         explanation: 'Statement 3 incorrect. FB(II) can be introduced in either House.',
         difficulty: 'Tough'
     },
@@ -471,6 +502,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1-b, 2-c, 3-d, 4-a'
         ],
         correctIndex: 0,
+        correctAnswer: 0,
         explanation: 'Matching descriptions are correct in Option A.',
         difficulty: 'Moderate'
     },
@@ -485,6 +517,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Statutory body established by Act of 1992.'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'It is not a statutory body; it is a scheme.',
         difficulty: 'Easy'
     },
@@ -499,6 +532,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, and 3'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'All definitions correct.',
         difficulty: 'Moderate'
     },
@@ -513,6 +547,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Lack of strong opposition.'
         ],
         correctIndex: 2,
+        correctAnswer: 2,
         explanation: 'Increased size is not listed as a factor. Time, technical nature, delegated legislation, guillotine are.',
         difficulty: 'Easy'
     },
@@ -527,6 +562,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Emergency legislation.'
         ],
         correctIndex: 2,
+        correctAnswer: 2,
         explanation: 'Detailed rules made by Executive within framework of parent law.',
         difficulty: 'Easy'
     },
@@ -541,6 +577,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, 3, and 4'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'All are valid restrictions.',
         difficulty: 'Moderate'
     },
@@ -555,6 +592,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Public defeat = resignation, Private defeat = no implication.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Private bill reflects opposition stand generally, but can be introduced by ruling party MP. However, this is the best choice among options as others are strict rules.',
         difficulty: 'Moderate'
     },
@@ -569,6 +607,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, and 3'
         ],
         correctIndex: 0,
+        correctAnswer: 0,
         explanation: 'Statutory Resolution can be moved by private member also.',
         difficulty: 'Moderate'
     },
@@ -583,6 +622,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Not open to amendments.'
         ],
         correctIndex: 2,
+        correctAnswer: 2,
         explanation: 'Defeat of Motion of Thanks amounts to defeat of government.',
         difficulty: 'Moderate'
     },
@@ -597,6 +637,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Supersede original.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Intended to retard or delay progress.',
         difficulty: 'Easy'
     },
@@ -611,6 +652,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, 3, and 4'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'All statements correct.',
         difficulty: 'Easy'
     },
@@ -625,6 +667,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Different numbers.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Crucial: Panel members cannot preside if the office is vacant (resignation/death). Only if absent.',
         difficulty: 'Tough'
     },
@@ -639,6 +682,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1-a, 2-b, 3-c'
         ],
         correctIndex: 0,
+        correctAnswer: 0,
         explanation: 'Consolidated=Law needed (c); Public Account=Executive action (b); Contingency=President disposal (a).',
         difficulty: 'Moderate'
     },
@@ -653,6 +697,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Minister from RS can vote only in LS.'
         ],
         correctIndex: 0,
+        correctAnswer: 0,
         explanation: 'Both have right to speak/participate in either House. Neither can vote in house they don\'t belong to.',
         difficulty: 'Easy'
     },
@@ -667,6 +712,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, and 3'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'All statements correct.',
         difficulty: 'Easy'
     },
@@ -681,6 +727,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Defying whip.'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'Defying whip leads to disqualification (10th sched), but not the specific Rs 500 constitutionally prescribed penalty definition.',
         difficulty: 'Moderate'
     },
@@ -692,6 +739,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1', '2', '3', '4'
         ],
         correctIndex: 2,
+        correctAnswer: 2,
         explanation: 'Speaker/Chairman can refuse if satisfied it is not voluntary/genuine.',
         difficulty: 'Moderate'
     },
@@ -706,6 +754,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Passed by LS, pending in RS.'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'Passed by LS and pending in RS lapses. Others do not.',
         difficulty: 'Moderate'
     },
@@ -720,6 +769,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, and 3'
         ],
         correctIndex: 0,
+        correctAnswer: 0,
         explanation: 'Chairman RS NEVER presides. Deputy Chairman presides if Speaker/Deputy Speaker absent.',
         difficulty: 'Moderate'
     },
@@ -734,6 +784,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, and 3'
         ],
         correctIndex: 0,
+        correctAnswer: 0,
         explanation: 'Salary fixed by Parliament, not President.',
         difficulty: 'Moderate'
     },
@@ -748,6 +799,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Appointed by President.'
         ],
         correctIndex: 2,
+        correctAnswer: 2,
         explanation: 'Headed by Secretary-General. Presiding officer appoints, Parliament regulates.',
         difficulty: 'Moderate'
     },
@@ -762,6 +814,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, and 3'
         ],
         correctIndex: 0,
+        correctAnswer: 0,
         explanation: 'Not mentioned in Constitution.',
         difficulty: 'Easy'
     },
@@ -776,6 +829,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Debt charges.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'HC Judges salaries = State Consolidated Fund. Pensions = Centre Consolidated Fund.',
         difficulty: 'Tough'
     },
@@ -790,6 +844,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Motion to increase allowed.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Exclusive to LS. Cannot increase amount.',
         difficulty: 'Easy'
     },
@@ -804,6 +859,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, 3, and 4'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'All Correct.',
         difficulty: 'Moderate'
     },
@@ -818,6 +874,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Ministers only.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Equivalent to Rule 377 in LS.',
         difficulty: 'Moderate'
     },
@@ -832,6 +889,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Appointed Minister.'
         ],
         correctIndex: 0,
+        correctAnswer: 0,
         explanation: 'Independent joins any party = disqualified.',
         difficulty: 'Easy'
     },
@@ -846,6 +904,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Only opposition.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Grace period of 6 months.',
         difficulty: 'Easy'
     },
@@ -860,6 +919,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Total membership majority.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Effective majority.',
         difficulty: 'Moderate'
     },
@@ -874,6 +934,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, 3, and 4'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'All are differences.',
         difficulty: 'Moderate'
     },
@@ -888,6 +949,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, 3, and 4'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'All correct.',
         difficulty: 'Tough'
     },
@@ -902,6 +964,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'All of above.'
         ],
         correctIndex: 0,
+        correctAnswer: 0,
         explanation: 'Primary reasons: Complexity and Instability.',
         difficulty: 'Moderate'
     },
@@ -916,6 +979,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, 3, and 4'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'All are judicial functions.',
         difficulty: 'Easy'
     },
@@ -930,6 +994,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, 3, and 4'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'All are electoral functions.',
         difficulty: 'Easy'
     },
@@ -944,6 +1009,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, 3, 4, 5'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'All 5 are sources.',
         difficulty: 'Moderate'
     },
@@ -958,6 +1024,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Voting.'
         ],
         correctIndex: 2,
+        correctAnswer: 2,
         explanation: 'Committee stage = detailed exam by committee.',
         difficulty: 'Easy'
     },
@@ -972,6 +1039,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, 3, 4'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'All options available.',
         difficulty: 'Easy'
     },
@@ -986,6 +1054,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Disqualified.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'RS seat becomes vacant.',
         difficulty: 'Moderate'
     },
@@ -1000,6 +1069,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Hold both.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'First house (LS) seat vacant immediately.',
         difficulty: 'Moderate'
     },
@@ -1014,6 +1084,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Treaties.'
         ],
         correctIndex: 0,
+        correctAnswer: 0,
         explanation: 'Art 249 is specifically RS resolution.',
         difficulty: 'Easy'
     },
@@ -1028,6 +1099,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, 3'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'All Correct.',
         difficulty: 'Moderate'
     },
@@ -1042,6 +1114,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'RS Special majority needed.'
         ],
         correctIndex: 2,
+        correctAnswer: 2,
         explanation: 'Once passed under 252, states lose power. Only Parliament can amend/repeal.',
         difficulty: 'Tough'
     },
@@ -1056,6 +1129,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'No quorum session.'
         ],
         correctIndex: 2,
+        correctAnswer: 2,
         explanation: 'Session of old LS *after* new one elected.',
         difficulty: 'Easy'
     },
@@ -1070,6 +1144,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Nominated.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Outgoing members not returning.',
         difficulty: 'Easy'
     },
@@ -1084,6 +1159,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Refer to Supreme Court.'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'refer to SC is Art 143.',
         difficulty: 'Easy'
     },
@@ -1098,6 +1174,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Money + Const Amd + Fin Bill I.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'No Joint Sitting for Money Bills or Constitutional Amendments.',
         difficulty: 'Moderate'
     },
@@ -1112,6 +1189,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Scrutiny.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Pass or fail, no amendments allowed.',
         difficulty: 'Easy'
     },
@@ -1126,6 +1204,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Finance Minister.'
         ],
         correctIndex: 2,
+        correctAnswer: 2,
         explanation: 'Speaker decision final.',
         difficulty: 'Easy'
     },
@@ -1140,6 +1219,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Speaker certificate.'
         ],
         correctIndex: 2,
+        correctAnswer: 2,
         explanation: 'Note: Intro per se doesnt need rec, but *consideration* needs President recommendation.',
         difficulty: 'Tough'
     },
@@ -1154,6 +1234,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, 3, 4'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'Requirement 4 Certifies Money Bill - Required for transmission to RS AND President.',
         difficulty: 'Moderate'
     },
@@ -1168,6 +1249,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1-a, 2-b, 3-c, 4-d'
         ],
         correctIndex: 0,
+        correctAnswer: 0,
         explanation: 'Ord=None; Money=Intro+Cons; FI=Intro; FII=Cons.',
         difficulty: 'Tough'
     },
@@ -1182,6 +1264,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Moved consideration LS only.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Both need Pres Rec for intro.',
         difficulty: 'Moderate'
     },
@@ -1196,6 +1279,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Vote charged exp.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Grant in advance pending full budget.',
         difficulty: 'Easy'
     },
@@ -1210,6 +1294,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Not money bill conditions.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Finance Bill = Taxation/Income side.',
         difficulty: 'Easy'
     },
@@ -1224,6 +1309,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'President decides.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'All seats vacant.',
         difficulty: 'Moderate'
     },
@@ -1238,6 +1324,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '6 months'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: '14 days.',
         difficulty: 'Easy'
     },
@@ -1252,6 +1339,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, 3'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'All correct.',
         difficulty: 'Moderate'
     },
@@ -1266,6 +1354,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'More than half hour.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: '2 days a week allotted.',
         difficulty: 'Easy'
     },
@@ -1280,6 +1369,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Both A and C.'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'Froze number (84th), but allowed remixing boundaries based on 1991 (84th) then 2001 (87th).',
         difficulty: 'Tough'
     },
@@ -1298,6 +1388,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Presiding Officer cannot permit mother tongue if fluent in others.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Statement A wrong (Presiding Officer permission). C wrong (English used). D wrong (can permit). B correct.',
         difficulty: 'Moderate'
     },
@@ -1312,6 +1403,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, 3, and 4'
         ],
         correctIndex: 0,
+        correctAnswer: 0,
         explanation: '3 is wrong (Present and voting, not total membership). 4 is wrong (Chairman RS never presides).',
         difficulty: 'Tough'
     },
@@ -1328,6 +1420,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Neither, all days counted.'
         ],
         correctIndex: 2,
+        correctAnswer: 2,
         explanation: 'Excludes periods of adjournment or prorogation of more than 4 consecutive days.',
         difficulty: 'Moderate'
     },
@@ -1342,6 +1435,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Rules of Procedure.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Found in Representation of the People Act, 1951.',
         difficulty: 'Moderate'
     },
@@ -1358,6 +1452,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Voted only in RS.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Amendments accepted. Must pass in both houses else govt falls.',
         difficulty: 'Moderate'
     },
@@ -1372,6 +1467,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Remain in record with asterisk.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Sole authority of Presiding Officer. Expunged portions removed from record.',
         difficulty: 'Easy'
     },
@@ -1388,6 +1484,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, 3, 4'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'All functions justify President as integral part.',
         difficulty: 'Easy'
     },
@@ -1402,6 +1499,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'No privileges.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Can participate (Art 88) but cannot vote. Must join in 6 months.',
         difficulty: 'Moderate'
     },
@@ -1418,6 +1516,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Passed by LS alone if RS rejects.'
         ],
         correctIndex: 2,
+        correctAnswer: 2,
         explanation: 'Ordinary bill character, but needs recommendation for consideration stage.',
         difficulty: 'Tough'
     },
@@ -1432,6 +1531,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Laski'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Quote by De Lolme.',
         difficulty: 'Tough'
     },
@@ -1448,6 +1548,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '1, 2, 3'
         ],
         correctIndex: 0,
+        correctAnswer: 0,
         explanation: 'For 15 years, not 25. Can be extended.',
         difficulty: 'Moderate'
     },
@@ -1462,6 +1563,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'UT seats only.'
         ],
         correctIndex: 2,
+        correctAnswer: 2,
         explanation: 'Applies to total seats including those reserved for SC/STs.',
         difficulty: 'Moderate'
     },
@@ -1476,6 +1578,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '2, 3, 4'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'LS is Peacock, RS is Lotus (Reverse of option 1, 2).',
         difficulty: 'Easy'
     },
@@ -1490,6 +1593,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Both A and C.'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'No Central Hall. A and C are correct.',
         difficulty: 'Moderate'
     },
@@ -1506,6 +1610,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Casting vote even if no tie.'
         ],
         correctIndex: 2,
+        correctAnswer: 2,
         explanation: 'Vote only in case of equality of votes.',
         difficulty: 'Easy'
     },
@@ -1520,6 +1625,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Both A and B.'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'Both A and B strictly from Art 122.',
         difficulty: 'Moderate'
     },
@@ -1536,6 +1642,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'RS return Money Bill.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Putting undiscussed demands to vote due to time limit.',
         difficulty: 'Easy'
     },
@@ -1552,6 +1659,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Passed LS, pending RS.'
         ],
         correctIndex: 2,
+        correctAnswer: 2,
         explanation: 'Pending in RS and not passed by LS does not lapse.',
         difficulty: 'Moderate'
     },
@@ -1566,6 +1674,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'No action (freedom of speech).'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: '10th Schedule disqualification.',
         difficulty: 'Easy'
     },
@@ -1580,6 +1689,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Any 8th sched language.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Discretion of Presiding Officer.',
         difficulty: 'Moderate'
     },
@@ -1596,6 +1706,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Can be sued for speech outside referring to House.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Immunity from court proceedings for speech/vote in House.',
         difficulty: 'Moderate'
     },
@@ -1610,6 +1721,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Reviewing disqualification.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Specific prohibition on inquiring into procedural irregularities.',
         difficulty: 'Moderate'
     },
@@ -1624,6 +1736,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'No role in RS.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'PM nominates if not member of that house.',
         difficulty: 'Moderate'
     },
@@ -1638,6 +1751,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'All of the above.'
         ],
         correctIndex: 3,
+        correctAnswer: 3,
         explanation: 'All statements correct.',
         difficulty: 'Tough'
     },
@@ -1652,6 +1766,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Voted after Appropriation.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Can be discussed, but not voted.',
         difficulty: 'Moderate'
     },
@@ -1666,6 +1781,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             '500 words length.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Focus on official capacity.',
         difficulty: 'Moderate'
     },
@@ -1680,6 +1796,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'All 5.'
         ],
         correctIndex: 0,
+        correctAnswer: 0,
         explanation: 'Cooperative Movement is for State Legislative Council, not RS.',
         difficulty: 'Moderate'
     },
@@ -1694,6 +1811,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'FPTP.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Prop Rep via Single Transferable Vote.',
         difficulty: 'Easy'
     },
@@ -1708,6 +1826,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Speaker First LS.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Presented to Nehru on Aug 14, 1947.',
         difficulty: 'Easy'
     },
@@ -1722,6 +1841,7 @@ export const PARLIAMENT_MCQS: MCQ[] = [
             'Outside structure.'
         ],
         correctIndex: 1,
+        correctAnswer: 1,
         explanation: 'Houses heritage/museum.',
         difficulty: 'Easy'
     }

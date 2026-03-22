@@ -2,7 +2,7 @@ export interface MCQ {
     id: number | string;
     question: string;
     options: string[];
-    correctAnswer: number; // 0-based index
+    correctAnswer?: number; // 0-based index (optional for backward compat)
     correctIndex?: number; // Legacy compatibility
     
     /** @deprecated Use correctAnswer */

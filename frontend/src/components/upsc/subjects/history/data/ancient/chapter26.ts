@@ -1,6 +1,6 @@
 import { Subtopic, Question } from '../ancient-types-27';
 
-export const ANCIENT_CHAPTER_26_SUBTOPICS: Question[] = [
+export const ANCIENT_CHAPTER_26_SUBTOPICS: Subtopic[] = [
     {
         "id": "feudal_economy",
         "name": "Decline of Trade and Rise of Feudal Economy",

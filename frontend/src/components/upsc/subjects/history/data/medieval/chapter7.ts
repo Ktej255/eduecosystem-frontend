@@ -1,6 +1,7 @@
 export interface Subtopic {
     id: string;
     name: string;
+    explanation?: string;
 }
 
 export interface Question {
@@ -13,7 +14,7 @@ export interface Question {
     difficulty?: 'Easy' | 'Moderate' | 'Hard';
 }
 
-export const MEDIEVAL_CHAPTER_7_SUBTOPICS: Question[] = [
+export const MEDIEVAL_CHAPTER_7_SUBTOPICS: Subtopic[] = [
     {
         "id": "timur",
         "name": "Timur's Invasion",

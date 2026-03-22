@@ -27,6 +27,7 @@ export interface HistoryMCQ {
     explanation?: string;
     chapterId?: number | string;
     isCurrentAffair?: boolean;
+    difficulty?: string;
 }
 
 export interface MCQResult {

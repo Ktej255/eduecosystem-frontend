@@ -36,9 +36,9 @@ import CurrentAffairsDashboard from './CurrentAffairsDashboard';
 
 
 export default function RevisionDashboard() {
-    const [progress, setProgress] = useState<Record<number, RevisionProgress>>({});
+    const [progress, setProgress] = useState<Record<string | number, RevisionProgress>>({});
     const [streak, setStreak] = useState<StudyStreak>({ currentStreak: 0, longestStreak: 0, lastStudyDate: null, totalDaysStudied: 0 });
-    const [selectedChapters, setSelectedChapters] = useState<number[]>([]);
+    const [selectedChapters, setSelectedChapters] = useState<(string | number)[]>([]);
     const [filterMode, setFilterMode] = useState<'all' | 'incomplete' | 'mastered'>('all');
     const [showCustomSession, setShowCustomSession] = useState(false);
 
@@ -82,7 +82,7 @@ export default function RevisionDashboard() {
     }, [progress, filterMode]);
 
     // Toggle chapter selection
-    const toggleChapter = (id: number) => {
+    const toggleChapter = (id: string | number) => {
         setSelectedChapters(prev =>
             prev.includes(id) ? prev.filter(c => c !== id) : [...prev, id]
         );

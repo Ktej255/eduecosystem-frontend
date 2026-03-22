@@ -42,7 +42,6 @@ const CATEGORY_COLORS: Record<FeatureType, string> = {
   'peak': '#f43f5e', // Rose
   'unesco-site': '#eab308', // Yellow
   'tiger-reserve': '#f97316', // Orange
-  'biosphere': '#10b981', // Emerald
   'wetland': '#06b6d4' // Cyan
 };
 
@@ -589,7 +588,7 @@ export default function IndiaInteractiveMap() {
                   isSelected={selectedLocation?.id === feature.id}
                   isMastered={masteredLocations.has(feature.id)}
                   isDark={isDark}
-                  onClick={(nodeType) => handleMarkerClick(nodeType ? { ...feature, nodeType } : feature)}
+                  onClick={(nodeType) => handleMarkerClick(nodeType ? { ...feature, nodeType: (nodeType === 'origin' ? 'Origin' : nodeType === 'mouth' ? 'Mouth' : 'Confluence') as 'Origin' | 'Mouth' | 'Confluence' } : feature)}
                 />
               ))}
 

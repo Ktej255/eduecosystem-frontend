@@ -220,7 +220,7 @@ export interface MCQ {
     chapterId?: string | number;
     question: string;
     options: string[];
-    correctAnswer: number;
+    correctAnswer?: number; // 0-based index (optional for backward compat)
     correctIndex?: number; // Legacy compatibility
     explanation?: string;
     difficulty?: 'Easy' | 'Moderate' | 'Tough' | 'easy' | 'medium' | 'hard' | 'L1' | 'L2' | 'L3' | 'Level_1' | 'Level_2' | 'Level_3';

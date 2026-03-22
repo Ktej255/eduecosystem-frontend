@@ -422,7 +422,7 @@ export default function ResourceAtlasSimulator() {
                   <div className="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 relative"
                        style={{ backgroundColor: `${CATEGORY_COLORS[selectedDeposit.category]}15`, border: `1px solid ${CATEGORY_COLORS[selectedDeposit.category]}40`, boxShadow: `0 0 20px ${CATEGORY_COLORS[selectedDeposit.category]}20` }}>
                     <span style={{ color: CATEGORY_COLORS[selectedDeposit.category] }}>
-                      {React.cloneElement(CATEGORY_ICONS[selectedDeposit.category] as React.ReactElement, { className: "w-8 h-8 relative z-10" })}
+                      {React.cloneElement(CATEGORY_ICONS[selectedDeposit.category] as React.ReactElement<any>, { className: "w-8 h-8 relative z-10" })}
                     </span>
                     <div className="absolute inset-0 blur-lg rounded-2xl" style={{ backgroundColor: `${CATEGORY_COLORS[selectedDeposit.category]}20` }} />
                   </div>

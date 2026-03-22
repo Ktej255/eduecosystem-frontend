@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { BookOpen, Target, Flashlight, Newspaper, Globe, History, CheckCircle2, AlertCircle, Database, Calendar, ExternalLink } from "lucide-react";
+import { BookOpen, Target, Flashlight, Newspaper, Globe, History, CheckCircle2, AlertCircle, Database, Calendar, ExternalLink, ArrowLeft } from "lucide-react";
 import { HistoryMCQ } from '@/components/batch1/history/HistoryMCQSession';
 import MCQSession from '@/components/batch1/history/HistoryMCQSession';
 

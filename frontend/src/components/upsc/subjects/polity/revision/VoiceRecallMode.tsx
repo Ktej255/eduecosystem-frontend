@@ -41,7 +41,7 @@ import { toast } from 'sonner';
 import { getRevisionDataById } from '../data/RevisionRegistry';
 
 interface VoiceRecallModeProps {
-    initialChapterIds?: number[];
+    initialChapterIds?: (number | string)[];
 }
 
 // Helper to serialize deep chapter content into a string for AI context
@@ -74,7 +74,7 @@ function serializeChapterContent(content: any): string {
 
 export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallModeProps) {
     // Selection State
-    const [selectedChapters, setSelectedChapters] = useState<number[]>(initialChapterIds);
+    const [selectedChapters, setSelectedChapters] = useState<(number | string)[]>(initialChapterIds);
     const [isSelectionMode, setIsSelectionMode] = useState(initialChapterIds.length === 0);
 
     // Session State
@@ -92,7 +92,7 @@ export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallM
 
     const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app/api/v1";
 
-    const toggleChapter = (id: number) => {
+    const toggleChapter = (id: number | string) => {
         if (selectedChapters.includes(id)) {
             setSelectedChapters(selectedChapters.filter(cId => cId !== id));
         } else {
@@ -111,7 +111,7 @@ export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallM
 
         try {
             selectedChapters.forEach(chapterId => {
-                const chapterData = getRevisionDataById(chapterId);
+                const chapterData = getRevisionDataById(Number(chapterId));
                 const fullContentStr = chapterData?.content ? serializeChapterContent(chapterData.content) : "";
 
                 // We need to convert revision data into Flashcards if possible

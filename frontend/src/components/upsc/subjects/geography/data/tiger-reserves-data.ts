@@ -148,7 +148,7 @@ export const TIGER_RESERVES_DATA: GeoFeature[] = [
   {
     id: "tr-melghat",
     name: "Melghat Tiger Reserve",
-    type: "wildlife-sanctuary",
+    type: "national-park",
     region: "Maharashtra",
     coordinates: { lat: 21.4300, lng: 77.1000 },
     description: "Located in the Satpura range. Among the first nine tiger reserves notified in 1973.",
@@ -244,7 +244,7 @@ export const TIGER_RESERVES_DATA: GeoFeature[] = [
   {
     id: "tr-sathyamangalam",
     name: "Sathyamangalam Tiger Reserve",
-    type: "wildlife-sanctuary",
+    type: "national-park",
     region: "Tamil Nadu",
     coordinates: { lat: 11.5000, lng: 77.2000 },
     description: "Crucial wildlife corridor connecting the Eastern and Western Ghats.",
@@ -260,7 +260,7 @@ export const TIGER_RESERVES_DATA: GeoFeature[] = [
   {
     id: "tr-tiger-srivilliputhur",
     name: "Srivilliputhur-Megamalai Tiger Reserve",
-    type: "wildlife-sanctuary",
+    type: "national-park",
     region: "Tamil Nadu",
     coordinates: { lat: 9.6000, lng: 77.5000 },
     description: "India's 51st tiger reserve. Forms a continuous tiger corridor with Periyar.",
@@ -276,7 +276,7 @@ export const TIGER_RESERVES_DATA: GeoFeature[] = [
   {
     id: "tr-ramgarh-vishdhari",
     name: "Ramgarh Vishdhari Tiger Reserve",
-    type: "wildlife-sanctuary",
+    type: "national-park",
     region: "Rajasthan",
     coordinates: { lat: 25.5000, lng: 75.6000 },
     description: "India's 52nd tiger reserve. Acts as a buffer for Ranthambore.",
@@ -292,7 +292,7 @@ export const TIGER_RESERVES_DATA: GeoFeature[] = [
   {
     id: "tr-ranipur",
     name: "Ranipur Tiger Reserve",
-    type: "wildlife-sanctuary",
+    type: "national-park",
     region: "Uttar Pradesh",
     coordinates: { lat: 25.1000, lng: 81.1000 },
     description: "India's 53rd tiger reserve. Located in the Bundelkhand region.",
@@ -308,7 +308,7 @@ export const TIGER_RESERVES_DATA: GeoFeature[] = [
   {
     id: "tr-dholpur-karauli",
     name: "Dholpur-Karauli Tiger Reserve",
-    type: "wildlife-sanctuary",
+    type: "national-park",
     region: "Rajasthan",
     coordinates: { lat: 26.5000, lng: 77.5000 },
     description: "India's 54th tiger reserve. Notified in late 2023.",
