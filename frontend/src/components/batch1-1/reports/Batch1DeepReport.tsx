@@ -677,7 +677,7 @@ function ChapterMCQReport() {
 
     useEffect(() => {
         // Scan localStorage for all chapter reports
-        const chapters: { chapterId: number; reports: ChapterTestResult[]; subject?: string }[] = [];
+        const chapters: { chapterId: number | string; reports: ChapterTestResult[]; subject?: string }[] = [];
 
         // 1. Polygon Reports (Legacy format)
         for (let i = 1; i <= 53; i++) {
