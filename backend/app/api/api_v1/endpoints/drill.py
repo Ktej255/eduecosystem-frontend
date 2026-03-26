@@ -8,12 +8,13 @@ from typing import Optional, List
 from pydantic import BaseModel
 from datetime import datetime
 from sqlalchemy.orm import Session
-from sqlalchemy import desc
+from sqlalchemy import desc, func
 
 from app.services.drill_report_service import drill_report_service
 from app.api.deps import get_current_user, get_db
 from app.models.user import User
 from app.models.drill import DrillQuestion, DrillContent, DrillModelAnswer, DrillSession, DrillDailySummary
+from app.models.question_bank import BankQuestion
 
 router = APIRouter()
 
@@ -28,8 +29,9 @@ class AnswerUpload(BaseModel):
     date: str
     question_number: int
     answer_type: str  # "before" or "after"
-    answer_text: str  # OCR extracted text or manual input
+    answer_text: Optional[str] = None # OCR extracted text or manual input
     image_base64: Optional[str] = None
+    selected_option: Optional[int] = None
 
 
 class ReportRequest(BaseModel):
@@ -72,6 +74,13 @@ async def start_drill_session(
         
     question = questions[idx]
     
+    # MCQ Detection from key_points JSON
+    is_mcq = False
+    options = []
+    if isinstance(question.key_points, dict):
+        is_mcq = question.key_points.get("is_mcq", False)
+        options = question.key_points.get("options", [])
+
     # Format response to match frontend expectations
     return {
         "success": True,
@@ -79,7 +88,9 @@ async def start_drill_session(
             "id": str(question.id),
             "title": f"{question.gs_paper} - {question.topic}",
             "text": question.question_text,
-            "points": question.key_points or [],
+            "points": question.key_points if not is_mcq else [], # Return as is for subjective, omit for MCQ
+            "is_mcq": is_mcq,
+            "options": options,
             "content": {
                 "title": question.content.title if question.content else "Content not available",
                 "sections": question.content.sections if question.content else []
@@ -145,6 +156,23 @@ async def upload_answer(
         session.after_answer_text = request.answer_text
         # session.after_answer_image_url = ...
         
+    # MCQ Evaluation logic
+    if request.selected_option is not None:
+        is_correct = False
+        if isinstance(question.key_points, dict):
+            correct_option = question.key_points.get("correct_option")
+            if request.selected_option == correct_option:
+                is_correct = True
+        
+        # Store in JSON report_data to avoid migration
+        session.report_data = {
+            "selected_option": request.selected_option,
+            "is_correct": is_correct,
+            "score": 100 if is_correct else 0
+        }
+        session.overall_score = 100 if is_correct else 0
+        session.completed_at = datetime.utcnow()
+
     db.commit()
     
     return {
@@ -389,3 +417,28 @@ async def get_dashboard_analytics(
             "challenges": summaries[0].challenges if summaries else []
         }
     }
+
+
+@router.get("/questions")
+def get_drill_questions(
+    subject: str = None,
+    difficulty: str = None,
+    topic: str = None,
+    limit: int = 20,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    """
+    Get random MCQs from the BankQuestion table with filtering options.
+    Used for student practice drills.
+    """
+    query = db.query(BankQuestion)
+    if subject:
+        query = query.filter(BankQuestion.subject == subject)
+    if difficulty:
+        query = query.filter(BankQuestion.difficulty == difficulty)
+    if topic:
+        query = query.filter(BankQuestion.topic_tag == topic)
+    
+    questions = query.order_by(func.random()).limit(limit).all()
+    return questions
