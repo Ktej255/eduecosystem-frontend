@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
     Search, ChevronDown, ChevronRight, BookOpen, CheckCircle2,
-    Target, LayoutGrid, List, Sparkles, BarChart2, StickyNote, Flame, Bot, Scale, Rainbow, AlertTriangle
+    Target, LayoutGrid, List, Sparkles, BarChart2, StickyNote, Flame, Bot, Scale, Rainbow, AlertTriangle,
+    RefreshCw, Check, AlertCircle
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -21,6 +22,7 @@ import { POLITY_PARTS, TOPIC_TITLES, getPartColors, getTopicsByPart, PartId } fr
 import { MAJOR_CURRENT_AFFAIRS } from "@/components/batch1-1/polity/data/MajorCurrentAffairsRegistry";
 import { getSRSStats } from "@/components/batch1/polity/revision/srs-engine";
 import TopicAnalyticsModal from "./TopicAnalyticsModal";
+import { upscSynapseService } from "@/lib/upsc-synapse-service";
 
 interface TopicProgress {
     [topicId: number]: {
@@ -46,6 +48,11 @@ export default function PolityUnifiedDashboard({ registryMode, chapterNumber }: 
     const [progress, setProgress] = useState<TopicProgress>({});
     const [filterCompleted, setFilterCompleted] = useState<'all' | 'completed' | 'pending'>('all');
     const [selectedReportTopic, setSelectedReportTopic] = useState<number | null>(null);
+
+    // Sync State
+    const [isSyncing, setIsSyncing] = useState(false);
+    const [syncSuccess, setSyncSuccess] = useState(false);
+    const [syncError, setSyncError] = useState(false);
 
     // Load progress from localStorage
     const [srsDueCount, setSrsDueCount] = useState(0);
@@ -139,6 +146,49 @@ export default function PolityUnifiedDashboard({ registryMode, chapterNumber }: 
         }
     };
 
+    const handleSyncProgress = async () => {
+        setIsSyncing(true);
+        setSyncError(false);
+        setSyncSuccess(false);
+        try {
+            const savedProgress = localStorage.getItem('polity_95_progress');
+            if (!savedProgress) {
+                setSyncSuccess(true);
+                return;
+            }
+
+            const progressData = JSON.parse(savedProgress);
+            // Map localStorage format to Synapse GapAnalysis format
+            // upscSynapseService.logGapAnalysis takes one entry at a time usually, 
+            // but we can loop or find a bulk method if available. 
+            // Looking at upsc-synapse-service.ts, logGapAnalysis takes:
+            // gap: Omit<GapAnalysisEntry, "id" | "last_tested_at">
+            
+            const entries = Object.entries(progressData as TopicProgress);
+            
+            for (const [topicId, data] of entries) {
+                if (data.completed) {
+                    await upscSynapseService.logGapAnalysis({
+                        subject: 'Polity',
+                        chapter_id: parseInt(topicId),
+                        status: 'mastered',
+                        recall_accuracy: data.score || 100,
+                        profile_id: '', // Backend should handle this or get from profile
+                        gap_details: { source: 'Track B Manual Sync' }
+                    });
+                }
+            }
+
+            setSyncSuccess(true);
+            setTimeout(() => setSyncSuccess(false), 3000);
+        } catch (err) {
+            console.error("Sync failed", err);
+            setSyncError(true);
+        } finally {
+            setIsSyncing(false);
+        }
+    };
+
     const toggleComplete = (e: React.MouseEvent, topicId: number) => {
         e.stopPropagation();
         const isCompleted = progress[topicId]?.completed;
@@ -179,13 +229,37 @@ export default function PolityUnifiedDashboard({ registryMode, chapterNumber }: 
                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
                             <BookOpen className="h-6 w-6" />
                         </div>
-                        Indian Polity
+                        {registryMode === '95' ? "Laxmikanth Navigator" : "Indian Polity"}
                     </h1>
                     <p className="text-muted-foreground dark:text-muted-foreground mt-1 ml-1">
                         95 Topics • 11 Parts • Comprehensive Coverage
                     </p>
                 </div>
                 <div className="flex gap-2 flex-wrap justify-end">
+                    {registryMode === '95' && (
+                        <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={handleSyncProgress}
+                            disabled={isSyncing}
+                            className={`font-bold border-2 transition-all ${
+                                syncSuccess ? 'border-green-500 text-green-600' : 
+                                syncError ? 'border-red-500 text-red-600' : 
+                                'border-blue-500 text-blue-600 hover:bg-blue-50'
+                            }`}
+                        >
+                            {isSyncing ? (
+                                <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
+                            ) : syncSuccess ? (
+                                <Check className="w-4 h-4 mr-2" />
+                            ) : syncError ? (
+                                <AlertCircle className="w-4 h-4 mr-2" />
+                            ) : (
+                                <RefreshCw className="w-4 h-4 mr-2" />
+                            )}
+                            {isSyncing ? 'Syncing...' : syncSuccess ? 'Progress Synced ✓' : syncError ? 'Sync Failed' : 'Sync My Progress'}
+                        </Button>
+                    )}
                     <Button variant="outline" size="sm" onClick={expandAll}>Expand All</Button>
                     <Button variant="outline" size="sm" onClick={collapseAll}>Collapse All</Button>
                     <Button

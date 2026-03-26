@@ -1,4 +1,7 @@
-"use client";
+﻿"use client";
+
+export const dynamic = "force-dynamic";
+
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -162,7 +165,7 @@ export default function MembershipsPage() {
                             </p>
 
                             <div className="flex items-baseline mb-6">
-                                <span className="text-3xl font-bold text-white">₹{plan.price.toLocaleString()}</span>
+                                <span className="text-3xl font-bold text-white">â‚¹{plan.price.toLocaleString()}</span>
                                 <span className="text-muted-foreground ml-1">/{plan.interval}</span>
                             </div>
 
@@ -221,7 +224,7 @@ export default function MembershipsPage() {
 
                         <div className="grid grid-cols-2 gap-4">
                             <div className="space-y-2">
-                                <Label htmlFor="price">Price (₹)</Label>
+                                <Label htmlFor="price">Price (â‚¹)</Label>
                                 <Input 
                                     id="price" 
                                     type="number"
@@ -295,3 +298,4 @@ export default function MembershipsPage() {
         </div>
     );
 }
+

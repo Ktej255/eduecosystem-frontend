@@ -1,4 +1,7 @@
-"use client";
+﻿"use client";
+
+export const dynamic = "force-dynamic";
+
 
 import { useEffect, useState } from "react";
 import StandardListPage from "@/components/scaffold/StandardListPage";
@@ -112,7 +115,7 @@ export default function LiveTestsPage() {
       render: (val: number, row: any) => (
         <div className="flex items-center gap-2">
           <Users className="h-3 w-3 text-muted-foreground" />
-          {val || 0} / {row.maxParticipants || "∞"}
+          {val || 0} / {row.maxParticipants || "âˆž"}
         </div>
       )
     },
@@ -246,3 +249,4 @@ export default function LiveTestsPage() {
     </>
   );
 }
+

@@ -1,4 +1,7 @@
-"use client";
+﻿"use client";
+
+export const dynamic = "force-dynamic";
+
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -157,7 +160,7 @@ export default function MyNotesPage() {
                     )}
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <span>{note.course_title}</span>
-                      <span>•</span>
+                      <span>â€¢</span>
                       <span>{note.lesson_title}</span>
                     </div>
                   </CardHeader>
@@ -210,7 +213,7 @@ export default function MyNotesPage() {
                           {bookmark.lesson_title}
                         </h3>
                         <p className="text-sm text-muted-foreground">
-                          {bookmark.course_title} • {bookmark.module_title}
+                          {bookmark.course_title} â€¢ {bookmark.module_title}
                         </p>
                       </div>
                       <Bookmark className="w-5 h-5 text-primary fill-current" />
@@ -270,3 +273,4 @@ export default function MyNotesPage() {
     </div>
   );
 }
+

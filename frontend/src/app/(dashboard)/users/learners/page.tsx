@@ -1,4 +1,7 @@
-"use client";
+﻿"use client";
+
+export const dynamic = "force-dynamic";
+
 
 import React, { useState, useEffect } from "react";
 import {
@@ -259,10 +262,10 @@ export default function LearnersPage() {
                       </div>
                     </TableCell>
                     <TableCell className="text-center">
-                      <span className="text-orange-500 font-medium">🔥 {student.streak_days}</span>
+                      <span className="text-orange-500 font-medium">ðŸ”¥ {student.streak_days}</span>
                     </TableCell>
                     <TableCell className="text-center">
-                      <span className="text-yellow-600 font-medium">🪙 {student.coins}</span>
+                      <span className="text-yellow-600 font-medium">ðŸª™ {student.coins}</span>
                     </TableCell>
                     <TableCell className="text-right">
                       <DropdownMenu>
@@ -310,4 +313,5 @@ export default function LearnersPage() {
     </div>
   );
 }
+
 

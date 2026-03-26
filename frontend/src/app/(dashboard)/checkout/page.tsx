@@ -1,4 +1,7 @@
-"use client";
+﻿"use client";
+
+export const dynamic = "force-dynamic";
+
 
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -271,7 +274,7 @@ export default function CheckoutPage() {
                               </p>
                               {method.last_four && (
                                 <p className="text-sm text-muted-foreground">
-                                  •••• •••• •••• {method.last_four}
+                                  â€¢â€¢â€¢â€¢ â€¢â€¢â€¢â€¢ â€¢â€¢â€¢â€¢ {method.last_four}
                                 </p>
                               )}
                             </div>
@@ -463,3 +466,4 @@ export default function CheckoutPage() {
     </div>
   );
 }
+

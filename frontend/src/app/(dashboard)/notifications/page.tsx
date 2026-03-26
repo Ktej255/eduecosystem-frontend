@@ -1,4 +1,7 @@
-"use client";
+﻿"use client";
+
+export const dynamic = "force-dynamic";
+
 
 import { useEffect, useState } from "react";
 import {
@@ -174,7 +177,7 @@ export default function NotificationsPage() {
                 : "No notifications yet"}
             </p>
             <p className="text-muted-foreground text-sm">
-              You're all caught up! Great job! 🎉
+              You're all caught up! Great job! ðŸŽ‰
             </p>
           </div>
         ) : (
@@ -249,3 +252,4 @@ export default function NotificationsPage() {
     </div>
   );
 }
+

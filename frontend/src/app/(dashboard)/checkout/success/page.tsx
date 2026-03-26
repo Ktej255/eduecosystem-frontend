@@ -1,4 +1,7 @@
-"use client";
+﻿"use client";
+
+export const dynamic = "force-dynamic";
+
 
 import { useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
@@ -107,13 +110,14 @@ export default function OrderSuccessPage() {
         <CardContent className="py-6">
           <h3 className="font-semibold mb-3">Next Steps</h3>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li>• Access your courses from the dashboard</li>
-            <li>• Download course materials and resources</li>
-            <li>• Track your learning progress</li>
-            <li>• Get certificates upon completion</li>
+            <li>â€¢ Access your courses from the dashboard</li>
+            <li>â€¢ Download course materials and resources</li>
+            <li>â€¢ Track your learning progress</li>
+            <li>â€¢ Get certificates upon completion</li>
           </ul>
         </CardContent>
       </Card>
     </div>
   );
 }
+

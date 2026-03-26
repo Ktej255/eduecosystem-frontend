@@ -83,6 +83,39 @@ export const upscService = {
         return response.data;
     },
 
+    startDrill: async (planId: string, questionNumber: number): Promise<any> => {
+        const response = await api.post("/upsc/drills/start", {
+            plan_id: planId,
+            question_number: questionNumber
+        });
+        return response.data;
+    },
+
+    getReport: async (reportId: string): Promise<UPSCReport> => {
+        const response = await api.get(`/upsc/reports/${reportId}`);
+        return response.data;
+    },
+
+    // --- Base Drill System (System 1) ---
+    startBaseDrill: async (date: string, questionNumber: number): Promise<any> => {
+        const response = await api.post("/drill/start-session", {
+            date: date,
+            question_number: questionNumber
+        });
+        return response.data;
+    },
+
+    submitBaseAttempt: async (date: string, questionNumber: number, answerType: string, selectedOption?: number, answerText?: string): Promise<any> => {
+        const response = await api.post("/drill/upload-answer", {
+            date: date,
+            question_number: questionNumber,
+            answer_type: answerType,
+            selected_option: selectedOption,
+            answer_text: answerText
+        });
+        return response.data;
+    },
+
     // --- Admin Methods ---
     getBatches: async (): Promise<any[]> => {
         const response = await api.get("/upsc/batches");

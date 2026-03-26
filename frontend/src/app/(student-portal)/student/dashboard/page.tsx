@@ -11,9 +11,9 @@ import {
 } from "@/services/progressStorage";
 import { getCompletedStepsForDay } from "@/lib/journey/completion-tracker";
 import { getUserAccess } from "@/config/user-access-config";
-import { RefreshCw, Clock, ChevronRight, Sparkles } from "lucide-react";
+import { RefreshCw, Clock, ChevronRight, Sparkles, Users } from "lucide-react";
 import Link from "next/link";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useGamification } from "@/context/GamificationContext";
 import { LanguageToggle } from "@/components/LanguageToggle";
@@ -277,6 +277,32 @@ export default function StudentDashboard() {
                         </Card>
                     </Link>
 
+                    {/* Wolf Pack Widget */}
+                    <Card className="bg-gradient-to-br from-cyan-950/40 to-black border-cyan-500/20 shadow-lg shadow-cyan-950/10">
+                        <CardHeader className="pb-2">
+                            <CardTitle className="flex items-center justify-between">
+                                <div className="flex items-center gap-2">
+                                    <Users className="w-5 h-5 text-cyan-400" />
+                                    <span className="text-white">Your Wolf Pack</span>
+                                </div>
+                                <div className="text-[10px] bg-cyan-600 px-2 py-0.5 rounded text-white uppercase font-bold">House of Alpha</div>
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="text-center py-2">
+                                <div className="text-3xl font-black text-white mb-1">Rank #4</div>
+                                <p className="text-xs text-muted-foreground mb-4 italic">"Strength in Unity"</p>
+                                <Link href="/student/wolf-packs">
+                                    <Button
+                                        className="w-full bg-cyan-600 hover:bg-cyan-500 text-xs font-bold"
+                                    >
+                                        Enter Pack Hall
+                                    </Button>
+                                </Link>
+                            </div>
+                        </CardContent>
+                    </Card>
+
                     <Leaderboard />
                 </div>
             </div>
@@ -298,7 +324,7 @@ export default function StudentDashboard() {
                         { name: t('dashboard.graphotherapy'), href: '/student/graphotherapy', emoji: '✍️', color: 'from-emerald-500 to-teal-600', accessKey: 'graphotherapy' },
                         { name: 'Evening Section', href: '/student/batch1-1/evening', emoji: '🔦', color: 'from-purple-500 to-pink-600', accessKey: 'batch1' },
                         { name: t('dashboard.drill'), href: '/student/revision', emoji: '🧠', color: 'from-amber-500 to-orange-600', accessKey: 'revisionPortal' },
-                        { name: 'Polity Study', href: '/student/batch1-1/polity', emoji: '📚', color: 'from-blue-500 to-cyan-600', accessKey: 'batch1Polity' },
+                        { name: "Laxmikanth Navigator", href: "/student/batch1-1/polity", emoji: '📚', color: 'from-blue-500 to-cyan-600', accessKey: 'batch1Polity' },
                         { name: 'Geography Study', href: '/student/batch1/geography', emoji: '🌍', color: 'from-emerald-500 to-green-600', accessKey: 'batch1' },
                         { name: 'Ancient History', href: '/student/batch1-1/ancient-history', emoji: '🏛️', color: 'from-stone-500 to-amber-700', accessKey: 'batch1Polity' },
                         { name: 'Deep Report', href: '/student/batch1-1/deep-report', emoji: '📊', color: 'from-indigo-500 to-violet-600', accessKey: 'batch1' },

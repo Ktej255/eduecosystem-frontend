@@ -20,11 +20,24 @@ export default function WolfPackHallPage() {
         setLoading(true);
         try {
             const [packRes, leaderboardRes] = await Promise.all([
-                api.get("/packs/my-pack").catch(() => ({ data: null })),
-                api.get("/packs/leaderboard")
+                api.get("/packs/my-pack").catch((err) => {
+                    console.error("My Pack fetching failed:", err);
+                    return { data: { is_assigned: false } };
+                }),
+                api.get("/packs/leaderboard").catch((err) => {
+                    console.error("Leaderboard fetching failed:", err);
+                    return { data: [] };
+                })
             ]);
-            setMyPack(packRes.data);
-            setLeaderboard(leaderboardRes.data);
+            
+            // Check if response is the "User not assigned" structure
+            if (packRes.data && (packRes.data.is_assigned === false || packRes.data.detail)) {
+                setMyPack(null);
+            } else {
+                setMyPack(packRes.data);
+            }
+            
+            setLeaderboard(leaderboardRes.data || []);
         } catch (error) {
             console.error("Failed to fetch Wolf Pack data:", error);
         } finally {

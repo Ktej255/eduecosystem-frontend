@@ -1,4 +1,7 @@
-"use client";
+﻿"use client";
+
+export const dynamic = "force-dynamic";
+
 
 import { useState, useEffect } from "react";
 import {
@@ -425,9 +428,9 @@ export default function TaxConfigPage() {
                           {rate.country_code}
                           {rate.state_code && `-${rate.state_code}`}
                         </span>
-                        <span>•</span>
+                        <span>â€¢</span>
                         <span>{rate.tax_name}</span>
-                        <span>•</span>
+                        <span>â€¢</span>
                         <span className="font-semibold text-foreground">
                           {(rate.tax_rate * 100).toFixed(2)}%
                         </span>
@@ -490,3 +493,4 @@ export default function TaxConfigPage() {
     </div>
   );
 }
+

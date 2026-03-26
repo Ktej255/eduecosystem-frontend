@@ -1,4 +1,7 @@
-"use client";
+﻿"use client";
+
+export const dynamic = "force-dynamic";
+
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -178,14 +181,14 @@ export default function DataExportPage() {
             <h3 className="font-semibold">Export Formats</h3>
             <ul className="text-sm space-y-1 text-muted-foreground">
               <li>
-                • <strong>CSV</strong>: Spreadsheet format (Excel, Google
+                â€¢ <strong>CSV</strong>: Spreadsheet format (Excel, Google
                 Sheets)
               </li>
               <li>
-                • <strong>PDF</strong>: Formatted document for printing
+                â€¢ <strong>PDF</strong>: Formatted document for printing
               </li>
               <li>
-                • <strong>JSON</strong>: Raw data format for developers
+                â€¢ <strong>JSON</strong>: Raw data format for developers
               </li>
             </ul>
           </div>
@@ -194,3 +197,4 @@ export default function DataExportPage() {
     </div>
   );
 }
+

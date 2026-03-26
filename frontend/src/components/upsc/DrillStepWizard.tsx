@@ -22,16 +22,21 @@ type DrillStep =
 interface DrillStepWizardProps {
     question: any;
     timerConfig: Record<string, number>;
-    onSessionComplete: () => void;
+    sessionId?: string | null;
+    onSessionComplete: (reportId?: string) => void;
 }
 
 export const DrillStepWizard: React.FC<DrillStepWizardProps> = ({
     question,
     timerConfig,
+    sessionId,
     onSessionComplete,
 }) => {
     const [currentStep, setCurrentStep] = useState<DrillStep>("read");
     const [isUploading, setIsUploading] = useState(false);
+    const [report, setReport] = useState<any>(null);
+    const [isGeneratingReport, setIsGeneratingReport] = useState(false);
+    const [selectedOption, setSelectedOption] = useState<number | null>(null);
 
     const steps: { id: DrillStep; label: string; duration?: number }[] = [
         { id: "read", label: "Read Question", duration: timerConfig.read },
@@ -48,12 +53,60 @@ export const DrillStepWizard: React.FC<DrillStepWizardProps> = ({
         advanceStep();
     };
 
-    const advanceStep = () => {
+    const advanceStep = async () => {
         const currentIndex = steps.findIndex((s) => s.id === currentStep);
         if (currentIndex < steps.length - 1) {
-            setCurrentStep(steps[currentIndex + 1].id as DrillStep);
+            const nextStep = steps[currentIndex + 1].id;
+            setCurrentStep(nextStep as DrillStep);
+
+            // If moving to 'complete' step, fetch the report
+            if (nextStep === "complete") {
+                fetchFinalReport();
+            }
         } else {
-            onSessionComplete();
+            onSessionComplete(report?.id);
+        }
+    };
+
+    const handleMCQSubmit = async () => {
+        setIsUploading(true);
+        try {
+            // Use the new Base Drill service for MCQ
+            const date = new Date().toISOString().split('T')[0];
+            // If question has no number, default to 1
+            const qNum = question.question_number || 1; 
+
+            await upscService.submitBaseAttempt(
+                date,
+                qNum,
+                "before",
+                selectedOption !== null ? selectedOption : undefined
+            );
+
+            advanceStep();
+        } catch (error) {
+            console.error("MCQ submission failed:", error);
+        } finally {
+            setIsUploading(false);
+        }
+    };
+
+    const fetchFinalReport = async () => {
+        setIsGeneratingReport(true);
+        try {
+            // Give the background worker a moment to process the second attempt
+            await new Promise(resolve => setTimeout(resolve, 3000));
+            
+            // Note: Since backend expects report_id but user requested session_id,
+            // we'll try to fetch using sessionId first.
+            if (sessionId) {
+                const data = await upscService.getReport(sessionId);
+                setReport(data);
+            }
+        } catch (error) {
+            console.error("Failed to fetch drill report:", error);
+        } finally {
+            setIsGeneratingReport(false);
         }
     };
 
@@ -117,6 +170,42 @@ export const DrillStepWizard: React.FC<DrillStepWizardProps> = ({
             <div className="lg:col-span-2 space-y-6">
                 <QuestionCard question={question} />
 
+                {/* MCQ Interface */}
+                {question.is_mcq && (currentStep === "write_before" || currentStep === "write_after") && (
+                    <Card className="p-6 space-y-4">
+                        <h3 className="text-lg font-semibold">Select the correct option:</h3>
+                        <div className="space-y-2">
+                            {question.options?.map((option: string, index: number) => (
+                                <div 
+                                    key={index}
+                                    onClick={() => setSelectedOption(index)}
+                                    className={`p-4 rounded-xl border-2 transition-all cursor-pointer flex items-center gap-3 ${
+                                        selectedOption === index 
+                                            ? "border-blue-600 bg-blue-50" 
+                                            : "border-border hover:border-blue-300"
+                                    }`}
+                                >
+                                    <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                                        selectedOption === index ? "border-blue-600" : "border-slate-300"
+                                    }`}>
+                                        {selectedOption === index && <div className="w-2.5 h-2.5 bg-blue-600 rounded-full" />}
+                                    </div>
+                                    <span className={selectedOption === index ? "font-medium text-blue-900" : "text-slate-700"}>
+                                        {option}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
+                        <Button 
+                            onClick={handleMCQSubmit} 
+                            disabled={selectedOption === null || isUploading}
+                            className="w-full h-12 text-lg font-semibold bg-blue-600 hover:bg-blue-700"
+                        >
+                            {isUploading ? "Submitting..." : "Confirm Answer"}
+                        </Button>
+                    </Card>
+                )}
+
                 {/* Dynamic Content based on Step */}
                 {(currentStep === "upload_before" || currentStep === "upload_after") && (
                     <div className="space-y-6">
@@ -159,10 +248,24 @@ export const DrillStepWizard: React.FC<DrillStepWizardProps> = ({
 
                 {currentStep === "complete" && (
                     <Card className="p-8 text-center bg-green-50 border-green-200">
-                        <CheckCircle2 className="w-16 h-16 text-green-600 mx-auto mb-4" />
-                        <h2 className="text-2xl font-bold text-green-800">Drill Completed!</h2>
-                        <p className="text-green-700 mt-2">Your AI analysis report is being generated.</p>
-                        <Button className="mt-6" onClick={onSessionComplete}>View Report</Button>
+                        {isGeneratingReport ? (
+                            <div className="space-y-4">
+                                <div className="animate-spin w-12 h-12 border-4 border-green-600 border-t-transparent rounded-full mx-auto" />
+                                <h2 className="text-xl font-bold text-green-800">Analyzing Your Voice/Answers...</h2>
+                                <p className="text-green-700">Grok is reviewing your submission against the model answer.</p>
+                            </div>
+                        ) : (
+                            <>
+                                <CheckCircle2 className="w-16 h-16 text-green-600 mx-auto mb-4" />
+                                <h2 className="text-2xl font-bold text-green-800">Drill Completed!</h2>
+                                <p className="text-green-700 mt-2">
+                                    {report ? "Your analysis is ready." : "Drill finished. Check back soon for the report."}
+                                </p>
+                                <Button className="mt-6" onClick={() => onSessionComplete(report?.id)}>
+                                    {report ? "View Report" : "Return to Dashboard"}
+                                </Button>
+                            </>
+                        )}
                     </Card>
                 )}
             </div>

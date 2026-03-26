@@ -111,7 +111,7 @@ const routes: Route[] = [
     children: [],
   },
   {
-    label: "Polity 95",
+    label: "Laxmikanth Navigator",
     icon: Shield,
     href: "/student/batch1-1/polity",
     color: "text-blue-500",

@@ -5,40 +5,51 @@ import { useParams, useRouter } from "next/navigation";
 import { DrillStepWizard } from "@/components/upsc/DrillStepWizard";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
-
-// Mock Data for Development
-const MOCK_QUESTION = {
-    question_number: 1,
-    title: "Significance of Article 370",
-    question_text: "Discuss the historical significance of Article 370 and the implications of its abrogation on the federal structure of India. (250 words)",
-    marks: 15,
-    subject: "GS-2 Polity",
-    microtopics: ["Federalism", "J&K Reorganization", "Constitutional History"],
-};
-
-const MOCK_TIMER_CONFIG = {
-    read: 10, // Shortened for demo (real: 300)
-    write_before: 20, // Shortened for demo (real: 1200)
-    study: 30, // Shortened for demo (real: 3600)
-    write_after: 20, // Shortened for demo (real: 1200)
-};
+import { upscService } from "@/services/upscService";
 
 export default function DrillPage() {
     const params = useParams();
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(true);
+    const [question, setQuestion] = useState<any>(null);
+    const [timerConfig, setTimerConfig] = useState<any>(null);
+    const [sessionId, setSessionId] = useState<string | null>(null);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        // Simulate API fetch
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 1000);
-        return () => clearTimeout(timer);
-    }, []);
+        const fetchDrillData = async () => {
+            try {
+                setIsLoading(true);
+                const planId = params.id as string;
+                // Start with question 1 for now (daily drill sequence)
+                const response = await upscService.startDrill(planId, 1);
+                
+                if (response.success || response.session_id) {
+                    setSessionId(response.session_id);
+                    setQuestion(response.question);
+                    setTimerConfig(response.timer_config);
+                } else {
+                    setError("Drill session could not be started. Please retry.");
+                }
+            } catch (err) {
+                console.error("Failed to start drill:", err);
+                setError("Drill session could not be started. Please retry.");
+            } finally {
+                setIsLoading(false);
+            }
+        };
 
-    const handleSessionComplete = () => {
-        // Navigate to report page
-        router.push("/student/reports/mock-report-id");
+        if (params.id) {
+            fetchDrillData();
+        }
+    }, [params.id]);
+
+    const handleSessionComplete = (reportId?: string) => {
+        if (reportId) {
+            router.push(`/student/reports/${reportId}`);
+        } else {
+            router.push("/student/drill");
+        }
     };
 
     if (isLoading) {
@@ -47,6 +58,17 @@ export default function DrillPage() {
                 <div className="animate-pulse flex flex-col items-center">
                     <div className="h-12 w-12 bg-blue-200 rounded-full mb-4"></div>
                     <div className="h-4 w-48 bg-slate-200 rounded"></div>
+                </div>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-slate-50">
+                <div className="text-center p-8 bg-white rounded-3xl shadow-xl border border-slate-200">
+                    <p className="text-red-600 font-bold mb-4">{error}</p>
+                    <Button onClick={() => window.location.reload()}>Retry</Button>
                 </div>
             </div>
         );
@@ -80,11 +102,14 @@ export default function DrillPage() {
 
             {/* Main Content */}
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <DrillStepWizard
-                    question={MOCK_QUESTION}
-                    timerConfig={MOCK_TIMER_CONFIG}
-                    onSessionComplete={handleSessionComplete}
-                />
+                {question && timerConfig && (
+                    <DrillStepWizard
+                        question={question}
+                        timerConfig={timerConfig}
+                        sessionId={sessionId}
+                        onSessionComplete={handleSessionComplete}
+                    />
+                )}
             </main>
         </div>
     );

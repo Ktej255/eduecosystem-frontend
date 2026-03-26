@@ -1,4 +1,7 @@
-"use client";
+﻿"use client";
+
+export const dynamic = "force-dynamic";
+
 
 import { useState, useEffect } from "react";
 import {
@@ -174,7 +177,7 @@ export default function PaymentMethodsPage() {
 
                       {method.method_type === "card" && method.last_four && (
                         <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                          <span>•••• •••• •••• {method.last_four}</span>
+                          <span>â€¢â€¢â€¢â€¢ â€¢â€¢â€¢â€¢ â€¢â€¢â€¢â€¢ {method.last_four}</span>
                           {method.card_brand && (
                             <span className="capitalize">
                               {method.card_brand}
@@ -238,16 +241,17 @@ export default function PaymentMethodsPage() {
         <CardContent className="py-6">
           <h3 className="font-semibold mb-3">Security</h3>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li>• All payment information is encrypted and securely stored</li>
-            <li>• We never store your full card number</li>
+            <li>â€¢ All payment information is encrypted and securely stored</li>
+            <li>â€¢ We never store your full card number</li>
             <li>
-              • Payment processing handled by industry-standard providers
+              â€¢ Payment processing handled by industry-standard providers
               (Stripe, PayPal)
             </li>
-            <li>• You can remove payment methods anytime</li>
+            <li>â€¢ You can remove payment methods anytime</li>
           </ul>
         </CardContent>
       </Card>
     </div>
   );
 }
+

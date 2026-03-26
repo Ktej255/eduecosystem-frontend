@@ -21,6 +21,7 @@ import {
     BarChart3,
     ShoppingBag,
     Globe2,
+    Users,
 } from "lucide-react";
 import { getStudentStats, StudentStats } from "@/services/progressStorage";
 import { useAuth } from "@/contexts/auth-context";
@@ -70,21 +71,27 @@ const menuItems = [
     },
     {
         name: "Productivity",
-        href: "/student/batch1-1/productivity",
+        href: "/student/upsc/productivity",
         icon: Sparkles,
         accessKey: "productivity",
     },
     {
         name: "Community",
-        href: "/student/batch1-1/community",
+        href: "/student/upsc/community",
         icon: User,
         accessKey: "community",
     },
     {
         name: "Leaderboard",
-        href: "/student/batch1-1/leaderboard",
+        href: "/student/upsc/leaderboard",
         icon: Trophy,
         accessKey: "leaderboard",
+    },
+    {
+        name: "Wolf Packs",
+        href: "/student/wolf-packs",
+        icon: Users,
+        accessKey: "dashboard",
     },
     {
         name: "Graphotherapy",
@@ -106,7 +113,7 @@ const menuItems = [
     },
     {
         name: "Deep Report",
-        href: "/student/batch1-1/deep-report",
+        href: "/student/upsc/deep-report",
         icon: BarChart3,
         accessKey: "batch1", // Linked to UPSC access
     },

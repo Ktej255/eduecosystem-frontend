@@ -1,4 +1,7 @@
-"use client";
+﻿"use client";
+
+export const dynamic = "force-dynamic";
+
 
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
@@ -595,3 +598,4 @@ export default function EmailTemplatesPage() {
     </div>
   );
 }
+

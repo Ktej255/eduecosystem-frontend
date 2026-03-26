@@ -5,9 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mic, Square, Play, RotateCcw, Loader2, Wand2 } from "lucide-react";
 import { toast } from "sonner";
-import axios from "axios";
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+import api from "@/lib/api";
 
 type Feedback = {
     transcription: string;
@@ -97,16 +95,12 @@ export function VoiceRecorder({ context }: VoiceRecorderProps) {
             reader.readAsDataURL(audioBlob);
             reader.onloadend = async () => {
                 const base64Audio = (reader.result as string).split(",")[1];
-                const token = localStorage.getItem("token") || localStorage.getItem("access_token");
-
-                const res = await axios.post(
-                    `${API_URL}/voice-tutor/analyze`,
+                
+                const res = await api.post(
+                    "/voice-tutor/analyze",
                     {
                         audio_base64: base64Audio,
                         context: context,
-                    },
-                    {
-                        headers: { Authorization: `Bearer ${token}` }
                     }
                 );
 
