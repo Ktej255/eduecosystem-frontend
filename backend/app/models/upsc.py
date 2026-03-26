@@ -157,9 +157,9 @@ class UPSCAttempt(Base):
     student = relationship("User", foreign_keys=[student_id])
     question = relationship("UPSCQuestion", back_populates="attempts")
     
-    # Relationships for reports (defined here to avoid circular dependency issues if possible, or use string)
-    reports_as_before = relationship("UPSCReport", foreign_keys="[UPSCReport.attempt_before_id]", back_populates="attempt_before")
-    reports_as_after = relationship("UPSCReport", foreign_keys="[UPSCReport.attempt_after_id]", back_populates="attempt_after")
+    # Relationships for reports
+    reports_as_before = relationship("UPSCReport", foreign_keys="UPSCReport.attempt_before_id", back_populates="attempt_before")
+    reports_as_after = relationship("UPSCReport", foreign_keys="UPSCReport.attempt_after_id", back_populates="attempt_after")
 
 class UPSCReport(Base):
     __tablename__ = "upsc_reports"

@@ -119,6 +119,8 @@ all_cors_origins = [
     "https://eduecosystem-frontend-503001969959.us-central1.run.app",
     "https://eduecosystem-frontend.vercel.app",
     "https://eduecosystem-frontend-ktej255.vercel.app",
+    "https://saritclasses.com",
+    "https://www.saritclasses.com",
     "http://localhost:3000",
     "http://localhost:3001",
 ]
