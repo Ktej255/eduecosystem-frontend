@@ -10,20 +10,21 @@ def verify():
     engine = create_engine(db_url)
     with engine.connect() as conn:
         try:
-            # TASK 1A: Get count by subject and difficulty
-            print("--- SUBJECT, DIFFICULTY, COUNT ---")
+            # TASK 1A: Get count for history subjects
+            print("--- HISTORY SUBJECT COUNTS ---")
             sql_groups = text("""
-                SELECT subject, difficulty, COUNT(*) 
+                SELECT subject, COUNT(*) 
                 FROM bank_questions 
-                GROUP BY subject, difficulty 
-                ORDER BY subject, difficulty;
+                WHERE subject IN ('Modern History', 'Medieval History', 'Ancient History')
+                GROUP BY subject 
+                ORDER BY subject;
             """)
             results = conn.execute(sql_groups).fetchall()
             for row in results:
-                print(f"{row[0]}, {row[1]}, {row[2]}")
+                print(f"{row[0]}: {row[1]}")
                 
             # TASK 1B: Get total count
-            print("\n--- TOTAL COUNT ---")
+            print("\n--- TOTAL BANK COUNT ---")
             sql_total = text("SELECT COUNT(*) FROM bank_questions;")
             total = conn.execute(sql_total).scalar()
             print(f"Total: {total}")
