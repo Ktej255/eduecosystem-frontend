@@ -11,10 +11,20 @@ export async function loadHistoryMCQs(chapterId: number, section: string = 'mode
     try {
         // Normalize section name for directory matching
         const dir = section.toLowerCase().replace(/\s+/g, '_');
-        const module = await import(`./mcqs/${dir}/chapter${chapterId}.ts`);
+        
+        // Logic to handle different path structures in batch1
+        let module;
+        if (dir === 'modern') {
+            // Modern History uses directory-based structure: modern/chapterX/mcqs.ts
+            module = await import(`../../../../batch1/history/data/modern/chapter${chapterId}/mcqs.ts`);
+        } else {
+            // Ancient and Medieval use file-based structure: ancient/chapterX.ts
+            module = await import(`../../../../batch1/history/data/${dir}/chapter${chapterId}.ts`);
+        }
 
         const questions =
             module[`chapter${chapterId}MCQs`] ||
+            module[`MODERN_CHAPTER_${chapterId}_MCQS`] ||
             module[`HISTORY_CH${chapterId}_MCQS`] ||
             module.default ||
             [];
