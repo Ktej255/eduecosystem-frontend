@@ -5,16 +5,16 @@ DATABASE_URL = os.environ.get("DATABASE_URL")
 engine = create_engine(DATABASE_URL)
 
 fix_sql = """
--- Fix level_1 and level 1 -> easy
+-- Fix 1: ADD topic_tag and chapter_number columns
+ALTER TABLE bank_questions ADD COLUMN IF NOT EXISTS topic_tag VARCHAR(255);
+ALTER TABLE bank_questions ADD COLUMN IF NOT EXISTS chapter_number INTEGER;
+CREATE INDEX IF NOT EXISTS idx_bank_questions_topic ON bank_questions(topic_tag);
+CREATE INDEX IF NOT EXISTS idx_bank_questions_subject ON bank_questions(subject);
+
+-- Fix 2: NORMALIZE DIFFICULTY TAGS
 UPDATE bank_questions SET difficulty = 'easy' WHERE difficulty IN ('level_1', 'level 1');
-
--- Fix level_2 and level 2 -> medium
 UPDATE bank_questions SET difficulty = 'medium' WHERE difficulty IN ('level_2', 'level 2');
-
--- Fix level_3 and level 3 -> hard
 UPDATE bank_questions SET difficulty = 'hard' WHERE difficulty IN ('level_3', 'level 3');
-
--- Fix tough -> hard
 UPDATE bank_questions SET difficulty = 'hard' WHERE difficulty = 'tough';
 """
 
@@ -28,16 +28,16 @@ ORDER BY ordinal_position;
 """
 
 with engine.connect() as conn:
-    print("=== FIX 2: NORMALIZE DIFFICULTY TAGS ===")
+    print("=== EXECUTING TARGETED FIXES ===")
     conn.execute(text(fix_sql))
     conn.commit()
     
-    print("\n=== VERIFICATION AFTER FIX ===")
+    print("\n=== VERIFICATION: DIFFICULTY COUNTS ===")
     result = conn.execute(text(verify_sql))
     for row in result:
         print(f"{row[0]}: {row[1]}")
         
-    print("\n=== FIX 3: SCHEMA AUDIT ===")
+    print("\n=== VERIFICATION: SCHEMA AUDIT ===")
     result = conn.execute(text(schema_sql))
     for row in result:
         print(f"{row[0]} | {row[1]}")
