@@ -36,7 +36,7 @@ class PolityChapterTaskOut(PolityChapterTaskBase):
 @router.get("/tasks", response_model=List[PolityChapterTaskOut])
 def get_tasks(
     db: Session = Depends(deps.get_db),
-    # current_user: models.User = Depends(deps.get_current_active_user), # Uncomment to secure
+    current_user = Depends(deps.get_current_active_user),
 ):
     """
     Get all polity chapter tasks.
@@ -49,7 +49,7 @@ def update_task(
     task_id: int,
     task_in: PolityChapterTaskUpdate,
     db: Session = Depends(deps.get_db),
-    # current_user: models.User = Depends(deps.get_current_active_user), # Uncomment to secure
+    admin_user = Depends(deps.get_current_active_superuser),
 ):
     """
     Update a polity chapter task.
@@ -83,7 +83,7 @@ def update_task(
 @router.post("/seed", response_model=List[PolityChapterTaskOut])
 def seed_tasks(
     db: Session = Depends(deps.get_db),
-    # current_user: models.User = Depends(deps.get_current_active_superuser), # Secure this!
+    admin_user = Depends(deps.get_current_active_superuser),
 ):
     """
     Seeding endpoint to populate the 95 chapters if they don't exist.

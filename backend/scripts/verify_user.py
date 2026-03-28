@@ -2,7 +2,7 @@ import os
 import sys
 
 # Add the backend directory to sys.path
-backend_dir = r"d:\Graphology\Master Software\Eduecosystem\backend"
+backend_dir = r"D:\Development\EduEcosystem\backend"
 sys.path.append(backend_dir)
 
 from app.db.session import SessionLocal

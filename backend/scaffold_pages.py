@@ -1,7 +1,7 @@
 import os
 
 # Base path for frontend app directory
-BASE_PATH = r"d:\Graphology\Master Software\Eduecosystem\frontend\src\app\(dashboard)"
+BASE_PATH = r"D:\Development\EduEcosystem\frontend\src\app\(dashboard)"
 
 # List of routes to scaffold based on sidebar.tsx
 # Format: (path, title, description)

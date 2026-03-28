@@ -1,3 +1,7 @@
+# LEGACY FILE - DO NOT USE
+# This file belongs to an old AWS deployment pipeline.
+# Production deployment uses Google Cloud Run.
+
 version: 1.0
 runtime: python311
 build:

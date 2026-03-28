@@ -168,5 +168,12 @@ export const upscService = {
     createTimerConfig: async (data: { batch_id: string; phase: string; duration_minutes: number; is_active: boolean }): Promise<any> => {
         const response = await api.post("/upsc/timers", data);
         return response.data;
+    },
+
+    getDrillQuestions: async (subject: string, difficulty: string, limit: number = 20): Promise<any[]> => {
+        const response = await api.get("/drill/questions", {
+            params: { subject, difficulty, limit }
+        });
+        return response.data;
     }
 };

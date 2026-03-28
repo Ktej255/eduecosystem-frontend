@@ -2,7 +2,7 @@ import os
 import re
 import json
 
-base_path = r"D:\Graphology\Master Software\Eduecosystem\frontend\src\components"
+base_path = r"D:\Development\EduEcosystem\frontend\src\components"
 raw_dir = os.path.join(base_path, "batch1", "polity", "data", "raw_mcqs")
 integrated_dir = os.path.join(base_path, "batch1-1", "polity", "data", "chapters")
 

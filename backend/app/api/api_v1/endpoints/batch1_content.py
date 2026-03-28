@@ -5,6 +5,7 @@ Manage video segments for UPSC Prelims Batch 1 course
 
 from fastapi import APIRouter, HTTPException, UploadFile, File, Form, Depends, BackgroundTasks
 from app.api.api_v1.endpoints.pdf_study import process_pdf_document
+from app.api.deps import get_current_active_user, get_current_active_superuser
 from pydantic import BaseModel
 from typing import Optional, List, Dict, Any
 from datetime import datetime
@@ -116,7 +117,8 @@ async def get_part_content(
     cycle_id: int,
     day_number: int,
     part_number: int,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_user = Depends(get_current_active_user)
 ):
     """
     Get all video segments for a specific part of a day.
@@ -196,7 +198,8 @@ async def save_segment(
     pdf_files: List[UploadFile] = File(None),
     pdf_names: List[str] = Form(None),
     preserved_pdf_data: Optional[str] = Form(None),  # JSON string of existing PDFs to keep
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    admin_user = Depends(get_current_active_superuser)
 ):
     """
     Save or update a video segment.
@@ -428,7 +431,10 @@ async def save_segment(
 
 
 @router.get("/all-segments")
-async def get_all_segments(db: SessionLocal = Depends(get_db)):
+async def get_all_segments(
+    db: Session = Depends(get_db),
+    admin_user = Depends(get_current_active_superuser)
+):
     """Get all uploaded segments (for admin view)"""
     segments = db.query(Batch1Segment).all()
     return {s.segment_key: {
@@ -441,7 +447,10 @@ async def get_all_segments(db: SessionLocal = Depends(get_db)):
 
 
 @router.get("/transcription-status/{segment_key}")
-async def get_transcription_status(segment_key: str):
+async def get_transcription_status(
+    segment_key: str,
+    current_user = Depends(get_current_active_user)
+):
     """Check transcription status for a video segment"""
     from app.services.transcription_service import get_transcription_status, get_video_document
     
@@ -459,7 +468,10 @@ async def get_transcription_status(segment_key: str):
 
 
 @router.get("/segment-document/{segment_key}")
-async def get_segment_document(segment_key: str):
+async def get_segment_document(
+    segment_key: str,
+    current_user = Depends(get_current_active_user)
+):
     """Get the full transcription document for a segment"""
     from app.services.transcription_service import get_video_document
     
@@ -476,7 +488,8 @@ async def bulk_save_segments(
     cycle_id: int = Form(...),
     day_number: int = Form(...),
     data: str = Form(...),
-    db: SessionLocal = Depends(get_db)
+    db: Session = Depends(get_db),
+    admin_user = Depends(get_current_active_superuser)
 ):
     """
     Bulk save segment metadata (titles and key points).

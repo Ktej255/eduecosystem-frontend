@@ -1,12 +1,10 @@
-"use client";
+import GeographyUnifiedDashboard from "@/components/upsc/subjects/geography/GeographyUnifiedDashboard";
 
-import GeographyDashboard from "@/components/upsc/subjects/geography/GeographyDashboard";
-import SubjectAccessGate from "@/components/common/SubjectAccessGate";
+export const metadata = {
+    title: "Geography Mastery | UPSC Platform",
+    description: "Comprehensive geography learning module for UPSC aspirants.",
+};
 
 export default function GeographyPage() {
-    return (
-        <SubjectAccessGate subject="geography">
-            <GeographyDashboard />
-        </SubjectAccessGate>
-    );
+    return <GeographyUnifiedDashboard />;
 }

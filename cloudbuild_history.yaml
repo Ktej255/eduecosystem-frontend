@@ -1,0 +1,18 @@
+steps:
+- name: 'python:3.11'
+  entrypoint: 'bash'
+  args:
+    - '-c'
+    - |
+      pip install sqlalchemy psycopg2-binary
+      cd backend
+      export PYTHONPATH=".:$PYTHONPATH"
+      python ingest_frontend_mcqs.py --subject "$_SUBJECT" --source "$_SOURCE"
+  env:
+    - 'DATABASE_URL=postgresql://postgres:Tej%401106@/eduecosystem_prod?host=/cloudsql/eduecosystem-prod:us-central1:eduecosystem-db'
+    - 'ENVIRONMENT=production'
+    - 'SECRET_KEY=eduecosystem-gcp-secret-2026-final'
+
+options:
+  cloudsql_instances: ['eduecosystem-prod:us-central1:eduecosystem-db']
+  logging: CLOUD_LOGGING_ONLY

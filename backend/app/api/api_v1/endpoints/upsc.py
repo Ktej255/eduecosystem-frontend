@@ -202,7 +202,14 @@ def submit_attempt(
 
     if image:
         # TODO: Upload to S3
-        image_url = f"https://s3-bucket/placeholder/{image.filename}"
+        import shutil
+        import os
+        upload_dir = "uploads/images"
+        os.makedirs(upload_dir, exist_ok=True)
+        image_file_path = f"{upload_dir}/{uuid.uuid4()}_{image.filename}"
+        with open(image_file_path, "wb") as buffer:
+            shutil.copyfileobj(image.file, buffer)
+        image_url = image_file_path # Placeholder for S3 URL
     
     if audio:
         # TODO: Upload to S3
@@ -230,7 +237,8 @@ def submit_attempt(
     
     # Trigger Background Tasks
     if image:
-        analyze_answer_task.delay(str(attempt.id))
+        from app.services.upsc_worker import perform_ocr_task
+        perform_ocr_task.delay(str(attempt.id), image_file_path)
     
     if audio:
         # We need to import this task, assuming it will be in upsc_worker

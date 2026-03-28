@@ -150,8 +150,20 @@ def ingest_mcqs(source=None, subject_override=None):
         for q in mcqs:
             source_file = q.get('_sourceFile', '').lower()
             
-            # Subject logic
+            # SMART FILTERING FOR CLOUD RUN / AGGREGATE JSON
             if subject_override:
+                # If we are using the aggregate JSON (fell back because source dir not found)
+                # we must filter by the intended source path or subject keywords
+                is_json_fallback = not (source and os.path.isdir(source))
+                if is_json_fallback:
+                    # Filter by subject keywords in source path
+                    sub_lower = subject_override.lower()
+                    if 'modern history' in sub_lower and 'modern' not in source_file: continue
+                    if 'medieval history' in sub_lower and 'medieval' not in source_file: continue
+                    if 'ancient history' in sub_lower and 'ancient' not in source_file: continue
+                    if 'history' in sub_lower and 'history' not in source_file: continue
+                    if 'polity' in sub_lower and 'polity' not in source_file: continue
+                
                 subject = subject_override
             else:
                 subject = "General"

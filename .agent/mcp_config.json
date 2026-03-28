@@ -1,24 +1,64 @@
 {
-    "mcpServers": {
-        "context7": {
-            "command": "npx",
-            "args": [
-                "-y",
-                "@upstash/context7-mcp",
-                "--api-key",
-                "YOUR_API_KEY"
-            ]
-        },
-        "shadcn": {
-            "command": "npx",
-            "args": [
-                "shadcn@latest",
-                "mcp"
-            ]
-        }
-        //other mcp servers
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "D:/Development/EduEcosystem"
+      ]
+    },
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": ""
+      }
+    },
+    "terminal": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-terminal"
+      ]
+    },
+    "docker": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-docker"
+      ]
+    },
+    "postgres": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-postgres"
+      ]
+    },
+    "google-cloud": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-google-cloud"
+      ]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-playwright"
+      ]
+    },
+    "npm": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-npm"
+      ]
     }
+  }
 }
-
-// setup mcp server in  ~/.gemini\antigravity\mcp_config.json
-

@@ -20,6 +20,8 @@ export interface GeographyTopic {
     isCompleted?: boolean; // For tracking
     referenceChapter?: string; // e.g. "Savindra Singh Ch. 1"
     referenceLevel?: number; // e.g. 2 or 3
+    contentId?: string; // Mapping to GEOGRAPHY_CONTENT_REGISTRY
+    visualId?: string; // Mapping to VISUALIZATION_REGISTRY
 }
 
 // 25-minute Teaching Block

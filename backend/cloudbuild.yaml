@@ -1,0 +1,27 @@
+steps:
+  # 1. Build the backend image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', '$_GCP_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/backend:latest', '-f', 'Dockerfile.production', '--build-arg', 'ENV_TYPE=production', '.']
+
+  # 2. Push to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', '$_GCP_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/backend:latest']
+
+  # 3. Deploy to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'eduecosystem-backend'
+      - '--image=$_GCP_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/backend:latest'
+      - '--region=$_GCP_REGION'
+      - '--platform=managed'
+      - '--allow-unauthenticated'
+
+substitutions:
+  _GCP_REGION: 'us-central1'
+  _REPO_NAME: 'eduecosystem-repo'
+
+options:
+  logging: CLOUD_LOGGING_ONLY

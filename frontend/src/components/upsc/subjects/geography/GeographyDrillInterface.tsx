@@ -8,8 +8,13 @@ import { Target } from 'lucide-react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import GeographyResultDashboard from './GeographyResultDashboard';
 import { QuestionResult } from '@/components/common/reports/StandardTestReport';
+import { StandardMCQ } from '@/components/common/mcq/StandardMCQInterface';
 
-export default function GeographyDrillInterface() {
+interface GeographyDrillInterfaceProps {
+    externalQuestions?: StandardMCQ[];
+}
+
+export default function GeographyDrillInterface({ externalQuestions }: GeographyDrillInterfaceProps) {
     const searchParams = useSearchParams();
     const router = useRouter();
     const topicIdStr = searchParams.get('topicId');
@@ -21,6 +26,10 @@ export default function GeographyDrillInterface() {
 
     // Normalize and filter MCQs
     const filteredMCQs = useMemo(() => {
+        if (externalQuestions && externalQuestions.length > 0) {
+            return externalQuestions;
+        }
+
         let pool = GEOGRAPHY_MCQS.map(m => ({
             ...m,
             // Map geography specific fields to standard interface

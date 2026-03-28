@@ -19,7 +19,7 @@ DATABASE_URL: str = "sqlite:///./eduecosystem.db"
 ### Step 2: Create Tables
 
 ```bash
-cd "d:\Graphology\Master Software\Eduecosystem\backend"
+cd "D:\Development\EduEcosystem\backend"
 python init_db.py
 ```
 
@@ -49,7 +49,7 @@ CREATE DATABASE eduecosystem;
 ### Step 3: Create Tables
 
 ```bash
-cd "d:\Graphology\Master Software\Eduecosystem\backend"
+cd "D:\Development\EduEcosystem\backend"
 python init_db.py
 ```
 
@@ -72,7 +72,7 @@ python -m uvicorn main:app --reload
 
 2. **Then run:**
    ```bash
-   cd "d:\Graphology\Master Software\Eduecosystem"
+   cd "D:\Development\EduEcosystem"
    docker-compose up -d
    cd backend
    alembic revision --autogenerate -m "Initial migration"

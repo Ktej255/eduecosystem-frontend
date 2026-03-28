@@ -4,7 +4,7 @@ from sqlalchemy import create_engine, inspect, text
 from sqlalchemy.orm import sessionmaker
 
 # Add the backend directory to sys.path
-backend_dir = r"d:\Graphology\Master Software\Eduecosystem\backend"
+backend_dir = r"D:\Development\EduEcosystem\backend"
 sys.path.append(backend_dir)
 
 from app.models.user import User

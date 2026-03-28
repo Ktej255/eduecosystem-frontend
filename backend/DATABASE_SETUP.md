@@ -16,7 +16,7 @@
 
 2. **Start Database Services**
    ```bash
-   cd "d:\Graphology\Master Software\Eduecosystem"
+   cd "D:\Development\EduEcosystem"
    docker-compose up -d
    ```
 
@@ -54,7 +54,7 @@ If you prefer not to use Docker:
 
 Once Docker is running, run this command to continue:
 ```bash
-cd "d:\Graphology\Master Software\Eduecosystem\backend"
+cd "D:\Development\EduEcosystem\backend"
 alembic revision --autogenerate -m "Initial migration - create all tables"
 alembic upgrade head
 ```

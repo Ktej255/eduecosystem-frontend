@@ -4,8 +4,8 @@ import sys
 
 # Define the path to the segments_data.json file
 # Assuming this script is run from the backend root or similar, we'll try to find it relative to this script
-# The script is expected to be placed in d:\Graphology\Master Software\Eduecosystem\backend\scripts
-# So the data file should be in d:\Graphology\Master Software\Eduecosystem\backend\data\segments_data.json
+# The script is expected to be placed in D:\Development\EduEcosystem\backend\scripts
+# So the data file should be in D:\Development\EduEcosystem\backend\data\segments_data.json
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data")

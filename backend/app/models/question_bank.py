@@ -74,6 +74,9 @@ class BankQuestion(Base):
     explanation = Column(Text, nullable=True)
 
     # Metadata
+    subject = Column(String(50), nullable=True, index=True)  # e.g., "Polity", "History"
+    topic_tag = Column(String(255), nullable=True, index=True)
+    chapter_number = Column(Integer, nullable=True)
     tags = Column(Text, nullable=True)  # Comma-separated tags
     usage_count = Column(Integer, default=0)  # How many times used in quizzes
 

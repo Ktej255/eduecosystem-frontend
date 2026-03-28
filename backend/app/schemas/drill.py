@@ -40,6 +40,8 @@ class QuestionResponse(BaseModel):
     question_text: str
     key_points: List[str]
     difficulty: str
+    is_mcq: Optional[bool] = None
+    options: Optional[List[str]] = None
     created_at: datetime
     updated_at: datetime
     
@@ -118,6 +120,7 @@ class AnswerUpload(BaseModel):
     answer_type: str = Field(..., pattern="^(before|after)$")
     answer_text: Optional[str] = None
     image_url: Optional[str] = None
+    selected_option: Optional[int] = None
 
 
 class SessionUpdate(BaseModel):
@@ -148,6 +151,7 @@ class SessionResponse(BaseModel):
     after_score: Optional[int]
     improvement: Optional[int]
     overall_score: Optional[int]
+    is_correct: Optional[bool] = None
     completed_at: Optional[datetime]
     
     class Config:

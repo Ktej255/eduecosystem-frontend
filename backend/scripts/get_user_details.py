@@ -3,7 +3,7 @@ import sys
 from sqlalchemy import create_engine, text
 
 # Add the backend directory to sys.path
-backend_dir = r"d:\Graphology\Master Software\Eduecosystem\backend"
+backend_dir = r"D:\Development\EduEcosystem\backend"
 sys.path.append(backend_dir)
 
 PROD_DB_URL = "postgresql://postgres:Edueco123!@eduecosystem-prod.cw5ei40o4bwd.us-east-1.rds.amazonaws.com:5432/eduecosystem_prod"

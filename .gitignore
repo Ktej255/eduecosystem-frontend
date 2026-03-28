@@ -145,3 +145,20 @@ build_temp*/
 # MCP Config
 .agent/
 .gemini/
+
+# Large local tools
+DevTools/
+google-cloud-sdk/
+Tools/
+Doc/
+Sarit\ Classes\ website\ code/
+
+# Local binaries and DBs
+cloud-sql-proxy.exe
+*.db
+*.sqlite
+*.sqlite3
+app_runner_error.json
+latest_crash_logs.json
+proxy_log.txt
+build_log.txt

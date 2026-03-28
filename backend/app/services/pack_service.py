@@ -34,13 +34,21 @@ class PackService:
         """
         Get the top packs by total points.
         """
-        return db.query(LearningGroup).order_by(desc(LearningGroup.pack_points)).limit(limit).all()
+        try:
+            return db.query(LearningGroup).order_by(desc(LearningGroup.pack_points)).limit(limit).all()
+        except getattr(__import__('sqlalchemy').exc, 'OperationalError', Exception):
+            db.rollback()
+            return []
 
     def get_weekly_leaderboard(self, db: Session, limit: int = 10) -> List[LearningGroup]:
         """
         Get the top packs by weekly points.
         """
-        return db.query(LearningGroup).order_by(desc(LearningGroup.weekly_points)).limit(limit).all()
+        try:
+            return db.query(LearningGroup).order_by(desc(LearningGroup.weekly_points)).limit(limit).all()
+        except getattr(__import__('sqlalchemy').exc, 'OperationalError', Exception):
+            db.rollback()
+            return []
 
     def reset_weekly_points(self, db: Session):
         """

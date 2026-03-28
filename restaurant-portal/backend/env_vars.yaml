@@ -1,0 +1,2 @@
+GEMINI_API_KEY: "AIzaSyCXnt6xEOzQUB7toHpUb_UEhEgeH7gu_Sg"
+SQLALCHEMY_DATABASE_URI: "postgresql+psycopg2://pizza_blitz_user:PizzaBlitz123!@/pizza_blitz_db?host=/cloudsql/eduecosystem-prod:us-central1:eduecosystem-db"

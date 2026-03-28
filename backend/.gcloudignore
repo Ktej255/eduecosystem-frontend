@@ -1,0 +1,10 @@
+# BACKEND LOCAL GCLOUDIGNORE
+node_modules/
+venv/
+__pycache__/
+*.pyc
+uploads/
+tests/
+.pytest_cache/
+.vscode/
+.env

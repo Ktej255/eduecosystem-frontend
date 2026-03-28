@@ -20,24 +20,32 @@ def get_pack_leaderboard(
     """
     Get the top packs.
     """
-    if weekly:
-        packs = pack_service.get_weekly_leaderboard(db, limit)
-    else:
-        packs = pack_service.get_leaderboard(db, limit)
-    
-    result = []
-    for p in packs:
-        metadata = json.loads(p.pack_metadata) if p.pack_metadata else {}
-        result.append({
-            "id": p.id,
-            "name": p.name,
-            "house_type": p.house_type,
-            "points": p.weekly_points if weekly else p.pack_points,
-            "metadata": metadata,
-            "is_my_pack": any(m.user_id == current_user.id for m in p.members)
-        })
-    
-    return result
+    try:
+        if weekly:
+            packs = pack_service.get_weekly_leaderboard(db, limit)
+        else:
+            packs = pack_service.get_leaderboard(db, limit)
+        
+        result = []
+        for p in packs:
+            try:
+                metadata = json.loads(p.pack_metadata) if p.pack_metadata and isinstance(p.pack_metadata, str) else (p.pack_metadata if p.pack_metadata else {})
+            except Exception:
+                metadata = {}
+                
+            result.append({
+                "id": getattr(p, 'id', None),
+                "name": getattr(p, 'name', 'Unknown'),
+                "house_type": getattr(p, 'house_type', None),
+                "points": getattr(p, 'weekly_points', 0) if weekly else getattr(p, 'pack_points', 0),
+                "metadata": metadata,
+                "is_my_pack": any(m.user_id == current_user.id for m in getattr(p, 'members', [])) if current_user else False
+            })
+        
+        return result
+    except Exception as e:
+        print(f"Error in leaderboard: {e}")
+        return []
 
 @router.get("/my-pack")
 def get_my_pack(
@@ -53,10 +61,22 @@ def get_my_pack(
     membership = db.query(GroupMembership).filter(GroupMembership.user_id == current_user.id).first()
     
     if not membership:
-        raise HTTPException(status_code=404, detail="You are not a member of any Wolf Pack yet.")
+        return {
+            "detail": "User not assigned to a pack",
+            "is_assigned": False
+        }
     
     pack = db.query(LearningGroup).filter(LearningGroup.id == membership.group_id).first()
-    metadata = json.loads(pack.pack_metadata) if pack.pack_metadata else {}
+    if not pack:
+        return {
+            "detail": "User not assigned to a pack",
+            "is_assigned": False
+        }
+
+    try:
+        metadata = json.loads(pack.pack_metadata) if pack.pack_metadata and isinstance(pack.pack_metadata, str) else (pack.pack_metadata if pack.pack_metadata else {})
+    except Exception:
+        metadata = {}
     
     return {
         "id": pack.id,

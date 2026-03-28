@@ -75,7 +75,7 @@ class CashfreeService:
 
         signature_string = timestamp + raw_body
         
-        # Calculate HMAC SHA256 correlation
+        # Cashfree webhook signature uses Base64 encoding for API version 2023-08-01 (verified)
         expected_signature = base64.b64encode(
             hmac.new(
                 self.secret_key.encode('utf-8'),
