@@ -5,14 +5,14 @@ DATABASE_URL = os.environ.get("DATABASE_URL")
 engine = create_engine(DATABASE_URL)
 
 fix_sql = """
--- Fix level_1 -> easy
-UPDATE bank_questions SET difficulty = 'easy' WHERE difficulty = 'level_1';
+-- Fix level_1 and level 1 -> easy
+UPDATE bank_questions SET difficulty = 'easy' WHERE difficulty IN ('level_1', 'level 1');
 
--- Fix level_2 -> medium
-UPDATE bank_questions SET difficulty = 'medium' WHERE difficulty = 'level_2';
+-- Fix level_2 and level 2 -> medium
+UPDATE bank_questions SET difficulty = 'medium' WHERE difficulty IN ('level_2', 'level 2');
 
--- Fix level_3 -> hard
-UPDATE bank_questions SET difficulty = 'hard' WHERE difficulty = 'level_3';
+-- Fix level_3 and level 3 -> hard
+UPDATE bank_questions SET difficulty = 'hard' WHERE difficulty IN ('level_3', 'level 3');
 
 -- Fix tough -> hard
 UPDATE bank_questions SET difficulty = 'hard' WHERE difficulty = 'tough';
