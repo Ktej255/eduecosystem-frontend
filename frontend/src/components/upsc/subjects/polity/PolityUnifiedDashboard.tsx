@@ -218,7 +218,7 @@ export default function PolityUnifiedDashboard({ registryMode }: { registryMode?
                     </Button>
                     <Button
                         size="sm"
-                        onClick={() => router.push('/student/upsc/current-affairs?subject=Polity')}
+                        onClick={() => router.push('/student/upsc/polity/current-affairs')}
                         className="bg-rose-500 hover:bg-rose-600 text-white font-bold border-2 border-rose-600 ml-2 shadow-[0_0_10px_rgba(244,63,94,0.3)]"
                     >
                         <Flame className="w-4 h-4 mr-2" /> Current Affairs
