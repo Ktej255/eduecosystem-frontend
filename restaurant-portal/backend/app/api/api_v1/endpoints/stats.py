@@ -510,5 +510,3 @@ def ceo_weekly_summary(db: Session = Depends(get_db)):
         "worst_day": {"date": worst.date.strftime("%A %d %b") if worst else "N/A", "revenue": float(worst.total_sale) if worst else 0},
         "ai_recommendation": (f"Strong week with {wow}% growth. Maintain consistency on slower days." if wow > 10 else f"Stable week. Push weekend promotions." if wow > 0 else f"Revenue declined {abs(wow)}% vs last week. Review pricing and staffing.")
     }
-210?text={encoded_message}"
-    }
