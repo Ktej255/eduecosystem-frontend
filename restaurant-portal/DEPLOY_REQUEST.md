@@ -1,37 +1,47 @@
 ## DEPLOY REQUEST
 Date: 2026-03-29
 Project: Pizza Blitz
+Changed Files:
+- backend/app/api/api_v1/api.py
+- backend/app/api/api_v1/endpoints/shifts.py
+- backend/app/api/api_v1/endpoints/orders.py
+- backend/app/api/api_v1/endpoints/stats.py
+- backend/app/api/api_v1/endpoints/vendors.py
+- backend/app/api/api_v1/endpoints/promotions.py
+- backend/app/api/api_v1/endpoints/menu.py
+- frontend/src/app/(dashboard)/ceo/page.tsx
+- frontend/src/app/(dashboard)/shifts/page.tsx
+- frontend/src/app/(dashboard)/orders/page.tsx
+- frontend/src/app/(dashboard)/breakeven/page.tsx
+- frontend/src/app/(dashboard)/invoices/page.tsx
+- frontend/src/app/(dashboard)/vendors/page.tsx
+- frontend/src/app/(dashboard)/promotions/page.tsx
 
-### Changed Files:
-- backend/app/api/api_v1/api.py (Router registration)
-- backend/app/api/api_v1/endpoints/stats.py (Weekly summary & Breakeven)
-- backend/app/api/api_v1/endpoints/orders.py (POS & Invoicing)
-- backend/app/api/api_v1/endpoints/shifts.py [NEW]
-- backend/app/api/api_v1/endpoints/vendors.py [NEW]
-- frontend/src/app/(dashboard)/shifts/page.tsx [NEW]
-- frontend/src/app/(dashboard)/orders/page.tsx [NEW]
-- frontend/src/app/(dashboard)/breakeven/page.tsx [NEW]
-- frontend/src/app/(dashboard)/invoices/page.tsx [NEW]
-- frontend/src/app/(dashboard)/vendors/page.tsx (Updated with Price Tracker)
-- frontend/src/app/(dashboard)/ceo/page.tsx (Updated with Weekly Report)
-- frontend/src/components/layout/Sidebar.tsx (Navigation updated)
+New Endpoints Added:
+- GET /api/v1/restaurant/shifts/
+- POST /api/v1/restaurant/shifts/
+- GET /api/v1/restaurant/shifts/performance
+- POST /api/v1/restaurant/orders/
+- GET /api/v1/restaurant/orders/tables
+- GET /api/v1/restaurant/orders/invoices
+- GET /api/v1/restaurant/stats/insights/health-score
+- GET /api/v1/restaurant/stats/target/status
+- GET /api/v1/restaurant/stats/ceo-summary
+- GET /api/v1/restaurant/stats/weekly-summary/whatsapp
+- GET /api/v1/restaurant/stats/breakeven
+- POST /api/v1/restaurant/stats/breakeven/setup
+- GET /api/v1/restaurant/vendors/
+- POST /api/v1/restaurant/vendors/prices
+- GET /api/v1/restaurant/vendors/prices/alerts/increases
+- GET /api/v1/restaurant/vendors/intelligence/cheapest/{item}
+- POST /api/v1/restaurant/promotions/
+- GET /api/v1/restaurant/promotions/active
+- GET /api/v1/restaurant/menu/profitability
 
-### New Endpoints Added:
-- POST /api/v1/restaurant/shifts/ (Log Shift)
-- GET /api/v1/restaurant/shifts/performance (Staff Metrics)
-- POST /api/v1/restaurant/orders/ (POS Order Creation)
-- GET /api/v1/restaurant/orders/tables (Table Status)
-- POST /api/v1/restaurant/orders/{id}/invoice (Generate Tax Invoice)
-- GET /api/v1/restaurant/stats/insights/weekly-summary-report (WhatsApp Report)
-- GET /api/v1/restaurant/vendors/prices/{item} (Price Tracking)
-
-### Services Needing Redeploy:
+Services Needing Redeploy:
 - [x] backend
 - [x] frontend
 
-### Pre-Deploy Action Required:
-- [IMPORTANT] Execute `MIGRATIONS.sql` in the production database to create 7 new tables (`shift_log`, `tables`, `orders`, `invoices`, `fixed_costs`, `vendors`, `vendor_price_history`).
-
-### Test After Deploy:
-- Navigate to `/ceo` and click "Cast Weekly Pulse" -> should open WhatsApp with summary text.
-- Navigate to `/orders` and try creating an order for Table 1 -> should update table color and subtotal.
+Test After Deploy:
+- GET https://pizza-blitz-backend-503001969959.us-central1.run.app/api/v1/restaurant/stats/insights/health-score should return 200 with JSON health data.
+- GET https://pizza-blitz-dashboard.vercel.app/ceo should display the new Intelligence Hub with charts.
