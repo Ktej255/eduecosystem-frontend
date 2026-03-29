@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSC Governance Digital Explorer: Prelims & Mains Index</title>
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Font CDN (Lexend for clarity and modern feel) -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom CSS for refined aesthetics and interactivity */
+        :root {
+            --primary-color: #1a365d; /* Dark Blue */
+            --secondary-color: #2a4365; /* Medium Blue */
+            --accent-color: #2dd4bf; /* Teal */
+            --text-dark: #2d3748; /* Dark Gray */
+            --text-light: #4a5568; /* Medium Gray */
+            --bg-light: #f7fafc; /* Light Gray */
+            --bg-lighter: #ffffff; /* White */
+            --border-color: #e2e8f0; /* Light border */
+        }
+
+        body {
+            font-family: 'Lexend', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.65;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-light);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary-color);
+            border-radius: 5px;
+            transition: background 0.3s ease-in-out;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
+        }
+
+        /* Hero Section Enhancements */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50vh; /* Responsive height */
+            padding: 4rem 1rem;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://source.unsplash.com/random/1920x1080/?governance,digital,abstract') no-repeat center center/cover; /* Placeholder image */
+            opacity: 0.1; /* Subtle overlay */
+            pointer-events: none;
+        }
+        .hero-content {
+            z-index: 10;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        /* Section Headings Styling */
+        .section-heading {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--primary-color);
+        }
+        .section-heading i {
+            font-size: 2rem;
+            color: var(--accent-color);
+        }
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* Accordion (Details/Summary) Styling */
+        details {
+            margin-bottom: 0.75rem;
+            background-color: var(--bg-lighter);
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease-in-out;
+            border: 1px solid var(--border-color);
+        }
+
+        details.module-detail {
+            border-left: 6px solid var(--primary-color);
+        }
+
+        details.topic-detail {
+            border-left: 4px solid var(--secondary-color);
+            margin-left: 1.5rem; /* Indent topics within modules */
+        }
+
+        details.subtopic-detail {
+            border-left: 2px solid var(--accent-color);
+            margin-left: 3rem; /* Indent subtopics within topics */
+        }
+
+        summary {
+            cursor: pointer;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: all 0.3s ease-in-out;
+            user-select: none; /* Prevent text selection on double click */
+            border-bottom: 1px solid transparent; /* For visual separation on open */
+        }
+
+        summary:hover {
+            background-color: var(--bg-light);
+            border-radius: 0.75rem;
+            /* Only round corners if not the bottom border */
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        /* Style for module summary */
+        details.module-detail > summary {
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 1.25rem;
+            border-radius: 0.75rem;
+            padding: 1.25rem 1.75rem;
+            position: relative;
+            z-index: 1; /* Ensure it's above nested elements */
+        }
+        details.module-detail > summary:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Style for topic summary */
+        details.topic-detail > summary {
+            background-color: var(--bg-light);
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            border-radius: 0.5rem;
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--border-color); /* Separator */
+        }
+        details.topic-detail > summary:hover {
+             background-color: var(--primary-color); /* Darker hover for topic */
+             color: white;
+        }
+
+        /* Style for subtopic summary */
+        details.subtopic-detail > summary {
+            background-color: var(--bg-lighter);
+            color: var(--text-light);
+            font-size: 1rem;
+            padding: 0.75rem 1.25rem;
+            border-top: 1px dashed var(--border-color); /* Dotted separator */
+        }
+        details.subtopic-detail > summary:hover {
+            background-color: var(--accent-color); /* Accent hover for subtopic */
+            color: var(--text-dark);
+        }
+
+
+        /* Icon for summary (accordion indicator) */
+        summary::after {
+            content: '\f078'; /* Chevron-down icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-left: 1rem;
+            transition: transform 0.3s ease-in-out;
+            color: var(--accent-color);
+        }
+        details.module-detail > summary::after {
+            color: white; /* White arrow for module */
+        }
+        details.topic-detail > summary::after {
+            color: var(--accent-color); /* Teal arrow for topic */
+        }
+         details.subtopic-detail > summary::after {
+            color: var(--text-light); /* Gray arrow for subtopic */
+        }
+
+        details[open] > summary::after {
+            transform: rotate(180deg);
+        }
+
+        details[open] > summary {
+            border-bottom: 1px solid var(--border-color); /* Line when open */
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        details.module-detail[open] > summary {
+            border-bottom: 1px solid var(--secondary-color);
+        }
+        details.topic-detail[open] > summary {
+            border-bottom: 1px solid var(--border-color);
+        }
+        details.subtopic-detail[open] > summary {
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        /* Content area for details */
+        details > div {
+            padding: 1rem 1.5rem 1rem 1.5rem;
+            background-color: var(--bg-lighter);
+            border-top: 1px solid var(--border-color); /* Separator from summary */
+            border-bottom-left-radius: 0.75rem;
+            border-bottom-right-radius: 0.75rem;
+            overflow: hidden; /* For max-height transition */
+            max-height: 0;
+            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out, opacity 0.4s ease-in-out;
+            opacity: 0;
+        }
+
+        details[open] > div {
+            max-height: 1000px; /* Arbitrarily large value */
+            opacity: 1;
+            padding: 1rem 1.5rem 1.5rem 1.5rem; /* Adjust padding when open */
+        }
+
+        /* Nested content styling */
+        details.topic-detail > div {
+            border-top: none; /* No double border */
+            padding-left: calc(1.5rem + 1.5rem); /* Extra indent for deeper content */
+        }
+        details.subtopic-detail > div {
+            border-top: none;
+            padding-left: calc(1.5rem + 3rem); /* Even more indent */
+        }
+
+        /* List item (final level) styling */
+        .topic-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+            padding: 0.75rem 1rem;
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .topic-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+            background-color: var(--accent-color);
+            color: var(--text-dark);
+            border-color: var(--accent-color);
+        }
+        .topic-item:hover .item-icon {
+            color: var(--primary-color);
+        }
+        .topic-item:hover a {
+            color: var(--text-dark);
+        }
+
+
+        .item-icon {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .topic-item a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease-in-out;
+            display: block; /* Make the whole content area clickable */
+            flex-grow: 1;
+        }
+        .topic-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Key Callout Box */
+        .key-callout {
+            background-color: #e6fffa; /* Light teal */
+            border-left: 6px solid var(--accent-color);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin: 2.5rem auto;
+            max-width: 800px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .key-callout i {
+            color: var(--accent-color);
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        .key-callout h3 {
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .key-callout p {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+        }
+        footer a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Header Section -->
+    <header class="hero-section">
+        <div class="hero-content text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">
+                <i class="fas fa-gavel
+                 text-teal-400 mr-4"></i> UPSC Governance Digital Explorer <i class="fas fa-scroll text-teal-400 ml-4"></i>
+            </h1>
+            <p class="text-xl sm:text-2xl font-light opacity-90 mb-8">
+                An Ultra-Detailed & Logical Index for Prelims & Mains Success
+            </p>
+            <a href="#governance-index" class="inline-block bg-teal-400 text-slate-900 font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-white hover:text-primary-color transition-all duration-300 ease-in-out transform hover:scale-105">
+                Explore the Syllabus <i class="fas fa-arrow-down ml-2"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16" id="governance-index">
+        <h2 class="text-3xl sm:text-4xl font-bold section-heading">
+            <i class="fas fa-list-ol"></i> Comprehensive Governance Syllabus
+        </h2>
+        <p class="mb-8 text-lg text-gray-700">Navigate through the meticulously structured syllabus for UPSC Governance (GS Paper II), covering core concepts, institutional mechanisms, societal roles, and contemporary challenges. Each section is expandable for detailed sub-topics.</p>
+
+        <!-- Key Callout Box -->
+        <div class="key-callout">
+            <i class="fas fa-lightbulb"></i>
+            <div>
+                <h3>How to Use This Explorer:</h3>
+                <p>Click on any Module or Topic title to expand and reveal its detailed sub-sections. The lowest-level items represent key learning objectives and are designed to link to comprehensive study notes. This structure aids in systematic preparation for both Prelims and Mains examinations.</p>
+            </div>
+        </div>
+
+        <!-- Governance Modules - Accordion Structure -->
+
+        <!-- Module 1 -->
+        <details class="module-detail">
+            <summary>
+                Module 1: Core Concepts and Principles of Governance
+            </summary>
+            <div>
+                <details class="topic-detail">
+                    <summary>
+                        Topic 1.1: Understanding Governance
+                    </summary>
+                    <div>
+                        <details class="subtopic-detail">
+                            <summary>
+                                1.1.1: Defining Governance: Etymology and Conceptual Evolution
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-tag"></i><a href="governance-chapter-1.1.html" target="_governance-chapter-1.1.html">1.1.1.1: Governance vs. Government: Key Distinctions</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-history"></i><a href="governance-chapter-1.1.html" target="_governance-chapter-1.1.html">1.1.1.2: Historical Antecedents (e.g., Kautilya's Arthashastra, Plato, Aristotle on Statecraft)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-chart-line"></i><a href="governance-chapter-1.1.html" target="_governance-chapter-1.1.html">1.1.1.3: Modern Interpretations (World Bank, UNDP, OECD)</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="subtopic-detail">
+                            <summary>
+                                1.1.2: Actors in Governance: Roles and Interrelationships
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-landmark"></i><a href="governance-chapter-1.1.html" target="_governance-chapter-1.1.html">1.1.2.1: The State (Legislature, Executive, Judiciary)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-store"></i><a href="governance-chapter-1.1.html" target="_governance-chapter-1.1.html">1.1.2.2: The Market (Corporations, Business Associations)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-people-group"></i><a href="governance-chapter-1.1.html" target="_governance-chapter-1.1.html">1.1.2.3: Civil Society (NGOs, CBOs, Media, Academia, Citizen Groups)</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="subtopic-detail">
+                            <summary>
+                                1.1.3: Dimensions/Domains of Governance
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-democrat"></i><a href="governance-chapter-1.1.html" target="_governance-chapter-1.1.html">1.1.3.1: Political Governance (Democracy, Rule of Law, Human Rights)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-sack-dollar"></i><a href="governance-chapter-1.1.html" target="_governance-chapter-1.1.html">1.1.3.2: Economic Governance (Fiscal Management, Regulation, Market Stability)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-building-columns"></i><a href="governance-chapter-1.1.html" target="_governance-chapter-1.1.html">1.1.3.3: Administrative Governance (Public Service Delivery, Efficiency)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-hand-holding-heart"></i><a href="governance-chapter-1.1.html" target="_governance-chapter-1.1.html">1.1.3.4: Social Governance (Equity, Inclusion, Social Justice)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-leaf"></i><a href="governance-chapter-1.1.html" target="_governance-chapter-1.1.html">1.1.3.5: Environmental Governance (Sustainability, Resource Management)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-building"></i><a href="governance-chapter-1.1.html" target="_governance-chapter-1.1.html">1.1.3.6: Corporate Governance (Ethics, Accountability in Business)</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="subtopic-detail">
+                            <summary>
+                                1.1.4: Paradigms of Governance
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-book"></i><a href="governance-chapter-1.1.html" target="_governance-chapter-1.1.html">1.1.4.1: Traditional Public Administration</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-chart-simple"></i><a href="governance-chapter-1.1.html" target="_governance-chapter-1.1.html">1.1.4.2: New Public Management (NPM)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-handshake-angle"></i><a href="governance-chapter-1.1.html" target="_governance-chapter-1.1.html">1.1.4.3: Good Governance Paradigm</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-network-wired"></i><a href="governance-chapter-1.1.html" target="_governance-chapter-1.1.html">1.1.4.4: Network Governance & Collaborative Governance</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-laptop-code"></i><a href="governance-chapter-1.1.html" target="_governance-chapter-1.1.html">1.1.4.5: Digital Era Governance / E-Governance (Introduction)</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 1.2: Good Governance: The Ideal
+                    </summary>
+                    <div>
+                        <details class="subtopic-detail">
+                            <summary>
+                                1.2.1: Concept, Meaning, and Philosophy of Good Governance
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-seedling"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.1.1: Genesis (Influence of IFIs, Post-Cold War context)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-lightbulb"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.1.2: Good Governance as a Normative Ideal and a Practical Tool</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="subtopic-detail">
+                            <summary>
+                                1.2.2: Core Principles/Attributes of Good Governance (Detailed Exploration)
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-users"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.2.1: Participation (Forms, Levels, Enabling factors, Challenges)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-balance-scale"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.2.2: Rule of Law (Supremacy, Equality, Accountability, Legal Certainty, Procedural Fairness)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-eye"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.2.3: Transparency (Access to Info, Open Decision-Making, Disclosure Norms)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-hand-paper"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.2.4: Responsiveness (Timeliness, Citizen-centricity, Service Quality)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-comments"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.2.5: Consensus Orientation (Mediation, Inclusivity in Policy, Conflict Resolution)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-universal-access"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.2.6: Equity and Inclusiveness (Addressing Vulnerabilities, Non-Discrimination, Social Justice)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-cogs"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.2.7: Effectiveness and Efficiency (Resource Optimization, Outcome Focus, Performance Mgt.)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-clipboard-check"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.2.8: Accountability (Mechanisms, Types: Political, Admin, Social, Legal)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-tree"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.2.9: (Emerging) Sustainability & Resilience</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="subtopic-detail">
+                            <summary>
+                                1.2.3: Significance of Good Governance
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-globe"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.3.1: For Sustainable Development (SDGs Linkage)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-chart-bar"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.3.2: For Economic Growth and Poverty Reduction</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-shield-alt"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.3.3: For Strengthening Democracy and Citizen Trust</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-hand-holding-usd"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.3.4: For Ensuring Social Justice and Human Rights</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="subtopic-detail">
+                            <summary>
+                                1.2.4: Challenges in Realizing Good Governance in India
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-building-columns"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.4.1: Colonial Legacy and Bureaucratic Pathologies</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-handcuffs"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.4.2: Corruption and Lack of Probity</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-person-booth"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.4.3: Political Interference and Criminalization of Politics</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-laptop"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.4.4: Socio-economic Inequalities and Digital Divide</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-user-xmark"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.4.5: Capacity Deficits in Administration</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-gavel"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.4.6: Complex Legal and Regulatory Environment</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="subtopic-detail">
+                            <summary>
+                                1.2.5: Measuring Good Governance
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-chart-pie"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.5.1: Global Indices (World Bank's Worldwide Governance Indicators (WGI), Corruption Perception Index, Human Development Index components)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-flag-usa"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.5.2: National Indices (DARPG's Good Governance Index - GGI for States) - Parameters & India's performance.</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-magnifying-glass"></i><a href="governance-chapter-1.2.html" target="_governance-chapter-1.2.html">1.2.5.3: Methodological Challenges in Measurement</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 1.3: Ethical Foundations of Governance (Interface with GS Paper IV)
+                    </summary>
+                    <div>
+                        <details class="subtopic-detail">
+                            <summary>
+                                1.3.1: Public Service Values and Ethics in Public Administration
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-hand-holding-heart"></i><a href="governance-chapter-1.3.html" target="_governance-chapter-1.3.html">1.3.1.1: Nolan Committee Principles (Selflessness, Integrity, Objectivity, Accountability, Openness, Honesty, Leadership)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-scroll"></i><a href="governance-chapter-1.3.html" target="_governance-chapter-1.3.html">1.3.1.2: Foundational Values for Civil Services (as per 2nd ARC, etc.)</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="subtopic-detail">
+                            <summary>
+                                1.3.2: Probity in Governance
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-gem"></i><a href="governance-chapter-1.3.html" target="_governance-chapter-1.3.html">1.3.2.1: Concept and Significance</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-book-open"></i><a href="governance-chapter-1.3.html" target="_governance-chapter-1.3.html">1.3.2.2: Philosophical basis of Governance and Probity</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-share-nodes"></i><a href="governance-chapter-1.3.html" target="_governance-chapter-1.3.html">1.3.2.3: Information sharing and transparency as ethical imperatives</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="subtopic-detail">
+                            <summary>
+                                1.3.3: Codes of Ethics vs. Codes of Conduct
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-file-alt"></i><a href="governance-chapter-1.3.html" target="_governance-chapter-1.3.html">1.3.3.1: Existing Codes of Conduct for Civil Servants in India</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-lightbulb"></i><a href="governance-chapter-1.3.html" target="_governance-chapter-1.3.html">1.3.3.2: Need for a comprehensive Code of Ethics (2nd ARC recommendations)</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="subtopic-detail">
+                            <summary>
+                                1.3.4: Work Culture in Government
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-xmark"></i><a href="governance-chapter-1.3.html" target="_governance-chapter-1.3.html">1.3.4.1: Challenges (Red-tapism, Hierarchy, Resistance to change)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-arrow-up"></i><a href="governance-chapter-1.3.html" target="_governance-chapter-1.3.html">1.3.4.2: Measures to improve work culture (e.g., Mission Karmayogi's behavioral focus)</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                </details>
+            </div>
+        </details>
+
+        <!-- Module 2 -->
+        <details class="module-detail">
+            <summary>
+                Module 2: Mechanisms for Ensuring Transparency and Accountability
+            </summary>
+            <div>
+                <details class="topic-detail">
+                    <summary>
+                        Topic 2.1: Transparency as a Governance Tool
+                    </summary>
+                    <div>
+                        <details class="subtopic-detail">
+                            <summary>
+                                2.1.1: Right to Information (RTI) Act, 2005
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-info-circle"></i><a href="governance-chapter-2.1.html" target="_governance-chapter-2.1.html">2.1.1.1: Background, Objectives, and Salient Features</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-gavel"></i><a href="governance-chapter-2.1.html" target="_governance-chapter-2.1.html">2.1.1.2: Key Provisions (PIOs, Appellate Authorities, Information Commissions, Exemptions - Section 8, 9, 24)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-check-circle"></i><a href="governance-chapter-2.1.html" target="_governance-chapter-2.1.html">2.1.1.3: Impact and Successes of RTI (Empowering citizens, exposing corruption)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-times-circle"></i><a href="governance-chapter-2.1.html" target="_governance-chapter-2.1.html">2.1.1.4: Challenges and Limitations (Awareness, misuse, delays, attacks on activists, vacancies in ICs)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-file-alt"></i><a href="governance-chapter-2.1.html" target="_governance-chapter-2.1.html">2.1.1.5: RTI Amendment Act, 2019: Provisions and Criticisms</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-book-reader"></i><a href="governance-chapter-2.1.html" target="_governance-chapter-2.1.html">2.1.1.6: Landmark Judgements related to RTI (e.g., CJI office under RTI, Political Parties)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-link"></i><a href="governance-chapter-2.1.html" target="_governance-chapter-2.1.html">2.1.1.7: RTI and its interplay with Official Secrets Act, Data Protection Bill</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="subtopic-detail">
+                            <summary>
+                                2.1.2: Other Transparency Initiatives
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-upload"></i><a href="governance-chapter-2.1.html" target="_governance-chapter-2.1.html">2.1.2.1: Proactive Disclosure under RTI (Section 4)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-microphone-alt"></i><a href="governance-chapter-2.1.html" target="_governance-chapter-2.1.html">2.1.2.2: Public Hearings / Jan Sunwai</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-database"></i><a href="governance-chapter-2.1.html" target="_governance-chapter-2.1.html">2.1.2.3: Open Data Policies and Government Portals (data.gov.in)</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 2.2: Accountability Mechanisms
+                    </summary>
+                    <div>
+                        <details class="subtopic-detail">
+                            <summary>
+                                2.2.1: Conceptual Framework of Accountability
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-arrows-alt-h"></i><a href="governance-chapter-2.2.html" target="_governance-chapter-2.2.html">2.2.1.1: Horizontal vs. Vertical Accountability</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-cubes"></i><a href="governance-chapter-2.2.html" target="_governance-chapter-2.2.html">2.2.1.2: Political, Administrative, Legal, Financial, Social Accountability</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="subtopic-detail">
+                            <summary>
+                                2.2.2: Legislative Accountability
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-parliament"></i><a href="governance-chapter-2.2.html" target="_governance-chapter-2.2.html">2.2.2.1: Parliamentary Control over Executive (Questions, Debates, Motions, Committees - PAC, EC, CoPU)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-chart-line"></i><a href="governance-chapter-2.2.html" target="_governance-chapter-2.2.html">2.2.2.2: Strengths and Weaknesses of Parliamentary Oversight</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="subtopic-detail">
+                            <summary>
+                                2.2.3: Judicial Accountability & Review
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-balance-scale-right"></i><a href="governance-chapter-2.2.html" target="_governance-chapter-2.2.html">2.2.3.1: Judicial Review as a tool for accountability</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-user-gavel"></i><a href="governance-chapter-2.2.html" target="_governance-chapter-2.2.html">2.2.3.2: Public Interest Litigation (PIL) – Role and Critiques</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-scale-balanced"></i><a href="governance-chapter-2.2.html" target="_governance-chapter-2.2.html">2.2.3.3: Judicial Activism vs. Judicial Overreach debate</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-hand-fist"></i><a href="governance-chapter-2.2.html" target="_governance-chapter-2.2.html">2.2.3.4: Contempt of Court and its implications for accountability</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="subtopic-detail">
+                            <summary>
+                                2.2.4: Institutional Mechanisms for Anti-Corruption and Integrity
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-file-invoice-dollar"></i><a href="governance-chapter-2.2.html" target="_governance-chapter-2.2.html">2.2.4.1: Comptroller and Auditor General (CAG) - Role in financial accountability, Performance Audits</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-building-shield"></i><a href="governance-chapter-2.2.html" target="_governance-chapter-2.2.html">2.2.4.2: Central Vigilance Commission (CVC) - Mandate, Functions, Limitations</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-chess-queen"></i><a href="governance-chapter-2.2.html" target="_governance-chapter-2.2.html">2.2.4.3: Lokpal and Lokayuktas Act, 2013 - Structure, Powers, Challenges in Implementation</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-user-secret"></i><a href="governance-chapter-2.2.html" target="_governance-chapter-2.2.html">2.2.4.4: Central Bureau of Investigation (CBI) & Enforcement Directorate (ED) – Role, Issues of Autonomy</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="subtopic-detail">
+                            <summary>
+                                2.2.5: Social Accountability
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-hands-holding"></i><a href="governance-chapter-2.2.html" target="_governance-chapter-2.2.html">2.2.5.1: Concept and Significance</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-users-viewfinder"></i><a href="governance-chapter-2.2.html" target="_governance-chapter-2.2.html">2.2.5.2: Social Audit – Process, Benefits (e.g., MGNREGA), Challenges, Standardization efforts</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-address-card"></i><a href="governance-chapter-2.2.html" target="_governance-chapter-2.2.html">2.2.5.3: Citizen Report Cards and Community Score Cards</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-newspaper"></i><a href="governance-chapter-2.2.html" target="_governance-chapter-2.2.html">2.2.5.4: Role of Media and Civil Society Organizations in ensuring social accountability</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="subtopic-detail">
+                            <summary>
+                                2.2.6: Whistleblower Protection
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-user-shield"></i><a href="governance-chapter-2.2.html" target="_governance-chapter-2.2.html">2.2.6.1: Whistle Blowers Protection Act, 2014 – Features and Gaps</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-triangle-exclamation"></i><a href="governance-chapter-2.2.html" target="_governance-chapter-2.2.html">2.2.6.2: Challenges faced by Whistleblowers</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                </details>
+            </div>
+        </details>
+
+        <!-- Module 3 -->
+        <details class="module-detail">
+            <summary>
+                Module 3: Citizen-Centric Governance and Service Delivery
+            </summary>
+            <div>
+                <details class="topic-detail">
+                    <summary>
+                        Topic 3.1: Principles of Citizen-Centric Administration (as per 2nd ARC)
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-users-gear"></i><a href="governance-chapter-3.1.html" target="_governance-chapter-3.1.html">3.1.1: Understanding Citizen-Centricity</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-key"></i><a href="governance-chapter-3.1.html" target="_governance-chapter-3.1.html">3.1.2: Key Elements (Rule of Law, Making institutions vibrant, Transparency, Accountability, Decentralization etc.)</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 3.2: Citizen Charters
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-file-contract"></i><a href="governance-chapter-3.2.html" target="_governance-chapter-3.2.html">3.2.1: Concept, Objectives, and Evolution (UK model, Indian adoption)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-list-check"></i><a href="governance-chapter-3.2.html" target="_governance-chapter-3.2.html">3.2.2: Key Components of an effective Citizen Charter</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-star"></i><a href="governance-chapter-3.2.html" target="_governance-chapter-3.2.html">3.2.3: Sevottam Model: Framework and Implementation</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-chart-column"></i><a href="governance-chapter-3.2.html" target="_governance-chapter-3.2.html">3.2.4: Performance of Citizen Charters in India: Successes and Failures</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-lightbulb"></i><a href="governance-chapter-3.2.html" target="_governance-chapter-3.2.html">3.2.5: Challenges in design and implementation; suggestions for improvement</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 3.3: Public Service Delivery
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-triangle-exclamation"></i><a href="governance-chapter-3.3.html" target="_governance-chapter-3.3.html">3.3.1: Issues in Public Service Delivery (Quality, Access, Delays, Corruption)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-scale-balanced"></i><a href="governance-chapter-3.3.html" target="_governance-chapter-3.3.html">3.3.2: Right to Public Services Legislation / Public Service Guarantee Acts in States</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-laptop-code"></i><a href="governance-chapter-3.3.html" target="_governance-chapter-3.3.html">3.3.3: Use of ICT in improving service delivery (covered more under E-gov)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-money-check-alt"></i><a href="governance-chapter-3.3.html" target="_governance-chapter-3.3.html">3.3.4: Direct Benefit Transfer (DBT) – Mechanism, Benefits, Challenges (JAM Trinity)</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 3.4: Grievance Redressal Mechanisms
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-bullhorn"></i><a href="governance-chapter-3.4.html" target="_governance-chapter-3.4.html">3.4.1: Importance of effective Grievance Redressal</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-building-columns"></i><a href="governance-chapter-3.4.html" target="_governance-chapter-3.4.html">3.4.2: Traditional Mechanisms (Hierarchical appeals, Public hearings)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-computer"></i><a href="governance-chapter-3.4.html" target="_governance-chapter-3.4.html">3.4.3: Modern ICT-based Mechanisms</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-person-digging"></i><a href="governance-chapter-3.4.html" target="_governance-chapter-3.4.html">3.4.4: Ombudsman systems (Lokpal, Lokayuktas as grievance redressal bodies)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-road"></i><a href="governance-chapter-3.4.html" target="_governance-chapter-3.4.html">3.4.5: Challenges in Grievance Redressal and Way Forward</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </details>
+
+        <!-- Module 4 -->
+        <details class="module-detail">
+            <summary>
+                Module 4: E-Governance and Digital Transformation
+            </summary>
+            <div>
+                <details class="topic-detail">
+                    <summary>
+                        Topic 4.1: E-Governance: Concepts and Applications
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-lightbulb"></i><a href="governance-chapter-4.1.html" target="_governance-chapter-4.1.html">4.1.1: Definition, Objectives, Scope, and Evolution of E-Governance</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-diagram-project"></i><a href="governance-chapter-4.1.html" target="_governance-chapter-4.1.html">4.1.2: Types/Models of E-Governance Interactions</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-cogs"></i><a href="governance-chapter-4.1.html" target="_governance-chapter-4.1.html">4.1.3: Key Pillars/Components of E-Governance Infrastructure (SDC, SWAN, CSCs)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-star"></i><a href="governance-chapter-4.1.html" target="_governance-chapter-4.1.html">4.1.4: Benefits of E-Governance (SMART Governance: Simple, Moral, Accountable, Responsive, Transparent)</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 4.2: E-Governance Initiatives in India
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-file-contract"></i><a href="governance-chapter-4.2.html" target="_governance-chapter-4.2.html">4.2.1: National E-Governance Plan (NeGP) – Vision, Mission Mode Projects (MMPs)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-digital-tachograph"></i><a href="governance-chapter-4.2.html" target="_governance-chapter-4.2.html">4.2.2: Digital India Mission</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-sector"></i><a href="governance-chapter-4.2.html" target="_governance-chapter-4.2.html">4.2.3: Sector-specific E-Governance initiatives (e.g., Health - eSanjeevani, Education - SWAYAM, DIKSHA, Agriculture - eNAM, Judiciary - eCourts)</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 4.3: Challenges and Limitations of E-Governance
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-wifi-slash"></i><a href="governance-chapter-4.3.html" target="_governance-chapter-4.3.html">4.3.1: Digital Divide (Access, Literacy, Affordability)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-road-barrier"></i><a href="governance-chapter-4.3.html" target="_governance-chapter-4.3.html">4.3.2: Infrastructure Deficits and Connectivity Issues</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-shield-halved"></i><a href="governance-chapter-4.3.html" target="_governance-chapter-4.3.html">4.3.3: Data Security and Privacy Concerns</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-arrows-left-right"></i><a href="governance-chapter-4.3.html" target="_governance-chapter-4.3.html">4.3.4: Interoperability Issues between systems</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-person-running"></i><a href="governance-chapter-4.3.html" target="_governance-chapter-4.3.html">4.3.5: Resistance to Change within Bureaucracy, Capacity Building needs</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-money-bill-transfer"></i><a href="governance-chapter-4.3.html" target="_governance-chapter-4.3.html">4.3.6: Cost and Sustainability of projects</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 4.4: Emerging Technologies in Governance
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-brain"></i><a href="governance-chapter-4.4.html" target="_governance-chapter-4.4.html">4.4.1: Artificial Intelligence (AI) & Machine Learning (ML) – Potential applications, Ethical concerns</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-cubes-stacked"></i><a href="governance-chapter-4.4.html" target="_governance-chapter-4.4.html">4.4.2: Blockchain Technology – Applications (Land records, Supply chain), Challenges</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-wifi"></i><a href="governance-chapter-4.4.html" target="_governance-chapter-4.4.html">4.4.3: Internet of Things (IoT) – Smart cities, Healthcare applications</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-magnifying-glass-chart"></i><a href="governance-chapter-4.4.html" target="_governance-chapter-4.4.html">4.4.4: Big Data Analytics – Policy making, Predictive governance</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-cloud"></i><a href="governance-chapter-4.4.html" target="_governance-chapter-4.4.html">4.4.5: Cloud Computing (MeghRaj initiative)</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 4.5: Data Governance and Regulation
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-database"></i><a href="governance-chapter-4.5.html" target="_governance-chapter-4.5.html">4.5.1: Importance of Data Governance</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-file-contract"></i><a href="governance-chapter-4.5.html" target="_governance-chapter-4.5.html">4.5.2: India's Data Policies (Draft National Data Governance Framework Policy)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-user-lock"></i><a href="governance-chapter-4.5.html" target="_governance-chapter-4.5.html">4.5.3: Digital Personal Data Protection Bill – Key Provisions, Significance, Debates</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-shield-alt"></i><a href="governance-chapter-4.5.html" target="_governance-chapter-4.5.html">4.5.4: Cybersecurity policies and CERT-In</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </details>
+
+        <!-- Module 5 -->
+        <details class="module-detail">
+            <summary>
+                Module 5: Role of Civil Services in Governance
+            </summary>
+            <div>
+                <details class="topic-detail">
+                    <summary>
+                        Topic 5.1: Evolution and Constitutional Framework of Civil Services in India
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-landmark"></i><a href="governance-chapter-5.1.html" target="_governance-chapter-5.1.html">5.1.1: Historical Legacy (British India – Steel Frame, Post-Independence continuity and changes)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-book-open"></i><a href="governance-chapter-5.1.html" target="_governance-chapter-5.1.html">5.1.2: Constitutional Provisions (Articles 309-312, All India Services)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-network-wired"></i><a href="governance-chapter-5.1.html" target="_governance-chapter-5.1.html">5.1.3: Structure of Civil Services (AIS, Central Services, State Services)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-user-graduate"></i><a href="governance-chapter-5.1.html" target="_governance-chapter-5.1.html">5.1.4: Recruitment, Training, and Promotion (UPSC, DoPT, LBSNAA)</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 5.2: Role and Functions of Civil Services in a Democracy
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-lightbulb"></i><a href="governance-chapter-5.2.html" target="_governance-chapter-5.2.html">5.2.1: Policy Formulation and Advice to Political Executive</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-hands-helping"></i><a href="governance-chapter-5.2.html" target="_governance-chapter-5.2.html">5.2.2: Policy Implementation and Service Delivery</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-chart-line"></i><a href="governance-chapter-5.2.html" target="_governance-chapter-5.2.html">5.2.3: Regulatory and Developmental Functions</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-unity"></i><a href="governance-chapter-5.2.html" target="_governance-chapter-5.2.html">5.2.4: Maintaining National Unity and Integrity</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-scale-balanced"></i><a href="governance-chapter-5.2.html" target="_governance-chapter-5.2.html">5.2.5: Upholding Rule of Law and Constitutional Values</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 5.3: Issues and Challenges Facing Civil Services
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-user-tie"></i><a href="governance-chapter-5.3.html" target="_governance-chapter-5.3.html">5.3.1: Political Interference and Politicization vs. Neutrality & Anonymity</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-handcuffs"></i><a href="governance-chapter-5.3.html" target="_governance-chapter-5.3.html">5.3.2: Corruption and Ethical Deficiencies</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-clipboard-question"></i><a href="governance-chapter-5.3.html" target="_governance-chapter-5.3.html">5.3.3: Bureaucratic Inefficiency, Red Tapism, and Resistance to Change</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-exchange-alt"></i><a href="governance-chapter-5.3.html" target="_governance-chapter-5.3.html">5.3.4: Issues of Tenure, Transfers, and Promotions (Lack of stability, political patronage)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-person-digging"></i><a href="governance-chapter-5.3.html" target="_governance-chapter-5.3.html">5.3.5: Capacity Gaps, Lack of Specialization, and Training Deficiencies</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-bell-slash"></i><a href="governance-chapter-5.3.html" target="_governance-chapter-5.3.html">5.3.6: Accountability Deficits and Weak Performance Management</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-handshake"></i><a href="governance-chapter-5.3.html" target="_governance-chapter-5.3.html">5.3.7: Relationship between Political Executive and Permanent Executive – Tensions and Synergies</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 5.4: Civil Services Reforms: Past Efforts and Future Directions
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-scroll"></i><a href="governance-chapter-5.4.html" target="_governance-chapter-5.4.html">5.4.1: Recommendations of Key Committees (Sarkaria, Hota, Surinder Nath, Yugandhar, 2nd ARC)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-user-plus"></i><a href="governance-chapter-5.4.html" target="_governance-chapter-5.4.html">5.4.2: Reforms in Recruitment and Training</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-arrow-right-to-bracket"></i><a href="governance-chapter-5.4.html" target="_governance-chapter-5.4.html">5.4.3: Lateral Entry: Rationale, Benefits, Concerns, and Current Status</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-chart-line"></i><a href="governance-chapter-5.4.html" target="_governance-chapter-5.4.html">5.4.4: Performance Appraisal Systems and Outcome Orientation (e.g., 360-degree appraisal)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-graduation-cap"></i><a href="governance-chapter-5.4.html" target="_governance-chapter-5.4.html">5.4.5: Mission Karmayogi (National Programme for Civil Services Capacity Building - NPCSCB)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-lightbulb"></i><a href="governance-chapter-5.4.html" target="_governance-chapter-5.4.html">5.4.6: Promoting Specialization and Domain Expertise</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-hands-bound"></i><a href="governance-chapter-5.4.html" target="_governance-chapter-5.4.html">5.4.7: Ensuring Accountability and Integrity (Strengthening disciplinary mechanisms)</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </details>
+
+        <!-- Module 6 -->
+        <details class="module-detail">
+            <summary>
+                Module 6: Development Processes and the Role of Non-State Actors
+            </summary>
+            <div>
+                <details class="topic-detail">
+                    <summary>
+                        Topic 6.1: Understanding Development
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-chart-line"></i><a href="governance-chapter-6.1.html" target="_governance-chapter-6.1.html">6.1.1: Evolution of Development Discourse (Economic growth to Human Development to Sustainable Development)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-chart-bar"></i><a href="governance-chapter-6.1.html" target="_governance-chapter-6.1.html">6.1.2: Key Development Indicators (GDP, GNP, HDI, MPI, GII, Green GDP)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-globe-americas"></i><a href="governance-chapter-6.1.html" target="_governance-chapter-6.1.html">6.1.3: Sustainable Development Goals (SDGs) – Linkage with Governance, India's progress.</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 6.2: Role of Non-Governmental Organizations (NGOs) and Voluntary Sector
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-handshake"></i><a href="governance-chapter-6.2.html" target="_governance-chapter-6.2.html">6.2.1: Definition, Types, and Functions of NGOs</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-user-group"></i><a href="governance-chapter-6.2.html" target="_governance-chapter-6.2.html">6.2.2: Role in Advocacy, Service Delivery, Empowerment, and Monitoring</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-chart-pie"></i><a href="governance-chapter-6.2.html" target="_governance-chapter-6.2.html">6.2.3: Strengths (Flexibility, Grassroots reach) and Weaknesses (Funding, Accountability)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-file-contract"></i><a href="governance-chapter-6.2.html" target="_governance-chapter-6.2.html">6.2.4: Regulation of NGOs: Foreign Contribution (Regulation) Act (FCRA) – Provisions, Amendments, Controversies</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-arrows-alt-h"></i><a href="governance-chapter-6.2.html" target="_governance-chapter-6.2.html">6.2.5: Government-NGO interface: Collaboration and Conflict</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 6.3: Self-Help Groups (SHGs)
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-users"></i><a href="governance-chapter-6.3.html" target="_governance-chapter-6.3.html">6.3.1: Concept, Evolution, and Objectives of SHGs</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-hand-holding-usd"></i><a href="governance-chapter-6.3.html" target="_governance-chapter-6.3.html">6.3.2: Role in Financial Inclusion, Livelihood Generation, Women Empowerment, Social Change</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-hands-holding"></i><a href="governance-chapter-6.3.html" target="_governance-chapter-6.3.html">6.3.3: Government Support for SHGs (e.g., NRLM/DAY-NULM)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-trophy"></i><a href="governance-chapter-6.3.html" target="_governance-chapter-6.3.html">6.3.4: Success Stories and Challenges (Sustainability, Market Linkages, Capacity Building)</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 6.4: Cooperatives
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-people-carry-box"></i><a href="governance-chapter-6.4.html" target="_governance-chapter-6.4.html">6.4.1: Principles and Types of Cooperatives</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-book-open"></i><a href="governance-chapter-6.4.html" target="_governance-chapter-6.4.html">6.4.2: Constitutional Provisions (97th Amendment) and Legal Framework</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-tractor"></i><a href="governance-chapter-6.4.html" target="_governance-chapter-6.4.html">6.4.3: Role in Agriculture, Dairy, Credit, Housing etc. (Amul as a case study)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-triangle-exclamation"></i><a href="governance-chapter-6.4.html" target="_governance-chapter-6.4.html">6.4.4: Challenges (Politicization, Financial Mismanagement, Lack of Professionalism)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-chart-simple"></i><a href="governance-chapter-6.4.html" target="_governance-chapter-6.4.html">6.4.5: Recent initiatives (e.g., Ministry of Cooperation)</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 6.5: Role of Corporate Sector in Development
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-hand-holding-dollar"></i><a href="governance-chapter-6.5.html" target="_governance-chapter-6.5.html">6.5.1: Corporate Social Responsibility (CSR)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-building-columns"></i><a href="governance-chapter-6.5.html" target="_governance-chapter-6.5.html">6.5.2: Public-Private Partnerships (PPPs) in Development Projects</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 6.6: Role of Donors, Charities, Institutional and Other Stakeholders
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-hand-heart"></i><a href="governance-chapter-6.6.html" target="_governance-chapter-6.6.html">6.6.1: Philanthropic organizations: Indian and International</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-globe"></i><a href="governance-chapter-6.6.html" target="_governance-chapter-6.6.html">6.6.2: International Development Agencies (World Bank, IMF, ADB, UN Agencies)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-newspaper"></i><a href="governance-chapter-6.6.html" target="_governance-chapter-6.6.html">6.6.3: Role of Media and Academia in development discourse</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </details>
+
+        <!-- Module 7 -->
+        <details class="module-detail">
+            <summary>
+                Module 7: Welfare Schemes for Vulnerable Sections & Social Sector Governance
+            </summary>
+            <div>
+                <details class="topic-detail">
+                    <summary>
+                        Topic 7.1: Identifying Vulnerable Sections and their Issues
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-users-slash"></i><a href="governance-chapter-7.1.html" target="_governance-chapter-7.1.html">7.1.1: Definition and Criteria for Vulnerability</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-person-circle-exclamation"></i><a href="governance-chapter-7.1.html" target="_governance-chapter-7.1.html">7.1.2: Major Vulnerable Groups in India: Overview of Challenges</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 7.2: Governance for Scheduled Castes (SCs)
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-gavel"></i><a href="governance-chapter-7.2.html" target="_governance-chapter-7.2.html">7.2.1: Constitutional Safeguards (Arts. 15, 16, 17, 46, 330, 332, 335, 338 etc.)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-file-invoice"></i><a href="governance-chapter-7.2.html" target="_governance-chapter-7.2.html">7.2.2: Legislative Measures (Protection of Civil Rights Act, 1955; SC/ST (Prevention of Atrocities) Act, 1989 and amendments)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-exclamation-triangle"></i><a href="governance-chapter-7.2.html" target="_governance-chapter-7.2.html">7.2.3: Key Issues: Social Discrimination, Atrocities, Economic Marginalization, Educational backwardness</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-hands-helping"></i><a href="governance-chapter-7.2.html" target="_governance-chapter-7.2.html">7.2.4: Major Welfare Schemes: Objectives, Performance, Challenges (e.g., Post Matric Scholarship, PM-AJAY)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-building-columns"></i><a href="governance-chapter-7.2.html" target="_governance-chapter-7.2.html">7.2.5: National Commission for Scheduled Castes (NCSC) – Role and Effectiveness</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 7.3: Governance for Scheduled Tribes (STs)
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-gavel"></i><a href="governance-chapter-7.3.html" target="_governance-chapter-7.3.html">7.3.1: Constitutional Safeguards (Arts. 15, 16, 46, 244, 275, 330, 332, 338A, Fifth & Sixth Schedules)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-file-invoice"></i><a href="governance-chapter-7.3.html" target="_governance-chapter-7.3.html">7.3.2: Legislative Measures (Forest Rights Act, 2006; PESA Act, 1996)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-exclamation-triangle"></i><a href="governance-chapter-7.3.html" target="_governance-chapter-7.3.html">7.3.3: Key Issues: Land Alienation, Forest Rights, Displacement, Health & Nutrition, Education, Identity</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-hands-helping"></i><a href="governance-chapter-7.3.html" target="_governance-chapter-7.3.html">7.3.4: Major Welfare Schemes: Objectives, Performance, Challenges (e.g., Vanbandhu Kalyan Yojana, EMRS)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-building-columns"></i><a href="governance-chapter-7.3.html" target="_governance-chapter-7.3.html">7.3.5: National Commission for Scheduled Tribes (NCST) – Role and Effectiveness</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 7.4: Governance for Women
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-gavel"></i><a href="governance-chapter-7.4.html" target="_governance-chapter-7.4.html">7.4.1: Constitutional Safeguards (Arts. 14, 15(3), 39, 51A(e), 243D, 243T)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-file-invoice"></i><a href="governance-chapter-7.4.html" target="_governance-chapter-7.4.html">7.4.2: Legislative Measures (Dowry Prohibition Act, Domestic Violence Act, Sexual Harassment at Workplace Act, PCPNDT Act, Laws on Marriage & Divorce)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-exclamation-triangle"></i><a href="governance-chapter-7.4.html" target="_governance-chapter-7.4.html">7.4.3: Key Issues: Gender Inequality, Violence against women, Health & Nutrition, Economic Disempowerment, Political Underrepresentation</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-hands-helping"></i><a href="governance-chapter-7.4.html" target="_governance-chapter-7.4.html">7.4.4: Major Welfare Schemes: Objectives, Performance, Challenges (e.g., Beti Bachao Beti Padhao, PM Matru Vandana Yojana, Ujjawala, Swadhar Greh, One Stop Centres)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-building-columns"></i><a href="governance-chapter-7.4.html" target="_governance-chapter-7.4.html">7.4.5: National Commission for Women (NCW) – Role and Effectiveness</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 7.5: Governance for Children
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-gavel"></i><a href="governance-chapter-7.5.html" target="_governance-chapter-7.5.html">7.5.1: Constitutional Safeguards (Art 21A, 24, 39(e)(f), 45) and UNCRC</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-file-invoice"></i><a href="governance-chapter-7.5.html" target="_governance-chapter-7.5.html">7.5.2: Legislative Measures (POCSO Act, Juvenile Justice Act, Child Labour (Prohibition & Regulation) Act)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-exclamation-triangle"></i><a href="governance-chapter-7.5.html" target="_governance-chapter-7.5.html">7.5.3: Key Issues: Malnutrition, Infant & Child Mortality, Child Labour, Child Trafficking, Child Abuse, Access to Education</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-hands-helping"></i><a href="governance-chapter-7.5.html" target="_governance-chapter-7.5.html">7.5.4: Major Welfare Schemes: Objectives, Performance, Challenges (e.g., ICDS/Anganwadi Services, POSHAN Abhiyaan, Mid-Day Meal Scheme/PM POSHAN)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-building-columns"></i><a href="governance-chapter-7.5.html" target="_governance-chapter-7.5.html">7.5.5: National Commission for Protection of Child Rights (NCPCR) – Role and Effectiveness</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 7.6: Governance for Minorities
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-gavel"></i><a href="governance-chapter-7.6.html" target="_governance-chapter-7.6.html">7.6.1: Constitutional Safeguards (Arts. 25-30)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-exclamation-triangle"></i><a href="governance-chapter-7.6.html" target="_governance-chapter-7.6.html">7.6.2: Key Issues: Socio-economic backwardness, Educational disparities, Representation, Security concerns (Sachar Committee, Ranganath Misra Commission reports)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-hands-helping"></i><a href="governance-chapter-7.6.html" target="_governance-chapter-7.6.html">7.6.3: Major Welfare Schemes: Objectives, Performance, Challenges (e.g., PM Jan Vikas Karyakram (PMJVK), Scholarship Schemes)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-building-columns"></i><a href="governance-chapter-7.6.html" target="_governance-chapter-7.6.html">7.6.4: National Commission for Minorities (NCM) – Role and Effectiveness</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 7.7: Governance for Persons with Disabilities (Divyangjan)
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-file-invoice"></i><a href="governance-chapter-7.7.html" target="_governance-chapter-7.7.html">7.7.1: Rights of Persons with Disabilities Act, 2016 – Key Provisions</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-globe"></i><a href="governance-chapter-7.7.html" target="_governance-chapter-7.7.html">7.7.2: UN Convention on Rights of Persons with Disabilities (UNCRPD)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-exclamation-triangle"></i><a href="governance-chapter-7.7.html" target="_governance-chapter-7.7.html">7.7.3: Key Issues: Accessibility, Inclusion, Education, Employment, Social Stigma</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-hands-helping"></i><a href="governance-chapter-7.7.html" target="_governance-chapter-7.7.html">7.7.4: Major Welfare Schemes: Objectives, Performance, Challenges (e.g., ADIP Scheme, Sugamya Bharat Abhiyan, DDRS)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-user-check"></i><a href="governance-chapter-7.7.html" target="_governance-chapter-7.7.html">7.7.5: Chief Commissioner for Persons with Disabilities – Role</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 7.8: Governance for Elderly/Senior Citizens
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-file-invoice"></i><a href="governance-chapter-7.8.html" target="_governance-chapter-7.8.html">7.8.1: Maintenance and Welfare of Parents and Senior Citizens Act, 2007</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-exclamation-triangle"></i><a href="governance-chapter-7.8.html" target="_governance-chapter-7.8.html">7.8.2: Key Issues: Health, Financial Security, Social Isolation, Neglect and Abuse</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-hands-helping"></i><a href="governance-chapter-7.8.html" target="_governance-chapter-7.8.html">7.8.3: Major Welfare Schemes: Objectives, Performance, Challenges (e.g., National Social Assistance Programme (NSAP) - Indira Gandhi National Old Age Pension Scheme, PM Vaya Vandana Yojana)</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 7.9: Governance for Transgender Persons
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-file-invoice"></i><a href="governance-chapter-7.9.html" target="_governance-chapter-7.9.html">7.9.1: Transgender Persons (Protection of Rights) Act, 2019 and Rules 2020</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-gavel"></i><a href="governance-chapter-7.9.html" target="_governance-chapter-7.9.html">7.9.2: NALSA Judgement (2014)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-exclamation-triangle"></i><a href="governance-chapter-7.9.html" target="_governance-chapter-7.9.html">7.9.3: Key Issues: Social Stigma, Discrimination, Identity Recognition, Access to education, employment, healthcare</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-hands-helping"></i><a href="governance-chapter-7.9.html" target="_governance-chapter-7.9.html">7.9.4: Welfare Measures (e.g., SMILE scheme, Garima Greh)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-users-line"></i><a href="governance-chapter-7.9.html" target="_governance-chapter-7.9.html">7.9.5: National Council for Transgender Persons</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 7.10: Governance of Social Sector Services – Health, Education, Human Resources
+                    </summary>
+                    <div>
+                        <details class="subtopic-detail">
+                            <summary>
+                                7.10.1: Issues relating to Development and Management of Health Sector
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-heartbeat"></i><a href="governance-chapter-7.10.html" target="_governance-chapter-7.10.html">7.10.1.1: Key Health Indicators and Challenges (IMR, MMR, NCDs, Public Health Infrastructure)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-file-medical"></i><a href="governance-chapter-7.10.html" target="_governance-chapter-7.10.html">7.10.1.2: National Health Policy – Objectives and Targets</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-hospital"></i><a href="governance-chapter-7.10.html" target="_governance-chapter-7.10.html">7.10.1.3: Major Health Schemes (Ayushman Bharat - PMJAY & HWCs, National Health Mission) – Performance & Issues</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-screwdriver-wrench"></i><a href="governance-chapter-7.10.html" target="_governance-chapter-7.10.html">7.10.1.4: Governance challenges: Accessibility, Affordability, Quality, Regulation, Human Resources for Health</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="subtopic-detail">
+                            <summary>
+                                7.10.2: Issues relating to Development and Management of Education Sector
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-book"></i><a href="governance-chapter-7.10.html" target="_governance-chapter-7.10.html">7.10.2.1: Key Education Indicators and Challenges (GER, Drop-out rates, Quality, Employability)</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-scroll"></i><a href="governance-chapter-7.10.html" target="_governance-chapter-7.10.html">7.10.2.2: National Education Policy, 2020 – Key Features and Implementation Status</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-school"></i><a href="governance-chapter-7.10.html" target="_governance-chapter-7.10.html">7.10.2.3: Major Education Schemes (Samagra Shiksha Abhiyan, RUSA, PM SHRI Schools) – Performance & Issues</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-chalkboard-user"></i><a href="governance-chapter-7.10.html" target="_governance-chapter-7.10.html">7.10.2.4: Governance challenges: Access, Equity, Quality, Teacher training, Regulation of Higher Education</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="subtopic-detail">
+                            <summary>
+                                7.10.3: Issues relating to Human Resources and Skill Development
+                            </summary>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li class="topic-item"><i class="item-icon fas fa-users-gear"></i><a href="governance-chapter-7.10.html" target="_governance-chapter-7.10.html">7.10.3.1: Demographic Dividend – Opportunities and Challenges</a></li>
+                                    <li class="topic-item"><i class="item-icon fas fa-wrench"></i><a href="governance-chapter-7.10.html" target="_governance-chapter-7.10.html">7.10.3.2: Skill India Mission and its components (PMKVY, NSDC) – Performance & Issues</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 7.11: Issues relating to Poverty and Hunger
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-sack-dollar"></i><a href="governance-chapter-7.11.html" target="_governance-chapter-7.11.html">7.11.1: Concepts and Measurement of Poverty (Absolute vs. Relative, Poverty Line, Committees – Lakdawala, Tendulkar, Rangarajan)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-chart-pie"></i><a href="governance-chapter-7.11.html" target="_governance-chapter-7.11.html">7.11.2: Multidimensional Poverty Index (MPI) – National and Global</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-face-sad-tear"></i><a href="governance-chapter-7.11.html" target="_governance-chapter-7.11.html">7.11.3: Causes and Consequences of Poverty and Hunger</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-handshake-angle"></i><a href="governance-chapter-7.11.html" target="_governance-chapter-7.11.html">7.11.4: Major Government Interventions for Poverty Alleviation and Food Security</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-road-barrier"></i><a href="governance-chapter-7.11.html" target="_governance-chapter-7.11.html">7.11.5: Challenges in Implementation and Effectiveness of Anti-Poverty Programs</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </details>
+
+        <!-- Module 8 -->
+        <details class="module-detail">
+            <summary>
+                Module 8: Governance Structures: Federalism and Decentralization
+            </summary>
+            <div>
+                <details class="topic-detail">
+                    <summary>
+                        Topic 8.1: Issues and Challenges Pertaining to the Federal Structure (Overlaps with Polity)
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-building-flag"></i><a href="governance-chapter-8.1.html" target="_governance-chapter-8.1.html">8.1.1: Centre-State Relations: Legislative, Administrative, Financial – Contemporary Issues (e.g., GST disputes, Role of Governor, Use of Art 356, All India Services issues)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-hand-holding-usd"></i><a href="governance-chapter-8.1.html" target="_governance-chapter-8.1.html">8.1.2: Fiscal Federalism: Role of Finance Commission, Devolution of funds, Challenges, Off-budget borrowings</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-water"></i><a href="governance-chapter-8.1.html" target="_governance-chapter-8.1.html">8.1.3: Inter-State Relations: Disputes (Water, Border), Inter-State Council, Zonal Councils – Functioning</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-handshake-angle"></i><a href="governance-chapter-8.1.html" target="_governance-chapter-8.1.html">8.1.4: Cooperative Federalism vs. Competitive Federalism: Concept, Examples, NITI Aayog's role</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-triangle-exclamation"></i><a href="governance-chapter-8.1.html" target="_governance-chapter-8.1.html">8.1.5: Challenges to Federalism (Regionalism, Asymmetric federalism, Demands for statehood)</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 8.2: Democratic Decentralization: Panchayati Raj Institutions (PRIs)
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-history"></i><a href="governance-chapter-8.2.html" target="_governance-chapter-8.2.html">8.2.1: Evolution of PRIs (Balwant Rai Mehta, Ashok Mehta, GVK Rao, LM Singhvi Committees)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-book-open"></i><a href="governance-chapter-8.2.html" target="_governance-chapter-8.2.html">8.2.2: 73rd Constitutional Amendment Act, 1992 – Salient Features, Compulsory and Voluntary Provisions</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-building"></i><a href="governance-chapter-8.2.html" target="_governance-chapter-8.2.html">8.2.3: Structure, Functions, and Finances of PRIs (Sources of funds, State Finance Commissions)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-seedling"></i><a href="governance-chapter-8.2.html" target="_governance-chapter-8.2.html">8.2.4: Role of PRIs in Rural Development and Grassroots Democracy (Gram Sabha, Social Audit)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-road-barrier"></i><a href="governance-chapter-8.2.html" target="_governance-chapter-8.2.html">8.2.5: Challenges faced by PRIs: The 3 Fs (Funds, Functions, Functionaries), Capacity building, Political interference, Women's representation (Sarpanch Pati)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-file-contract"></i><a href="governance-chapter-8.2.html" target="_governance-chapter-8.2.html">8.2.6: PESA Act, 1996 (Panchayats Extension to Scheduled Areas) – Provisions, Implementation, and Challenges</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-arrow-up"></i><a href="governance-chapter-8.2.html" target="_governance-chapter-8.2.html">8.2.7: Measures to Strengthen PRIs (e-Panchayat, RGSA)</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 8.3: Democratic Decentralization: Urban Local Bodies (ULBs)
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-city"></i><a href="governance-chapter-8.3.html" target="_governance-chapter-8.3.html">8.3.1: Evolution of ULBs in India</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-book-open"></i><a href="governance-chapter-8.3.html" target="_governance-chapter-8.3.html">8.3.2: 74th Constitutional Amendment Act, 1992 – Salient Features</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-building-flag"></i><a href="governance-chapter-8.3.html" target="_governance-chapter-8.3.html">8.3.3: Structure, Functions, and Finances of ULBs (Types of ULBs, Sources of Revenue)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-chart-line"></i><a href="governance-chapter-8.3.html" target="_governance-chapter-8.3.html">8.3.4: Role of ULBs in Urban Governance and Development</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-exclamation-triangle"></i><a href="governance-chapter-8.3.html" target="_governance-chapter-8.3.html">8.3.5: Challenges in Urban Governance</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-building-flag"></i><a href="governance-chapter-8.3.html" target="_governance-chapter-8.3.html">8.3.6: Major Urban Development Missions (e.g., Smart Cities Mission, AMRUT, Swachh Bharat Mission-Urban) – Governance Aspects</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-arrow-up"></i><a href="governance-chapter-8.3.html" target="_governance-chapter-8.3.html">8.3.7: Measures to Strengthen ULBs</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </details>
+
+        <!-- Module 9 -->
+        <details class="module-detail">
+            <summary>
+                Module 9: Regulatory Governance and Role of Other Institutions
+            </summary>
+            <div>
+                <details class="topic-detail">
+                    <summary>
+                        Topic 9.1: Regulatory Bodies in India
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-shield-alt"></i><a href="governance-chapter-9.1.html" target="_governance-chapter-9.1.html">9.1.1: Need for Regulation and Role of Regulatory Bodies</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-tags"></i><a href="governance-chapter-9.1.html" target="_governance-chapter-9.1.html">9.1.2: Types of Regulatory Bodies (Statutory, Non-statutory)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-industry"></i><a href="governance-chapter-9.1.html" target="_governance-chapter-9.1.html">9.1.3: Key Sectoral Regulators: Mandate, Functions, Performance, Issues</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-triangle-exclamation"></i><a href="governance-chapter-9.1.html" target="_governance-chapter-9.1.html">9.1.4: Issues concerning Regulatory Bodies: Autonomy, Accountability, Transparency, Capacity, Overlap of jurisdiction, Regulatory capture</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-arrows-rotate"></i><a href="governance-chapter-9.1.html" target="_governance-chapter-9.1.html">9.1.5: Reforms in Regulatory Governance</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 9.2: Quasi-Judicial Bodies and Tribunals
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-gavel"></i><a href="governance-chapter-9.2.html" target="_governance-chapter-9.2.html">9.2.1: Concept, Rationale, and Constitutional Basis (Arts 323A, 323B)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-chart-line"></i><a href="governance-chapter-9.2.html" target="_governance-chapter-9.2.html">9.2.2: Advantages (Speedy justice, Expertise) and Disadvantages (Undermining judiciary, Lack of uniformity)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-building-columns"></i><a href="governance-chapter-9.2.html" target="_governance-chapter-9.2.html">9.2.3: Key Tribunals: Structure, Functions, Issues</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-user-xmark"></i><a href="governance-chapter-9.2.html" target="_governance-chapter-9.2.html">9.2.4: Issues related to Tribunals: Appointments, Independence, Jurisdiction, Appeals (Chandra Kumar Case, Madras Bar Association Cases)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-file-alt"></i><a href="governance-chapter-9.2.html" target="_governance-chapter-9.2.html">9.2.5: Tribunal Reforms (Rationalisation) Act, 2021 and subsequent developments</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 9.3: Pressure Groups and Formal/Informal Associations
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-users"></i><a href="governance-chapter-9.3.html" target="_governance-chapter-9.3.html">9.3.1: Definition, Types, and Characteristics of Pressure Groups</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-chart-bar"></i><a href="governance-chapter-9.3.html" target="_governance-chapter-9.3.html">9.3.2: Role of Pressure Groups in Indian Polity and Governance (Influencing policy, Articulating interests)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-hand-rock"></i><a href="governance-chapter-9.3.html" target="_governance-chapter-9.3.html">9.3.3: Methods and Techniques used by Pressure Groups (Lobbying, Protests, Media Advocacy)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-landmark"></i><a href="governance-chapter-9.3.html" target="_governance-chapter-9.3.html">9.3.4: Major Pressure Groups in India: Business (FICCI, CII), Trade Unions, Agrarian (Farmer Unions), Student, Religious, Caste-based, Ideological, Environmental</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-arrow-right-arrow-left"></i><a href="governance-chapter-9.3.html" target="_governance-chapter-9.3.html">9.3.5: Impact of Pressure Groups: Positive and Negative</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-triangle-exclamation"></i><a href="governance-chapter-9.3.html" target="_governance-chapter-9.3.html">9.3.6: Issues: Lack of transparency in funding, Undue influence, Narrow interests vs. public good</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 9.4: Role of Media in Governance
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-tv"></i><a href="governance-chapter-9.4.html" target="_governance-chapter-9.4.html">9.4.1: Media as the 'Fourth Estate': Role in Democracy and Governance</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-info-circle"></i><a href="governance-chapter-9.4.html" target="_governance-chapter-9.4.html">9.4.2: Functions: Information dissemination, Watchdog, Agenda setting, Platform for public debate</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-chart-line"></i><a href="governance-chapter-9.4.html" target="_governance-chapter-9.4.html">9.4.3: Impact of Media on Policy Making, Public Opinion, and Accountability</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-camera"></i><a href="governance-chapter-9.4.html" target="_governance-chapter-9.4.html">9.4.4: Types of Media: Print, Electronic, Social Media – Differential Impact</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-exclamation-triangle"></i><a href="governance-chapter-9.4.html" target="_governance-chapter-9.4.html">9.4.5: Issues and Challenges</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </details>
+
+        <!-- Module 10 -->
+        <details class="module-detail">
+            <summary>
+                Module 10: Contemporary Governance Challenges and Way Forward
+            </summary>
+            <div>
+                <details class="topic-detail">
+                    <summary>
+                        Topic 10.1: Combating Corruption (Systemic Overview)
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-handcuffs"></i><a href="governance-chapter-10.1.html" target="_governance-chapter-10.1.html">10.1.1: Nature, Extent, Causes, and Consequences of Corruption in India</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-file-invoice"></i><a href="governance-chapter-10.1.html" target="_governance-chapter-10.1.html">10.1.2: Legislative Framework (Prevention of Corruption Act, Benami Transactions Act, Fugitive Economic Offenders Act etc.) – Review</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-building-columns"></i><a href="governance-chapter-10.1.html" target="_governance-chapter-10.1.html">10.1.3: Institutional Framework (Lokpal, CVC, CBI, ED) – Synergy and Challenges</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-robot"></i><a href="governance-chapter-10.1.html" target="_governance-chapter-10.1.html">10.1.4: Role of Technology in combating corruption</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-globe"></i><a href="governance-chapter-10.1.html" target="_governance-chapter-10.1.html">10.1.5: International Cooperation (UN Convention Against Corruption)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-sack-xmark"></i><a href="governance-chapter-10.1.html" target="_governance-chapter-10.1.html">10.1.6: Measures to tackle Black Money</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 10.2: Administrative Reforms in India: An Overview
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-arrows-rotate"></i><a href="governance-chapter-10.2.html" target="_governance-chapter-10.2.html">10.2.1: Need for continuous Administrative Reforms</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-scroll"></i><a href="governance-chapter-10.2.html" target="_governance-chapter-10.2.html">10.2.2: Major Reform Commissions (Pre & Post ARC-I, ARC-II) – Key themes and impact</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-gears"></i><a href="governance-chapter-10.2.html" target="_governance-chapter-10.2.html">10.2.3: Current Reform Agenda ("Minimum Government, Maximum Governance", Ease of Doing Business, Decriminalization of minor offences)</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 10.3: Governance in a Globalized World
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-globe-africa"></i><a href="governance-chapter-10.3.html" target="_governance-chapter-10.3.html">10.3.1: Impact of Globalization on National Governance</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-building"></i><a href="governance-chapter-10.3.html" target="_governance-chapter-10.3.html">10.3.2: Role of International Institutions (UN, WTO, World Bank, IMF) in shaping domestic policies</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-planet-earth"></i><a href="governance-chapter-10.3.html" target="_governance-chapter-10.3.html">10.3.3: Global Governance: Concept, Mechanisms, Challenges</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 10.4: Disaster Management and Governance (Overlaps with GS3)
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-house-damage"></i><a href="governance-chapter-10.4.html" target="_governance-chapter-10.4.html">10.4.1: Institutional and Policy Framework for Disaster Management in India (DM Act 2005, NDMA, NDRF, SDMAs)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-triangle-exclamation"></i><a href="governance-chapter-10.4.html" target="_governance-chapter-10.4.html">10.4.2: Governance challenges in disaster preparedness, response, recovery, and mitigation</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-users-gear"></i><a href="governance-chapter-10.4.html" target="_governance-chapter-10.4.html">10.4.3: Role of technology, community participation, and inter-agency coordination</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 10.5: Internal Security and Governance (Overlaps with GS3)
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-link"></i><a href="governance-chapter-10.5.html" target="_governance-chapter-10.5.html">10.5.1: Linkages between Development and Spread of Extremism</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-shield-halved"></i><a href="governance-chapter-10.5.html" target="_governance-chapter-10.5.html">10.5.2: Role of Central and State agencies in maintaining internal security</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-border-all"></i><a href="governance-chapter-10.5.html" target="_governance-chapter-10.5.html">10.5.3: Challenges of Border Management, Cybersecurity, Organized Crime – Governance Aspects</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="topic-detail">
+                    <summary>
+                        Topic 10.6: Good Governance Best Practices and Innovations
+                    </summary>
+                    <div>
+                        <ul class="space-y-2">
+                            <li class="topic-item"><i class="item-icon fas fa-award"></i><a href="governance-chapter-10.6.html" target="_governance-chapter-10.6.html">10.6.1: Case studies of successful governance initiatives (National and International)</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-lightbulb"></i><a href="governance-chapter-10.6.html" target="_governance-chapter-10.6.html">10.6.2: Fostering innovation in public administration</a></li>
+                            <li class="topic-item"><i class="item-icon fas fa-chart-simple"></i><a href="governance-chapter-10.6.html" target="_governance-chapter-10.6.html">10.6.3: Future of Governance: Trends and Projections</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </details>
+        <!-- End of Modules -->
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-white text-center py-6">
+        <p>&copy; <span id="current-year"></span> UPSC Governance Explorer. All Rights Reserved. Designed for Comprehensive Learning.</p>
+        <p class="mt-2">
+            <a href="#top" class="hover:underline">Back to Top <i class="fas fa-arrow-circle-up ml-1"></i></a>
+        </p>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Optional: Smooth scroll for "Back to Top" or "Explore Syllabus"
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // This script block dynamically updates href and target based on parent topic
+        document.addEventListener('DOMContentLoaded', () => {
+            const topicDetails = document.querySelectorAll('details.topic-detail');
+
+            topicDetails.forEach(topicDetail => {
+                const summaryText = topicDetail.querySelector('summary').textContent;
+                // Use a regex to extract the topic number like "1.1" or "10.6"
+                const match = summaryText.match(/Topic (\d+\.\d+):/);
+                
+                if (match && match[1]) {
+                    const topicNumber = match[1]; // e.g., "1.1", "1.2", "10.6"
+                    const newHref = `governance-chapter-${topicNumber}.html`;
+                    const newTarget = `_governance-chapter-${topicNumber}.html`;
+
+                    // Find all <a> tags within this topic-detail's content div
+                    // The content div is the direct sibling of the summary
+                    const contentDiv = topicDetail.querySelector('div'); 
+                    if (contentDiv) {
+                        const allLinksInTopic = contentDiv.querySelectorAll('a');
+                        allLinksInTopic.forEach(link => {
+                            link.href = newHref;
+                            link.target = newTarget;
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

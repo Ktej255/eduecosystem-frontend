@@ -1,0 +1,813 @@
+{
+  "optional-geography": {
+    "title": "Geography",
+    "paper1": [
+      {
+        "title": "Geomorphology",
+        "topics": [
+          "Factors controlling landform development",
+          "Endogenetic and exogenetic forces",
+          "Origin and evolution of the earth\u00e2\u0080\u0099s crusts",
+          "Fundamentals of geomagnetism",
+          "Physical conditions of the earth\u00e2\u0080\u0099s interior",
+          "Geosynclines",
+          "Continental drift",
+          "Isostasy",
+          "Plate tectonics",
+          "Recent views on mountain building",
+          "Volcanicity",
+          "Earthquakes and Tsunamis",
+          "Concepts of geomorphic cycles and Landscape development",
+          "Denudation chronology",
+          "Channel morphology",
+          "Erosion surfaces",
+          "Slope development"
+        ]
+      },
+      {
+        "title": "Applied Geomorphology",
+        "topics": [
+          "Geomorphology, economic geology, and environment"
+        ]
+      },
+      {
+        "title": "Climatology",
+        "topics": [
+          "Temperature and pressure belts of the world",
+          "Heat budget of the earth",
+          "Atmospheric circulation",
+          "Atmospheric stability and instability",
+          "Planetary and local winds",
+          "Monsoons and jet streams",
+          "Air masses and fronts",
+          "Temperate and tropical cyclones",
+          "Types and distribution of precipitation",
+          "Weather and Climate",
+          "Koppen\u00e2\u0080\u0099s Thornthwaite\u00e2\u0080\u0099s and Trewartha\u00e2\u0080\u0099s classification of world climate",
+          "Hydrological cycle",
+          "Global climatic change, and role and response of man in climatic changes",
+          "Applied climatology and Urban climate"
+        ]
+      },
+      {
+        "title": "Oceanography",
+        "topics": [
+          "Bottom topography of the Atlantic, Indian, and Pacific Oceans",
+          "Temperature and salinity of the oceans",
+          "Heat and salt budgets",
+          "Ocean deposits",
+          "Waves, currents, and tides",
+          "Marine resources",
+          "Biotic, mineral, and energy resources",
+          "Coral reefs coral bleaching",
+          "Sea-level changes",
+          "Law of the sea and marine pollution"
+        ]
+      },
+      {
+        "title": "Biogeography",
+        "topics": [
+          "Genesis of soils",
+          "Classification and distribution of soils",
+          "Soil profile",
+          "Soil erosion, Degradation, and conservation",
+          "Factors influencing world distribution of plants and animals",
+          "Problems of deforestation and conservation measures",
+          "Social forestry, agro-forestry",
+          "Wildlife",
+          "Major gene pool centers"
+        ]
+      },
+      {
+        "title": "Environmental Geography",
+        "topics": [
+          "Principle of ecology",
+          "Human ecological adaptations",
+          "Influence of man on ecology and environment",
+          "Global and regional ecological changes and imbalances",
+          "Ecosystem their management and conservation",
+          "Environmental degradation, management, and conservation",
+          "Biodiversity and sustainable development",
+          "Environmental policy",
+          "Environmental hazards and remedial measures",
+          "Environmental education and legislation"
+        ]
+      }
+    ],
+    "paper2": [
+      {
+        "title": "Economic Geography",
+        "topics": [
+          "World economic development: measurement and problems",
+          "World resources and their distribution",
+          "Energy crisis",
+          "The limits to growth",
+          "World agriculture: a typology of agricultural regions",
+          "Agricultural inputs and productivity",
+          "Food and nutrition problems",
+          "Food security",
+          "Famine: causes, effects, and remedies",
+          "World industries: location patterns and problems",
+          "Patterns of world trade"
+        ]
+      },
+      {
+        "title": "Population and Settlement Geography",
+        "topics": [
+          "Growth and distribution of world population",
+          "Demographic attributes",
+          "Causes and consequences of migration",
+          "Concepts of the over-under-and optimum population",
+          "Population theories, world population problems and policies",
+          "Social well-being and quality of life",
+          "Population as social capital",
+          "Types and patterns of rural settlements",
+          "Environmental issues in rural settlements",
+          "Hierarchy of urban settlements",
+          "Urban morphology",
+          "Concept of primate city and rank-size rule",
+          "Functional classification of towns",
+          "Sphere of urban influence",
+          "Rural-urban fringe",
+          "Satellite towns",
+          "Problems and remedies of urbanization",
+          "Sustainable development of cities"
+        ]
+      },
+      {
+        "title": "Regional Planning",
+        "topics": [
+          "Concept of a region",
+          "Types of regions and methods of regionalization",
+          "Growth centers and growth poles",
+          "Regional imbalances",
+          "Regional development strategies",
+          "Environmental issues in regional planning",
+          "Planning for sustainable development"
+        ]
+      },
+      {
+        "title": "Physical Setting",
+        "topics": [
+          "Space relationship of India with neighboring countries",
+          "Structure and relief",
+          "Drainage system and watersheds",
+          "Physiographic regions",
+          "Mechanism of Indian monsoons and rainfall patterns",
+          "Tropical cyclones and western disturbances",
+          "Floods and droughts",
+          "Climatic regions",
+          "Natural vegetation",
+          "Soil types and their distributions"
+        ]
+      },
+      {
+        "title": "Agriculture",
+        "topics": [
+          "Infrastructure: irrigation, seeds, fertilizers, power",
+          "Institutional factors: Land holdings, land tenure and land reforms",
+          "Cropping pattern, agricultural productivity, agricultural intensity, crop combination, land capability",
+          "Agro and social-forestry",
+          "Green revolution and its socio-economic and ecological implications",
+          "Significance of dry farming",
+          "Livestock resources and white revolution",
+          "Aquaculture",
+          "Sericulture, Apiculture and poultry",
+          "Agricultural regionalisation",
+          "Agro-climatic zones",
+          "Agroecological regions"
+        ]
+      },
+      {
+        "title": "Industry",
+        "topics": [
+          "Evolution of industries",
+          "Locational factors of cotton, jute, textile, iron and steel, aluminum, fertiliser, paper, chemical and pharmaceutical, automobile, cottage, and ago-based industries",
+          "Industrial houses and complexes including public sector undertakings",
+          "Industrial regionalisation",
+          "New industrial policy",
+          "Multinationals and liberalisation",
+          "Special Economic Zones",
+          "Tourism including ecotourism"
+        ]
+      },
+      {
+        "title": "Transport, Communication, and Trade",
+        "topics": [
+          "Road, railway, waterway, airway, and pipeline networks and their complementary roles in regional development",
+          "Growing importance of ports on national and foreign trade",
+          "Trade balance",
+          "Trade Policy",
+          "Export processing zones",
+          "Developments in communication and information technology and their impacts on economy and society",
+          "Indian space programme"
+        ]
+      },
+      {
+        "title": "Cultural Setting",
+        "topics": [
+          "Historical Perspective of Indian Society",
+          "Racial linguistic and ethnic diversities",
+          "Religious minorities",
+          "Major tribes, tribal areas, and their problems",
+          "Cultural regions",
+          "Growth, distribution, and density of population",
+          "Demographic attributes: sex-ratio, age structure, literacy rate, work-force, dependency ratio, longevity",
+          "Migration (inter-regional, intraregional and international) and associated problems",
+          "Population problems and policies",
+          "Health indicators"
+        ]
+      },
+      {
+        "title": "Settlements",
+        "topics": [
+          "Types, patterns, and morphology of rural settlements",
+          "Urban developments",
+          "Morphology of Indian cities",
+          "Functional classification of Indian cities",
+          "Conurbations and metropolitan regions",
+          "Urban sprawl",
+          "Slums and associated problems",
+          "Town planning",
+          "Problems of urbanisation and remedies"
+        ]
+      },
+      {
+        "title": "Regional Development and Planning",
+        "topics": [
+          "Experience of regional planning in India",
+          "Five Year Plans",
+          "Integrated rural development programmes",
+          "Panchayati Raj and decentralised planning",
+          "Command area development",
+          "Watershed management",
+          "Planning for backward area, desert, drought-prone, hill tribal area development",
+          "Multi-level planning",
+          "Regional planning and development of island territories"
+        ]
+      },
+      {
+        "title": "Political Aspects",
+        "topics": [
+          "Geographical basis of Indian federalism",
+          "State reorganization",
+          "Emergence of new states",
+          "Regional consciousness and inter-state issues",
+          "International boundary of India and related issues",
+          "Cross-border terrorism",
+          "India\u00e2\u0080\u0099s role in world affairs",
+          "Geopolitics of South Asia and Indian Ocean realm"
+        ]
+      },
+      {
+        "title": "Contemporary Issues",
+        "topics": [
+          "Ecological issues: Environmental hazards: landslides, earthquakes, Tsunamis, floods and droughts, epidemics",
+          "Issues related to environmental pollution",
+          "Changes in patterns of land use",
+          "Principles of environmental impact assessment and environmental management",
+          "Population explosion and food security",
+          "Environmental degradation",
+          "Deforestation, desertification, and soil erosion",
+          "Problems of agrarian and industrial unrest",
+          "Regional disparities in economic development",
+          "Concept of sustainable growth and development",
+          "Environmental awareness",
+          "Linkage of rivers",
+          "Globalisation and Indian economy",
+          "\u00c2\u00a9Geography Optional UPSC Syllabus Explorer. All rights reserved.",
+          "Designed for educational exploration. Content based on official UPSC syllabus."
+        ]
+      }
+    ],
+    "strategy": "Regular practice of previous year questions and mapping is essential for this subject.",
+    "books": [
+      "Land, surface and ground water, energy, minerals, biotic and marine resources",
+      "Forest and wildlife resources and their conservation",
+      "Energy crisis"
+    ]
+  },
+  "optional-history": {
+    "title": "History",
+    "paper1": [
+      {
+        "title": "Archaeological sources :",
+        "topics": []
+      },
+      {
+        "title": "Literary sources:",
+        "topics": []
+      },
+      {
+        "title": "2. Pre\u00e2\u0080\u0090history and Proto\u00e2\u0080\u0090history",
+        "topics": []
+      },
+      {
+        "title": "3. Indus Valley Civilization",
+        "topics": []
+      },
+      {
+        "title": "4. Megalithic Cultures",
+        "topics": []
+      },
+      {
+        "title": "5. Aryans and Vedic Period",
+        "topics": []
+      },
+      {
+        "title": "Expansions of Aryans in India :",
+        "topics": []
+      },
+      {
+        "title": "Vedic Period:",
+        "topics": []
+      },
+      {
+        "title": "6. Period of Mahajanapadas",
+        "topics": []
+      },
+      {
+        "title": "7. Mauryan Empire",
+        "topics": []
+      },
+      {
+        "title": "8. Post\u00e2\u0080\u0090Mauryan Period (Indo\u00e2\u0080\u0090Greeks, Sakas, Kushanas, Western Kshatrapas)",
+        "topics": []
+      },
+      {
+        "title": "9. Early State and Society in Eastern India, Deccan and South India",
+        "topics": []
+      },
+      {
+        "title": "10. Guptas, Vakatakas and Vardhanas",
+        "topics": []
+      },
+      {
+        "title": "11. Regional States during Gupta Era",
+        "topics": []
+      },
+      {
+        "title": "12. Themes in Early Indian Cultural History",
+        "topics": []
+      },
+      {
+        "title": "13. Early Medieval India, 750\u00e2\u0080\u00901200",
+        "topics": []
+      },
+      {
+        "title": "14. Cultural Traditions in India, 750\u00e2\u0080\u00901200",
+        "topics": []
+      },
+      {
+        "title": "Philosophy:",
+        "topics": []
+      },
+      {
+        "title": "Literature:",
+        "topics": []
+      },
+      {
+        "title": "Art and Architecture:",
+        "topics": []
+      },
+      {
+        "title": "15. The Thirteenth Century",
+        "topics": []
+      },
+      {
+        "title": "16. The Fourteenth Century",
+        "topics": []
+      },
+      {
+        "title": "17. Society, Culture and Economy in the Thirteenth and Fourteenth Centuries",
+        "topics": []
+      },
+      {
+        "title": "18. The Fifteenth and Early Sixteenth Century\u00e2\u0080\u0090Political Developments and Economy",
+        "topics": []
+      },
+      {
+        "title": "Rise of Provincial Dynasties :",
+        "topics": []
+      },
+      {
+        "title": "Mughal Empire, first phase :",
+        "topics": []
+      },
+      {
+        "title": "The Sur Empire :",
+        "topics": []
+      },
+      {
+        "title": "19. The Fifteenth and Early Sixteenth Century\u00e2\u0080\u0090 Society and culture",
+        "topics": []
+      },
+      {
+        "title": "21. Mughal Empire in the Seventeenth Century",
+        "topics": []
+      },
+      {
+        "title": "22. Economy and society, in the 16th and 17th Centuries",
+        "topics": []
+      },
+      {
+        "title": "23. Culture during Mughal Empire",
+        "topics": []
+      },
+      {
+        "title": "24. The Eighteenth Century",
+        "topics": []
+      }
+    ],
+    "paper2": [
+      {
+        "title": "1. European Penetration into India",
+        "topics": []
+      },
+      {
+        "title": "2. British Expansion in India",
+        "topics": []
+      },
+      {
+        "title": "3. Early Structure of the British Raj",
+        "topics": []
+      },
+      {
+        "title": "4. Economic Impact of British Colonial Rule",
+        "topics": []
+      },
+      {
+        "title": "(a) Land revenue settlements",
+        "topics": []
+      },
+      {
+        "title": "(b) Dislocation of traditional trade",
+        "topics": []
+      },
+      {
+        "title": "5. Social and Cultural Developments",
+        "topics": []
+      },
+      {
+        "title": "6. Social and Religious Reform Movements in Bengal and Other Areas",
+        "topics": []
+      },
+      {
+        "title": "7. Indian Response to British Rule",
+        "topics": []
+      },
+      {
+        "title": "8. Factors leading to the birth of Indian Nationalism",
+        "topics": []
+      },
+      {
+        "title": "9. Rise of Gandhi",
+        "topics": []
+      },
+      {
+        "title": "10. Constitutional Developments in the Colonial India between 1858 and 1935",
+        "topics": []
+      },
+      {
+        "title": "11. Other strands in the National Movement",
+        "topics": []
+      },
+      {
+        "title": "The Revolutionaries:",
+        "topics": []
+      },
+      {
+        "title": "12. Politics of Separatism",
+        "topics": []
+      },
+      {
+        "title": "13. Consolidation as a Nation",
+        "topics": []
+      },
+      {
+        "title": "14. Caste and Ethnicity after 1947",
+        "topics": []
+      },
+      {
+        "title": "15. Economic development and political change",
+        "topics": []
+      },
+      {
+        "title": "16. Enlightenment and Modern ideas",
+        "topics": []
+      },
+      {
+        "title": "17. Origins of Modern Politics",
+        "topics": []
+      },
+      {
+        "title": "18. Industrialization",
+        "topics": []
+      },
+      {
+        "title": "19. Nation\u00e2\u0080\u0090State System",
+        "topics": []
+      },
+      {
+        "title": "20. Imperialism and Colonialism",
+        "topics": []
+      },
+      {
+        "title": "21. Revolution and Counter\u00e2\u0080\u0090Revolution",
+        "topics": []
+      },
+      {
+        "title": "22. World Wars",
+        "topics": []
+      },
+      {
+        "title": "23. The World after World War II",
+        "topics": []
+      },
+      {
+        "title": "24. Liberation from Colonial Rule",
+        "topics": []
+      },
+      {
+        "title": "25. Decolonization and Underdevelopment",
+        "topics": []
+      },
+      {
+        "title": "26. Unification of Europe",
+        "topics": []
+      },
+      {
+        "title": "27. Disintegration of Soviet Union and the Rise of the Unipolar World",
+        "topics": []
+      },
+      {
+        "title": "Understand the Syllabus",
+        "topics": [
+          "Familiarise yourself with the detailed syllabus",
+          "identifying key themes",
+          "periods",
+          "and topics to be covered."
+        ]
+      },
+      {
+        "title": "Collect Study Material",
+        "topics": [
+          "Gather recommended history books",
+          "reference materials",
+          "and previous years\u00e2\u0080\u0099 question papers."
+        ]
+      },
+      {
+        "title": "Conceptual Clarity",
+        "topics": [
+          "Begin with foundational texts that provide a conceptual understanding of different historical periods and themes."
+        ]
+      },
+      {
+        "title": "Notes Creation",
+        "topics": [
+          "While studying, create concise and organised notes for each topic. This aids in quick revision."
+        ]
+      },
+      {
+        "title": "Primary and Secondary Sources",
+        "topics": [
+          "Read primary sources like historical documents and secondary sources like scholarly books to gain diverse perspectives."
+        ]
+      },
+      {
+        "title": "Map-based Learning",
+        "topics": [
+          "For ancient and medieval history",
+          "focus on geographical changes",
+          "trade routes",
+          "and empires using maps."
+        ]
+      },
+      {
+        "title": "Case Studies",
+        "topics": [
+          "Use case studies to delve deeper into specific events",
+          "personalities",
+          "or movements. This enhances analytical skills."
+        ]
+      },
+      {
+        "title": "Historiography",
+        "topics": [
+          "Understand the evolution of historical interpretations. Compare different historians\u00e2\u0080\u0099 viewpoints to form a balanced understanding."
+        ]
+      },
+      {
+        "title": "Current Relevance",
+        "topics": [
+          "Link historical events to current affairs. Understand how historical factors influence contemporary situations."
+        ]
+      },
+      {
+        "title": "Practice Questions",
+        "topics": [
+          "Regularly solve UPSC previous year question papers and mock tests to improve answer-writing skills."
+        ]
+      },
+      {
+        "title": "Revision",
+        "topics": [
+          "Regularly revise your notes to reinforce memory and strengthen your grasp of the subject."
+        ]
+      },
+      {
+        "title": "Mock Tests",
+        "topics": [
+          "Take full-length mock tests to simulate exam conditions. Analyse your performance to identify strengths and weaknesses."
+        ]
+      },
+      {
+        "title": "Feedback and Improvement",
+        "topics": [
+          "Seek feedback from mentors",
+          "teachers",
+          "or peers on your answer-writing style and content."
+        ]
+      },
+      {
+        "title": "Time Management",
+        "topics": [
+          "Develop a study schedule that allocates time for each historical period and topic.",
+          "\u00c2\u00a9UPSC History Optional Syllabus Explorer. All rights reserved.",
+          "Designed to aid aspirants in their preparation journey.",
+          "Back to Top",
+          "Disclaimer: This is an illustrative tool. Syllabus content is based on publicly available UPSC information. Links currently open placeholder new tabs and would need to be updated by the user to point to specific content resources."
+        ]
+      }
+    ],
+    "strategy": "Understand the SyllabusFamiliarise yourself with the detailed syllabus, identifying key themes, periods, and topics to be covered.Collect Study MaterialGather recommended history books, reference materials, and previous years\u00e2\u0080\u0099 question papers.Conceptual ClarityBegin with foundational texts that provide a conceptual understanding of different historical periods and themes.Notes CreationWhile studying, create concise and organised notes for each topic. This aids in quick revision.Primary and Secondary SourcesRead primary sources like historical documents and secondary sources like scholarly books to gain diverse perspectives.Map-based LearningFor ancient and medieval history, focus on geographical changes, trade routes, and empires using maps.Case StudiesUse case studies to delve deeper into specific events, personalities, or movements. This enhances analytical skills.HistoriographyUnderstand the evolution of historical interpretations. Compare different historians\u00e2\u0080\u0099 viewpoints to form a balanced understanding.Current RelevanceLink historical events to current affairs. Understand how historical factors influence contemporary situations.Practice QuestionsRegularly solve UPSC previous year question papers and mock tests to improve answer-writing skills.RevisionRegularly revise your notes to reinforce memory and strengthen your grasp of the subject.Mock TestsTake full-length mock tests to simulate exam conditions. Analyse your performance to identify strengths and weaknesses.Feedback and ImprovementSeek feedback from mentors, teachers, or peers on your answer-writing style and content.Time ManagementDevelop a study schedule that allocates time for each historical period and topic.",
+    "books": []
+  },
+  "optional-anthropology": {
+    "title": "Anthropology: A Digital Exploration",
+    "paper1": [],
+    "paper2": [],
+    "strategy": "Regular practice of previous year questions and mapping is essential for this subject.",
+    "books": []
+  },
+  "optional-pubad": {
+    "title": "Public Administration",
+    "paper1": [
+      {
+        "title": "Key Advantages",
+        "topics": [
+          "Generally straightforward and comprehensible.",
+          "Abundant availability of study resources.",
+          "Considerable overlap with General Studies papers.",
+          "Aids in UPSC interview preparation and essay writing.",
+          "Offers crucial insights into governmental functions."
+        ]
+      },
+      {
+        "title": "Points to Consider",
+        "topics": [
+          "The syllabus can be quite extensive in scope.",
+          "High competition due to its popularity.",
+          "Requires adeptness in linking theory with current events.",
+          "The UPSC Public Administration syllabus equips you with a fundamental understanding of governmental operations, an indispensable asset for aspiring administrators."
+        ]
+      }
+    ],
+    "paper2": [],
+    "strategy": "Regular practice of previous year questions and mapping is essential for this subject.",
+    "books": []
+  },
+  "optional-sociology": {
+    "title": "Sociology",
+    "paper1": [
+      {
+        "title": "Sociology: The Discipline",
+        "topics": []
+      },
+      {
+        "title": "Sociology as a Science",
+        "topics": []
+      },
+      {
+        "title": "Research Methods and Analysis",
+        "topics": []
+      },
+      {
+        "title": "Sociological Thinkers",
+        "topics": []
+      },
+      {
+        "title": "Emile Durkheim",
+        "topics": []
+      },
+      {
+        "title": "Talcott Parsons",
+        "topics": []
+      },
+      {
+        "title": "Robert K. Merton",
+        "topics": []
+      },
+      {
+        "title": "Stratification and Mobility",
+        "topics": []
+      },
+      {
+        "title": "Works and Economic Life",
+        "topics": []
+      },
+      {
+        "title": "Politics and Society",
+        "topics": []
+      },
+      {
+        "title": "Religion and Society",
+        "topics": []
+      },
+      {
+        "title": "Systems of Kinship",
+        "topics": []
+      },
+      {
+        "title": "Social Change in Modern Society",
+        "topics": []
+      }
+    ],
+    "paper2": [
+      {
+        "title": "Perspectives on the study of Indian society",
+        "topics": []
+      },
+      {
+        "title": "Impact of colonial rule on Indian society",
+        "topics": []
+      },
+      {
+        "title": "2. Social Structure",
+        "topics": []
+      },
+      {
+        "title": "Rural and Agrarian Social Structure",
+        "topics": []
+      },
+      {
+        "title": "Caste System",
+        "topics": []
+      },
+      {
+        "title": "Tribal communities in India",
+        "topics": []
+      },
+      {
+        "title": "Social Classes in India",
+        "topics": []
+      },
+      {
+        "title": "Systems of Kinship in India",
+        "topics": []
+      },
+      {
+        "title": "Religion and Society",
+        "topics": []
+      },
+      {
+        "title": "3. Social Changes in India",
+        "topics": []
+      },
+      {
+        "title": "Visions of Social Change in India",
+        "topics": []
+      },
+      {
+        "title": "Rural and Agrarian transformation in India",
+        "topics": []
+      },
+      {
+        "title": "Industrialization and Urbanisation in India",
+        "topics": []
+      },
+      {
+        "title": "Politics and Society",
+        "topics": []
+      },
+      {
+        "title": "Social Movements in Modern India",
+        "topics": []
+      },
+      {
+        "title": "Population Dynamics",
+        "topics": []
+      },
+      {
+        "title": "Challenges of Social Transformation",
+        "topics": [
+          "\u00c2\u00a9 ${new Date().getFullYear()} Sociology Syllabus Digital Explorer. Design by AI.",
+          "Content derived from the official UPSC syllabus for educational and informational purposes. Each link opens a Google search for the respective topic."
+        ]
+      }
+    ],
+    "strategy": "Regular practice of previous year questions and mapping is essential for this subject.",
+    "books": []
+  }
+}

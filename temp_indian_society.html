@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSC Indian Society Syllabus: Digital Explorer & Comprehensive Index</title>
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts CDN - Lexend (Sans-serif, modern, readable) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom CSS */
+        :root {
+            --primary-bg: hsl(210, 30%, 12%); /* Dark blue-gray */
+            --secondary-bg: hsl(210, 25%, 15%); /* Slightly lighter dark blue-gray */
+            --accent-color-primary: hsl(30, 80%, 60%); /* Warm orange */
+            --accent-color-secondary: hsl(210, 40%, 80%); /* Light blue-gray for text/icons */
+            --text-color-light: hsl(210, 20%, 95%); /* Very light gray */
+            --card-bg: hsl(210, 20%, 98%); /* Off-white for light cards */
+            --border-color: hsl(210, 15%, 25%);
+        }
+
+        body {
+            font-family: 'Lexend', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-color-light);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        /* Hero Section Gradient */
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://source.unsplash.com/random/1920x1080/?indian,society,culture,diversity');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1; /* Subtle overlay */
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Section Separators */
+        .section-divider {
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-color-primary) 0%, var(--secondary-bg) 50%, var(--accent-color-primary) 100%);
+            margin: 4rem auto;
+            width: 50%;
+            border-radius: 9999px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Card Styles */
+        .syllabus-card {
+            background-color: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 0.75rem; /* rounded-xl */
+        }
+
+        .syllabus-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .syllabus-card h3 {
+            color: var(--accent-color-primary);
+            font-weight: 600;
+        }
+
+        /* Accordion Styles */
+        .accordion-item {
+            border-bottom: 1px solid var(--border-color);
+        }
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            background-color: var(--secondary-bg);
+            color: var(--accent-color-secondary);
+            cursor: pointer;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 600; /* font-semibold */
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 0.75rem; /* rounded-xl */
+            margin-bottom: 0.5rem; /* space-y-2 */
+        }
+
+        .accordion-header:hover {
+            background-color: var(--border-color);
+            color: var(--accent-color-primary);
+        }
+
+        .accordion-header .fa-chevron-down {
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            background-color: var(--secondary-bg); /* Match header for continuity */
+            border-top: 1px solid var(--border-color); /* Subtle divider */
+            padding: 0 1.5rem; /* Keep horizontal padding consistent */
+            border-bottom-left-radius: 0.75rem;
+            border-bottom-right-radius: 0.75rem;
+        }
+
+        .accordion-content.open {
+            max-height: 2000px; /* Large enough to accommodate content */
+            padding-top: 1rem;
+            padding-bottom: 1.5rem;
+            transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out;
+        }
+
+        /* Inner Topic Links Styling */
+        .topic-link-group a {
+            color: var(--accent-color-secondary);
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .topic-link-group a:hover {
+            color: var(--accent-color-primary);
+            transform: translateX(5px);
+        }
+
+        /* Key Highlight Box */
+        .highlight-box {
+            background-color: var(--accent-color-primary);
+            color: var(--primary-bg);
+            border-left: 8px solid var(--accent-color-secondary);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-weight: 500;
+        }
+        .highlight-box strong {
+            color: var(--primary-bg); /* Ensure strong text is legible */
+        }
+
+        /* Custom Scrollbar (Webkit) */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--primary-bg);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-color-primary);
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-color-secondary);
+        }
+
+        /* General Link Styling */
+        a {
+            color: var(--accent-color-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--accent-color-secondary);
+            text-decoration: underline;
+        }
+
+        /* Sub-list styling within accordions */
+        .accordion-content ul {
+            list-style: none; /* Remove default bullet */
+            padding-left: 0;
+            margin-top: 0.75rem;
+        }
+
+        .accordion-content ul li {
+            position: relative;
+            padding-left: 1.75rem; /* Space for custom bullet */
+            margin-bottom: 0.5rem;
+        }
+
+        .accordion-content ul li::before {
+            content: "\f067"; /* Font Awesome Plus icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0.25rem;
+            color: var(--accent-color-primary);
+            font-size: 0.8rem;
+        }
+
+        .accordion-content ul ul li::before {
+            content: "\f068"; /* Font Awesome Minus icon for sub-levels */
+            color: var(--accent-color-secondary);
+        }
+        .accordion-content ul ul ul li::before {
+            content: "\f069"; /* Font Awesome Asterisk for third levels */
+            color: var(--text-color-light);
+        }
+
+
+    </style>
+</head>
+<body class="bg-primary-bg text-text-color-light">
+
+    <!-- Hero Header Section -->
+    <header class="hero-gradient min-h-[50vh] flex items-center justify-center text-center p-8 relative">
+        <div class="hero-content">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-4 drop-shadow-lg leading-tight">
+                <i class="fas fa-atlas text-accent-color-primary mr-4"></i> UPSC Indian Society Syllabus
+            </h1>
+            <p class="text-lg sm:text-xl lg:text-2xl text-accent-color-secondary max-w-3xl mx-auto drop-shadow-md">
+                A Comprehensive & Logical Index for Prelims & Mains Examination
+            </p>
+            <div class="mt-8 flex justify-center gap-4">
+                <a href="#syllabus-start" class="bg-accent-color-primary text-primary-bg px-6 py-3 rounded-full font-semibold text-lg hover:bg-accent-color-secondary hover:text-white transition transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-compass mr-2"></i> Start Exploring
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16" id="syllabus-start">
+
+        <section class="mb-16">
+            <h2 class="text-3xl lg:text-4xl font-bold text-center text-accent-color-primary mb-8">
+                <i class="fas fa-book-reader mr-3"></i> Welcome to the Syllabus Explorer
+            </h2>
+            <p class="text-lg text-center max-w-4xl mx-auto text-accent-color-secondary">
+                Navigate through the multifaceted dimensions of Indian Society crucial for your UPSC examination. This interactive index provides a structured, logical, and detailed breakdown of topics, ensuring a comprehensive understanding for both Prelims and Mains.
+            </p>
+            <div class="section-divider"></div>
+        </section>
+
+        <!-- Syllabus Modules (Accordions) -->
+        <div class="space-y-6">
+
+            <!-- Module 1: Foundations of Indian Society & Its Historical Evolution -->
+            <div class="accordion-item syllabus-card">
+                <div class="accordion-header rounded-xl" tabindex="0" role="button" aria-expanded="false" aria-controls="content-module1">
+                    <span class="flex items-center"><i class="fas fa-university mr-3 text-accent-color-primary"></i> Module 1: Foundations of Indian Society & Its Historical Evolution</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content" id="content-module1" role="region">
+                    <div class="p-4 space-y-4">
+                        <div class="highlight-box mb-6">
+                            <strong>Key Focus:</strong> Understanding the basic sociological concepts, the historical evolution of Indian society, and its inherent diversity. Crucial for foundational understanding across all papers.
+                        </div>
+
+                        <!-- Topic 1.1: Introduction to Indian Society -->
+                        <div class="topic-link-group text-lg">
+                            <a href="indian-society-1.1.html" target="_indian-society-1.1.html" class="block bg-primary-bg p-4 rounded-lg hover:bg-secondary-bg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-info-circle text-accent-color-primary"></i> 1.1: Introduction to Indian Society <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                <ul class="text-sm mt-2 text-accent-color-secondary">
+                                    <li>1.1.1: Core Concepts & Definitions
+                                        <ul class="ml-4">
+                                            <li>1.1.1.1: Society, Community, Association, Institution, Culture, Social Structure, Social Function</li>
+                                            <li>1.1.1.2: Understanding Indian Society: Unique characteristics, Historical context, Pluralism</li>
+                                        </ul>
+                                    </li>
+                                    <li>1.1.2: Historical Evolution of Indian Society
+                                        <ul class="ml-4">
+                                            <li>1.1.2.1: Ancient Period: Varna System, Jati, Village Communities, Early Urbanization (Indus Valley)</li>
+                                            <li>1.1.2.2: Medieval Period: Bhakti-Sufi movements, Syncretic traditions, Emergence of new social groups</li>
+                                            <li>1.1.2.3: Colonial Period: Impact of British rule on social structures, land systems, education, modern institutions. Role of social reform movements.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+
+                        <!-- Topic 1.2: Diversity of India: Dimensions & Significance -->
+                        <div class="topic-link-group text-lg">
+                            <a href="indian-society-1.2.html" target="_indian-society-1.2.html" class="block bg-primary-bg p-4 rounded-lg hover:bg-secondary-bg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-globe-asia text-accent-color-primary"></i> 1.2: Diversity of India: Dimensions & Significance <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                <ul class="text-sm mt-2 text-accent-color-secondary">
+                                    <li>1.2.1: Linguistic Diversity
+                                        <ul class="ml-4">
+                                            <li>1.2.1.1: Major Language Families (Indo-Aryan, Dravidian, Austro-Asiatic, Tibeto-Burman) - distribution, features.</li>
+                                            <li>1.2.1.2: Constitutional Provisions: Eighth Schedule (22 languages, amendments & additions), Official Languages Act 1963.</li>
+                                            <li>1.2.1.3: Classical Language Status: Criteria, list of languages, significance, current debates.</li>
+                                            <li>1.2.1.4: Endangered Languages: Causes of decline, government initiatives (SPPEL, CIIL), UNESCO's role (International Decade of Indigenous Languages).</li>
+                                            <li>1.2.1.5: Language Politics & Regionalism: Anti-Hindi agitation, linguistic reorganization of states (historical context & implications), border disputes.</li>
+                                            <li>1.2.1.6: Multilingualism: Advantages, challenges in education (Three-Language Formula, NEP 2020 focus on mother tongue), digital divide.</li>
+                                        </ul>
+                                    </li>
+                                    <li>1.2.2: Religious Diversity
+                                        <ul class="ml-4">
+                                            <li>1.2.2.1: Major Religions of India: Hinduism, Islam, Christianity, Sikhism, Buddhism, Jainism, Zoroastrianism, Tribal Religions (Sarna, etc.) - historical origins, key tenets, distribution.</li>
+                                            <li>1.2.2.2: Syncretic Traditions & Inter-faith Dialogue: Bhakti-Sufi movements, shared shrines, secularism as a value.</li>
+                                            <li>1.2.2.3: Religious Minorities: Constitutional safeguards (Arts 25-30), challenges faced, Sachar Committee Report, PMMVY, Nai Roshni.</li>
+                                        </ul>
+                                    </li>
+                                    <li>1.2.3: Ethnic and Racial Diversity
+                                        <ul class="ml-4">
+                                            <li>1.2.3.1: Major Racial Classifications: Caucasoid, Mongoloid, Negrito, Australoid (historical perspectives & modern critiques).</li>
+                                            <li>1.2.3.2: Tribal Populations: Anthropological classifications, geographical distribution, unique cultural practices.</li>
+                                            <li>1.2.3.3: Regional Variations in ethnicity & its socio-political implications (e.g., North-East).</li>
+                                        </ul>
+                                    </li>
+                                    <li>1.2.4: Cultural and Regional Diversity
+                                        <ul class="ml-4">
+                                            <li>1.2.4.1: Diversities in Dress, Cuisine, Festivals, Performing Arts (Music, Dance, Theatre), Visual Arts (Painting, Sculpture), Craft traditions.</li>
+                                            <li>1.2.4.2: UNESCO Intangible Cultural Heritage list from India, GI Tags for traditional products.</li>
+                                            <li>1.2.4.3: Folk Traditions, Oral Histories, and Indigenous Knowledge Systems.</li>
+                                        </ul>
+                                    </li>
+                                    <li>1.2.5: Unity in Diversity: Mechanisms & Challenges
+                                        <ul class="ml-4">
+                                            <li>1.2.5.1: Constitutional Framework: Preamble, Fundamental Rights, Directive Principles.</li>
+                                            <li>1.2.5.2: Shared History, National Symbols, Pilgrimage circuits, All India Services.</li>
+                                            <li>1.2.5.3: Challenges to Unity: Communalism, Regionalism, Casteism, Separatist movements, External forces.</li>
+                                            <li>1.2.5.4: Role of Media, Education, and Civil Society in fostering unity.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 2: Social Stratification & Key Institutions -->
+            <div class="accordion-item syllabus-card">
+                <div class="accordion-header rounded-xl" tabindex="0" role="button" aria-expanded="false" aria-controls="content-module2">
+                    <span class="flex items-center"><i class="fas fa-people-carry-box mr-3 text-accent-color-primary"></i> Module 2: Social Stratification & Key Institutions</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content" id="content-module2" role="region">
+                    <div class="p-4 space-y-4">
+                        <div class="highlight-box mb-6">
+                            <strong>Key Focus:</strong> Delving into the core structures of Indian society, particularly family, marriage, caste, and gender. These are vital for understanding social dynamics and policies.
+                        </div>
+
+                        <div class="topic-link-group text-lg">
+                            <a href="indian-society-2.1.html" target="_indian-society-2.1.html" class="block bg-primary-bg p-4 rounded-lg hover:bg-secondary-bg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-home text-accent-color-primary"></i> 2.1: Family & Kinship <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                <ul class="text-sm mt-2 text-accent-color-secondary">
+                                    <li>2.1.1: Family Structures
+                                        <ul class="ml-4">
+                                            <li>2.1.1.1: Types of Family: Nuclear, Joint, Extended - definition, advantages, disadvantages.</li>
+                                            <li>2.1.1.2: Residence Patterns: Patrilocal, Matrilocal, Neolocal.</li>
+                                            <li>2.1.1.3: Authority Patterns: Patriarchal, Matriarchal (e.g., Khasi, Garo) - prevalence, challenges.</li>
+                                        </ul>
+                                    </li>
+                                    <li>2.1.2: Kinship Systems
+                                        <ul class="ml-4">
+                                            <li>2.1.2.1: Rules of Descent: Patrilineal, Matrilineal, Bilateral.</li>
+                                            <li>2.1.2.2: Kinship Terminology: Classificatory vs. Descriptive.</li>
+                                            <li>2.1.2.3: Role of Kinship in social organization, marriage alliances, economic cooperation.</li>
+                                        </ul>
+                                    </li>
+                                    <li>2.1.3: Changing Family Dynamics
+                                        <ul class="ml-4">
+                                            <li>2.1.3.1: Impact of Urbanization, Industrialization, Globalization, Migration on family structures (e.g., breakdown of joint family, rise of nuclear families, single-parent families, elderly neglect).</li>
+                                            <li>2.1.3.2: Live-in Relationships: Legal status, societal acceptance, challenges.</li>
+                                            <li>2.1.3.3: Role of Family in Socialization, economic support, and care for vulnerable members.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+
+                        <div class="topic-link-group text-lg">
+                            <a href="indian-society-2.2.html" target="_indian-society-2.2.html" class="block bg-primary-bg p-4 rounded-lg hover:bg-secondary-bg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-heart text-accent-color-primary"></i> 2.2: Marriage <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                <ul class="text-sm mt-2 text-accent-color-secondary">
+                                    <li>2.2.1: Traditional Forms & Practices
+                                        <ul class="ml-4">
+                                            <li>2.2.1.1: Hindu Marriage: Samskara, types (e.g., Brahma, Gandharva), endogamy, exogamy rules (gotra, sapinda).</li>
+                                            <li>2.2.1.2: Muslim Marriage: Nikah, Mahr, Talaq.</li>
+                                            <li>2.2.1.3: Tribal Marriage Systems: Bride price, elopement, service marriage.</li>
+                                            <li>2.2.1.4: Special Marriage Act, 1954: Provisions for inter-faith/inter-caste marriages, secular alternative.</li>
+                                        </ul>
+                                    </li>
+                                    <li>2.2.2: Changing Trends in Marriage
+                                        <ul class="ml-4">
+                                            <li>2.2.2.1: Inter-caste and Inter-religious Marriages: Increasing acceptance, challenges (e.g., honour killings).</li>
+                                            <li>2.2.2.2: Late Marriages, increasing age at marriage.</li>
+                                            <li>2.2.2.3: Marital Breakdown: Rising divorce rates, causes, impact on children.</li>
+                                            <li>2.2.2.4: Same-Sex Marriage: Legal debates, societal acceptance, international comparisons.</li>
+                                        </ul>
+                                    </li>
+                                    <li>2.2.3: Challenges in Marriage
+                                        <ul class="ml-4">
+                                            <li>2.2.3.1: Dowry System: Causes, social implications, anti-dowry laws (Dowry Prohibition Act 1961, 498A IPC), implementation challenges.</li>
+                                            <li>2.2.3.2: Child Marriage: Causes, impact on health & education, legal framework (Prohibition of Child Marriage Act 2006), government initiatives.</li>
+                                            <li>2.2.3.3: Marital Rape: Legal debates, arguments for and against criminalization, societal implications.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+
+                        <div class="topic-link-group text-lg">
+                            <a href="indian-society-2.3.html" target="_indian-society-2.3.html" class="block bg-primary-bg p-4 rounded-lg hover:bg-secondary-bg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-users-line text-accent-color-primary"></i> 2.3: Caste System <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                <ul class="text-sm mt-2 text-accent-color-secondary">
+                                    <li>2.3.1: Features & Origins
+                                        <ul class="ml-4">
+                                            <li>2.3.1.1: Varna vs. Jati: Theoretical vs. operational aspects.</li>
+                                            <li>2.3.1.2: Key Characteristics: Hierarchy, Endogamy, Hereditary occupation, Restrictions on food & social interaction.</li>
+                                            <li>2.3.1.3: Debates on Origin: Religious, Racial, Occupational theories.</li>
+                                        </ul>
+                                    </li>
+                                    <li>2.3.2: Untouchability & Discrimination
+                                        <ul class="ml-4">
+                                            <li>2.3.2.1: Historical Context: Practices, impact on social mobility & dignity.</li>
+                                            <li>2.3.2.2: Constitutional Abolition: Article 17, Protection of Civil Rights Act 1955, SC/ST (Prevention of Atrocities) Act 1989.</li>
+                                            <li>2.3.2.3: Persistence of Untouchability: Forms of discrimination (manual scavenging, social boycott), challenges in implementation of laws.</li>
+                                        </ul>
+                                    </li>
+                                    <li>2.3.3: Changes & Continuities in Caste
+                                        <ul class="ml-4">
+                                            <li>2.3.3.1: Impact of Modernization: Urbanization, Industrialization, Education, Democracy, Mass Media.</li>
+                                            <li>2.3.3.2: Concepts: Sanskritization, Westernization, Dominant Caste.</li>
+                                            <li>2.3.3.3: Caste in Modern Politics: Caste-based mobilization, vote-bank politics, reservation policy debates.</li>
+                                            <li>2.3.3.4: Role of Caste Associations, Dalit movements, and identity politics.</li>
+                                        </ul>
+                                    </li>
+                                    <li>2.3.4: Reservation Policy
+                                        <ul class="ml-4">
+                                            <li>2.3.4.1: Constitutional Basis: Arts 15, 16, 330, 332, 335, 338, 340, 341, 342.</li>
+                                            <li>2.3.4.2: Types of Reservation: SC, ST, OBC, EWS – criteria, percentage.</li>
+                                            <li>2.3.4.3: Debates: Creamy Layer, Sub-categorization, Adequacy of representation, Impact on merit, Judicial pronouncements (Indra Sawhney).</li>
+                                            <li>2.3.4.4: Reservation in Promotions, Private Sector reservation debates.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+
+                        <div class="topic-link-group text-lg">
+                            <a href="indian-society-2.4.html" target="_indian-society-2.4.html" class="block bg-primary-bg p-4 rounded-lg hover:bg-secondary-bg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-person-dress text-accent-color-primary"></i> 2.4: Gender Roles & Women's Issues <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                <ul class="text-sm mt-2 text-accent-color-secondary">
+                                    <li>2.4.1: Patriarchy & Gender Inequality
+                                        <ul class="ml-4">
+                                            <li>2.4.1.1: Understanding Patriarchy: Social construction of gender, historical roots.</li>
+                                            <li>2.4.1.2: Manifestations: Gender roles in family, education, economy, politics.</li>
+                                            <li>2.4.1.3: Gender Stereotypes and their impact on opportunities & well-being.</li>
+                                        </ul>
+                                    </li>
+                                    <li>2.4.2: Status of Women in India
+                                        <ul class="ml-4">
+                                            <li>2.4.2.1: Health: MMR, IMR, Anaemia, Reproductive health challenges, Nutrition.</li>
+                                            <li>2.4.2.2: Education: Literacy rates, enrolment, dropout rates, STEM participation, gender disparity in higher education.</li>
+                                            <li>2.4.2.3: Economic Participation: Workforce participation rates (rural/urban), Wage gap, Informal sector, unpaid work, Gig economy impact on women.</li>
+                                            <li>2.4.2.4: Political Representation: Women in Parliament & State Assemblies, Local self-governance (73rd/74th Amendment), Women's Reservation Bill.</li>
+                                        </ul>
+                                    </li>
+                                    <li>2.4.3: Violence Against Women (VAW)
+                                        <ul class="ml-4">
+                                            <li>2.4.3.1: Types: Domestic Violence, Sexual Harassment (workplace & public spaces), Acid Attacks, Honour Killings, Female Foeticide/Infanticide, Dowry Deaths, Trafficking.</li>
+                                            <li>2.4.3.2: Legal Frameworks: Domestic Violence Act 2005, POCSO Act, IPC amendments (Sexual Harassment at Workplace Act 2013, Nirbhaya Act 2013).</li>
+                                            <li>2.4.3.3: Challenges in reporting & prosecution, role of social stigma.</li>
+                                        </ul>
+                                    </li>
+                                    <li>2.4.4: Women's Empowerment & Government Initiatives
+                                        <ul class="ml-4">
+                                            <li>2.4.4.1: Definition & Dimensions of Empowerment (Economic, Social, Political, Psychological).</li>
+                                            <li>2.4.4.2: Schemes: Beti Bachao Beti Padhao, Mahila Shakti Kendra, Pradhan Mantri Matru Vandana Yojana, Ujjwala Yojana, One Stop Centres.</li>
+                                            <li>2.4.4.3: Role of Self-Help Groups (SHGs) - successes and challenges (e.g., NRLM, Microfinance).</li>
+                                            <li>2.4.4.4: National Commission for Women (NCW), Gender Budgeting.</li>
+                                        </ul>
+                                    </li>
+                                    <li>2.4.5: Gender Justice & Evolving Debates
+                                        <ul class="ml-4">
+                                            <li>2.4.5.1: Uniform Civil Code (UCC): Arguments for and against, implications for gender equality, religious personal laws.</li>
+                                            <li>2.4.5.2: Women in Armed Forces & Police: Challenges and opportunities.</li>
+                                            <li>2.4.5.3: Intersectionality of gender with caste, class, religion, disability.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 3: Dynamics of Social Change & Modernization -->
+            <div class="accordion-item syllabus-card">
+                <div class="accordion-header rounded-xl" tabindex="0" role="button" aria-expanded="false" aria-controls="content-module3">
+                    <span class="flex items-center"><i class="fas fa-chart-line mr-3 text-accent-color-primary"></i> Module 3: Dynamics of Social Change & Modernization</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content" id="content-module3" role="region">
+                    <div class="p-4 space-y-4">
+                        <div class="highlight-box mb-6">
+                            <strong>Key Focus:</strong> Examines the transformative forces shaping Indian society, including globalization, urbanization, and demographic shifts. Essential for contemporary issues analysis.
+                        </div>
+
+                        <div class="topic-link-group text-lg">
+                            <a href="indian-society-3.1.html" target="_indian-society-3.1.html" class="block bg-primary-bg p-4 rounded-lg hover:bg-secondary-bg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-globe text-accent-color-primary"></i> 3.1: Globalization & Its Impact on Indian Society <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                <ul class="text-sm mt-2 text-accent-color-secondary">
+                                    <li>3.1.1: Understanding Globalization
+                                        <ul class="ml-4">
+                                            <li>3.1.1.1: Definition, Dimensions (Economic, Political, Cultural, Technological).</li>
+                                            <li>3.1.1.2: Drivers of Globalization (Technology, Trade liberalization, MNCs).</li>
+                                        </ul>
+                                    </li>
+                                    <li>3.1.2: Economic Impact
+                                        <ul class="ml-4">
+                                            <li>3.1.2.1: LPG Reforms (1991): Impact on economic growth, employment, income inequality, informal sector.</li>
+                                            <li>3.1.2.2: Rise of MNCs and FDI: Opportunities and challenges (e.g., labour issues, environmental impact).</li>
+                                            <li>3.1.2.3: Consumerism: Changing consumption patterns, impact on savings, materialism.</li>
+                                            <li>3.1.2.4: Impact on Agriculture (e.g., contract farming), Industry (e.g., deindustrialization), Service Sector (e.g., IT boom, BPO).</li>
+                                            <li>3.1.2.5: Gig Economy & Platform Work: Opportunities, challenges (social security, labour rights).</li>
+                                        </ul>
+                                    </li>
+                                    <li>3.1.3: Cultural Impact
+                                        <ul class="ml-4">
+                                            <li>3.1.3.1: Westernization, Modernization, Sanskritization (Revisited).</li>
+                                            <li>3.1.3.2: Homogenization vs. Glocalization: Spread of global culture vs. local adaptation (e.g., fast food, entertainment).</li>
+                                            <li>3.1.3.3: Impact on Family, Marriage, Youth Culture, Language (e.g., rise of English).</li>
+                                            <li>3.1.3.4: Revival of Traditional Arts & Crafts (e.g., global market access for GI products).</li>
+                                            <li>3.1.3.5: Influence of Social Media & Digital Culture.</li>
+                                        </ul>
+                                    </li>
+                                    <li>3.1.4: Social & Political Impact
+                                        <ul class="ml-4">
+                                            <li>3.1.4.1: Impact on Social Institutions: Education (privatization, commercialization), Health (medical tourism), Religion (globalization of religious movements).</li>
+                                            <li>3.1.4.2: Changing Values & Norms: Individualism, human rights awareness, environmental consciousness.</li>
+                                            <li>3.1.4.3: Rise of New Social Movements: Environmental, Human Rights, LGBTQ+ rights, Anti-globalization.</li>
+                                            <li>3.1.4.4: Impact on Governance: Transparency, accountability, e-governance, role of international NGOs.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+
+                        <div class="topic-link-group text-lg">
+                            <a href="indian-society-3.2.html" target="_indian-society-3.2.html" class="block bg-primary-bg p-4 rounded-lg hover:bg-secondary-bg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-building text-accent-color-primary"></i> 3.2: Urbanization, its Problems & Remedies <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                <ul class="text-sm mt-2 text-accent-color-secondary">
+                                    <li>3.2.1: Trends & Causes of Urbanization in India
+                                        <ul class="ml-4">
+                                            <li>3.2.1.1: Rate & Patterns of Urbanization: Demographic trends, growth of mega-cities, census definitions.</li>
+                                            <li>3.2.1.2: Causes: Rural-urban migration (push & pull factors), industrialization, service sector growth.</li>
+                                        </ul>
+                                    </li>
+                                    <li>3.2.2: Problems of Urbanization
+                                        <ul class="ml-4">
+                                            <li>3.2.2.1: Housing & Slums: Inadequate housing, growth of informal settlements, health & safety issues.</li>
+                                            <li>3.2.2.2: Infrastructure Deficiencies: Water supply, sanitation, waste management, electricity, transport congestion.</li>
+                                            <li>3.2.2.3: Environmental Pollution: Air, Water, Noise pollution, waste disposal challenges.</li>
+                                            <li>3.2.2.4: Social Problems: Crime, homelessness, social isolation, mental health issues, challenges for vulnerable groups.</li>
+                                            <li>3.2.2.5: Urban Governance Challenges: Multiplicity of agencies, lack of coordination, financial constraints.</li>
+                                        </ul>
+                                    </li>
+                                    <li>3.2.3: Urban Planning & Government Initiatives
+                                        <ul class="ml-4">
+                                            <li>3.2.3.1: Smart Cities Mission: Objectives, components, progress, challenges.</li>
+                                            <li>3.2.3.2: AMRUT (Atal Mission for Rejuvenation and Urban Transformation): Objectives, focus areas.</li>
+                                            <li>3.2.3.3: Swachh Bharat Mission-Urban: Sanitation, waste management.</li>
+                                            <li>3.2.3.4: Pradhan Mantri Awas Yojana-Urban (PMAY-U): Affordable housing.</li>
+                                            <li>3.2.3.5: HRIDAY (Heritage City Development and Augmentation Yojana).</li>
+                                            <li>3.2.3.6: Urban Governance Reforms: Capacity building, citizen participation.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+
+                        <div class="topic-link-group text-lg">
+                            <a href="indian-society-3.3.html" target="_indian-society-3.3.html" class="block bg-primary-bg p-4 rounded-lg hover:bg-secondary-bg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-users text-accent-color-primary"></i> 3.3: Demographics & Social Change <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                <ul class="text-sm mt-2 text-accent-color-secondary">
+                                    <li>3.3.1: Demographic Trends
+                                        <ul class="ml-4">
+                                            <li>3.3.1.1: Population Growth (Rate, Causes, Implications).</li>
+                                            <li>3.3.1.2: Age Structure: Youth bulge (Demographic Dividend), Ageing population (challenges & opportunities).</li>
+                                            <li>3.3.1.3: Sex Ratio: Trends, causes of decline, government interventions (e.g., PCPNDT Act, Beti Bachao Beti Padhao).</li>
+                                            <li>3.3.1.4: Fertility & Mortality Rates: TFR, IMR, MMR trends and their social impact.</li>
+                                            <li>3.3.1.5: Migration (Internal & International): Causes, patterns, impact on sender and receiver regions.</li>
+                                        </ul>
+                                    </li>
+                                    <li>3.3.2: Demographic Dividend
+                                        <ul class="ml-4">
+                                            <li>3.3.2.1: Definition & Prerequisites for reaping dividend (Education, Health, Skill Development, Employment).</li>
+                                            <li>3.3.2.2: Challenges in realizing dividend: Skilling gap, job creation, health infrastructure.</li>
+                                        </ul>
+                                    </li>
+                                    <li>3.3.3: Ageing Population
+                                        <ul class="ml-4">
+                                            <li>3.3.3.1: Trends and implications for social security, healthcare, intergenerational relationships.</li>
+                                            <li>3.3.3.2: Policies and Schemes for Elderly: National Policy on Older Persons, Maintenance and Welfare of Parents and Senior Citizens Act 2007, Senior Citizen Welfare Fund.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 4: Major Social Issues & Challenges -->
+            <div class="accordion-item syllabus-card">
+                <div class="accordion-header rounded-xl" tabindex="0" role="button" aria-expanded="false" aria-controls="content-module4">
+                    <span class="flex items-center"><i class="fas fa-triangle-exclamation mr-3 text-accent-color-primary"></i> Module 4: Major Social Issues & Challenges</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content" id="content-module4" role="region">
+                    <div class="p-4 space-y-4">
+                        <div class="highlight-box mb-6">
+                            <strong>Key Focus:</strong> Tackling pressing social challenges like poverty, unemployment, communalism, and regionalism. These are recurring themes in Mains GS1 and GS2.
+                        </div>
+
+                        <div class="topic-link-group text-lg">
+                            <a href="indian-society-4.1.html" target="_indian-society-4.1.html" class="block bg-primary-bg p-4 rounded-lg hover:bg-secondary-bg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-sack-xmark text-accent-color-primary"></i> 4.1: Poverty & Development Issues <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                <ul class="text-sm mt-2 text-accent-color-secondary">
+                                    <li>4.1.1: Dimensions of Poverty
+                                        <ul class="ml-4">
+                                            <li>4.1.1.1: Absolute vs. Relative Poverty.</li>
+                                            <li>4.1.1.2: Multidimensional Poverty Index (MPI): Components, India's performance.</li>
+                                            <li>4.1.1.3: Poverty Lines & Estimation Debates (Tendulkar, Rangarajan Committees).</li>
+                                        </ul>
+                                    </li>
+                                    <li>4.1.2: Causes of Poverty in India
+                                        <ul class="ml-4">
+                                            <li>4.1.2.1: Economic: Unemployment, Low productivity, Inflation, Debt, Lack of assets.</li>
+                                            <li>4.1.2.2: Social: Caste, Gender, Disability, Illiteracy, Lack of access to basic services.</li>
+                                            <li>4.1.2.3: Political/Governance: Corruption, Ineffective implementation of schemes, Exclusion.</li>
+                                        </ul>
+                                    </li>
+                                    <li>4.1.3: Government Poverty Alleviation Programs (Pre & Post LPG)
+                                        <ul class="ml-4">
+                                            <li>4.1.3.1: Rural: MGNREGA, PM-KISAN, PM Awas Yojana-Gramin, PMGSY, NRLM (Aajeevika).</li>
+                                            <li>4.1.3.2: Urban: NULM (DAY-NULM).</li>
+                                            <li>4.1.3.3: Social Security: NSAP (Old age, Widow, Disability pensions), PMJJBY, PMSBY, APY.</li>
+                                            <li>4.1.3.4: Food Security: National Food Security Act 2013 (NFSA), PDS reforms.</li>
+                                            <li>4.1.3.5: Skill Development: Skill India Mission, Pradhan Mantri Kaushal Vikas Yojana (PMKVY).</li>
+                                        </ul>
+                                    </li>
+                                    <li>4.1.4: Inequality
+                                        <ul class="ml-4">
+                                            <li>4.1.4.1: Income & Wealth Inequality: Trends, Gini coefficient, Oxfam reports.</li>
+                                            <li>4.1.4.2: Inequality of Opportunity: Access to education, health, digital resources.</li>
+                                            <li>4.1.4.3: Regional Disparities: Causes, implications, policy responses.</li>
+                                            <li>4.1.4.4: Inclusive Growth: Concept, challenges, strategies.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+
+                        <div class="topic-link-group text-lg">
+                            <a href="indian-society-4.2.html" target="_indian-society-4.2.html" class="block bg-primary-bg p-4 rounded-lg hover:bg-secondary-bg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-briefcase text-accent-color-primary"></i> 4.2: Unemployment <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                <ul class="text-sm mt-2 text-accent-color-secondary">
+                                    <li>4.2.1: Types of Unemployment: Frictional, Structural, Cyclical, Disguised, Seasonal.</li>
+                                    <li>4.2.2: Trends in Unemployment: NSSO/PLFS data, Youth Unemployment.</li>
+                                    <li>4.2.3: Causes: Jobless growth, Skilling mismatch, Lack of investment, Automation.</li>
+                                    <li>4.2.4: Government Initiatives: Make in India, Start-up India, MUDRA, PLI Schemes, National Career Service.</li>
+                                    <li>4.2.5: Impact on society: Crime, Social unrest, Mental health issues.</li>
+                                </ul>
+                            </a>
+                        </div>
+
+                        <div class="topic-link-group text-lg">
+                            <a href="indian-society-4.3.html" target="_indian-society-4.3.html" class="block bg-primary-bg p-4 rounded-lg hover:bg-secondary-bg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-hands-clapping text-accent-color-primary"></i> 4.3: Communalism <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                <ul class="text-sm mt-2 text-accent-color-secondary">
+                                    <li>4.3.1: Definition & Nature of Communalism in India
+                                        <ul class="ml-4">
+                                            <li>4.3.1.1: Ideology vs. Practice, Historical roots, Stages of Communalism.</li>
+                                        </ul>
+                                    </li>
+                                    <li>4.3.2: Causes & Factors Fanning Communalism
+                                        <ul class="ml-4">
+                                            <li>4.3.2.1: Socio-economic disparities, Political exploitation, Hate speech, Misinformation/Disinformation, Role of social media.</li>
+                                        </ul>
+                                    </li>
+                                    <li>4.3.3: Manifestations of Communalism
+                                        <ul class="ml-4">
+                                            <li>4.3.3.1: Communal Riots (Causes, Consequences, Rehabilitation).</li>
+                                            <li>4.3.3.2: Polarization, Discrimination, Challenges to secular fabric.</li>
+                                        </ul>
+                                    </li>
+                                    <li>4.3.4: Combating Communalism
+                                        <ul class="ml-4">
+                                            <li>4.3.4.1: Legal & Administrative Measures: IPC provisions, Police reforms, Role of intelligence agencies.</li>
+                                            <li>4.3.4.2: Role of Education, Media, Civil Society, Inter-faith dialogues.</li>
+                                            <li>4.3.4.3: Concept of Secularism: Indian vs. Western models, debates on secularism.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+
+                        <div class="topic-link-group text-lg">
+                            <a href="indian-society-4.4.html" target="_indian-society-4.4.html" class="block bg-primary-bg p-4 rounded-lg hover:bg-secondary-bg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-location-dot text-accent-color-primary"></i> 4.4: Regionalism <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                <ul class="text-sm mt-2 text-accent-color-secondary">
+                                    <li>4.4.1: Definition & Causes of Regionalism
+                                        <ul class="ml-4">
+                                            <li>4.4.1.1: Geographical, Historical, Linguistic, Economic, Political, Cultural factors.</li>
+                                        </ul>
+                                    </li>
+                                    <li>4.4.2: Manifestations of Regionalism
+                                        <ul class="ml-4">
+                                            <li>4.4.2.1: Demands for Separate States (e.g., Gorkhaland, Vidarbha, Bundelkhand, Bodoland) - historical context, ongoing movements.</li>
+                                            <li>4.4.2.2: Autonomy Movements (e.g., Kashmir, North-East).</li>
+                                            <li>4.4.2.3: Sons of the Soil Doctrine: Implications for migration & employment.</li>
+                                            <li>4.4.2.4: Inter-state Disputes (e.g., Water sharing, Border disputes).</li>
+                                        </ul>
+                                    </li>
+                                    <li>4.4.3: Impact of Regionalism
+                                        <ul class="ml-4">
+                                            <li>4.4.3.1: Positive: Regional development, cultural preservation, decentralized governance.</li>
+                                            <li>4.4.3.2: Negative: National disintegration, violence, economic disruption, administrative challenges.</li>
+                                        </ul>
+                                    </li>
+                                    <li>4.4.4: Addressing Regionalism
+                                        <ul class="ml-4">
+                                            <li>4.4.4.1: Constitutional Provisions: Article 371 (special provisions for certain states), Zonal Councils.</li>
+                                            <li>4.4.4.2: Development boards, equitable resource allocation, decentralization.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+
+                        <div class="topic-link-group text-lg">
+                            <a href="indian-society-4.5.html" target="_indian-society-4.5.html" class="block bg-primary-bg p-4 rounded-lg hover:bg-secondary-bg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-mask text-accent-color-primary"></i> 4.5: Social Vices & Crime <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                <ul class="text-sm mt-2 text-accent-color-secondary">
+                                    <li>4.5.1: Drug Abuse
+                                        <ul class="ml-4">
+                                            <li>4.5.1.1: Trends & Causes: Youth vulnerability, cross-border trafficking, pharmaceutical drugs.</li>
+                                            <li>4.5.1.2: Impact: Health (physical, mental), Family, Crime, National Security.</li>
+                                            <li>4.5.1.3: Legal Framework: NDPS Act, Government Initiatives (Nash Mukt Bharat Abhiyaan), Rehabilitation and Prevention.</li>
+                                        </ul>
+                                    </li>
+                                    <li>4.5.2: Human Trafficking
+                                        <ul class="ml-4">
+                                            <li>4.5.2.1: Causes & Forms (Labour, Sexual exploitation, Organ trade, Child trafficking).</li>
+                                            <li>4.5.2.2: Legal Framework: Immoral Traffic (Prevention) Act, IPC provisions, Anti-Trafficking Units.</li>
+                                            <li>4.5.2.3: Government Schemes (e.g., Ujjwala Scheme) & International cooperation.</li>
+                                        </ul>
+                                    </li>
+                                    <li>4.5.3: Cybercrime
+                                        <ul class="ml-4">
+                                            <li>4.5.3.1: Types: Phishing, Cyberbullying, Online fraud, Dark Web, Ransomware.</li>
+                                            <li>4.5.3.2: Social Impact: Privacy concerns, Digital literacy, Vulnerability of elderly & children.</li>
+                                            <li>4.5.3.3: Legal Framework: IT Act 2000, National Cybercrime Reporting Portal, CERT-In.</li>
+                                        </ul>
+                                    </li>
+                                    <li>4.5.4: Juvenile Delinquency & Children in Conflict with Law
+                                        <ul class="ml-4">
+                                            <li>4.5.4.1: Causes, Trends, Social Impact.</li>
+                                            <li>4.5.4.2: Juvenile Justice (Care and Protection of Children) Act 2015, Child Protection Services.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 5: Social Welfare, Justice & Governance -->
+            <div class="accordion-item syllabus-card">
+                <div class="accordion-header rounded-xl" tabindex="0" role="button" aria-expanded="false" aria-controls="content-module5">
+                    <span class="flex items-center"><i class="fas fa-hands-holding-child mr-3 text-accent-color-primary"></i> Module 5: Social Welfare, Justice & Governance</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content" id="content-module5" role="region">
+                    <div class="p-4 space-y-4">
+                        <div class="highlight-box mb-6">
+                            <strong>Key Focus:</strong> Detailed examination of vulnerable sections, welfare schemes, and the role of institutions like NGOs in achieving social justice. Crucial for GS2.
+                        </div>
+
+                        <div class="topic-link-group text-lg">
+                            <a href="indian-society-5.1.html" target="_indian-society-5.1.html" class="block bg-primary-bg p-4 rounded-lg hover:bg-secondary-bg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-person-shelter text-accent-color-primary"></i> 5.1: Vulnerable Sections of Society <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                <ul class="text-sm mt-2 text-accent-color-secondary">
+                                    <li>5.1.1: Scheduled Castes (SCs)
+                                        <ul class="ml-4">
+                                            <li>5.1.1.1: Historical Disadvantage & Discrimination.</li>
+                                            <li>5.1.1.2: Constitutional & Legal Safeguards: Article 17, Protection of Civil Rights Act, SC/ST (PoA) Act.</li>
+                                            <li>5.1.1.3: Welfare Schemes: Post-matric scholarships, special component plan, Self-Employment Scheme for Safai Karamcharis.</li>
+                                            <li>5.1.1.4: National Commission for Scheduled Castes.</li>
+                                        </ul>
+                                    </li>
+                                    <li>5.1.2: Scheduled Tribes (STs)
+                                        <ul class="ml-4">
+                                            <li>5.1.2.1: Definition & Distribution: PVTGs (criteria, challenges, specific schemes).</li>
+                                            <li>5.1.2.2: Challenges: Displacement, Land alienation, Exploitation, Health, Education, Naxalism.</li>
+                                            <li>5.1.2.3: Constitutional & Legal Safeguards: Fifth & Sixth Schedules, PESA Act 1996, Forest Rights Act (FRA) 2006.</li>
+                                            <li>5.1.2.4: Welfare Schemes: Tribal Sub-Plan, Eklavya Model Residential Schools, PM Van Dhan Yojana, Janjatiya Gaurav Diwas.</li>
+                                            <li>5.1.2.5: National Commission for Scheduled Tribes.</li>
+                                        </ul>
+                                    </li>
+                                    <li>5.1.3: Other Backward Classes (OBCs)
+                                        <ul class="ml-4">
+                                            <li>5.1.3.1: Historical Context: Backward Classes Commission (Kaka Kalelkar), Mandal Commission, Judicial pronouncements.</li>
+                                            <li>5.1.3.2: Constitutional Provisions: Article 340, National Commission for Backward Classes (Constitutional status).</li>
+                                            <li>5.1.3.3: Reservation Policy (detailed re-visit from 2.3.4 if needed, focusing on OBC specifics like creamy layer).</li>
+                                        </ul>
+                                    </li>
+                                    <li>5.1.4: Minorities (Religious & Linguistic)
+                                        <ul class="ml-4">
+                                            <li>5.1.4.1: Constitutional Safeguards: Arts 29, 30, 350A, 350B.</li>
+                                            <li>5.1.4.2: Challenges faced: Discrimination, identity issues, security.</li>
+                                            <li>5.1.4.3: Sachar Committee Report & Ranganath Misra Commission Report recommendations.</li>
+                                            <li>5.1.4.4: Welfare Schemes: Nai Roshni, Hamari Dharohar, Naya Savera (Free Coaching & Allied Scheme), Pradhan Mantri Jan Vikas Karyakram (PMJVK).</li>
+                                            <li>5.1.4.5: National Commission for Minorities, Commissioner for Linguistic Minorities.</li>
+                                        </ul>
+                                    </li>
+                                    <li>5.1.5: Persons with Disabilities (Divyangjan)
+                                        <ul class="ml-4">
+                                            <li>5.1.5.1: Definition & Categories of Disabilities.</li>
+                                            <li>5.1.5.2: Challenges: Accessibility, Education, Employment, Social stigma, Healthcare.</li>
+                                            <li>5.1.5.3: Legal Framework: Rights of Persons with Disabilities Act 2016 (RPWD Act), UNCRPD (UN Convention on Rights of Persons with Disabilities).</li>
+                                            <li>5.1.5.4: Government Initiatives: Accessible India Campaign (AIC), Deendayal Disabled Rehabilitation Scheme (DDRS), UDID Card, Assistance to Disabled Persons for Purchase/Fitting of Aids/Appliances (ADIP).</li>
+                                        </ul>
+                                    </li>
+                                    <li>5.1.6: Children
+                                        <ul class="ml-4">
+                                            <li>5.1.6.1: Rights of Children: Protection, Participation, Development.</li>
+                                            <li>5.1.6.2: Challenges: Child labour, Child trafficking, Child abuse, Malnutrition, Education gaps, Child sexual abuse.</li>
+                                            <li>5.1.6.3: Legal & Policy Framework: POCSO Act, Juvenile Justice (Care and Protection of Children) Act, Prohibition of Child Labour Act, National Commission for Protection of Child Rights (NCPCR), ICPS (Integrated Child Protection Scheme).</li>
+                                            <li>5.1.6.4: Government Schemes: Poshan Abhiyaan, Mid-Day Meal Scheme, Early Childhood Care and Education (NEP 2020).</li>
+                                        </ul>
+                                    </li>
+                                    <li>5.1.7: LGBTQ+ Community
+                                        <ul class="ml-4">
+                                            <li>5.1.7.1: Historical Context & Social Stigma.</li>
+                                            <li>5.1.7.2: Legal Milestones: NALSA judgment (transgender rights), Navtej Singh Johar judgment (decriminalization of Section 377), Marriage equality debate.</li>
+                                            <li>5.1.7.3: Challenges: Discrimination, Violence, Mental health, Access to healthcare, Legal recognition of relationships.</li>
+                                            <li>5.1.7.4: Government & Civil Society initiatives for inclusion.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+
+                        <div class="topic-link-group text-lg">
+                            <a href="indian-society-5.2.html" target="_indian-society-5.2.html" class="block bg-primary-bg p-4 rounded-lg hover:bg-secondary-bg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-handshake text-accent-color-primary"></i> 5.2: Welfare Schemes for Vulnerable Sections (Cross-Cutting) <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                <ul class="text-sm mt-2 text-accent-color-secondary">
+                                    <li>5.2.1: Overview of major schemes for each vulnerable group (detailed earlier).</li>
+                                    <li>5.2.2: Implementation Challenges
+                                        <ul class="ml-4">
+                                            <li>5.2.2.1: Leakages, Corruption, Lack of awareness, Bureaucratic hurdles, Targeting issues, Last-mile delivery.</li>
+                                        </ul>
+                                    </li>
+                                    <li>5.2.3: Evaluation & Impact Assessment
+                                        <ul class="ml-4">
+                                            <li>5.2.3.1: Effectiveness of schemes in achieving stated objectives.</li>
+                                            <li>5.2.3.2: Role of Direct Benefit Transfer (DBT) in reducing leakages.</li>
+                                        </ul>
+                                    </li>
+                                    <li>5.2.4: Institutional Framework for Social Welfare
+                                        <ul class="ml-4">
+                                            <li>5.2.4.1: Role of Ministry of Social Justice & Empowerment, Ministry of Tribal Affairs, Ministry of Women & Child Development, Ministry of Minority Affairs.</li>
+                                            <li>5.2.4.2: National Commissions (SC, ST, OBC, Women, Minorities, Child Rights, PWDs).</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+
+                        <div class="topic-link-group text-lg">
+                            <a href="indian-society-5.3.html" target="_indian-society-5.3.html" class="block bg-primary-bg p-4 rounded-lg hover:bg-secondary-bg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-people-group text-accent-color-primary"></i> 5.3: Role of NGOs, SHGs & Civil Society <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                <ul class="text-sm mt-2 text-accent-color-secondary">
+                                    <li>5.3.1: Non-Governmental Organizations (NGOs)
+                                        <ul class="ml-4">
+                                            <li>5.3.1.1: Definition, Types, Role in governance, advocacy, service delivery (education, health, environment, human rights).</li>
+                                            <li>5.5.1.2: Challenges: Funding, Transparency, Accountability, Regulatory environment (FCRA Act changes).</li>
+                                        </ul>
+                                    </li>
+                                    <li>5.3.2: Self-Help Groups (SHGs)
+                                        <ul class="ml-4">
+                                            <li>5.3.2.1: Concept, Structure, Functioning, Linkage with banks (SHG-Bank Linkage Programme).</li>
+                                            <li>5.3.2.2: Impact on Women's Empowerment, Poverty Alleviation, Financial Inclusion (e.g., NRLM's role).</li>
+                                            <li>5.3.2.3: Challenges: Sustainability, Capacity building, Market linkages.</li>
+                                        </ul>
+                                    </li>
+                                    <li>5.3.3: Other Stakeholders
+                                        <ul class="ml-4">
+                                            <li>5.3.3.1: Donors, Charities, Philanthropic organizations.</li>
+                                            <li>5.3.3.2: Corporate Social Responsibility (CSR) and its impact.</li>
+                                            <li>5.3.3.3: Role of Media, Academia, Think Tanks in shaping public discourse and policy.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+
+                        <div class="topic-link-group text-lg">
+                            <a href="indian-society-5.4.html" target="_indian-society-5.4.html" class="block bg-primary-bg p-4 rounded-lg hover:bg-secondary-bg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-graduation-cap text-accent-color-primary"></i> 5.4: Education <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                <ul class="text-sm mt-2 text-accent-color-secondary">
+                                    <li>5.4.1: Constitutional Provisions & Policy Evolution
+                                        <ul class="ml-4">
+                                            <li>5.4.1.1: Right to Education (RTE) Act 2009: Salient features, challenges, achievements.</li>
+                                            <li>5.4.1.2: National Education Policy (NEP) 2020: Key recommendations (curriculum reform, foundational literacy/numeracy, higher education, multilingualism, technology integration), implementation challenges.</li>
+                                        </ul>
+                                    </li>
+                                    <li>5.4.2: Challenges in Indian Education System
+                                        <ul class="ml-4">
+                                            <li>5.4.2.1: Access, Equity, Quality (learning outcomes), Retention.</li>
+                                            <li>5.4.2.2: Infrastructure gaps, Teacher shortages, Digital Divide in education.</li>
+                                            <li>5.4.2.3: Vocational Education & Skill Gap.</li>
+                                        </ul>
+                                    </li>
+                                    <li>5.4.3: Government Initiatives & Programs
+                                        <ul class="ml-4">
+                                            <li>5.4.3.1: Sarva Shiksha Abhiyan (SSA), Samagra Shiksha Abhiyan.</li>
+                                            <li>5.4.3.2: Mid-Day Meal Scheme (PM POSHAN).</li>
+                                            <li>5.4.3.3: Digital Initiatives: SWAYAM, SWAYAM PRABHA, National Digital Library, DIKSHA.</li>
+                                            <li>5.4.3.4: Higher Education Reforms: UGC, AICTE, HEIs.</li>
+                                            <li>5.4.3.5: Skill India Mission (revisit 4.1.3.5).</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+
+                        <div class="topic-link-group text-lg">
+                            <a href="indian-society-5.5.html" target="_indian-society-5.5.html" class="block bg-primary-bg p-4 rounded-lg hover:bg-secondary-bg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-kit-medical text-accent-color-primary"></i> 5.5: Health <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                <ul class="text-sm mt-2 text-accent-color-secondary">
+                                    <li>5.5.1: Health Status in India
+                                        <ul class="ml-4">
+                                            <li>5.5.1.1: Health Indicators: IMR, MMR, Life Expectancy, Disease Burden (Communicable & Non-communicable diseases, Malnutrition).</li>
+                                            <li>5.5.1.2: Urban-Rural & Interstate Disparities in Health Outcomes.</li>
+                                        </ul>
+                                    </li>
+                                    <li>5.5.2: Challenges in Health Sector
+                                        <ul class="ml-4">
+                                            <li>5.5.2.1: Access, Affordability, Quality of care.</li>
+                                            <li>5.5.2.2: Infrastructure Deficiencies (Hospitals, PHCs, CHCs).</li>
+                                            <li>5.5.2.3: Human Resources (Doctors, Nurses, Paramedics) shortage and maldistribution.</li>
+                                            <li>5.5.2.4: Funding gaps, Out-of-Pocket Expenditure (OOPE).</li>
+                                            <li>5.5.2.5: Rise of Antimicrobial Resistance (AMR), new pandemics (e.g., COVID-19 & lessons learned).</li>
+                                        </ul>
+                                    </li>
+                                    <li>5.5.3: Government Health Programs & Policies
+                                        <ul class="ml-4">
+                                            <li>5.5.3.1: National Health Mission (NHM) - Rural & Urban components.</li>
+                                            <li>5.5.3.2: Ayushman Bharat: PMJAY (health insurance), Health & Wellness Centres.</li>
+                                            <li>5.5.3.3: Janani Shishu Suraksha Karyakram (JSSK), Reproductive, Maternal, Newborn, Child and Adolescent Health (RMNCH+A).</li>
+                                            <li>5.5.3.4: National Nutrition Mission (POSHAN Abhiyaan).</li>
+                                            <li>5.5.3.5: Public Health System vs. Private Healthcare: Regulation, role of private sector.</li>
+                                        </ul>
+                                    </li>
+                                    <li>5.5.4: Ayush & Traditional Medicine
+                                        <ul class="ml-4">
+                                            <li>5.5.4.1: Role of Ayurveda, Yoga & Naturopathy, Unani, Siddha, Homoeopathy (AYUSH) in healthcare.</li>
+                                            <li>5.5.4.2: Integration with modern medicine.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 6: Emerging Issues & Cross-Cutting Themes -->
+            <div class="accordion-item syllabus-card">
+                <div class="accordion-header rounded-xl" tabindex="0" role="button" aria-expanded="false" aria-controls="content-module6">
+                    <span class="flex items-center"><i class="fas fa-robot mr-3 text-accent-color-primary"></i> Module 6: Emerging Issues & Cross-Cutting Themes</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content" id="content-module6" role="region">
+                    <div class="p-4 space-y-4">
+                        <div class="highlight-box mb-6">
+                            <strong>Key Focus:</strong> Contemporary topics like technology's impact, social movements, and the evolving nature of work. Essential for current affairs and holistic understanding.
+                        </div>
+
+                        <div class="topic-link-group text-lg">
+                            <a href="indian-society-6.1.html" target="_indian-society-6.1.html" class="block bg-primary-bg p-4 rounded-lg hover:bg-secondary-bg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-wifi text-accent-color-primary"></i> 6.1: Role of Technology in Social Change & Development <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                <ul class="text-sm mt-2 text-accent-color-secondary">
+                                    <li>6.1.1: Digital India Initiative & its Social Impact
+                                        <ul class="ml-4">
+                                            <li>6.1.1.1: Jan Dhan-Aadhaar-Mobile (JAM) Trinity, Direct Benefit Transfer (DBT) for social welfare.</li>
+                                            <li>6.1.1.2: Digital Literacy & Financial Inclusion.</li>
+                                            <li>6.1.1.3: E-governance, Online public services (e.g., e-health, e-education, e-courts).</li>
+                                        </ul>
+                                    </li>
+                                    <li>6.1.2: Challenges of Digital Transformation
+                                        <ul class="ml-4">
+                                            <li>6.1.2.1: Digital Divide (access, affordability, literacy) - rural-urban, gender, income disparities.</li>
+                                            <li>6.1.2.2: Privacy Concerns, Data Security, Misinformation/Fake News.</li>
+                                            <li>6.1.2.3: Cyberbullying, Online fraud, Social media addiction.</li>
+                                        </ul>
+                                    </li>
+                                    <li>6.1.3: Artificial Intelligence (AI) & Society
+                                        <ul class="ml-4">
+                                            <li>6.1.3.1: Impact on Employment (job displacement, creation of new jobs), Skill requirements.</li>
+                                            <li>6.1.3.2: Ethical concerns (bias, fairness, accountability), Governance of AI.</li>
+                                            <li>6.1.3.3: Potential for social good (healthcare diagnostics, disaster management, personalized education).</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+
+                        <div class="topic-link-group text-lg">
+                            <a href="indian-society-6.2.html" target="_indian-society-6.2.html" class="block bg-primary-bg p-4 rounded-lg hover:bg-secondary-bg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-hands-holding text-accent-color-primary"></i> 6.2: Social Movements in India <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                <ul class="text-sm mt-2 text-accent-color-secondary">
+                                    <li>6.2.1: Typology of Social Movements
+                                        <ul class="ml-4">
+                                            <li>6.2.1.1: Peasant Movements (Historical & Contemporary: Farmers' protests).</li>
+                                            <li>6.2.1.2: Labour Movements (Trade Unions, changing nature of work).</li>
+                                            <li>6.2.1.3: Environmental Movements (Chipko, Narmada Bachao Andolan, Climate Action).</li>
+                                            <li>6.2.1.4: Women's Movements (Phases, key demands, impact on legislation).</li>
+                                            <li>6.2.1.5: Dalit Movements, Tribal Movements (Land rights, identity).</li>
+                                            <li>6.2.1.6: Human Rights Movements, LGBTQ+ Rights movements.</li>
+                                        </ul>
+                                    </li>
+                                    <li>6.2.2: Role of Social Movements in Social Change
+                                        <ul class="ml-4">
+                                            <li>6.2.2.1: Awareness creation, Policy advocacy, Challenging status quo, Empowering marginalized.</li>
+                                            <li>6.2.2.2: Impact on Legislation & Public Discourse.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </a>
+                        </div>
+
+                        <div class="topic-link-group text-lg">
+                            <a href="indian-society-6.3.html" target="_indian-society-6.3.html" class="block bg-primary-bg p-4 rounded-lg hover:bg-secondary-bg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-building-user text-accent-color-primary"></i> 6.3: Changing Nature of Work & Labour <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                                <ul class="text-sm mt-2 text-accent-color-secondary">
+                                    <li>6.3.1: Informal vs. Formal Sector: Size, characteristics, challenges for informal workers.</li>
+                                    <li>6.3.2: Gig Economy: Definition, growth, labour rights, social security.</li>
+                                    <li>6.3.3: Automation & Future of Work: Impact on job losses/creation, reskilling.</li>
+                                    <li>6.3.4: Labour Codes: Rationalization of labour laws, impact on workers & industry.</li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- End Syllabus Modules -->
+
+        <section class="mt-20 text-center">
+            <h2 class="text-3xl lg:text-4xl font-bold text-center text-accent-color-primary mb-8">
+                <i class="fas fa-lightbulb mr-3"></i> Tips for Effective Study
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="syllabus-card p-6">
+                    <i class="fas fa-magnifying-glass-chart text-5xl text-accent-color-primary mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3 text-accent-color-secondary">Inter-disciplinary Approach</h3>
+                    <p class="text-sm text-text-color-light">Connect topics across GS papers (e.g., social issues with governance, economy, security). Understand the multi-dimensional nature of problems.</p>
+                </div>
+                <div class="syllabus-card p-6">
+                    <i class="fas fa-newspaper text-5xl text-accent-color-primary mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3 text-accent-color-secondary">Current Affairs Integration</h3>
+                    <p class="text-sm text-text-color-light">Continuously update your knowledge with recent government initiatives, reports, and current events related to each syllabus point.</p>
+                </div>
+                <div class="syllabus-card p-6">
+                    <i class="fas fa-pencil-alt text-5xl text-accent-color-primary mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3 text-accent-color-secondary">Answer Writing Practice</h3>
+                    <p class="text-sm text-text-color-light">Practice structuring answers, incorporating facts, data, committee recommendations, and constitutional provisions. Focus on both analytical and critical thinking.</p>
+                </div>
+            </div>
+            <div class="section-divider mt-16"></div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-bg text-center text-accent-color-secondary p-6 mt-12 border-t border-border-color">
+        <p class="text-sm mb-2">© 2024 UPSC Indian Society Syllabus Explorer. All rights reserved.</p>
+        <p class="text-xs">Designed with <i class="fas fa-heart text-red-500 mx-1"></i> for aspiring civil servants.</p>
+        <a href="#" class="inline-block text-accent-color-primary hover:text-accent-color-secondary mt-3 transition transform hover:scale-110">
+            <i class="fas fa-arrow-alt-circle-up text-xl"></i> Back to Top
+        </a>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.fa-chevron-down');
+
+                    // Close other open accordions, if any
+                    accordionHeaders.forEach(otherHeader => {
+                        if (otherHeader !== this && otherHeader.classList.contains('active')) {
+                            otherHeader.classList.remove('active');
+                            otherHeader.nextElementSibling.classList.remove('open');
+                            otherHeader.nextElementSibling.style.maxHeight = '0';
+                            otherHeader.nextElementSibling.style.paddingTop = '0';
+                            otherHeader.nextElementSibling.style.paddingBottom = '0';
+                            otherHeader.querySelector('.fa-chevron-down').classList.remove('active');
+                        }
+                    });
+
+                    // Toggle current accordion
+                    this.classList.toggle('active');
+                    icon.classList.toggle('active'); // Rotate icon
+
+                    if (content.classList.contains('open')) {
+                        content.classList.remove('open');
+                        content.style.maxHeight = '0';
+                        content.style.paddingTop = '0';
+                        content.style.paddingBottom = '0';
+                    } else {
+                        content.classList.add('open');
+                        content.style.maxHeight = content.scrollHeight + 'px'; // Set max-height to scrollHeight for smooth transition
+                        content.style.paddingTop = '1rem';
+                        content.style.paddingBottom = '1.5rem';
+                    }
+                });
+
+                // Add keyboard accessibility for accordions
+                header.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault(); // Prevent default space key action (scrolling)
+                        this.click(); // Simulate a click
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
