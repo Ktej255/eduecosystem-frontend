@@ -57,7 +57,7 @@ def delete_menu_item(item_id: int, db: Session = Depends(get_db)):
     return {"status": "success"}
 
 @router.get("/profitability")
-def menu_profitability(db: Session = Depends(get_db)):
+def get_menu_profitability(db: Session = Depends(get_db)):
     from sqlalchemy import text
     import json
     items = db.execute(text("SELECT * FROM menu_items ORDER BY name")).fetchall()
