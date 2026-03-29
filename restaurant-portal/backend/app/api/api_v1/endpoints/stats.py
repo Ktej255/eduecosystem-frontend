@@ -480,3 +480,134 @@ def ceo_weekly_summary(db: Session = Depends(get_db)):
             else f"Revenue declined {abs(round(wow_change,1))}% vs last week. Review pricing and staffing for low days."
         )
     }
+
+@router.get("/breakeven")
+def breakeven_analysis(db: Session = Depends(get_db)):
+    from datetime import date
+    import calendar
+
+    today = date.today()
+    month_str = today.strftime("%Y-%m")
+
+    fixed = db.execute(text(
+        "SELECT * FROM fixed_costs WHERE month=:m"
+    ), {"m": month_str}).fetchone()
+
+    rent = float(fixed.rent) if fixed else 0
+    salaries = float(fixed.salaries) if fixed else 0
+    utilities = float(fixed.utilities) if fixed else 0
+    other = float(fixed.other_fixed) if fixed else 0
+    avg_order = float(fixed.avg_order_value) if fixed else 250
+    total_fixed = rent + salaries + utilities + other
+
+    month_start = today.replace(day=1)
+    variable = db.execute(text("""
+        SELECT COALESCE(AVG(total_expense),0) as avg_expense,
+               COALESCE(AVG(total_sale),0) as avg_sale
+        FROM daily_sales WHERE date >= :start
+    """), {"start": month_start}).fetchone()
+
+    avg_variable_per_day = float(variable.avg_expense) if variable else 0
+    avg_daily_sale = float(variable.avg_sale) if variable else 0
+    days_in_month = calendar.monthrange(today.year, today.month)[1]
+    total_variable_month = avg_variable_per_day * days_in_month
+    total_costs = total_fixed + total_variable_month
+
+    variable_cost_per_order = (avg_variable_per_day / (avg_daily_sale / avg_order)) if avg_daily_sale > 0 else avg_order * 0.4
+    contribution_margin = avg_order - variable_cost_per_order
+    orders_to_breakeven_daily = (total_fixed / days_in_month) / contribution_margin if contribution_margin > 0 else 0
+    revenue_to_breakeven_daily = orders_to_breakeven_daily * avg_order
+
+    today_sales = db.execute(text(
+        "SELECT COALESCE(total_sale,0) as s FROM daily_sales WHERE date=:d"
+    ), {"d": today}).fetchone()
+    today_revenue = float(today_sales.s) if today_sales else 0
+    today_orders_est = today_revenue / avg_order
+    above_breakeven = today_revenue > revenue_to_breakeven_daily
+
+    return {
+        "month": month_str,
+        "fixed_costs": {"rent": rent, "salaries": salaries, "utilities": utilities, "other": other, "total": total_fixed},
+        "avg_order_value": avg_order,
+        "daily_breakeven_revenue": round(revenue_to_breakeven_daily, 2),
+        "daily_breakeven_orders": round(orders_to_breakeven_daily, 1),
+        "today_revenue": round(today_revenue, 2),
+        "today_estimated_orders": round(today_orders_est, 1),
+        "today_above_breakeven": above_breakeven,
+        "monthly_total_cost_estimate": round(total_costs, 2),
+        "status_message": (
+            f"Above break-even today by ₹{round(today_revenue - revenue_to_breakeven_daily):,}"
+            if above_breakeven
+            else f"Below break-even — need ₹{round(revenue_to_breakeven_daily - today_revenue):,} more today"
+        )
+    }
+
+@router.post("/breakeven/setup")
+def set_fixed_costs(
+    month: str, rent: float = 0, salaries: float = 0,
+    utilities: float = 0, other_fixed: float = 0,
+    avg_order_value: float = 250,
+    db: Session = Depends(get_db)
+):
+    db.execute(text("""
+        INSERT INTO fixed_costs (month, rent, salaries, utilities, other_fixed, avg_order_value)
+        VALUES (:month, :rent, :sal, :util, :other, :avg)
+        ON CONFLICT (month) DO UPDATE
+        SET rent=EXCLUDED.rent, salaries=EXCLUDED.salaries,
+            utilities=EXCLUDED.utilities, other_fixed=EXCLUDED.other_fixed,
+            avg_order_value=EXCLUDED.avg_order_value
+    """), {
+        "month": month, "rent": rent, "sal": salaries,
+        "util": utilities, "other": other_fixed, "avg": avg_order_value
+    })
+    db.commit()
+    return {"status": "saved", "month": month}
+
+@router.get("/insights/weekly-summary-report")
+def get_weekly_summary_report(db: Session = Depends(get_db)):
+    from datetime import date, timedelta
+    today = date.today()
+    last_monday = today - timedelta(days=today.weekday())
+    last_sunday = last_monday - timedelta(days=1)
+    week_start = last_sunday - timedelta(days=6)
+    
+    # Aggregates for report
+    stats = db.execute(text("""
+        SELECT 
+            SUM(total_sale) as revenue,
+            SUM(total_expense) as expense,
+            SUM(profit) as profit,
+            AVG(profit / NULLIF(total_sale, 0)) * 100 as margin
+        FROM daily_sales 
+        WHERE date BETWEEN :start AND :end
+    """), {"start": week_start, "end": last_sunday}).fetchone()
+    
+    top_items = db.execute(text("""
+        SELECT name, SUM(quantity) as qty
+        FROM orders o, jsonb_to_recordset(o.items) as x(name text, quantity float, price float) 
+        WHERE date_trunc('week', o.created_at) = date_trunc('week', :ref::timestamp - interval '1 week')
+        GROUP BY 1 ORDER BY 2 DESC LIMIT 3
+    """), {"ref": today}).fetchall()
+
+    waste = db.execute(text("""
+        SELECT SUM(total_cost) FROM waste WHERE date BETWEEN :start AND :end
+    """), {"start": week_start, "end": last_sunday}).scalar() or 0
+
+    import urllib.parse
+    
+    message = f"*PIZZA BLITZ WEEKLY REPORT*\n"
+    message += f"Period: {week_start} to {last_sunday}\n\n"
+    message += f"Total Revenue: ₹{stats.revenue:,.2f}\n"
+    message += f"Total Expenses: ₹{stats.expense:,.2f}\n"
+    message += f"Net Profit: ₹{stats.profit:,.2f} ({stats.margin:.1f}% margin)\n"
+    message += f"Waste Leakage: ₹{waste:,.2f}\n\n"
+    message += "*TOP SELLERS:*\n"
+    for item in top_items:
+        message += f"- {item[0]}: {item[1]} units\n"
+    
+    encoded_message = urllib.parse.quote(message)
+    
+    return {
+        "text_content": message,
+        "whatsapp_link": f"https://wa.me/919876543210?text={encoded_message}"
+    }

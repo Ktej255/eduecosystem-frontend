@@ -5,7 +5,8 @@ import {
   TrendingUp, TrendingDown, Target, Activity, 
   Award, AlertCircle, ShoppingBag, PieChart,
   RefreshCw, Crown, ChevronRight, Info, Scale, 
-  Trash2, ArrowUpRight, ArrowDownRight, Loader2
+  Trash2, ArrowUpRight, ArrowDownRight, Loader2,
+  MessageSquare
 } from 'lucide-react';
 import { getApiUrl } from '@/lib/api';
 
@@ -116,13 +117,27 @@ export default function CeoDashboard() {
           </div>
         </div>
         
-        <button 
-          onClick={fetchData} 
-          className="flex items-center space-x-2 px-6 py-3 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all text-sm font-bold text-gray-700 hover:text-indigo-600"
-        >
-          <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
-          <span>Force Sync Architecture</span>
-        </button>
+        <div className="flex items-center space-x-3">
+          <button 
+            onClick={async () => {
+              const res = await fetch(getApiUrl('/api/v1/restaurant/stats/insights/weekly-summary-report'));
+              const data = await res.json();
+              window.open(data.whatsapp_link, '_blank');
+            }}
+            className="flex items-center space-x-2 px-6 py-3 bg-emerald-600 text-white rounded-2xl shadow-lg hover:bg-emerald-700 transition-all text-xs font-black uppercase tracking-widest"
+          >
+            <MessageSquare className="w-4 h-4" />
+            <span>Cast Weekly Pulse</span>
+          </button>
+          
+          <button 
+            onClick={fetchData} 
+            className="flex items-center space-x-2 px-6 py-3 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all text-[10px] font-black text-gray-700 hover:text-indigo-600 uppercase tracking-widest"
+          >
+            <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
+            <span>Force Sync Architecture</span>
+          </button>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">

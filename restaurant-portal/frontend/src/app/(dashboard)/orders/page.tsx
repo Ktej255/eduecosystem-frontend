@@ -1,142 +1,305 @@
 "use client";
-import React, { useState } from 'react';
-import { Send, Upload, Plus, FileText, CheckCircle2, Search, CornerDownRight } from 'lucide-react';
-import Link from 'next/link';
 
-export default function PurchaseOrders() {
-  const [isUploading, setIsUploading] = useState(false);
+import React, { useState, useEffect } from 'react';
+import { 
+  ShoppingBag, Utensils, Truck, MapPin, 
+  Plus, Trash2, CheckCircle, Clock, 
+  Receipt, CreditCard, Banknote, Loader2, X
+} from 'lucide-react';
+import { getApiUrl } from '@/lib/api';
 
-  const suggestedItems = [
-    { id: 1, name: "Tomato Sauce", supplier: "Fresh Farms Inc.", whatsapp: "919876543210", needed: 10, unit: "kg" },
-    { id: 2, name: "Pizza Base (9 inch)", supplier: "Bakers World", whatsapp: "919988776655", needed: 50, unit: "pcs" },
-    { id: 3, name: "Mozzarella Cheese", supplier: "Dairy Best", whatsapp: "919988776655", needed: 8, unit: "kg" },
-  ];
+interface Table {
+  id: number;
+  table_number: string;
+  capacity: number;
+  status: 'available' | 'occupied' | 'reserved';
+  current_order_id?: number;
+}
 
-  const pastOrders = [
-    { id: "PO-1045", date: "2026-03-20", supplier: "Fresh Farms Inc.", amount: 4500, status: "Delivered" },
-    { id: "PO-1044", date: "2026-03-18", supplier: "Bakers World", amount: 12000, status: "Delivered" },
-    { id: "PO-1043", date: "2026-03-15", supplier: "Packaging Co.", amount: 2500, status: "Delivered" },
-  ];
+interface OrderItem {
+  name: string;
+  quantity: number;
+  price: number;
+}
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setIsUploading(true);
-      setTimeout(() => {
-        setIsUploading(false);
-        alert("Gemini AI successfully transcribed your handwritten order note!");
-      }, 2500);
+interface OrderRecord {
+  id: number;
+  order_type: string;
+  table_number: string;
+  total_amount: number;
+  status: string;
+  payment_method: string;
+  created_at: string;
+}
+
+export default function OrdersPage() {
+  const [tables, setTables] = useState<Table[]>([]);
+  const [orders, setOrders] = useState<OrderRecord[]>([]);
+  const [totalToday, setTotalToday] = useState(0);
+  const [loading, setLoading] = useState(true);
+  
+  const [showOrderPanel, setShowOrderPanel] = useState(false);
+  const [selectedTable, setSelectedTable] = useState<Table | null>(null);
+  const [orderType, setOrderType] = useState('dine-in');
+  const [cart, setCart] = useState<OrderItem[]>([]);
+  const [newItem, setNewItem] = useState({ name: '', price: '', quantity: 1 });
+  const [paymentMethod, setPaymentMethod] = useState('Cash');
+
+  const fetchData = async () => {
+    try {
+      const [tableRes, orderRes] = await Promise.all([
+        fetch(getApiUrl('/api/v1/restaurant/orders/tables'), { cache: 'no-store' }),
+        fetch(getApiUrl('/api/v1/restaurant/orders/today'), { cache: 'no-store' })
+      ]);
+      const tableData = await tableRes.json();
+      const orderData = await orderRes.json();
+      setTables(tableData);
+      setOrders(orderData.orders || []);
+      setTotalToday(orderData.total_collected_today || 0);
+    } catch (error) {
+      console.error("Failed to fetch order data", error);
+    } finally {
+      setLoading(false);
     }
   };
 
-  const getWhatsAppLink = (supplier: string, phone: string, items: any[]) => {
-    const text = `Hello ${supplier},\n\nPlease send the following supplies for Pizza Blitz today:\n\n` + 
-      items.map(i => `- ${i.name}: ${i.needed} ${i.unit}`).join('\n') + 
-      `\n\nPlease confirm availability and total bill.\nRegards,\nPizza Blitz`;
-    return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const handleAddItem = () => {
+    if (!newItem.name || !newItem.price) return;
+    setCart([...cart, { 
+      name: newItem.name, 
+      price: parseFloat(newItem.price), 
+      quantity: newItem.quantity 
+    }]);
+    setNewItem({ name: '', price: '', quantity: 1 });
   };
 
-  // Group by supplier
-  const ordersBySupplier = suggestedItems.reduce((acc: any, item) => {
-    if (!acc[item.whatsapp]) acc[item.whatsapp] = { supplier: item.supplier, items: [] };
-    acc[item.whatsapp].items.push(item);
-    return acc;
-  }, {});
+  const calculateSubtotal = () => cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+  const subtotal = calculateSubtotal();
+  const tax = Math.round(subtotal * 0.05 * 100) / 100;
+  const total = Math.round((subtotal + tax) * 100) / 100;
+
+  const handlePlaceOrder = async (closeImmediately = false) => {
+    try {
+      const res = await fetch(getApiUrl('/api/v1/restaurant/orders/'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          order_type: orderType,
+          table_number: selectedTable?.table_number,
+          items: cart,
+          payment_method: paymentMethod
+        })
+      });
+      const data = await res.json();
+      
+      if (closeImmediately) {
+        await fetch(getApiUrl(`/api/v1/restaurant/orders/${data.order_id}/close`), {
+          method: 'PATCH'
+        });
+      }
+      
+      setCart([]);
+      setShowOrderPanel(false);
+      fetchData();
+    } catch (error) {
+      console.error("Failed to place order", error);
+    }
+  };
+
+  if (loading) return <div className="p-12 text-center animate-pulse"><Loader2 className="animate-spin mx-auto w-12 h-12 text-indigo-600 mb-4" /> Loading POS...</div>;
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-300">
-      <div className="flex justify-between items-center flex-wrap gap-4">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900">Purchase Orders</h1>
-          <p className="text-gray-500 mt-1">Manage suppliers and auto-generate WhatsApp orders.</p>
+    <div className="relative min-h-[85vh]">
+      <div className="space-y-8 pb-12">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
+          <div>
+            <h1 className="text-3xl font-black text-gray-900 tracking-tight">TABLES & POS</h1>
+            <p className="text-gray-500 font-medium italic">Active session: ₹{totalToday.toLocaleString()} collected today</p>
+          </div>
+          <div className="flex space-x-2">
+             <button 
+               onClick={() => { setSelectedTable(null); setOrderType('takeaway'); setShowOrderPanel(true); }}
+               className="bg-indigo-600 text-white px-6 py-3 rounded-2xl font-black shadow-lg shadow-indigo-100 hover:bg-indigo-700 active:scale-95 transition-all flex items-center"
+             >
+                <Plus className="w-5 h-5 mr-2" /> NEW TAKEAWAY
+             </button>
+          </div>
         </div>
-        <div className="flex gap-3">
-          <label className="cursor-pointer px-4 py-2 bg-purple-50 text-purple-700 border border-purple-200 hover:bg-purple-100 rounded-lg font-medium shadow-sm transition-colors flex items-center">
-             {isUploading ? <Upload className="w-4 h-4 mr-2 animate-bounce" /> : <FileText className="w-4 h-4 mr-2" />}
-             {isUploading ? "Reading Note..." : "Upload Handwritten Note"}
-             <input type="file" className="hidden" accept="image/*" onChange={handleFileUpload} />
-          </label>
-        </div>
-      </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="space-y-6">
-          <h3 className="text-xl font-bold text-gray-900 bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center">
-            <span className="w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center mr-3 text-sm">1</span>
-            Smart Suggestions <span className="ml-2 px-2 py-0.5 bg-red-100 text-red-600 rounded-full text-xs font-bold">Low Stock</span>
-          </h3>
-          
-          {Object.entries(ordersBySupplier).map(([phone, data]: [string, any]) => (
-            <div key={phone} className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-              <div className="p-4 border-b border-gray-100 bg-gray-50/50 flex justify-between items-center">
-                 <div>
-                   <h4 className="font-bold text-gray-900">{data.supplier}</h4>
-                   <p className="text-xs text-gray-500 mt-0.5">WhatsApp: +{phone}</p>
-                 </div>
-                 <Link 
-                   href={getWhatsAppLink(data.supplier, phone, data.items)}
-                   target="_blank"
-                   className="px-4 py-2 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-lg text-sm font-bold shadow-sm transition-colors flex items-center"
-                 >
-                   <Send className="w-4 h-4 mr-2" />
-                   Send via WhatsApp
-                 </Link>
-              </div>
-              <div className="p-4 space-y-3">
-                {data.items.map((item: any) => (
-                  <div key={item.id} className="flex justify-between items-center text-sm">
-                    <div className="flex items-center text-gray-700">
-                      <CornerDownRight className="w-4 h-4 mr-2 text-gray-400" />
-                      <span className="font-medium">{item.name}</span>
-                    </div>
-                    <div className="font-bold border border-gray-200 bg-gray-50 px-3 py-1 rounded-md text-gray-900">
-                      {item.needed} {item.unit}
-                    </div>
-                  </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Table Map */}
+          <div className="lg:col-span-8">
+             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {tables.map(table => (
+                  <button 
+                    key={table.id}
+                    disabled={table.status === 'occupied'}
+                    onClick={() => { setSelectedTable(table); setOrderType('dine-in'); setShowOrderPanel(true); }}
+                    className={`p-8 rounded-[2.5rem] border-4 shadow-xl transition-all flex flex-col items-center justify-center space-y-4 ${
+                      table.status === 'occupied' ? 'bg-rose-50 border-rose-100 text-rose-500 cursor-not-allowed opacity-80' : 
+                      table.status === 'reserved' ? 'bg-amber-50 border-amber-100 text-amber-500' :
+                      'bg-white border-transparent hover:border-emerald-100 hover:bg-emerald-50 text-emerald-600'
+                    }`}
+                  >
+                     <Utensils className={`w-8 h-8 ${table.status === 'occupied' ? 'opacity-50' : 'animate-bounce'}`} />
+                     <div className="text-center">
+                        <span className="block text-2xl font-black">{table.table_number}</span>
+                        <span className="text-[10px] uppercase font-black tracking-widest opacity-60">Cap: {table.capacity}</span>
+                     </div>
+                     <span className={`text-[9px] font-black uppercase px-2 py-1 rounded-full ${
+                        table.status === 'available' ? 'bg-emerald-100' : 'bg-gray-100'
+                     }`}>
+                        {table.status}
+                     </span>
+                  </button>
                 ))}
-              </div>
-            </div>
-          ))}
+             </div>
+          </div>
 
-          <button className="w-full p-4 border-2 border-dashed border-gray-300 rounded-xl text-gray-500 hover:border-orange-500 hover:text-orange-600 hover:bg-orange-50 transition-all font-medium flex items-center justify-center">
-            <Plus className="w-5 h-5 mr-2" />
-            Create Custom Draft Order
-          </button>
-        </div>
-
-        <div>
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden h-full flex flex-col">
-            <div className="p-4 border-b border-gray-100 bg-gray-50/50 flex justify-between items-center">
-               <h3 className="text-lg font-bold text-gray-900">Recent PO History</h3>
-               <div className="relative">
-                 <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-                 <input type="text" placeholder="Search orders..." className="pl-9 pr-3 py-1.5 border border-gray-200 rounded-md text-sm outline-none focus:border-orange-500" />
-               </div>
-            </div>
-            
-            <div className="p-4 flex-1 overflow-y-auto">
-              <div className="space-y-4">
-                {pastOrders.map((order) => (
-                  <div key={order.id} className="flex justify-between items-center p-3 border border-gray-100 rounded-lg hover:border-orange-200 hover:shadow-sm transition-all group cursor-pointer">
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <span className="font-bold text-gray-900">{order.id}</span>
-                        <span className="px-2 py-0.5 rounded-full bg-green-100 text-green-700 text-xs font-semibold flex items-center">
-                          <CheckCircle2 className="w-3 h-3 mr-1" /> {order.status}
-                        </span>
-                      </div>
-                      <p className="text-sm text-gray-500 mt-1">{order.supplier} &bull; {order.date}</p>
-                    </div>
-                    <div className="text-right">
-                      <div className="font-bold text-gray-900">₹{order.amount.toLocaleString()}</div>
-                      <div className="text-xs font-medium text-orange-600 opacity-0 group-hover:opacity-100 transition-opacity">View Invoice</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+          {/* Activity Feed */}
+          <div className="lg:col-span-4 space-y-6">
+             <div className="bg-white rounded-[2rem] shadow-xl border border-gray-100 overflow-hidden">
+                <div className="p-6 bg-gray-50 border-b border-gray-100 flex items-center justify-between">
+                   <h3 className="text-xs font-black text-gray-800 uppercase tracking-widest">Today's Orders</h3>
+                   <span className="bg-indigo-600 text-white px-2 py-0.5 rounded text-[10px] font-black">{orders.length}</span>
+                </div>
+                <div className="max-h-[500px] overflow-y-auto divide-y divide-gray-50 p-2">
+                   {orders.map(order => (
+                     <div key={order.id} className="p-4 flex justify-between items-center group hover:bg-indigo-50/10 rounded-2xl transition-all">
+                        <div className="flex items-center space-x-3">
+                           <div className={`p-2 rounded-xl ${order.order_type === 'dine-in' ? 'bg-emerald-50 text-emerald-600' : 'bg-indigo-50 text-indigo-600'}`}>
+                              {order.order_type === 'dine-in' ? <Utensils className="w-4 h-4" /> : <ShoppingBag className="w-4 h-4" />}
+                           </div>
+                           <div>
+                              <p className="text-xs font-black text-gray-900">#ORD-{order.id} {order.table_number && `@ ${order.table_number}`}</p>
+                              <p className="text-[10px] font-bold text-gray-400 uppercase">{new Date(order.created_at).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</p>
+                           </div>
+                        </div>
+                        <div className="text-right">
+                           <p className="text-sm font-black text-gray-800">₹{order.total_amount}</p>
+                           <span className={`text-[8px] font-black uppercase px-1.5 rounded ${order.status === 'closed' ? 'text-emerald-500' : 'text-amber-500'}`}>{order.status}</span>
+                        </div>
+                     </div>
+                   ))}
+                </div>
+             </div>
           </div>
         </div>
       </div>
+
+      {/* Slide-in Order Panel */}
+      {showOrderPanel && (
+        <div className="fixed inset-0 z-50 flex justify-end">
+          <div className="absolute inset-0 bg-gray-900/60 backdrop-blur-sm" onClick={() => setShowOrderPanel(false)}></div>
+          <div className="relative w-full max-w-md bg-white h-full shadow-2xl animate-in slide-in-from-right duration-300 flex flex-col">
+             <div className="p-8 border-b border-gray-100 flex items-center justify-between">
+                <div>
+                   <h2 className="text-2xl font-black text-gray-900">NEW {orderType.toUpperCase()}</h2>
+                   <p className="text-xs font-bold text-gray-400 tracking-widest">{selectedTable ? `TABLE ${selectedTable.table_number}` : 'COUNTER ORDER'}</p>
+                </div>
+                <button onClick={() => setShowOrderPanel(false)} className="p-2 hover:bg-gray-100 rounded-full transition-all">
+                   <X className="w-6 h-6 text-gray-400" />
+                </button>
+             </div>
+
+             <div className="flex-grow overflow-y-auto p-8 space-y-8">
+                {/* Item Adder */}
+                <div className="space-y-4">
+                   <div className="grid grid-cols-12 gap-2">
+                      <input 
+                        className="col-span-6 bg-gray-50 border-none rounded-xl p-3 text-sm font-bold" 
+                        placeholder="Item Name" 
+                        value={newItem.name}
+                        onChange={e => setNewItem({...newItem, name: e.target.value})}
+                      />
+                      <input 
+                        className="col-span-3 bg-gray-50 border-none rounded-xl p-3 text-sm font-bold" 
+                        placeholder="Price" 
+                        type="number"
+                        value={newItem.price}
+                        onChange={e => setNewItem({...newItem, price: e.target.value})}
+                      />
+                      <button 
+                        onClick={handleAddItem}
+                        className="col-span-3 bg-gray-900 text-white rounded-xl flex items-center justify-center"
+                      >
+                        <Plus className="w-5 h-5" />
+                      </button>
+                   </div>
+                </div>
+
+                {/* Cart Table */}
+                <div className="space-y-4">
+                   <h3 className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Order Items</h3>
+                   <div className="space-y-3">
+                      {cart.map((item, idx) => (
+                        <div key={idx} className="flex justify-between items-center bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                           <div className="font-black text-gray-800 text-sm">
+                              {item.name} <span className="text-indigo-600 ml-1">x{item.quantity}</span>
+                           </div>
+                           <div className="flex items-center space-x-4 font-black">
+                              <span className="text-gray-900 text-sm">₹{item.price * item.quantity}</span>
+                              <button onClick={() => setCart(cart.filter((_, i) => i !== idx))}><Trash2 className="w-4 h-4 text-rose-400" /></button>
+                           </div>
+                        </div>
+                      ))}
+                      {cart.length === 0 && <p className="text-center text-gray-400 italic text-sm py-4">Your cart is empty</p>}
+                   </div>
+                </div>
+
+                {/* Summary */}
+                <div className="p-6 bg-gray-50 rounded-3xl space-y-3 border border-gray-100">
+                   <div className="flex justify-between text-sm font-bold text-gray-500">
+                      <span>Subtotal</span>
+                      <span>₹{subtotal.toLocaleString()}</span>
+                   </div>
+                   <div className="flex justify-between text-sm font-bold text-gray-500">
+                      <span>GST (5%)</span>
+                      <span>₹{tax.toLocaleString()}</span>
+                   </div>
+                   <div className="flex justify-between text-xl font-black text-gray-900 pt-3 border-t border-gray-200">
+                      <span>TOTAL</span>
+                      <span className="text-indigo-600">₹{total.toLocaleString()}</span>
+                   </div>
+                </div>
+             </div>
+
+             <div className="p-8 border-t border-gray-100 space-y-4">
+                <div className="flex space-x-2 mb-4">
+                   {['Cash', 'UPI', 'Card'].map(m => (
+                     <button 
+                        key={m}
+                        onClick={() => setPaymentMethod(m)}
+                        className={`flex-1 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
+                          paymentMethod === m ? 'bg-gray-900 text-white shadow-xl' : 'bg-gray-50 text-gray-400'
+                        }`}
+                     >
+                        {m}
+                     </button>
+                   ))}
+                </div>
+                <div className="flex space-x-3">
+                   <button 
+                    onClick={() => handlePlaceOrder(false)}
+                    className="flex-1 py-4 border-2 border-gray-900 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-gray-50 active:scale-95 transition-all"
+                   >
+                     Send to Kitchen
+                   </button>
+                   <button 
+                    onClick={() => handlePlaceOrder(true)}
+                    className="flex-1 py-4 bg-emerald-500 text-white rounded-2xl font-black uppercase text-xs tracking-widest shadow-lg shadow-emerald-100 hover:bg-emerald-600 active:scale-95 transition-all"
+                   >
+                     Collect & Close
+                   </button>
+                </div>
+             </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

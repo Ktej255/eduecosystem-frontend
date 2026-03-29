@@ -1,19 +1,28 @@
 import Link from "next/link";
-import { LayoutDashboard, Package, Receipt, ShoppingCart, BarChart3, Settings, PlusCircle, Utensils, Sparkles, DollarSign, Trash2, Crown } from "lucide-react";
+import { 
+  LayoutDashboard, Package, Receipt, ShoppingCart, 
+  BarChart3, Settings, PlusCircle, Utensils, 
+  Sparkles, DollarSign, Trash2, Crown, 
+  Activity, FileText, Target, ClipboardList, Users 
+} from "lucide-react";
 
 export default function Sidebar() {
   const navItems = [
     { name: "Dashboard", href: "/", icon: LayoutDashboard },
+    { name: "CEO Command", href: "/ceo", icon: Crown },
+    { name: "POS (Orders)", href: "/orders", icon: ShoppingCart },
+    { name: "Shift Log", href: "/shifts", icon: Activity },
     { name: "Daily Entry", href: "/daily", icon: PlusCircle },
     { name: "Sales History", href: "/sales", icon: DollarSign },
     { name: "Reports", href: "/reports", icon: BarChart3 },
-    { name: "Menu Management", href: "/menu", icon: Utensils },
+    { name: "Invoices", href: "/invoices", icon: FileText },
+    { name: "Breakeven", href: "/breakeven", icon: Target },
+    { name: "Menu Intelligence", href: "/menu", icon: Utensils },
     { name: "Inventory", href: "/inventory", icon: Package },
-    { name: "Recipes", href: "/recipes", icon: Utensils },
-    { name: "Vendors", href: "/vendors", icon: ShoppingCart },
+    { name: "Recipes", href: "/recipes", icon: ClipboardList },
+    { name: "Vendors", href: "/vendors", icon: Users },
     { name: "Waste Log", href: "/waste", icon: Trash2 },
     { name: "Expenses", href: "/expenses", icon: Receipt },
-    { name: "CEO Dashboard", href: "/ceo", icon: Crown },
     { name: "AI Insights", href: "/ai-insights", icon: Sparkles },
     { name: "Settings", href: "/settings", icon: Settings },
   ];
