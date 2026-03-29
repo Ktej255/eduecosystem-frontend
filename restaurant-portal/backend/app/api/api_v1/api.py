@@ -1,3 +1,4 @@
+from fastapi import APIRouter
 from app.api.api_v1.endpoints import sync, inventory, stats, daily, menu, expenses, insights, reports, purchase_orders, import_data, ocr, shifts, orders, vendors, promotions
 
 api_router = APIRouter()
