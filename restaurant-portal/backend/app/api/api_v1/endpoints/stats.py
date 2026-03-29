@@ -360,171 +360,35 @@ def operational_health_score(db: Session = Depends(get_db)):
         )
     }
 
-@router.get("/target/status")
-def target_status(monthly_target: float = 0, db: Session = Depends(get_db)):
-    from datetime import date
-    import calendar
-    
-    today = date.today()
-    month_start = today.replace(day=1)
-    days_in_month = calendar.monthrange(today.year, today.month)[1]
-    days_elapsed = today.day
-    days_remaining = days_in_month - days_elapsed
-    
-    current = db.execute(text("""
-        SELECT COALESCE(SUM(total_sale),0) as revenue
-        FROM daily_sales WHERE date >= :start
-    """), {"start": month_start}).fetchone()
-    
-    revenue_so_far = float(current.revenue or 0)
-    daily_avg = revenue_so_far / days_elapsed if days_elapsed > 0 else 0
-    projected = daily_avg * days_in_month
-    
-    # If no target set, use last year same month as target
-    if monthly_target <= 0:
-        try:
-            last_year_start = month_start.replace(year=today.year-1)
-        except ValueError:
-            last_year_start = month_start - timedelta(days=365)
-            
-        days_in_ly_month = calendar.monthrange(last_year_start.year, last_year_start.month)[1]
-        ly_month_end = last_year_start.replace(day=days_in_ly_month)
-        
-        ly = db.execute(text("""
-            SELECT COALESCE(SUM(total_sale),0) as revenue
-            FROM daily_sales WHERE date >= :start 
-            AND date <= :end
-        """), {
-            "start": last_year_start,
-            "end": ly_month_end
-        }).fetchone()
-        monthly_target = float(ly.revenue or 0) * 1.1  # 10% above last year
-    
-    target_achieved_pct = (revenue_so_far / monthly_target * 100) if monthly_target > 0 else 0
-    required_daily = (monthly_target - revenue_so_far) / days_remaining if days_remaining > 0 else 0
-    on_track = daily_avg >= required_daily
-    
-    return {
-        "month": today.strftime("%B %Y"),
-        "monthly_target": round(monthly_target, 2),
-        "revenue_so_far": round(revenue_so_far, 2),
-        "target_achieved_pct": round(target_achieved_pct, 1),
-        "daily_average": round(daily_avg, 2),
-        "required_daily_to_hit_target": round(required_daily, 2),
-        "days_remaining": days_remaining,
-        "projected_month_total": round(projected, 2),
-        "on_track": on_track,
-        "status_message": f"On track ✅ — averaging ₹{round(daily_avg):,}/day, need ₹{round(required_daily):,}/day" if on_track else f"Behind target ⚠️ — need ₹{round(required_daily):,}/day but averaging ₹{round(daily_avg):,}/day"
-    }
-
-@router.get("/ceo-summary")
-def ceo_weekly_summary(db: Session = Depends(get_db)):
-    from datetime import date, timedelta
-    
-    today = date.today()
-    week_start = today - timedelta(days=7)
-    prev_week_start = week_start - timedelta(days=7)
-    
-    # This week
-    this_week = db.execute(text("""
-        SELECT COALESCE(SUM(total_sale),0) as revenue,
-               COALESCE(SUM(profit),0) as profit,
-               COALESCE(SUM(total_expense),0) as expense,
-               COUNT(*) as days
-        FROM daily_sales WHERE date >= :start
-    """), {"start": week_start}).fetchone()
-    
-    # Last week
-    last_week = db.execute(text("""
-        SELECT COALESCE(SUM(total_sale),0) as revenue
-        FROM daily_sales WHERE date >= :start AND date < :end
-    """), {"start": prev_week_start, "end": week_start}).fetchone()
-    
-    # Best day this week
-    best_day = db.execute(text("""
-        SELECT date, total_sale FROM daily_sales
-        WHERE date >= :start ORDER BY total_sale DESC LIMIT 1
-    """), {"start": week_start}).fetchone()
-    
-    # Worst day this week
-    worst_day = db.execute(text("""
-        SELECT date, total_sale FROM daily_sales
-        WHERE date >= :start ORDER BY total_sale ASC LIMIT 1
-    """), {"start": week_start}).fetchone()
-    
-    # Top waste this week
-    top_waste = db.execute(text("""
-        SELECT item_name, SUM(estimated_cost) as cost
-        FROM waste_log WHERE date >= :start
-        GROUP BY item_name ORDER BY cost DESC LIMIT 1
-    """), {"start": week_start}).fetchone()
-    
-    this_revenue = float(this_week.revenue or 0)
-    last_revenue = float(last_week.revenue or 0)
-    wow_change = ((this_revenue - last_revenue) / last_revenue * 100) if last_revenue > 0 else 0
-    margin = (float(this_week.profit or 0) / this_revenue * 100) if this_revenue > 0 else 0
-    
-    return {
-        "period": f"{week_start.strftime('%d %b')} – {today.strftime('%d %b %Y')}",
-        "this_week_revenue": round(this_revenue, 2),
-        "last_week_revenue": round(last_revenue, 2),
-        "week_on_week_change": round(wow_change, 1),
-        "direction": "up" if wow_change >= 0 else "down",
-        "profit_margin": round(margin, 1),
-        "best_day": {"date": best_day.date.strftime("%A %d %b") if best_day else "N/A", "revenue": float(best_day.total_sale) if best_day else 0},
-        "worst_day": {"date": worst_day.date.strftime("%A %d %b") if worst_day else "N/A", "revenue": float(worst_day.total_sale) if worst_day else 0},
-        "top_waste_item": {"item": top_waste.item_name if top_waste else "None", "cost": float(top_waste.cost) if top_waste else 0},
-        "ai_recommendation": (
-            f"Strong week with {round(wow_change,1)}% growth. Focus on maintaining consistency on slower days." if wow_change > 10
-            else f"Stable week. Push weekend promotions to improve daily average." if wow_change > 0
-            else f"Revenue declined {abs(round(wow_change,1))}% vs last week. Review pricing and staffing for low days."
-        )
-    }
-
 @router.get("/breakeven")
 def breakeven_analysis(db: Session = Depends(get_db)):
     from datetime import date
     import calendar
-
     today = date.today()
     month_str = today.strftime("%Y-%m")
-
-    fixed = db.execute(text(
-        "SELECT * FROM fixed_costs WHERE month=:m"
-    ), {"m": month_str}).fetchone()
-
+    fixed = db.execute(text("SELECT * FROM fixed_costs WHERE month=:m"), {"m": month_str}).fetchone()
     rent = float(fixed.rent) if fixed else 0
     salaries = float(fixed.salaries) if fixed else 0
     utilities = float(fixed.utilities) if fixed else 0
     other = float(fixed.other_fixed) if fixed else 0
     avg_order = float(fixed.avg_order_value) if fixed else 250
     total_fixed = rent + salaries + utilities + other
-
     month_start = today.replace(day=1)
     variable = db.execute(text("""
         SELECT COALESCE(AVG(total_expense),0) as avg_expense,
                COALESCE(AVG(total_sale),0) as avg_sale
         FROM daily_sales WHERE date >= :start
     """), {"start": month_start}).fetchone()
-
     avg_variable_per_day = float(variable.avg_expense) if variable else 0
     avg_daily_sale = float(variable.avg_sale) if variable else 0
     days_in_month = calendar.monthrange(today.year, today.month)[1]
-    total_variable_month = avg_variable_per_day * days_in_month
-    total_costs = total_fixed + total_variable_month
-
     variable_cost_per_order = (avg_variable_per_day / (avg_daily_sale / avg_order)) if avg_daily_sale > 0 else avg_order * 0.4
     contribution_margin = avg_order - variable_cost_per_order
     orders_to_breakeven_daily = (total_fixed / days_in_month) / contribution_margin if contribution_margin > 0 else 0
     revenue_to_breakeven_daily = orders_to_breakeven_daily * avg_order
-
-    today_sales = db.execute(text(
-        "SELECT COALESCE(total_sale,0) as s FROM daily_sales WHERE date=:d"
-    ), {"d": today}).fetchone()
+    today_sales = db.execute(text("SELECT COALESCE(total_sale,0) as s FROM daily_sales WHERE date=:d"), {"d": today}).fetchone()
     today_revenue = float(today_sales.s) if today_sales else 0
-    today_orders_est = today_revenue / avg_order
     above_breakeven = today_revenue > revenue_to_breakeven_daily
-
     return {
         "month": month_str,
         "fixed_costs": {"rent": rent, "salaries": salaries, "utilities": utilities, "other": other, "total": total_fixed},
@@ -532,23 +396,15 @@ def breakeven_analysis(db: Session = Depends(get_db)):
         "daily_breakeven_revenue": round(revenue_to_breakeven_daily, 2),
         "daily_breakeven_orders": round(orders_to_breakeven_daily, 1),
         "today_revenue": round(today_revenue, 2),
-        "today_estimated_orders": round(today_orders_est, 1),
         "today_above_breakeven": above_breakeven,
-        "monthly_total_cost_estimate": round(total_costs, 2),
-        "status_message": (
-            f"Above break-even today by ₹{round(today_revenue - revenue_to_breakeven_daily):,}"
-            if above_breakeven
-            else f"Below break-even — need ₹{round(revenue_to_breakeven_daily - today_revenue):,} more today"
-        )
+        "status_message": (f"Above break-even today by ₹{round(today_revenue - revenue_to_breakeven_daily):,}"
+                          if above_breakeven else f"Below break-even — need ₹{round(revenue_to_breakeven_daily - today_revenue):,} more today")
     }
 
 @router.post("/breakeven/setup")
-def set_fixed_costs(
-    month: str, rent: float = 0, salaries: float = 0,
-    utilities: float = 0, other_fixed: float = 0,
-    avg_order_value: float = 250,
-    db: Session = Depends(get_db)
-):
+def set_fixed_costs(month: str, rent: float = 0, salaries: float = 0,
+                    utilities: float = 0, other_fixed: float = 0,
+                    avg_order_value: float = 250, db: Session = Depends(get_db)):
     db.execute(text("""
         INSERT INTO fixed_costs (month, rent, salaries, utilities, other_fixed, avg_order_value)
         VALUES (:month, :rent, :sal, :util, :other, :avg)
@@ -556,58 +412,103 @@ def set_fixed_costs(
         SET rent=EXCLUDED.rent, salaries=EXCLUDED.salaries,
             utilities=EXCLUDED.utilities, other_fixed=EXCLUDED.other_fixed,
             avg_order_value=EXCLUDED.avg_order_value
-    """), {
-        "month": month, "rent": rent, "sal": salaries,
-        "util": utilities, "other": other_fixed, "avg": avg_order_value
-    })
+    """), {"month": month, "rent": rent, "sal": salaries,
+           "util": utilities, "other": other_fixed, "avg": avg_order_value})
     db.commit()
     return {"status": "saved", "month": month}
 
-@router.get("/insights/weekly-summary-report")
-def get_weekly_summary_report(db: Session = Depends(get_db)):
+@router.get("/target/status")
+def target_status(monthly_target: float = 0, db: Session = Depends(get_db)):
+    from datetime import date
+    import calendar
+    today = date.today()
+    month_start = today.replace(day=1)
+    days_in_month = calendar.monthrange(today.year, today.month)[1]
+    days_elapsed = today.day
+    days_remaining = days_in_month - days_elapsed
+    current = db.execute(text("SELECT COALESCE(SUM(total_sale),0) as revenue FROM daily_sales WHERE date >= :start"), {"start": month_start}).fetchone()
+    revenue_so_far = float(current.revenue or 0)
+    daily_avg = revenue_so_far / days_elapsed if days_elapsed > 0 else 0
+    projected = daily_avg * days_in_month
+    if monthly_target <= 0:
+        last_year_start = month_start.replace(year=today.year-1)
+        ly = db.execute(text("SELECT COALESCE(SUM(total_sale),0) as revenue FROM daily_sales WHERE date >= :start AND date < :end"),
+                       {"start": last_year_start, "end": last_year_start.replace(month=last_year_start.month+1) if last_year_start.month < 12 else last_year_start.replace(year=last_year_start.year+1, month=1)}).fetchone()
+        monthly_target = float(ly.revenue or 0) * 1.1
+    target_pct = (revenue_so_far / monthly_target * 100) if monthly_target > 0 else 0
+    required_daily = (monthly_target - revenue_so_far) / days_remaining if days_remaining > 0 else 0
+    on_track = daily_avg >= required_daily
+    return {
+        "month": today.strftime("%B %Y"),
+        "monthly_target": round(monthly_target, 2),
+        "revenue_so_far": round(revenue_so_far, 2),
+        "target_achieved_pct": round(target_pct, 1),
+        "daily_average": round(daily_avg, 2),
+        "required_daily_to_hit_target": round(required_daily, 2),
+        "days_remaining": days_remaining,
+        "projected_month_total": round(projected, 2),
+        "on_track": on_track,
+        "status_message": f"On track — averaging ₹{round(daily_avg):,}/day" if on_track else f"Behind — need ₹{round(required_daily):,}/day but averaging ₹{round(daily_avg):,}/day"
+    }
+
+@router.get("/weekly-summary/whatsapp")
+def weekly_whatsapp_summary(db: Session = Depends(get_db)):
+    from datetime import date, timedelta
+    import urllib.parse
+    today = date.today()
+    week_start = today - timedelta(days=7)
+    prev_week_start = week_start - timedelta(days=7)
+    this_week = db.execute(text("SELECT COALESCE(SUM(total_sale),0) as rev, COALESCE(SUM(profit),0) as profit FROM daily_sales WHERE date >= :s"), {"s": week_start}).fetchone()
+    last_week = db.execute(text("SELECT COALESCE(SUM(total_sale),0) as rev FROM daily_sales WHERE date >= :s AND date < :e"), {"s": prev_week_start, "e": week_start}).fetchone()
+    best = db.execute(text("SELECT date, total_sale FROM daily_sales WHERE date >= :s ORDER BY total_sale DESC LIMIT 1"), {"s": week_start}).fetchone()
+    worst = db.execute(text("SELECT date, total_sale FROM daily_sales WHERE date >= :s ORDER BY total_sale ASC LIMIT 1"), {"s": week_start}).fetchone()
+    top_waste = db.execute(text("SELECT item_name, SUM(estimated_cost) as cost FROM waste_log WHERE date >= :s GROUP BY item_name ORDER BY cost DESC LIMIT 1"), {"s": week_start}).fetchone()
+    this_rev = float(this_week.rev)
+    last_rev = float(last_week.rev)
+    wow = round((this_rev - last_rev) / last_rev * 100, 1) if last_rev > 0 else 0
+    margin = round(float(this_week.profit) / this_rev * 100, 1) if this_rev > 0 else 0
+    arrow = "↑" if wow >= 0 else "↓"
+    message = f"""🍕 *Pizza Blitz — Weekly Summary*
+📅 {week_start.strftime('%d %b')} – {today.strftime('%d %b %Y')}
+
+💰 *Revenue:* ₹{round(this_rev):,}
+{arrow} *vs Last Week:* {wow}%
+📊 *Profit Margin:* {margin}%
+
+🏆 *Best Day:* {best.date.strftime('%a %d %b') if best else 'N/A'} — ₹{round(float(best.total_sale)):,}
+📉 *Slowest Day:* {worst.date.strftime('%a %d %b') if worst else 'N/A'} — ₹{round(float(worst.total_sale)):,}
+🗑️ *Top Waste:* {top_waste.item_name if top_waste else 'None'} (₹{round(float(top_waste.cost)) if top_waste else 0})
+
+{'✅ Strong week!' if wow > 5 else '⚠️ Revenue dipped. Review slow days.' if wow < -5 else '➡️ Stable week. Push weekend offers.'}
+
+_Pizza Blitz Management System_"""
+    encoded = urllib.parse.quote(message)
+    return {"message": message, "whatsapp_url": f"https://wa.me/?text={encoded}", "this_week_revenue": round(this_rev, 2), "wow_change": wow}
+
+@router.get("/ceo-summary")
+def ceo_weekly_summary(db: Session = Depends(get_db)):
     from datetime import date, timedelta
     today = date.today()
-    last_monday = today - timedelta(days=today.weekday())
-    last_sunday = last_monday - timedelta(days=1)
-    week_start = last_sunday - timedelta(days=6)
-    
-    # Aggregates for report
-    stats = db.execute(text("""
-        SELECT 
-            SUM(total_sale) as revenue,
-            SUM(total_expense) as expense,
-            SUM(profit) as profit,
-            AVG(profit / NULLIF(total_sale, 0)) * 100 as margin
-        FROM daily_sales 
-        WHERE date BETWEEN :start AND :end
-    """), {"start": week_start, "end": last_sunday}).fetchone()
-    
-    top_items = db.execute(text("""
-        SELECT name, SUM(quantity) as qty
-        FROM orders o, jsonb_to_recordset(o.items) as x(name text, quantity float, price float) 
-        WHERE date_trunc('week', o.created_at) = date_trunc('week', :ref::timestamp - interval '1 week')
-        GROUP BY 1 ORDER BY 2 DESC LIMIT 3
-    """), {"ref": today}).fetchall()
-
-    waste = db.execute(text("""
-        SELECT SUM(total_cost) FROM waste WHERE date BETWEEN :start AND :end
-    """), {"start": week_start, "end": last_sunday}).scalar() or 0
-
-    import urllib.parse
-    
-    message = f"*PIZZA BLITZ WEEKLY REPORT*\n"
-    message += f"Period: {week_start} to {last_sunday}\n\n"
-    message += f"Total Revenue: ₹{stats.revenue:,.2f}\n"
-    message += f"Total Expenses: ₹{stats.expense:,.2f}\n"
-    message += f"Net Profit: ₹{stats.profit:,.2f} ({stats.margin:.1f}% margin)\n"
-    message += f"Waste Leakage: ₹{waste:,.2f}\n\n"
-    message += "*TOP SELLERS:*\n"
-    for item in top_items:
-        message += f"- {item[0]}: {item[1]} units\n"
-    
-    encoded_message = urllib.parse.quote(message)
-    
+    week_start = today - timedelta(days=7)
+    prev_week_start = week_start - timedelta(days=7)
+    this_week = db.execute(text("SELECT COALESCE(SUM(total_sale),0) as rev, COALESCE(SUM(profit),0) as profit FROM daily_sales WHERE date >= :s"), {"s": week_start}).fetchone()
+    last_week = db.execute(text("SELECT COALESCE(SUM(total_sale),0) as rev FROM daily_sales WHERE date >= :s AND date < :e"), {"s": prev_week_start, "e": week_start}).fetchone()
+    best = db.execute(text("SELECT date, total_sale FROM daily_sales WHERE date >= :s ORDER BY total_sale DESC LIMIT 1"), {"s": week_start}).fetchone()
+    worst = db.execute(text("SELECT date, total_sale FROM daily_sales WHERE date >= :s ORDER BY total_sale ASC LIMIT 1"), {"s": week_start}).fetchone()
+    this_rev = float(this_week.rev)
+    last_rev = float(last_week.rev)
+    wow = round((this_rev - last_rev) / last_rev * 100, 1) if last_rev > 0 else 0
+    margin = round(float(this_week.profit) / this_rev * 100, 1) if this_rev > 0 else 0
     return {
-        "text_content": message,
-        "whatsapp_link": f"https://wa.me/919876543210?text={encoded_message}"
+        "period": f"{week_start.strftime('%d %b')} – {today.strftime('%d %b %Y')}",
+        "this_week_revenue": round(this_rev, 2),
+        "last_week_revenue": round(last_rev, 2),
+        "week_on_week_change": wow,
+        "direction": "up" if wow >= 0 else "down",
+        "profit_margin": margin,
+        "best_day": {"date": best.date.strftime("%A %d %b") if best else "N/A", "revenue": float(best.total_sale) if best else 0},
+        "worst_day": {"date": worst.date.strftime("%A %d %b") if worst else "N/A", "revenue": float(worst.total_sale) if worst else 0},
+        "ai_recommendation": (f"Strong week with {wow}% growth. Maintain consistency on slower days." if wow > 10 else f"Stable week. Push weekend promotions." if wow > 0 else f"Revenue declined {abs(wow)}% vs last week. Review pricing and staffing.")
+    }
+210?text={encoded_message}"
     }
