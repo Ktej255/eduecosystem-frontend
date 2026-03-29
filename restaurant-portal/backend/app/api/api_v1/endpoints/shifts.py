@@ -3,8 +3,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import text
 from app.api.deps import get_db
 from pydantic import BaseModel
-from typing import Optional, List
-from datetime import date
+from typing import Optional
 
 router = APIRouter()
 
@@ -21,11 +20,8 @@ def log_shift(entry: ShiftEntry, db: Session = Depends(get_db)):
     db.execute(text("""
         INSERT INTO shift_log (date, staff_name, role, shift_start, shift_end, notes)
         VALUES (:date, :name, :role, :start, :end, :notes)
-    """), {
-        "date": entry.date, "name": entry.staff_name,
-        "role": entry.role, "start": entry.shift_start,
-        "end": entry.shift_end, "notes": entry.notes
-    })
+    """), {"date": entry.date, "name": entry.staff_name, "role": entry.role,
+           "start": entry.shift_start, "end": entry.shift_end, "notes": entry.notes})
     db.commit()
     return {"status": "logged", "staff": entry.staff_name}
 
@@ -39,8 +35,7 @@ def get_shifts(db: Session = Depends(get_db)):
 @router.get("/performance")
 def shift_performance(db: Session = Depends(get_db)):
     result = db.execute(text("""
-        SELECT
-            s.staff_name,
+        SELECT s.staff_name,
             COUNT(DISTINCT s.date) as days_worked,
             COALESCE(AVG(d.total_sale), 0) as avg_revenue_on_shift_days,
             COALESCE(MAX(d.total_sale), 0) as best_day_revenue,
