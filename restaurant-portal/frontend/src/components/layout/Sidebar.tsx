@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LayoutDashboard, Package, Receipt, ShoppingCart, BarChart3, Settings, PlusCircle, Utensils, Sparkles, DollarSign, Trash2 } from "lucide-react";
+import { LayoutDashboard, Package, Receipt, ShoppingCart, BarChart3, Settings, PlusCircle, Utensils, Sparkles, DollarSign, Trash2, Crown } from "lucide-react";
 
 export default function Sidebar() {
   const navItems = [
@@ -13,6 +13,7 @@ export default function Sidebar() {
     { name: "Vendors", href: "/vendors", icon: ShoppingCart },
     { name: "Waste Log", href: "/waste", icon: Trash2 },
     { name: "Expenses", href: "/expenses", icon: Receipt },
+    { name: "CEO Dashboard", href: "/ceo", icon: Crown },
     { name: "AI Insights", href: "/ai-insights", icon: Sparkles },
     { name: "Settings", href: "/settings", icon: Settings },
   ];

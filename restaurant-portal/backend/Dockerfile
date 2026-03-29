@@ -8,10 +8,13 @@ ENV PYTHONUNBUFFERED=1
 # Set working directory
 WORKDIR /app
 
-# Install system dependencies (including PostgreSQL dev headers)
+# Install system dependencies (including PostgreSQL dev headers and xmlsec headers)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libpq-dev \
+    libxml2-dev \
+    libxmlsec1-dev \
+    pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy and install Python dependencies

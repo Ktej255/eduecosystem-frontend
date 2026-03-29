@@ -275,3 +275,208 @@ def profit_trend(months: int = 12, db: Session = Depends(get_db)):
             })
     
     return {"trend": result, "months_analyzed": len(result)}
+
+@router.get("/insights/health-score")
+def operational_health_score(db: Session = Depends(get_db)):
+    from datetime import date, timedelta
+    
+    today = date.today()
+    month_start = today.replace(day=1)
+    week_ago = today - timedelta(days=7)
+    
+    # Last year same month baseline
+    try:
+        last_year_month = month_start.replace(year=today.year-1)
+    except ValueError: # Leap year case
+        last_year_month = month_start - timedelta(days=365)
+    
+    # Get current month data
+    current = db.execute(text("""
+        SELECT 
+            COALESCE(SUM(total_sale),0) as revenue,
+            COALESCE(SUM(total_expense),0) as expense,
+            COALESCE(SUM(profit),0) as profit,
+            COUNT(*) as days
+        FROM daily_sales WHERE date >= :start
+    """), {"start": month_start}).fetchone()
+    
+    # Get last 7 days waste cost
+    waste = db.execute(text("""
+        SELECT COALESCE(SUM(estimated_cost),0) as waste_cost
+        FROM waste_log WHERE date >= :week_ago
+    """), {"week_ago": week_ago}).fetchone()
+    
+    # Get last year same month
+    import calendar
+    days_in_ly_month = calendar.monthrange(last_year_month.year, last_year_month.month)[1]
+    ly_month_end = last_year_month.replace(day=days_in_ly_month)
+    
+    last_year = db.execute(text("""
+        SELECT COALESCE(SUM(total_sale),0) as revenue
+        FROM daily_sales WHERE date >= :start AND date <= :end
+    """), {"start": last_year_month, "end": ly_month_end}).fetchone()
+    
+    revenue = float(current.revenue or 0)
+    expense = float(current.expense or 0)
+    profit = float(current.profit or 0)
+    waste_cost = float(waste.waste_cost or 0)
+    last_year_revenue = float(last_year.revenue or 0)
+    
+    # Calculate scores (each out of 25)
+    margin_pct = (profit / revenue * 100) if revenue > 0 else 0
+    margin_score = min(25, (margin_pct / 40) * 25)  # 40% margin = perfect score
+    
+    growth_pct = ((revenue - last_year_revenue) / last_year_revenue * 100) if last_year_revenue > 0 else 0
+    growth_score = min(25, max(0, 12.5 + (growth_pct / 20) * 12.5))  # 0% = 12.5, +20% = 25
+    
+    expense_ratio = (expense / revenue * 100) if revenue > 0 else 100
+    expense_score = min(25, max(0, 25 - ((expense_ratio - 50) / 2)))  # 50% expense ratio = 25
+    
+    waste_ratio = (waste_cost / (revenue/7 * 7)) * 100 if revenue > 0 else 0 # Simplified waste % of expected wk rev
+    waste_score = min(25, max(0, 25 - (waste_ratio * 5)))  # 0% waste = 25
+    
+    total_score = round(margin_score + growth_score + expense_score + waste_score)
+    
+    if total_score >= 80: grade, color = "Excellent", "green"
+    elif total_score >= 60: grade, color = "Good", "blue"
+    elif total_score >= 40: grade, color = "Average", "yellow"
+    else: grade, color = "Needs Attention", "red"
+    
+    return {
+        "health_score": total_score,
+        "grade": grade,
+        "color": color,
+        "breakdown": {
+            "profit_margin": {"score": round(margin_score), "value": round(margin_pct, 1), "label": "Profit Margin %"},
+            "growth": {"score": round(growth_score), "value": round(growth_pct, 1), "label": "YoY Growth %"},
+            "expense_control": {"score": round(expense_score), "value": round(expense_ratio, 1), "label": "Expense Ratio %"},
+            "waste_control": {"score": round(waste_score), "value": round(waste_ratio, 2), "label": "Waste % of Revenue"}
+        },
+        "recommendation": (
+            "Outstanding performance. Maintain current operations." if total_score >= 80
+            else "Good performance. Focus on reducing waste and expenses." if total_score >= 60
+            else "Average performance. Review pricing and cost controls." if total_score >= 40
+            else "Urgent attention needed. Review all cost centers immediately."
+        )
+    }
+
+@router.get("/target/status")
+def target_status(monthly_target: float = 0, db: Session = Depends(get_db)):
+    from datetime import date
+    import calendar
+    
+    today = date.today()
+    month_start = today.replace(day=1)
+    days_in_month = calendar.monthrange(today.year, today.month)[1]
+    days_elapsed = today.day
+    days_remaining = days_in_month - days_elapsed
+    
+    current = db.execute(text("""
+        SELECT COALESCE(SUM(total_sale),0) as revenue
+        FROM daily_sales WHERE date >= :start
+    """), {"start": month_start}).fetchone()
+    
+    revenue_so_far = float(current.revenue or 0)
+    daily_avg = revenue_so_far / days_elapsed if days_elapsed > 0 else 0
+    projected = daily_avg * days_in_month
+    
+    # If no target set, use last year same month as target
+    if monthly_target <= 0:
+        try:
+            last_year_start = month_start.replace(year=today.year-1)
+        except ValueError:
+            last_year_start = month_start - timedelta(days=365)
+            
+        days_in_ly_month = calendar.monthrange(last_year_start.year, last_year_start.month)[1]
+        ly_month_end = last_year_start.replace(day=days_in_ly_month)
+        
+        ly = db.execute(text("""
+            SELECT COALESCE(SUM(total_sale),0) as revenue
+            FROM daily_sales WHERE date >= :start 
+            AND date <= :end
+        """), {
+            "start": last_year_start,
+            "end": ly_month_end
+        }).fetchone()
+        monthly_target = float(ly.revenue or 0) * 1.1  # 10% above last year
+    
+    target_achieved_pct = (revenue_so_far / monthly_target * 100) if monthly_target > 0 else 0
+    required_daily = (monthly_target - revenue_so_far) / days_remaining if days_remaining > 0 else 0
+    on_track = daily_avg >= required_daily
+    
+    return {
+        "month": today.strftime("%B %Y"),
+        "monthly_target": round(monthly_target, 2),
+        "revenue_so_far": round(revenue_so_far, 2),
+        "target_achieved_pct": round(target_achieved_pct, 1),
+        "daily_average": round(daily_avg, 2),
+        "required_daily_to_hit_target": round(required_daily, 2),
+        "days_remaining": days_remaining,
+        "projected_month_total": round(projected, 2),
+        "on_track": on_track,
+        "status_message": f"On track ✅ — averaging ₹{round(daily_avg):,}/day, need ₹{round(required_daily):,}/day" if on_track else f"Behind target ⚠️ — need ₹{round(required_daily):,}/day but averaging ₹{round(daily_avg):,}/day"
+    }
+
+@router.get("/ceo-summary")
+def ceo_weekly_summary(db: Session = Depends(get_db)):
+    from datetime import date, timedelta
+    
+    today = date.today()
+    week_start = today - timedelta(days=7)
+    prev_week_start = week_start - timedelta(days=7)
+    
+    # This week
+    this_week = db.execute(text("""
+        SELECT COALESCE(SUM(total_sale),0) as revenue,
+               COALESCE(SUM(profit),0) as profit,
+               COALESCE(SUM(total_expense),0) as expense,
+               COUNT(*) as days
+        FROM daily_sales WHERE date >= :start
+    """), {"start": week_start}).fetchone()
+    
+    # Last week
+    last_week = db.execute(text("""
+        SELECT COALESCE(SUM(total_sale),0) as revenue
+        FROM daily_sales WHERE date >= :start AND date < :end
+    """), {"start": prev_week_start, "end": week_start}).fetchone()
+    
+    # Best day this week
+    best_day = db.execute(text("""
+        SELECT date, total_sale FROM daily_sales
+        WHERE date >= :start ORDER BY total_sale DESC LIMIT 1
+    """), {"start": week_start}).fetchone()
+    
+    # Worst day this week
+    worst_day = db.execute(text("""
+        SELECT date, total_sale FROM daily_sales
+        WHERE date >= :start ORDER BY total_sale ASC LIMIT 1
+    """), {"start": week_start}).fetchone()
+    
+    # Top waste this week
+    top_waste = db.execute(text("""
+        SELECT item_name, SUM(estimated_cost) as cost
+        FROM waste_log WHERE date >= :start
+        GROUP BY item_name ORDER BY cost DESC LIMIT 1
+    """), {"start": week_start}).fetchone()
+    
+    this_revenue = float(this_week.revenue or 0)
+    last_revenue = float(last_week.revenue or 0)
+    wow_change = ((this_revenue - last_revenue) / last_revenue * 100) if last_revenue > 0 else 0
+    margin = (float(this_week.profit or 0) / this_revenue * 100) if this_revenue > 0 else 0
+    
+    return {
+        "period": f"{week_start.strftime('%d %b')} – {today.strftime('%d %b %Y')}",
+        "this_week_revenue": round(this_revenue, 2),
+        "last_week_revenue": round(last_revenue, 2),
+        "week_on_week_change": round(wow_change, 1),
+        "direction": "up" if wow_change >= 0 else "down",
+        "profit_margin": round(margin, 1),
+        "best_day": {"date": best_day.date.strftime("%A %d %b") if best_day else "N/A", "revenue": float(best_day.total_sale) if best_day else 0},
+        "worst_day": {"date": worst_day.date.strftime("%A %d %b") if worst_day else "N/A", "revenue": float(worst_day.total_sale) if worst_day else 0},
+        "top_waste_item": {"item": top_waste.item_name if top_waste else "None", "cost": float(top_waste.cost) if top_waste else 0},
+        "ai_recommendation": (
+            f"Strong week with {round(wow_change,1)}% growth. Focus on maintaining consistency on slower days." if wow_change > 10
+            else f"Stable week. Push weekend promotions to improve daily average." if wow_change > 0
+            else f"Revenue declined {abs(round(wow_change,1))}% vs last week. Review pricing and staffing for low days."
+        )
+    }

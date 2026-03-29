@@ -55,3 +55,45 @@ def delete_menu_item(item_id: int, db: Session = Depends(get_db)):
     db.delete(db_item)
     db.commit()
     return {"status": "success"}
+
+@router.get("/profitability")
+def menu_profitability(db: Session = Depends(get_db)):
+    from sqlalchemy import text
+    import json
+    items = db.execute(text("SELECT * FROM menu_items ORDER BY name")).fetchall()
+    recipes = db.execute(text("SELECT * FROM recipes")).fetchall()
+    inventory = db.execute(text("SELECT name, cost_per_unit, unit FROM inventory_items")).fetchall()
+    
+    inv_cost = {r.name.lower(): float(r.cost_per_unit or 0) for r in inventory}
+    recipe_map = {r.menu_item_name.lower(): r for r in recipes}
+    
+    result = []
+    for item in items:
+        selling_price = float(item.selling_price or 0)
+        recipe = recipe_map.get(item.name.lower())
+        cost_to_make = 0
+        ingredients_used = []
+        
+        if recipe:
+            ingredients = json.loads(recipe.ingredients) if isinstance(recipe.ingredients, str) else (recipe.ingredients or [])
+            for ing in ingredients:
+                unit_cost = inv_cost.get(ing.get("name","").lower(), 0)
+                ing_cost = unit_cost * float(ing.get("quantity", 0))
+                cost_to_make += ing_cost
+                ingredients_used.append({"name": ing.get("name"), "cost": round(ing_cost, 2)})
+        
+        margin = selling_price - cost_to_make
+        margin_pct = (margin / selling_price * 100) if selling_price > 0 else 0
+        
+        result.append({
+            "item": item.name,
+            "selling_price": selling_price,
+            "cost_to_make": round(cost_to_make, 2),
+            "margin": round(margin, 2),
+            "margin_percent": round(margin_pct, 1),
+            "ingredients": ingredients_used,
+            "rating": "⭐ High Margin" if margin_pct > 60 else "✅ Good" if margin_pct > 40 else "⚠️ Low Margin" if margin_pct > 20 else "❌ Review Pricing"
+        })
+    
+    result.sort(key=lambda x: x["margin_percent"], reverse=True)
+    return {"items": result, "total_items": len(result)}
