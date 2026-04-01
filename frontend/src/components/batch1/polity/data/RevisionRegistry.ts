@@ -550,477 +550,461 @@ export const POLITY_REVISION_CHAPTERS: ChapterRevisionData[] = [
     },
     {
         id: 30,
-        title: "Public Interest Litigation", // Synced with Schedule Ch 30
+        title: "Public Interest Litigation",
         content: CHAPTER_31_CONTENT,
         flashcards: CHAPTER_31_FLASHCARDS,
         mcqs: CHAPTER_31_MCQS
     },
     {
-        id: 35,
-        title: "Governor", // Synced with Schedule Ch 31
-        content: CHAPTER_35_CONTENT,
-        flashcards: CHAPTER_35_FLASHCARDS,
-        mcqs: CHAPTER_35_MCQS
-    },
-    {
-        id: 36,
-        title: "Chief Minister", // Synced with Schedule Ch 32
-        content: CHAPTER_36_CONTENT,
-        flashcards: CHAPTER_36_FLASHCARDS,
-        mcqs: CHAPTER_36_MCQS
-    },
-    {
-        id: 37,
-        title: "State Council of Ministers", // Synced with Schedule Ch 33
-        content: CHAPTER_37_CONTENT,
-        flashcards: CHAPTER_37_FLASHCARDS,
-        mcqs: CHAPTER_37_MCQS
-    },
-    {
-        id: 34,
-        title: "High Court", // Synced with Schedule Ch 34
+        id: 31,
+        title: "High Court",
         content: CHAPTER_32_CONTENT,
         flashcards: CHAPTER_32_FLASHCARDS,
         mcqs: CHAPTER_32_MCQS
     },
     {
-        id: 35,
-        title: "Tribunals", // Assuming 35 for Tribunals if 36 is State Legislature (Schedule had 36 for both, need strict ID uniqueness) - actually Schedule line 57 says Tribunals is 36, but State Legislature is also 36. This is a collision.
-        // Wait, user asked for Chapter 33: State Legislature. 
-        // 6th edition: 33 = State Legislature. 
-        // Schedule uses 36 for State Leg.
-        // Schedule uses 36 for Tribunals.
-        // This is a DATA ERROR in schedule. 
-        // I will map ID 36 to State Legislature because that's the big chapter.
-        // I will map ID 35 to Tribunals for now as a fallback/placeholder or 42 (Tribunals is usually later). 
-        // Actually, let's stick to the visible block.
-        // State Legislature -> 36.
-        content: CHAPTER_64_CONTENT, // Tribunals old chapter
-        flashcards: CHAPTER_64_FLASHCARDS,
-        mcqs: CHAPTER_64_MCQS
-    },
-    {
-        id: 38,
-        title: "State Legislature", // Synced with Schedule Ch 36
-        content: CHAPTER_38_CONTENT,
-        flashcards: CHAPTER_38_FLASHCARDS,
-        mcqs: CHAPTER_38_MCQS
-    },
-    {
-        id: 33,
-        title: "Subordinate Courts", // Synced with Schedule Ch 37
+        id: 32,
+        title: "Subordinate Courts",
         content: CHAPTER_33_CONTENT,
         flashcards: CHAPTER_33_FLASHCARDS,
         mcqs: CHAPTER_33_MCQS
     },
     {
-        id: 34,
-        title: "Special Provisions", // Moving old 34 here if needed, or just placeholder
+        id: 33,
+        title: "Special Provisions for Certain Classes",
         content: CHAPTER_34_CONTENT,
         flashcards: CHAPTER_34_FLASHCARDS,
         mcqs: CHAPTER_34_MCQS
     },
     {
-        id: 39,
+        id: 34,
+        title: "Governor",
+        content: CHAPTER_35_CONTENT,
+        flashcards: CHAPTER_35_FLASHCARDS,
+        mcqs: CHAPTER_35_MCQS
+    },
+    {
+        id: 35,
+        title: "Chief Minister",
+        content: CHAPTER_36_CONTENT,
+        flashcards: CHAPTER_36_FLASHCARDS,
+        mcqs: CHAPTER_36_MCQS
+    },
+    {
+        id: 36,
+        title: "State Council of Ministers",
+        content: CHAPTER_37_CONTENT,
+        flashcards: CHAPTER_37_FLASHCARDS,
+        mcqs: CHAPTER_37_MCQS
+    },
+    {
+        id: 37,
+        title: "State Legislature",
+        content: CHAPTER_38_CONTENT,
+        flashcards: CHAPTER_38_FLASHCARDS,
+        mcqs: CHAPTER_38_MCQS
+    },
+    {
+        id: 38,
         title: "Panchayati Raj",
         content: CHAPTER_39_CONTENT,
         flashcards: CHAPTER_39_FLASHCARDS,
         mcqs: CHAPTER_39_MCQS
     },
     {
-        id: 40,
+        id: 39,
         title: "Municipalities",
         content: CHAPTER_40_CONTENT,
         flashcards: CHAPTER_40_FLASHCARDS,
         mcqs: CHAPTER_40_MCQS
     },
     {
-        id: 41,
+        id: 40,
         title: "Election Commission",
         content: CHAPTER_41_CONTENT,
         flashcards: CHAPTER_41_FLASHCARDS,
         mcqs: CHAPTER_41_MCQS
     },
     {
-        id: 42,
+        id: 41,
         title: "UPSC",
         content: CHAPTER_42_CONTENT,
         flashcards: CHAPTER_42_FLASHCARDS,
         mcqs: CHAPTER_42_MCQS
     },
     {
-        id: 43,
+        id: 42,
         title: "SPSC",
         content: CHAPTER_43_CONTENT,
         flashcards: CHAPTER_43_FLASHCARDS,
         mcqs: CHAPTER_43_MCQS
     },
     {
-        id: 44,
+        id: 43,
         title: "Finance Commission",
         content: CHAPTER_44_CONTENT,
         flashcards: CHAPTER_44_FLASHCARDS,
         mcqs: CHAPTER_44_MCQS
     },
     {
-        id: 45,
+        id: 44,
         title: "GST Council",
         content: CHAPTER_45_CONTENT,
         flashcards: CHAPTER_45_FLASHCARDS,
         mcqs: CHAPTER_45_MCQS
     },
     {
-        id: 46,
+        id: 45,
         title: "National Commission for SCs",
         content: CHAPTER_46_CONTENT,
         flashcards: CHAPTER_46_FLASHCARDS,
         mcqs: CHAPTER_46_MCQS
     },
     {
-        id: 47,
+        id: 46,
         title: "National Commission for STs",
         content: CHAPTER_47_CONTENT,
         flashcards: CHAPTER_47_FLASHCARDS,
         mcqs: CHAPTER_47_MCQS
     },
     {
-        id: 48,
+        id: 47,
         title: "National Commission for BCs",
         content: CHAPTER_48_CONTENT,
         flashcards: CHAPTER_48_FLASHCARDS,
         mcqs: CHAPTER_48_MCQS
     },
     {
-        id: 49,
+        id: 48,
         title: "Special Officer for Linguistic Minorities",
         content: CHAPTER_49_CONTENT,
         flashcards: CHAPTER_49_FLASHCARDS,
         mcqs: CHAPTER_49_MCQS
     },
     {
-        id: 50,
+        id: 49,
         title: "Comptroller and Auditor General",
         content: CHAPTER_50_CONTENT,
         flashcards: CHAPTER_50_FLASHCARDS,
         mcqs: CHAPTER_50_MCQS
     },
     {
-        id: 51,
+        id: 50,
         title: "NITI Aayog",
         content: CHAPTER_51_CONTENT,
         flashcards: CHAPTER_51_FLASHCARDS,
         mcqs: CHAPTER_51_MCQS
     },
     {
-        id: 52,
+        id: 51,
         title: "National Human Rights Commission",
         content: CHAPTER_52_CONTENT,
         flashcards: CHAPTER_52_FLASHCARDS,
         mcqs: CHAPTER_52_MCQS
     },
     {
-        id: 53,
+        id: 52,
         title: "State Human Rights Commission",
         content: CHAPTER_53_CONTENT,
         flashcards: CHAPTER_53_FLASHCARDS,
         mcqs: CHAPTER_53_MCQS
     },
     {
-        id: 54,
+        id: 53,
         title: "Central Information Commission",
         content: CHAPTER_54_CONTENT,
         flashcards: CHAPTER_54_FLASHCARDS,
         mcqs: CHAPTER_54_MCQS
     },
     {
-        id: 55,
+        id: 54,
         title: "State Information Commission",
         content: CHAPTER_55_CONTENT,
         flashcards: CHAPTER_55_FLASHCARDS,
         mcqs: CHAPTER_55_MCQS
     },
     {
-        id: 56,
+        id: 55,
         title: "Central Vigilance Commission",
         content: CHAPTER_56_CONTENT,
         flashcards: CHAPTER_56_FLASHCARDS,
         mcqs: CHAPTER_56_MCQS
     },
     {
-        id: 57,
+        id: 56,
         title: "Central Bureau of Investigation",
         content: CHAPTER_57_CONTENT,
         flashcards: CHAPTER_57_FLASHCARDS,
         mcqs: CHAPTER_57_MCQS
     },
     {
-        id: 58,
+        id: 57,
         title: "Lokpal and Lokayuktas",
         content: CHAPTER_58_CONTENT,
         flashcards: CHAPTER_58_FLASHCARDS,
         mcqs: CHAPTER_58_MCQS
     },
     {
-        id: 59,
+        id: 58,
         title: "National Investigation Agency",
         content: CHAPTER_59_CONTENT,
         flashcards: CHAPTER_59_FLASHCARDS,
         mcqs: CHAPTER_59_MCQS
     },
     {
-        id: 60,
+        id: 59,
         title: "National Disaster Management Authority",
         content: CHAPTER_60_CONTENT,
         flashcards: CHAPTER_60_FLASHCARDS,
         mcqs: CHAPTER_60_MCQS
     },
     {
-        id: 61,
+        id: 60,
         title: "National Commission for Women",
         content: CHAPTER_61_CONTENT,
         flashcards: CHAPTER_61_FLASHCARDS,
         mcqs: CHAPTER_61_MCQS
     },
     {
-        id: 62,
+        id: 61,
         title: "National Commission for Protection of Child Rights",
         content: CHAPTER_62_CONTENT,
         flashcards: CHAPTER_62_FLASHCARDS,
         mcqs: CHAPTER_62_MCQS
     },
     {
-        id: 63,
+        id: 62,
         title: "National Commission for Minorities",
         content: CHAPTER_63_CONTENT,
         flashcards: CHAPTER_63_FLASHCARDS,
         mcqs: CHAPTER_63_MCQS
     },
     {
-        id: 64,
+        id: 63,
         title: "Tribunals (CAT & SAT)",
         content: CHAPTER_64_CONTENT,
         flashcards: CHAPTER_64_FLASHCARDS,
         mcqs: CHAPTER_64_MCQS
     },
     {
-        id: 65,
+        id: 64,
         title: "Law Commission & Delimitation Commission",
         content: CHAPTER_65_CONTENT,
         flashcards: CHAPTER_65_FLASHCARDS,
         mcqs: CHAPTER_65_MCQS
     },
     {
-        id: 66,
+        id: 65,
         title: "Political Parties",
         content: CHAPTER_66_CONTENT,
         flashcards: CHAPTER_66_FLASHCARDS,
         mcqs: CHAPTER_66_MCQS
     },
     {
-        id: 67,
+        id: 66,
         title: "Role of Regional Parties",
         content: CHAPTER_67_CONTENT,
         flashcards: CHAPTER_67_FLASHCARDS,
         mcqs: CHAPTER_67_MCQS
     },
     {
-        id: 68,
+        id: 67,
         title: "Elections",
         content: CHAPTER_68_CONTENT,
         flashcards: CHAPTER_68_FLASHCARDS,
         mcqs: CHAPTER_68_MCQS
     },
     {
-        id: 69,
+        id: 68,
         title: "Election Laws",
         content: CHAPTER_69_CONTENT,
         flashcards: CHAPTER_69_FLASHCARDS,
         mcqs: CHAPTER_69_MCQS
     },
     {
-        id: 70,
+        id: 69,
         title: "Electoral Reforms",
         content: CHAPTER_70_CONTENT,
         flashcards: CHAPTER_70_FLASHCARDS,
         mcqs: CHAPTER_70_MCQS
     },
     {
-        id: 71,
+        id: 70,
         title: "Voting Behaviour",
         content: CHAPTER_71_CONTENT,
         flashcards: CHAPTER_71_FLASHCARDS,
         mcqs: CHAPTER_71_MCQS
     },
     {
-        id: 72,
+        id: 71,
         title: "Anti-Defection Law",
         content: CHAPTER_72_CONTENT,
         flashcards: CHAPTER_72_FLASHCARDS,
         mcqs: CHAPTER_72_MCQS
     },
     {
-        id: 73,
+        id: 72,
         title: "Pressure Groups",
         content: CHAPTER_73_CONTENT,
         flashcards: CHAPTER_73_FLASHCARDS,
         mcqs: CHAPTER_73_MCQS
     },
     {
-        id: 74,
+        id: 73,
         title: "National Integration",
         content: CHAPTER_74_CONTENT,
         flashcards: CHAPTER_74_FLASHCARDS,
         mcqs: CHAPTER_74_MCQS
     },
     {
-        id: 75,
+        id: 74,
         title: "Foreign Policy",
         content: CHAPTER_75_CONTENT,
         flashcards: CHAPTER_75_FLASHCARDS,
         mcqs: CHAPTER_75_MCQS
     },
     {
-        id: 76,
+        id: 75,
         title: "Official Language",
         content: CHAPTER_76_CONTENT,
         flashcards: CHAPTER_76_FLASHCARDS,
         mcqs: CHAPTER_76_MCQS
     },
     {
-        id: 77,
+        id: 76,
         title: "Public Services",
         content: CHAPTER_77_CONTENT,
         flashcards: CHAPTER_77_FLASHCARDS,
         mcqs: CHAPTER_77_MCQS
     },
     {
-        id: 78,
+        id: 77,
         title: "Rights & Liabilities",
         content: CHAPTER_78_CONTENT,
         flashcards: CHAPTER_78_FLASHCARDS,
         mcqs: CHAPTER_78_MCQS
     },
     {
-        id: 79,
+        id: 78,
         title: "Spec. Prov. Classes",
         content: CHAPTER_79_CONTENT,
         flashcards: CHAPTER_79_FLASHCARDS,
         mcqs: CHAPTER_79_MCQS
     },
     {
-        id: 80,
+        id: 79,
         title: "Consumer Commissions",
         content: CHAPTER_80_CONTENT,
         flashcards: CHAPTER_80_FLASHCARDS,
         mcqs: CHAPTER_80_MCQS
     },
     {
-        id: 81,
+        id: 80,
         title: "Bar Council of India",
         content: CHAPTER_81_CONTENT,
         flashcards: CHAPTER_81_FLASHCARDS,
         mcqs: CHAPTER_81_MCQS
     },
     {
-        id: 82,
+        id: 81,
         title: "Landmark Judgements",
         content: CHAPTER_82_CONTENT,
         flashcards: CHAPTER_82_FLASHCARDS,
         mcqs: CHAPTER_82_MCQS
     },
     {
-        id: 83,
+        id: 82,
         title: "Constitutional Doctrines",
         content: CHAPTER_83_CONTENT,
         flashcards: CHAPTER_83_FLASHCARDS,
         mcqs: CHAPTER_83_MCQS
     },
     {
-        id: 84,
+        id: 83,
         title: "World Constitutions",
         content: CHAPTER_84_CONTENT,
         flashcards: CHAPTER_84_FLASHCARDS,
         mcqs: CHAPTER_84_MCQS
     },
     {
-        id: 85,
+        id: 84,
         title: "State Services & Adv.",
         content: CHAPTER_85_CONTENT,
         flashcards: CHAPTER_85_FLASHCARDS,
         mcqs: CHAPTER_85_MCQS
     },
     {
-        id: 86,
+        id: 85,
         title: "Public Policy",
         content: CHAPTER_86_CONTENT,
         flashcards: CHAPTER_86_FLASHCARDS,
         mcqs: CHAPTER_86_MCQS
     },
     {
-        id: 87,
+        id: 86,
         title: "National Sec. Council",
         content: CHAPTER_87_CONTENT,
         flashcards: CHAPTER_87_FLASHCARDS,
         mcqs: CHAPTER_87_MCQS
     },
     {
-        id: 88,
+        id: 87,
         title: "Competition Commission",
         content: CHAPTER_88_CONTENT,
         flashcards: CHAPTER_88_FLASHCARDS,
         mcqs: CHAPTER_88_MCQS
     },
     {
-        id: 89,
+        id: 88,
         title: "UIDAI (Aadhaar)",
         content: CHAPTER_89_CONTENT,
         flashcards: CHAPTER_89_FLASHCARDS,
         mcqs: CHAPTER_89_MCQS
     },
     {
-        id: 90,
+        id: 89,
         title: "PFRDA & IRDAI",
         content: CHAPTER_90_CONTENT,
         flashcards: CHAPTER_90_FLASHCARDS,
         mcqs: CHAPTER_90_MCQS
     },
     {
-        id: 91,
+        id: 90,
         title: "Health Authority (NHA)",
         content: CHAPTER_91_CONTENT,
         flashcards: CHAPTER_91_FLASHCARDS,
         mcqs: CHAPTER_91_MCQS
     },
     {
-        id: 92,
+        id: 91,
         title: "FSSAI & BIS",
         content: CHAPTER_92_CONTENT,
         flashcards: CHAPTER_92_FLASHCARDS,
         mcqs: CHAPTER_92_MCQS
     },
     {
-        id: 93,
+        id: 92,
         title: "NCRWC",
         content: CHAPTER_93_CONTENT,
         flashcards: CHAPTER_93_FLASHCARDS,
         mcqs: CHAPTER_93_MCQS
     },
     {
-        id: 94,
+        id: 93,
         title: "Const. Appendices",
         content: CHAPTER_94_CONTENT,
         flashcards: CHAPTER_94_FLASHCARDS,
         mcqs: CHAPTER_94_MCQS
     },
     {
-        id: 95,
+        id: 94,
         title: "Final Summary",
         content: CHAPTER_95_CONTENT,
         flashcards: CHAPTER_95_FLASHCARDS,
         mcqs: CHAPTER_95_MCQS
     },
     {
-        id: 96,
+        id: 95,
         title: "Attorney General of India",
         content: CHAPTER_96_CONTENT,
         flashcards: CHAPTER_96_FLASHCARDS,

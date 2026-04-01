@@ -5,8 +5,9 @@ import { useRouter } from "next/navigation";
 import {
     Search, ChevronDown, ChevronRight, BookOpen, CheckCircle2,
     Target, LayoutGrid, List, Sparkles, BarChart2, StickyNote, Flame, Bot, Scale, Rainbow, AlertTriangle,
-    RefreshCw, Check, AlertCircle
+    RefreshCw, Check, AlertCircle, Clock, Calendar, Layers, Brain
 } from "lucide-react";
+import StudentBrainSearch from "./StudentBrainSearch";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,6 +24,10 @@ import { MAJOR_CURRENT_AFFAIRS } from "@/components/batch1-1/polity/data/MajorCu
 import { getSRSStats } from "@/components/batch1/polity/revision/srs-engine";
 import TopicAnalyticsModal from "./TopicAnalyticsModal";
 import { upscSynapseService } from "@/lib/upsc-synapse-service";
+import { useAuth } from "@/contexts/auth-context";
+import { CHAPTER_PRIORITY, getPriorityStyle, getPriorityLabel } from "@/components/batch1-1/polity/data/chapter-priority";
+import RetentionRadar from "./RetentionRadar";
+
 
 interface TopicProgress {
     [topicId: number]: {
@@ -42,6 +47,7 @@ interface PolityDashboardProps {
 
 export default function PolityUnifiedDashboard({ registryMode, chapterNumber }: PolityDashboardProps = {}) {
     const router = useRouter();
+    const { user } = useAuth();
     const [expandedParts, setExpandedParts] = useState<Record<string, boolean>>({});
     const [searchQuery, setSearchQuery] = useState("");
     const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
@@ -53,6 +59,10 @@ export default function PolityUnifiedDashboard({ registryMode, chapterNumber }: 
     const [isSyncing, setIsSyncing] = useState(false);
     const [syncSuccess, setSyncSuccess] = useState(false);
     const [syncError, setSyncError] = useState(false);
+    const [brainOpen, setBrainOpen] = useState(false);
+    
+    // Resume State
+    const [lastVisitedTopicId, setLastVisitedTopicId] = useState<number | null>(null);
 
     // Load progress from localStorage
     const [srsDueCount, setSrsDueCount] = useState(0);
@@ -66,23 +76,38 @@ export default function PolityUnifiedDashboard({ registryMode, chapterNumber }: 
                 console.error("Failed to parse polity progress", e);
             }
         }
+
+        const lastVisitedStr = localStorage.getItem('polity_last_visited');
+        if (lastVisitedStr) {
+            try {
+                const parsed = JSON.parse(lastVisitedStr);
+                // Only show if visited in the last 7 days
+                if (parsed.topicId && parsed.timestamp && Date.now() - parsed.timestamp < 7 * 24 * 60 * 60 * 1000) {
+                    setLastVisitedTopicId(parsed.topicId);
+                }
+            } catch (e) {
+                console.error("Failed to parse polity_last_visited", e);
+            }
+        }
+
         // Expand first part by default
         setExpandedParts({ 'I': true });
 
         // Load SRS Stats
-        console.log("DEBUG: getSRSStats type:", typeof getSRSStats);
-        console.log("DEBUG: getPartColors type:", typeof getPartColors);
-        console.log("DEBUG: getTopicsByPart type:", typeof getTopicsByPart);
-
-        if (typeof getSRSStats !== 'function') {
-            console.error("CRITICAL IMPORT ERROR: getSRSStats is not a function", getSRSStats);
-        }
-
         const loadStats = async () => {
             const stats = typeof getSRSStats === 'function' ? await getSRSStats() : { due: 0, new: 0, learning: 0, review: 0 };
             setSrsDueCount(stats.due);
         };
         loadStats();
+        // Cmd+K handler for Brain Search
+        const onKeyDown = (e: KeyboardEvent) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                setBrainOpen(true);
+            }
+        };
+        window.addEventListener('keydown', onKeyDown);
+        return () => window.removeEventListener('keydown', onKeyDown);
     }, []);
 
     // Calculate statistics
@@ -129,10 +154,10 @@ export default function PolityUnifiedDashboard({ registryMode, chapterNumber }: 
     };
 
     const navigateToTopic = (topicId: number) => {
-        router.push(`/student/batch1-1/polity/${topicId}`);
+        router.push(`/student/batch1/polity/topic/${topicId}`);
     };
 
-    const handleAction = (e: React.MouseEvent, type: 'flashcard' | 'mcq' | 'report', topicId: number) => {
+    const handleAction = (e: React.MouseEvent, type: 'flashcard' | 'mcq' | 'mcq-l2' | 'mcq-l3' | 'report', topicId: number) => {
         e.stopPropagation();
 
         if (type === 'flashcard') {
@@ -140,7 +165,11 @@ export default function PolityUnifiedDashboard({ registryMode, chapterNumber }: 
             router.push(`/student/batch1-1/polity/${topicId}/flashcards`);
         } else if (type === 'mcq') {
             updateTopicProgress(topicId, { mcqsDone: true });
-            router.push(`/student/batch1-1/polity/${topicId}/mcq`);
+            router.push(`/student/batch1-1/polity/${topicId}/mcq?level=1`);
+        } else if (type === 'mcq-l2') {
+            router.push(`/student/batch1-1/polity/${topicId}/mcq?level=2`);
+        } else if (type === 'mcq-l3') {
+            router.push(`/student/batch1-1/polity/${topicId}/mcq?level=3`);
         } else if (type === 'report') {
             setSelectedReportTopic(topicId);
         }
@@ -173,7 +202,7 @@ export default function PolityUnifiedDashboard({ registryMode, chapterNumber }: 
                         chapter_id: parseInt(topicId),
                         status: 'mastered',
                         recall_accuracy: data.score || 100,
-                        profile_id: '', // Backend should handle this or get from profile
+                        profile_id: user?.id?.toString() || '', 
                         gap_details: { source: 'Track B Manual Sync' }
                     });
                 }
@@ -195,7 +224,11 @@ export default function PolityUnifiedDashboard({ registryMode, chapterNumber }: 
         updateTopicProgress(topicId, { completed: !isCompleted });
     };
 
+    // ─── Retention Radar toggle state
+    const [showRadar, setShowRadar] = useState(false);
+
     // Safety Check for Critical Imports
+
     if (typeof getTopicsByPart !== 'function' || typeof getPartColors !== 'function') {
         console.error("CRITICAL: Polity imports failed resolution", {
             getTopicsByPart: typeof getTopicsByPart,
@@ -222,6 +255,32 @@ export default function PolityUnifiedDashboard({ registryMode, chapterNumber }: 
 
     return (
         <div className="space-y-6 max-w-7xl mx-auto p-4 md:p-6 pb-24">
+            {/* Student Brain Search — Cmd+K global overlay */}
+            <StudentBrainSearch isOpen={brainOpen} onClose={() => setBrainOpen(false)} />
+
+            {/* Resume Banner */}
+            {lastVisitedTopicId && (
+                <div 
+                    onClick={() => navigateToTopic(lastVisitedTopicId)}
+                    className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 border border-blue-200 dark:border-blue-800/50 p-4 rounded-xl cursor-pointer hover:shadow-md transition-all flex items-center justify-between group"
+                >
+                    <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                            <Clock className="w-5 h-5" />
+                        </div>
+                        <div>
+                            <h3 className="text-sm font-bold text-blue-900 dark:text-blue-300">Resume Previous Topic</h3>
+                            <p className="text-xs text-blue-700 dark:text-blue-400/80 mt-0.5">
+                                {TOPIC_TITLES.find(t => t.id === lastVisitedTopicId)?.title || `Topic ${lastVisitedTopicId}`} 
+                            </p>
+                        </div>
+                    </div>
+                    <div className="flex items-center text-blue-600 dark:text-blue-400 font-semibold text-sm mr-2 group-hover:translate-x-1 transition-transform">
+                        Continue <ChevronRight className="w-4 h-4 ml-1" />
+                    </div>
+                </div>
+            )}
+
             {/* Header */}
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                 <div>
@@ -302,8 +361,52 @@ export default function PolityUnifiedDashboard({ registryMode, chapterNumber }: 
                     >
                         <Flame className="w-4 h-4 mr-2" /> Current Affairs
                     </Button>
+                    <Button
+                        size="sm"
+                        onClick={() => router.push('/student/batch1-1/polity/compare')}
+                        className="bg-slate-800 hover:bg-slate-700 text-emerald-400 font-bold border-2 border-emerald-500/50 ml-2 shadow-[0_0_10px_rgba(52,211,153,0.2)]"
+                    >
+                        <BarChart2 className="w-4 h-4 mr-2" /> Compare Tables
+                    </Button>
+                    <Button
+                        size="sm"
+                        onClick={() => router.push('/student/batch1-1/polity/pyq-heatmap')}
+                        className="bg-slate-800 hover:bg-slate-700 text-sky-400 font-bold border-2 border-sky-500/50 ml-2 shadow-[0_0_10px_rgba(56,189,248,0.15)]"
+                    >
+                        <BarChart2 className="w-4 h-4 mr-2" /> PYQ Heatmap
+                    </Button>
+                    <Button
+                        size="sm"
+                        onClick={() => router.push('/student/batch1-1/polity/simulator')}
+                        className="bg-slate-900 hover:bg-slate-800 text-red-400 font-bold border-2 border-red-500/50 ml-2 shadow-[0_0_12px_rgba(239,68,68,0.2)]"
+                    >
+                        <Target className="w-4 h-4 mr-2" /> Simulator Pro
+                    </Button>
+                    <Button
+                        size="sm"
+                        onClick={() => router.push('/student/batch1-1/polity/article-atlas')}
+                        className="bg-slate-900 hover:bg-slate-800 text-blue-400 font-bold border-2 border-blue-500/50 ml-2 shadow-[0_0_10px_rgba(59,130,246,0.2)]"
+                    >
+                        <Layers className="w-4 h-4 mr-2" /> Article Atlas
+                    </Button>
+                    <Button
+                        size="sm"
+                        onClick={() => router.push('/student/batch1-1/polity/learning-path')}
+                        className="bg-slate-900 hover:bg-slate-800 text-purple-400 font-bold border-2 border-purple-500/50 ml-2 shadow-[0_0_10px_rgba(147,51,234,0.2)]"
+                    >
+                        <Calendar className="w-4 h-4 mr-2" /> Learning Path
+                    </Button>
+                    <Button
+                        size="sm"
+                        onClick={() => setBrainOpen(true)}
+                        className="bg-gradient-to-r from-purple-900 to-violet-900 hover:from-purple-800 hover:to-violet-800 text-violet-200 font-bold border-2 border-violet-500/50 ml-2 shadow-[0_0_16px_rgba(139,92,246,0.3)]"
+                    >
+                        <Brain className="w-4 h-4 mr-2" /> Brain Search
+                        <span className="ml-1.5 text-[10px] font-mono px-1.5 py-0.5 rounded bg-violet-800/60 text-violet-300">⌘K</span>
+                    </Button>
                 </div>
             </div>
+
 
             {/* Progress Overview */}
             <Card className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white border-0 shadow-xl relative overflow-hidden">
@@ -330,6 +433,30 @@ export default function PolityUnifiedDashboard({ registryMode, chapterNumber }: 
                     <Progress value={overallProgress} className="h-2 bg-card/20" />
                 </CardContent>
             </Card>
+
+            {/* Retention Radar Panel */}
+            <div className="border border-border rounded-xl overflow-hidden bg-card dark:bg-[#111]">
+                <button
+                    onClick={() => setShowRadar(p => !p)}
+                    className="w-full flex items-center justify-between p-4 hover:bg-muted/30 transition-colors"
+                >
+                    <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-emerald-500/20 to-emerald-600/20 flex items-center justify-center">
+                            <Target className="w-5 h-5 text-emerald-500" />
+                        </div>
+                        <div className="text-left">
+                            <div className="font-bold text-sm text-foreground">Retention Radar</div>
+                            <div className="text-xs text-muted-foreground">95-chapter readiness heatmap — click to expand</div>
+                        </div>
+                    </div>
+                    <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform duration-300 ${showRadar ? 'rotate-180' : ''}`} />
+                </button>
+                {showRadar && (
+                    <div className="border-t border-border p-4">
+                        <RetentionRadar compact />
+                    </div>
+                )}
+            </div>
 
             {/* Controls */}
             <div className="flex flex-col md:flex-row gap-4 sticky top-20 z-10 bg-card/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md p-2 rounded-xl border border-border shadow-sm">
@@ -448,6 +575,7 @@ export default function PolityUnifiedDashboard({ registryMode, chapterNumber }: 
                                         const isCompleted = topicProgress?.completed;
                                         const isNew = topic.id >= 85;
                                         const hasUpdates = MAJOR_CURRENT_AFFAIRS.some(ca => ca.topicIds.includes(topic.id));
+                                        const priority = CHAPTER_PRIORITY[topic.id];
 
                                         return (
                                             <div
@@ -479,6 +607,11 @@ export default function PolityUnifiedDashboard({ registryMode, chapterNumber }: 
                                                             <h4 className={`font-semibold text-sm ${isCompleted ? 'text-muted-foreground line-through' : 'text-foreground'}`}>
                                                                 {topic.title}
                                                             </h4>
+                                                            {priority && (
+                                                                <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded uppercase border ${getPriorityStyle(priority)}`}>
+                                                                    {getPriorityLabel(priority)}
+                                                                </span>
+                                                            )}
                                                             {isNew && (
                                                                 <Badge className="bg-purple-500 text-[10px] px-1.5 py-0 h-4">New</Badge>
                                                             )}
@@ -536,7 +669,7 @@ export default function PolityUnifiedDashboard({ registryMode, chapterNumber }: 
 
                                                     {/* 4. Level 2 */}
                                                     <button
-                                                        onClick={(e) => handleAction(e, 'mcq', topic.id)}
+                                                        onClick={(e) => handleAction(e, 'mcq-l2', topic.id)}
                                                         className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Level 2 MCQs (Pro)"
                                                     >
@@ -548,7 +681,7 @@ export default function PolityUnifiedDashboard({ registryMode, chapterNumber }: 
 
                                                     {/* 5. Level 3 */}
                                                     <button
-                                                        onClick={(e) => handleAction(e, 'mcq', topic.id)}
+                                                        onClick={(e) => handleAction(e, 'mcq-l3', topic.id)}
                                                         className="flex flex-col items-center gap-0.5 group/btn"
                                                         title="Level 3 MCQs (Exam)"
                                                     >
