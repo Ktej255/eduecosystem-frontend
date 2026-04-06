@@ -160,6 +160,11 @@ function StorePageContent() {
     };
 
     const handleFunnelComplete = async (items: string[], finalPrice: number, subjectIds: string[]) => {
+        // Save pending subject for post-payment redirect
+        if (typeof window !== 'undefined') {
+            sessionStorage.setItem('pending_subject', subjectIds[0]);
+        }
+
         // Map combinations to backend bundle IDs
         let finalId = subjectIds[0];
         if (subjectIds.includes('geography') && subjectIds.includes('polity')) {
@@ -197,12 +202,16 @@ function StorePageContent() {
                         const vData = vRes.data;
                         console.log('[CASHFREE DEBUG] Verification response:', vData);
                             if (vData.status === 'success') {
-                                router.push(`/student/batch1/${subjectIds[0] === 'polity' || subjectIds[0] === 'level2' ? 'polity' :
-                                        subjectIds[0] === 'history_modern' ? 'history' :
-                                            subjectIds[0] === 'history_ancient' ? 'batch1-1/ancient-history' :
-                                            subjectIds[0] === 'economy' ? 'economy' :
-                                                subjectIds[0]
-                                    }?unlocked=1`);
+                                const mapping: Record<string, string> = {
+                                    'polity': '/student/batch1-1/polity',
+                                    'level2': '/student/batch1-1/polity',
+                                    'history_modern': '/student/batch1-1/modern-history',
+                                    'history_ancient': '/student/batch1-1/ancient-history',
+                                    'economy': '/student/batch1/economy',
+                                    'geography': '/student/batch1/geography'
+                                };
+                                const redirectPath = mapping[subjectIds[0]] || `/student/batch1/${subjectIds[0]}`;
+                                router.push(`${redirectPath}?unlocked=1`);
                             }
                         }
                     });
@@ -267,7 +276,7 @@ function StorePageContent() {
                                 {/* Badge */}
                                 {(product.badge || isHighlighted || product.isComingSoon) && (
                                     <div className={`bg-gradient-to-r ${product.isComingSoon ? 'from-slate-500 to-slate-700' : product.color} text-white text-xs font-bold uppercase tracking-widest py-1.5 px-3 rounded-full w-fit mb-4`}>
-                                        {product.isComingSoon ? '⏳ Coming Soon' : isHighlighted ? '⭐ Recommended for You' : product.badge}
+                                        {product.isComingSoon ? 'Coming Soon' : isHighlighted ? '⭐ Recommended for You' : product.badge}
                                     </div>
                                 )}
 
@@ -278,7 +287,7 @@ function StorePageContent() {
                                 <h3 className="text-xl font-black text-foreground mb-2">{product.title}</h3>
                                 <p className="text-muted-foreground text-sm mb-5 flex-1 leading-relaxed">
                                     {product.description}
-                                    {product.isComingSoon && <span className="block mt-2 font-bold text-indigo-500">Content launching soon. Join waitlist.</span>}
+                                    {product.isComingSoon && <span className="block mt-2 font-bold text-indigo-500">Content launching soon</span>}
                                 </p>
 
                                 <ul className="space-y-2 mb-6">
