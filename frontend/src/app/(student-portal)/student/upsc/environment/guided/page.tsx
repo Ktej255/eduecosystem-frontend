@@ -382,6 +382,3 @@ export default function GuidedFoundationPage() {
     </div>
   );
 }
-    </div>
-  );
-}
