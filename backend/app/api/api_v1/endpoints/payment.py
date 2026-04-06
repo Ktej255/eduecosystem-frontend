@@ -24,7 +24,7 @@ SUBJECT_PRODUCTS = {
     "environment": {"name": "Environment & Ecology", "price": 299.0},
     "scitech": {"name": "Science & Technology", "price": 399.0},
     "full_upsc": {"name": "Full UPSC Bundle (All Subjects)", "price": 2499.0},
-    "geography_polity": {"name": "Geography + Polity Bundle", "price": 798.0},
+    "geography_polity": {"name": "Geography + Polity Bundle", "price": 449.0},
     "geography_history": {"name": "Geography + History Bundle", "price": 748.0},
     # Meditation
     "meditation_l2": {"name": "Meditation Level 2", "price": 1499.0},
