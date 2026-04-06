@@ -283,12 +283,12 @@ export default function LandingPage() {
                             className="bg-neutral-dark/40 backdrop-blur-xl border border-neutral-cool/20 p-10 rounded-[2.5rem] hover:border-white/20 transition-all group"
                         >
                             <div className="mb-8">
-                                <h3 className="text-xl font-bold text-slate-400 mb-2 uppercase tracking-widest">Entry</h3>
+                                <h3 className="text-xl font-bold text-slate-400 mb-2 uppercase tracking-widest">Single Subject</h3>
                                 <div className="flex items-baseline gap-2">
-                                    <span className="text-5xl font-black text-white">₹1</span>
+                                    <span className="text-5xl font-black text-white">₹299</span>
                                     <span className="text-slate-500 line-through text-lg group-hover:text-amber-500/50 transition-colors">₹1,999</span>
                                 </div>
-                                <p className="text-amber-500 text-xs font-bold mt-2 uppercase tracking-tighter">🔥 Launch Price (Polity Only)</p>
+                                <p className="text-amber-500 text-xs font-bold mt-2 uppercase tracking-tighter">Polity or Ancient History</p>
                             </div>
 
                             <ul className="space-y-4 mb-10">
@@ -315,36 +315,38 @@ export default function LandingPage() {
                             className="relative bg-gradient-to-br from-primary-blue/20 to-primary-indigo/20 backdrop-blur-xl border-2 border-primary-blue p-10 rounded-[2.5rem] shadow-[0_20px_50px_rgba(38,103,255,0.2)] transform md:scale-105"
                         >
                             <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-6 py-1 bg-primary-blue rounded-full text-xs font-black uppercase tracking-widest text-white shadow-lg">
-                                Best Value
+                                NEW
                             </div>
                             
                             <div className="mb-8">
-                                <h3 className="text-xl font-bold text-blue-300 mb-2 uppercase tracking-widest">Pro Subject</h3>
+                                <h3 className="text-xl font-bold text-blue-300 mb-2 uppercase tracking-widest">Environment & Ecology</h3>
                                 <div className="flex items-baseline gap-2">
                                     <span className="text-5xl font-black text-white">₹299</span>
-                                    <span className="text-blue-500/50 line-through text-lg">₹2,499</span>
+                                    <span className="text-blue-500/50 line-through text-lg">₹999</span>
                                 </div>
-                                <p className="text-blue-400 text-xs font-bold mt-2 uppercase tracking-tighter">History or Geography (Student Favorite)</p>
+                                <p className="text-blue-400 text-xs font-bold mt-2 uppercase tracking-tighter">Just launched</p>
                             </div>
 
                             <ul className="space-y-4 mb-10">
                                 <li className="flex items-center gap-3 text-white text-sm">
-                                    <CheckCircle className="w-5 h-5 text-emerald-400" /> Full Syllabus Coverage
+                                    <CheckCircle className="w-5 h-5 text-emerald-400" /> 110 Comprehensive Topics
                                 </li>
                                 <li className="flex items-center gap-3 text-white text-sm">
-                                    <CheckCircle className="w-5 h-5 text-emerald-400" /> 3-Tier Difficulty MCQs
+                                    <CheckCircle className="w-5 h-5 text-emerald-400" /> 80+ Smart MCQs
                                 </li>
                                 <li className="flex items-center gap-3 text-white text-sm">
-                                    <CheckCircle className="w-5 h-5 text-emerald-400" /> 21-Day Mastery Schedule
+                                    <CheckCircle className="w-5 h-5 text-emerald-400" /> 4 Years PYQs (2021-2024)
                                 </li>
                                 <li className="flex items-center gap-3 text-white text-sm">
-                                    <CheckCircle className="w-5 h-5 text-emerald-400" /> Smart Flashcards (Spaced Repetition)
+                                    <CheckCircle className="w-5 h-5 text-emerald-400" /> 5 Interactive Visual Labs
                                 </li>
                             </ul>
 
-                            <button onClick={handleStart} className="w-full py-5 bg-primary-blue hover:bg-blue-600 rounded-2xl font-black text-white shadow-lg transition-all transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
-                                Unlock Pro Subject <Sparkles className="w-5 h-5" />
-                            </button>
+                            <Link href="/register" className="block w-full">
+                                <button className="w-full py-5 bg-primary-blue hover:bg-blue-600 rounded-2xl font-black text-white shadow-lg transition-all transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
+                                    Get Started <ArrowRight className="w-5 h-5" />
+                                </button>
+                            </Link>
                         </motion.div>
 
                         {/* Master Plan */}
@@ -354,12 +356,12 @@ export default function LandingPage() {
                             className="bg-neutral-dark/40 backdrop-blur-xl border border-neutral-cool/20 p-10 rounded-[2.5rem] hover:border-white/20 transition-all"
                         >
                             <div className="mb-8">
-                                <h3 className="text-xl font-bold text-slate-400 mb-2 uppercase tracking-widest">Lifetime</h3>
+                                <h3 className="text-xl font-bold text-slate-400 mb-2 uppercase tracking-widest">Full Pack</h3>
                                 <div className="flex items-baseline gap-2">
-                                    <span className="text-5xl font-black text-white">₹2499</span>
+                                    <span className="text-5xl font-black text-slate-500">₹2499</span>
                                     <span className="text-slate-500 line-through text-lg">₹7,999</span>
                                 </div>
-                                <p className="text-purple-400 text-xs font-bold mt-2 uppercase tracking-tighter">Full Ecosystem Access</p>
+                                <p className="text-purple-400 text-xs font-bold mt-2 uppercase tracking-tighter">All 10 Subjects (Coming Soon)</p>
                             </div>
 
                             <ul className="space-y-4 mb-10">
