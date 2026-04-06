@@ -12,14 +12,38 @@ import CarbonCycleViz from './visualizations/CarbonCycleViz';
 import ClimateAgreementsViz from './visualizations/ClimateAgreementsViz';
 import ClimateTimeMachine from './visualizations/ClimateTimeMachine';
 import { Microscope } from 'lucide-react';
+import { 
+    Dialog, 
+    DialogContent, 
+    DialogHeader, 
+    DialogTitle, 
+    DialogDescription 
+} from "@/components/ui/dialog";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface EnvironmentModuleViewerProps {
     moduleId: string;
 }
 
 export default function EnvironmentModuleViewer({ moduleId }: EnvironmentModuleViewerProps) {
+    const [isPdfOpen, setIsPdfOpen] = React.useState(false);
+    const [activePdf, setActivePdf] = React.useState<{ title: string; url: string } | null>(null);
+
     const module = ENVIRONMENT_MODULES.find(m => m.id === moduleId);
     const content = ENVIRONMENT_MODULE_CONTENT[moduleId];
+
+    const openPdf = (type: 'static' | 'dynamic' | 'pyqs', title: string) => {
+        setActivePdf({
+            title,
+            url: `/docs/environment/environment-${type}.pdf`
+        });
+        setIsPdfOpen(true);
+    };
 
     if (!module || !content) {
         return (
@@ -74,9 +98,27 @@ export default function EnvironmentModuleViewer({ moduleId }: EnvironmentModuleV
                 </div>
                 
                 <div className="flex gap-2">
-                    <Button variant="outline" className="rounded-xl border-emerald-200 hover:bg-emerald-50 text-emerald-700">
-                        <FileText className="w-4 h-4 mr-2" /> PDF Notes
-                    </Button>
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="outline" className="rounded-xl border-emerald-200 hover:bg-emerald-50 text-emerald-700">
+                                <FileText className="w-4 h-4 mr-2" /> PDF Notes
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end" className="rounded-xl w-48">
+                            <DropdownMenuItem onClick={() => openPdf('static', 'Core Concepts (Static)')} className="flex items-center gap-2 cursor-pointer">
+                                <FileText className="w-4 h-4 text-emerald-500" />
+                                <span>Static Notes</span>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => openPdf('dynamic', 'Current Affairs (Dynamic)')} className="flex items-center gap-2 cursor-pointer">
+                                <Layers className="w-4 h-4 text-blue-500" />
+                                <span>Dynamic Updates</span>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => openPdf('pyqs', 'Solved PYQs (Module Specific)')} className="flex items-center gap-2 cursor-pointer">
+                                <Target className="w-4 h-4 text-orange-500" />
+                                <span>Solved PYQs</span>
+                            </DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
                     <Button className="rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg shadow-emerald-200/50">
                         Next Module <ChevronRight className="w-4 h-4 ml-1" />
                     </Button>
@@ -305,6 +347,30 @@ export default function EnvironmentModuleViewer({ moduleId }: EnvironmentModuleV
                     </div>
                 </div>
             </div>
+
+            {/* PDF Viewer Dialog */}
+            <Dialog open={isPdfOpen} onOpenChange={setIsPdfOpen}>
+                <DialogContent className="max-w-5xl h-[90vh] p-0 overflow-hidden bg-slate-900 border-none rounded-3xl">
+                    <DialogHeader className="p-6 bg-white dark:bg-slate-900 border-b">
+                        <DialogTitle className="flex items-center gap-2">
+                             <div className="p-2 bg-emerald-50 rounded-lg">
+                                <FileText className="w-5 h-5 text-emerald-600" />
+                             </div>
+                             {activePdf?.title}
+                        </DialogTitle>
+                        <DialogDescription>
+                            UPSC 2026 High-Yield Environment Content
+                        </DialogDescription>
+                    </DialogHeader>
+                    <div className="flex-1 w-full h-full pb-16">
+                        <iframe 
+                            src={activePdf?.url} 
+                            className="w-full h-full border-none"
+                            title="PDF Viewer"
+                        />
+                    </div>
+                </DialogContent>
+            </Dialog>
         </div>
     );
 }
