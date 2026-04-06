@@ -31,6 +31,7 @@ import {
     UserCheck,
     Briefcase,
     Stethoscope,
+    Network,
     History
 } from "lucide-react";
 
@@ -67,6 +68,7 @@ const menuItems = [
             { name: "Meditation", href: "/admin/meditation", icon: Activity },
             { name: "Courses & Paths", href: "/admin/courses", icon: GraduationCap },
             { name: "Assessment Drills", href: "/admin/drill/analytics", icon: BarChart3 },
+            { name: "Knowledge Explorer", href: "/admin/academic/knowledge-explorer", icon: Network },
         ],
     },
     {

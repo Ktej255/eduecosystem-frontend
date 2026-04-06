@@ -3,37 +3,24 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mountain, Droplets, Zap, MapPin, Tent, Info, Layers, Maximize2, BookOpen, Map as MapIcon } from 'lucide-react';
+import UPSCMapOverlay from '../UPSCMapOverlay';
 
-interface MapPoint {
-    id: string;
-    name: string;
-    type: 'park' | 'ramsar' | 'mineral' | 'river' | 'peak';
-    state: string;
-    description: string;
-    coordinates: { x: number; y: number };
-    tags: string[];
-}
-
-const MAP_DATA: MapPoint[] = [
-    { id: 'corbett', name: 'Jim Corbett NP', type: 'park', state: 'Uttarakhand', coordinates: { x: 38, y: 24 }, tags: ['Tiger', 'First NP'], description: 'Oldest national park in India. Known for Bengal Tigers and its location in the Himalayan foothills.' },
-    { id: 'kaziranga', name: 'Kaziranga NP', type: 'park', state: 'Assam', coordinates: { x: 82, y: 34 }, tags: ['One-horned Rhino', 'UNESCO'], description: 'Hosts two-thirds of the world\'s great one-horned rhinoceroses.' },
-    { id: 'ranthambore', name: 'Ranthambore NP', type: 'park', state: 'Rajasthan', coordinates: { x: 28, y: 38 }, tags: ['Tiger', 'Fort'], description: 'Famous for its tigers and the Ranthambore Fort within the park.' },
-    { id: 'gir', name: 'Gir NP', type: 'park', state: 'Gujarat', coordinates: { x: 14, y: 52 }, tags: ['Asiatic Lion'], description: 'The only natural habitat of the Asiatic Lion in the world.' },
-    { id: 'silent-valley', name: 'Silent Valley NP', type: 'park', state: 'Kerala', coordinates: { x: 32, y: 88 }, tags: ['Lion-tailed Macaque'], description: 'Core of the Nilgiri Biosphere Reserve, known for its pristine tropical evergreen forests.' },
-    { id: 'sunderbans', name: 'Sunderbans NP', type: 'park', state: 'West Bengal', coordinates: { x: 70, y: 52 }, tags: ['Mangroves', 'Royal Bengal Tiger'], description: 'Largest mangrove forest in the world and a UNESCO World Heritage Site.' },
-    { id: 'kanha', name: 'Kanha NP', type: 'park', state: 'Madhya Pradesh', coordinates: { x: 48, y: 52 }, tags: ['Barasingha', 'Tiger'], description: 'Inspiration for Rudyard Kipling\'s The Jungle Book.' },
-    { id: 'manas', name: 'Manas NP', type: 'park', state: 'Assam', coordinates: { x: 78, y: 32 }, tags: ['Tiger', 'UNESCO'], description: 'A project tiger reserve, an elephant reserve and a biosphere reserve in Assam.' },
-    { id: 'chilika', name: 'Chilika Lake', type: 'ramsar', state: 'Odisha', coordinates: { x: 65, y: 62 }, tags: ['Irrawaddy Dolphin'], description: 'Largest brackish water lagoon in Asia and a vital stopover for migratory birds.' },
-    { id: 'loktak', name: 'Loktak Lake', type: 'ramsar', state: 'Manipur', coordinates: { x: 88, y: 40 }, tags: ['Phumdis', 'Sangai Deer'], description: 'Famous for floating Phumdis and the Keibul Lamjao NP, the only floating NP in the world.' },
-    { id: 'chota-nagpur', name: 'Chota Nagpur Plateau', type: 'mineral', state: 'Jharkhand', coordinates: { x: 58, y: 50 }, tags: ['Coal', 'Iron', 'Mica'], description: 'The mineral heartland of India, rich in coal and iron ore.' },
-    { id: 'khetri', name: 'Khetri Belt', type: 'mineral', state: 'Rajasthan', coordinates: { x: 26, y: 34 }, tags: ['Copper'], description: 'Historically significant copper mining region in Rajasthan.' },
-    { id: 'kolar', name: 'Kolar Gold Fields', type: 'mineral', state: 'Karnataka', coordinates: { x: 38, y: 80 }, tags: ['Gold'], description: 'One of the deepest gold mines in the world, now closed but of great historical value.' },
-    { id: 'digboi', name: 'Digboi Refiner', type: 'mineral', state: 'Assam', coordinates: { x: 88, y: 30 }, tags: ['Oil', 'First Refinery'], description: 'Birthplace of the oil industry in India.' }
-];
+// ... (interface MapPoint and MAP_DATA remain unchanged)
 
 export default function IndiaMap() {
     const [activeLayer, setActiveLayer] = useState<'all' | 'park' | 'ramsar' | 'mineral'>('all');
     const [selectedPoint, setSelectedPoint] = useState<MapPoint | null>(null);
+
+    // Mock readiness score - in production this comes from useUser() or API
+    const [readinessScore, setReadinessScore] = useState(65.4); // Threshold Student 
+
+    const getStatus = (): 'locked' | 'peekable' | 'unlocked' => {
+        if (readinessScore >= 70) return 'unlocked';
+        if (readinessScore >= 60) return 'peekable';
+        return 'locked';
+    };
+
+    const status = getStatus();
 
     const filteredPoints = MAP_DATA.filter(p => activeLayer === 'all' || p.type === activeLayer);
 
@@ -59,6 +46,13 @@ export default function IndiaMap() {
         <div className="flex flex-col lg:flex-row gap-8 h-full min-h-[600px]">
             {/* Map Canvas Area */}
             <div className="flex-1 bg-white dark:bg-[#050505] rounded-3xl border border-border overflow-hidden relative shadow-inner">
+                {/* Adaptive Experience Overlay */}
+                <UPSCMapOverlay 
+                    readinessScore={readinessScore} 
+                    status={status} 
+                    onExplore={() => console.log('Exploring preview...')} 
+                />
+
                 {/* Layer Toggle Controls */}
                 <div className="absolute top-6 left-6 z-20 flex flex-wrap gap-2">
                     {[

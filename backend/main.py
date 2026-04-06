@@ -15,9 +15,22 @@ from fastapi.responses import JSONResponse
 from slowapi.errors import RateLimitExceeded
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.middleware import SlowAPIMiddleware
+from typing import List, Any
 from app.middleware.rate_limit import limiter
+import sentry_sdk
+from app.core.config import settings
 
 logger = logging.getLogger(__name__)
+
+# Initialize Sentry for production monitoring (Phase 13)
+if settings.SENTRY_DSN:
+    sentry_sdk.init(
+        dsn=settings.SENTRY_DSN,
+        environment=settings.ENVIRONMENT,
+        traces_sample_rate=1.0,
+        profiles_sample_rate=1.0,
+    )
+    logger.info(f"Sentry initialized in {settings.ENVIRONMENT} mode.")
 
 
 def seed_meditation_processes():
@@ -77,28 +90,41 @@ async def lifespan(app: FastAPI):
     IMPORTANT: Keep this lightweight - avoid database operations that could hang.
     """
     logger.info("Starting Eduecosystem Backend (Production Mode)...")
-    
-    # Skip meditation seeding on startup to prevent database timeout hangs
-    # This can be run manually via API endpoint if needed
-    # seed_meditation_processes()
-    
+
+    # Bootstrap guided portal tables (safe, idempotent — CREATE IF NOT EXISTS)
+    try:
+        import sys, os
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from startup_tables import run as bootstrap_guided_tables
+        bootstrap_guided_tables()
+    except Exception as _e:
+        logger.warning(f"Guided portal table bootstrap skipped: {_e}")
+
+    # Initialize Adaptive Exam Engine Cache (Phase-7 Stabilization)
+    try:
+        from app.db.session import SessionLocal
+        from app.services.adaptive_simulator_service import adaptive_simulator_service
+        db = SessionLocal()
+        try:
+            count = adaptive_simulator_service.refresh_cache(db)
+            logger.info(f"Adaptive Engine cache warmed up with {count} questions.")
+        finally:
+            db.close()
+    except Exception as _e:
+        logger.warning(f"Adaptive cache warm-up failed: {_e}")
+
     yield  # Application runs here
 
     logger.info("Shutting down Eduecosystem Backend...")
 
 
 
-# Import settings after defining lifespan to avoid circular imports
-try:
-    from app.core.config import settings
-    PROJECT_NAME = settings.PROJECT_NAME
-    API_V1_STR = settings.API_V1_STR
-    BACKEND_CORS_ORIGINS = settings.BACKEND_CORS_ORIGINS
-except Exception as e:
-    logger.warning(f"Could not import settings: {e}. Using defaults.")
-    PROJECT_NAME = "Eduecosystem API"
-    API_V1_STR = "/api/v1"
-    BACKEND_CORS_ORIGINS = ["*"]
+
+# Application Constants (Phase 13)
+PROJECT_NAME = settings.PROJECT_NAME
+API_V1_STR = settings.API_V1_STR
+BACKEND_CORS_ORIGINS = settings.BACKEND_CORS_ORIGINS
+APP_VERSION = settings.APP_VERSION
 
 
 # Skip lifespan during testing
@@ -162,11 +188,16 @@ app.add_middleware(SlowAPIMiddleware)
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 from fastapi.staticfiles import StaticFiles
-# Ensure uploads directory exists
+# Ensure uploads and content directories exist
 if not os.path.exists("uploads"):
     os.makedirs("uploads")
-# Mount uploads directory for static access
+if not os.path.exists("static/content"):
+    os.makedirs("static/content", exist_ok=True)
+
+# Mount directories for static access
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
+app.mount("/content", StaticFiles(directory="static/content"), name="content")
+
 
 
 # SECURITY: Add security headers middleware
@@ -209,11 +240,14 @@ app.add_middleware(SecurityHeadersMiddleware)
 
 # Import and include API router
 try:
+    print("DEBUG: Including API router...")
     from app.api.api_v1.api import api_router
     app.include_router(api_router, prefix=API_V1_STR)
+    print(f"DEBUG: API router included successfully with prefix {API_V1_STR}")
     logger.info(f"API router included successfully with prefix {API_V1_STR}")
 except Exception as e:
     import traceback
+    print(f"CRITICAL: Failed to include API router: {str(e)}")
     logger.critical(f"Failed to include API router: {str(e)}")
     traceback.print_exc()
 
@@ -232,6 +266,11 @@ def read_root():
         "version": APP_VERSION,
         "docs": "/docs"
     }
+
+@app.get("/routes")
+def get_routes():
+    """List all registered routes."""
+    return [{"path": route.path, "name": route.name} for route in app.routes]
 
 
 # Health check endpoint

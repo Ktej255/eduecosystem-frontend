@@ -1,15 +1,40 @@
 steps:
-  # 1. Build the frontend image
+  # 1. Build & Push Frontend
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', '$_GCP_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/frontend:latest', '-f', 'Dockerfile', '--build-arg', 'NEXT_PUBLIC_API_URL=$_BACKEND_URL', 'frontend/']
-
-  # 2. Push to Artifact Registry
+    args: ['build', '-t', '$_GCP_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/frontend:latest', '-f', 'frontend/Dockerfile', '--build-arg', 'NEXT_PUBLIC_API_URL=$_BACKEND_URL', '.']
+    id: 'build-frontend'
+  
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', '$_GCP_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/frontend:latest']
+    waitFor: ['build-frontend']
 
-  # 3. Deploy to Cloud Run
+  # 2. Build & Push Backend
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', '$_GCP_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/backend:latest', '-f', 'backend/Dockerfile.production', '.']
+    id: 'build-backend'
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', '$_GCP_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/backend:latest']
+    waitFor: ['build-backend']
+
+  # 3. Deploy Backend
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: gcloud
+    entrypoint: 'gcloud'
+    args:
+      - 'run'
+      - 'deploy'
+      - 'eduecosystem-backend'
+      - '--image=$_GCP_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/backend:latest'
+      - '--region=$_GCP_REGION'
+      - '--platform=managed'
+      - '--allow-unauthenticated'
+      - '--add-cloudsql-instances=$_SQL_INSTANCE'
+      - '--update-env-vars=DB_HOST=/cloudsql/$_SQL_INSTANCE,DB_NAME=$_DB_NAME,DB_USER=$_DB_USER,DB_PASS=$_DB_PASS'
+    id: 'deploy-backend'
+
+  # 4. Deploy Frontend
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
     args:
       - 'run'
       - 'deploy'
@@ -19,10 +44,17 @@ steps:
       - '--platform=managed'
       - '--allow-unauthenticated'
       - '--port=8080'
+    id: 'deploy-frontend'
+    waitFor: ['deploy-backend']
 
 substitutions:
   _GCP_REGION: 'us-central1'
   _REPO_NAME: 'eduecosystem-repo'
+  _SQL_INSTANCE: 'eduecosystem-prod:us-central1:eduecosystem-db'
+  _DB_NAME: 'postgres'
+  _DB_USER: 'postgres'
+  _DB_PASS: 'postgres'
+  _BACKEND_URL: 'https://eduecosystem-backend-yqncvzxdma-uc.a.run.app/api/v1'
 
 options:
   logging: CLOUD_LOGGING_ONLY

@@ -1,0 +1,1006 @@
+{
+    "db_count": 125,
+    "script_mentions": 0,
+    "data": [
+        {
+            "node_id": "ENV_001",
+            "name": "Carbon Cycle",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_002",
+            "name": "Coral Bleaching",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "ADVANCED",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_003",
+            "name": "Ozone Layer",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "POL_F_RIGHTS",
+            "name": "Fundamental Rights",
+            "description": "",
+            "subject": "Polity",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "POL_PREAMBLE",
+            "name": "Preamble",
+            "description": "",
+            "subject": "Polity",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N001",
+            "name": "Earth System Concept",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N002",
+            "name": "Lithosphere Structure",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N003",
+            "name": "Hydrosphere Components",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N004",
+            "name": "Atmosphere Composition",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N005",
+            "name": "Biosphere Interaction",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N006",
+            "name": "Energy Balance of Earth",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N007",
+            "name": "Albedo Effect",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N008",
+            "name": "Greenhouse Effect Basics",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N009",
+            "name": "Biogeochemical Cycles Concept",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N010",
+            "name": "Carbon Cycle",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N011",
+            "name": "Ocean Carbon Sink",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N012",
+            "name": "Photosynthesis Role in Carbon Cycle",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N013",
+            "name": "Respiration in Carbon Cycle",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N014",
+            "name": "Nitrogen Cycle",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N015",
+            "name": "Nitrogen Fixation",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N016",
+            "name": "Phosphorus Cycle",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N017",
+            "name": "Atmospheric Layers",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N018",
+            "name": "Stratospheric Ozone",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N019",
+            "name": "Ozone Depletion Mechanism",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N020",
+            "name": "Montreal Protocol",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N021",
+            "name": "Atmospheric Circulation",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N022",
+            "name": "Pressure Belts",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N023",
+            "name": "Jet Streams",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N024",
+            "name": "Monsoon Mechanism",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N025",
+            "name": "Weather vs Climate",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N026",
+            "name": "El Nino",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N027",
+            "name": "La Nina",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N028",
+            "name": "Indian Ocean Dipole",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N029",
+            "name": "Western Disturbances",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N030",
+            "name": "Thermohaline Circulation",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N031",
+            "name": "Ecosystem Concept",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N032",
+            "name": "Trophic Levels",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N033",
+            "name": "Food Chains",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N034",
+            "name": "Food Webs",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N035",
+            "name": "Ecological Pyramids",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N036",
+            "name": "Energy Flow in Ecosystems",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N037",
+            "name": "Ecological Succession",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N038",
+            "name": "Primary vs Secondary Succession",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N039",
+            "name": "Biodiversity Levels",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N040",
+            "name": "Genetic Diversity",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N041",
+            "name": "Species Diversity",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N042",
+            "name": "Ecosystem Diversity",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N043",
+            "name": "Biodiversity Hotspots Criteria",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N044",
+            "name": "India Biodiversity Hotspots",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N045",
+            "name": "Endemic Species",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N046",
+            "name": "Keystone Species",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N047",
+            "name": "Protected Area Concept",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N048",
+            "name": "National Parks",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N049",
+            "name": "Wildlife Sanctuaries",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N050",
+            "name": "Biosphere Reserves",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N051",
+            "name": "Conservation Reserve",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N052",
+            "name": "Community Reserve",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N053",
+            "name": "Climate Change Drivers",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N054",
+            "name": "Radiative Forcing",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N055",
+            "name": "Climate Feedback Loops",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N056",
+            "name": "Tipping Points",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N057",
+            "name": "Sea Level Rise",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N058",
+            "name": "IPCC Structure",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N059",
+            "name": "Paris Agreement",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N060",
+            "name": "Pollution Concept",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N061",
+            "name": "Air Pollution Sources",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N062",
+            "name": "PM2.5 vs PM10",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N063",
+            "name": "Water Pollution Indicators",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N064",
+            "name": "BOD vs COD",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N065",
+            "name": "Eutrophication",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N066",
+            "name": "Environment Protection Act 1986",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N067",
+            "name": "Air Act 1981",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N068",
+            "name": "Water Act 1974",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N069",
+            "name": "National Green Tribunal",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N070",
+            "name": "Environmental Impact Assessment",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N071",
+            "name": "Natural Resource Classification",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N072",
+            "name": "Renewable Energy",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N073",
+            "name": "Solar Energy Systems",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N074",
+            "name": "Wind Energy Systems",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N075",
+            "name": "Hydropower",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N076",
+            "name": "Disaster Concept",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N077",
+            "name": "Cyclone Formation",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N078",
+            "name": "Flood Dynamics",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N079",
+            "name": "Earthquake Causes",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N080",
+            "name": "Sustainable Development Concept",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N081",
+            "name": "SDGs",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N082",
+            "name": "Circular Economy",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N083",
+            "name": "Carbon Markets",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N084",
+            "name": "Ramsar Convention",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N085",
+            "name": "Ramsar Sites in India",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N086",
+            "name": "CITES",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N087",
+            "name": "CITES Appendices",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N088",
+            "name": "Convention on Biological Diversity",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N089",
+            "name": "Nagoya Protocol",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N090",
+            "name": "Cartagena Protocol",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N091",
+            "name": "UNFCCC",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N092",
+            "name": "Kyoto Protocol",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N093",
+            "name": "COP Meetings",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N094",
+            "name": "Basel Convention",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N095",
+            "name": "Stockholm Convention",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N096",
+            "name": "Minamata Convention",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N097",
+            "name": "National Forest Policy 1988",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N098",
+            "name": "Forest Conservation Act 1980",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N099",
+            "name": "CAMPA Fund",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N100",
+            "name": "Wildlife Protection Act 1972",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N101",
+            "name": "Groundwater Governance",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N102",
+            "name": "Central Ground Water Board",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N103",
+            "name": "Solid Waste Management Rules 2016",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N104",
+            "name": "Plastic Waste Management Rules",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N105",
+            "name": "E-Waste Management Rules",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N106",
+            "name": "Biomedical Waste Rules",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N107",
+            "name": "Green Hydrogen",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N108",
+            "name": "National Green Hydrogen Mission",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N109",
+            "name": "Environmental Performance Index",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N110",
+            "name": "Air Quality Index",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N111",
+            "name": "Water Quality Index",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N112",
+            "name": "IUCN Red List Categories",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N113",
+            "name": "Project Tiger",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N114",
+            "name": "Project Elephant",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N115",
+            "name": "Crocodile Conservation Project",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N116",
+            "name": "Carbon Sequestration",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "FOUNDATION",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N117",
+            "name": "Blue Carbon Ecosystems",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N118",
+            "name": "National Action Plan on Climate Change",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N119",
+            "name": "Nationally Determined Contributions",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        },
+        {
+            "node_id": "ENV_N120",
+            "name": "Loss and Damage Mechanism",
+            "description": "",
+            "subject": "environment",
+            "difficulty": "UPSC_OVERLAY",
+            "source": "database"
+        }
+    ]
+}

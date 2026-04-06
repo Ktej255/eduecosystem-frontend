@@ -14,6 +14,9 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import QuestionBankDashboard from './question-bank/QuestionBankDashboard';
 import { useLanguageStore } from '@/lib/language-store';
+import { HistoryKnowledgeGraph } from './visuals/HistoryKnowledgeGraph';
+import { HistoryRemediationPanel } from './HistoryRemediationPanel';
+import { HistoryMasteryDashboard } from './HistoryMasteryDashboard';
 
 const HISTORY_ERAS = [
     {
@@ -104,19 +107,29 @@ export default function HistoryDashboard() {
                 </div>
             </div>
 
-            {/* Cognitive Heatmap Section */}
-            <HistoryGapHeatmap />
+            {/* Cognitive Heatmap & Remediation Section */}
+            <div className="space-y-12">
+                <HistoryGapHeatmap />
+                <HistoryRemediationPanel />
+            </div>
 
             <Tabs defaultValue="overview" className="space-y-6">
                 <TabsList className="bg-muted p-1 rounded-xl">
                     <TabsTrigger value="overview" className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm">Visual Hub</TabsTrigger>
+                    <TabsTrigger value="graph" className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm">Knowledge Graph</TabsTrigger>
                     <TabsTrigger value="syllabus" className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm">Syllabus Map</TabsTrigger>
                     <TabsTrigger value="timeline" className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm">Detailed Timeline</TabsTrigger>
                     <TabsTrigger value="bank" className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm">Question Bank</TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="overview">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.3 }}
+                        className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+                    >
                         <div className="lg:col-span-2 space-y-8">
                             <EmpireMapViz />
                             <HistoryTunnelViz />
@@ -151,23 +164,52 @@ export default function HistoryDashboard() {
                                 </Card>
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
+                </TabsContent>
+
+                <TabsContent value="graph">
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.4 }}
+                        className="space-y-6"
+                    >
+                        <HistoryMasteryDashboard />
+                        <HistoryKnowledgeGraph />
+                    </motion.div>
                 </TabsContent>
 
                 <TabsContent value="syllabus">
-                    <Card className="border-none shadow-none bg-transparent">
-                        <SubjectPlanner config={HISTORY_CONFIG} />
-                    </Card>
+                    <motion.div 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <Card className="border-none shadow-none bg-transparent">
+                            <SubjectPlanner config={HISTORY_CONFIG} />
+                        </Card>
+                    </motion.div>
                 </TabsContent>
 
                 <TabsContent value="timeline">
-                    <Card className="p-6">
-                        <HistoryTimeline config={HISTORY_CONFIG} onSelectTopic={() => { }} />
-                    </Card>
+                    <motion.div 
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4 }}
+                    >
+                        <Card className="p-6">
+                            <HistoryTimeline config={HISTORY_CONFIG} onSelectTopic={() => { }} />
+                        </Card>
+                    </motion.div>
                 </TabsContent>
 
                 <TabsContent value="bank">
-                    <QuestionBankDashboard />
+                    <motion.div 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                    >
+                        <QuestionBankDashboard />
+                    </motion.div>
                 </TabsContent>
             </Tabs>
         </div>

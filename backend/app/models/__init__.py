@@ -265,3 +265,43 @@ from app.models.holistic import Skill, StudentSkillProgress
 
 # Geography Atlas Progress
 from app.models.geography_progress import GeographyProgress
+
+# ── MISSING MODELS (required by User relationships) ───────────────────────────
+
+# AI Avatars — required by User.ai_avatars relationship
+from app.models.ai_avatar import AIAvatar
+
+# Student Reports — required by User.student_reports relationship
+from app.models.student_report import StudentReport
+
+# Retention / FSRS — required by User.topic_logs relationship
+from app.models.retention import UserTopicLog
+
+# MeditationExperience is in meditation.py — add it to the existing import block
+from app.models.meditation import MeditationExperience
+
+# Drill System — required by drill endpoints
+try:
+    from app.models.drill import DrillSession, DrillDailySummary
+except ImportError:
+    pass
+
+# AI Portal Conversations — required by AI Tutor endpoint
+try:
+    from app.models.ai_portal import AIPortalConversation
+except ImportError:
+    pass
+
+# ── Mobile CRM Models (required by User relationships) ────────────────────────
+from app.models.field_activity import FieldActivity
+from app.models.call_log import CallLog
+from app.models.voice_note import VoiceNote
+
+# ── Guided Learning Portal ─────────────────────────────────────────────────────
+from app.models.guided_clip import GuidedClip
+from app.models.concept_node import ConceptNode
+from app.models.concept_relationship import ConceptRelationship
+from app.models.concept_signal import ConceptSignal
+from app.models.student_concept_mastery import StudentConceptMastery
+from app.models.student_activity_log import StudentActivityLog
+

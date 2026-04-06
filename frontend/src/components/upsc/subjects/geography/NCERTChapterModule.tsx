@@ -34,7 +34,19 @@ export default function NCERTChapterModule({ chapterId, chapterTitle, bookTitle,
     const [flippedCards, setFlippedCards] = useState<Record<number, boolean>>({});
 
     // Dynamic MCQ matching
-    const mcqKey = (mcqDataId || `chapter${chapterId.split('-').pop()}MCQs`) as keyof typeof NCERT_MCQS;
+    const mcqKey = useMemo(() => {
+        if (mcqDataId) return mcqDataId as keyof typeof NCERT_MCQS;
+        
+        const chNum = chapterId.split('-').pop();
+        const isIndiaBook = chapterId.includes('-i-');
+        
+        if (isIndiaBook) {
+            return `indiaPeopleChapter${chNum}MCQs` as keyof typeof NCERT_MCQS;
+        }
+        
+        return `chapter${chNum}MCQs` as keyof typeof NCERT_MCQS;
+    }, [chapterId, mcqDataId]);
+
     const mcqsToUse: HistoryMCQ[] = (NCERT_MCQS[mcqKey] as any) || [];
 
     // Filter relevant current affairs

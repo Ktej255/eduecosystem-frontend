@@ -561,5 +561,59 @@ export const UPSC_CATALOG: UPSCSubject[] = [
                 category: 'Paper II'
             }
         ]
+    },
+    {
+        id: 'ethics',
+        title: 'Ethics',
+        description: 'Ethics, Integrity & Aptitude (GS 4)',
+        icon: BrainCircuit,
+        color: 'text-purple-600',
+        bgColor: 'bg-purple-50',
+        books: [
+            {
+                id: 'lexicon',
+                title: 'Lexicon for Ethics, Integrity & Aptitude',
+                description: 'The fundamental guide for Ethics terms and case studies.',
+                price: 2999,
+                discountedPrice: 299,
+                isNCERT: false
+            }
+        ]
+    },
+    {
+        id: 'current-affairs',
+        title: 'Current Affairs',
+        description: 'Daily News, Analysis & Monthly Magazines',
+        icon: BookOpen,
+        color: 'text-red-600',
+        bgColor: 'bg-red-50',
+        books: [
+            {
+                id: 'daily-analysis',
+                title: 'Daily Editorial Analysis',
+                description: 'AI-curated analysis of The Hindu and Indian Express.',
+                price: 0,
+                discountedPrice: 0,
+                isNCERT: false
+            }
+        ]
+    },
+    {
+        id: 'society',
+        title: 'Indian Society',
+        description: 'Sociological issues & Social Justice (GS 1)',
+        icon: Globe,
+        color: 'text-teal-600',
+        bgColor: 'bg-teal-50',
+        books: [
+            {
+                id: 'ncert-society-12',
+                title: 'Indian Society (Class 12)',
+                description: 'Foundation for understanding Indian social structures.',
+                price: 0,
+                discountedPrice: 0,
+                isNCERT: true
+            }
+        ]
     }
 ];

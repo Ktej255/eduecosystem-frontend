@@ -36,7 +36,7 @@ class PackService:
         """
         try:
             return db.query(LearningGroup).order_by(desc(LearningGroup.pack_points)).limit(limit).all()
-        except getattr(__import__('sqlalchemy').exc, 'OperationalError', Exception):
+        except Exception:
             db.rollback()
             return []
 
@@ -46,7 +46,7 @@ class PackService:
         """
         try:
             return db.query(LearningGroup).order_by(desc(LearningGroup.weekly_points)).limit(limit).all()
-        except getattr(__import__('sqlalchemy').exc, 'OperationalError', Exception):
+        except Exception:
             db.rollback()
             return []
 

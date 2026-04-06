@@ -8,6 +8,8 @@ import GenericFlashcardSession from '../../common/framework/GenericFlashcardSess
 import EnvironmentDashboard from './EnvironmentDashboard';
 import { Layout, Zap, Sprout, BookOpen, Database } from 'lucide-react';
 import UniversalQuestionBank from '@/components/common/mcq/UniversalQuestionBank';
+import ModeToggle from '@/components/guided/ModeToggle';
+
 
 export default function EnvironmentHome() {
     const [activeTab, setActiveTab] = useState<'dashboard' | 'planner' | 'flashcards' | 'question_bank'>('dashboard');
@@ -24,6 +26,9 @@ export default function EnvironmentHome() {
                             </div>
                             <span>ENVIRON<span className="text-neutral-400 font-light">HUB</span></span>
                         </div>
+
+                        {/* Mode Toggle — Self / Guided / Premium */}
+                        <ModeToggle currentMode="self" subjectSlug="environment" />
 
                         <div className="flex space-x-1">
                             <button

@@ -1,0 +1,78 @@
+﻿0000|Chapter 1
+0001|Level 1: The Text-Book Stickler (Strictly Chapter 1)
+0002|Standard: Direct recall from the "Historical Background" chapter text. No outside info.
+0003|The Company Rule (1773–1858)
+0004|1. The Britishers originally came to India in 1608 as traders in the form of the East India Company. In which year did they obtain
+0005|2. Which Act is described as the "first step taken by the British Government to control and regulate the affairs of the East India
+0006|3. Under the Regulating Act of 1773, the Governor of Bengal was designated as the Governor-General of Bengal. How many members wer
+0007|4. Which Act provided for the establishment of a Supreme Court at Calcutta comprising one chief justice and three other judges? a)
+0008|5. The Amending Act of 1781 (Act of Settlement) exempted which of the following from the jurisdiction of the Supreme Court? a) The
+0009|6. Which Act created a new body called the 'Board of Control' to manage political affairs, thus establishing a system of double go
+0010|7. In 1786, Lord Cornwallis placed two demands to accept the post of Governor-General. One was to be the Commander-in-Chief. What 
+0011|8. Which Act laid down that the members of the Board of Control and their staff were to be paid out of the Indian revenues? a) Cha
+0012|9. The Charter Act of 1813 abolished the trade monopoly of the Company in India EXCEPT for which two specific trades? a) Trade in 
+0013|10. Which Act authorized the Local Governments in India to impose taxes on persons and punish them for non-payment? a) Charter Act
+0014|11. Which Act made the Governor-General of Bengal the "Governor-General of India" and vested in him all civil and military powers?
+0015|12. Who was the first Governor-General of India? a) Lord Warren Hastings b) Lord Cornwallis c) Lord William Bentinck d) Lord Canni
+0016|13. The Charter Act of 1833 ended the activities of the East India Company as a commercial body. The Company became a purely _____
+0017|14. Which Act for the first time separated the legislative and executive functions of the Governor-General’s council, creating the
+0018|15. The Macaulay Committee (the Committee on the Indian Civil Service) was appointed in which year? a) 1833 b) 1853 c) 1854 d) 185
+0019|The Crown Rule (1858–1947)
+0020|16. The Government of India Act of 1858 was known as the: a) Act for the Better Government of India b) Act for the Independence of
+0021|17. Which Act abolished the Board of Control and Court of Directors? a) Charter Act of 1853 b) Government of India Act of 1858 c) 
+0022|18. The Government of India Act of 1858 created a new office, Secretary of State for India. How many members were in the Council o
+0023|19. Under the Indian Councils Act of 1861, Lord Canning nominated three Indians to his legislative council. Who were they? a) The 
+0024|20. Which Act initiated the process of decentralization by restoring the legislative powers to the Bombay and Madras Presidencies?
+0025|21. The Indian Councils Act of 1861 empowered the Viceroy to issue ordinances, without the concurrence of the legislative council,
+0026|22. Which Act gave the legislative councils the power of discussing the budget and addressing questions to the executive? a) India
+0027|23. The Indian Councils Act of 1909 is also known as: a) Montagu-Chelmsford Reforms b) Morley-Minto Reforms c) Simon Commission Re
+0028|24. Under the Act of 1909, who became the first Indian to join the Viceroy’s Executive Council as a law member? a) Satyendra Prasa
+0029|25. "Legalized communalism" is associated with which Act that introduced a system of communal representation for Muslims by accept
+0030|26. Which Act introduced, for the first time, bicameralism and direct elections in the country? a) Indian Councils Act of 1909 b) 
+0031|27. The Government of India Act of 1919 divided the provincial subjects into two parts: transferred and reserved. This dual scheme
+0032|28. Which Act created a new office of the High Commissioner for India in London and transferred to him some of the functions perfo
+0033|29. The Government of India Act of 1935 provided for the establishment of an All-India Federation consisting of provinces and prin
+0034|30. Under the Act of 1935, where were the residuary powers vested? a) Federal Legislature b) Provincial Legislature c) Viceroy d) 
+0035|31. The Act of 1935 introduced bicameralism in how many out of the 11 provinces? a) 4 b) 6 c) 8 d) 11
+0036|32. Separate electorates were extended to the depressed classes (scheduled castes), women, and labour (workers) by which Act? a) A
+0037|33. The Government of India Act of 1935 provided for the establishment of which two specific bodies in addition to the Federal Cou
+0038|34. On February 20, 1947, who declared that the British rule in India would end by June 30, 1948? a) Lord Mountbatten b) Clement A
+0039|35. The Indian Independence Act of 1947 deprived the British Monarch of his right to veto bills or ask for reservation of certain 
+0040|Here is Level 2 for Chapter 1: Historical Background.
+0041|Level 2 Criteria:
+0042|* Standard: Moderate / Conceptual.
+0043|* Scope: Focuses on the evolution of laws, connecting different Acts, and testing the "why" and "how" rather than just the "what".
+0044|* Total Questions: 30.
+0045|________________
+0048|Level 2: The Conceptual Bridge (Applied Knowledge)
+0049|Company Rule Evolution (1773–1853)
+0050|1. The Regulating Act of 1773 is often criticized for creating a chaotic administrative structure. Which of the following provisio
+0051|2. Which of the following Acts is associated with the "Double Government" system where the commercial and political functions of t
+0052|3. Why is the Charter Act of 1833 considered the final step towards "Centralization" in British India? a) It introduced the portfo
+0053|4. Consider the following statements regarding the Charter Act of 1853:
+0054|   1. It separated, for the first time, the legislative and executive functions of the Governor-General’s council.
+0055|   2. It introduced an open competition system for selection of civil servants.
+0056|   3. It extended the Company’s rule for an indefinite period, unlike previous Charters. Which of the statements given above are c
+0057|5. The "Mini-Parliament" mentioned in the context of British India refers to: a) The Governor-General's Executive Council under th
+0058|Crown Rule & Administrative Changes (1858–1909)
+0059|6. The Government of India Act of 1858 ended the 'Double Government' system established by Pitt's India Act. What did this specifi
+0060|7. "It was a good government in name, but a bureaucracy in reality." This criticism is often directed at the Act of 1858 because: 
+0061|8. The process of 'Decentralization' (restoring legislative powers to provinces) began with the Act of 1861 and was completed by w
+0062|9. Which Act is credited with initiating the "representative institutions" in India by associating Indians with the law-making pro
+0063|10. The Indian Councils Act of 1892 increased the functions of legislative councils. Which of the following powers was NOT granted
+0064|Reforms & Dyarchy (1909–1919)
+0065|11. The Morley-Minto Reforms (1909) are most controversially known for: a) Granting Dominion Status. b) Introducing 'Separate Elec
+0066|12. Consider the following statements regarding the Government of India Act, 1919:
+0067|   1. It relaxed the central control over the provinces by demarcating central and provincial subjects.
+0068|   2. The provincial budget was separated from the central budget.
+0069|   3. It introduced 'Dyarchy' at the Centre. Which of the statements given above is/are correct? a) 1 only b) 1 and 2 only c) 2 an
+0070|13. In the context of 'Dyarchy' introduced by the Act of 1919 in the provinces, how were 'Transferred Subjects' administered? a) B
+0071|14. Which of the following acts introduced the principle of "Direct Elections" in India for the first time? a) Indian Councils Act
+0072|15. The "High Commissioner for India" in London, a post created by the Act of 1919, was meant to: a) Oversee the Viceroy. b) Handl
+0073|Towards Federation & Independence (1927–1947)
+0074|16. The Simon Commission (1927) recommendations included which of the following? a) Establishment of a Dyarchy at the Centre. b) A
+0075|17. The 'Communal Award' of 1932 led to the 'Poona Pact'. What was the primary outcome of the Poona Pact? a) Separate electorates 
+0076|18. The Government of India Act of 1935 is often described as a "rigid" constitution. Why? a) It could not be amended by the India
+0077|19. The 'Instrument of Instructions' in the Act of 1935 guided the Governor-General and Governors in the exercise of their functio
+0078|20. Under the Act of 1935, 'Residuary Powers' were given to the Viceroy (Governor-General). In the present Indian Constitution, th
+0079|21. The proposed 'All-India Federation' under the Act of 1935 never came into existence because: a) The Congress Party rejected it

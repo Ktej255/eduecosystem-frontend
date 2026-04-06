@@ -18,6 +18,8 @@ steps:
       - '--region=$_GCP_REGION'
       - '--platform=managed'
       - '--allow-unauthenticated'
+      - '--set-cloudsql-instances=eduecosystem-prod:us-central1:eduecosystem-db'
+      - '--set-env-vars=DATABASE_URL=postgresql://postgres:Tej%401106@/eduecosystem_prod?host=/cloudsql/eduecosystem-prod:us-central1:eduecosystem-db,ENVIRONMENT=production,SECRET_KEY=eduecosystem-gcp-secret-2026-final'
 
 substitutions:
   _GCP_REGION: 'us-central1'

@@ -1,37 +1,29 @@
-# Production Dockerfile
-FROM python:3.11-slim AS production
+# --- EduEcosystem Backend Production Dockerfile ---
+FROM python:3.10-slim
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+ENV PORT 8080
 
 WORKDIR /app
 
-# Install system dependencies (minimal set for core app)
-RUN apt-get update && apt-get install -y --no-install-recommends \
+# Install system dependencies (Debian/Slim style)
+RUN apt-get update && apt-get install -y \
     build-essential \
     libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Install python dependencies
-COPY requirements.txt .
-
-# Install CPU-only torch first to prevent massive downloads (required by easyocr)
-RUN pip install --no-cache-dir --default-timeout=1000 torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
-
+# Copy requirements and install from backend directory
+COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install --no-cache-dir gunicorn uvicorn[standard] psycopg2-binary redis python-multipart
+RUN pip install --no-cache-dir psycopg2-binary uvicorn uvloop numpy
 
-# Copy application code
-COPY . .
+# Copy application code from backend directory
+COPY backend/ .
 
-# Ensure start.sh is executable and has correct line endings
-RUN chmod +x start.sh && \
-    sed -i 's/\r$//' start.sh || true
+# Ensure scripts are executable
+RUN chmod +x /app/scripts/*.py
 
-# Create non-root user
-RUN adduser --disabled-password --gecos '' appuser
-RUN chown -R appuser:appuser /app
-USER appuser
-
-# Expose port
-EXPOSE 8000
-
-# Command to run the application
-CMD ["./start.sh"]
+# Command to run on Cloud Run (Port injected by GCP)
+CMD exec uvicorn main:app --host 0.0.0.0 --port $PORT

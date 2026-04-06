@@ -14,17 +14,21 @@ import { Button } from "@/components/ui/button";
 import {
     BookOpen, CheckCircle2, ChevronRight, Compass,
     Trophy, Sparkles, Map as MapIcon, Hourglass,
-    ArrowRight, Zap
+    ArrowRight, Zap, Target, Timer, Newspaper
 } from "lucide-react";
 
 import {
     ANCIENT_PARTS,
     ANCIENT_TOPICS,
-    AncientPart,
-    ChapterProgress,
-    SectionStatus
 } from "@/components/batch1/history/data/ancient-types-27";
 import { ANCIENT_TRENDS } from "@/components/batch1/history/data/mcqs/ancient/trends";
+import {
+    getEraChapters,
+    getEraProgressStats,
+    isEraChapterMastered,
+    isEraChapterStarted,
+    type HistoryChapterProgress,
+} from "@/lib/history-era-store";
 
 function YieldHeatmap() {
     return (
@@ -62,14 +66,14 @@ function YieldHeatmap() {
     );
 }
 
-const SECTION_KEYS: (keyof ChapterProgress)[] = ['readSection', 'flashcards', 'drill', 'l1', 'l2', 'l3'];
+const SECTION_KEYS: (keyof HistoryChapterProgress)[] = ['readSection', 'flashcards', 'drill', 'l1', 'l2', 'l3'];
 const SECTION_LABELS = ['R', 'F', 'D', '1', '2', '3'];
 
-function SectionDots({ progress }: { progress?: ChapterProgress }) {
+function SectionDots({ progress }: { progress?: HistoryChapterProgress }) {
     return (
         <div className="flex gap-1 items-center">
             {SECTION_KEYS.map((key, i) => {
-                const status = (progress?.[key] as SectionStatus) || 'not-started';
+                const status = (progress?.[key] as string) || 'not-started';
                 return (
                     <span
                         key={key}
@@ -87,34 +91,14 @@ function SectionDots({ progress }: { progress?: ChapterProgress }) {
 
 export default function AncientHistoryDashboard() {
     const router = useRouter();
-    const [progressData, setProgressData] = useState<Record<string | number, any>>({});
-    const [stats, setStats] = useState({
-        completed: 0,
-        total: 27,
-        percentage: 0
-    });
+    const [progressData, setProgressData] = useState<Record<number, HistoryChapterProgress>>({});
+    const [stats, setStats] = useState({ mastered: 0, started: 0, total: 27, percentage: 0 });
 
     useEffect(() => {
-        const saved = localStorage.getItem('ancient_27_progress');
-        if (saved) {
-            const parsed = JSON.parse(saved);
-            setProgressData(parsed);
-
-            // Count chapters where ALL 6 sections are completed
-            const completed = Object.entries(parsed).filter(([, p]: [string, any]) => {
-                if (!p) return false;
-                return SECTION_KEYS.every(k => p[k] === 'completed');
-            }).length;
-            const started = Object.entries(parsed).filter(([, p]: [string, any]) => {
-                if (!p) return false;
-                return SECTION_KEYS.some(k => p[k] === 'in-progress' || p[k] === 'completed');
-            }).length;
-            setStats({
-                completed,
-                total: 27,
-                percentage: Math.round((started / 27) * 100)
-            });
-        }
+        const chapters = getEraChapters('ancient');
+        setProgressData(chapters);
+        const s = getEraProgressStats('ancient', 27);
+        setStats(s);
     }, []);
 
     const topicsByPart = useMemo(() => {
@@ -175,8 +159,12 @@ export default function AncientHistoryDashboard() {
         }
     };
 
-    const handleTopicClick = (id: string | number) => {
-        router.push(`/student/batch1-1/ancient-history/${id}`);
+    const handleAction = (id: number | string, action: 'read' | 'mcq' | 'ca' | 'timer') => {
+        const base = `/student/batch1-1/ancient-history/${id}`;
+        if (action === 'read')  router.push(base);
+        if (action === 'mcq')   router.push(`${base}/mcq`);
+        if (action === 'ca')    router.push(`${base}/current-affairs`);
+        if (action === 'timer') router.push(`/student/batch1-1/pomodoro?subject=history_ancient&chapter=${id}`);
     };
 
     return (
@@ -201,7 +189,7 @@ export default function AncientHistoryDashboard() {
                         <div className="flex items-center gap-4 bg-black/20 p-4 rounded-xl backdrop-blur-sm w-fit mt-auto border border-white/5">
                             <Trophy className="h-8 w-8 text-amber-400" />
                             <div>
-                                <div className="text-white font-bold text-xl">{stats.completed} / {stats.total}</div>
+                                <div className="text-white font-bold text-xl">{stats.mastered} / {stats.total}</div>
                                 <div className="text-stone-400 text-sm">Chapters Mastered</div>
                             </div>
                         </div>
@@ -229,7 +217,11 @@ export default function AncientHistoryDashboard() {
                         <div className="space-y-4">
                             <div className="flex justify-between items-center text-sm p-3 bg-stone-50 rounded-lg border border-stone-100">
                                 <span className="font-medium text-stone-600">Pending Topics</span>
-                                <span className="font-bold text-stone-800">{stats.total - stats.completed}</span>
+                                <span className="font-bold text-stone-800">{stats.total - stats.mastered}</span>
+                            </div>
+                            <div className="flex justify-between items-center text-sm p-3 bg-emerald-50 rounded-lg border border-emerald-100">
+                                <span className="font-medium text-emerald-700">Mastered Topics</span>
+                                <span className="font-bold text-emerald-900">{stats.mastered}</span>
                             </div>
                         </div>
 
@@ -270,13 +262,9 @@ export default function AncientHistoryDashboard() {
                     {ANCIENT_PARTS.map((part) => {
                         const style = getPartColors(part.color);
                         const partTopics = topicsByPart[part.id] || [];
-                        const partCompleted = partTopics.filter(t => {
-                            const p = progressData[t.id];
-                            if (!p) return false;
-                            return SECTION_KEYS.every(k => p[k] === 'completed');
-                        }).length;
+                        const partMastered = partTopics.filter(t => isEraChapterMastered('ancient', Number(t.id))).length;
                         const partTotal = partTopics.length;
-                        const partProgress = Math.round((partCompleted / Math.max(partTotal, 1)) * 100);
+                        const partProgress = Math.round((partMastered / Math.max(partTotal, 1)) * 100);
 
                         return (
                             <Card key={part.id} className={`border-2 ${style.border} overflow-hidden shadow-sm hover:shadow-md transition-shadow`}>
@@ -295,7 +283,7 @@ export default function AncientHistoryDashboard() {
                                         </div>
                                         <div className="text-right">
                                             <div className="text-lg font-bold text-stone-800">
-                                                {partCompleted}/{partTotal}
+                                                {partMastered}/{partTotal}
                                             </div>
                                             <div className="text-xs font-semibold text-stone-500 uppercase tracking-widest mt-1">
                                                 Done
@@ -307,64 +295,82 @@ export default function AncientHistoryDashboard() {
                                 <CardContent className="p-0">
                                     <div className="divide-y divide-stone-100">
                                         {partTopics.map((topic) => {
-                                            const chapterProg = progressData[topic.id] as ChapterProgress | undefined;
-                                            const isDone = chapterProg ? SECTION_KEYS.every(k => chapterProg[k] === 'completed') : false;
-                                            const hasStarted = chapterProg ? SECTION_KEYS.some(k => chapterProg[k] === 'in-progress' || chapterProg[k] === 'completed') : false;
+                                            const topicNum = Number(topic.id);
+                                            const prog = progressData[topicNum];
+                                            const isMastered = isEraChapterMastered('ancient', topicNum);
+                                            const hasStarted = isEraChapterStarted('ancient', topicNum);
 
                                             return (
                                                 <div
                                                     key={topic.id}
-                                                    onClick={() => handleTopicClick(topic.id)}
                                                     className={`
-                                                        p-4 flex items-center justify-between group cursor-pointer
+                                                        p-3 flex items-center justify-between group
                                                         hover:bg-stone-50 transition-colors
-                                                        ${isDone ? 'bg-stone-50/50' : 'bg-white'}
+                                                        ${isMastered ? 'bg-stone-50/50' : 'bg-white'}
                                                     `}
                                                 >
-                                                    <div className="flex items-center gap-4 flex-1 min-w-0 pr-4">
+                                                    <div className="flex items-center gap-3 flex-1 min-w-0 pr-4">
                                                         <div className={`
-                                                            flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm
-                                                            ${isDone
-                                                                ? 'bg-green-100 text-green-700'
+                                                            flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm
+                                                            ${isMastered
+                                                                ? 'bg-emerald-100 text-emerald-700'
                                                                 : style.icon
                                                             }
                                                         `}>
-                                                            {isDone ? <CheckCircle2 className="h-5 w-5" /> : topic.id}
+                                                            {isMastered ? <CheckCircle2 className="h-4 w-4" /> : topic.id}
                                                         </div>
                                                         <div className="flex-1 min-w-0">
                                                             <div className="flex items-center gap-2 flex-wrap">
                                                                 <h4 className={`
-                                                                    font-semibold truncate text-base
-                                                                    ${isDone ? 'text-stone-500 line-through decoration-stone-300' : 'text-stone-800'}
+                                                                    font-semibold truncate text-sm
+                                                                    ${isMastered ? 'text-stone-500 line-through decoration-stone-300' : 'text-stone-800'}
                                                                 `}>
                                                                     {topic.title}
                                                                 </h4>
-                                                                {/* Example of new module indicator */}
-                                                                {topic.id === 1 && !isDone && (
-                                                                    <Badge className="bg-amber-500 hover:bg-amber-600 text-white border-0 py-0 h-5 px-1.5 text-[10px]">
-                                                                        NEW UI
-                                                                    </Badge>
-                                                                )}
                                                             </div>
-                                                            <div className="flex items-center gap-2 mt-1">
-                                                                <SectionDots progress={chapterProg} />
-                                                                <span className="text-[10px] text-stone-400 hidden sm:inline">
-                                                                    {isDone ? 'All sections complete' : hasStarted ? 'In progress' : 'Not started'}
-                                                                </span>
+                                                            <div className="flex items-center gap-2 mt-0.5">
+                                                                <SectionDots progress={prog} />
                                                             </div>
                                                         </div>
                                                     </div>
 
-                                                    <Button
-                                                        variant="ghost"
-                                                        size="sm"
-                                                        className={`
-                                                            flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity rounded-full w-8 h-8 p-0
-                                                            ${style.icon}
-                                                        `}
-                                                    >
-                                                        <ChevronRight className="h-5 w-5" />
-                                                    </Button>
+                                                    {/* 4-Button Action Row */}
+                                                    <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0">
+                                                        <button
+                                                            onClick={() => handleAction(topic.id, 'read')}
+                                                            title="Read Chapter"
+                                                            className="p-1.5 rounded-lg hover:bg-indigo-100 text-indigo-600 transition-colors"
+                                                        >
+                                                            <BookOpen className="h-3.5 w-3.5" />
+                                                        </button>
+                                                        <button
+                                                            onClick={() => handleAction(topic.id, 'mcq')}
+                                                            title="MCQ Practice (L1/L2/L3)"
+                                                            className="p-1.5 rounded-lg hover:bg-emerald-100 text-emerald-600 transition-colors"
+                                                        >
+                                                            <Target className="h-3.5 w-3.5" />
+                                                        </button>
+                                                        <button
+                                                            onClick={() => handleAction(topic.id, 'ca')}
+                                                            title="Current Affairs"
+                                                            className="p-1.5 rounded-lg hover:bg-amber-100 text-amber-600 transition-colors"
+                                                        >
+                                                            <Newspaper className="h-3.5 w-3.5" />
+                                                        </button>
+                                                        <button
+                                                            onClick={() => handleAction(topic.id, 'timer')}
+                                                            title="Study with Pomodoro"
+                                                            className="p-1.5 rounded-lg hover:bg-rose-100 text-rose-600 transition-colors"
+                                                        >
+                                                            <Timer className="h-3.5 w-3.5" />
+                                                        </button>
+                                                    </div>
+
+                                                    {/* Status Indicator Bar */}
+                                                    <div className={`w-1.5 h-8 rounded-full flex-shrink-0 ml-1 ${
+                                                        isMastered ? 'bg-emerald-400' :
+                                                        hasStarted ? 'bg-amber-400' : 'bg-stone-200'
+                                                    }`} />
                                                 </div>
                                             );
                                         })}

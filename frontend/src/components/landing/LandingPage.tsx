@@ -12,7 +12,9 @@ import {
     Globe,
     Lock,
     Target,
-    PenTool
+    PenTool,
+    CheckCircle,
+    Sparkles
 } from "lucide-react";
 import Link from "next/link";
 import { useAuth } from "@/contexts/auth-context";
@@ -251,6 +253,135 @@ export default function LandingPage() {
                         </div>
                         {/* Visual element here */}
                     </motion.div>
+                </div>
+            </section>
+
+            {/* Pricing Section */}
+            <section id="pricing" className="relative py-32 px-6 overflow-hidden">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary-blue/5 blur-[120px] rounded-full pointer-events-none" />
+                
+                <div className="max-w-7xl mx-auto relative z-10">
+                    <div className="text-center mb-20">
+                        <motion.h2 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            className="text-5xl md:text-6xl font-black mb-6"
+                        >
+                            Invest in your <span className="text-primary-blue">Growth</span>
+                        </motion.h2>
+                        <p className="text-neutral-slate text-lg max-w-2xl mx-auto">
+                            Choose a plan that fits your ambition. From single subjects to 
+                            full UPSC mastery, we have scaled options for every aspirant.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                        {/* Entry Plan */}
+                        <motion.div 
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            className="bg-neutral-dark/40 backdrop-blur-xl border border-neutral-cool/20 p-10 rounded-[2.5rem] hover:border-white/20 transition-all group"
+                        >
+                            <div className="mb-8">
+                                <h3 className="text-xl font-bold text-slate-400 mb-2 uppercase tracking-widest">Entry</h3>
+                                <div className="flex items-baseline gap-2">
+                                    <span className="text-5xl font-black text-white">₹1</span>
+                                    <span className="text-slate-500 line-through text-lg group-hover:text-amber-500/50 transition-colors">₹1,999</span>
+                                </div>
+                                <p className="text-amber-500 text-xs font-bold mt-2 uppercase tracking-tighter">🔥 Launch Price (Polity Only)</p>
+                            </div>
+
+                            <ul className="space-y-4 mb-10">
+                                <li className="flex items-center gap-3 text-neutral-slate text-sm">
+                                    <CheckCircle className="w-5 h-5 text-emerald-500" /> Complete 80+ Chapters (Laxmikanth)
+                                </li>
+                                <li className="flex items-center gap-3 text-neutral-slate text-sm">
+                                    <CheckCircle className="w-5 h-5 text-emerald-500" /> Statement-Based MCQ Drills
+                                </li>
+                                <li className="flex items-center gap-3 text-neutral-slate text-sm opacity-50">
+                                    <CheckCircle className="w-5 h-5 text-slate-700" /> Current Affairs Integration
+                                </li>
+                            </ul>
+
+                            <button onClick={handleStart} className="w-full py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl font-bold transition-all transform hover:scale-[1.02]">
+                                Start with Polity
+                            </button>
+                        </motion.div>
+
+                        {/* Popular Plan */}
+                        <motion.div 
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            className="relative bg-gradient-to-br from-primary-blue/20 to-primary-indigo/20 backdrop-blur-xl border-2 border-primary-blue p-10 rounded-[2.5rem] shadow-[0_20px_50px_rgba(38,103,255,0.2)] transform md:scale-105"
+                        >
+                            <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-6 py-1 bg-primary-blue rounded-full text-xs font-black uppercase tracking-widest text-white shadow-lg">
+                                Best Value
+                            </div>
+                            
+                            <div className="mb-8">
+                                <h3 className="text-xl font-bold text-blue-300 mb-2 uppercase tracking-widest">Pro Subject</h3>
+                                <div className="flex items-baseline gap-2">
+                                    <span className="text-5xl font-black text-white">₹299</span>
+                                    <span className="text-blue-500/50 line-through text-lg">₹2,499</span>
+                                </div>
+                                <p className="text-blue-400 text-xs font-bold mt-2 uppercase tracking-tighter">History or Geography (Student Favorite)</p>
+                            </div>
+
+                            <ul className="space-y-4 mb-10">
+                                <li className="flex items-center gap-3 text-white text-sm">
+                                    <CheckCircle className="w-5 h-5 text-emerald-400" /> Full Syllabus Coverage
+                                </li>
+                                <li className="flex items-center gap-3 text-white text-sm">
+                                    <CheckCircle className="w-5 h-5 text-emerald-400" /> 3-Tier Difficulty MCQs
+                                </li>
+                                <li className="flex items-center gap-3 text-white text-sm">
+                                    <CheckCircle className="w-5 h-5 text-emerald-400" /> 21-Day Mastery Schedule
+                                </li>
+                                <li className="flex items-center gap-3 text-white text-sm">
+                                    <CheckCircle className="w-5 h-5 text-emerald-400" /> Smart Flashcards (Spaced Repetition)
+                                </li>
+                            </ul>
+
+                            <button onClick={handleStart} className="w-full py-5 bg-primary-blue hover:bg-blue-600 rounded-2xl font-black text-white shadow-lg transition-all transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
+                                Unlock Pro Subject <Sparkles className="w-5 h-5" />
+                            </button>
+                        </motion.div>
+
+                        {/* Master Plan */}
+                        <motion.div 
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            className="bg-neutral-dark/40 backdrop-blur-xl border border-neutral-cool/20 p-10 rounded-[2.5rem] hover:border-white/20 transition-all"
+                        >
+                            <div className="mb-8">
+                                <h3 className="text-xl font-bold text-slate-400 mb-2 uppercase tracking-widest">Lifetime</h3>
+                                <div className="flex items-baseline gap-2">
+                                    <span className="text-5xl font-black text-white">₹2499</span>
+                                    <span className="text-slate-500 line-through text-lg">₹7,999</span>
+                                </div>
+                                <p className="text-purple-400 text-xs font-bold mt-2 uppercase tracking-tighter">Full Ecosystem Access</p>
+                            </div>
+
+                            <ul className="space-y-4 mb-10">
+                                <li className="flex items-center gap-3 text-neutral-slate text-sm">
+                                    <CheckCircle className="w-5 h-5 text-purple-500" /> All Subjects (Geography, Polity, etc.)
+                                </li>
+                                <li className="flex items-center gap-3 text-neutral-slate text-sm">
+                                    <CheckCircle className="w-5 h-5 text-purple-500" /> Personalized AI Study Coach
+                                </li>
+                                <li className="flex items-center gap-3 text-neutral-slate text-sm">
+                                    <CheckCircle className="w-5 h-5 text-purple-500" /> Dashboard Analytics Mastery
+                                </li>
+                                <li className="flex items-center gap-3 text-neutral-slate text-sm font-bold text-white">
+                                    <CheckCircle className="w-5 h-5 text-purple-400" /> No Monthly Subscriptions
+                                </li>
+                            </ul>
+
+                            <button onClick={handleStart} className="w-full py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl font-bold transition-all transform hover:scale-[1.02]">
+                                Get Lifetime Access
+                            </button>
+                        </motion.div>
+                    </div>
                 </div>
             </section>
 

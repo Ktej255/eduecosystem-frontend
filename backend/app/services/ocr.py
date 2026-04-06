@@ -10,12 +10,11 @@ from app.schemas.handwriting import HandwritingAnalysis, HandwritingFeatures
 reader = None
 
 def get_reader():
-    global reader
-    if reader is None:
-        import easyocr
-        # GPU=False to be safe on standard environments
-        reader = easyocr.Reader(["en"], gpu=False)
-    return reader
+    """
+    Reader neutralized to reduce container size. 
+    Functionality shifted to Gemini Vision.
+    """
+    return None
 
 def parse_ai_json(text: str) -> dict:
     """
@@ -48,18 +47,8 @@ def analyze_handwriting(image_path: str, user: Any = None) -> dict:
     if not os.path.exists(image_path):
         return {"extracted_text": "", "features": {"error": "File not found"}, "analysis": "Error"}
 
-    try:
-        # Extract text using EasyOCR (Legacy text backup)
-        r = get_reader()
-        result = r.readtext(image_path, detail=0)
-        extracted_text = " ".join(result)
-
-        if not extracted_text:
-            extracted_text = "[No text detected. Please try a clearer image.]"
-
-    except Exception as e:
-        print(f"OCR Error: {e}")
-        extracted_text = "[Error processing image]"
+    # Initial placeholder for extracted text
+    extracted_text = "[Processing image with Gemini Vision...]"
 
     # Use Gemini Vision API for personality analysis with structured JSON output
     analysis_prompt = """Analyze this handwriting sample image for graphology/personality insights.

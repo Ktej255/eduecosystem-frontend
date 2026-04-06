@@ -18,34 +18,55 @@ def get_pack_leaderboard(
     current_user: User = Depends(deps.get_current_active_user)
 ):
     """
-    Get the top packs.
+    Get the top packs. Bulletproof — handles missing columns gracefully.
     """
     try:
         if weekly:
             packs = pack_service.get_weekly_leaderboard(db, limit)
         else:
             packs = pack_service.get_leaderboard(db, limit)
-        
+
+        if not packs:
+            return {"leaderboard": [], "message": "No packs created yet. Packs will appear here once the admin sets them up."}
+
         result = []
         for p in packs:
             try:
-                metadata = json.loads(p.pack_metadata) if p.pack_metadata and isinstance(p.pack_metadata, str) else (p.pack_metadata if p.pack_metadata else {})
+                metadata = json.loads(p.pack_metadata) if p.pack_metadata and isinstance(p.pack_metadata, str) else (p.pack_metadata or {})
             except Exception:
                 metadata = {}
-                
+
+            try:
+                is_my_pack = any(m.user_id == current_user.id for m in getattr(p, 'members', []))
+            except Exception:
+                is_my_pack = False
+
             result.append({
                 "id": getattr(p, 'id', None),
-                "name": getattr(p, 'name', 'Unknown'),
+                "name": getattr(p, 'name', 'Unknown Pack'),
                 "house_type": getattr(p, 'house_type', None),
                 "points": getattr(p, 'weekly_points', 0) if weekly else getattr(p, 'pack_points', 0),
                 "metadata": metadata,
-                "is_my_pack": any(m.user_id == current_user.id for m in getattr(p, 'members', [])) if current_user else False
+                "is_my_pack": is_my_pack
             })
-        
+
         return result
+
     except Exception as e:
-        print(f"Error in leaderboard: {e}")
-        return []
+        import logging
+        logging.getLogger(__name__).warning(f"Leaderboard ORM error (likely missing columns — run migration): {e}")
+        # Raw SQL fallback — only uses columns guaranteed to exist from the original migration
+        try:
+            raw = db.execute(
+                __import__('sqlalchemy').text(
+                    "SELECT id, name FROM learning_groups ORDER BY id DESC LIMIT :lim"
+                ),
+                {"lim": limit}
+            ).fetchall()
+            return [{"id": r[0], "name": r[1], "house_type": None, "points": 0, "metadata": {}, "is_my_pack": False} for r in raw]
+        except Exception:
+            return {"leaderboard": [], "message": "Leaderboard loading soon. Run: alembic upgrade add_wolfpack_and_ai_portal"}
+
 
 @router.get("/my-pack")
 def get_my_pack(

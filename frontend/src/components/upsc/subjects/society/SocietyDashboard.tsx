@@ -3,8 +3,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Users, Globe2, Heart, Building2, ChevronRight, Hash, Smile, Baby } from 'lucide-react';
+import { Users, Globe2, Heart, Building2, ChevronRight, Hash, Smile, Baby, Zap } from 'lucide-react';
 import { SOCIETY_SYLLABUS } from './data/society-schedule-data';
+import SubjectDrillWidget from '@/components/upsc/SubjectDrillWidget';
 
 export default function SocietyDashboard() {
     return (
@@ -69,6 +70,17 @@ export default function SocietyDashboard() {
                         </CardContent>
                     </Card>
                 ))}
+            </div>
+
+            {/* Practice Section */}
+            <div className="border-t border-border pt-8">
+                <div className="flex items-center gap-2 mb-6">
+                    <Zap className="w-5 h-5 text-pink-500" />
+                    <h2 className="text-xl font-bold text-foreground">Quick Practice — Society MCQs</h2>
+                </div>
+                <div className="max-w-2xl">
+                    <SubjectDrillWidget subject="Society" color="rose" />
+                </div>
             </div>
         </div>
     );

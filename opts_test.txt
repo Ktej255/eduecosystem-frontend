@@ -1,0 +1,18 @@
+﻿LENGTH: 245
+  opt at 214: '? a) 1600 b) 1757 c) 1764 d) 176'
+  opt at 222: '0 b) 1757 c) 1764 d) 1765'
+  opt at 230: '7 c) 1764 d) 1765'
+  opt at 238: '4 d) 1765'
+  [000]: 1. The Britishers originally came to India in 1608 as traders in the form of the
+  [080]:  East India Company. In which year did they obtain the 'diwani' (rights over rev
+  [160]: enue and civil justice) of Bengal, Bihar, and Orissa? a) 1600 b) 1757 c) 1764 d)
+  [240]:  1765
+
+MODERN Q LENGTH: 163
+  opt at 93: '? (a) Creative Literature (b) Ar'
+  opt at 117: 'e (b) Archives (c) Oral Evidence'
+  opt at 130: 's (c) Oral Evidence (d) Biograph'
+  opt at 148: 'e (d) Biographies'
+  [000]: Q1. Which material is given the utmost priority in constructing the history of m
+  [080]: odern India? (a) Creative Literature (b) Archives (c) Oral Evidence (d) Biograph
+  [160]: ies

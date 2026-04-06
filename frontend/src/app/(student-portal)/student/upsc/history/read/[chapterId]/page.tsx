@@ -9,6 +9,7 @@ import { MODERN_HISTORY_CONTENT } from '@/components/upsc/subjects/history/data/
 import { MEDIEVAL_CONTENT_MAP } from '@/components/upsc/subjects/history/data/medieval/content-registry';
 import { contentRegistry as ANCIENT_CONTENT_MAP } from '@/components/upsc/subjects/history/data/ancient/content-registry';
 import { isHistoryChapterComplete, markHistoryChapterComplete } from '@/lib/history-progress-store';
+import { getSpectrumChapterProgress, updateSpectrumChapterSection } from '@/lib/modern-history-store';
 import ConfidencePoll from '@/components/shared/ConfidencePoll';
 import { CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
@@ -94,11 +95,20 @@ function HistoryReadContent() {
     const [isCompleted, setIsCompleted] = useState(false);
 
     useEffect(() => {
-        setIsCompleted(isHistoryChapterComplete(parseInt(chapterId)));
-    }, [chapterId]);
+        if (section === 'modern') {
+            const p = getSpectrumChapterProgress(parseInt(chapterId));
+            setIsCompleted(p?.readSection === 'completed');
+        } else {
+            setIsCompleted(isHistoryChapterComplete(parseInt(chapterId)));
+        }
+    }, [chapterId, section]);
 
     const handleMarkComplete = () => {
-        markHistoryChapterComplete(parseInt(chapterId));
+        if (section === 'modern') {
+            updateSpectrumChapterSection(parseInt(chapterId), 'readSection', 'completed');
+        } else {
+            markHistoryChapterComplete(parseInt(chapterId));
+        }
         setIsCompleted(true);
         toast.success("Chapter marked as complete!");
     };

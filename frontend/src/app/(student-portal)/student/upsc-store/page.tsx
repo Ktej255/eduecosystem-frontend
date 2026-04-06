@@ -27,12 +27,13 @@ const PRODUCTS = [
         icon: Globe2,
         color: "from-blue-500 to-indigo-700",
         bestValue: true,
-        badge: "🔥 New Launch"
+        badge: "🔥 New Launch",
+        isComingSoon: true
     },
     {
         id: 'polity',
         title: "Logic Masterclass (Polity)",
-        price: 1,
+        price: 299,
         originalPrice: 1999,
         description: "Master the 'Why' behind every constitutional article. Statement-based MCQs for all 80+ chapters (Laxmikanth Standard).",
         features: ["80+ Chapters (Laxmikanth)", "Statement MCQ Drills", "Revision Flashcards"],
@@ -87,7 +88,26 @@ const PRODUCTS = [
         icon: Coins,
         color: "from-indigo-500 to-blue-700",
         bestValue: false,
-        badge: "💰 High Yield"
+        badge: "💰 High Yield",
+        isComingSoon: true
+    },
+    {
+        id: 'environment',
+        title: "Environment & Ecology",
+        price: 299,
+        originalPrice: 999,
+        description: "Master Environment & Ecology for UPSC Prelims 2026. Complete coverage of mapping, biosphere reserves, and conventions.",
+        features: [
+            "Complete Mapping Logic",
+            "All Critical Conventions",
+            "Daily MCQ Practice",
+            "Current Affairs Updates"
+        ],
+        icon: Leaf,
+        color: "from-emerald-500 to-green-700",
+        bestValue: false,
+        badge: null,
+        isComingSoon: false
     },
     {
         id: 'full_upsc',
@@ -105,7 +125,8 @@ const PRODUCTS = [
         icon: Star,
         color: "from-purple-600 to-pink-600",
         bestValue: false,
-        badge: "💎 Best Value"
+        badge: "💎 Best Value",
+        isComingSoon: true
     },
     {
         id: 'grapho',
@@ -131,8 +152,10 @@ function StorePageContent() {
 
     const handlePurchase = (productId: string, price: number) => {
         const product = PRODUCTS.find(p => p.id === productId);
-        if (product) {
+        if (product && !product.isComingSoon) {
             setFunnelItem({ id: product.id, title: product.title, price: product.price });
+        } else if (product?.isComingSoon) {
+            router.push('/register');
         }
     };
 
@@ -239,26 +262,29 @@ function StorePageContent() {
                                     : product.bestValue
                                         ? 'border-amber-400/50 ring-2 ring-amber-400/10'
                                         : 'border-border'
-                                    }`}
+                                    } ${product.isComingSoon ? 'opacity-90' : ''}`}
                             >
                                 {/* Badge */}
-                                {(product.badge || isHighlighted) && (
-                                    <div className={`bg-gradient-to-r ${product.color} text-white text-xs font-bold uppercase tracking-widest py-1.5 px-3 rounded-full w-fit mb-4`}>
-                                        {isHighlighted ? '⭐ Recommended for You' : product.badge}
+                                {(product.badge || isHighlighted || product.isComingSoon) && (
+                                    <div className={`bg-gradient-to-r ${product.isComingSoon ? 'from-slate-500 to-slate-700' : product.color} text-white text-xs font-bold uppercase tracking-widest py-1.5 px-3 rounded-full w-fit mb-4`}>
+                                        {product.isComingSoon ? '⏳ Coming Soon' : isHighlighted ? '⭐ Recommended for You' : product.badge}
                                     </div>
                                 )}
 
-                                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${product.color} flex items-center justify-center text-white mb-5 shadow-lg`}>
+                                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${product.isComingSoon ? 'from-slate-400 to-slate-600' : product.color} flex items-center justify-center text-white mb-5 shadow-lg`}>
                                     <Icon className="w-7 h-7" />
                                 </div>
 
                                 <h3 className="text-xl font-black text-foreground mb-2">{product.title}</h3>
-                                <p className="text-muted-foreground text-sm mb-5 flex-1 leading-relaxed">{product.description}</p>
+                                <p className="text-muted-foreground text-sm mb-5 flex-1 leading-relaxed">
+                                    {product.description}
+                                    {product.isComingSoon && <span className="block mt-2 font-bold text-indigo-500">Content launching soon. Join waitlist.</span>}
+                                </p>
 
                                 <ul className="space-y-2 mb-6">
                                     {product.features.map((feat, i) => (
                                         <li key={i} className="flex items-center gap-3 text-sm text-muted-foreground">
-                                            <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0" />
+                                            <CheckCircle className={`w-4 h-4 shrink-0 ${product.isComingSoon ? 'text-slate-500' : 'text-emerald-500'}`} />
                                             {feat}
                                         </li>
                                     ))}
@@ -277,16 +303,22 @@ function StorePageContent() {
                                     disabled={purchasing === product.id}
                                     className={`w-full py-4 rounded-xl font-bold text-base shadow-lg flex items-center justify-center gap-2 transition-all active:scale-95 ${purchasing === product.id
                                         ? 'bg-muted text-muted-foreground cursor-not-allowed'
-                                        : `bg-gradient-to-r ${product.color} text-white hover:opacity-90`
+                                        : product.isComingSoon
+                                            ? 'bg-slate-200 dark:bg-slate-800 text-slate-500 hover:bg-slate-300 dark:hover:bg-slate-700'
+                                            : `bg-gradient-to-r ${product.color} text-white hover:opacity-90`
                                         }`}
                                 >
                                     {purchasing === product.id ? (
                                         'Creating Order...'
+                                    ) : product.isComingSoon ? (
+                                        <>Notify Me <ArrowRight className="w-4 h-4" /></>
                                     ) : (
                                         <>Unlock Access <ArrowRight className="w-4 h-4" /></>
                                     )}
                                 </button>
-                                <p className="text-center text-xs text-muted-foreground mt-2">Secure · Instant Access · Lifetime</p>
+                                <p className="text-center text-xs text-muted-foreground mt-2">
+                                    {product.isComingSoon ? 'Join 500+ on waitlist' : 'Secure · Instant Access · Lifetime'}
+                                </p>
                             </motion.div>
                         );
                     })}

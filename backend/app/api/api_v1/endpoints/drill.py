@@ -9,6 +9,7 @@ from pydantic import BaseModel
 from datetime import datetime
 from sqlalchemy.orm import Session
 from sqlalchemy import desc, func
+import json
 
 from app.services.drill_report_service import drill_report_service
 from app.api.deps import get_current_user, get_db
@@ -424,21 +425,44 @@ def get_drill_questions(
     subject: str = None,
     difficulty: str = None,
     topic: str = None,
-    limit: int = 20,
+    chapter: int = None,
+    level: int = None,         # 1=Easy, 2=Medium/UPSC Prelims, 3=Hard/UPSC Standard
+    limit: int = 30,
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
 ):
     """
-    Get random MCQs from the BankQuestion table with filtering options.
-    Used for student practice drills.
+    Get MCQs from the BankQuestion table with full filtering support.
+    Supports subject, difficulty, topic, chapter_number, and level (L1/L2/L3).
+    Returns minimum 30 questions if available.
     """
     query = db.query(BankQuestion)
+
     if subject:
-        query = query.filter(BankQuestion.subject == subject)
+        query = query.filter(BankQuestion.subject.ilike(f"%{subject}%"))
     if difficulty:
-        query = query.filter(BankQuestion.difficulty == difficulty)
+        query = query.filter(BankQuestion.difficulty.ilike(difficulty))
     if topic:
         query = query.filter(BankQuestion.topic_tag == topic)
-    
-    questions = query.order_by(func.random()).limit(limit).all()
-    return questions
+    if chapter is not None:
+        query = query.filter(BankQuestion.chapter_number == chapter)
+    if level is not None:
+        query = query.filter(BankQuestion.level == level)
+
+    questions = query.order_by(func.random()).limit(max(30, limit)).all()
+
+    return [
+        {
+            "id": q.id,
+            "text": q.text,
+            "options": json.loads(q.options) if q.options else [],
+            "correct_answer": q.correct_answer,
+            "explanation": q.explanation,
+            "subject": q.subject,
+            "chapter_number": q.chapter_number,
+            "level": q.level,
+            "difficulty": q.difficulty,
+        }
+        for q in questions
+    ]
+

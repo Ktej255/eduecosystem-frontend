@@ -22,7 +22,7 @@ def get_batch_meditation_analytics(
     cutoff = datetime.utcnow() - timedelta(days=days)
     
     # 1. Total minutes meditated by the whole student body
-    total_seconds = db.query(func.sum(MeditationSession.duration_seconds)).filter(
+    total_minutes = db.query(func.sum(MeditationSession.minutes_listened)).filter(
         MeditationSession.created_at >= cutoff
     ).scalar() or 0
     
@@ -30,7 +30,7 @@ def get_batch_meditation_analytics(
     daily_stats = db.query(
         func.date(MeditationSession.created_at).label('date'),
         func.count(MeditationSession.id).label('sessions'),
-        func.sum(MeditationSession.duration_seconds).label('seconds')
+        func.sum(MeditationSession.minutes_listened).label('minutes')
     ).filter(
         MeditationSession.created_at >= cutoff
     ).group_by(func.date(MeditationSession.created_at)).order_by('date').all()
@@ -39,7 +39,7 @@ def get_batch_meditation_analytics(
         {
             "date": str(s.date),
             "sessions": s.sessions,
-            "minutes": round(s.seconds / 60, 1)
+            "minutes": round(float(s.minutes), 1)
         }
         for s in daily_stats
     ]
@@ -53,7 +53,7 @@ def get_batch_meditation_analytics(
     distribution = {f"Level {l}": count for l, count in level_dist}
     
     return {
-        "total_minutes": round(total_seconds / 60, 1),
+        "total_minutes": round(float(total_minutes), 1),
         "trend": trend,
         "level_distribution": distribution,
         "active_meditators_period": db.query(func.count(func.distinct(MeditationSession.user_id))).filter(

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { CheckCircle, XCircle, Loader2, ArrowRight, RefreshCw } from 'lucide-react';
+import { CheckCircle, XCircle, Loader2, ArrowRight, RefreshCw, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { api } from '@/lib/api';
 
@@ -14,8 +14,15 @@ function PaymentStatusContent() {
     const [status, setStatus] = useState<'loading' | 'success' | 'pending' | 'failed'>('loading');
     const [orderStatus, setOrderStatus] = useState<string>('');
     const [retryCount, setRetryCount] = useState(0);
+    const [subjectId, setSubjectId] = useState<string | null>(null);
 
     useEffect(() => {
+        // Recover pending subject from session storage
+        if (typeof window !== 'undefined') {
+            const pending = sessionStorage.getItem('pending_subject');
+            if (pending) setSubjectId(pending);
+        }
+
         if (!orderId) {
             setStatus('failed');
             return;
@@ -31,7 +38,6 @@ function PaymentStatusContent() {
                     setStatus('success');
                 } else if (data.status === 'pending') {
                     setStatus('pending');
-                    // Auto-retry up to 5 times with 3-second delay
                     if (retryCount < 5) {
                         setTimeout(() => setRetryCount(prev => prev + 1), 3000);
                     }
@@ -47,59 +53,122 @@ function PaymentStatusContent() {
         verifyPayment();
     }, [orderId, retryCount]);
 
+    const getRedirectPath = () => {
+        if (!subjectId) return '/student/dashboard';
+        
+        const mapping: Record<string, string> = {
+            'polity': '/student/batch1/polity',
+            'level2': '/student/batch1/polity',
+            'history_modern': '/student/batch1/history',
+            'history_ancient': '/student/batch1/batch1-1/ancient-history',
+            'economy': '/student/batch1/economy',
+            'geography': '/student/batch1/geography'
+        };
+
+        return mapping[subjectId] || `/student/batch1/${subjectId}`;
+    };
+
+    const getSubjectDisplayName = () => {
+        if (!subjectId) return 'Your Course';
+        return subjectId.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    };
+
     return (
-        <div className="min-h-screen bg-muted dark:bg-[#0a0a0a] flex items-center justify-center p-6">
+        <div className="min-h-screen bg-[#050505] flex items-center justify-center p-6 relative overflow-hidden">
+            {/* Background Decorative Blobs */}
+            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-emerald-500/10 blur-[120px] rounded-full animate-pulse" />
+            <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/10 blur-[120px] rounded-full animate-pulse" />
+
             <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="bg-card dark:bg-[#111] rounded-3xl border border-border p-10 max-w-md w-full text-center shadow-2xl"
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                className="relative z-10 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-12 max-w-lg w-full text-center shadow-[0_0_50px_rgba(0,0,0,0.5)]"
             >
                 {status === 'loading' && (
                     <>
-                        <div className="w-20 h-20 bg-blue-50 dark:bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <Loader2 className="w-10 h-10 text-blue-600 animate-spin" />
+                        <div className="relative w-24 h-24 mx-auto mb-8">
+                            <div className="absolute inset-0 bg-blue-500/20 blur-xl rounded-full" />
+                            <div className="relative bg-black/40 border border-white/10 rounded-full w-full h-full flex items-center justify-center">
+                                <Loader2 className="w-10 h-10 text-blue-400 animate-spin" />
+                            </div>
                         </div>
-                        <h1 className="text-2xl font-black text-foreground mb-2">Verifying Payment</h1>
-                        <p className="text-muted-foreground text-sm">
-                            Please wait while we confirm your payment with Cashfree...
+                        <h1 className="text-3xl font-black text-white mb-3 tracking-tight">Verifying Securely</h1>
+                        <p className="text-slate-400 text-sm leading-relaxed px-4">
+                            Establishing secure handshake with Cashfree. Please don't refresh this page...
                         </p>
                     </>
                 )}
 
                 {status === 'success' && (
                     <>
-                        <div className="w-20 h-20 bg-emerald-50 dark:bg-emerald-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <CheckCircle className="w-10 h-10 text-emerald-600" />
+                        <div className="relative w-24 h-24 mx-auto mb-8">
+                            <motion.div 
+                                initial={{ scale: 0 }}
+                                animate={{ scale: [0, 1.2, 1] }}
+                                transition={{ duration: 0.5 }}
+                                className="absolute inset-0 bg-emerald-500/30 blur-2xl rounded-full" 
+                            />
+                            <div className="relative bg-emerald-500/10 border border-emerald-500/20 rounded-full w-full h-full flex items-center justify-center">
+                                <CheckCircle className="w-12 h-12 text-emerald-400" />
+                            </div>
+                            <motion.div 
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: [0, 1, 0] }}
+                                transition={{ repeat: Infinity, duration: 2 }}
+                                className="absolute -top-2 -right-2"
+                            >
+                                <Sparkles className="w-6 h-6 text-emerald-300" />
+                            </motion.div>
                         </div>
-                        <h1 className="text-2xl font-black text-foreground mb-2">Payment Successful!</h1>
-                        <p className="text-muted-foreground text-sm mb-8">
-                            Your access has been unlocked. You can now start studying immediately.
+                        
+                        <h1 className="text-4xl font-black text-white mb-2 leading-tight">Access Unlocked!</h1>
+                        <p className="text-emerald-400 font-bold mb-4 uppercase tracking-[0.2em] text-xs">
+                            Payment Confirmed Successfully
                         </p>
-                        <button
-                            onClick={() => router.push('/student/batch1')}
-                            className="w-full h-14 bg-emerald-600 hover:bg-emerald-500 text-white rounded-2xl font-bold text-sm shadow-lg flex items-center justify-center gap-2 transition-all"
-                        >
-                            Go to My Subjects <ArrowRight className="w-4 h-4" />
-                        </button>
+                        
+                        <p className="text-slate-400 text-sm mb-10 leading-relaxed max-w-sm mx-auto">
+                            Welcome to the <span className="text-white font-bold">{getSubjectDisplayName()}</span>. 
+                            Your personalized study engine is ready.
+                        </p>
+
+                        <div className="space-y-4">
+                            <button
+                                onClick={() => router.push(getRedirectPath() + '?unlocked=1')}
+                                className="w-full h-16 bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white rounded-2xl font-black text-base shadow-[0_10px_30px_rgba(16,185,129,0.3)] flex items-center justify-center gap-3 transition-all transform hover:scale-[1.02] active:scale-95"
+                            >
+                                Start Learning Now <ArrowRight className="w-5 h-5" />
+                            </button>
+                            
+                            <button
+                                onClick={() => router.push('/student/dashboard')}
+                                className="w-full py-4 text-slate-500 hover:text-white text-xs font-bold uppercase tracking-widest transition-all"
+                            >
+                                Go to My Dashboard
+                            </button>
+                        </div>
                     </>
                 )}
 
                 {status === 'pending' && (
                     <>
-                        <div className="w-20 h-20 bg-amber-50 dark:bg-amber-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <RefreshCw className="w-10 h-10 text-amber-600 animate-spin" />
+                        <div className="relative w-24 h-24 mx-auto mb-8">
+                            <div className="absolute inset-0 bg-amber-500/20 blur-xl rounded-full" />
+                            <div className="relative bg-black/40 border border-white/10 rounded-full w-full h-full flex items-center justify-center">
+                                <RefreshCw className="w-10 h-10 text-amber-400 animate-spin" />
+                            </div>
                         </div>
-                        <h1 className="text-2xl font-black text-foreground mb-2">Payment Processing</h1>
-                        <p className="text-muted-foreground text-sm mb-2">
-                            Your payment is being processed. This usually takes a few seconds.
+                        <h1 className="text-3xl font-black text-white mb-3">Syncing Status</h1>
+                        <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                            Your payment was successful, but we are waiting for the final green signal from the bank.
                         </p>
-                        <p className="text-xs text-muted-foreground mb-8">
-                            Order: <span className="font-mono font-bold">{orderId}</span>
-                            {retryCount > 0 && ` • Check ${retryCount}/5`}
-                        </p>
+                        <div className="bg-white/5 rounded-xl p-4 mb-8 inline-block">
+                            <p className="text-[10px] text-slate-500 font-mono">
+                                ORDER_ID: {orderId} • ATTEMPT {retryCount+1}/5
+                            </p>
+                        </div>
                         <button
                             onClick={() => setRetryCount(prev => prev + 1)}
-                            className="w-full h-14 bg-amber-600 hover:bg-amber-500 text-white rounded-2xl font-bold text-sm shadow-lg flex items-center justify-center gap-2 transition-all"
+                            className="w-full h-14 bg-white/10 hover:bg-white/20 border border-white/10 text-white rounded-2xl font-bold text-sm flex items-center justify-center gap-2 transition-all"
                         >
                             <RefreshCw className="w-4 h-4" /> Check Again
                         </button>
@@ -108,33 +177,31 @@ function PaymentStatusContent() {
 
                 {status === 'failed' && (
                     <>
-                        <div className="w-20 h-20 bg-red-50 dark:bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <XCircle className="w-10 h-10 text-red-600" />
+                        <div className="relative w-24 h-24 mx-auto mb-8">
+                            <div className="absolute inset-0 bg-red-500/20 blur-xl rounded-full" />
+                            <div className="relative bg-black/40 border border-white/10 rounded-full w-full h-full flex items-center justify-center">
+                                <XCircle className="w-10 h-10 text-red-400" />
+                            </div>
                         </div>
-                        <h1 className="text-2xl font-black text-foreground mb-2">Payment Issue</h1>
-                        <p className="text-muted-foreground text-sm mb-2">
+                        <h1 className="text-3xl font-black text-white mb-3">Unverified</h1>
+                        <p className="text-slate-400 text-sm leading-relaxed mb-8">
                             {!orderId
-                                ? 'No order ID found. Please try your purchase again.'
-                                : 'We could not verify your payment. If money was deducted, it may take a few minutes to process.'}
+                                ? 'Internal error: Session signature missing. Please try again from the store.'
+                                : 'We couldn’t confirm your payment. If the amount was deducted, please wait 2 minutes and check again.'}
                         </p>
-                        {orderId && (
-                            <p className="text-xs text-muted-foreground mb-8">
-                                Order: <span className="font-mono font-bold">{orderId}</span>
-                            </p>
-                        )}
-                        <div className="space-y-3">
+                        <div className="space-y-4">
                             <button
                                 onClick={() => router.push('/student/upsc-store')}
-                                className="w-full h-14 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl font-bold text-sm shadow-lg flex items-center justify-center gap-2 transition-all"
+                                className="w-full h-16 bg-white text-black hover:bg-slate-200 rounded-2xl font-black text-base shadow-xl flex items-center justify-center transition-all transform hover:scale-[1.02] active:scale-95"
                             >
                                 Return to Store
                             </button>
                             {orderId && (
                                 <button
                                     onClick={() => { setStatus('loading'); setRetryCount(prev => prev + 1); }}
-                                    className="w-full text-muted-foreground hover:text-foreground text-xs font-bold uppercase tracking-widest transition-colors"
+                                    className="w-full py-4 text-slate-500 hover:text-white text-xs font-bold uppercase tracking-widest transition-all"
                                 >
-                                    Retry Verification
+                                    Force Verification
                                 </button>
                             )}
                         </div>

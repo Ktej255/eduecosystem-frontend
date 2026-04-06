@@ -62,18 +62,30 @@ def portal_chat(
     current_user: User = Depends(deps.get_current_active_user)
 ) -> Any:
     """
-    Chat endpoint specifically for the Student AI Portal.
-    Uses the specialized Socratic UPSC prompt and logs the conversation.
+    Chat endpoint for the Student AI Portal.
+    Socratic UPSC tutor mode. Logs conversation when schema is available.
     """
+    # Step 1: Always generate the AI response first (stateless — never fails)
     try:
         response = rag_service.chat_for_ai_portal(
-            query=request.message, 
+            query=request.message,
             student_name=current_user.full_name or "Student",
             topic=request.topic,
-            history=request.history
+            history=request.history or []
         )
-        
-        # Save to database
+    except Exception as e:
+        import logging
+        logging.getLogger(__name__).error(f"RAG chat error: {e}")
+        # Graceful fallback — use Gemini directly
+        from app.services.gemini_service import gemini_service
+        answer = gemini_service.generate_text(
+            f"You are a UPSC tutor. Student asks about [{request.topic}]: {request.message}. Answer concisely.",
+            temperature=0.7
+        )
+        response = {"answer": answer, "sources": []}
+
+    # Step 2: Try to persist to DB — silently skip if table doesn't exist yet
+    try:
         new_convo = AIPortalConversation(
             student_id=current_user.id,
             message=request.message,
@@ -82,8 +94,10 @@ def portal_chat(
         )
         db.add(new_convo)
         db.commit()
-        return response
-    except Exception as e:
+    except Exception as db_err:
+        import logging
+        logging.getLogger(__name__).warning(f"Conversation log skipped (schema pending): {db_err}")
         db.rollback()
-        raise HTTPException(status_code=500, detail=str(e))
+
+    return response
 

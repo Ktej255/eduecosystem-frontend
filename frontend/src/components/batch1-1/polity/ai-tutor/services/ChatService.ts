@@ -32,7 +32,7 @@ export const sendMessageToDrAmbedkar = async (message: string, history: ChatMess
             contextContext += `, student_vulnerability_profile:[${context.vulnerabilityProfile}]`;
         }
 
-        const response = await axios.post(`${API_URL}/ai/tutor/chat`, {
+        const response = await axios.post(`/api/ai-tutor`, {
             message: message,
             context_context: contextContext,
             history: history.map(msg => ({ role: msg.role, content: msg.content })) // Send history for stateful chat
@@ -50,20 +50,21 @@ export const sendMessageToDrAmbedkar = async (message: string, history: ChatMess
         console.error("Error talking to Dr. Ambedkar:", error);
 
         // Smart Fallback for Demo (if Backend is offline)
-        if (message.toLowerCase().includes('article 21')) {
-            return {
-                id: Date.now().toString(),
-                role: 'ai',
-                content: "**Article 21** declares that *\"No person shall be deprived of his life or personal liberty except according to procedure established by law.\"*\n\nThis right has been expanded by the Supreme Court to include the **Right to Privacy** (Puttaswamy Case), **Right to Health**, and **Right to Livelihood** (Olga Tellis Case).",
-                timestamp: new Date(),
-                sources: ["Constitution of India", "Maneka Gandhi vs Union of India"]
-            };
-        }
+        // Topic-aware fallback — works for ALL 95 chapters, not just Article 21
+        const topicContext = context?.topicTitle
+            ? `"${context.topicTitle}"`
+            : "Indian Polity";
 
         return {
             id: Date.now().toString(),
             role: 'ai',
-            content: "I am having trouble connecting to the Constituent Assembly archives (Backend potentially offline). \n\n**Try asking about 'Article 21' to see a cached response.**",
+            content: `**Dr. Ambedkar is temporarily offline** (Backend API unreachable)\n\n` +
+                `Your question was about **${topicContext}**.\n\n` +
+                `While I reconnect, here are key UPSC pointers for this area:\n` +
+                `- Focus on constitutional articles, landmark cases, and amendment history\n` +
+                `- Laxmikanth Chapter: refer to the V2 Read section for quick revision\n` +
+                `- For MCQs, use Level 1 → Level 2 → Level 3 progression\n\n` +
+                `*Please try again in a moment. If this persists, the backend may need to be restarted.*`,
             timestamp: new Date()
         };
     }

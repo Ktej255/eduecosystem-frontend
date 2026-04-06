@@ -41,7 +41,9 @@ class UPSCGapAnalysis(Base):
     profile_id = Column(UUID(as_uuid=True), ForeignKey("upsc_cognitive_profiles.id"), nullable=False)
     
     chapter_id = Column(Integer, nullable=False)
-    subject = Column(String, default="Polity")
+    # No default — caller must set subject explicitly to avoid silent misclassification.
+    # Valid values: Polity, History, Geography, Economy, Science & Tech, Environment, Current Affairs, Ethics
+    subject = Column(String, nullable=True)
     
     status = Column(String, default="unattempted") # unattempted, knowledge_gap (Red), logic_gap (Yellow), mastered (Green)
     recall_accuracy = Column(Float, default=0.0)

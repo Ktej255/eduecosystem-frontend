@@ -21,8 +21,8 @@ export default function PaymentFunnelModal({ isOpen, onClose, baseItem, onComple
     const isGeography = baseItem.id === 'geography';
 
     const handleBasePurchase = () => {
-        // Move to upsell instead of immediate success
-        setStep('upsell1');
+        // Skip upsells for stability during launch - only sell what is active
+        setStep('success');
     };
 
     const handleUpsellAccept = () => {
@@ -105,91 +105,6 @@ export default function PaymentFunnelModal({ isOpen, onClose, baseItem, onComple
                         </div>
                     )}
 
-                    {step === 'upsell1' && (
-                        <div className="p-10 relative">
-                            {/* Progress bar */}
-                            <div className="absolute top-0 left-0 w-full h-1.5 bg-slate-100 dark:bg-slate-800">
-                                <motion.div
-                                    className="h-full bg-emerald-500"
-                                    initial={{ width: "30%" }}
-                                    animate={{ width: "85%" }}
-                                    transition={{ duration: 1 }}
-                                />
-                            </div>
-
-                            <div className="text-center mb-8 mt-4">
-                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-black uppercase tracking-widest mb-4">
-                                    <Star className="w-3 h-3 fill-emerald-700" />
-                                    One-Time Exclusive
-                                </div>
-                                <h2 className="text-3xl font-black text-slate-900 dark:text-white uppercase leading-tight tracking-tight">
-                                    Wait! Maximize Your <br /><span className="text-emerald-600">Preparation.</span>
-                                </h2>
-                            </div>
-
-                            <div className="bg-emerald-50 dark:bg-emerald-900/10 rounded-[2.5rem] p-8 mb-8 border-2 border-dashed border-emerald-300 dark:border-emerald-700 relative group">
-                                <h3 className="font-black text-xl text-slate-900 dark:text-white mb-2 uppercase tracking-tight">
-                                    {isGeography ? "Add Polity Masterclass?" : "Upgrade to Full Bundle?"}
-                                </h3>
-                                <p className="text-slate-600 dark:text-slate-400 text-sm font-medium mb-6 leading-relaxed">
-                                    {isGeography
-                                        ? "Master all 95 chapters of Indian Polity (Laxmikanth) for just ₹299 more. Normally ₹1,999."
-                                        : "Get all 10 UPSC subjects unlock with one click for just ₹2,449 extra."}
-                                </p>
-                                <div className="flex items-baseline gap-2">
-                                    <span className="text-slate-400 line-through font-bold">₹1,999</span>
-                                    <span className="text-4xl font-black text-emerald-600">₹{isGeography ? "299" : "2,449"}</span>
-                                </div>
-                            </div>
-
-                            <div className="space-y-4">
-                                <button
-                                    onClick={handleUpsellAccept}
-                                    className="w-full h-16 bg-emerald-600 hover:bg-emerald-500 text-white rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl shadow-emerald-600/20"
-                                >
-                                    YES! ADD TO MY ACCESS
-                                </button>
-                                <button
-                                    onClick={handleUpsellDecline}
-                                    className="w-full text-slate-400 hover:text-slate-600 text-xs font-black uppercase tracking-widest transition-colors"
-                                >
-                                    No thanks, I'll pass on this 85% discount
-                                </button>
-                            </div>
-                        </div>
-                    )}
-
-                    {step === 'downsell1' && (
-                        <div className="p-10">
-                            <div className="text-center mb-8">
-                                <div className="w-16 h-16 bg-indigo-100 dark:bg-indigo-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                    <Gift className="w-8 h-8 text-indigo-600" />
-                                </div>
-                                <h2 className="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Last Chance Offer</h2>
-                                <p className="text-slate-500 font-medium">Add {isGeography ? "Modern History" : "Core subjects"} for an extra edge.</p>
-                            </div>
-
-                            <div className="bg-indigo-50 dark:bg-indigo-900/10 p-8 rounded-3xl border border-indigo-100 dark:border-indigo-800 mb-8 text-center">
-                                <div className="text-[10px] font-black uppercase tracking-widest text-indigo-600 mb-2">Dynamic Selection</div>
-                                <h3 className="font-black text-xl text-slate-900 dark:text-white mb-1 uppercase">Add for ₹{isGeography ? "249" : "1,999"}</h3>
-                            </div>
-
-                            <div className="space-y-4">
-                                <button
-                                    onClick={handleDownsellAccept}
-                                    className="w-full h-16 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl shadow-indigo-600/20"
-                                >
-                                    Build My Bundle
-                                </button>
-                                <button
-                                    onClick={() => setStep('success')}
-                                    className="w-full text-slate-400 hover:text-slate-600 text-xs font-black uppercase tracking-widest"
-                                >
-                                    Proceed with single subject only
-                                </button>
-                            </div>
-                        </div>
-                    )}
 
                     {step === 'success' && (
                         <div className="p-10 text-center relative">

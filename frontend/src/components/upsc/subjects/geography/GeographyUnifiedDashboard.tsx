@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import {
     Search, ChevronDown, ChevronRight, BookOpen, CheckCircle2,
-    Target, LayoutGrid, List, Sparkles, BarChart2, StickyNote, Flame, Bot, Compass, Globe, Mountain, Waves
+    Target, LayoutGrid, List, Sparkles, BarChart2, StickyNote, Flame, Bot, Compass, Globe, Mountain, Waves, Wind, Droplets, Map
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -17,54 +17,57 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { GEOGRAPHY_REGISTRY, getGeographyTopicsByBranch } from "@/components/upsc/subjects/geography/data/geography-registry";
+import { toast } from "sonner";
+import { GEOGRAPHY_REGISTRY } from "@/components/upsc/subjects/geography/data/geography-registry";
 import { GEOGRAPHY_CONFIG } from "@/components/upsc/subjects/geography/data/geography-config";
 import GeographyTopicAnalyticsModal from "./GeographyTopicAnalyticsModal";
-
-interface TopicProgress {
-    [topicId: number]: {
-        completed: boolean;
-        lastViewed?: string;
-        flashcardsDone?: boolean;
-        mcqsDone?: boolean;
-        readDone?: boolean;
-        score?: number;
-    };
-}
+import {
+    getGeographyStore,
+    saveGeographyStore,
+    isTopicMastered,
+    isTopicStarted,
+    getBranchStats,
+    getOverallStats,
+    hydrateFromBackend,
+    updateGeoTopicSection,
+    type GeoBranch,
+} from "@/lib/geography-store";
 
 export default function GeographyUnifiedDashboard() {
     const router = useRouter();
     const [expandedParts, setExpandedParts] = useState<Record<string, boolean>>({});
     const [searchQuery, setSearchQuery] = useState("");
     const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-    const [progress, setProgress] = useState<TopicProgress>({});
     const [filterCompleted, setFilterCompleted] = useState<'all' | 'completed' | 'pending'>('all');
     const [selectedReportTopic, setSelectedReportTopic] = useState<number | null>(null);
+    // Tick state to force re-renders when store changes
+    const [storeTick, setStoreTick] = useState(0);
+
+    const refreshStore = useCallback(() => setStoreTick((t) => t + 1), []);
 
     useEffect(() => {
-        const saved = localStorage.getItem('geography_progress');
-        if (saved) {
-            try {
-                setProgress(JSON.parse(saved));
-            } catch (e) {
-                console.error("Failed to parse geography progress", e);
-            }
-        }
         // Expand first module by default
         setExpandedParts({ '1': true });
-    }, []);
+        // Hydrate from backend (fire-and-forget, then refresh UI)
+        hydrateFromBackend().then(refreshStore).catch(() => null);
+    }, [refreshStore]);
 
-    const totalTopics = GEOGRAPHY_REGISTRY.length;
-    const totalCompleted = Object.values(progress).filter(p => p.completed).length;
-    const overallProgress = Math.round((totalCompleted / totalTopics) * 100) || 0;
+    const isBook3 = (id: number) => id >= 500;
+
+    // Derive stats directly from the geography-store (re-computed on every storeTick)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const overallStats = getOverallStats(GEOGRAPHY_REGISTRY);
+    const branchStats = getBranchStats(GEOGRAPHY_REGISTRY);
+    const totalTopics = overallStats.total;
+    const totalCompleted = overallStats.mastered;
+    const overallProgress = overallStats.masteryPercentage;
 
     const filteredTopics = GEOGRAPHY_REGISTRY.filter(topic => {
         const matchesSearch = topic.title.toLowerCase().includes(searchQuery.toLowerCase());
-        const topicProgress = progress[topic.id];
         const matchesFilter =
             filterCompleted === 'all' ||
-            (filterCompleted === 'completed' && topicProgress?.completed) ||
-            (filterCompleted === 'pending' && !topicProgress?.completed);
+            (filterCompleted === 'completed' && isTopicMastered(topic.id)) ||
+            (filterCompleted === 'pending' && !isTopicMastered(topic.id));
         return matchesSearch && matchesFilter;
     });
 
@@ -72,29 +75,29 @@ export default function GeographyUnifiedDashboard() {
         setExpandedParts(prev => ({ ...prev, [partId]: !prev[partId] }));
     };
 
-    const updateTopicProgress = (topicId: number, updates: Partial<TopicProgress[number]>) => {
-        const current = progress[topicId] || { completed: false };
-        const updated = { ...current, ...updates, lastViewed: new Date().toISOString() };
-        
-        if (updated.readDone && updated.flashcardsDone && updated.mcqsDone) {
-            updated.completed = true;
-        }
-
-        const newProgress = { ...progress, [topicId]: updated };
-        setProgress(newProgress);
-        localStorage.setItem('geography_progress', JSON.stringify(newProgress));
-    };
-
     const navigateToTopic = (topicId: number) => {
+        if (isBook3(topicId)) {
+            toast.info("Human & Economic Geography (Book 3) content is being prepared.", {
+                description: "This module will be unlocked once the content map is verified."
+            });
+            return;
+        }
+        // Navigate to the deep-reader chapter viewer
         router.push(`/student/upsc/geography/topic/${topicId}`);
     };
 
     const handleAction = (e: React.MouseEvent, type: 'flashcard' | 'mcq' | 'report', topicId: number) => {
         e.stopPropagation();
+
+        if (isBook3(topicId) && (type === 'flashcard' || type === 'mcq')) {
+            toast.info("This module is locked during content preparation.");
+            return;
+        }
+
         if (type === 'flashcard') {
-            router.push(`/student/upsc/geography/topic/${topicId}/flashcards`);
+            router.push(`/student/upsc/geography/topic/${topicId}?tab=flashcards`);
         } else if (type === 'mcq') {
-            router.push(`/student/upsc/geography/topic/${topicId}/mcq`);
+            router.push(`/student/upsc/geography/topic/${topicId}?tab=mcqs`);
         } else if (type === 'report') {
             setSelectedReportTopic(topicId);
         }
@@ -102,8 +105,19 @@ export default function GeographyUnifiedDashboard() {
 
     const toggleComplete = (e: React.MouseEvent, topicId: number) => {
         e.stopPropagation();
-        const isCompleted = progress[topicId]?.completed;
-        updateTopicProgress(topicId, { completed: !isCompleted });
+        const alreadyMastered = isTopicMastered(topicId);
+        if (!alreadyMastered) {
+            // Mark all 3 sections complete in the store
+            updateGeoTopicSection(topicId, 'readSection', 'completed');
+            updateGeoTopicSection(topicId, 'flashcards', 'completed');
+            updateGeoTopicSection(topicId, 'mcqs', 'completed');
+        } else {
+            // Unmark — reset sections
+            const store = getGeographyStore();
+            delete store.topics[topicId];
+            saveGeographyStore(store);
+        }
+        refreshStore();
     };
 
     return (
@@ -151,12 +165,12 @@ export default function GeographyUnifiedDashboard() {
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
                         <div>
                             <h2 className="text-xl font-bold">Subject Progress</h2>
-                            <p className="text-emerald-100 text-sm">Visualizing your geographic expertise</p>
+                            <p className="text-emerald-100 text-sm">{totalCompleted}/{totalTopics} topics mastered across 5 branches</p>
                         </div>
                         <div className="flex gap-8">
                             <div className="text-center">
                                 <div className="text-3xl font-bold">{totalCompleted}/{totalTopics}</div>
-                                <div className="text-xs text-emerald-200 uppercase font-semibold">Topics Done</div>
+                                <div className="text-xs text-emerald-200 uppercase font-semibold">Topics Mastered</div>
                             </div>
                             <div className="text-center">
                                 <div className="text-3xl font-bold">{overallProgress}%</div>
@@ -165,6 +179,84 @@ export default function GeographyUnifiedDashboard() {
                         </div>
                     </div>
                     <Progress value={overallProgress} className="h-2 bg-white/20" />
+                </CardContent>
+            </Card>
+
+            {/* Branch Mastery Rings */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+                {branchStats.map((branch) => {
+                    const icons: Record<string, React.ReactNode> = {
+                        'Geomorphology':      <Mountain className="w-4 h-4" />,
+                        'Climatology':        <Wind className="w-4 h-4" />,
+                        'Oceanography':       <Waves className="w-4 h-4" />,
+                        'Resource Geography': <Droplets className="w-4 h-4" />,
+                        'Indian Geography':   <Map className="w-4 h-4" />,
+                    };
+                    const colours: Record<string, string> = {
+                        'Geomorphology':      'text-amber-600 bg-amber-50 dark:bg-amber-900/20',
+                        'Climatology':        'text-sky-600 bg-sky-50 dark:bg-sky-900/20',
+                        'Oceanography':       'text-blue-600 bg-blue-50 dark:bg-blue-900/20',
+                        'Resource Geography': 'text-rose-600 bg-rose-50 dark:bg-rose-900/20',
+                        'Indian Geography':   'text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20',
+                    };
+                    const colourClass = colours[branch.branch] || 'text-slate-600 bg-slate-50';
+                    const pct = branch.masteryPercentage;
+                    const circumference = 2 * Math.PI * 18;
+                    return (
+                        <Card key={branch.branch} className="border-border hover:border-emerald-300 transition-all cursor-pointer group" onClick={() => setFilterCompleted('pending')}>
+                            <CardContent className="p-4 flex items-center gap-3">
+                                <div className="relative w-12 h-12 flex-shrink-0">
+                                    <svg className="w-12 h-12 -rotate-90" viewBox="0 0 40 40">
+                                        <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" strokeWidth="3" className="text-muted/30" />
+                                        <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" strokeWidth="3"
+                                            strokeDasharray={circumference}
+                                            strokeDashoffset={circumference - (pct / 100) * circumference}
+                                            strokeLinecap="round"
+                                            className={pct > 0 ? 'text-emerald-500' : 'text-slate-300'}
+                                            style={{ transition: 'stroke-dashoffset 0.8s ease' }}
+                                        />
+                                    </svg>
+                                    <div className={`absolute inset-0 flex items-center justify-center text-[9px] font-black ${colourClass.split(' ')[0]}`}>
+                                        {pct}%
+                                    </div>
+                                </div>
+                                <div className="min-w-0">
+                                    <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground truncate">
+                                        {branch.branch.split(' ')[0]}
+                                    </p>
+                                    <p className="text-xs font-bold text-foreground">{branch.mastered}/{branch.total}</p>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    );
+                })}
+            </div>
+
+            {/* GeoDaily — Featured Location Card */}
+            <Card className="border-none shadow-lg bg-gradient-to-r from-slate-900 to-slate-800 overflow-hidden relative group cursor-pointer"
+                onClick={() => router.push('/student/upsc/geography/topic/9')}>
+                <div className="absolute top-0 right-0 w-48 h-48 bg-emerald-500/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
+                <CardContent className="p-5 relative z-10 flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 bg-emerald-500/20 rounded-xl flex items-center justify-center flex-shrink-0 border border-emerald-500/30">
+                            <Globe className="w-6 h-6 text-emerald-400" />
+                        </div>
+                        <div>
+                            <div className="flex items-center gap-2 mb-1">
+                                <span className="text-[9px] font-black uppercase tracking-widest text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded-full border border-emerald-400/20">🌍 GeoDaily</span>
+                                <span className="text-[9px] text-slate-400 font-medium">Today's Featured Topic</span>
+                            </div>
+                            <h3 className="text-white font-black text-base">Continental Drift Theory</h3>
+                            <p className="text-slate-400 text-xs font-medium">Geomorphology • Block 5 • Savindra Singh Ch. 5</p>
+                        </div>
+                    </div>
+                    <div className="flex items-center gap-3 flex-shrink-0">
+                        <div className="text-right hidden md:block">
+                            <p className="text-emerald-400 text-xs font-black">+15 XP</p>
+                            <p className="text-slate-500 text-[10px]">Complete today</p>
+                        </div>
+                        <Sparkles className="w-5 h-5 text-emerald-400 group-hover:scale-110 transition-transform" />
+                    </div>
                 </CardContent>
             </Card>
 
@@ -231,18 +323,25 @@ export default function GeographyUnifiedDashboard() {
                                     {filteredModuleTopics.map((topic) => (
                                         <div 
                                             key={topic.id}
-                                            className={`p-4 rounded-xl border transition-all ${progress[topic.id]?.completed ? 'bg-emerald-50/30 border-emerald-200' : 'bg-card border-border hover:border-emerald-400/50'}`}
+                                            className={`p-4 rounded-xl border transition-all ${isTopicMastered(topic.id) ? 'bg-emerald-50/30 border-emerald-200' : 'bg-card border-border hover:border-emerald-400/50'}`}
                                             onClick={() => navigateToTopic(topic.id)}
                                         >
                                             <div className="flex items-start gap-3">
                                                 <button 
                                                     onClick={(e) => toggleComplete(e, topic.id)}
-                                                    className={`mt-0.5 w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${progress[topic.id]?.completed ? 'bg-emerald-500 border-emerald-500 text-white' : 'border-border'}`}
+                                                    className={`mt-0.5 w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${isTopicMastered(topic.id) ? 'bg-emerald-500 border-emerald-500 text-white' : 'border-border'}`}
                                                 >
                                                     <CheckCircle2 className="w-3.5 h-3.5" />
                                                 </button>
                                                 <div className="flex-1">
-                                                    <h4 className="font-semibold text-sm">{topic.title}</h4>
+                                                    <div className="flex items-center justify-between">
+                                                        <h4 className={`font-semibold text-sm ${isTopicMastered(topic.id) ? 'text-emerald-700 dark:text-emerald-400' : ''}`}>{topic.title}</h4>
+                                                        {isBook3(topic.id) && (
+                                                            <Badge variant="outline" className="text-[9px] py-0 h-4 border-amber-200 bg-amber-50 text-amber-700 font-bold uppercase tracking-tighter">
+                                                                Coming Soon
+                                                            </Badge>
+                                                        )}
+                                                    </div>
                                                     <div className="flex items-center gap-2 mt-2">
                                                         <button 
                                                             onClick={(e) => handleAction(e, 'flashcard', topic.id)}
@@ -253,10 +352,11 @@ export default function GeographyUnifiedDashboard() {
                                                         </button>
                                                         <button 
                                                             onClick={(e) => handleAction(e, 'mcq', topic.id)}
-                                                            className="p-1.5 rounded-md bg-muted hover:bg-emerald-100 transition-colors"
-                                                            title="Quizzes"
+                                                            disabled={isBook3(topic.id)}
+                                                            className={`p-1.5 rounded-md transition-colors ${isBook3(topic.id) ? 'bg-muted/50 cursor-not-allowed text-muted' : isTopicMastered(topic.id) ? 'bg-emerald-100 text-emerald-600' : 'bg-muted hover:bg-emerald-100'}`}
+                                                            title={isBook3(topic.id) ? "Coming Soon" : "MCQ Practice"}
                                                         >
-                                                            <Target className="w-3.5 h-3.5 text-muted-foreground hover:text-emerald-600" />
+                                                            <Target className={`w-3.5 h-3.5 ${isBook3(topic.id) ? 'text-muted' : isTopicMastered(topic.id) ? 'text-emerald-600' : 'text-muted-foreground hover:text-emerald-600'}`} />
                                                         </button>
                                                         <button 
                                                             onClick={(e) => handleAction(e, 'report', topic.id)}
@@ -281,7 +381,12 @@ export default function GeographyUnifiedDashboard() {
                 isOpen={!!selectedReportTopic}
                 onClose={() => setSelectedReportTopic(null)}
                 topicId={selectedReportTopic}
-                data={selectedReportTopic ? progress[selectedReportTopic] : null}
+                data={selectedReportTopic ? {
+                    completed: isTopicMastered(selectedReportTopic),
+                    flashcardsDone: getGeographyStore().topics[selectedReportTopic]?.flashcards === 'completed',
+                    mcqsDone: getGeographyStore().topics[selectedReportTopic]?.mcqs === 'completed',
+                    readDone: getGeographyStore().topics[selectedReportTopic]?.readSection === 'completed',
+                } : null}
                 onAction={(type) => {
                     if (selectedReportTopic) {
                         if (type === 'read') navigateToTopic(selectedReportTopic);

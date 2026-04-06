@@ -3,9 +3,10 @@ import CircularFlowViz from './visualizations/CircularFlowViz';
 import DemandSupplyViz from './visualizations/DemandSupplyViz';
 import BudgetExplorerViz from './visualizations/BudgetExplorerViz';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { TrendingUp, Users, Wallet, Briefcase, BarChart3, Coins, PieChart as PieChartIcon, ArrowRightLeft } from 'lucide-react';
+import { TrendingUp, Users, Wallet, Briefcase, BarChart3, Coins, PieChart as PieChartIcon, ArrowRightLeft, Zap } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
+import SubjectDrillWidget from '@/components/upsc/SubjectDrillWidget';
 
 const VIZ_COMPONENTS: Record<string, () => React.ReactNode> = {
     'budget': () => <BudgetExplorerViz />,
@@ -28,7 +29,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function EconomyDashboard() {
     const [activeViz, setActiveViz] = useState<string>('budget');
-    const [viewMode, setViewMode] = useState<'sim' | 'syllabus'>('sim');
+    const [viewMode, setViewMode] = useState<'sim' | 'syllabus' | 'practice'>('sim');
 
     return (
         <div className="max-w-7xl mx-auto px-4 py-8 space-y-8 animate-in fade-in duration-500">
@@ -73,6 +74,12 @@ export default function EconomyDashboard() {
                     className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors ${viewMode === 'syllabus' ? 'border-emerald-600 text-emerald-600' : 'border-transparent text-muted-foreground hover:text-muted-foreground'}`}
                 >
                     Syllabus & Modules
+                </button>
+                <button
+                    onClick={() => setViewMode('practice')}
+                    className={`px-4 py-2 text-sm font-bold border-b-2 transition-colors flex items-center gap-1.5 ${viewMode === 'practice' ? 'border-emerald-600 text-emerald-600' : 'border-transparent text-muted-foreground hover:text-muted-foreground'}`}
+                >
+                    <Zap className="w-3.5 h-3.5" /> Practice MCQs
                 </button>
             </div>
 
@@ -126,7 +133,11 @@ export default function EconomyDashboard() {
 
                 {/* Main Content Display */}
                 <div className="lg:col-span-3 min-h-[600px] flex flex-col">
-                    {viewMode === 'sim' ? (
+                    {viewMode === 'practice' ? (
+                        <div className="max-w-2xl mx-auto w-full">
+                            <SubjectDrillWidget subject="Economy" color="emerald" />
+                        </div>
+                    ) : viewMode === 'sim' ? (
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeViz}

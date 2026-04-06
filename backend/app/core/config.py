@@ -1,5 +1,6 @@
 import os
 import secrets
+from pathlib import Path
 from pydantic import ConfigDict, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -24,11 +25,25 @@ class Settings(BaseSettings):
     FIRST_SUPERUSER: str = os.getenv("FIRST_SUPERUSER", "ktej255@gmail.com")
     FIRST_SUPERUSER_PASSWORD: str = os.getenv("FIRST_SUPERUSER_PASSWORD", "CHANGE_ME_IN_PRODUCTION")
 
+    # Phase 21: Environment & Safety Flags
+    ENVIRONMENT: str = os.getenv("ENVIRONMENT", "development")
+    DEV_MODE_ENABLED: bool = (ENVIRONMENT == "development")
+    
+    # Extra safety: Force disable DEV_MODE in production regardless of other settings
+    if ENVIRONMENT == "production":
+        DEV_MODE_ENABLED = False
+
     # Database URL - use PostgreSQL in production (set via env var), SQLite for development
-    DATABASE_URL: str = os.getenv(
-        "DATABASE_URL",
-        "sqlite:///./eduecosystem_v2.db",
-    )
+    @property
+    def DATABASE_URL(self) -> str:
+        url = os.getenv("DATABASE_URL")
+        if url:
+            return url
+        # For SQLite, ensure absolute path to backend/eduecosystem_v2.db
+        base_dir = Path(__file__).resolve().parent.parent.parent
+        db_path = base_dir / "eduecosystem_v2.db"
+        return f"sqlite:///{db_path}"
+
     MONGO_URL: str = os.getenv("MONGO_URL", "mongodb://127.0.0.1:27017")
 
     # Security - SECRET_KEY must be set in production

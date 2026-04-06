@@ -1,0 +1,4 @@
+eduecosystem-backend	https://eduecosystem-backend-yqncvzxdma-uc.a.run.app
+eduecosystem-frontend	https://eduecosystem-frontend-yqncvzxdma-uc.a.run.app
+pizza-blitz-backend	https://pizza-blitz-backend-yqncvzxdma-uc.a.run.app
+pizza-blitz-frontend	https://pizza-blitz-frontend-yqncvzxdma-uc.a.run.app

@@ -5,7 +5,7 @@ from sqlalchemy.sql import func
 import uuid
 import enum
 
-from app.db.base import Base
+from app.db.session import Base
 
 class LMSAssignment(Base):
     __tablename__ = "lms_assignments"

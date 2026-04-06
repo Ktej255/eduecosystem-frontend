@@ -14,6 +14,7 @@ from sqlalchemy.orm import relationship
 from app.db.session import Base
 from datetime import datetime
 import enum
+from app.models.adaptive_learning import GUID
 
 
 class LessonType(str, enum.Enum):
@@ -36,6 +37,9 @@ class Lesson(Base):
         nullable=False,
         index=True,
     )
+
+    # Knowledge Graph Bridge (Phase-8)
+    node_id = Column(GUID(), ForeignKey("concepts.id"), nullable=True, index=True)
 
     title = Column(String, nullable=False)
     description = Column(Text)

@@ -88,6 +88,12 @@ export const upscService = {
             plan_id: planId,
             question_number: questionNumber
         });
+        
+        // Priority 1: Graceful Degradation (204 Bypass)
+        if (response.status === 204) {
+            return { isPlaceholder: true, message: "Content Generating" };
+        }
+        
         return response.data;
     },
 
@@ -170,10 +176,24 @@ export const upscService = {
         return response.data;
     },
 
-    getDrillQuestions: async (subject: string, difficulty: string, limit: number = 20): Promise<any[]> => {
+    getDrillQuestions: async (subject: string, difficulty: string, limit: number = 30, topicTag?: string): Promise<any[]> => {
+        // Priority 2: Strict Parameters (Floor 30)
+        const validatedLimit = Math.max(30, limit);
+        
         const response = await api.get("/drill/questions", {
-            params: { subject, difficulty, limit }
+            params: { 
+                subject, 
+                difficulty, 
+                limit: validatedLimit,
+                topic_tag: topicTag // Support for Geography-specific topics
+            }
         });
+
+        // Priority 1: Graceful Degradation (204 Bypass)
+        if (response.status === 204) {
+            return [];
+        }
+
         return response.data;
     }
 };

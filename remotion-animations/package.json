@@ -1,0 +1,31 @@
+{
+  "name": "remotion-animations",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "remotion:studio": "remotion studio src/index.tsx",
+    "remotion:render": "remotion render src/index.tsx MyAnimation out/video.mp4",
+    "remotion:preview": "remotion preview src/index.tsx"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@remotion/cli": "^4.0.443",
+    "@remotion/google-fonts": "^4.0.443",
+    "@remotion/player": "^4.0.443",
+    "@remotion/renderer": "^4.0.443",
+    "@remotion/transitions": "^4.0.443",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.443"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^6.0.2"
+  }
+}

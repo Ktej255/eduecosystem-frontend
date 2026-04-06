@@ -1,0 +1,122 @@
+﻿{
+  "backendType": "SECOND_GEN",
+  "connectionName": "eduecosystem-prod:us-central1:eduecosystem-db",
+  "createTime": "2026-03-17T09:39:19.438Z",
+  "databaseInstalledVersion": "POSTGRES_15_17",
+  "databaseVersion": "POSTGRES_15",
+  "etag": "8093f1101a341e0cbeff985110022500da4182f81e438f1031e34475d64f66d4",
+  "gceZone": "us-central1-c",
+  "geminiConfig": {
+    "activeQueryEnabled": false,
+    "entitled": false,
+    "googleVacuumMgmtEnabled": false,
+    "indexAdvisorEnabled": false,
+    "oomSessionCancelEnabled": true
+  },
+  "includeReplicasForMajorVersionUpgrade": false,
+  "instanceType": "CLOUD_SQL_INSTANCE",
+  "ipAddresses": [
+    {
+      "ipAddress": "34.55.250.166",
+      "type": "PRIMARY"
+    },
+    {
+      "ipAddress": "34.132.220.155",
+      "type": "OUTGOING"
+    }
+  ],
+  "kind": "sql#instance",
+  "maintenanceVersion": "POSTGRES_15_17.R20260319.00_02",
+  "name": "eduecosystem-db",
+  "project": "eduecosystem-prod",
+  "region": "us-central1",
+  "satisfiesPzi": true,
+  "selfLink": "https://sqladmin.googleapis.com/sql/v1beta4/projects/eduecosystem-prod/instances/eduecosystem-db",
+  "serverCaCert": {
+    "cert": "-----BEGIN CERTIFICATE-----\nMIIDfzCCAmegAwIBAgIBADANBgkqhkiG9w0BAQsFADB3MS0wKwYDVQQuEyRjZDhk\nOGI1NS0xOTFiLTRlNGQtYTdlZS0xNDljYWMxMWY2YjYxIzAhBgNVBAMTGkdvb2ds\nZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUsIEluYzELMAkG\nA1UEBhMCVVMwHhcNMjYwMzE3MDkzOTU4WhcNMzYwMzE0MDk0MDU4WjB3MS0wKwYD\nVQQuEyRjZDhkOGI1NS0xOTFiLTRlNGQtYTdlZS0xNDljYWMxMWY2YjYxIzAhBgNV\nBAMTGkdvb2dsZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUs\nIEluYzELMAkGA1UEBhMCVVMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB\nAQCZvyWiGyFtctGTOcdaXOPvkcGkh6w2qin9tCCJs9OwmM/H9oDgEYccMPyqmDef\nzxwlpmlrjEInsocdDe2xfWoXpSlkg2hVmY/vIPHbbdsvKrEN4vjADU7hVdIUBO6G\nk62220qeKv2yUJQ3vtih9UrHtJRGBu3hM/RSbHOD8cyORdgdDO0RaOFdNaiun9Fd\nF9igAYIkBY+T0vJo6A8yZjIKoDHZYXipiTyhuJbfgPRylNbYCEKt/j9DCyiM0Ij0\n7o20UsaN+Z2WyDw7vfutzhMhJzpY5DVBgz1sMmSKN1xlfmtCX4g0dAz11itO7HCW\nbpTGqZkNl1THJUpdXYFK0SjRAgMBAAGjFjAUMBIGA1UdEwEB/wQIMAYBAf8CAQAw\nDQYJKoZIhvcNAQELBQADggEBAA7/Ts51vH0c+yXTwT84JPZz8SkCkuFkWQ3pIbxo\nJt5/4b1Bn4CfvC1mEIYy0RBW417CT+hDjAT/+gKsMiur+WvcqBu/0CellWI61Ebd\nKggMFGcaLOLV0pIhkULB1bucDMZ7ODXj+0bd5yuudnmB+nPrqOcEzvQ97jfAE4Ev\nkxOuAwCk244Xyk5D5v248RFrbuIy5Z9OOc03PyPjoj+0jJ7GPHOYIhFIlAdYBf+5\nckImoSrMtziSnzR/uqoTXiWv9HiFJxEvxF8IK9YGLUnfPYJh6H/doKXRqdkO/IWx\nHBKFws0e/w137GUH8Ol0Ugobjr9Q2qADppWpD7zLPZ0QinY=\n-----END CERTIFICATE-----",
+    "certSerialNumber": "0",
+    "commonName": "C=US,O=Google\\, Inc,CN=Google Cloud SQL Server CA,dnQualifier=cd8d8b55-191b-4e4d-a7ee-149cac11f6b6",
+    "createTime": "2026-03-17T09:39:58.950Z",
+    "expirationTime": "2036-03-14T09:40:58.950Z",
+    "instance": "eduecosystem-db",
+    "kind": "sql#sslCert",
+    "sha1Fingerprint": "3e4f52c1c4f3b7a5482f24bd31714276393ec98b"
+  },
+  "serviceAccountEmailAddress": "p503001969959-fuqiah@gcp-sa-cloud-sql.iam.gserviceaccount.com",
+  "settings": {
+    "activationPolicy": "ALWAYS",
+    "availabilityType": "ZONAL",
+    "backupConfiguration": {
+      "backupRetentionSettings": {
+        "retainedBackups": 7,
+        "retentionUnit": "COUNT"
+      },
+      "backupTier": "STANDARD",
+      "enabled": false,
+      "kind": "sql#backupConfiguration",
+      "startTime": "03:00",
+      "transactionLogRetentionDays": 7,
+      "transactionalLogStorageState": "TRANSACTIONAL_LOG_STORAGE_STATE_UNSPECIFIED"
+    },
+    "connectorEnforcement": "NOT_REQUIRED",
+    "dataDiskSizeGb": "10",
+    "dataDiskType": "PD_SSD",
+    "deletionProtectionEnabled": false,
+    "edition": "ENTERPRISE",
+    "ipConfiguration": {
+      "authorizedNetworks": [
+        {
+          "kind": "sql#aclEntry",
+          "name": "",
+          "value": "49.43.131.175/32"
+        },
+        {
+          "kind": "sql#aclEntry",
+          "name": "",
+          "value": "47.15.243.197/32"
+        },
+        {
+          "kind": "sql#aclEntry",
+          "name": "",
+          "value": "49.43.131.161/32"
+        }
+      ],
+      "ipv4Enabled": true,
+      "requireSsl": false,
+      "serverCaMode": "GOOGLE_MANAGED_INTERNAL_CA",
+      "serverCertificateRotationMode": "SERVER_CERTIFICATE_ROTATION_MODE_UNSPECIFIED",
+      "sslMode": "ALLOW_UNENCRYPTED_AND_ENCRYPTED"
+    },
+    "kind": "sql#settings",
+    "locationPreference": {
+      "kind": "sql#locationPreference",
+      "zone": "us-central1-c"
+    },
+    "pricingPlan": "PER_USE",
+    "replicationLagMaxSeconds": 31536000,
+    "replicationType": "SYNCHRONOUS",
+    "settingsVersion": "36",
+    "storageAutoResize": true,
+    "storageAutoResizeLimit": "0",
+    "tier": "db-custom-2-7680"
+  },
+  "sqlNetworkArchitecture": "NEW_NETWORK_ARCHITECTURE",
+  "state": "RUNNABLE",
+  "upgradableDatabaseVersions": [
+    {
+      "displayName": "PostgreSQL 16",
+      "majorVersion": "POSTGRES_16",
+      "name": "POSTGRES_16"
+    },
+    {
+      "displayName": "PostgreSQL 17",
+      "majorVersion": "POSTGRES_17",
+      "name": "POSTGRES_17"
+    },
+    {
+      "displayName": "PostgreSQL 18",
+      "majorVersion": "POSTGRES_18",
+      "name": "POSTGRES_18"
+    }
+  ]
+}

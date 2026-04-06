@@ -1,6 +1,7 @@
 import { SubjectConfig, WeeklyScheduleData } from "../../../common/framework/SubjectPlanner";
 import { BookOpen, Scroll, Landmark, Flag, Globe } from "lucide-react";
 import React from "react";
+import { SPECTRUM_MODERN_HISTORY } from "./spectrum-modern-history";
 
 // --- Syllabus Data ---
 
@@ -27,7 +28,7 @@ const HISTORY_MODULES = [
         description: "From Advent of Europeans to Freedom Struggle (1757 - 1947).",
         icon: React.createElement(Flag),
         color: "blue",
-        topicRange: [29, 65] as [number, number]
+        topicRange: [100, 150] as [number, number]
     },
     {
         id: "4",
@@ -197,70 +198,16 @@ The urban planning of the IVC reflects a sophisticated understanding of civil en
         currentAffairsCount: 0
     },
 
-    // --- Modern India (Module 3) ---
-    {
-        id: 29,
-        title: "Advent of Europeans",
+    // --- Modern India (Module 3 - Dynamic Integration from Spectrum) ---
+    ...SPECTRUM_MODERN_HISTORY.map(topic => ({
+        id: topic.id + 100,
+        title: topic.title,
         moduleId: "3",
-        priority: "Low",
-        staticFocus: "Portuguese, Dutch, French, English rivalry.",
-        keyConcepts: ["Blue Water Policy", "Battle of Plassey", "Battle of Buxar"],
+        priority: [14, 15, 16, 22, 23, 24].includes(topic.id) ? "High" : "Medium",
+        staticFocus: topic.subtopics ? topic.subtopics.join(", ") : "",
+        keyConcepts: [],
         currentAffairsCount: 0
-    },
-    {
-        id: 30,
-        title: "British Expansion (1757-1857)",
-        moduleId: "3",
-        priority: "Medium",
-        staticFocus: "Subsidiary Alliance, Doctrine of Lapse, Economic policies.",
-        keyConcepts: ["Permanent Settlement", "Ryotwari", "Drain of Wealth"],
-        currentAffairsCount: 1
-    },
-    {
-        id: 46,
-        title: "Revolt of 1857",
-        moduleId: "3",
-        priority: "High",
-        staticFocus: "Causes, Leaders, Failure, Queen's Proclamation.",
-        keyConcepts: ["Sepoy Mutiny", "Hindu-Muslim Unity"],
-        currentAffairsCount: 0,
-        mainsQuestions: [
-            { id: "M4Q1", question: "Was the Revolt of 1857 a 'Sepoy Mutiny' or the 'First War of Independence'? Discuss.", marks: 15 }
-        ]
-    },
-    {
-        id: 47,
-        title: "Socio-Religious Reform Movements",
-        moduleId: "3",
-        priority: "High",
-        staticFocus: "Brahmo Samaj, Arya Samaj, Aligarh Movement.",
-        keyConcepts: ["Raja Ram Mohan Roy", "Sati", "Widow Remarriage"],
-        currentAffairsCount: 2,
-        mainsQuestions: [
-            { id: "M4Q2", question: "Highlight the role of socio-religious reform movements in the awakening of nationalism in India.", marks: 15 }
-        ]
-    },
-    {
-        id: 48,
-        title: "Indian National Congress (Early Phase)",
-        moduleId: "3",
-        priority: "Medium",
-        staticFocus: "Formation, Moderates vs Extremists, Partition of Bengal.",
-        keyConcepts: ["Swadeshi Movement", "Surat Split"],
-        currentAffairsCount: 0
-    },
-    {
-        id: 49,
-        title: "Gandhian Era (1915-1947)",
-        moduleId: "3",
-        priority: "High",
-        staticFocus: "Champaran, Non-Cooperation, Civil Disobedience, Quit India.",
-        keyConcepts: ["Satyagraha", "Salt March", "Poona Pact"],
-        currentAffairsCount: 3,
-        mainsQuestions: [
-            { id: "M4Q3", question: "Analyze the significance of the Quit India Movement in the freedom struggle.", marks: 15 }
-        ]
-    },
+    })),
 
     // --- World History (Module 4) ---
     {
@@ -334,7 +281,7 @@ export const HISTORY_CONFIG: SubjectConfig = {
     id: "history",
     title: "Indian History",
     subtitle: "Comprehensive coverage from Indus Valley to Independence (Strictly Prelims-Focused)",
-    totalChapters: 65,
+    totalChapters: HISTORY_TOPICS.length,
     totalParts: 4,
     modules: HISTORY_MODULES,
     topics: HISTORY_TOPICS,

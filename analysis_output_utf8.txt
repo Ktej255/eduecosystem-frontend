@@ -1,0 +1,49 @@
+﻿=================================================================
+
+=================================================================
+  Medieval History
+  File: Master Mcq Medieval History.txt
+  Size: 807 KB | Lines: 21429
+  Chapters found: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]...
+  Levels found: [1, 2, 3]
+  Total chapter refs: 20
+
+  Questions per chapter (sample):
+    Chapter  1: 30 questions
+    Chapter  2: 90 questions
+    Chapter  3: 90 questions
+    Chapter  4: 90 questions
+    Chapter  5: 90 questions
+    Chapter  6: 90 questions
+    Chapter  7: 90 questions
+    Chapter  8: 90 questions
+    Chapter  9: 120 questions
+    Chapter 10: 120 questions
+    Chapter 11: 90 questions
+    Chapter 12: 90 questions
+    Chapter 13: 90 questions
+    Chapter 14: 90 questions
+    Chapter 15: 90 questions
+
+  === FORMAT SAMPLE (first 12 non-empty lines) ===
+python : Traceback (most recent call last):
+At line:1 char:33
++ ... uEcosystem; python analyze_source_files.py > 
+analysis_output.txt 2>&1 ...
++                 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent 
+    call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "D:\Development\EduEcosystem\analyze_source_files.py", line 
+60, in <module>
+    print(f"    {l[:100]}")
+  File "D:\DevTools\Python\Lib\encodings\cp1252.py", line 19, in 
+encode
+    return 
+codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\ufeff' 
+in position 4: character maps to <undefined>
+

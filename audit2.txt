@@ -1,0 +1,123 @@
+=== BATCH1-1 POLITY ROUTES ===
+  [D] [topicId]
+  [D] current-affairs
+  [F] page.tsx
+  [D] flashcards
+  [F] page.tsx
+  [D] mcq
+  [F] page.tsx
+  [F] page.tsx
+  [D] ai-tutor
+  [F] page.tsx
+  [D] neural-network
+  [F] page.tsx
+  [F] page.tsx
+  [D] preamble-prism
+  [F] page.tsx
+  [D] pyq
+  [F] page.tsx
+  [D] revision
+  [F] page.tsx
+  [D] session
+  [F] page.tsx
+  [D] verdict-visualizer
+  [F] page.tsx
+
+=== BATCH1 POLITY ROUTES ===
+  [F] page.tsx
+  [D] revision
+  [D] [id]
+  [F] page.tsx
+  [D] custom
+  [F] page.tsx
+  [D] drill
+  [F] page.tsx
+  [D] facts
+  [F] page.tsx
+  [F] page.tsx
+  [D] quick
+  [F] page.tsx
+  [D] srs
+  [F] page.tsx
+  [D] voice
+  [F] page.tsx
+  [D] weak
+  [F] page.tsx
+  [D] syllabus
+  [F] page.tsx
+  [D] test
+  [D] [testId]
+  [F] page.tsx
+  [D] topic
+  [D] [topicId]
+  [F] page.tsx
+
+=== AI TUTOR ===
+  page.tsx
+  page.tsx
+  page.tsx
+  VoiceRecorder.tsx
+  topic-suggestions.ts
+  ChatService.ts
+  ChatWindow.tsx
+  QueryInput.tsx
+  topic-suggestions.ts
+  ChatService.ts
+  ChatWindow.tsx
+  QueryInput.tsx
+
+=== PRISM/VERDICT ===
+  page.tsx
+  page.tsx
+  page.tsx
+  page.tsx
+  CrystalPrism.tsx
+  LightBeams.tsx
+  PrismScene.tsx
+  DynamicVerdictConsequences.tsx
+  CaseMonolith.tsx
+  CourtroomScene.tsx
+  landmark-cases.ts
+  VerdictOverlay.tsx
+  CrystalPrism.tsx
+  LightBeams.tsx
+  PrismScene.tsx
+  DynamicVerdictConsequences.tsx
+  CaseMonolith.tsx
+  CourtroomScene.tsx
+  landmark-cases.ts
+  VerdictOverlay.tsx
+
+=== SRS ENGINE ===
+  D:\Development\EduEcosystem\frontend\src\components\batch1\polity\revision\srs-engine.ts
+  D:\Development\EduEcosystem\frontend\src\components\upsc\subjects\polity\revision\srs-engine.ts
+  D:\Development\EduEcosystem\frontend\src\lib\srs\srs-engine.ts
+
+=== MCQ ROUTES ===
+  D:\Development\EduEcosystem\frontend\src\app\(dashboard)\admin\content-system\mcqs\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(student-portal)\student\batch1\economy\mcq\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(student-portal)\student\batch1\environment\mcq\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(student-portal)\student\batch1\geography\mcq\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(student-portal)\student\batch1\history\mcq\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(student-portal)\student\batch1\history\mcq-drill\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(student-portal)\student\batch1\science-tech\mcq\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(student-portal)\student\batch1-1\polity\[topicId]\mcq\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(student-portal)\student\upsc\economy\mcq\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(student-portal)\student\upsc\environment\mcqs\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(student-portal)\student\upsc\geography\mcq\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(student-portal)\student\upsc\history\mcq\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(student-portal)\student\upsc\history\mcq-drill\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(student-portal)\student\upsc\polity\[topicId]\mcq\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(student-portal)\student\upsc\science-tech\mcq\page.tsx
+
+=== REPORT/DDP ROUTES ===
+  D:\Development\EduEcosystem\frontend\src\app\(dashboard)\admin\daily-reports\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(dashboard)\reports\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(dashboard)\reports\overview\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(dashboard)\reports\settlements\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(dashboard)\reports\traffic\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(dashboard)\reports\transactions\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(dashboard)\reports\webinars\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(graphotherapy-dashboard)\graphotherapy-dashboard\reports\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(student-portal)\student\batch1\value-addition\reports\page.tsx
+  D:\Development\EduEcosystem\frontend\src\app\(student-portal)\student\batch1-1\deep-report\page.tsx

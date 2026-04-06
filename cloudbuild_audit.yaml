@@ -1,0 +1,90 @@
+steps:
+  - name: 'python:3.11'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        pip install --quiet psycopg2-binary sqlalchemy
+
+        python3 - << 'PYEOF'
+        from sqlalchemy import create_engine, text
+
+        DB = "postgresql://postgres:Tej%401106@/eduecosystem_prod?host=/cloudsql/eduecosystem-prod:us-central1:eduecosystem-db"
+        engine = create_engine(DB)
+
+        print("=" * 70)
+        print("  PRODUCTION DATABASE: QUESTION QUALITY AUDIT")
+        print("=" * 70)
+
+        with engine.connect() as conn:
+
+            print("\n--- 1. TOTAL QUESTIONS BY SUBJECT ---")
+            rows = conn.execute(text(
+                "SELECT subject, COUNT(*) as total FROM bank_questions GROUP BY subject ORDER BY total DESC"
+            )).fetchall()
+            total_all = 0
+            for r in rows:
+                print(f"  {str(r[0] or 'NULL'):<30} {r[1]:>6,}")
+                total_all += r[1]
+            print(f"\n  GRAND TOTAL: {total_all:,}")
+
+            print("\n--- 2. TRUNCATED (contain ...) BY SUBJECT ---")
+            rows = conn.execute(text(
+                "SELECT subject, COUNT(*) FROM bank_questions WHERE text LIKE '%...%' OR text LIKE '%\u2026%' GROUP BY subject ORDER BY 2 DESC"
+            )).fetchall()
+            trunc_total = sum(r[1] for r in rows)
+            for r in rows:
+                print(f"  {str(r[0] or 'NULL'):<30} {r[1]:>6,}")
+            print(f"  TOTAL TRUNCATED: {trunc_total:,}")
+
+            print("\n--- 3. SHORT QUESTIONS (< 30 chars) ---")
+            rows = conn.execute(text(
+                "SELECT subject, COUNT(*) FROM bank_questions WHERE LENGTH(text) < 30 GROUP BY subject ORDER BY 2 DESC"
+            )).fetchall()
+            for r in rows:
+                print(f"  {str(r[0] or 'NULL'):<30} {r[1]:>6,}")
+
+            print("\n--- 4. MISSING CORRECT ANSWER ---")
+            rows = conn.execute(text(
+                "SELECT subject, COUNT(*) FROM bank_questions WHERE correct_answer IS NULL OR TRIM(correct_answer)='' GROUP BY subject ORDER BY 2 DESC"
+            )).fetchall()
+            for r in rows:
+                print(f"  {str(r[0] or 'NULL'):<30} {r[1]:>6,}")
+
+            print("\n--- 5. EXACT DUPLICATES ---")
+            dup_groups = conn.execute(text(
+                "SELECT COUNT(*) FROM (SELECT text, COUNT(*) FROM bank_questions GROUP BY text HAVING COUNT(*) > 1) d"
+            )).scalar()
+            dup_rows = conn.execute(text(
+                "SELECT COALESCE(SUM(cnt-1),0) FROM (SELECT COUNT(*) as cnt FROM bank_questions GROUP BY text HAVING COUNT(*) > 1) d"
+            )).scalar()
+            print(f"  Duplicate groups: {dup_groups:,}")
+            print(f"  Excess rows to remove: {dup_rows:,}")
+
+            print("\n--- 6. SAMPLE BROKEN POLITY QUESTIONS ---")
+            rows = conn.execute(text(
+                "SELECT id, LEFT(text,150), LENGTH(text) FROM bank_questions WHERE subject='Polity' AND (text LIKE '%...%' OR text LIKE '%\u2026%') LIMIT 5"
+            )).fetchall()
+            if rows:
+                for r in rows:
+                    print(f"\n  [ID:{r[0]} len={r[2]}]")
+                    print(f"  {r[1]}")
+            else:
+                print("  No truncated Polity questions found.")
+
+            print("\n--- 7. HISTORY KEYWORDS IN POLITY TAG ---")
+            count = conn.execute(text(
+                "SELECT COUNT(*) FROM bank_questions WHERE subject='Polity' AND (LOWER(text) LIKE '%mughal%' OR LOWER(text) LIKE '%maurya%' OR LOWER(text) LIKE '%british%' OR LOWER(text) LIKE '%1857%')"
+            )).scalar()
+            print(f"  History-content in Polity tag: {count:,}")
+
+        print("\n=== AUDIT COMPLETE ===")
+        PYEOF
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+# REQUIRED: this attaches the Cloud SQL socket to the build environment
+# Without this the build cannot connect via the unix socket format
+# See: https://cloud.google.com/build/docs/configuring-builds/use-secrets-and-params
+# Note: Cloud SQL attachment requires declaring cloudsql_instances

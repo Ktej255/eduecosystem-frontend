@@ -41,18 +41,11 @@ export default function GeographySectionPlanner() {
     };
 
     const handleStartSession = () => {
-        // Route to specific topic pages based on module/topic
-        // This mapping logic bridges the Schedule to the existing Pages
-        if (dayData.topics.includes('universe-solar-system')) {
-            router.push('/student/upsc/geography/universe');
-        } else if (dayData.moduleId === 'geomorphology') {
-            router.push('/student/upsc/geography/geomorphology');
-        } else if (dayData.moduleId === 'climatology') {
-            // Assuming a generic or specific page exists, or fallback
-            router.push(`/student/upsc/geography/${dayData.moduleId}`);
+        // High-precision routing to the Knowledge Graph with the selected module filter
+        if (dayData.moduleId) {
+            router.push(`/student/upsc/geography/guided/knowledge-graph?focus=${dayData.moduleId}`);
         } else {
-            // Default fallback
-            router.push(`/student/upsc/geography/${dayData.moduleId}`);
+            router.push('/student/upsc/geography/guided/knowledge-graph');
         }
     };
 
@@ -63,11 +56,11 @@ export default function GeographySectionPlanner() {
                 <div className="p-4 border-b border-slate-100 bg-slate-50/50/50">
                     <div className="flex items-center justify-between mb-4">
                         <h3 className="font-bold text-lg flex items-center gap-2">
-                            <Calendar className="w-5 h-5 text-indigo-600" />
-                            21-Day Plan
+                            <Compass className="w-5 h-5 text-indigo-600" />
+                            Foundation Master Plan
                         </h3>
                         <Badge variant="outline" className="bg-indigo-50 text-indigo-600 border-indigo-200">
-                            {progressPercentage}% Complete
+                            11 Modules
                         </Badge>
                     </div>
                     {/* Progress Bar */}

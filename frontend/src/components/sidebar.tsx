@@ -113,7 +113,7 @@ const routes: Route[] = [
   {
     label: "Laxmikanth Navigator",
     icon: Shield,
-    href: "/student/batch1-1/polity",
+    href: "/student/upsc/polity",
     color: "text-blue-500",
     badge: "LIVE",
     children: [],
@@ -158,7 +158,7 @@ const routes: Route[] = [
   {
     label: "PYQ Explorer",
     icon: History,
-    href: "/student/pyq",
+    href: "/student/upsc/pyq",
     color: "text-amber-500",
     badge: "FREE",
     children: [],

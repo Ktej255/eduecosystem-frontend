@@ -1,0 +1,25 @@
+steps:
+  # 1. Run Ingestion via Python Builder
+  - name: 'python:3.10-slim'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        apt-get update && apt-get install -y libpq-dev build-essential
+        pip install psycopg2-binary
+        python backend/scripts/ingest_to_cloud_sql.py
+    env:
+      - 'DB_HOST=/cloudsql/$_SQL_INSTANCE'
+      - 'DB_NAME=$_DB_NAME'
+      - 'DB_USER=$_DB_USER'
+      - 'DB_PASS=$_DB_PASS'
+    id: 'run-ingestion'
+
+substitutions:
+  _SQL_INSTANCE: 'eduecosystem-prod:us-central1:eduecosystem-db'
+  _DB_NAME: 'postgres'
+  _DB_USER: 'postgres'
+  _DB_PASS: 'postgres'
+
+options:
+  logging: CLOUD_LOGGING_ONLY

@@ -14,6 +14,7 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import QuestionBankDashboard from './question-bank/QuestionBankDashboard';
 import { useLanguageStore } from '@/lib/language-store';
+import SubjectDrillWidget from '@/components/upsc/SubjectDrillWidget';
 
 const HISTORY_ERAS = [
     {
@@ -112,6 +113,7 @@ export default function HistoryDashboard() {
                     <TabsTrigger value="overview" className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm">Visual Hub</TabsTrigger>
                     <TabsTrigger value="syllabus" className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm">Syllabus Map</TabsTrigger>
                     <TabsTrigger value="timeline" className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm">Detailed Timeline</TabsTrigger>
+                    <TabsTrigger value="drill" className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm">⚡ Quick Drill</TabsTrigger>
                     <TabsTrigger value="bank" className="rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-sm">Question Bank</TabsTrigger>
                 </TabsList>
 
@@ -164,6 +166,12 @@ export default function HistoryDashboard() {
                     <Card className="p-6">
                         <HistoryTimeline config={HISTORY_CONFIG} onSelectTopic={() => { }} />
                     </Card>
+                </TabsContent>
+
+                <TabsContent value="drill">
+                    <div className="max-w-2xl mx-auto py-4">
+                        <SubjectDrillWidget subject="History" color="amber" />
+                    </div>
                 </TabsContent>
 
                 <TabsContent value="bank">

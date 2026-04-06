@@ -102,7 +102,7 @@ def get_student_journey(
 
     wellness = {
         "meditation_sessions_total": med_sessions,
-        "meditation_minutes_total": round((db.query(func.sum(MeditationSession.duration_seconds)).filter(MeditationSession.user_id == student_id).scalar() or 0) / 60, 1),
+        "meditation_minutes_total": round(float(db.query(func.sum(MeditationSession.minutes_listened)).filter(MeditationSession.user_id == student_id).scalar() or 0), 1),
         "meditation_streak": med_progress.total_streak if med_progress else 0,
         "grapho_submissions": grapho_subs,
         "latest_grapho_traits": grapho_progress.completed_days if grapho_progress else {}, 

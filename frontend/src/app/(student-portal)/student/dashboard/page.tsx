@@ -11,7 +11,7 @@ import {
 } from "@/services/progressStorage";
 import { getCompletedStepsForDay } from "@/lib/journey/completion-tracker";
 import { getUserAccess } from "@/config/user-access-config";
-import { RefreshCw, Clock, ChevronRight, Sparkles, Users } from "lucide-react";
+import { RefreshCw, Clock, ChevronRight, Sparkles, Users, Lock, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -320,33 +320,59 @@ export default function StudentDashboard() {
                 </h2>
                 <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                     {[
-                        { name: t('dashboard.meditation'), href: '/student/meditation', emoji: '🧘', color: 'from-indigo-500 to-purple-600', accessKey: 'meditation' },
-                        { name: t('dashboard.graphotherapy'), href: '/student/graphotherapy', emoji: '✍️', color: 'from-emerald-500 to-teal-600', accessKey: 'graphotherapy' },
-                        { name: 'Evening Section', href: '/student/batch1-1/evening', emoji: '🔦', color: 'from-purple-500 to-pink-600', accessKey: 'batch1' },
-                        { name: t('dashboard.drill'), href: '/student/revision', emoji: '🧠', color: 'from-amber-500 to-orange-600', accessKey: 'revisionPortal' },
-                        { name: "Laxmikanth Navigator", href: "/student/batch1-1/polity", emoji: '📚', color: 'from-blue-500 to-cyan-600', accessKey: 'batch1Polity' },
-                        { name: 'Geography Study', href: '/student/batch1/geography', emoji: '🌍', color: 'from-emerald-500 to-green-600', accessKey: 'batch1' },
-                        { name: 'Ancient History', href: '/student/batch1-1/ancient-history', emoji: '🏛️', color: 'from-stone-500 to-amber-700', accessKey: 'batch1Polity' },
-                        { name: 'Deep Report', href: '/student/batch1-1/deep-report', emoji: '📊', color: 'from-indigo-500 to-violet-600', accessKey: 'batch1' },
+                        { id: 'smart-meditation', name: t('dashboard.meditation'), href: '/student/meditation', emoji: '🧘', color: 'from-indigo-500 to-purple-600', accessKey: 'meditation' },
+                        { id: 'grapho-kit', name: t('dashboard.graphotherapy'), href: '/student/graphotherapy', emoji: '✍️', color: 'from-emerald-500 to-teal-600', accessKey: 'graphotherapy' },
+                        { id: 'evening-session', name: 'Evening Section', href: '/student/batch1-1/evening', emoji: '🔦', color: 'from-purple-500 to-pink-600', accessKey: 'batch1' },
+                        { id: 'revision-portal', name: t('dashboard.drill'), href: '/student/revision', emoji: '🧠', color: 'from-amber-500 to-orange-600', accessKey: 'revisionPortal' },
+                        { id: 'polity', name: "Laxmikanth Navigator", href: "/student/batch1-1/polity", emoji: '📚', color: 'from-blue-500 to-cyan-600', accessKey: 'batch1Polity' },
+                        { id: 'geography', name: 'Geography Study', href: '/student/batch1/geography', emoji: '🌍', color: 'from-emerald-500 to-green-600', accessKey: 'geography' },
+                        { id: 'history_ancient', name: 'Ancient History', href: '/student/batch1-1/ancient-history', emoji: '🏛️', color: 'from-stone-500 to-amber-700', accessKey: 'batch1Polity' }, // Reusing Polity access for now as per current schema
+                        { id: 'deep-report', name: 'Deep Report', href: '/student/batch1-1/deep-report', emoji: '📊', color: 'from-indigo-500 to-violet-600', accessKey: 'batch1' },
                     ]
-                        .filter((module) => {
-                            // Filter modules based on user access
+                        .map((module) => {
                             const userConfig = getUserAccess(user?.email);
                             const accessKey = module.accessKey as keyof typeof userConfig.access;
-                            return userConfig.access[accessKey] === true;
-                        })
-                        .map((module) => (
-                            <a
-                                key={module.name}
-                                href={module.href}
-                                className="group relative overflow-hidden rounded-2xl border border-border bg-card/50 p-5 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-                            >
-                                <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${module.color} opacity-10 rounded-bl-full group-hover:opacity-20 transition-opacity`} />
-                                <div className="text-3xl mb-3">{module.emoji}</div>
-                                <div className="font-bold text-foreground">{module.name}</div>
-                                <div className="text-xs text-muted-foreground mt-1">{t('dashboard.explore')} →</div>
-                            </a>
-                        ))}
+                            const isLocked = userConfig.access[accessKey] !== true;
+                            
+                            return (
+                                <Link
+                                    key={module.name}
+                                    href={isLocked ? `/student/upsc-store?subject=${module.id}` : module.href}
+                                    className={`group relative overflow-hidden rounded-2xl border transition-all duration-300 p-5 ${
+                                        isLocked 
+                                            ? 'bg-neutral-100/50 dark:bg-neutral-900/20 border-border/50 grayscale-[0.5] hover:grayscale-0' 
+                                            : 'bg-card/50 border-border hover:shadow-xl hover:-translate-y-1'
+                                    }`}
+                                >
+                                    <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${module.color} opacity-10 rounded-bl-full group-hover:opacity-20 transition-opacity`} />
+                                    
+                                    <div className="flex justify-between items-start mb-3">
+                                        <div className="text-3xl">{module.emoji}</div>
+                                        {isLocked && (
+                                            <div className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 p-1.5 rounded-lg">
+                                                <Lock className="w-3.5 h-3.5" />
+                                            </div>
+                                        )}
+                                    </div>
+                                    
+                                    <div className={`font-bold ${isLocked ? 'text-muted-foreground' : 'text-foreground'}`}>
+                                        {module.name}
+                                    </div>
+                                    
+                                    <div className="text-xs mt-1 font-medium">
+                                        {isLocked ? (
+                                            <span className="text-blue-600 dark:text-blue-400 flex items-center gap-1">
+                                                Unlock Course <ArrowRight className="w-3 h-3" />
+                                            </span>
+                                        ) : (
+                                            <span className="text-muted-foreground">
+                                                {t('dashboard.explore')} →
+                                            </span>
+                                        )}
+                                    </div>
+                                </Link>
+                            );
+                        })}
                 </div>
             </div>
         </div>

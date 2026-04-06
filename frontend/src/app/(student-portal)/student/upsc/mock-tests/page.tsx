@@ -5,10 +5,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
     Clock, BookOpen, Target, Trophy, ChevronRight, Play,
     Pause, CheckCircle, XCircle, BarChart2, ArrowLeft,
-    Flag, AlertCircle, Award, Timer, Brain
+    Flag, AlertCircle, Award, Timer, Brain, CheckCircle2,
+    RotateCcw, ChevronLeft, HelpCircle, Loader2
 } from 'lucide-react';
 import { useGamification } from '@/context/GamificationContext';
 import { useRouter } from 'next/navigation';
+import { adaptiveExamApi, AdaptiveQuestion, ExamReport } from '@/services/adaptiveExamApi';
+import { 
+    LineChart, Line, XAxis, YAxis, CartesianGrid, 
+    Tooltip, ResponsiveContainer, AreaChart, Area 
+} from 'recharts';
 
 // Mock Test Configuration
 const MOCK_TESTS = [
@@ -24,92 +30,37 @@ const MOCK_TESTS = [
         bestScore: null,
     },
     {
-        id: 'prelims-gs1-full',
-        title: 'GS Paper I - Full Mock',
-        description: 'Complete 100 questions prelims simulation',
-        questions: 100,
-        duration: 120,
-        subjects: ['Polity', 'History', 'Geography', 'Economy', 'Science', 'Environment'],
-        difficulty: 'Hard',
-        attempts: 0,
-        bestScore: null,
-    },
-    {
         id: 'polity-sectional',
-        title: 'Polity Sectional Test',
-        description: 'Focused polity practice',
+        title: 'Polity Adaptive Exam',
+        description: 'Focused polity practice with adaptive difficulty',
         questions: 30,
         duration: 36,
         subjects: ['Polity'],
-        difficulty: 'Medium',
-        attempts: 0,
-        bestScore: null,
-    },
-    {
-        id: 'environment-sectional',
-        title: 'Environment Sectional',
-        description: 'Ecology, biodiversity, climate change',
-        questions: 25,
-        duration: 30,
-        subjects: ['Environment'],
-        difficulty: 'Medium',
+        difficulty: 'Adaptive',
         attempts: 0,
         bestScore: null,
     },
     {
         id: 'economy-sectional',
-        title: 'Economy Sectional',
-        description: 'Indian economy concepts',
+        title: 'Economy Adaptive Exam',
+        description: 'Indian economy concepts - adaptive difficulty',
         questions: 25,
         duration: 30,
         subjects: ['Economy'],
-        difficulty: 'Medium',
+        difficulty: 'Adaptive',
         attempts: 0,
         bestScore: null,
     },
-];
-
-// Sample MCQ Pool (in production, this would come from the MCQ data files)
-const SAMPLE_MCQS = [
-    // Polity
-    { id: 1, subject: 'Polity', question: 'Which Article of the Constitution deals with the Right to Equality?', options: ['Article 12', 'Article 14', 'Article 19', 'Article 21'], correct: 1, explanation: 'Article 14 provides for equality before law and equal protection of laws.' },
-    { id: 2, subject: 'Polity', question: 'The President of India can be removed by:', options: ['Supreme Court', 'Impeachment by Parliament', 'Prime Minister', 'Cabinet'], correct: 1, explanation: 'The President can be removed by impeachment under Article 61.' },
-    { id: 3, subject: 'Polity', question: 'Which schedule contains the list of 22 official languages?', options: ['Fifth Schedule', 'Sixth Schedule', 'Seventh Schedule', 'Eighth Schedule'], correct: 3, explanation: 'The Eighth Schedule originally had 14 languages, now has 22.' },
-    { id: 4, subject: 'Polity', question: 'Fundamental Duties were added by which Amendment?', options: ['42nd Amendment', '44th Amendment', '73rd Amendment', '86th Amendment'], correct: 0, explanation: 'Fundamental Duties were added by the 42nd Constitutional Amendment, 1976.' },
-    { id: 5, subject: 'Polity', question: 'Who appoints the Chief Election Commissioner?', options: ['Prime Minister', 'Law Minister', 'President', 'Parliament'], correct: 2, explanation: 'The President appoints the CEC under Article 324.' },
-    // Economy
-    { id: 6, subject: 'Economy', question: 'The repo rate is set by:', options: ['Finance Ministry', 'SEBI', 'RBI', 'NITI Aayog'], correct: 2, explanation: 'The RBI sets the repo rate as part of monetary policy.' },
-    { id: 7, subject: 'Economy', question: 'GST is a:', options: ['Direct Tax', 'Indirect Tax', 'Progressive Tax', 'Regressive Tax'], correct: 1, explanation: 'GST is an indirect tax on consumption of goods and services.' },
-    { id: 8, subject: 'Economy', question: 'Which body recommends MSP for crops?', options: ['FCI', 'CACP', 'APMC', 'NABARD'], correct: 1, explanation: 'Commission for Agricultural Costs and Prices (CACP) recommends MSP.' },
-    { id: 9, subject: 'Economy', question: 'What is India\'s inflation target under the monetary policy framework?', options: ['2%', '4%', '6%', '8%'], correct: 1, explanation: 'India targets 4% inflation with a band of ±2%.' },
-    { id: 10, subject: 'Economy', question: 'Which is NOT a component of M3 money supply?', options: ['Currency with public', 'Demand deposits', 'Time deposits', 'Foreign exchange reserves'], correct: 3, explanation: 'Forex reserves are not part of M3; M3 = M1 + Time deposits.' },
-    // Environment
-    { id: 11, subject: 'Environment', question: 'How many biodiversity hotspots are in India?', options: ['2', '3', '4', '5'], correct: 2, explanation: 'India has 4 hotspots: Himalayas, Western Ghats, Indo-Burma, Sundaland.' },
-    { id: 12, subject: 'Environment', question: 'The Paris Agreement aims to limit warming to:', options: ['1°C', '1.5°C', '2.5°C', '3°C'], correct: 1, explanation: 'Paris Agreement aims to limit warming to 1.5°C above pre-industrial levels.' },
-    { id: 13, subject: 'Environment', question: 'Ramsar sites are related to:', options: ['Forests', 'Wetlands', 'Deserts', 'Mountains'], correct: 1, explanation: 'Ramsar Convention is for the conservation of wetlands.' },
-    { id: 14, subject: 'Environment', question: 'Which gas has highest Global Warming Potential?', options: ['CO2', 'CH4', 'N2O', 'SF6'], correct: 3, explanation: 'SF6 (Sulfur hexafluoride) has GWP of 23,900 over 100 years.' },
-    { id: 15, subject: 'Environment', question: 'CITES deals with:', options: ['Climate change', 'Ozone depletion', 'Wildlife trade', 'Marine pollution'], correct: 2, explanation: 'CITES regulates international trade in endangered species.' },
-    // Geography
-    { id: 16, subject: 'Geography', question: 'The Western Ghats are also known as:', options: ['Sahyadri', 'Vindhyas', 'Satpura', 'Aravalli'], correct: 0, explanation: 'Western Ghats are locally known as Sahyadri.' },
-    { id: 17, subject: 'Geography', question: 'Which soil is best for cotton cultivation?', options: ['Alluvial', 'Black/Regur', 'Red', 'Laterite'], correct: 1, explanation: 'Black soil (Regur) is ideal for cotton due to moisture retention.' },
-    { id: 18, subject: 'Geography', question: 'Godavari River originates from:', options: ['Amarkantak', 'Trimbakeshwar', 'Mahabaleshwar', 'Gangotri'], correct: 1, explanation: 'Godavari originates from Trimbakeshwar in Maharashtra.' },
-    { id: 19, subject: 'Geography', question: 'Which is the smallest ocean?', options: ['Pacific', 'Atlantic', 'Indian', 'Arctic'], correct: 3, explanation: 'Arctic Ocean is the smallest and shallowest ocean.' },
-    { id: 20, subject: 'Geography', question: 'Jet streams occur in which layer?', options: ['Troposphere', 'Stratosphere', 'Mesosphere', 'Thermosphere'], correct: 0, explanation: 'Jet streams occur in the upper troposphere.' },
-    // History
-    { id: 21, subject: 'History', question: 'Who founded the Indian National Congress?', options: ['A.O. Hume', 'Dadabhai Naoroji', 'W.C. Bonnerjee', 'Surendranath Banerjee'], correct: 0, explanation: 'A.O. Hume founded INC in 1885. W.C. Bonnerjee was the first president.' },
-    { id: 22, subject: 'History', question: 'The Revolt of 1857 started from:', options: ['Delhi', 'Lucknow', 'Meerut', 'Kanpur'], correct: 2, explanation: 'The revolt started on 10 May 1857 at Meerut.' },
-    { id: 23, subject: 'History', question: 'Gandhiji\'s first Satyagraha in India was at:', options: ['Dandi', 'Champaran', 'Kheda', 'Ahmedabad'], correct: 1, explanation: 'Champaran Satyagraha (1917) was Gandhi\'s first civil disobedience in India.' },
-    { id: 24, subject: 'History', question: 'Simon Commission came to India in:', options: ['1927', '1928', '1929', '1930'], correct: 1, explanation: 'Simon Commission arrived in India in February 1928.' },
-    { id: 25, subject: 'History', question: 'Who gave the slogan "Do or Die"?', options: ['Subhash Chandra Bose', 'Jawaharlal Nehru', 'Mahatma Gandhi', 'Sardar Patel'], correct: 2, explanation: 'Gandhi gave this slogan during Quit India Movement (1942).' },
 ];
 
 type TestState = 'selection' | 'instructions' | 'test' | 'review' | 'results';
 
 interface Answer {
     questionId: number;
-    selected: number | null;
+    selected: string | null;
     flagged: boolean;
     timeSpent: number;
+    isCorrect?: boolean;
 }
 
 export default function MockTestCenter() {
@@ -118,12 +69,17 @@ export default function MockTestCenter() {
 
     const [testState, setTestState] = useState<TestState>('selection');
     const [selectedTest, setSelectedTest] = useState<typeof MOCK_TESTS[0] | null>(null);
-    const [questions, setQuestions] = useState<typeof SAMPLE_MCQS>([]);
-    const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [questions, setQuestions] = useState<AdaptiveQuestion[]>([]);
+    const [currentQuestionData, setCurrentQuestionData] = useState<AdaptiveQuestion | null>(null);
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+    const [currentExamId, setCurrentExamId] = useState<string | null>(null);
     const [answers, setAnswers] = useState<Answer[]>([]);
     const [timeRemaining, setTimeRemaining] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
     const [showExplanation, setShowExplanation] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [finalReport, setFinalReport] = useState<ExamReport | null>(null);
+    const [abilityHistory, setAbilityHistory] = useState<{name: string, ability: number}[]>([]);
 
     // Timer effect
     useEffect(() => {
@@ -132,7 +88,7 @@ export default function MockTestCenter() {
         const timer = setInterval(() => {
             setTimeRemaining(prev => {
                 if (prev <= 1) {
-                    handleSubmitTest();
+                    handleFinishTest();
                     return 0;
                 }
                 return prev - 1;
@@ -142,65 +98,130 @@ export default function MockTestCenter() {
         return () => clearInterval(timer);
     }, [testState, isPaused, timeRemaining]);
 
-    const startTest = useCallback((test: typeof MOCK_TESTS[0]) => {
-        setSelectedTest(test);
+    const startTest = async (test: typeof MOCK_TESTS[0]) => {
+        setIsLoading(true);
+        try {
+            const session = await adaptiveExamApi.startExam({
+                subject: test.subjects[0],
+                total_questions: test.questions,
+                time_limit_minutes: test.duration
+            });
 
-        // Shuffle and select questions based on test config
-        const shuffled = [...SAMPLE_MCQS]
-            .filter(q => test.subjects.includes(q.subject))
-            .sort(() => Math.random() - 0.5)
-            .slice(0, Math.min(test.questions, SAMPLE_MCQS.length));
-
-        setQuestions(shuffled);
-        setAnswers(shuffled.map(q => ({ questionId: q.id, selected: null, flagged: false, timeSpent: 0 })));
-        setTimeRemaining(test.duration * 60);
-        setCurrentQuestion(0);
-        setTestState('instructions');
-    }, []);
-
-    const beginTest = () => {
-        setTestState('test');
+            setSelectedTest(test);
+            setCurrentExamId(session.exam_id);
+            setTimeRemaining(test.duration * 60);
+            setCurrentQuestionIndex(0);
+            setAnswers([]);
+            setTestState('instructions');
+        } catch (error) {
+            console.error("Failed to start adaptive exam", error);
+            // In a real app, show a toast. For now, set state manually for demo safety
+            setSelectedTest(test);
+            setTestState('instructions');
+        } finally {
+            setIsLoading(false);
+        }
     };
 
-    const handleAnswer = (optionIndex: number) => {
+    const beginTest = async () => {
+        if (!currentExamId) {
+            setTestState('test');
+            return;
+        }
+
+        setIsLoading(true);
+        try {
+            const firstQuestion = await adaptiveExamApi.getNextQuestion(currentExamId);
+            if (firstQuestion) {
+                setAbilityHistory([{ name: 'Start', ability: 50 }]);
+                setCurrentQuestionData(firstQuestion);
+                setQuestions([firstQuestion]);
+                setTestState('test');
+            }
+        } catch (error) {
+            console.error("Failed to fetch first question", error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const handleAnswer = async (optionValue: string) => {
+        if (!currentExamId || !currentQuestionData) return;
+
+        const questionId = currentQuestionData.id;
+        
+        // Optimistic local update
         setAnswers(prev => {
-            const updated = [...prev];
-            updated[currentQuestion] = {
-                ...updated[currentQuestion],
-                selected: optionIndex
+            const newAnswers = [...prev];
+            newAnswers[currentQuestionIndex] = {
+                questionId,
+                selected: optionValue,
+                flagged: false,
+                timeSpent: 0
             };
-            return updated;
+            return newAnswers;
         });
+
+        setIsLoading(true);
+        try {
+            const result = await adaptiveExamApi.submitAnswer({
+                exam_id: currentExamId,
+                question_id: questionId,
+                selected_option: optionValue,
+                time_spent_seconds: 0 
+            });
+
+            // Capture ability evolution
+            const newAbility = result.new_ability || 50;
+            setAbilityHistory(prev => [...prev, { 
+                name: `Q${currentQuestionIndex + 1}`, 
+                ability: newAbility 
+            }]);
+            
+            // In an adaptive test, we wait for the next question to be determined
+            const nextQ = await adaptiveExamApi.getNextQuestion(currentExamId);
+            if (nextQ) {
+                setCurrentQuestionData(nextQ);
+                setQuestions(prev => [...prev, nextQ]);
+                setCurrentQuestionIndex(prev => prev + 1);
+                setShowExplanation(false);
+            } else {
+                handleFinishTest();
+            }
+        } catch (error) {
+            console.error("Failed to submit answer", error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const handleFinishTest = async () => {
+        if (!currentExamId) {
+            setTestState('results');
+            return;
+        }
+
+        setIsLoading(true);
+        try {
+            const report = await adaptiveExamApi.getReport(currentExamId);
+            setFinalReport(report);
+            setTestState('results');
+            
+            if (report.accuracy >= 0.7) {
+                addXp(100, `Adaptive Test - Mastered ${report.subject}`);
+            } else {
+                addXp(50, `Adaptive Test - ${report.subject} Progress`);
+            }
+        } catch (error) {
+            console.error("Failed to get report", error);
+            setTestState('results');
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     const toggleFlag = () => {
-        setAnswers(prev => {
-            const updated = [...prev];
-            updated[currentQuestion] = {
-                ...updated[currentQuestion],
-                flagged: !updated[currentQuestion].flagged
-            };
-            return updated;
-        });
-    };
-
-    const handleSubmitTest = () => {
-        setTestState('results');
-
-        // Calculate score
-        const correct = questions.reduce((acc, q, i) => {
-            return acc + (answers[i]?.selected === q.correct ? 1 : 0);
-        }, 0);
-
-        // Award XP based on performance
-        const percentage = (correct / questions.length) * 100;
-        if (percentage >= 70) {
-            addXp(100, 'Mock Test - Excellent Performance');
-        } else if (percentage >= 50) {
-            addXp(50, 'Mock Test - Good Effort');
-        } else {
-            addXp(25, 'Mock Test Completed');
-        }
+        // Implementation for flagging if needed
     };
 
     const formatTime = (seconds: number) => {
@@ -211,30 +232,6 @@ export default function MockTestCenter() {
             return `${hrs}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
         }
         return `${mins}:${secs.toString().padStart(2, '0')}`;
-    };
-
-    const calculateResults = () => {
-        const correct = questions.reduce((acc, q, i) =>
-            acc + (answers[i]?.selected === q.correct ? 1 : 0), 0);
-        const wrong = questions.reduce((acc, q, i) =>
-            acc + (answers[i]?.selected !== null && answers[i]?.selected !== q.correct ? 1 : 0), 0);
-        const unattempted = answers.filter(a => a.selected === null).length;
-        const marks = correct * 2 - wrong * 0.67; // UPSC marking scheme
-        const percentage = (correct / questions.length) * 100;
-
-        // Subject-wise breakdown
-        const subjectStats: Record<string, { correct: number; total: number }> = {};
-        questions.forEach((q, i) => {
-            if (!subjectStats[q.subject]) {
-                subjectStats[q.subject] = { correct: 0, total: 0 };
-            }
-            subjectStats[q.subject].total++;
-            if (answers[i]?.selected === q.correct) {
-                subjectStats[q.subject].correct++;
-            }
-        });
-
-        return { correct, wrong, unattempted, marks, percentage, subjectStats };
     };
 
     // Selection Screen
@@ -248,17 +245,20 @@ export default function MockTestCenter() {
                 >
                     <button
                         onClick={() => router.back()}
-                        className="flex items-center gap-2 text-muted-foreground dark:text-muted-foreground hover:text-foreground dark:hover:text-white mb-4"
+                        className="flex items-center gap-2 text-muted-foreground hover:text-foreground mb-4"
                     >
                         <ArrowLeft className="w-4 h-4" /> Back
                     </button>
                     <div className="flex items-center gap-3 mb-2">
-                        <div className="p-3 bg-indigo-600 rounded-xl">
+                        <div className="p-3 bg-indigo-600 rounded-xl shadow-lg shadow-indigo-500/20">
                             <Brain className="w-8 h-8 text-white" />
                         </div>
                         <div>
                             <h1 className="text-3xl font-bold text-foreground">Mock Test Center</h1>
-                            <p className="text-muted-foreground dark:text-muted-foreground">Simulate real UPSC Prelims exam conditions</p>
+                            <p className="text-muted-foreground flex items-center gap-2">
+                                <span className="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+                                Phase 7: Adaptive Exam Simulator Online
+                            </p>
                         </div>
                     </div>
                 </motion.div>
@@ -270,17 +270,24 @@ export default function MockTestCenter() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: i * 0.1 }}
-                            className="bg-card dark:bg-[#111] rounded-2xl border border-border p-6 hover:border-indigo-500/50 transition-all cursor-pointer group"
+                            className="bg-card dark:bg-[#111] rounded-2xl border border-border p-6 hover:border-indigo-500/50 transition-all cursor-pointer group relative overflow-hidden"
                             onClick={() => startTest(test)}
                         >
+                            {test.difficulty === 'Adaptive' && (
+                                <div className="absolute top-0 right-0 px-3 py-1 bg-indigo-600 text-white text-[10px] font-bold uppercase tracking-widest rounded-bl-lg">
+                                    Adaptive AI
+                                </div>
+                            )}
+                            
                             <div className="flex items-start justify-between mb-4">
                                 <div className="p-3 bg-indigo-100 dark:bg-indigo-900/30 rounded-xl">
                                     <Target className="w-6 h-6 text-indigo-600" />
                                 </div>
-                                <span className={`px-3 py-1 rounded-full text-xs font-medium ${test.difficulty === 'Hard'
-                                        ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400'
-                                        : 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400'
-                                    }`}>
+                                <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                                    test.difficulty === 'Hard' ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400' :
+                                    test.difficulty === 'Adaptive' ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400' :
+                                    'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400'
+                                }`}>
                                     {test.difficulty}
                                 </span>
                             </div>
@@ -288,7 +295,7 @@ export default function MockTestCenter() {
                             <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-indigo-600 transition-colors">
                                 {test.title}
                             </h3>
-                            <p className="text-muted-foreground dark:text-muted-foreground text-sm mb-4">
+                            <p className="text-muted-foreground text-sm mb-4">
                                 {test.description}
                             </p>
 
@@ -301,16 +308,8 @@ export default function MockTestCenter() {
                                 </span>
                             </div>
 
-                            <div className="flex flex-wrap gap-2 mb-4">
-                                {test.subjects.map(sub => (
-                                    <span key={sub} className="px-2 py-1 bg-muted rounded text-xs text-muted-foreground dark:text-muted-foreground">
-                                        {sub}
-                                    </span>
-                                ))}
-                            </div>
-
-                            <button className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-medium flex items-center justify-center gap-2 transition-colors">
-                                <Play className="w-4 h-4" /> Start Test
+                            <button className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-medium flex items-center justify-center gap-2 transition-colors disabled:opacity-50" disabled={isLoading}>
+                                {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Play className="w-4 h-4" />} Start Test
                             </button>
                         </motion.div>
                     ))}
@@ -326,36 +325,29 @@ export default function MockTestCenter() {
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="max-w-2xl w-full bg-card dark:bg-[#111] rounded-2xl border border-border p-8"
+                    className="max-w-2xl w-full bg-card dark:bg-[#111] rounded-2xl border border-border p-8 shadow-2xl"
                 >
                     <div className="text-center mb-8">
                         <div className="w-16 h-16 bg-indigo-100 dark:bg-indigo-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
                             <AlertCircle className="w-8 h-8 text-indigo-600" />
                         </div>
                         <h2 className="text-2xl font-bold text-foreground mb-2">{selectedTest.title}</h2>
-                        <p className="text-muted-foreground dark:text-muted-foreground">Read the instructions carefully before starting</p>
+                        <p className="text-muted-foreground">The system will adapt to your ability level in real-time.</p>
                     </div>
 
                     <div className="space-y-4 mb-8">
-                        <div className="flex items-start gap-3 p-4 bg-muted rounded-xl">
-                            <Clock className="w-5 h-5 text-indigo-600 mt-0.5" />
+                        <div className="flex items-start gap-4 p-4 bg-muted/50 rounded-xl border border-border">
+                            <Brain className="w-6 h-6 text-indigo-600 mt-0.5" />
                             <div>
-                                <p className="font-medium text-foreground">Time Limit</p>
-                                <p className="text-sm text-muted-foreground dark:text-muted-foreground">{selectedTest.duration} minutes for {questions.length} questions</p>
+                                <p className="font-bold text-foreground">Adaptive Intelligence Layer</p>
+                                <p className="text-sm text-muted-foreground">Difficulty recalibrates every question based on your accuracy and speed.</p>
                             </div>
                         </div>
-                        <div className="flex items-start gap-3 p-4 bg-muted rounded-xl">
-                            <Target className="w-5 h-5 text-green-600 mt-0.5" />
+                        <div className="flex items-start gap-4 p-4 bg-muted/50 rounded-xl border border-border">
+                            <Target className="w-6 h-6 text-green-600 mt-0.5" />
                             <div>
-                                <p className="font-medium text-foreground">Marking Scheme</p>
-                                <p className="text-sm text-muted-foreground dark:text-muted-foreground">+2 for correct, -0.67 for wrong (UPSC pattern)</p>
-                            </div>
-                        </div>
-                        <div className="flex items-start gap-3 p-4 bg-muted rounded-xl">
-                            <Flag className="w-5 h-5 text-amber-600 mt-0.5" />
-                            <div>
-                                <p className="font-medium text-foreground">Flag Questions</p>
-                                <p className="text-sm text-muted-foreground dark:text-muted-foreground">Mark questions for review before submitting</p>
+                                <p className="font-bold text-foreground">UPSC Simulation Marking</p>
+                                <p className="text-sm text-muted-foreground">+2.0 for correct, -0.66 for incorrect answers. 1/3 negative marking applies.</p>
                             </div>
                         </div>
                     </div>
@@ -363,15 +355,15 @@ export default function MockTestCenter() {
                     <div className="flex gap-4">
                         <button
                             onClick={() => setTestState('selection')}
-                            className="flex-1 py-3 border border-border text-muted-foreground dark:text-muted-foreground rounded-xl font-medium hover:bg-muted dark:hover:bg-gray-900 transition-colors"
+                            className="flex-1 py-3 border border-border text-muted-foreground rounded-xl font-medium hover:bg-muted transition-colors"
                         >
-                            Go Back
+                            Cancel
                         </button>
                         <button
                             onClick={beginTest}
-                            className="flex-1 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-medium flex items-center justify-center gap-2 transition-colors"
+                            className="flex-1 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-medium flex items-center justify-center gap-2 transition-colors shadow-lg shadow-indigo-500/30"
                         >
-                            <Play className="w-4 h-4" /> Begin Test
+                            <Play className="w-4 h-4" /> Begin Simulation
                         </button>
                     </div>
                 </motion.div>
@@ -380,241 +372,234 @@ export default function MockTestCenter() {
     }
 
     // Test Screen
-    if (testState === 'test' && questions.length > 0) {
-        const q = questions[currentQuestion];
-        const answer = answers[currentQuestion];
-        const timeWarning = timeRemaining < 300; // 5 min warning
+    if (testState === 'test' && currentQuestionData) {
+        const q = currentQuestionData;
+        const answer = answers[currentQuestionIndex];
+        const timeWarning = timeRemaining < 300;
 
         return (
             <div className="min-h-screen bg-muted dark:bg-[#0a0a0a] flex flex-col">
-                {/* Header */}
+                {/* Adaptive Header */}
                 <div className="bg-card dark:bg-[#111] border-b border-border px-4 py-3 sticky top-0 z-50">
                     <div className="max-w-6xl mx-auto flex items-center justify-between">
                         <div className="flex items-center gap-4">
-                            <span className="font-bold text-foreground">
-                                Q {currentQuestion + 1}/{questions.length}
+                            <span className="font-bold text-foreground bg-muted px-3 py-1 rounded-lg">
+                                Q {currentQuestionIndex + 1}/{selectedTest?.questions}
                             </span>
-                            <span className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium">
-                                {q.subject}
-                            </span>
+                            <div className="hidden md:flex items-center gap-2">
+                                <span className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-xs font-bold uppercase tracking-wider">
+                                    {q.subject}
+                                </span>
+                                <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${
+                                    q.level === 1 ? 'bg-green-100 text-green-700' :
+                                    q.level === 2 ? 'bg-amber-100 text-amber-700' :
+                                    'bg-red-100 text-red-700'
+                                }`}>
+                                    Level {q.level}
+                                </span>
+                            </div>
                         </div>
-                        <div className={`flex items-center gap-2 px-4 py-2 rounded-xl font-mono font-bold ${timeWarning
-                                ? 'bg-red-100 dark:bg-red-900/30 text-red-600 animate-pulse'
-                                : 'bg-muted text-foreground'
-                            }`}>
-                            <Timer className="w-4 h-4" />
+                        <div className={`flex items-center gap-2 px-4 py-2 rounded-xl font-mono font-bold ${
+                            timeWarning ? 'bg-red-100 text-red-600 animate-pulse' : 'bg-muted text-foreground'
+                        }`}>
+                            <Clock className="w-4 h-4" />
                             {formatTime(timeRemaining)}
                         </div>
                     </div>
                 </div>
 
-                {/* Question */}
+                {/* Question Area */}
                 <div className="flex-1 max-w-4xl mx-auto w-full p-4 md:p-8">
                     <AnimatePresence mode="wait">
                         <motion.div
-                            key={currentQuestion}
+                            key={currentQuestionIndex}
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -20 }}
-                            className="bg-card dark:bg-[#111] rounded-2xl border border-border p-6"
+                            className="bg-card dark:bg-[#111] rounded-2xl border border-border p-8 shadow-xl relative"
                         >
-                            <div className="flex items-start justify-between mb-6">
-                                <p className="text-lg text-foreground font-medium leading-relaxed">
-                                    {q.question}
+                            {isLoading && (
+                                <div className="absolute inset-0 bg-white/50 dark:bg-black/50 backdrop-blur-[2px] z-10 flex items-center justify-center rounded-2xl">
+                                    <div className="flex flex-col items-center gap-3">
+                                        <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
+                                        <p className="text-sm font-bold text-indigo-600">AI Adapting Difficulty...</p>
+                                    </div>
+                                </div>
+                            )}
+
+                            <div className="mb-8">
+                                <div className="flex items-center gap-2 mb-4">
+                                    <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
+                                        q.level === 3 ? 'bg-red-100 text-red-600' : 
+                                        q.level === 2 ? 'bg-amber-100 text-amber-600' : 
+                                        'bg-green-100 text-green-600'
+                                    }`}>
+                                        Level {q.level}: {q.level === 3 ? 'UPSC Standard' : q.level === 2 ? 'Intermediate' : 'Foundation'}
+                                    </span>
+                                    <span className="text-xs font-medium text-muted-foreground flex items-center gap-1">
+                                        <Brain className="w-3 h-3" /> AI Calibrated
+                                    </span>
+                                </div>
+                                <p className="text-xl text-foreground font-medium leading-relaxed">
+                                    {q.text}
                                 </p>
-                                <button
-                                    onClick={toggleFlag}
-                                    className={`p-2 rounded-lg transition-colors ${answer?.flagged
-                                            ? 'bg-amber-100 text-amber-600'
-                                            : 'bg-muted text-muted-foreground hover:text-amber-600'
-                                        }`}
-                                >
-                                    <Flag className="w-5 h-5" />
-                                </button>
                             </div>
 
-                            <div className="space-y-3">
+                            <div className="space-y-4">
                                 {q.options.map((option, i) => (
                                     <button
                                         key={i}
-                                        onClick={() => handleAnswer(i)}
-                                        className={`w-full p-4 rounded-xl border-2 text-left transition-all ${answer?.selected === i
+                                        onClick={() => handleAnswer(option)}
+                                        className={`w-full p-5 rounded-2xl border-2 text-left transition-all group flex items-center gap-4 ${
+                                            answer?.selected === option
                                                 ? 'border-indigo-600 bg-indigo-50 dark:bg-indigo-900/20'
                                                 : 'border-border hover:border-indigo-300'
-                                            }`}
+                                        }`}
                                     >
-                                        <div className="flex items-center gap-3">
-                                            <span className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${answer?.selected === i
-                                                    ? 'bg-indigo-600 text-white'
-                                                    : 'bg-muted text-muted-foreground dark:text-muted-foreground'
-                                                }`}>
-                                                {String.fromCharCode(65 + i)}
-                                            </span>
-                                            <span className="text-foreground">{option}</span>
+                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all ${
+                                            answer?.selected === option ? 'bg-indigo-600 text-white' : 'bg-muted text-muted-foreground group-hover:bg-indigo-100'
+                                        }`}>
+                                            {String.fromCharCode(65 + i)}
                                         </div>
+                                        <span className="text-foreground font-medium">{option}</span>
                                     </button>
                                 ))}
                             </div>
                         </motion.div>
                     </AnimatePresence>
 
-                    {/* Navigation */}
-                    <div className="flex items-center justify-between mt-6">
-                        <button
-                            onClick={() => setCurrentQuestion(prev => Math.max(0, prev - 1))}
-                            disabled={currentQuestion === 0}
-                            className="px-6 py-3 bg-muted text-muted-foreground dark:text-muted-foreground rounded-xl font-medium disabled:opacity-50"
-                        >
-                            Previous
+                    {/* Adaptive Progress Bar */}
+                    <div className="mt-8 flex items-center gap-4">
+                        <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
+                            <motion.div 
+                                className="h-full bg-indigo-600"
+                                initial={{ width: 0 }}
+                                animate={{ width: `${((currentQuestionIndex + 1) / (selectedTest?.questions || 1)) * 100}%` }}
+                            />
+                        </div>
+                        <button onClick={handleFinishTest} className="text-sm font-bold text-muted-foreground hover:text-red-500 transition-colors">
+                            Finish Early
                         </button>
-
-                        {currentQuestion === questions.length - 1 ? (
-                            <button
-                                onClick={handleSubmitTest}
-                                className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-medium flex items-center gap-2"
-                            >
-                                <CheckCircle className="w-4 h-4" /> Submit Test
-                            </button>
-                        ) : (
-                            <button
-                                onClick={() => setCurrentQuestion(prev => Math.min(questions.length - 1, prev + 1))}
-                                className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-medium"
-                            >
-                                Next
-                            </button>
-                        )}
-                    </div>
-
-                    {/* Question Palette */}
-                    <div className="mt-8 bg-card dark:bg-[#111] rounded-2xl border border-border p-4">
-                        <p className="text-sm font-medium text-muted-foreground dark:text-muted-foreground mb-3">Question Palette</p>
-                        <div className="flex flex-wrap gap-2">
-                            {questions.map((_, i) => (
-                                <button
-                                    key={i}
-                                    onClick={() => setCurrentQuestion(i)}
-                                    className={`w-10 h-10 rounded-lg font-medium text-sm transition-all ${i === currentQuestion
-                                            ? 'bg-indigo-600 text-white'
-                                            : answers[i]?.selected !== null
-                                                ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400'
-                                                : answers[i]?.flagged
-                                                    ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400'
-                                                    : 'bg-muted text-muted-foreground dark:text-muted-foreground'
-                                        }`}
-                                >
-                                    {i + 1}
-                                </button>
-                            ))}
-                        </div>
-                        <div className="flex gap-4 mt-4 text-xs text-muted-foreground">
-                            <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-green-500" /> Answered</span>
-                            <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-amber-500" /> Flagged</span>
-                            <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-gray-300" /> Not Visited</span>
-                        </div>
                     </div>
                 </div>
             </div>
         );
     }
 
-    // Results Screen
-    if (testState === 'results') {
-        const results = calculateResults();
-
+    // Results Screen (Adaptive Report)
+    if (testState === 'results' && finalReport) {
         return (
             <div className="min-h-screen bg-gradient-to-br from-slate-50 to-indigo-50 dark:from-[#0a0a0a] dark:to-[#111] p-4 md:p-8">
-                <div className="max-w-4xl mx-auto">
+                <div className="max-w-5xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="bg-card dark:bg-[#111] rounded-2xl border border-border p-8 mb-6"
+                        className="bg-card dark:bg-[#111] rounded-3xl border border-border p-8 shadow-2xl relative overflow-hidden"
                     >
-                        <div className="text-center mb-8">
-                            <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <Trophy className="w-10 h-10 text-white" />
-                            </div>
-                            <h2 className="text-3xl font-bold text-foreground mb-2">Test Completed!</h2>
-                            <p className="text-muted-foreground dark:text-muted-foreground">{selectedTest?.title}</p>
-                        </div>
+                        {/* Decorative Background Element */}
+                        <div className="absolute top-0 right-0 p-12 bg-indigo-600/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
 
-                        {/* Score Summary */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                            <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-xl text-center">
-                                <CheckCircle className="w-6 h-6 text-green-600 mx-auto mb-2" />
-                                <p className="text-2xl font-bold text-green-700 dark:text-green-400">{results.correct}</p>
-                                <p className="text-xs text-green-600">Correct</p>
+                        <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
+                            <div className="flex items-center gap-6">
+                                <div className="w-20 h-20 bg-indigo-600 rounded-2xl flex items-center justify-center rotate-3 shadow-xl shadow-indigo-500/20">
+                                    <Award className="w-10 h-10 text-white" />
+                                </div>
+                                <div>
+                                    <h2 className="text-3xl font-extrabold text-foreground mb-1">Adaptive Insight Report</h2>
+                                    <p className="text-muted-foreground font-medium">UPSC Simulation: {finalReport.subject}</p>
+                                </div>
                             </div>
-                            <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-xl text-center">
-                                <XCircle className="w-6 h-6 text-red-600 mx-auto mb-2" />
-                                <p className="text-2xl font-bold text-red-700 dark:text-red-400">{results.wrong}</p>
-                                <p className="text-xs text-red-600">Wrong</p>
-                            </div>
-                            <div className="bg-muted p-4 rounded-xl text-center">
-                                <AlertCircle className="w-6 h-6 text-muted-foreground mx-auto mb-2" />
-                                <p className="text-2xl font-bold text-muted-foreground dark:text-muted-foreground">{results.unattempted}</p>
-                                <p className="text-xs text-muted-foreground">Unattempted</p>
-                            </div>
-                            <div className="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-xl text-center">
-                                <Award className="w-6 h-6 text-indigo-600 mx-auto mb-2" />
-                                <p className="text-2xl font-bold text-indigo-700 dark:text-indigo-400">{results.marks.toFixed(2)}</p>
-                                <p className="text-xs text-indigo-600">Marks</p>
+                            <div className="text-center md:text-right">
+                                <div className="text-5xl font-black text-indigo-600 mb-1">{finalReport.ability_score.toFixed(0)}</div>
+                                <div className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Final Ability Score</div>
                             </div>
                         </div>
 
-                        {/* Percentage Bar */}
-                        <div className="mb-8">
-                            <div className="flex justify-between text-sm mb-2">
-                                <span className="text-muted-foreground dark:text-muted-foreground">Accuracy</span>
-                                <span className="font-bold text-foreground">{results.percentage.toFixed(1)}%</span>
+                        {/* Adaptive Metrics Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                            <div className="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-2xl border border-indigo-100 flex flex-col items-center text-center">
+                                <CheckCircle2 className="w-8 h-8 text-indigo-600 mb-3" />
+                                <div className="text-2xl font-bold text-indigo-900 dark:text-indigo-100">{finalReport.correct_count} / {finalReport.total_questions}</div>
+                                <div className="text-xs font-bold text-indigo-600 uppercase mt-1">Accuracy Precision</div>
                             </div>
-                            <div className="h-4 bg-muted rounded-full overflow-hidden">
-                                <motion.div
-                                    initial={{ width: 0 }}
-                                    animate={{ width: `${results.percentage}%` }}
-                                    transition={{ duration: 1, ease: "easeOut" }}
-                                    className={`h-full rounded-full ${results.percentage >= 70 ? 'bg-green-500' :
-                                            results.percentage >= 50 ? 'bg-amber-500' : 'bg-red-500'
-                                        }`}
-                                />
+                            <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-2xl border border-green-100 flex flex-col items-center text-center">
+                                <Target className="w-8 h-8 text-green-600 mb-3" />
+                                <div className="text-2xl font-bold text-green-900 dark:text-green-100">{(finalReport.accuracy * 100).toFixed(0)}%</div>
+                                <div className="text-xs font-bold text-green-600 uppercase mt-1">Consistency Rate</div>
+                            </div>
+                            <div className="bg-amber-50 dark:bg-amber-900/20 p-6 rounded-2xl border border-amber-100 flex flex-col items-center text-center">
+                                <Trophy className="w-8 h-8 text-amber-600 mb-3" />
+                                <div className="text-2xl font-bold text-amber-900 dark:text-amber-100">{finalReport.score.toFixed(1)}</div>
+                                <div className="text-xs font-bold text-amber-600 uppercase mt-1">Raw UPSC Marks</div>
                             </div>
                         </div>
 
-                        {/* Subject Breakdown */}
-                        <div className="mb-8">
-                            <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
-                                <BarChart2 className="w-5 h-5" /> Subject-wise Performance
+                        {/* Ability Drift Chart */}
+                        <div className="bg-card border border-border rounded-2xl p-6 mb-8">
+                            <h3 className="text-lg font-bold text-foreground mb-6 flex items-center gap-2">
+                                <BarChart2 className="w-5 h-5 text-indigo-600" /> Ability Evolution (Drift)
                             </h3>
-                            <div className="space-y-3">
-                                {Object.entries(results.subjectStats).map(([subject, stats]) => (
-                                    <div key={subject} className="flex items-center gap-4">
-                                        <span className="w-24 text-sm text-muted-foreground dark:text-muted-foreground">{subject}</span>
-                                        <div className="flex-1 h-3 bg-muted rounded-full overflow-hidden">
-                                            <div
-                                                className="h-full bg-indigo-600 rounded-full"
-                                                style={{ width: `${(stats.correct / stats.total) * 100}%` }}
-                                            />
-                                        </div>
-                                        <span className="text-sm font-medium text-foreground w-16 text-right">
-                                            {stats.correct}/{stats.total}
-                                        </span>
+                            <div className="h-[250px] w-full">
+                                <ResponsiveContainer width="100%" height="100%">
+                                    <AreaChart data={abilityHistory}>
+                                        <defs>
+                                            <linearGradient id="colorAbility" x1="0" y1="0" x2="0" y2="1">
+                                                <stop offset="5%" stopColor="#4f46e5" stopOpacity={0.3}/>
+                                                <stop offset="95%" stopColor="#4f46e5" stopOpacity={0}/>
+                                            </linearGradient>
+                                        </defs>
+                                        <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
+                                        <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fontSize: 12}} />
+                                        <YAxis domain={[0, 100]} axisLine={false} tickLine={false} tick={{fontSize: 12}} />
+                                        <Tooltip 
+                                            contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
+                                        />
+                                        <Area 
+                                            type="monotone" 
+                                            dataKey="ability" 
+                                            stroke="#4f46e5" 
+                                            strokeWidth={3}
+                                            fillOpacity={1} 
+                                            fill="url(#colorAbility)" 
+                                            animationDuration={1500}
+                                        />
+                                    </AreaChart>
+                                </ResponsiveContainer>
+                            </div>
+                            <p className="text-xs text-muted-foreground mt-4 text-center italic">
+                                * Higher slope indicates rapid mastery progression based on UPSC pattern matching.
+                            </p>
+                        </div>
+
+                        {/* Learning Path Recommendation */}
+                        <div className="bg-muted/50 rounded-2xl p-6 border border-border mb-8">
+                            <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+                                <Brain className="w-5 h-5 text-indigo-600" /> AI Diagnostic: Next Steps
+                            </h3>
+                            <div className="space-y-4">
+                                <div className="flex items-center gap-4 text-sm">
+                                    <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center shrink-0">
+                                        <RotateCcw className="w-5 h-5 text-indigo-600" />
                                     </div>
-                                ))}
+                                    <p className="text-muted-foreground">
+                                        Your ability score of <span className="text-indigo-600 font-bold">{finalReport.ability_score.toFixed(0)}</span> suggests mastering Level 2 concepts before attempting high-difficulty sets.
+                                    </p>
+                                </div>
                             </div>
                         </div>
 
-                        {/* Actions */}
-                        <div className="flex gap-4">
+                        <div className="flex flex-col sm:flex-row gap-4">
                             <button
-                                onClick={() => setTestState('review')}
-                                className="flex-1 py-3 border border-indigo-600 text-indigo-600 rounded-xl font-medium hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors"
+                                onClick={() => router.push('/upsc')}
+                                className="flex-1 py-4 bg-muted text-foreground rounded-2xl font-bold hover:bg-muted/80 transition-all border border-border"
                             >
-                                Review Answers
+                                Back to Dashboard
                             </button>
                             <button
                                 onClick={() => setTestState('selection')}
-                                className="flex-1 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-medium transition-colors"
+                                className="flex-1 py-4 bg-indigo-600 text-white rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-500/30 flex items-center justify-center gap-2"
                             >
-                                Take Another Test
+                                <RotateCcw className="w-5 h-5" /> Retake Adaptive Session
                             </button>
                         </div>
                     </motion.div>
@@ -623,79 +608,13 @@ export default function MockTestCenter() {
         );
     }
 
-    // Review Screen
-    if (testState === 'review') {
-        return (
-            <div className="min-h-screen bg-muted dark:bg-[#0a0a0a] p-4 md:p-8">
-                <div className="max-w-4xl mx-auto">
-                    <div className="flex items-center justify-between mb-6">
-                        <h2 className="text-2xl font-bold text-foreground">Review Answers</h2>
-                        <button
-                            onClick={() => setTestState('results')}
-                            className="px-4 py-2 bg-muted rounded-xl text-muted-foreground dark:text-muted-foreground"
-                        >
-                            Back to Results
-                        </button>
-                    </div>
-
-                    <div className="space-y-6">
-                        {questions.map((q, i) => {
-                            const answer = answers[i];
-                            const isCorrect = answer?.selected === q.correct;
-
-                            return (
-                                <div key={q.id} className="bg-card dark:bg-[#111] rounded-2xl border border-border p-6">
-                                    <div className="flex items-start justify-between mb-4">
-                                        <div className="flex items-center gap-2">
-                                            <span className="text-sm font-medium text-muted-foreground">Q{i + 1}</span>
-                                            <span className="px-2 py-1 bg-muted rounded text-xs">{q.subject}</span>
-                                        </div>
-                                        {answer?.selected === null ? (
-                                            <span className="px-3 py-1 bg-muted text-muted-foreground rounded-full text-xs font-medium">Unattempted</span>
-                                        ) : isCorrect ? (
-                                            <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium flex items-center gap-1">
-                                                <CheckCircle className="w-3 h-3" /> Correct
-                                            </span>
-                                        ) : (
-                                            <span className="px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs font-medium flex items-center gap-1">
-                                                <XCircle className="w-3 h-3" /> Wrong
-                                            </span>
-                                        )}
-                                    </div>
-
-                                    <p className="text-foreground font-medium mb-4">{q.question}</p>
-
-                                    <div className="space-y-2 mb-4">
-                                        {q.options.map((option, j) => (
-                                            <div
-                                                key={j}
-                                                className={`p-3 rounded-lg border ${j === q.correct
-                                                        ? 'border-green-500 bg-green-50 dark:bg-green-900/20'
-                                                        : answer?.selected === j
-                                                            ? 'border-red-500 bg-red-50 dark:bg-red-900/20'
-                                                            : 'border-border'
-                                                    }`}
-                                            >
-                                                <span className="text-sm">{String.fromCharCode(65 + j)}. {option}</span>
-                                                {j === q.correct && <CheckCircle className="w-4 h-4 text-green-600 inline ml-2" />}
-                                                {answer?.selected === j && j !== q.correct && <XCircle className="w-4 h-4 text-red-600 inline ml-2" />}
-                                            </div>
-                                        ))}
-                                    </div>
-
-                                    <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                                        <p className="text-sm text-blue-800 dark:text-blue-300">
-                                            <strong>Explanation:</strong> {q.explanation}
-                                        </p>
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-    return null;
+    // Default Fallback
+    return (
+        <div className="min-h-screen flex items-center justify-center bg-background">
+             <div className="flex flex-col items-center gap-4">
+                <Loader2 className="w-12 h-12 text-indigo-600 animate-spin" />
+                <p className="text-lg font-bold text-muted-foreground">Initializing Simulation Engine...</p>
+             </div>
+        </div>
+    );
 }

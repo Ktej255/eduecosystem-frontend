@@ -17,7 +17,15 @@ import {
     Users,
     Trophy,
     Star,
-    CheckCircle2
+    CheckCircle2,
+    Globe,
+    TrendingUp,
+    Leaf,
+    Palette,
+    Microscope,
+    ShieldCheck,
+    Heart,
+    Map
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
@@ -217,6 +225,77 @@ function TricolorBackground() {
     );
 }
 
+// Subject Selector Hub Component
+interface Subject {
+    id: string;
+    title: string;
+    icon: any;
+    color: string;
+    bg: string;
+    path: string;
+}
+
+const subjects: Subject[] = [
+    { id: 'polity', title: 'Indian Polity', icon: Scale, color: 'text-orange-600', bg: 'bg-orange-50', path: '/student/upsc/polity' },
+    { id: 'history', title: 'Modern History', icon: BookOpen, color: 'text-amber-600', bg: 'bg-amber-50', path: '/student/upsc/history' },
+    { id: 'geography', title: 'Geography', icon: Globe, color: 'text-blue-600', bg: 'bg-blue-50', path: '/student/upsc/geography' },
+    { id: 'economy', title: 'Indian Economy', icon: TrendingUp, color: 'text-emerald-600', bg: 'bg-emerald-50', path: '/student/upsc/economy' },
+    { id: 'environment', title: 'Environment', icon: Leaf, color: 'text-green-600', bg: 'bg-green-50', path: '/student/upsc/environment' },
+    { id: 'art-culture', title: 'Art & Culture', icon: Palette, color: 'text-rose-600', bg: 'bg-rose-50', path: '/student/upsc/art-culture' },
+    { id: 'ancient', title: 'Ancient History', icon: Map, color: 'text-yellow-600', bg: 'bg-yellow-50', path: '/student/upsc/ancient-history' },
+    { id: 'science', title: 'Science & Tech', icon: Microscope, color: 'text-indigo-600', bg: 'bg-indigo-50', path: '/student/upsc/science-tech' },
+    { id: 'ir', title: 'Int. Relations', icon: ShieldCheck, color: 'text-cyan-600', bg: 'bg-cyan-50', path: '/student/upsc/international-relations' },
+    { id: 'ethics', title: 'Ethics & Integrity', icon: Heart, color: 'text-purple-600', bg: 'bg-purple-50', path: '/student/upsc/ethics' },
+    { id: 'ca', title: 'Current Affairs', icon: Zap, color: 'text-red-600', bg: 'bg-red-50', path: '/student/upsc/current-affairs' },
+    { id: 'society', title: 'Indian Society', icon: Users, color: 'text-teal-600', bg: 'bg-teal-50', path: '/student/upsc/society' },
+];
+
+function SubjectSelectorHub() {
+    const router = useRouter();
+    return (
+        <section className="py-24 bg-slate-50" id="subjects">
+            <div className="container mx-auto px-4">
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-center max-w-3xl mx-auto mb-16"
+                >
+                    <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                        Explore <span className="text-orange-600">Subjects</span>
+                    </h2>
+                    <p className="text-xl text-muted-foreground">
+                        Select a subject to enter its dedicated revision portal and mastery tracks.
+                    </p>
+                </motion.div>
+
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                    {subjects.map((subject, idx) => (
+                        <motion.div
+                            key={subject.id}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            whileHover={{ y: -5, scale: 1.05 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: idx * 0.05 }}
+                            onClick={() => router.push(subject.path)}
+                            className={`cursor-pointer ${subject.bg} p-6 rounded-2xl border border-transparent hover:border-orange-200 transition-all shadow-sm hover:shadow-md group`}
+                        >
+                            <div className={`w-12 h-12 rounded-xl mb-4 flex items-center justify-center ${subject.color}`}>
+                                <subject.icon className="w-6 h-6 group-hover:scale-110 transition-transform" />
+                            </div>
+                            <h3 className="text-lg font-bold text-foreground">{subject.title}</h3>
+                            <div className="mt-2 flex items-center text-xs font-semibold text-muted-foreground group-hover:text-orange-600 transition-colors">
+                                Enter Portal <ArrowRight className="ml-1 w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
+
 export default function UPSCLandingPage() {
     const router = useRouter();
     const { scrollYProgress } = useScroll();
@@ -237,7 +316,10 @@ export default function UPSCLandingPage() {
                 "Performance Analytics",
             ],
             theme: 'orange' as const,
-            onSelect: () => router.push('/student/batch1'),
+            onSelect: () => {
+                const element = document.getElementById('subjects');
+                element?.scrollIntoView({ behavior: 'smooth' });
+            },
         },
         {
             title: "Prelims Test Series",
@@ -357,7 +439,10 @@ export default function UPSCLandingPage() {
                                 <Button
                                     size="lg"
                                     className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white text-lg px-8 py-6 h-auto rounded-full shadow-xl shadow-orange-500/30 font-semibold group"
-                                    onClick={() => router.push('/student/batch1')}
+                                    onClick={() => {
+                                        const element = document.getElementById('subjects');
+                                        element?.scrollIntoView({ behavior: 'smooth' });
+                                    }}
                                 >
                                     <span className="flex items-center gap-2">
                                         Enter Revision Portal
@@ -442,6 +527,7 @@ export default function UPSCLandingPage() {
                     </motion.div>
                 </div>
             </header>
+            <SubjectSelectorHub />
 
             {/* ======================= WHY US ======================= */}
             <section className="py-24 bg-card">
@@ -530,7 +616,10 @@ export default function UPSCLandingPage() {
                             <Button
                                 size="lg"
                                 className="bg-gradient-to-r from-orange-500 to-amber-500 text-white hover:from-orange-600 hover:to-amber-600 text-lg px-10 py-6 h-auto rounded-full font-semibold shadow-xl"
-                                onClick={() => router.push('/student/batch1')}
+                                onClick={() => {
+                                    const element = document.getElementById('subjects');
+                                    element?.scrollIntoView({ behavior: 'smooth' });
+                                }}
                             >
                                 Start Studying Now
                                 <ArrowRight className="ml-2 w-5 h-5" />

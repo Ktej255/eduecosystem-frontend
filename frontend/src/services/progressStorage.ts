@@ -130,6 +130,9 @@ const safeStorage = {
     setItem: (key: string, value: string) => isBrowser ? localStorage.setItem(key, value) : null,
 };
 
+// Local accumulator for XP throttling
+let pendingXpAccumulator = 0;
+
 export function getLearningProgress(): LearningProgress {
     const stored = safeStorage.getItem(STORAGE_KEYS.LEARNING_PROGRESS);
     if (!stored) return DEFAULT_PROGRESS;
@@ -141,7 +144,7 @@ export function getLearningProgress(): LearningProgress {
     }
 }
 
-export function saveLearningProgress(updates: Partial<LearningProgress>): void {
+export function saveLearningProgress(updates: Partial<LearningProgress>, xpDiff: number = 0): void {
     const current = getLearningProgress();
     const updated = {
         ...current,
@@ -150,10 +153,28 @@ export function saveLearningProgress(updates: Partial<LearningProgress>): void {
     };
     safeStorage.setItem(STORAGE_KEYS.LEARNING_PROGRESS, JSON.stringify(updated));
 
-    // Async sync with cloud
+    // Priority 3: XP Micro-Interaction Throttling
+    pendingXpAccumulator += xpDiff;
+
+    // Async sync with cloud - only if threshold reached
     if (isBrowser) {
-        syncWithCloud(updated).catch(err => console.error('Cloud sync failed:', err));
+        const threshold = 5;
+        if (pendingXpAccumulator >= threshold) {
+            syncWithCloud(updated).catch(err => console.error('Cloud sync failed:', err));
+            pendingXpAccumulator = 0; // Reset after sync
+        }
     }
+}
+
+// Flush pending XP on page leave
+if (isBrowser) {
+    window.addEventListener('beforeunload', () => {
+        if (pendingXpAccumulator > 0) {
+            const current = getLearningProgress();
+            // Using a fire-and-forget approach for the final flush
+            syncWithCloud(current).catch(() => {});
+        }
+    });
 }
 
 /**

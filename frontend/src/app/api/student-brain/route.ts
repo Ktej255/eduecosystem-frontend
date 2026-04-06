@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 // UPSC Polity chapter index — sent as context to Gemini
-const CHAPTER_INDEX = `
+const POLITY_CHAPTER_INDEX = `
 Indian Polity (UPSC Syllabus) — 95 Topics across 11 Parts:
 Part I (Constitutional Framework): Historical Background, Making of the Constitution, Concept of Constitution, Salient Features, Preamble, Union and Territory, Citizenship, Fundamental Rights, DPSP, Fundamental Duties, Amendment, Basic Structure.
 Part II (System of Government): Parliamentary System, Federal System, Centre-State Relations, Inter-State Relations, Emergency Provisions.
@@ -18,10 +18,19 @@ Part XI (Working of Constitution): NCRWC, Landmark Judgements (Kesavananda, SR B
 Most tested topics (PYQ 2011-2024): Fundamental Rights, Parliament, Judiciary, Emergency Provisions, Constitutional Bodies, Federalism, Amendments, DPSP, Local Government, Governor.
 `;
 
+const HISTORY_CHAPTER_INDEX = `
+UPSC History Syllabus — 86 Chapters:
+Ancient History (IDs a1-a27): Prehistoric Times, Indus Valley Civilization, Vedic Age, Buddhism, Jainism, Mauryan Empire, Post-Mauryan, Gupta Empire, Sangam Age...
+Medieval History (IDs m1-m20): Early Medieval India, Delhi Sultanate, Vijayanagara Empire, Bhakti & Sufi Movements, Mughal Empire, Marathas...
+Modern History (IDs mod1-mod39): Advent of Europeans, British Expansion, Revolt of 1857, INC Formation, Swadeshi Movement, Gandhian Era, INA, Partition...
+
+Most tested topics: Buddhism/Jainism, Indus Valley, Mauryan art, Bhakti/Sufi movements, Mughal administration, British socio-religious reforms, Gandhian era, 1857 revolt.
+`;
+
 export async function POST(req: Request) {
     try {
         const body = await req.json();
-        const { query, mode = 'search' } = body;
+        const { query, mode = 'search', subject = 'polity' } = body;
 
         if (!query?.trim()) {
             return NextResponse.json({ error: 'Query is required' }, { status: 400 });
@@ -32,24 +41,30 @@ export async function POST(req: Request) {
             return NextResponse.json({ error: 'API key not configured' }, { status: 500 });
         }
 
+        const isHistory = subject === 'history';
+        const chapterIndex = isHistory ? HISTORY_CHAPTER_INDEX : POLITY_CHAPTER_INDEX;
+        const persona = isHistory ? "Romila Thapar & Bipan Chandra (History Experts)" : "Dr. B.R. Ambedkar";
+        const jsonIdFormat = isHistory ? '"<string ID e.g., a1, m5, mod12>"' : '<number 1-95>';
+        const relatedIdFormat = isHistory ? '["<id1>", "<id2>"]' : '[<id1>, <id2>]';
+        
         const systemPrompt = mode === 'search'
-            ? `You are a UPSC Polity expert and search engine for an educational platform. 
+            ? `You are a UPSC ${isHistory ? 'History' : 'Polity'} expert and search engine for an educational platform. 
 A student is searching for: "${query}"
 
 Using the chapter index below, find the most relevant topic(s) and return EXACTLY this JSON (no markdown, no extra text):
 {
-  "topicId": <number 1-95>,
+  "topicId": ${jsonIdFormat},
   "topicTitle": "<exact topic title>",
   "answer": "<2-3 sentence direct answer to the query>",
-  "keyArticles": ["Art XX", "Art YY"],
+  "keyArticles": ${isHistory ? '["Key Event 1", "Key Event 2"]' : '["Art XX", "Art YY"]'},
   "upscTip": "<one UPSC exam tip>",
-  "relatedTopicIds": [<id1>, <id2>]
+  "relatedTopicIds": ${relatedIdFormat}
 }
 
-${CHAPTER_INDEX}`
-            : `You are Dr. B.R. Ambedkar, AI Tutor for UPSC aspirants. Answer this question about Indian Polity concisely with articles and case laws: "${query}"
+${chapterIndex}`
+            : `You are ${persona}, AI Tutor for UPSC aspirants. Answer this question about Indian ${isHistory ? 'History' : 'Polity'} concisely: "${query}"
 
-${CHAPTER_INDEX}`;
+${chapterIndex}`;
 
         const response = await fetch(
             `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,

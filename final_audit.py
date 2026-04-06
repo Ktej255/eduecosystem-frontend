@@ -1,35 +1,17 @@
-
-import os
-import re
-import json
-
-INTEGRATED_DIR = r'D:\Graphology\Master Software\Eduecosystem\frontend\src\components\batch1-1\polity\data\chapters'
-
-def audit():
-    report = {}
-    for i in range(1, 96):
-        fpath = os.path.join(INTEGRATED_DIR, f'chapter-{i}.ts')
-        stats = {"l1": 0, "l2": 0, "l3": 0}
-        if os.path.exists(fpath):
-            with open(fpath, 'r', encoding='utf-8') as f:
-                content = f.read()
-                # Count IDs for each level
-                stats["l1"] = content.count(f'ch{i}-l1-q')
-                stats["l2"] = content.count(f'ch{i}-l2-q')
-                stats["l3"] = content.count(f'ch{i}-l3-q')
-        report[i] = stats
-        
-    with open('final_audit_results.json', 'w', encoding='utf-8') as f:
-        json.dump(report, f, indent=4)
-        
-    # Summarize
-    total_q = sum(s["l1"] + s["l2"] + s["l3"] for s in report.values())
-    missing_l1 = [tid for tid, s in report.items() if s["l1"] == 0]
-    
-    print(f"Audit Complete. Total Questions: {total_q}")
-    print(f"Missing L1: {len(missing_l1)}")
-    if missing_l1:
-        print(f"Missing L1 Topic IDs: {missing_l1}")
-
-if __name__ == "__main__":
-    audit()
+import psycopg2
+conn = psycopg2.connect('postgresql://postgres:Tej%401106@34.55.250.166:5432/eduecosystem_prod')
+cur = conn.cursor()
+all_ok = True
+for ch in range(21, 35):
+    cur.execute('SELECT level, COUNT(*) FROM bank_questions WHERE subject=%s AND chapter_number=%s GROUP BY level', ('Polity', ch))
+    d = {r[0]: r[1] for r in cur.fetchall()}
+    l1, l2, l3 = d.get(1,0), d.get(2,0), d.get(3,0)
+    t = l1 + l2 + l3
+    ok = t >= 90 and l1 >= 30 and l2 >= 30 and l3 >= 30
+    if not ok:
+        all_ok = False
+    status = "PASS" if ok else "FAIL"
+    print(f"Ch{ch}: L1={l1} L2={l2} L3={l3} TOTAL={t} [{status}]")
+print()
+print("ALL CHAPTERS 21-34 COMPLETE" if all_ok else "SOME CHAPTERS NEED WORK")
+conn.close()

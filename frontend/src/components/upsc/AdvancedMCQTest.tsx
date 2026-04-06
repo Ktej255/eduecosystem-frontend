@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/componen
 import { Progress } from "@/components/ui/progress";
 import MCQResultDashboard from './MCQResultDashboard';
 import { MCQResult } from '@/types/mcq';
+import { useActivityLogger } from '@/hooks/useActivityLogger';
 
 interface AdvancedMCQTestProps {
     questions: any[];
@@ -32,6 +33,7 @@ export default function AdvancedMCQTest({ questions, chapterId, bookId, chapterT
     const [answers, setAnswers] = useState<Record<number, AnswerState>>({});
     const [timer, setTimer] = useState(0);
     const [lifelineUsed, setLifelineUsed] = useState<Record<number, boolean>>({});
+    const { logActivity } = useActivityLogger();
 
     // Question State
     const [selectedOption, setSelectedOption] = useState<number | null>(null);
@@ -104,12 +106,15 @@ export default function AdvancedMCQTest({ questions, chapterId, bookId, chapterT
                     }
                 };
 
+                const score = Object.values(finalAnswers).filter(a => a.isCorrect).length;
+                const percentage = (score / questions.length) * 100;
+
                 const resultData = {
                     chapterId,
                     bookId,
                     chapterTitle,
                     date: new Date().toISOString(),
-                    score: Object.values(finalAnswers).filter(a => a.isCorrect).length,
+                    score,
                     totalQuestions: questions.length,
                     answers: finalAnswers
                 };
@@ -128,6 +133,15 @@ export default function AdvancedMCQTest({ questions, chapterId, bookId, chapterT
                 } catch (e) {
                     console.error("Failed to save progress", e);
                 }
+
+                // Log activity to the Learning Engine
+                logActivity({
+                    activity_type: 'mcq_test',
+                    content_id: `chapter_mcq_${chapterId}`,
+                    score: percentage,
+                    duration: timer,
+                    subject_slug: 'environment'
+                });
 
                 setMode('result');
             }

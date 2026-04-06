@@ -15,6 +15,7 @@ import {
     SECTION_STATUS_COLORS, SectionStatus, ChapterProgress, MCQ, Flashcard, SequenceQuestion, SpacedRepetitionData
 } from "@/components/batch1/history/data/ancient-types-27";
 import { useLanguageStore } from "@/lib/language-store";
+import { updateEraChapterSection } from "@/lib/history-era-store";
 import { ancientChapterData } from "@/components/batch1/history/data/mcqs/ancient/registry";
 import AncientHistoryTimeline from "@/components/batch1/history/AncientHistoryTimeline";
 import { ANCIENT_COMPARISONS } from "@/components/batch1/history/data/mcqs/ancient/comparisons";
@@ -764,10 +765,21 @@ export default function AncientHistoryChapterPage() {
     const updateSectionStatus = useCallback((section: keyof ChapterProgress, status: SectionStatus) => {
         setProgress(prev => {
             const updated = { ...prev, [section]: status };
+            // Legacy store (backward-compat for old ancient_27_progress key)
             const saved = localStorage.getItem('ancient_27_progress');
             const all = saved ? JSON.parse(saved) : {};
             all[chapterId] = updated;
             localStorage.setItem('ancient_27_progress', JSON.stringify(all));
+            // Unified history-era-store (powers the dashboard progress rings)
+            if (section !== 'spacing' as any) {
+                updateEraChapterSection('ancient', chapterId, section as any, status as any);
+            }
+            // XP dispatch on section completion
+            if (status === 'completed' && typeof window !== 'undefined') {
+                const xpMap: Record<string, number> = { readSection: 10, flashcards: 15, drill: 25, l1: 20, l2: 30, l3: 40 };
+                const xp = xpMap[section as string] ?? 10;
+                window.dispatchEvent(new CustomEvent('xp-gained', { detail: { xp, source: `history-ancient-ch${chapterId}-${section}` } }));
+            }
             return updated;
         });
     }, [chapterId]);

@@ -8,7 +8,7 @@ Write-Host ""
 
 # Start Backend in a new window
 Write-Host "Starting Backend API Server..." -ForegroundColor Green
-Start-Process powershell -ArgumentList '-NoExit', '-Command', 'cd "d:\Graphology\Master Software\Eduecosystem\backend"; .\start_backend.ps1'
+Start-Process powershell -ArgumentList '-NoExit', '-Command', 'cd "d:\Development\EduEcosystem\backend"; .\start_backend.ps1'
 
 # Wait a bit for backend to start
 Write-Host "Waiting for backend to initialize..." -ForegroundColor Yellow
@@ -16,7 +16,7 @@ Start-Sleep -Seconds 8
 
 # Start Frontend in a new window
 Write-Host "Starting Frontend (Next.js)..." -ForegroundColor Green
-Start-Process powershell -ArgumentList '-NoExit', '-Command', 'cd "d:\Graphology\Master Software\Eduecosystem\frontend"; npm run dev'
+Start-Process powershell -ArgumentList '-NoExit', '-Command', 'cd "d:\Development\EduEcosystem\frontend"; npm run dev'
 
 Write-Host ""
 Write-Host "==================================" -ForegroundColor Cyan

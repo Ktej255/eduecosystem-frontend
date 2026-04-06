@@ -17,7 +17,7 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { POLITY_PARTS, TOPIC_TITLES, getPartColors, getTopicsByPart, PartId } from "@/components/upsc/platform/polity/data/polity-types-95";
+import { POLITY_PARTS, TOPIC_TITLES, getPartColors, getTopicsByPart, PartId } from "@/components/upsc/platform/polity/data/polity-types-65";
 import { MAJOR_CURRENT_AFFAIRS } from "@/components/upsc/platform/polity/data/MajorCurrentAffairsRegistry";
 import { getSRSStats } from "@/components/upsc/subjects/polity/revision/srs-engine";
 import TopicAnalyticsModal from "./TopicAnalyticsModal";
@@ -46,7 +46,7 @@ export default function PolityUnifiedDashboard({ registryMode }: { registryMode?
     const [srsDueCount, setSrsDueCount] = useState(0);
 
     useEffect(() => {
-        const saved = localStorage.getItem('polity_95_progress');
+        const saved = localStorage.getItem('polity_65_progress');
         if (saved) {
             try {
                 setProgress(JSON.parse(saved));
@@ -55,7 +55,7 @@ export default function PolityUnifiedDashboard({ registryMode }: { registryMode?
             }
         }
         // Expand first part by default
-        setExpandedParts({ 'I': true });
+        setExpandedParts({ 'P0': true, 'P1': true });
 
         // Load SRS Stats
         console.log("DEBUG: getSRSStats type:", typeof getSRSStats);
@@ -75,7 +75,7 @@ export default function PolityUnifiedDashboard({ registryMode }: { registryMode?
 
     // Calculate statistics
     const totalCompleted = Object.values(progress).filter(p => p.completed).length;
-    const overallProgress = Math.round((totalCompleted / 95) * 100);
+    const overallProgress = Math.round((totalCompleted / 57) * 100);
 
     // Filter topics based on search and filter
     const filteredTopics = TOPIC_TITLES.filter(topic => {
@@ -113,7 +113,7 @@ export default function PolityUnifiedDashboard({ registryMode }: { registryMode?
 
         const newProgress = { ...progress, [topicId]: updated };
         setProgress(newProgress);
-        localStorage.setItem('polity_95_progress', JSON.stringify(newProgress));
+        localStorage.setItem('polity_65_progress', JSON.stringify(newProgress));
     };
 
     const navigateToTopic = (topicId: number) => {
@@ -177,7 +177,7 @@ export default function PolityUnifiedDashboard({ registryMode }: { registryMode?
                         Indian Polity
                     </h1>
                     <p className="text-muted-foreground dark:text-muted-foreground mt-1 ml-1">
-                        95 Topics • 11 Parts • Comprehensive Coverage
+                        57 Foundation Topics • 13 Modules • Graduation Level Depth
                     </p>
                 </div>
                 <div className="flex gap-2 flex-wrap justify-end">
@@ -239,7 +239,7 @@ export default function PolityUnifiedDashboard({ registryMode }: { registryMode?
                         </div>
                         <div className="flex gap-8">
                             <div className="text-center">
-                                <div className="text-3xl font-bold">{totalCompleted}/95</div>
+                                <div className="text-3xl font-bold">{totalCompleted}/57</div>
                                 <div className="text-xs text-blue-200 uppercase font-semibold">Topics</div>
                             </div>
                             <div className="text-center">
@@ -339,7 +339,7 @@ export default function PolityUnifiedDashboard({ registryMode }: { registryMode?
                                     </div>
                                     <div>
                                         <h3 className="font-bold text-foreground flex items-center gap-2">
-                                            Part {part.number}: {part.title}
+                                            {part.title}
                                             <Badge variant="secondary" className="text-xs bg-muted text-muted-foreground">
                                                 {part.topicCount}
                                             </Badge>
@@ -367,7 +367,7 @@ export default function PolityUnifiedDashboard({ registryMode }: { registryMode?
                                     {filteredPartTopics.map((topic) => {
                                         const topicProgress = progress[topic.id];
                                         const isCompleted = topicProgress?.completed;
-                                        const isNew = topic.id >= 85;
+                                        const isNew = topic.id >= 50;
                                         const hasUpdates = MAJOR_CURRENT_AFFAIRS.some(ca => ca.topicIds.includes(topic.id));
 
                                         return (

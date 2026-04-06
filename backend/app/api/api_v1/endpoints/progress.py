@@ -7,6 +7,7 @@ from app import models, schemas
 from app.api import deps
 from app.models.lesson_progress import LessonProgress, ProgressStatus
 from app.models.enrollment import Enrollment, EnrollmentStatus
+from app.services.motivation_service import motivation_service
 
 router = APIRouter()
 
@@ -71,6 +72,15 @@ def mark_lesson_complete(
 
     db.commit()
     db.refresh(progress)
+
+    # Trigger Motivation Layer (Phase-8)
+    if lesson.node_id:
+        motivation_service.process_study_event(
+            db, 
+            current_user.id, 
+            "VIDEO_COMPLETE", 
+            str(lesson.node_id)
+        )
 
     # Check course completion
     check_course_completion(db, current_user.id, lesson.module.course_id, enrollment)
@@ -161,6 +171,14 @@ def update_lesson_progress(
             check_course_completion(
                 db, current_user.id, lesson.module.course_id, enrollment
             )
+            # Trigger Motivation Layer (Phase-8 Auto-complete)
+            if lesson.node_id:
+                motivation_service.process_study_event(
+                    db, 
+                    current_user.id, 
+                    "VIDEO_COMPLETE", 
+                    str(lesson.node_id)
+                )
 
     progress.last_accessed_at = datetime.utcnow()
     enrollment.last_accessed_lesson_id = lesson_id
@@ -350,8 +368,10 @@ def sync_universal_progress(
                 xp_diff = new_xp - current_user.xp
                 current_user.xp = new_xp
                 
-                # Update Wolf Pack points if XP increased
-                if xp_diff > 0:
+                # Priority 3: XP Scaling Guard
+                # Only sync to Wolf Pack if score increment is meaningful (>=5) 
+                # to prevent database row-locking overhead from the 476 high-frequency Geography topics.
+                if xp_diff >= 5:
                     from app.services.pack_service import pack_service
                     pack_service.sync_points_to_pack(db, current_user.id, xp_diff)
 

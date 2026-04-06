@@ -1,41 +1,43 @@
 from fastapi import APIRouter
 
+from app.api.api_v1.endpoints import auth
+from app.api.api_v1.endpoints import users
+from app.api.api_v1.endpoints import admin
+from app.api.api_v1.endpoints import tasks
+from app.api.api_v1.endpoints import daily_actions
+from app.api.api_v1.endpoints import graphotherapy
 from app.api.api_v1.endpoints import (
-     auth,
-     users,
-     # admin,
-     # tasks,
-     # daily_actions,
-     # graphotherapy,
-     # meditation,
-     # admin_meditation,
-     # prelims_recall,
+     meditation,
+     admin_meditation,
+     prelims_recall,
      batch1_content,
      batch1_tests,
-     # ai_debug,
-     # ai,
+     ai_debug,
+     ai,
      drill,
-     # pdf_study,
-     # retention,
-     # certificates,
+     pdf_study,
+     retention,
+     certificates,
      categories,
      courses,
-     # notes,
-     # announcements,
-     # discussions,
-     # live_classes,
-     # learning_paths,
-     # peer_reviews,
-     # order,
-     # reviews,
-     # subscriptions,
-     # progress,
-     # quizzes,
-     # assignments,
-     # holistic,
+     notes,
+     announcements,
+     discussions,
+     live_classes,
+     learning_paths,
+     peer_reviews,
+     order,
+     reviews,
+     subscriptions,
+     progress,
+     quizzes,
+     assignments,
+     holistic,
      upsc,
      payment,
+     adaptive_dashboard,
 )
+
 
 
 
@@ -50,25 +52,25 @@ api_router.include_router(auth_2fa.router, prefix="/2fa", tags=["2fa"])
 api_router.include_router(users.router, prefix="/users", tags=["users"])
 
 # Admin (Stats, Users Management, Logs)
-# api_router.include_router(admin.router, prefix="/admin", tags=["admin"])
+api_router.include_router(admin.router, prefix="/admin", tags=["admin"])
 # api_router.include_router(retention.router, prefix="/retention", tags=["retention"])
-# api_router.include_router(graphotherapy.router, prefix="/graphotherapy", tags=["graphotherapy"])
+api_router.include_router(graphotherapy.router, prefix="/graphotherapy", tags=["graphotherapy"])
 
 # Grapho Upload (Handwriting Analysis)
 from app.api.api_v1.endpoints import grapho
-# api_router.include_router(grapho.router, prefix="/grapho", tags=["grapho"])
+api_router.include_router(grapho.router, prefix="/grapho", tags=["grapho"])
 
 # Daily Actions (Tasks, Habits, Reflection)
-# # # api_router.include_router(daily_actions.daily_router, prefix="/daily-actions", tags=["daily-actions"])
+api_router.include_router(daily_actions.daily_router, prefix="/daily-actions", tags=["daily-actions"])
 
 # Meditation (Student)
-# api_router.include_router(meditation.router, prefix="/meditation", tags=["meditation"])
+api_router.include_router(meditation.router, prefix="/meditation", tags=["meditation"])
 
 # Meditation (Admin)
-# api_router.include_router(admin_meditation.router, prefix="/admin/meditation", tags=["admin-meditation"])
+api_router.include_router(admin_meditation.router, prefix="/admin/meditation", tags=["admin-meditation"])
 
 # Prelims Recall Analysis
-# api_router.include_router(prelims_recall.router, prefix="/prelims", tags=["prelims"])
+api_router.include_router(prelims_recall.router, prefix="/prelims", tags=["prelims"])
 
 # Batch 1 Content (Videos/Segments)
 api_router.include_router(batch1_content.router, prefix="/batch1", tags=["batch1"])
@@ -77,27 +79,27 @@ api_router.include_router(batch1_content.router, prefix="/batch1", tags=["batch1
 api_router.include_router(batch1_tests.router, prefix="/batch1", tags=["batch1-tests"])
 
 # AI Debug (Teacher Portal Transparency Dashboard)
-# api_router.include_router(ai_debug.router, prefix="/ai-debug", tags=["ai-debug"])
+api_router.include_router(ai_debug.router, prefix="/ai-debug", tags=["ai-debug"])
 
 # Leads Management
 from app.api.api_v1.endpoints import leads
-# api_router.include_router(leads.router, prefix="/leads", tags=["leads"])
+api_router.include_router(leads.router, prefix="/leads", tags=["leads"])
 
 # Mobile CRM - Field Activities
 from app.api.api_v1.endpoints import field_activities
-# api_router.include_router(field_activities.router, prefix="/field-activities", tags=["field-activities"])
+api_router.include_router(field_activities.router, prefix="/field-activities", tags=["field-activities"])
 
 # Mobile CRM - Call Logs
 from app.api.api_v1.endpoints import call_logs
-# api_router.include_router(call_logs.router, prefix="/call-logs", tags=["call-logs"])
+api_router.include_router(call_logs.router, prefix="/call-logs", tags=["call-logs"])
 
 # Mobile CRM - Voice Notes
 from app.api.api_v1.endpoints import voice_notes
-# api_router.include_router(voice_notes.router, prefix="/voice-notes", tags=["voice-notes"])
+api_router.include_router(voice_notes.router, prefix="/voice-notes", tags=["voice-notes"])
 
 # Advanced User Management
 from app.api.api_v1.endpoints import user_management
-# api_router.include_router(user_management.router, prefix="/users", tags=["user-management"])
+api_router.include_router(user_management.router, prefix="/users", tags=["user-management"])
 
 # New Admin Intelligence Endpoints
 from app.api.api_v1.endpoints import (
@@ -116,27 +118,27 @@ from app.api.api_v1.endpoints import (
     admin_meditation_analytics
 )
 
-# api_router.include_router(admin_war_room.router, prefix="/admin/war-room", tags=["admin-war-room"])
-# api_router.include_router(admin_student_insights.router, prefix="/admin/student-insights", tags=["admin-student-insights"])
-# api_router.include_router(admin_student_progress.router, prefix="/admin/student-progress", tags=["admin-student-progress"])
-# api_router.include_router(admin_cohort.router, prefix="/admin/cohorts", tags=["admin-cohorts"])
-# api_router.include_router(admin_revenue.router, prefix="/admin/revenue", tags=["admin-revenue"])
-# api_router.include_router(admin_at_risk.router, prefix="/admin/at-risk", tags=["admin-at-risk"])
-# api_router.include_router(admin_interventions.router, prefix="/admin/interventions", tags=["admin-interventions"])
-# api_router.include_router(admin_marketing.router, prefix="/admin/marketing", tags=["admin-marketing"])
-# api_router.include_router(admin_smart_alerts.router, prefix="/admin/smart-alerts", tags=["admin-alerts"])
-# api_router.include_router(admin_content_health.router, prefix="/admin/content-health", tags=["admin-content-health"])
-# api_router.include_router(admin_system_intelligence.router, prefix="/admin/system", tags=["admin-system"])
-# api_router.include_router(admin_global_search.router, prefix="/admin/search", tags=["admin-search"])
-# api_router.include_router(admin_meditation_analytics.router, prefix="/admin/meditation-analytics", tags=["admin-meditation-analytics"])
+api_router.include_router(admin_war_room.router, prefix="/admin/war-room", tags=["admin-war-room"])
+api_router.include_router(admin_student_insights.router, prefix="/admin/student-insights", tags=["admin-student-insights"])
+api_router.include_router(admin_student_progress.router, prefix="/admin/student-progress", tags=["admin-student-progress"])
+api_router.include_router(admin_cohort.router, prefix="/admin/cohorts", tags=["admin-cohorts"])
+api_router.include_router(admin_revenue.router, prefix="/admin/revenue", tags=["admin-revenue"])
+api_router.include_router(admin_at_risk.router, prefix="/admin/at-risk", tags=["admin-at-risk"])
+api_router.include_router(admin_interventions.router, prefix="/admin/interventions", tags=["admin-interventions"])
+api_router.include_router(admin_marketing.router, prefix="/admin/marketing", tags=["admin-marketing"])
+api_router.include_router(admin_smart_alerts.router, prefix="/admin/smart-alerts", tags=["admin-alerts"])
+api_router.include_router(admin_content_health.router, prefix="/admin/content-health", tags=["admin-content-health"])
+api_router.include_router(admin_system_intelligence.router, prefix="/admin/system", tags=["admin-system"])
+api_router.include_router(admin_global_search.router, prefix="/admin/search", tags=["admin-search"])
+api_router.include_router(admin_meditation_analytics.router, prefix="/admin/meditation-analytics", tags=["admin-meditation-analytics"])
 from app.api.api_v1.endpoints import admin_crm_wellness
-# api_router.include_router(admin_crm_wellness.router, prefix="/admin/crm-wellness", tags=["admin-crm-wellness"])
+api_router.include_router(admin_crm_wellness.router, prefix="/admin/crm-wellness", tags=["admin-crm-wellness"])
 from app.api.api_v1.endpoints import admin_teacher_scoring
-# api_router.include_router(admin_teacher_scoring.router, prefix="/admin/teacher-scoring", tags=["admin-teacher-scoring"])
+api_router.include_router(admin_teacher_scoring.router, prefix="/admin/teacher-scoring", tags=["admin-teacher-scoring"])
 from app.api.api_v1.endpoints import admin_student_journey
-# api_router.include_router(admin_student_journey.router, prefix="/admin/student-journey", tags=["admin-student-journey"])
+api_router.include_router(admin_student_journey.router, prefix="/admin/student-journey", tags=["admin-student-journey"])
 from app.api.api_v1.endpoints import admin_teacher_performance
-# api_router.include_router(admin_teacher_performance.router, prefix="/admin/teacher-performance", tags=["admin-teacher-performance"])
+api_router.include_router(admin_teacher_performance.router, prefix="/admin/teacher-performance", tags=["admin-teacher-performance"])
 # api_router.include_router(user_management.router, prefix="/admin/user-management", tags=["user-management"])
 
 # Marketing Automation
@@ -149,23 +151,23 @@ from app.api.api_v1.endpoints import marketing_automation
 
 # AI Learning (MCQ Generator, Coaching)
 from app.api.api_v1.endpoints import ai_learning
-# api_router.include_router(ai_learning.router, prefix="/ai-learning", tags=["ai-learning"])
+api_router.include_router(ai_learning.router, prefix="/ai-learning", tags=["ai-learning"])
 
 # RAS Revision Planner (40-Day Plan)
 from app.api.api_v1.endpoints import planner
-# api_router.include_router(planner.router, prefix="/planner", tags=["planner"])
+api_router.include_router(planner.router, prefix="/planner", tags=["planner"])
 
 # AI Tools (Essay Grading, Quiz Generation, Difficulty Analysis, Plagiarism Detection)
 from app.api.api_v1.endpoints import ai_tools
-# api_router.include_router(ai_tools.router, prefix="/ai-tools", tags=["ai-tools"])
+api_router.include_router(ai_tools.router, prefix="/ai-tools", tags=["ai-tools"])
 
 # AI Course Generation
 from app.api.api_v1.endpoints import ai_course
-# api_router.include_router(ai_course.router, prefix="/ai-course", tags=["ai-course"])
+api_router.include_router(ai_course.router, prefix="/ai-course", tags=["ai-course"])
 
 # AI Avatars
 from app.api.api_v1.endpoints import ai_avatars
-# api_router.include_router(ai_avatars.router, prefix="/ai-avatars", tags=["ai-avatars"])
+api_router.include_router(ai_avatars.router, prefix="/ai-avatars", tags=["ai-avatars"])
 
 # Flashcards (AI-driven spaced repetition)
 from app.api.api_v1.endpoints import flashcards
@@ -203,7 +205,7 @@ from app.api.api_v1.endpoints import attendance
 
 # Public Branding (Multi-Tenancy Phase 6)
 from app.api.api_v1.endpoints import branding
-# api_router.include_router(branding.router, prefix="/public", tags=["branding"])
+api_router.include_router(branding.router, prefix="/public", tags=["branding"])
 
 # Admin Organizations Management (Multi-Tenancy Phase 7)
 from app.api.api_v1.endpoints import admin_organizations
@@ -239,7 +241,7 @@ from app.api.api_v1.endpoints import mains_evaluation
 
 # Development History and Daily Reports (Admin Portal)
 from app.api.api_v1.endpoints import development_history
-# api_router.include_router(development_history.router, prefix="/admin", tags=["development-history"])
+api_router.include_router(development_history.router, prefix="/admin", tags=["development-history"])
 
 # Portal Map (PDR)
 from app.api.api_v1.endpoints import pdr
@@ -251,17 +253,17 @@ from app.api.api_v1.endpoints import (
     learning_groups,
     teacher_lms,
 )
-# api_router.include_router(community.router, prefix="/community", tags=["community"])
-# api_router.include_router(learning_groups.router, prefix="/learning-groups", tags=["learning-groups"])
-# api_router.include_router(teacher_lms.router, prefix="/teacher/lms", tags=["teacher-lms"])
+api_router.include_router(community.router, prefix="/community", tags=["community"])
+api_router.include_router(learning_groups.router, prefix="/learning-groups", tags=["learning-groups"])
+api_router.include_router(teacher_lms.router, prefix="/teacher/lms", tags=["teacher-lms"])
 
 # Productivity (News Quiz)
 from app.api.api_v1.endpoints import productivity
-# api_router.include_router(productivity.router, prefix="/productivity", tags=["productivity"])
+api_router.include_router(productivity.router, prefix="/productivity", tags=["productivity"])
 
 # Gamification (Sadhana Streaks)
 from app.api.api_v1.endpoints import gamification
-# api_router.include_router(gamification.router, prefix="/gamification", tags=["gamification"])
+api_router.include_router(gamification.router, prefix="/gamification", tags=["gamification"])
 
 # Voice of Wisdom (AI Tutor)
 from app.api.api_v1.endpoints import voice_tutor
@@ -476,3 +478,31 @@ from app.api.api_v1.endpoints import student_report
 # App Config
 from app.api.api_v1.endpoints import app_config
 # api_router.include_router(app_config.router, prefix="/app-config", tags=["app-config"])
+
+# Guided Learning Portal
+from app.api.api_v1.endpoints import (
+    guided_portal,
+    admin_clips,
+    knowledge_graph,
+    learning_engine_api,
+    concept_tagging_api,
+    activity_api,
+    adaptive_exams,
+    rewards,
+    journey,
+    intelligence,
+)
+api_router.include_router(guided_portal.router, prefix="/guided", tags=["guided-portal"])
+api_router.include_router(journey.router, prefix="/guided/student", tags=["student-journey"])
+api_router.include_router(rewards.router, prefix="/guided/student", tags=["student-rewards"])
+api_router.include_router(admin_clips.router, prefix="/admin/guided", tags=["admin-clips"])
+api_router.include_router(knowledge_graph.router, prefix="/guided", tags=["knowledge-graph"])
+api_router.include_router(learning_engine_api.router, prefix="/engine", tags=["learning-engine"])
+api_router.include_router(concept_tagging_api.router, prefix="/tagging", tags=["concept-tagging"])
+api_router.include_router(activity_api.router, prefix="/activity", tags=["activity"])
+api_router.include_router(adaptive_exams.router, prefix="/adaptive-exams", tags=["adaptive-exams"])
+# AI Learning Navigator (Phase-8)
+api_router.include_router(adaptive_dashboard.router, prefix='/adaptive-navigator', tags=['adaptive-navigator'])
+
+# Exam Intelligence Layer (Phase-10)
+api_router.include_router(intelligence.router, prefix='/intelligence', tags=['intelligence'])

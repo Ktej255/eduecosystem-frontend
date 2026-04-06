@@ -29,7 +29,7 @@ const SUBJECT_META: Record<string, { label: string; icon: React.ReactNode; color
         label: 'Environment & Ecology 2026',
         icon: <Leaf className="w-10 h-10" />,
         color: 'from-emerald-600 to-teal-700',
-        price: 499,
+        price: 299,
     },
 };
 

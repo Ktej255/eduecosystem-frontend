@@ -1,12 +1,47 @@
-# AGGRESSIVE BACKEND-ONLY IGNORE
+# EXCLUSIVE PRODUCTION DEPLOYMENT
+# Ignore everything by default
 *
+
+# Whitelist ONLY production critical paths
 !backend/
-!cloudbuild.yaml
+!frontend/
+!**/package.json
+!**/package-lock.json
+!**/requirements.txt
+!cloudbuild*.yaml
 !.gcloudignore
 
-# Still ignore node_modules and venv inside backend
-backend/node_modules/
-backend/venv/
-backend/__pycache__/
-backend/*.pyc
-backend/uploads/
+# Recursively blacklist build artifacts, deps, and specific heavy folders
+# These will be ignored even if they are inside the whitelisted folders above
+node_modules/
+**/node_modules/
+venv/
+**/venv/
+.venv/
+**/.venv/
+__pycache__/
+**/*.pyc
+.next/
+**/dist/
+.git/
+.env*
+!backend/.env.example
+!frontend/.env.example
+
+# Specific Heavy Folders to Avoid (45GB+ Prevention)
+/Sarit Classes website code/
+/remotion-animations/
+/DevTools/
+/restaurant-portal/
+/google-cloud-sdk/
+/testsprite_tests/
+/tmp/
+/Doc/
+/Batch 02/
+/.playwright-mcp/
+/artifacts/
+/mobile/
+/nginx/
+/libs/
+/genkit/
+/.agent/

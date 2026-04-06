@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, JSON, Bool
 from sqlalchemy.orm import relationship
 from datetime import datetime
 import enum
-from app.db.base_class import Base
+from app.db.session import Base
 
 # Level configuration constants
 GRAPHOTHERAPY_LEVELS = {

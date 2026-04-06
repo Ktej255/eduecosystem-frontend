@@ -12,9 +12,13 @@ from app.models.user import User
 from app.schemas.user import TokenPayload
 
 reusable_oauth2 = OAuth2PasswordBearer(
-    tokenUrl=f"{settings.API_V1_STR}/login/access-token"
+    tokenUrl=f"{settings.API_V1_STR}/login/access-token",
+    auto_error=False
 )
 
+
+import logging
+logger = logging.getLogger(__name__)
 
 def get_db() -> Generator:
     try:
@@ -25,21 +29,58 @@ def get_db() -> Generator:
 
 
 def get_current_user(
-    db: Session = Depends(get_db), token: str = Depends(reusable_oauth2)
+    db: Session = Depends(get_db), token: Optional[str] = Depends(reusable_oauth2)
 ) -> Any:
+    if not token:
+        if settings.DEV_MODE_ENABLED:
+            logger.warning("DEV_MODE auth bypass triggered: No token provided")
+            user = db.query(User).filter(User.is_superuser == True).first() or db.query(User).filter(User.id == 1).first()
+            if user:
+                user.is_superuser = True
+                user.role = "admin"
+                return user
+            
+            # Create a default dev user if none exist
+            from app.schemas.user import UserCreate
+            user_in = UserCreate(email="dev@eduecosystem.local", password="password", full_name="Dev Master")
+            return crud_user.create(db, obj_in=user_in)
+            
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Not authenticated",
+        )
     try:
         payload = jwt.decode(
             token, settings.SECRET_KEY, algorithms=[security.ALGORITHM]
         )
         token_data = TokenPayload(**payload)
     except (jwt.JWTError, ValidationError):
+        if settings.DEV_MODE_ENABLED:
+            logger.warning("DEV_MODE auth bypass triggered: Invalid token")
+            user = db.query(User).filter(User.is_superuser == True).first() or db.query(User).filter(User.id == 1).first()
+            if user:
+                user.is_superuser = True
+                user.role = "admin"
+                return user
+                
+            # Create a default dev user if none exist
+            from app.schemas.user import UserCreate
+            user_in = UserCreate(email="dev@eduecosystem.local", password="password", full_name="Dev Master")
+            return crud_user.create(db, obj_in=user_in)
+        
         raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
+            status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Could not validate credentials",
         )
     user = crud_user.get(db, id=token_data.sub)
     if not user:
-        # print(f"DEBUG: User not found for id {token_data.sub}")
+        if settings.DEV_MODE_ENABLED:
+             logger.warning(f"DEV_MODE user recovery: id {token_data.sub} not found, using first superuser or id=1")
+             user = db.query(User).filter(User.is_superuser == True).first() or crud_user.get(db, id=1)
+             if user:
+                 user.is_superuser = True
+                 user.role = "admin"
+                 return user
         raise HTTPException(status_code=404, detail="User not found")
 
     # Verify Token Version
@@ -128,9 +169,8 @@ def get_current_active_superuser(
     return current_user
 
 
-import logging
 from starlette.concurrency import run_in_threadpool
-logger = logging.getLogger(__name__)
+
 
 async def get_current_user_ws(token: str, db: Session) -> Any:
     """

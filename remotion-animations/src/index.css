@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@400;600;700&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #000;
+  font-family: 'Inter', sans-serif;
+}
+
+.cinematic-container {
+  display: flex;
+  flex: 1;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Color Grading Filters */
+.grade-hospital {
+  filter: saturate(0.8) sepia(0.2) hue-rotate(160deg) contrast(1.1); /* Teal-ish cool */
+}
+
+.grade-earth {
+  filter: saturate(1.2) sepia(0.1) hue-rotate(-10deg) contrast(1.05); /* Warm amber-green */
+}
+
+.grade-desaturated {
+  filter: saturate(0.4) contrast(1.2);
+}
+
+/* Cinematic Letterbox (2.39:1) */
+.cinematic-letterbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10%; /* 10% black bar top/bottom */
+  background: black;
+  z-index: 100;
+}
+
+.cinematic-letterbox-bottom {
+  top: auto;
+  bottom: 0;
+}
+
+/* Typography */
+.serif-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+.title-white {
+  color: white;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.subtitle-minimal {
+  font-size: 24px;
+  opacity: 0.8;
+  font-weight: 400;
+}

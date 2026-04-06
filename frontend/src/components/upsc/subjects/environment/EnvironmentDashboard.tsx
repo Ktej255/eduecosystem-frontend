@@ -10,7 +10,10 @@ import {
     ThermometerSun, 
     ChevronRight, 
     History, 
-    BookOpenCheck 
+    BookOpenCheck,
+    Zap,
+    AlertTriangle,
+    TrendingDown
 } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import FoodWebViz from './visualizations/FoodWebViz';
@@ -20,14 +23,28 @@ import EnvironmentStoryTimeline from './visualizations/EnvironmentStoryTimeline'
 import ClimateTimeMachine from './visualizations/ClimateTimeMachine';
 import EnvironmentSectionPlanner from './EnvironmentSectionPlanner';
 import { ENVIRONMENT_SYLLABUS } from './data/environment-schedule-data';
+import SubjectDrillWidget from '@/components/upsc/SubjectDrillWidget';
+import RemediationPanel from '@/components/upsc/RemediationPanel';
+import MomentumWidget from '@/components/upsc/MomentumWidget';
 
 export default function EnvironmentDashboard() {
-    const [viewMode, setViewMode] = useState<'planner' | 'visual' | 'syllabus'>('planner');
+    const [viewMode, setViewMode] = useState<'planner' | 'visual' | 'syllabus' | 'practice'>('planner');
     const [syllabusTab, setSyllabusTab] = useState<'Basics' | 'Chronology'>('Basics');
     const [chronologyView, setChronologyView] = useState<'cards' | 'timeline'>('cards');
 
     return (
         <div className="max-w-7xl mx-auto px-4 py-8 space-y-8 animate-in fade-in duration-500">
+            
+            {/* Phase 12: Momentum & Remediation Layer */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="lg:col-span-1">
+                    <MomentumWidget subject="environment" />
+                </div>
+                <div className="lg:col-span-2 space-y-6">
+                    <RemediationPanel subject="environment" />
+                </div>
+            </div>
+
             {/* Visual Hub Banner */}
             <div className="bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900 rounded-xl p-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
@@ -59,28 +76,40 @@ export default function EnvironmentDashboard() {
                     >
                         <Layers className="w-3 h-3" /> Syllabus
                     </button>
+                    <button
+                        onClick={() => setViewMode('practice')}
+                        className={`px-3 py-1.5 text-xs font-bold rounded-md transition-all flex items-center gap-2 ${viewMode === 'practice' ? 'bg-emerald-600 text-white shadow-sm' : 'text-emerald-700 hover:bg-emerald-100'}`}
+                    >
+                        <Zap className="w-3 h-3" /> Practice
+                    </button>
                 </div>
             </div>
 
-            {/* Header Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Header Stats - Compact Row */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <StatCard
                     label="Biodiversity Index"
                     value="Critical"
                     color="text-red-500"
-                    icon={<Leaf className="w-5 h-5 text-emerald-500" />}
+                    icon={<AlertTriangle className="w-4 h-4 text-rose-500" />}
                 />
                 <StatCard
-                    label="CO2 Concentration"
+                    label="CO2 Level"
                     value="421 ppm"
                     color="text-orange-500"
-                    icon={<ThermometerSun className="w-5 h-5 text-orange-500" />}
+                    icon={<ThermometerSun className="w-4 h-4 text-orange-500" />}
                 />
                 <StatCard
-                    label="Global Temp Rise"
+                    label="Temp Rise"
                     value="+1.1°C"
                     color="text-red-600"
-                    icon={<ThermometerSun className="w-5 h-5 text-red-500" />}
+                    icon={<ThermometerSun className="w-4 h-4 text-rose-500" />}
+                />
+                <StatCard
+                    label="Active Nodes"
+                    value="429"
+                    color="text-emerald-600"
+                    icon={<Leaf className="w-4 h-4 text-emerald-500" />}
                 />
             </div>
 
@@ -192,6 +221,12 @@ export default function EnvironmentDashboard() {
                             ))}
                         </div>
                     )}
+                </div>
+            )}
+
+            {viewMode === 'practice' && (
+                <div className="animate-in slide-in-from-bottom-4 duration-500 max-w-2xl mx-auto">
+                    <SubjectDrillWidget subject="Environment" color="teal" />
                 </div>
             )}
         </div>

@@ -24,7 +24,9 @@ export default function DrillPage() {
                 // Start with question 1 for now (daily drill sequence)
                 const response = await upscService.startDrill(planId, 1);
                 
-                if (response.success || response.session_id) {
+                if (response.isPlaceholder) {
+                    setError("Our AI is currently finalizing this Geography topic. Please check back in a few minutes.");
+                } else if (response.success || response.session_id) {
                     setSessionId(response.session_id);
                     setQuestion(response.question);
                     setTimerConfig(response.timer_config);

@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -d \"d:\\\\Development\\\\EduEcosystem\\\\frontend\\\\src\\\\app\"/*)",
+      "Bash(python /tmp/detailed_routes.py)",
+      "Bash(grep -E \"\\\\.\\(tsx|ts\\)$\")",
+      "Bash(xargs grep:*)"
+    ]
+  }
+}

@@ -47,9 +47,9 @@ class SimpleVectorStore:
 
         try:
             # Use Gemini Embeddings
-            # model="models/text-embedding-004"
+            # model="models/embedding-001"
             result = genai.embed_content(
-                model="models/text-embedding-004",
+                model="models/embedding-001",
                 content=texts_to_embed,
                 task_type="retrieval_document"
             )
@@ -67,7 +67,7 @@ class SimpleVectorStore:
         try:
             # Embed query
             result = genai.embed_content(
-                model="models/text-embedding-004",
+                model="models/embedding-001",
                 content=query,
                 task_type="retrieval_query"
             )

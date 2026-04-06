@@ -51,10 +51,10 @@ def get_war_room_pulse(
     grapho_submissions_today = db.query(func.count(GraphoSubmission.id)).filter(
         GraphoSubmission.completed_at >= day_ago
     ).scalar() or 0
-    meditation_mins_today = db.query(func.sum(MeditationSession.duration_seconds)).filter(
+    meditation_mins_today = db.query(func.sum(MeditationSession.minutes_listened)).filter(
         MeditationSession.created_at >= day_ago
     ).scalar() or 0
-    meditation_mins_today = round((meditation_mins_today or 0) / 60, 1)
+    meditation_mins_today = round(float(meditation_mins_today), 1)
 
     # 5. Marketing Pulse (Messages sent/opened in last 24h)
     msgs_sent_24h = db.query(func.count(MessageLog.id)).filter(

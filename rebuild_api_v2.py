@@ -1,5 +1,14 @@
 
-# This is a precision tool to rebuild the 482-line api.py
+# ⚠️  DANGER — DO NOT RUN THIS SCRIPT ⚠️
+# ===========================================================================
+# This script was created as a diagnostic/rollback tool from a previous session.
+# Running it will OVERWRITE backend/app/api/api_v1/api.py with an OLDER,
+# MOSTLY-COMMENTED-OUT version that will DISABLE most UPSC/drill/admin routes.
+#
+# The CURRENT api.py is the LIVE production version with all routers active.
+# If you need to restore a specific router state, do it MANUALLY in api.py.
+# ===========================================================================
+# This is a precision tool to rebuild the 482-line api.py [ARCHIVED - DO NOT RUN]
 lines = [
     "from fastapi import APIRouter",
     "",

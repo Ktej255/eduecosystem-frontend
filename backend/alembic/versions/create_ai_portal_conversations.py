@@ -3,9 +3,11 @@ import sqlalchemy as sa
 from datetime import datetime
 
 revision = 'create_ai_portal_conv'
-down_revision = '07dd8fa4d33d'  # Bridged through ghost revision found in production
+down_revision = 'f736139666aa'
 branch_labels = None
 depends_on = None
+
+
 
 def upgrade():
     op.create_table(

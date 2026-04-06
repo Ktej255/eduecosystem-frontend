@@ -11,9 +11,9 @@ Tasks include:
 
 from app.core.celery_app import celery_app
 from app.db.session import SessionLocal
-from app.services.presence import presence_service
 from datetime import datetime
 import logging
+from typing import List, Dict, Any, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -137,6 +137,43 @@ def generate_report_task(report_type: str, user_id: int, filters: dict):
         db.close()
 
 
+@celery_app.task(name="process_learning_signal")
+def process_learning_signal_task(
+    student_id: int, 
+    node_id: str, 
+    is_correct: bool, 
+    score: float, 
+    time_taken: int = 60
+):
+    """
+    Asynchronous Learning Signal Processor (Phase 13).
+    Calculates Mastery, Velocity, and Stability in the background.
+    """
+    from app.services.concept_tagging import concept_tagging
+    from app.services.cache_service import cache_service
+
+    db = SessionLocal()
+    try:
+        logger.info(f"Processing learning signal: Student {student_id} | Node {node_id}")
+        
+        # 1. Update core mastery and intelligence metrics
+        # Note: We reuse the existing logic but run it in the worker context
+        new_mastery = concept_tagging._update_node_mastery(
+            db, student_id, node_id, is_correct, score, time_taken
+        )
+
+        # 2. Invalidate cache to ensure UI reflects the latest signal on next load
+        cache_service.invalidate_student_dash(student_id)
+
+        logger.info(f"Signal processed. New Mastery: {new_mastery}")
+        return {"status": "success", "new_mastery": new_mastery}
+    except Exception as e:
+        logger.error(f"Error in process_learning_signal_task: {e}")
+        return {"status": "error", "message": str(e)}
+    finally:
+        db.close()
+
+
 @celery_app.task(name="compute_analytics")
 def compute_analytics_task(course_id: int = None):
     """
@@ -229,6 +266,61 @@ def process_notification_task(notification_id: int):
         }
     except Exception as e:
         logger.error(f"Error processing notification: {e}")
+        return {"status": "error", "message": str(e)}
+    finally:
+        db.close()
+
+
+@celery_app.task(name="process_learning_event")
+def process_learning_event_task(
+    student_id: int, 
+    node_ids: List[str],  # Stage-11: List of nodes for multi-concept PYQs
+    is_correct: bool, 
+    time_taken: int
+):
+    """
+    Asynchronously update student mastery and momentum for one or more nodes.
+    Applies the 1/N Split Weighting rule for mathematical stability.
+    """
+    from app.services.concept_tagging import concept_tagging
+    from app.services.momentum_service import momentum_service
+    from app.services.motivation_service import motivation_service
+    
+    db = SessionLocal()
+    try:
+        num_nodes = len(node_ids)
+        logger.info(f"Background: Processing learning event for User:{student_id} Nodes:{node_ids} (N={num_nodes})")
+        
+        # 1. Update Concept Mastery (Knowledge Graph)
+        # We pass the list to ensure 1/N is applied correctly
+        affected_nodes = concept_tagging.process_multi_node_attempt(
+            db, 
+            student_id, 
+            node_ids, 
+            is_correct, 
+            100.0 if is_correct else 0.0, 
+            time_taken
+        )
+        
+        # 2. Update Student Motivation (XP, Badges, Streaks) - Only once per attempt
+        motivation_service.process_study_event(
+            db, 
+            student_id, 
+            "MCQ_SUBMISSION", 
+            node_ids[0] if node_ids else "unknown", 
+            is_correct
+        )
+
+        # 3. Update Learning Momentum (Metrics)
+        momentum_service.calculate_momentum(db, student_id)
+            
+        db.commit()
+        logger.info(f"Background: Learning event completed for User:{student_id}. Nodes affected: {len(affected_nodes)}")
+        return {"status": "success", "user_id": student_id, "nodes_affected": len(affected_nodes)}
+        
+    except Exception as e:
+        logger.error(f"Background: Learning event failed for User:{student_id}: {e}")
+        db.rollback()
         return {"status": "error", "message": str(e)}
     finally:
         db.close()

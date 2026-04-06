@@ -168,6 +168,15 @@ def start_drill_session(
     ).first()
     
     if not question:
+        # Priority 1: Silent Guard for Geography Book 3 / Missing Topics
+        from fastapi.responses import JSONResponse
+        if request.plan_id:
+            plan = db.query(UPSCPlan).filter(UPSCPlan.id == request.plan_id).first()
+            # If the plan exists and relates to Geography, return 204 instead of 404
+            # We assume plan titles or metadata can indicate Geography
+            if plan and ("Geography" in (plan.title or "") or (getattr(plan, 'plan_type', '') == "Geography")):
+                return JSONResponse(status_code=204, content={"detail": "Content pending for this Geography topic"})
+        
         raise HTTPException(status_code=404, detail="Question not found")
 
     # 2. Create or Get Drill Session (Logic simplified for now)

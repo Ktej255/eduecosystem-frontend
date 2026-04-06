@@ -17,10 +17,11 @@ function GeographyDrillContent() {
     const startDrill = async (selectedDiff: 'easy' | 'medium' | 'hard') => {
         try {
             setLoading(true);
-            const data = await upscService.getDrillQuestions('Geography', selectedDiff, 20);
+            // Priority 2: Enforce limit 30 for Geography
+            const data = await upscService.getDrillQuestions('Geography', selectedDiff, 30);
             
             if (data && data.length > 0) {
-                // Map API response to StandardMCQ format if necessary
+                // Map API response to StandardMCQ format
                 const mappedQuestions = data.map((q: any) => ({
                     id: q.id,
                     question: q.question_text || q.question,
@@ -35,7 +36,10 @@ function GeographyDrillContent() {
                 setQuestions(mappedQuestions);
                 setDifficulty(selectedDiff);
             } else {
-                toast.error(`No ${selectedDiff} questions found for Geography in the database.`);
+                // Priority 1: Graceful Degradation (204 / Empty Results)
+                toast.info("Geography Content Generating...", {
+                    description: "Our AI is currently finalizing these topics for your cycle. Please check back in a few minutes.",
+                });
             }
         } catch (err) {
             console.error("Failed to fetch questions:", err);

@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { GeographyDrillInterface } from '@/components/upsc/subjects/geography/GeographyDrillInterface';
+import GeographyDrillInterface from '@/components/upsc/subjects/geography/GeographyDrillInterface';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';

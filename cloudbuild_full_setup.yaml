@@ -1,0 +1,54 @@
+steps:
+  # Step 1: Run Alembic migrations
+  - name: 'python:3.11'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        cd backend && \
+        pip install --quiet -r requirements.txt && \
+        export PYTHONPATH="." && \
+        echo "=== Running Alembic Migrations ===" && \
+        alembic upgrade head && \
+        echo "=== Migrations Complete ==="
+    env:
+      - 'DATABASE_URL=postgresql://postgres:Tej%401106@/eduecosystem_prod?host=/cloudsql/eduecosystem-prod:us-central1:eduecosystem-db'
+      - 'ENVIRONMENT=production'
+      - 'SECRET_KEY=eduecosystem-gcp-secret-2026-final'
+
+  # Step 2: Seed 330 PYQ MCQs for all 11 subjects
+  - name: 'python:3.11'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        pip install --quiet -r backend/requirements.txt && \
+        export PYTHONPATH="backend" && \
+        echo "=== Seeding MCQ Bank ===" && \
+        python seed_mcq_bank.py && \
+        echo "=== MCQ Seed Complete ==="
+    env:
+      - 'DATABASE_URL=postgresql://postgres:Tej%401106@/eduecosystem_prod?host=/cloudsql/eduecosystem-prod:us-central1:eduecosystem-db'
+      - 'ENVIRONMENT=production'
+      - 'SECRET_KEY=eduecosystem-gcp-secret-2026-final'
+
+  # Step 3: Extract History MCQs from TypeScript, then ingest into DB
+  - name: 'python:3.11'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        pip install --quiet -r backend/requirements.txt && \
+        export PYTHONPATH="backend" && \
+        echo "=== Extracting History MCQs ===" && \
+        python backend/prepare_history_json.py && \
+        echo "=== Ingesting History MCQs ===" && \
+        python backend/ingest_history_mcqs.py && \
+        echo "=== All Done ==="
+    env:
+      - 'DATABASE_URL=postgresql://postgres:Tej%401106@/eduecosystem_prod?host=/cloudsql/eduecosystem-prod:us-central1:eduecosystem-db'
+      - 'ENVIRONMENT=production'
+      - 'SECRET_KEY=eduecosystem-gcp-secret-2026-final'
+
+options:
+  logging: CLOUD_LOGGING_ONLY

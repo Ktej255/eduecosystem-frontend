@@ -13,6 +13,7 @@ from app.models import (
     ai_avatar,
     ai_conversation,
     ai_features,
+    ai_portal,
     flashcard,
     analytics,
     announcement,
@@ -95,5 +96,11 @@ from app.models import (
     adaptive_learning,
     development_history,
     upsc_synapse,
+    concept_node,
+    concept_signal,
+    concept_relationship,
+    student_concept_mastery,
+    guided_clip,
+    student_activity_log,
 )
 print("DEBUG: Models imported in base.py")

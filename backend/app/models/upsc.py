@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func, text
 import uuid
 
-from app.db.base import Base
+from app.db.session import Base
 
 class UPSCBatch(Base):
     __tablename__ = "upsc_batches"

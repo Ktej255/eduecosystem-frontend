@@ -34,5 +34,5 @@ export default function TopicPage({ params }: TopicPageProps) {
         );
     }
 
-    return <TopicViewer topic={topic} topicId={parseInt(topicId, 10)} />;;
+    return <TopicViewer topic={topic} topicId={parseInt(topicId, 10)} />;
 }

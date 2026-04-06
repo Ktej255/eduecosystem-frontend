@@ -1,5 +1,6 @@
 import os
 import httpx
+import time
 import google.generativeai as genai
 from typing import Optional, List, Dict, Any, Tuple
 from app.core.config import settings
@@ -58,6 +59,68 @@ class GeminiService:
             plan.append(("openrouter", self.llama_key, "meta-llama/llama-3.3-70b-instruct:free"))
             
         return plan
+
+    def get_embeddings(self, text: str, task_type: str = "retrieval_document") -> List[float]:
+        """
+        Generates embeddings for the given text using Gemini.
+        Returns a list of floats (vector).
+        """
+        if not self.free_key:
+            logger.error("Gemini API key missing for embeddings")
+            return []
+
+        try:
+            genai.configure(api_key=self.free_key)
+            result = genai.embed_content(
+                model="models/gemini-embedding-001",
+                content=text,
+                task_type=task_type,
+                title="Knowledge Graph Node" if task_type == "retrieval_document" else None
+            )
+            return result['embedding']
+        except Exception as e:
+            logger.error(f"Gemini Embeddings Error: {e}")
+            return []
+
+    def get_embeddings_batch(self, texts: List[str], task_type: str = "retrieval_document") -> List[List[float]]:
+        """
+        Generates embeddings for a list of texts in batch.
+        Note: Handles 15 RPM free tier limits by sleeping if needed.
+        """
+        if not texts: return []
+        
+        results = []
+        # Free tier is 15 RPM. For 200 nodes, we might need multiple batches.
+        # However, genai.embed_content supports multiple contents in one call (up to 100 usually)
+        
+        try:
+            genai.configure(api_key=self.free_key)
+            
+            # Process in chunks of 50 to avoid payload limits
+            chunk_size = 50
+            for i in range(0, len(texts), chunk_size):
+                chunk = texts[i:i + chunk_size]
+                batch_result = genai.embed_content(
+                    model="models/gemini-embedding-001",
+                    content=chunk,
+                    task_type=task_type
+                )
+                results.extend(batch_result['embedding'])
+                
+            return results
+        except Exception as e:
+            logger.error(f"Gemini Batch Embeddings Error: {e}")
+            # Fallback to sequential if batch fails
+            sequential_results = []
+            for t in texts:
+                # Add delay to stay within 15-100 RPM limits
+                time.sleep(1.0)
+                emb = self.get_embeddings(t, task_type)
+                # Ensure we always return a vector of the same dimension even on error
+                if not emb:
+                    emb = [0.0] * 768 # Default dimension for embedding-001
+                sequential_results.append(emb)
+            return sequential_results
 
     def _call_google(self, api_key: str, model_name: str, messages: List[Dict[str, str]], temperature: float) -> str:
         """Call Google Generic AI SDK"""
@@ -511,20 +574,39 @@ Return JSON ONLY in this exact format:
             print(f"Grapho Vision Error: {e}")
             return {"traits": [], "overlay_coords": []}
 
-    def auto_tag_upsc_topics(self, question_texts: List[str]) -> List[str]:
+    # ─────────────────────────────────────────────────────────────────
+    # GEOGRAPHY SUB-TOPIC TAXONOMY
+    # Maps geography domains to their specific UPSC keyword clusters.
+    # Used by auto_tag_upsc_topics for granular Geography classification.
+    # ─────────────────────────────────────────────────────────────────
+    GEOGRAPHY_SUBTOPIC_MAP = {
+        "Geomorphology": ["landform", "erosion", "plateau", "fold", "fault", "rift", "valley", "delta", "floodplain", "meander", "badland", "ravine", "karst", "glacier", "moraine", "esker", "drumlin", "cirque"],
+        "Climatology": ["monsoon", "rainfall", "climate", "temperature", "humidity", "drought", "cyclone", "El Nino", "La Nina", "ITCZ", "jet stream", "wind", "pressure", "westerlies", "trade winds", "precipitation"],
+        "Rivers & Drainage": ["river", "tributary", "distributary", "basin", "confluence", "source", "origin", "estuary", "dam", "barrage", "reservoir", "waterfall", "canal", "drainage", "watershed", "prayag", "sangam"],
+        "Soils": ["soil", "laterite", "alluvial", "black cotton", "regur", "red soil", "saline", "alkaline", "humus", "pedology", "erosion"],
+        "Natural Vegetation & Forest": ["forest", "biome", "mangrove", "tropical", "deciduous", "evergreen", "vegetation", "scrub", "savanna", "tundra", "grassland"],
+        "National Parks & Wildlife": ["national park", "tiger reserve", "wildlife sanctuary", "biosphere reserve", "ramsar", "elephant reserve", "conservation", "species", "endangered"],
+        "Physical Geography of India": ["himalaya", "western ghats", "eastern ghats", "aravalli", "vindhya", "satpura", "deccan", "peninsular", "coastal", "island", "andaman", "lakshadweep"],
+        "Economic Geography": ["agriculture", "crop", "mineral", "coal", "iron ore", "petroleum", "port", "industry", "power plant", "irrigation", "fisheries"],
+        "World Geography": ["continent", "ocean", "pacific", "atlantic", "arctic", "strait", "mountain", "volcano", "earthquake", "tectonic", "plate"],
+        "Maps & Location": ["latitude", "longitude", "tropic", "equator", "border", "boundary", "state", "direction", "locate", "which state", "passes through"],
+    }
+
+    def auto_tag_upsc_topics(self, question_texts: List[str]) -> List[Dict[str, str]]:
         """
-        Takes a list of question texts and returns a list of matching UPSC subject tags.
-        Example tags: "Polity", "History", "Geography", "Economy", "Science & Tech", "Environment", "Current Affairs", "Ethics".
+        Takes a list of question texts and returns a list of dicts with 'subject' and
+        'geo_subtopic' (populated only when subject=Geography).
+
+        Returns: [{"subject": "Geography", "geo_subtopic": "Rivers & Drainage"}, ...]
         """
         if not question_texts:
             return []
-            
-        # Group questions for batch processing to save tokens/RPM
+
         formatted_questions = ""
         for i, q in enumerate(question_texts):
             formatted_questions += f"Q{i+1}: {q[:500]}\n---\n"
-            
-        prompt = f"""You are a UPSC subject expert. Categorize the following questions into one of these core subjects:
+
+        prompt = f"""You are a UPSC subject expert. Categorize each question into one of:
 - Polity
 - History
 - Geography
@@ -534,14 +616,29 @@ Return JSON ONLY in this exact format:
 - Current Affairs
 - Ethics
 
+For any question tagged as 'Geography', also provide a sub-topic from this list:
+- Geomorphology
+- Climatology
+- Rivers & Drainage
+- Soils
+- Natural Vegetation & Forest
+- National Parks & Wildlife
+- Physical Geography of India
+- Economic Geography
+- World Geography
+- Maps & Location
+
 QUESTIONS:
 {formatted_questions}
 
-Return JSON ONLY in this exact format:
+Return JSON ONLY:
 {{
-    "tags": ["Subject for Q1", "Subject for Q2", ...]
+    "results": [
+        {{"subject": "SubjectName", "geo_subtopic": "SubtopicOrNull"}},
+        ...
+    ]
 }}
-Ensure the 'tags' list length matches the input questions length ({len(question_texts)}).
+Results list length MUST equal {len(question_texts)}. Use null for geo_subtopic when subject is not Geography.
 """
 
         try:
@@ -549,15 +646,116 @@ Ensure the 'tags' list length matches the input questions length ({len(question_
             import json
             clean = response.replace("```json", "").replace("```", "").strip()
             data = json.loads(clean)
-            tags = data.get("tags", [])
-            
-            # Fill in 'General' if AI fails to provide enough tags
-            while len(tags) < len(question_texts):
-                tags.append("General")
-            return tags[:len(question_texts)]
+            results = data.get("results", [])
+
+            # Pad if AI returns fewer results than expected
+            while len(results) < len(question_texts):
+                results.append({"subject": "General", "geo_subtopic": None})
+
+            return results[:len(question_texts)]
         except Exception as e:
             print(f"Auto-tagging error: {e}")
-            return ["General"] * len(question_texts)
+            return [{"subject": "General", "geo_subtopic": None}] * len(question_texts)
+
+    def evaluate_cognitive_skill_gap(
+        self,
+        question_text: str,
+        student_answer: str,
+        subject: str,
+        geo_subtopic: Optional[str] = None,
+        user: Any = None,
+    ) -> Dict[str, Any]:
+        """
+        Subject-aware Synapse cognitive gap evaluator.
+
+        For Geography: assesses spatial reasoning, map logic, and process understanding.
+        For Polity: assesses constitutional recall and legal reasoning.
+        For others: applies a generic conceptual understanding rubric.
+
+        Returns a structured gap report for the Synapse heatmap.
+        """
+        if subject == "Geography":
+            domain_label = geo_subtopic or "Physical Geography"
+            rubric = f"""You are an IAS Geography Coach specializing in {domain_label}.
+
+Evaluate this student's answer on these Geography-specific cognitive dimensions:
+1. Spatial Accuracy (Do they correctly situate features — regions, directions, relative positions?) [0-10]
+2. Process Understanding (Do they explain WHY — monsoon mechanics, river formation, soil genesis?) [0-10]
+3. Map Logic (Can they reason from map data — tributaries, drainage patterns, atlas cross-referencing?) [0-10]
+4. Factual Precision (Correct names, correct states, correct classifications?) [0-10]
+5. Current Relevance (Does the answer connect to recent events or UPSC PYQ context?) [0-10]
+
+Return JSON ONLY:
+{{
+    "scores": {{"spatial_accuracy": 0, "process_understanding": 0, "map_logic": 0, "factual_precision": 0, "current_relevance": 0, "total": 0}},
+    "gap_type": "knowledge_gap | logic_gap | mastered",
+    "missing_concepts": ["concept1", "concept2"],
+    "feedback": "Short, specific improvement tip (max 2 sentences).",
+    "suggested_revision": "Which specific chapter/topic to revise."
+}}"""
+        elif subject == "Polity":
+            rubric = """You are a constitutional law expert coaching for UPSC Polity.
+
+Evaluate on these Polity-specific cognitive dimensions:
+1. Constitutional Recall (Correct Article/Clause/Amendment numbers?) [0-10]
+2. Conceptual Clarity (Fundamental Rights vs DPSP, Parliament vs Executive distinctions?) [0-10]
+3. Case Law Awareness (Landmark Supreme Court judgments when relevant?) [0-10]
+4. Analytical Depth (Can they go beyond rote memorization to apply logic?) [0-10]
+5. Current Relevance (Recent constitutional amendments, electoral reforms?) [0-10]
+
+Return JSON ONLY:
+{{
+    "scores": {{"constitutional_recall": 0, "conceptual_clarity": 0, "case_law_awareness": 0, "analytical_depth": 0, "current_relevance": 0, "total": 0}},
+    "gap_type": "knowledge_gap | logic_gap | mastered",
+    "missing_concepts": ["concept1", "concept2"],
+    "feedback": "Short, specific improvement tip (max 2 sentences).",
+    "suggested_revision": "Which specific chapter/topic to revise."
+}}"""
+        else:
+            rubric = f"""You are a UPSC {subject} expert evaluator.
+
+Evaluate on general cognitive dimensions:
+1. Core Concept Accuracy [0-10]
+2. Depth of Understanding [0-10]
+3. Application of Knowledge [0-10]
+4. Factual Precision [0-10]
+5. Current Relevance [0-10]
+
+Return JSON ONLY:
+{{
+    "scores": {{"concept_accuracy": 0, "depth": 0, "application": 0, "factual_precision": 0, "current_relevance": 0, "total": 0}},
+    "gap_type": "knowledge_gap | logic_gap | mastered",
+    "missing_concepts": ["concept1", "concept2"],
+    "feedback": "Short feedback.",
+    "suggested_revision": "Topic to revise."
+}}"""
+
+        full_prompt = f"""{rubric}
+
+QUESTION: {question_text}
+
+STUDENT ANSWER: {student_answer}
+"""
+
+        try:
+            response = self.generate_text(full_prompt, user=user, is_complex=True, temperature=0.2)
+            import json
+            clean = response.replace("```json", "").replace("```", "").strip()
+            result = json.loads(clean)
+            result["subject"] = subject
+            result["geo_subtopic"] = geo_subtopic
+            return result
+        except Exception as e:
+            print(f"Cognitive gap evaluation error: {e}")
+            return {
+                "scores": {"total": 0},
+                "gap_type": "knowledge_gap",
+                "missing_concepts": [],
+                "feedback": "Evaluation failed. Please retry.",
+                "suggested_revision": subject,
+                "subject": subject,
+                "geo_subtopic": geo_subtopic,
+            }
 
 # Global instance
 gemini_service = GeminiService()

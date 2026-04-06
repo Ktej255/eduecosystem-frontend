@@ -1,0 +1,75 @@
+======================================================================
+  PRODUCTION DATABASE: QUESTION QUALITY AUDIT
+======================================================================
+
+--- 1. TOTAL QUESTIONS BY SUBJECT ---
+  Polity                            8,996
+  Modern History                    3,312
+  Ancient History                   2,471
+  Medieval History                  1,875
+  Geography                         1,515
+  Economy                             453
+  Environment                         338
+  Science & Technology                196
+  International Relations              60
+
+  GRAND TOTAL: 19,216
+
+--- 2. TRUNCATED (contain ...) BY SUBJECT ---
+  Polity                               23
+  Modern History                        2
+  Ancient History                       1
+  Environment                           1
+  TOTAL TRUNCATED: 27
+
+--- 3. SHORT QUESTIONS (< 30 chars) BY SUBJECT ---
+  Polity                              294
+  Ancient History                      30
+  Environment                          27
+  Geography                             4
+  Economy                               4
+  Science & Technology                  4
+  Modern History                        2
+  Medieval History                      2
+
+--- 4. MISSING CORRECT ANSWER ---
+
+--- 5. EXACT DUPLICATES ---
+  Duplicate groups: 4,440
+  Excess rows to remove: 4,711
+
+--- 6. SAMPLE TRUNCATED POLITY QUESTIONS (top 5) ---
+
+  [ID:140 len=572]
+  The 'Mines and Minerals (Development and Regulation) Amendment Act, 2023' (Critical Minerals):
+
+1. It empowers the Central Government to exclusively a
+
+  [ID:226 len=698]
+  The Forest (Conservation) Amendment Act, 2023 exceptions:
+
+1. Land within 100 km of international borders proposed to be used for strategic linear pro
+
+  [ID:2879 len=74]
+  Which Article says 'All authorities... shall act in aid of Supreme Court'?
+
+  [ID:3941 len=247]
+  With reference to Union Budget...
+1. The Union Finance Minister on behalf of the Prime Minister lays the Annual Financial Statement...
+2. At the Union
+
+  [ID:3942 len=251]
+  With reference to Speaker of Lok Sabha...
+While any resolution for removal is under consideration:
+1. He/She shall not preside
+2. He/She shall not hav
+
+--- 7. HISTORY KEYWORDS MISLABELED AS POLITY ---
+  History-content tagged as Polity: 48
+
+--- 8. QUESTIONS ADDED BY DATE (last 30 days) ---
+  2026-03-28: 19,216 questions added
+
+======================================================================
+  AUDIT COMPLETE
+======================================================================

@@ -267,7 +267,7 @@ For details, see [scripts/README.md](scripts/README.md)
 | Metric              | Value                         |
 | ------------------- | ----------------------------- |
 | **Total Agents**    | 20                            |
-| **Total Skills**    | 36                            |
+| **Total Skills**    | 37                            |
 | **Total Workflows** | 11                            |
 | **Total Scripts**   | 2 (master) + 18 (skill-level) |
 | **Coverage**        | ~90% web/mobile development   |
@@ -278,7 +278,7 @@ For details, see [scripts/README.md](scripts/README.md)
 
 | Need     | Agent                 | Skills                                |
 | -------- | --------------------- | ------------------------------------- |
-| Web App  | `frontend-specialist` | react-best-practices, frontend-design |
+| Web App  | `frontend-specialist` | react-best-practices, frontend-design, remotion-animations |
 | API      | `backend-specialist`  | api-patterns, nodejs-best-practices   |
 | Mobile   | `mobile-developer`    | mobile-design                         |
 | Database | `database-architect`  | database-design, prisma-expert        |
