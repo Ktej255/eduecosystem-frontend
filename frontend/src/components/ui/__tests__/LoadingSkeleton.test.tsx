@@ -6,8 +6,8 @@ describe("LoadingSkeleton", () => {
   it("renders card variant correctly", () => {
     render(<LoadingSkeleton variant="card" count={1} />);
     const skeleton =
-      screen.getByTestId("loading-skeleton") ||
-      document.querySelector(".animate-pulse");
+
+      document.querySelector(".animate-pulse") as Element;
     expect(skeleton).toBeInTheDocument();
   });
 

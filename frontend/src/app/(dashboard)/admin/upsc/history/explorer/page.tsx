@@ -96,7 +96,7 @@ export default function HistoryAdminExplorer() {
     }, [fetchGraph]);
 
     const onNodeClick = (_: any, node: Node) => {
-        setSelectedNode(node.data as GraphNode);
+        setSelectedNode(node.data as unknown as GraphNode);
     };
 
     return (

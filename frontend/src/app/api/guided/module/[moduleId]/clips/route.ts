@@ -4,11 +4,11 @@ const BACKEND = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { moduleId: string } }
+  { params }: { params: Promise<{  moduleId: string  }> }
 ) {
   try {
     const token = req.cookies.get('access_token')?.value || req.headers.get('authorization') || '';
-    const res = await fetch(`${BACKEND}/api/v1/guided/module/${params.moduleId}/clips`, {
+    const res = await fetch(`${BACKEND}/api/v1/guided/module/${(await params).moduleId}/clips`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await res.json();
