@@ -14,7 +14,9 @@ class Settings(BaseSettings):
     DEBUG: bool = os.getenv("DEBUG", "false").lower() == "true"
 
     PROJECT_NAME: str = "Holistic Learning Ecosystem"
-    BASE_URL: str = os.getenv("BASE_URL", "https://a7z4kjysmp.us-east-1.awsapprunner.com")
+    BASE_URL: str = os.getenv(
+        "BASE_URL", "https://a7z4kjysmp.us-east-1.awsapprunner.com"
+    )
     API_V1_STR: str = "/api/v1"
     POSTGRES_SERVER: str = os.getenv("POSTGRES_SERVER", "localhost")
     POSTGRES_USER: str = os.getenv("POSTGRES_USER", "postgres")
@@ -23,12 +25,14 @@ class Settings(BaseSettings):
 
     # Superuser - SECURITY: Must be set via environment in production
     FIRST_SUPERUSER: str = os.getenv("FIRST_SUPERUSER", "ktej255@gmail.com")
-    FIRST_SUPERUSER_PASSWORD: str = os.getenv("FIRST_SUPERUSER_PASSWORD", "CHANGE_ME_IN_PRODUCTION")
+    FIRST_SUPERUSER_PASSWORD: str = os.getenv(
+        "FIRST_SUPERUSER_PASSWORD", "CHANGE_ME_IN_PRODUCTION"
+    )
 
     # Phase 21: Environment & Safety Flags
     ENVIRONMENT: str = os.getenv("ENVIRONMENT", "development")
-    DEV_MODE_ENABLED: bool = (ENVIRONMENT == "development")
-    
+    DEV_MODE_ENABLED: bool = ENVIRONMENT == "development"
+
     # Extra safety: Force disable DEV_MODE in production regardless of other settings
     if ENVIRONMENT == "production":
         DEV_MODE_ENABLED = False
@@ -50,12 +54,27 @@ class Settings(BaseSettings):
     SECRET_KEY: str = os.getenv(
         "SECRET_KEY",
         # Generate a random key for development, but require it in production
-        secrets.token_urlsafe(32)
-        if os.getenv("ENVIRONMENT", "development") == "development"
-        else "",  # Empty string will trigger validation error in production
+        (
+            secrets.token_urlsafe(32)
+            if os.getenv("ENVIRONMENT", "development") == "development"
+            else ""
+        ),  # Empty string will trigger validation error in production
+    )
+
+    # SSO Encryption Key for encrypting client_secret in production
+    SSO_ENCRYPTION_KEY: str = os.getenv(
+        "SSO_ENCRYPTION_KEY",
+        # Generate a random Fernet key for development
+        (
+            "eCiT8q4LTTqMGkW8kHTjAyQW0HbHD-VlT8nqJh4MarY="
+            if os.getenv("ENVIRONMENT", "development") == "development"
+            else ""
+        ),  # Empty string will trigger validation error in production
     )
     # SESSION: Extended to 7 days for better UX during study sessions
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "10080"))  # 7 days default
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = int(
+        os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "10080")
+    )  # 7 days default
 
     @field_validator("SECRET_KEY")
     @classmethod
@@ -65,7 +84,19 @@ class Settings(BaseSettings):
         if environment == "production" and not v:
             raise ValueError(
                 "CRITICAL: SECRET_KEY environment variable must be set in production. "
-                "Generate one with: python -c \"import secrets; print(secrets.token_urlsafe(32))\""
+                'Generate one with: python -c "import secrets; print(secrets.token_urlsafe(32))"'
+            )
+        return v
+
+    @field_validator("SSO_ENCRYPTION_KEY")
+    @classmethod
+    def validate_sso_encryption_key(cls, v, info):
+        """Ensure SSO_ENCRYPTION_KEY is set in production — fail loudly if missing."""
+        environment = info.data.get("ENVIRONMENT", "development")
+        if environment == "production" and not v:
+            raise ValueError(
+                "CRITICAL: SSO_ENCRYPTION_KEY environment variable must be set in production. "
+                'Generate one with: python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"'
             )
         return v
 
@@ -103,7 +134,9 @@ class Settings(BaseSettings):
     MAIL_SSL_TLS: bool = False
     USE_CREDENTIALS: bool = True
     VALIDATE_CERTS: bool = True
-    MAIL_SUPPRESS_SEND: bool = os.getenv("MAIL_SUPPRESS_SEND", "1") == "1"  # Default to True for dev
+    MAIL_SUPPRESS_SEND: bool = (
+        os.getenv("MAIL_SUPPRESS_SEND", "1") == "1"
+    )  # Default to True for dev
 
     # Redis Configuration
     REDIS_HOST: str = os.getenv("REDIS_HOST", "localhost")
@@ -142,8 +175,12 @@ class Settings(BaseSettings):
 
     # Cashfree Configuration (for payments)
     CASHFREE_APP_ID: str = os.getenv("CASHFREE_APP_ID", "app_id_placeholder")
-    CASHFREE_SECRET_KEY: str = os.getenv("CASHFREE_SECRET_KEY", "secret_key_placeholder")
-    CASHFREE_WEBHOOK_SECRET: str = os.getenv("CASHFREE_WEBHOOK_SECRET", "webhook_placeholder")
+    CASHFREE_SECRET_KEY: str = os.getenv(
+        "CASHFREE_SECRET_KEY", "secret_key_placeholder"
+    )
+    CASHFREE_WEBHOOK_SECRET: str = os.getenv(
+        "CASHFREE_WEBHOOK_SECRET", "webhook_placeholder"
+    )
 
     # File Storage Configuration
     STORAGE_BACKEND: str = os.getenv("STORAGE_BACKEND", "local")  # Options: local, s3
@@ -163,25 +200,26 @@ class Settings(BaseSettings):
 
     # AI Configuration
     # Free Tier Gemini Key (15 RPM)
-    FREE_GEMINI_API_KEY: str = os.getenv("FREE_GEMINI_API_KEY", os.getenv("GEMINI_API_KEY", ""))
-    
+    FREE_GEMINI_API_KEY: str = os.getenv(
+        "FREE_GEMINI_API_KEY", os.getenv("GEMINI_API_KEY", "")
+    )
+
     # Paid/Premium Gemini Key (Higher limits)
     PAID_GEMINI_API_KEY: str = os.getenv("PAID_GEMINI_API_KEY", "")
-    
+
     # Fallback Keys (OpenRouter)
     GEMMA_API_KEY: str = os.getenv("GEMMA_API_KEY", "")
     LLAMA_API_KEY: str = os.getenv("LLAMA_API_KEY", "")
-    
+
     OPENROUTER_BASE_URL: str = "https://openrouter.ai/api/v1"
-    
+
     # Default AI model to use
-    DEFAULT_AI_MODEL: str = os.getenv("DEFAULT_AI_MODEL", "google/gemini-3-flash-preview")
+    DEFAULT_AI_MODEL: str = os.getenv(
+        "DEFAULT_AI_MODEL", "google/gemini-3-flash-preview"
+    )
 
     model_config = SettingsConfigDict(
-        env_file=".env",
-        env_file_encoding="utf-8",
-        case_sensitive=True,
-        extra="ignore"
+        env_file=".env", env_file_encoding="utf-8", case_sensitive=True, extra="ignore"
     )
 
 

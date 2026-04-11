@@ -31,9 +31,18 @@ class OAuthService:
         Args:
             sso_config: SSOConfig model with OAuth/OIDC settings
         """
+        from app.services.sso_service import SSOService
+
         self.config = sso_config
         self.client_id = sso_config.client_id
-        self.client_secret = sso_config.client_secret
+
+        # Decrypt secret for use with OAuth client
+        self.client_secret = (
+            SSOService.decrypt_secret(sso_config.client_secret)
+            if sso_config.client_secret
+            else None
+        )
+
         self.scopes = sso_config.scopes or ["openid", "email", "profile"]
 
         # Endpoints
@@ -177,9 +186,9 @@ class OAuthService:
 
         user_data = {
             "sso_external_id": user_info.get("sub"),  # Subject identifier
-            "provider_type": "OAUTH"
-            if self.config.provider_type == "OAUTH"
-            else "OIDC",
+            "provider_type": (
+                "OAUTH" if self.config.provider_type == "OAUTH" else "OIDC"
+            ),
             "provider_name": self.config.provider_name,
         }
 
