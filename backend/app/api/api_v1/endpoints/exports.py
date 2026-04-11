@@ -11,6 +11,7 @@ from fastapi.responses import Response
 from sqlalchemy.orm import Session
 
 from app.api import deps
+from app.crud.course import course as crud_course
 from app.models.user import User
 from app.services.export_service import ExportService
 
@@ -83,7 +84,13 @@ def export_course(
     Note: Only course creator or admin can export course content.
     """
     try:
-        # TODO: Add permission check - only course creator or admin
+        # Permission check - only course creator or admin
+        course = crud_course.get(db=db, id=course_id)
+        if not course:
+            raise HTTPException(status_code=404, detail="Course not found")
+
+        if course.instructor_id != current_user.id and not current_user.is_superuser:
+            raise HTTPException(status_code=403, detail="Not enough permissions")
 
         data = ExportService.export_course_content(
             db=db, course_id=course_id, format=format
@@ -171,9 +178,9 @@ def export_all_users(
                     "email": user.email,
                     "full_name": user.full_name or "",
                     "is_active": user.is_active,
-                    "created_at": user.created_at.isoformat()
-                    if user.created_at
-                    else "",
+                    "created_at": (
+                        user.created_at.isoformat() if user.created_at else ""
+                    ),
                 }
             )
 
