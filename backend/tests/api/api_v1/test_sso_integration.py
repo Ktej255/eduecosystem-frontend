@@ -189,7 +189,7 @@ def test_sso_saml_flow(client: TestClient, db: Session):
 
     # Test Login Redirect
     # Mock SAML AuthNRequest generation
-    with patch("app.api.api_v1.endpoints.sso.SAMLService.get_login_url") as mock_url:
+    with patch("app.services.saml_service.SAMLService.get_login_url") as mock_url:
         mock_url.return_value = "https://idp.example.com/sso?SAMLRequest=..."
 
         response = client.get(f"{settings.API_V1_STR}/sso/login/saml-test")
@@ -202,7 +202,7 @@ def test_sso_saml_flow(client: TestClient, db: Session):
     # Test SAML Callback
     # Mock SAML Response processing
     with patch(
-        "app.api.api_v1.endpoints.sso.SAMLService.process_response"
+        "app.services.saml_service.SAMLService.process_response"
     ) as mock_process:
         mock_process.return_value = (
             True,
@@ -218,7 +218,7 @@ def test_sso_saml_flow(client: TestClient, db: Session):
 
         # We need to post form data for SAML
         callback_response = client.post(
-            f"{settings.API_V1_STR}/sso/callback/saml",
+            f"{settings.API_V1_STR}/sso/callback/saml?slug=saml-test",
             data={"SAMLResponse": "mock_base64_response", "RelayState": str(org_id)},
             follow_redirects=False,
         )

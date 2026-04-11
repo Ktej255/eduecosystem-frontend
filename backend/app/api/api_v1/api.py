@@ -429,7 +429,7 @@ from app.api.api_v1.endpoints import learning_groups
 
 # Enterprise SSO
 from app.api.api_v1.endpoints import sso
-# api_router.include_router(sso.router, prefix="/sso", tags=["sso"])
+api_router.include_router(sso.router, prefix="/sso", tags=["sso"])
 
 
 
