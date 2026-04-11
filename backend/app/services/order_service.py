@@ -251,6 +251,9 @@ class OrderService:
             db.refresh(order)
             return order
 
+        # Keep track of courses that got new enrollments
+        enrolled_course_ids = set()
+
         # Create enrollments for each course
         for item in order_items:
             if item.course_id:
@@ -273,13 +276,7 @@ class OrderService:
                         progress_percentage=0,
                     )
                     db.add(enrollment)
-
-                    # Update course enrollment count
-                    course = (
-                        db.query(Course).filter(Course.id == item.course_id).first()
-                    )
-                    if course:
-                        course.total_enrollments += 1
+                    enrolled_course_ids.add(item.course_id)
 
             elif item.bundle_id:
                 # Handle bundle enrollment (create enrollments for all courses in bundle)
@@ -309,9 +306,14 @@ class OrderService:
                                 progress_percentage=0,
                             )
                             db.add(enrollment)
+                            enrolled_course_ids.add(course.id)
 
-                            # Update course enrollment count
-                            course.total_enrollments += 1
+        # Update course enrollment count in bulk
+        if enrolled_course_ids:
+            db.query(Course).filter(Course.id.in_(list(enrolled_course_ids))).update(
+                {Course.total_enrollments: Course.total_enrollments + 1},
+                synchronize_session=False,
+            )
 
         # Mark order as completed
         order.status = OrderStatus.COMPLETED
