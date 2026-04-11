@@ -3,18 +3,19 @@ Order Service
 Business logic for order management and processing
 """
 
-from typing import Optional, List, Tuple
-from sqlalchemy.orm import Session
-from fastapi import HTTPException
 from datetime import datetime
+from typing import List, Optional, Tuple
 
-from app.models.order import Order, OrderItem, OrderStatus
-from app.models.cart import ShoppingCart, CartItem
-from app.models.course import Course
+from fastapi import HTTPException
+from sqlalchemy.orm import Session
+
 from app.models.bundle import CourseBundle
-from app.models.enrollment import Enrollment
+from app.models.cart import CartItem, ShoppingCart
 from app.models.coupon import Coupon
-from app.schemas.order import OrderCreate, OrderResponse, OrderItemResponse
+from app.models.course import Course
+from app.models.enrollment import Enrollment
+from app.models.order import Order, OrderItem, OrderStatus
+from app.schemas.order import OrderCreate, OrderItemResponse, OrderResponse
 
 
 class OrderService:
@@ -79,13 +80,33 @@ class OrderService:
         db.add(order)
         db.flush()  # Get order ID
 
+        # Bulk load data to prevent N+1 queries
+        course_ids = [item.course_id for item in cart_items if item.course_id]
+        bundle_ids = [item.bundle_id for item in cart_items if item.bundle_id]
+        coupon_ids = [item.coupon_id for item in cart_items if item.coupon_id]
+
+        courses_dict = {}
+        if course_ids:
+            courses = db.query(Course).filter(Course.id.in_(course_ids)).all()
+            courses_dict = {c.id: c for c in courses}
+
+        bundles_dict = {}
+        if bundle_ids:
+            bundles = (
+                db.query(CourseBundle).filter(CourseBundle.id.in_(bundle_ids)).all()
+            )
+            bundles_dict = {b.id: b for b in bundles}
+
+        coupons_dict = {}
+        if coupon_ids:
+            coupons = db.query(Coupon).filter(Coupon.id.in_(coupon_ids)).all()
+            coupons_dict = {c.id: c for c in coupons}
+
         # Create order items from cart items
         for cart_item in cart_items:
             # Get item details
             if cart_item.course_id:
-                course = (
-                    db.query(Course).filter(Course.id == cart_item.course_id).first()
-                )
+                course = courses_dict.get(cart_item.course_id)
                 if course:
                     item_name = course.title
                     item_description = course.description
@@ -93,11 +114,7 @@ class OrderService:
                     item_name = f"Course ID {cart_item.course_id}"
                     item_description = None
             elif cart_item.bundle_id:
-                bundle = (
-                    db.query(CourseBundle)
-                    .filter(CourseBundle.id == cart_item.bundle_id)
-                    .first()
-                )
+                bundle = bundles_dict.get(cart_item.bundle_id)
                 if bundle:
                     item_name = bundle.name
                     item_description = bundle.description
@@ -110,9 +127,7 @@ class OrderService:
             # Get coupon code if applied
             coupon_code = None
             if cart_item.coupon_id:
-                coupon = (
-                    db.query(Coupon).filter(Coupon.id == cart_item.coupon_id).first()
-                )
+                coupon = coupons_dict.get(cart_item.coupon_id)
                 if coupon:
                     coupon_code = coupon.code
 
