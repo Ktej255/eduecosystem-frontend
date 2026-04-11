@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import api from "@/lib/api";
 import {
   aiToolsService,
   QuizGenerationRequest,
@@ -66,11 +67,30 @@ function QuizGeneratorTab() {
   const [difficulty, setDifficulty] = useState<"easy" | "medium" | "hard">(
     "medium",
   );
+  const [courses, setCourses] = useState<{ id: number; title: string }[]>([]);
+  const [courseId, setCourseId] = useState<string>("");
   const [generating, setGenerating] = useState(false);
   const [generatedQuiz, setGeneratedQuiz] =
     useState<QuizGenerationResponse | null>(null);
 
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const response = await api.get("/courses/my-courses");
+        setCourses(response.data);
+      } catch (err) {
+        console.error("Failed to fetch courses:", err);
+      }
+    };
+    fetchCourses();
+  }, []);
+
   const handleGenerate = async () => {
+    if (!courseId) {
+      alert("Please select a course to associate the quiz with");
+      return;
+    }
+
     if (!content.trim()) {
       alert("Please enter some content to generate a quiz from");
       return;
@@ -79,7 +99,7 @@ function QuizGeneratorTab() {
     setGenerating(true);
     try {
       const request: QuizGenerationRequest = {
-        course_id: 1, // TODO: Get from context
+        course_id: parseInt(courseId, 10),
         content: content,
         num_questions: numQuestions,
         difficulty: difficulty,
@@ -112,6 +132,22 @@ function QuizGeneratorTab() {
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
+            <Label htmlFor="course">Select Course</Label>
+            <Select value={courseId} onValueChange={setCourseId}>
+              <SelectTrigger id="course">
+                <SelectValue placeholder="Select a course..." />
+              </SelectTrigger>
+              <SelectContent>
+                {courses.map((course) => (
+                  <SelectItem key={course.id} value={course.id.toString()}>
+                    {course.title}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div className="space-y-2">
             <Label htmlFor="content">Lesson Content</Label>
             <Textarea
               id="content"
@@ -142,7 +178,7 @@ function QuizGeneratorTab() {
               <Label htmlFor="difficulty">Difficulty</Label>
               <Select
                 value={difficulty}
-                onValueChange={(value: any) => setDifficulty(value)}
+                onValueChange={(value: "easy" | "medium" | "hard") => setDifficulty(value)}
               >
                 <SelectTrigger id="difficulty">
                   <SelectValue />
@@ -275,6 +311,7 @@ function EssayGraderTab() {
   });
   const [maxScore, setMaxScore] = useState(100);
   const [grading, setGrading] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [result, setResult] = useState<any>(null);
 
   const handleGrade = async () => {
@@ -470,6 +507,7 @@ function ContentAnalyzerTab() {
   const [content, setContent] = useState("");
   const [targetLevel, setTargetLevel] = useState("undergraduate");
   const [analyzing, setAnalyzing] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [analysis, setAnalysis] = useState<any>(null);
 
   const handleAnalyze = async () => {
