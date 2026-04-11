@@ -352,14 +352,17 @@ class OrderService:
         # Get order items
         order_items = db.query(OrderItem).filter(OrderItem.order_id == order.id).all()
 
+        # Bulk load courses to avoid N+1 queries
+        course_ids = [item.course_id for item in order_items if item.course_id]
+        course_thumbnails = {}
+        if course_ids:
+            courses = db.query(Course).filter(Course.id.in_(course_ids)).all()
+            course_thumbnails = {course.id: course.thumbnail_url for course in courses}
+
         item_responses = []
         for item in order_items:
             # Get course thumbnail if applicable
-            course_thumbnail = None
-            if item.course_id:
-                course = db.query(Course).filter(Course.id == item.course_id).first()
-                if course:
-                    course_thumbnail = course.thumbnail_url
+            course_thumbnail = course_thumbnails.get(item.course_id)
 
             item_response = OrderItemResponse(
                 id=item.id,

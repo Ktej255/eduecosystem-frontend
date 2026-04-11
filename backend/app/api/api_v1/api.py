@@ -369,7 +369,7 @@ from app.api.api_v1.endpoints import live_classes
 
 # Orders
 from app.api.api_v1.endpoints import order
-# api_router.include_router(order.router, prefix="/orders", tags=["orders"])
+api_router.include_router(order.router, prefix="/orders", tags=["orders"])
 
 # Payment Gateway
 from app.api.api_v1.endpoints import payment
