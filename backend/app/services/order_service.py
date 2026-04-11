@@ -251,20 +251,59 @@ class OrderService:
             db.refresh(order)
             return order
 
-        # Create enrollments for each course
+        from sqlalchemy.orm import joinedload
+
+        # Prepare bulk structures to avoid N+1 queries
+        bundle_ids = set()
+        for item in order_items:
+            if item.bundle_id:
+                bundle_ids.add(item.bundle_id)
+
+        # Bulk fetch bundles and their courses
+        bundles_by_id = {}
+        if bundle_ids:
+            bundles = (
+                db.query(CourseBundle)
+                .options(joinedload(CourseBundle.courses))
+                .filter(CourseBundle.id.in_(bundle_ids))
+                .all()
+            )
+            bundles_by_id = {b.id: b for b in bundles}
+
+        # Collect all course IDs involved
+        all_course_ids = set()
         for item in order_items:
             if item.course_id:
-                # Check if enrollment already exists
-                existing_enrollment = (
-                    db.query(Enrollment)
-                    .filter(
-                        Enrollment.user_id == user_id,
-                        Enrollment.course_id == item.course_id,
-                    )
-                    .first()
-                )
+                all_course_ids.add(item.course_id)
+            elif item.bundle_id:
+                bundle = bundles_by_id.get(item.bundle_id)
+                if bundle and bundle.courses:
+                    for course in bundle.courses:
+                        all_course_ids.add(course.id)
 
-                if not existing_enrollment:
+        # Bulk fetch existing enrollments for this user and these courses
+        existing_enrolled_course_ids = set()
+        if all_course_ids:
+            existing_enrollments = (
+                db.query(Enrollment)
+                .filter(
+                    Enrollment.user_id == user_id,
+                    Enrollment.course_id.in_(all_course_ids)
+                )
+                .all()
+            )
+            existing_enrolled_course_ids = {e.course_id for e in existing_enrollments}
+
+        # Bulk fetch courses to update their enrollment counts
+        courses_by_id = {}
+        if all_course_ids:
+            courses = db.query(Course).filter(Course.id.in_(all_course_ids)).all()
+            courses_by_id = {c.id: c for c in courses}
+
+        # Create enrollments for each course efficiently
+        for item in order_items:
+            if item.course_id:
+                if item.course_id not in existing_enrolled_course_ids:
                     enrollment = Enrollment(
                         user_id=user_id,
                         course_id=item.course_id,
@@ -273,45 +312,32 @@ class OrderService:
                         progress_percentage=0,
                     )
                     db.add(enrollment)
+                    existing_enrolled_course_ids.add(item.course_id)
 
                     # Update course enrollment count
-                    course = (
-                        db.query(Course).filter(Course.id == item.course_id).first()
-                    )
+                    course = courses_by_id.get(item.course_id)
                     if course:
                         course.total_enrollments += 1
 
             elif item.bundle_id:
-                # Handle bundle enrollment (create enrollments for all courses in bundle)
-                bundle = (
-                    db.query(CourseBundle)
-                    .filter(CourseBundle.id == item.bundle_id)
-                    .first()
-                )
+                bundle = bundles_by_id.get(item.bundle_id)
                 if bundle and bundle.courses:
                     for course in bundle.courses:
-                        existing_enrollment = (
-                            db.query(Enrollment)
-                            .filter(
-                                Enrollment.user_id == user_id,
-                                Enrollment.course_id == course.id,
-                            )
-                            .first()
-                        )
-
-                        if not existing_enrollment:
+                        if course.id not in existing_enrolled_course_ids:
                             enrollment = Enrollment(
                                 user_id=user_id,
                                 course_id=course.id,
                                 status="active",
-                                price_paid=item.total
-                                / len(bundle.courses),  # Split price
+                                price_paid=item.total / len(bundle.courses),  # Split price
                                 progress_percentage=0,
                             )
                             db.add(enrollment)
+                            existing_enrolled_course_ids.add(course.id)
 
                             # Update course enrollment count
-                            course.total_enrollments += 1
+                            c = courses_by_id.get(course.id)
+                            if c:
+                                c.total_enrollments += 1
 
         # Mark order as completed
         order.status = OrderStatus.COMPLETED
