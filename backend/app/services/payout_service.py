@@ -5,6 +5,7 @@ Business logic for instructor and affiliate payout processing.
 Handles payout requests, Stripe Connect integration, and payment tracking.
 """
 
+from sqlalchemy import func
 from sqlalchemy.orm import Session
 from app.models.marketplace import InstructorPayout, InstructorPaymentInfo, RevenueShare
 from app.models.affiliate import AffiliatePayout
@@ -30,6 +31,8 @@ class PayoutService:
         instructor_id: int,
         amount: Optional[Decimal] = None,
         payment_method: str = "stripe",
+        payment_info: Optional[InstructorPaymentInfo] = None,
+        available_balance: Optional[Decimal] = None,
     ) -> InstructorPayout:
         """
         Create instructor payout request.
@@ -39,6 +42,8 @@ class PayoutService:
             instructor_id: Instructor ID
             amount: Amount to payout (None = all pending)
             payment_method: Payment method (stripe, paypal, bank_transfer)
+            payment_info: Optional pre-loaded payment info
+            available_balance: Optional pre-calculated balance
 
         Returns:
             InstructorPayout instance
@@ -46,12 +51,13 @@ class PayoutService:
         Raises:
             ValueError: If insufficient balance or invalid request
         """
-        # Get payment info
-        payment_info = (
-            db.query(InstructorPaymentInfo)
-            .filter(InstructorPaymentInfo.instructor_id == instructor_id)
-            .first()
-        )
+        # Get payment info if not provided
+        if not payment_info:
+            payment_info = (
+                db.query(InstructorPaymentInfo)
+                .filter(InstructorPaymentInfo.instructor_id == instructor_id)
+                .first()
+            )
 
         if not payment_info:
             raise ValueError("Payment information not configured")
@@ -59,14 +65,14 @@ class PayoutService:
         if not payment_info.verified:
             raise ValueError("Payment information not verified")
 
-        # Calculate available balance
-        revenue_shares = (
-            db.query(RevenueShare)
-            .filter(RevenueShare.instructor_id == instructor_id)
-            .all()
-        )
-
-        available_balance = sum(share.pending_payout for share in revenue_shares)
+        # Calculate available balance if not provided
+        if available_balance is None:
+            revenue_shares = (
+                db.query(RevenueShare)
+                .filter(RevenueShare.instructor_id == instructor_id)
+                .all()
+            )
+            available_balance = sum(share.pending_payout for share in revenue_shares)
 
         # Determine payout amount
         payout_amount = amount if amount else available_balance
@@ -280,33 +286,50 @@ class PayoutService:
         )
 
         payout_ids = []
+        instructor_ids = [info.instructor_id for info in payment_infos]
+
+        if not instructor_ids:
+            return []
+
+        # Bulk load latest completed payout for all relevant instructors
+        last_payouts_query = (
+            db.query(
+                InstructorPayout.instructor_id,
+                func.max(InstructorPayout.completed_at).label("last_completed_at"),
+            )
+            .filter(
+                InstructorPayout.instructor_id.in_(instructor_ids),
+                InstructorPayout.status == "completed",
+            )
+            .group_by(InstructorPayout.instructor_id)
+            .all()
+        )
+        last_payout_map = {row.instructor_id: row.last_completed_at for row in last_payouts_query}
+
+        # Bulk load available balances for all relevant instructors
+        balances_query = (
+            db.query(
+                RevenueShare.instructor_id,
+                func.sum(RevenueShare.pending_payout).label("total_pending"),
+            )
+            .filter(RevenueShare.instructor_id.in_(instructor_ids))
+            .group_by(RevenueShare.instructor_id)
+            .all()
+        )
+        balance_map = {row.instructor_id: row.total_pending or Decimal("0.00") for row in balances_query}
 
         for info in payment_infos:
             # Check if payout is due
-            last_payout = (
-                db.query(InstructorPayout)
-                .filter(
-                    InstructorPayout.instructor_id == info.instructor_id,
-                    InstructorPayout.status == "completed",
-                )
-                .order_by(InstructorPayout.completed_at.desc())
-                .first()
-            )
+            last_completed_at = last_payout_map.get(info.instructor_id)
 
             # Skip if payout was made in last 30 days
-            if last_payout and last_payout.completed_at > datetime.utcnow() - timedelta(
+            if last_completed_at and last_completed_at > datetime.utcnow() - timedelta(
                 days=30
             ):
                 continue
 
-            # Calculate available balance
-            revenue_shares = (
-                db.query(RevenueShare)
-                .filter(RevenueShare.instructor_id == info.instructor_id)
-                .all()
-            )
-
-            available_balance = sum(share.pending_payout for share in revenue_shares)
+            # Get available balance from pre-loaded map
+            available_balance = balance_map.get(info.instructor_id, Decimal("0.00"))
 
             # Create payout if above minimum
             if available_balance >= info.minimum_payout_amount:
@@ -316,6 +339,8 @@ class PayoutService:
                         info.instructor_id,
                         available_balance,
                         "stripe",  # Default to Stripe
+                        payment_info=info,
+                        available_balance=available_balance,
                     )
                     payout_ids.append(payout.id)
                 except Exception as e:
