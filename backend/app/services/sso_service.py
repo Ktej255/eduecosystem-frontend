@@ -10,7 +10,9 @@ from typing import Dict, Optional, Tuple
 from datetime import datetime, timedelta
 from sqlalchemy.orm import Session
 import logging
+from cryptography.fernet import Fernet
 
+from app.core.config import settings
 from app.models.sso import (
     Organization,
     SSOConfig,
@@ -28,6 +30,34 @@ class SSOService:
     """
     Handle SSO authentication flows and user provisioning.
     """
+
+    @staticmethod
+    def _get_cipher_suite() -> Fernet:
+        """Get the Fernet cipher suite for encryption/decryption."""
+        key = settings.SSO_ENCRYPTION_KEY
+        return Fernet(key.encode() if isinstance(key, str) else key)
+
+    @staticmethod
+    def encrypt_secret(secret: str) -> str:
+        """Encrypt a secret string."""
+        if not secret:
+            return secret
+        return SSOService._get_cipher_suite().encrypt(secret.encode()).decode()
+
+    @staticmethod
+    def decrypt_secret(encrypted_secret: str) -> str:
+        """Decrypt an encrypted secret string."""
+        if not encrypted_secret:
+            return encrypted_secret
+        try:
+            return (
+                SSOService._get_cipher_suite()
+                .decrypt(encrypted_secret.encode())
+                .decode()
+            )
+        except Exception as e:
+            logger.error(f"Failed to decrypt SSO secret: {str(e)}")
+            return encrypted_secret  # fallback or let it fail downstream
 
     @staticmethod
     def create_organization(
@@ -434,9 +464,16 @@ class OAuthService:
             logger.error("authlib not installed")
             raise Exception("OAuth support not available")
 
+        # Decrypt secret for use with OAuth client
+        decrypted_secret = (
+            SSOService.decrypt_secret(config.client_secret)
+            if config.client_secret
+            else None
+        )
+
         return OAuth2Session(
             client_id=config.client_id,
-            client_secret=config.client_secret,
+            client_secret=decrypted_secret,
             scope=" ".join(config.scopes or ["openid", "email", "profile"]),
             redirect_uri="https://app.eduecosystem.com/api/v1/sso/callback/oauth",
         )
