@@ -3,6 +3,8 @@ from fastapi import APIRouter, Depends, HTTPException, status, BackgroundTasks
 from sqlalchemy.orm import Session
 from datetime import datetime
 import random
+import asyncio
+import time
 
 from app.api import deps
 from app.models.user import User
@@ -753,13 +755,67 @@ def generate_feedback_summary(percentage: float, passed: bool) -> str:
 def trigger_ai_grading(db: Session, answer_id: int, model: str, threshold: float):
     """
     Background task to trigger AI grading for essay/long-answer questions.
-    This will be implemented in the AI service integration.
     """
-    # TODO: Implement AI grading service integration
-    # For now, this is a placeholder
-    # TODO: Implement AI grading service integration
-    # For now, this is a placeholder
-    pass
+    from app.services.ai_grading_service import AIGradingService
+
+    answer = db.query(StudentAnswer).filter(StudentAnswer.id == answer_id).first()
+    if not answer or not answer.text_response:
+        return
+
+    question = answer.question
+    if not question:
+        return
+
+    # Build rubric from question's AssessmentRubric (or a default string)
+    rubric = "Provide a comprehensive grade based on accuracy, clarity, and depth."
+    if question.rubrics:
+        rubric_parts = []
+        for r in question.rubrics:
+            rubric_parts.append(f"{r.criteria_name} ({r.max_points} pts): {r.description}")
+        if rubric_parts:
+            rubric = "\n".join(rubric_parts)
+
+    max_score = question.points
+
+    start_time = time.time()
+    try:
+        # Run async function in a sync wrapper since background_tasks processes sync tasks by default
+        # or we assume we can just run it using asyncio.run
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+
+        # AIGradingService.grade_essay creates and commits the AIGradingResult
+        grading_result = loop.run_until_complete(
+            AIGradingService.grade_essay(
+                db=db,
+                submission_id=answer.id,
+                essay_text=answer.text_response,
+                rubric=rubric,
+                max_score=max_score,
+                current_user=None # Depending on context, might not need user for background task
+            )
+        )
+
+        grading_time = time.time() - start_time
+
+        # Update result with timing and threshold check
+        grading_result.grading_time_seconds = grading_time
+
+        # Need manual review if the AI score is less than the threshold (which could be a percentage)
+        ai_percentage = (grading_result.ai_score / max_score) * 100 if max_score > 0 else 0
+        if threshold is not None and ai_percentage < threshold:
+            grading_result.needs_manual_review = True
+
+        # Update student answer
+        answer.points_awarded = grading_result.ai_score
+        answer.is_correct = grading_result.ai_score >= (max_score * 0.7) # Consider 70% as passing for 'is_correct' boolean if applicable
+
+        db.commit()
+    except Exception as e:
+        print(f"Error in trigger_ai_grading: {e}")
+        db.rollback()
+    finally:
+        loop.close()
 
 
 @router.get("/attempts/all", response_model=List[QuizResultsResponse])
