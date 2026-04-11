@@ -5,12 +5,14 @@ Core service for handling SSO authentication flows (SAML, OAuth, OIDC).
 Supports Azure AD, Google Workspace, and generic SAML providers.
 """
 
+import os
 import secrets
 from typing import Dict, Optional, Tuple
 from datetime import datetime, timedelta
 from sqlalchemy.orm import Session
 import logging
 
+from app.core.config import settings
 from app.models.sso import (
     Organization,
     SSOConfig,
@@ -311,6 +313,20 @@ class SAMLService:
         """
         Convert database config to python3-saml settings dict.
         """
+
+        def load_credential(value: str) -> str:
+            if value and os.path.isfile(value):
+                try:
+                    with open(value, "r") as f:
+                        return f.read()
+                except Exception as e:
+                    logger.error(f"Failed to load SAML credential from file {value}: {e}")
+                    return ""
+            return value or ""
+
+        sp_cert = load_credential(settings.SAML_SP_CERT)
+        sp_key = load_credential(settings.SAML_SP_KEY)
+
         return {
             "strict": True,
             "debug": True,  # TODO: Disable in production
@@ -325,8 +341,8 @@ class SAMLService:
                     "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect",
                 },
                 "NameIDFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
-                "x509cert": "",  # TODO: Load SP cert from file/env
-                "privateKey": "",  # TODO: Load SP key from file/env
+                "x509cert": sp_cert,
+                "privateKey": sp_key,
             },
             "idp": {
                 "entityId": config.idp_entity_id,

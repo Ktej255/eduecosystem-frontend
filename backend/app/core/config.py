@@ -10,6 +10,11 @@ class Settings(BaseSettings):
     ENVIRONMENT: str = os.getenv(
         "ENVIRONMENT", "development"
     )  # development, staging, production
+
+    # SAML Configuration
+    SAML_SP_CERT: str = os.getenv("SAML_SP_CERT", "")
+    SAML_SP_KEY: str = os.getenv("SAML_SP_KEY", "")
+
     LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO")
     DEBUG: bool = os.getenv("DEBUG", "false").lower() == "true"
 
