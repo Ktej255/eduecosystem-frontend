@@ -10,6 +10,8 @@ from app.api.deps import get_current_user
 from app.crud.ai_avatar import crud_ai_avatar
 from app.schemas.ai_avatar import AIAvatarCreate, AIAvatarUpdate, AIAvatarResponse
 import logging
+from app.core.storage import get_storage
+from app.api.api_v1.endpoints.upload import generate_unique_filename
 
 logger = logging.getLogger(__name__)
 
@@ -43,11 +45,42 @@ async def create_ai_avatar(
         }
 
         if documents:
-            # TODO: Save documents to storage and extract text
+            storage = get_storage()
             for doc in documents:
                 content = await doc.read()
+
+                # Extract text based on file type
+                extracted_text = ""
+                content_type = doc.content_type or "application/octet-stream"
+
+                if doc.filename and doc.filename.lower().endswith(".pdf"):
+                    try:
+                        import fitz  # PyMuPDF
+                        pdf_doc = fitz.open(stream=content, filetype="pdf")
+                        for page in pdf_doc:
+                            extracted_text += page.get_text()
+                    except ImportError:
+                        logger.warning("PyMuPDF not installed, skipping PDF text extraction")
+                    except Exception as e:
+                        logger.error(f"Error extracting text from PDF: {e}")
+                elif doc.filename and doc.filename.lower().endswith((".txt", ".md", ".csv")):
+                    try:
+                        extracted_text = content.decode("utf-8")
+                    except Exception as e:
+                        logger.error(f"Error extracting text from text file: {e}")
+
+                # Save to storage
+                filename = generate_unique_filename(doc.filename or "document.txt")
+                success, file_url, error = storage.upload(content, filename, content_type)
+
+                if not success:
+                    logger.error(f"Failed to upload avatar document: {error}")
+                    raise HTTPException(status_code=500, detail="Failed to save document")
+
                 knowledge_base["documents"].append({
                     "filename": doc.filename,
+                    "url": file_url,
+                    "extracted_text": extracted_text.strip(),
                     "size": len(content)
                 })
 
