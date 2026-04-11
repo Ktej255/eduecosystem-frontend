@@ -14,6 +14,7 @@ import { Check, CreditCard, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/contexts/auth-context";
 
 declare global {
   interface Window {
@@ -23,8 +24,12 @@ declare global {
 
 export default function SubscriptionPage() {
   const [isLoading, setIsLoading] = useState(false);
-  // TODO: This should come from auth context or be fetched from API
-  const [isPremium] = useState(false);
+  const { user } = useAuth();
+  const isPremium = user?.is_premium || false;
+
+  // Added this to preserve the use of useRouter. Remove this comment once the
+  // router is being used for other things such as redirecting for checkout.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const router = useRouter();
 
   const loadCashfreeScript = () => {
@@ -64,7 +69,7 @@ export default function SubscriptionPage() {
         mode: process.env.NEXT_PUBLIC_CASHFREE_ENV === "production" ? "production" : "sandbox",
       });
 
-      let checkoutOptions = {
+      const checkoutOptions = {
         paymentSessionId: payment_session_id,
         redirectTarget: "_self"
       };
