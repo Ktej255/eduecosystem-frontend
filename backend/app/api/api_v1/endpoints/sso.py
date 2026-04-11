@@ -10,6 +10,8 @@ from sqlalchemy.orm import Session
 from typing import List, Optional, Any
 from pydantic import BaseModel, ConfigDict
 import secrets
+import base64
+import defusedxml.ElementTree as ET
 from datetime import timedelta
 
 from app.api import deps
@@ -295,6 +297,32 @@ async def initiate_sso_login(
         raise HTTPException(status_code=400, detail="Unsupported provider type")
 
 
+
+def extract_issuer_from_saml_response(saml_response_b64: str) -> Optional[str]:
+    """Extract Issuer from base64 encoded SAMLResponse."""
+    try:
+        decoded_xml = base64.b64decode(saml_response_b64).decode("utf-8")
+        root = ET.fromstring(decoded_xml)
+
+        ns = {"saml": "urn:oasis:names:tc:SAML:2.0:assertion"}
+
+        # Try to find Issuer in the saml namespace
+        issuer = root.find(".//saml:Issuer", ns)
+        if issuer is not None and issuer.text:
+            return issuer.text.strip()
+
+        # Fallback to looking for any element ending in Issuer
+        for elem in root.iter():
+            if elem.tag.endswith('Issuer') and elem.text:
+                return elem.text.strip()
+
+    except Exception as e:
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.warning(f"Error extracting Issuer from SAMLResponse: {e}")
+
+    return None
+
 @router.post("/callback/saml")
 async def handle_saml_callback(
     request: Request,
@@ -309,21 +337,24 @@ async def handle_saml_callback(
     if not saml_response:
         raise HTTPException(status_code=400, detail="Missing SAMLResponse")
         
-    # TODO: Implement Issuer extraction. 
-    # For this implementation, we will fetch the config based on a query param 'slug' if present,
-    # or fallback to a default/first config for testing.
-    slug = request.query_params.get("slug")
     config = None
     
-    if slug:
-        org = SSOService.get_organization_by_slug(db, slug)
-        if org:
-            config = SSOService.get_sso_config(db, org.id)
-            
+    # 1. Try to extract Issuer from SAMLResponse
+    issuer = extract_issuer_from_saml_response(saml_response)
+    if issuer:
+        config = db.query(SSOConfig).filter(
+            SSOConfig.provider_type == SSOProviderType.SAML,
+            SSOConfig.idp_entity_id == issuer,
+            SSOConfig.is_active == True
+        ).first()
+
+    # 2. Fallback to slug if Issuer not found or extraction failed
     if not config:
-        # Fallback: Try to find any active SAML config (NOT SAFE FOR MULTI-TENANT PRODUCTION without Issuer check)
-        # In a real implementation, we MUST parse the Issuer from the XML before verification.
-        config = db.query(SSOConfig).filter(SSOConfig.provider_type == SSOProviderType.SAML).first()
+        slug = request.query_params.get("slug")
+        if slug:
+            org = SSOService.get_organization_by_slug(db, slug)
+            if org:
+                config = SSOService.get_sso_config(db, org.id)
         
     if not config:
         raise HTTPException(status_code=404, detail="SSO configuration not found")
