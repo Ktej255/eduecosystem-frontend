@@ -79,13 +79,31 @@ class OrderService:
         db.add(order)
         db.flush()  # Get order ID
 
+        # Pre-fetch required data to prevent N+1 query
+        course_ids = [item.course_id for item in cart_items if item.course_id]
+        bundle_ids = [item.bundle_id for item in cart_items if item.bundle_id]
+        coupon_ids = [item.coupon_id for item in cart_items if item.coupon_id]
+
+        courses_map = {}
+        if course_ids:
+            courses = db.query(Course).filter(Course.id.in_(course_ids)).all()
+            courses_map = {course.id: course for course in courses}
+
+        bundles_map = {}
+        if bundle_ids:
+            bundles = db.query(CourseBundle).filter(CourseBundle.id.in_(bundle_ids)).all()
+            bundles_map = {bundle.id: bundle for bundle in bundles}
+
+        coupons_map = {}
+        if coupon_ids:
+            coupons = db.query(Coupon).filter(Coupon.id.in_(coupon_ids)).all()
+            coupons_map = {coupon.id: coupon for coupon in coupons}
+
         # Create order items from cart items
         for cart_item in cart_items:
             # Get item details
             if cart_item.course_id:
-                course = (
-                    db.query(Course).filter(Course.id == cart_item.course_id).first()
-                )
+                course = courses_map.get(cart_item.course_id)
                 if course:
                     item_name = course.title
                     item_description = course.description
@@ -93,13 +111,9 @@ class OrderService:
                     item_name = f"Course ID {cart_item.course_id}"
                     item_description = None
             elif cart_item.bundle_id:
-                bundle = (
-                    db.query(CourseBundle)
-                    .filter(CourseBundle.id == cart_item.bundle_id)
-                    .first()
-                )
+                bundle = bundles_map.get(cart_item.bundle_id)
                 if bundle:
-                    item_name = bundle.name
+                    item_name = bundle.title
                     item_description = bundle.description
                 else:
                     item_name = f"Bundle ID {cart_item.bundle_id}"
@@ -110,9 +124,7 @@ class OrderService:
             # Get coupon code if applied
             coupon_code = None
             if cart_item.coupon_id:
-                coupon = (
-                    db.query(Coupon).filter(Coupon.id == cart_item.coupon_id).first()
-                )
+                coupon = coupons_map.get(cart_item.coupon_id)
                 if coupon:
                     coupon_code = coupon.code
 
