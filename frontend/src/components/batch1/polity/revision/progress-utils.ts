@@ -1,6 +1,8 @@
 // Revision Progress Tracking Utilities
 // Manages localStorage persistence for chapter progress
 
+import { POLITY_REVISION_CHAPTERS } from '../data/RevisionRegistry';
+
 export interface RevisionProgress {
     chapterId: number;
     flashcardsCompleted: number;
@@ -174,7 +176,7 @@ export function getOverallStats(subjectId: string = 'polity') {
         totalMcqs,
         completedMcqs,
         masteredChapters,
-        totalChapters: 95, // TODO: This should probably be dynamic based on subject config
+        totalChapters: subjectId === 'polity' ? POLITY_REVISION_CHAPTERS.length : 95,
         overallProgress: totalFlashcards + totalMcqs > 0
             ? Math.round(((completedFlashcards + completedMcqs) / (totalFlashcards + totalMcqs)) * 100)
             : 0
