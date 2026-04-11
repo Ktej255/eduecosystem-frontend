@@ -5,14 +5,17 @@ Business logic for instructor and affiliate payout processing.
 Handles payout requests, Stripe Connect integration, and payment tracking.
 """
 
-from sqlalchemy.orm import Session
-from app.models.marketplace import InstructorPayout, InstructorPaymentInfo, RevenueShare
-from app.models.affiliate import AffiliatePayout
-from decimal import Decimal
-from typing import Optional, List, Dict
-from datetime import datetime, timedelta
 import logging
 import os
+from datetime import datetime, timedelta
+from decimal import Decimal
+from typing import Dict, List, Optional
+
+from sqlalchemy.orm import Session
+
+from app.models.affiliate import AffiliatePayout
+from app.models.marketplace import InstructorPaymentInfo, InstructorPayout, RevenueShare
+from app.services.paypal_service import paypal_service
 
 logger = logging.getLogger(__name__)
 
@@ -222,7 +225,7 @@ class PayoutService:
     @staticmethod
     async def _process_paypal_payout(paypal_email: str, amount: Decimal) -> str:
         """
-        Process PayPal payout (placeholder).
+        Process PayPal payout.
 
         Args:
             paypal_email: PayPal email
@@ -231,9 +234,24 @@ class PayoutService:
         Returns:
             Transaction ID
         """
-        # TODO: Implement PayPal Payouts API integration
-        logger.info(f"PayPal payout to {paypal_email}: ${amount}")
-        return f"PAYPAL_{datetime.utcnow().timestamp()}"
+        try:
+            logger.info(f"Processing PayPal payout to {paypal_email}: ${amount}")
+            response = await paypal_service.create_payout_async(
+                receiver_email=paypal_email,
+                amount=amount,
+            )
+
+            # The API returns a payout batch header with a batch ID
+            batch_id = response.get("batch_header", {}).get("payout_batch_id")
+            if not batch_id:
+                # Fallback if structure changes or batch ID is missing
+                batch_id = f"PAYPAL_{datetime.utcnow().timestamp()}"
+
+            return batch_id
+
+        except Exception as e:
+            logger.error(f"PayPal payout failed: {e}")
+            raise
 
     @staticmethod
     def get_instructor_payout_history(
@@ -397,9 +415,9 @@ class PayoutService:
         return {
             "total_paid": total_paid,
             "total_payouts": total_count,
-            "average_payout": total_paid / total_count
-            if total_count > 0
-            else Decimal("0.00"),
+            "average_payout": (
+                total_paid / total_count if total_count > 0 else Decimal("0.00")
+            ),
             "pending_amount": pending_amount,
             "pending_count": len(pending_payouts),
         }

@@ -4,9 +4,16 @@ PayPal Integration Service
 Handles PayPal payment processing, order creation, and webhooks.
 """
 
-from typing import Optional, Dict, Any
+import base64
+import logging
 import os
+import uuid
 from decimal import Decimal
+from typing import Any, Dict, Optional
+
+import httpx
+
+logger = logging.getLogger(__name__)
 
 # PayPal SDK would be imported here when installed
 # from paypalcheckoutsdk.core import PayPalHttpClient, SandboxEnvironment, LiveEnvironment
@@ -163,6 +170,102 @@ class PayPalService:
         elif event_type == "PAYMENT.CAPTURE.REFUNDED":
             # Payment was refunded
             pass
+
+    def _get_base_url(self) -> str:
+        """Get the base URL for the PayPal REST API based on mode."""
+        if self.mode == "live":
+            return "https://api-m.paypal.com"
+        return "https://api-m.sandbox.paypal.com"
+
+    async def _get_access_token(self) -> str:
+        """
+        Get an OAuth2 access token from PayPal.
+        """
+        auth_string = f"{self.client_id}:{self.client_secret}"
+        auth_bytes = auth_string.encode("utf-8")
+        auth_base64 = base64.b64encode(auth_bytes).decode("utf-8")
+
+        headers = {
+            "Accept": "application/json",
+            "Accept-Language": "en_US",
+            "Authorization": f"Basic {auth_base64}",
+        }
+
+        data = {"grant_type": "client_credentials"}
+
+        url = f"{self._get_base_url()}/v1/oauth2/token"
+
+        async with httpx.AsyncClient() as client:
+            response = await client.post(url, headers=headers, data=data)
+
+            if response.status_code != 200:
+                logger.error(f"Failed to get PayPal access token: {response.text}")
+                raise Exception("Failed to authenticate with PayPal")
+
+            return response.json().get("access_token")
+
+    async def create_payout_async(
+        self,
+        receiver_email: str,
+        amount: Decimal,
+        currency: str = "USD",
+        note: str = "Payout from EduEcosystem",
+        sender_item_id: Optional[str] = None,
+    ) -> Dict[str, Any]:
+        """
+        Create a payout to a PayPal email address using PayPal Payouts API.
+
+        Args:
+            receiver_email: Receiver's PayPal email address.
+            amount: Payout amount.
+            currency: Currency code (e.g., USD).
+            note: Note to the receiver.
+            sender_item_id: Optional custom tracking ID.
+
+        Returns:
+            Dict containing payout batch details.
+        """
+        access_token = await self._get_access_token()
+
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {access_token}",
+        }
+
+        # Unique ID to prevent duplicate payouts
+        sender_batch_id = f"Payouts_{uuid.uuid4().hex[:16]}"
+
+        item_id = sender_item_id or f"item_{uuid.uuid4().hex[:8]}"
+
+        payload = {
+            "sender_batch_header": {
+                "sender_batch_id": sender_batch_id,
+                "email_subject": "You have a payout!",
+                "email_message": note,
+            },
+            "items": [
+                {
+                    "recipient_type": "EMAIL",
+                    "amount": {"value": str(amount), "currency": currency},
+                    "note": note,
+                    "sender_item_id": item_id,
+                    "receiver": receiver_email,
+                }
+            ],
+        }
+
+        url = f"{self._get_base_url()}/v1/payments/payouts"
+
+        async with httpx.AsyncClient() as client:
+            response = await client.post(url, headers=headers, json=payload)
+
+            if response.status_code not in (200, 201):
+                logger.error(f"PayPal payout failed: {response.text}")
+                raise Exception(
+                    f"PayPal payout failed: {response.status_code} {response.text}"
+                )
+
+            return response.json()
 
     def refund_payment(
         self,
