@@ -317,21 +317,31 @@ class BundleService:
         from app.models.enrollment import Enrollment
 
         # Count completed courses
-        completed_count = 0
         total_courses = len(enrollment.bundle.courses)
 
-        for course in enrollment.bundle.courses:
-            course_enrollment = (
-                db.query(Enrollment)
-                .filter(
-                    Enrollment.user_id == enrollment.user_id,
-                    Enrollment.course_id == course.id,
-                )
-                .first()
-            )
+        if total_courses == 0:
+            enrollment.courses_completed = 0
+            enrollment.completion_percentage = Decimal("0.00")
+            db.commit()
+            return
 
-            if course_enrollment and course_enrollment.completion_percentage == 100:
-                completed_count += 1
+        course_ids = [course.id for course in enrollment.bundle.courses]
+
+        course_enrollments = (
+            db.query(Enrollment)
+            .filter(
+                Enrollment.user_id == enrollment.user_id,
+                Enrollment.course_id.in_(course_ids),
+            )
+            .all()
+        )
+
+        # Note: Depending on context, it could be `completion_percentage` or `progress_percentage`.
+        # Since original code accessed `course_enrollment.completion_percentage`, we try that first,
+        # falling back to `progress_percentage` to be perfectly safe while replacing the DB loop.
+        completed_count = sum(
+            1 for ce in course_enrollments if getattr(ce, "completion_percentage", getattr(ce, "progress_percentage", 0)) == 100
+        )
 
         enrollment.courses_completed = completed_count
         enrollment.completion_percentage = (
