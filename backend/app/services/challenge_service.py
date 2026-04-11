@@ -5,14 +5,16 @@ Generates and manages daily/weekly challenges for user engagement.
 Tracks progress and awards rewards on completion.
 """
 
+from datetime import date, datetime, timedelta, timezone
+from random import sample
 from typing import List, Optional
+
 from sqlalchemy.orm import Session
 from sqlalchemy.sql import func
-from datetime import date, timedelta
-from app.models.challenge import Challenge, UserChallenge, ChallengeType
+
+from app.models.challenge import Challenge, ChallengeType, UserChallenge
 from app.models.user import User
 from app.services.coin_service import award_coins
-from random import sample
 
 
 def generate_daily_challenges(
@@ -294,6 +296,8 @@ def update_challenge_progress(
     for item in active["weekly"]:
         all_user_challenges.append(item["progress"])
 
+    current_time = None
+
     # Update progress for matching challenges
     for user_challenge in all_user_challenges:
         if user_challenge.completed_at:
@@ -315,7 +319,9 @@ def update_challenge_progress(
             )
 
             if user_challenge.progress_percentage >= 100:
-                user_challenge.completed_at = db.query(func.now()).scalar()
+                if current_time is None:
+                    current_time = datetime.now(timezone.utc)
+                user_challenge.completed_at = current_time
 
             db.commit()
             updated.append(user_challenge)
@@ -363,7 +369,7 @@ def claim_challenge_reward(
 
     # Mark as claimed
     user_challenge.reward_claimed = True
-    user_challenge.claimed_at = db.query(func.now()).scalar()
+    user_challenge.claimed_at = datetime.now(timezone.utc)
     db.commit()
 
     result = {
