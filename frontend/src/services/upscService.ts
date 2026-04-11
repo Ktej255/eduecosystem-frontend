@@ -97,7 +97,7 @@ export const upscService = {
         return response.data;
     },
 
-    getReport: async (reportId: string): Promise<UPSCReport> => {
+    getReportById: async (reportId: string): Promise<UPSCReport> => {
         const response = await api.get(`/upsc/reports/${reportId}`);
         return response.data;
     },
