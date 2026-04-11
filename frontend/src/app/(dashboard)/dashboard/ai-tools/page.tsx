@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   aiToolsService,
   QuizGenerationRequest,
@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/select";
 import { Loader2, Sparkles, Download, Copy } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useMyCourses } from "@/hooks/use-api";
 
 export default function AIToolsPage() {
   const [activeTab, setActiveTab] = useState("quiz-generator");
@@ -69,6 +70,14 @@ function QuizGeneratorTab() {
   const [generating, setGenerating] = useState(false);
   const [generatedQuiz, setGeneratedQuiz] =
     useState<QuizGenerationResponse | null>(null);
+  const { courses, loading: coursesLoading } = useMyCourses();
+  const [selectedCourseId, setSelectedCourseId] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (courses && courses.length > 0 && !selectedCourseId) {
+      setSelectedCourseId(courses[0].id || courses[0].course_id || null);
+    }
+  }, [courses, selectedCourseId]);
 
   const handleGenerate = async () => {
     if (!content.trim()) {
@@ -79,7 +88,7 @@ function QuizGeneratorTab() {
     setGenerating(true);
     try {
       const request: QuizGenerationRequest = {
-        course_id: 1, // TODO: Get from context
+        course_id: selectedCourseId || 1,
         content: content,
         num_questions: numQuestions,
         difficulty: difficulty,
@@ -111,6 +120,35 @@ function QuizGeneratorTab() {
           <CardTitle>Generate Quiz from Content</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="course-select">Select Course</Label>
+            <Select
+              value={selectedCourseId?.toString() || ""}
+              onValueChange={(value) => setSelectedCourseId(parseInt(value))}
+              disabled={coursesLoading || !courses?.length}
+            >
+              <SelectTrigger id="course-select">
+                <SelectValue
+                  placeholder={
+                    coursesLoading ? "Loading courses..." : "Select a course"
+                  }
+                />
+              </SelectTrigger>
+              <SelectContent>
+                {courses?.map((course: any) => (
+                  <SelectItem
+                    key={course.id || course.course_id}
+                    value={(course.id || course.course_id).toString()}
+                  >
+                    {course.title ||
+                      course.name ||
+                      `Course ${course.id || course.course_id}`}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
           <div className="space-y-2">
             <Label htmlFor="content">Lesson Content</Label>
             <Textarea
