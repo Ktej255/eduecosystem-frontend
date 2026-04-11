@@ -397,7 +397,7 @@ from app.api.api_v1.endpoints import peer_reviews
 
 # Question Banks
 from app.api.api_v1.endpoints import question_banks
-# api_router.include_router(question_banks.router, prefix="/question-banks", tags=["question-banks"])
+api_router.include_router(question_banks.router, prefix="/question-banks", tags=["question-banks"])
 
 # LMS (comprehensive endpoints)
 from app.api.api_v1.endpoints import lms
@@ -444,7 +444,7 @@ from app.api.api_v1.endpoints import sso
 # api_router.include_router(progress.router, prefix="/progress", tags=["progress"])
 
 # Quizzes
-# api_router.include_router(quizzes.router, prefix="/quizzes", tags=["quizzes"])
+api_router.include_router(quizzes.router, prefix="/quizzes", tags=["quizzes"])
 
 # Assignments
 # api_router.include_router(assignments.router, prefix="/assignments", tags=["assignments"])

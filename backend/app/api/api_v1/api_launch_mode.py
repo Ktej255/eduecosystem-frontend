@@ -445,7 +445,7 @@ from app.api.api_v1.endpoints import sso
 # api_router.include_router(progress.router, prefix="/progress", tags=["progress"])
 
 # Quizzes
-# api_router.include_router(quizzes.router, prefix="/quizzes", tags=["quizzes"])
+api_router.include_router(quizzes.router, prefix="/quizzes", tags=["quizzes"])
 
 # Assignments
 # api_router.include_router(assignments.router, prefix="/assignments", tags=["assignments"])
