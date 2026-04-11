@@ -20,10 +20,10 @@ from sqlalchemy.orm import Session
 from sqlalchemy import text
 
 from app.api import deps
-from app.api.deps import get_current_active_user
+from app.api.deps_permissions import require_instructor_role
 from app.models.user import User
 from app.services.learning_engine import (
-    learning_engine, LearningState, NextAction
+    learning_engine, LearningState
 )
 from app.services.concept_tagging import concept_tagging
 from app.services.cache_service import cache_service
@@ -447,10 +447,9 @@ def activity_complete(
 def get_teacher_analytics(
     subject_slug: str = "environment",
     db: Session = Depends(deps.get_db),
-    current_user: User = Depends(deps.get_current_active_user),
+    current_user: User = Depends(require_instructor_role),
 ) -> Any:
     """Teacher analytics dashboard — cohort-level insights."""
-    # TODO: Add teacher role check when role system is in place
     return learning_engine.get_cohort_analytics(db, subject_slug)
 
 
