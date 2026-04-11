@@ -223,53 +223,53 @@ def get_active_challenges_for_user(db: Session, user: User) -> dict:
     weekly_challenges = generate_weekly_challenges(db, week_start)
 
     # Get or create UserChallenge records
+    all_challenges = daily_challenges + weekly_challenges
+    challenge_ids = [c.id for c in all_challenges]
+
+    # Bulk query existing UserChallenge records
+    existing_user_challenges = (
+        db.query(UserChallenge)
+        .filter(
+            UserChallenge.user_id == user.id,
+            UserChallenge.challenge_id.in_(challenge_ids)
+        )
+        .all()
+    )
+    user_challenge_map = {uc.challenge_id: uc for uc in existing_user_challenges}
+
+    new_user_challenges = []
+
+    # Check for missing UserChallenge records
+    for challenge in all_challenges:
+        if challenge.id not in user_challenge_map:
+            new_uc = UserChallenge(
+                user_id=user.id,
+                challenge_id=challenge.id,
+                progress_data={},
+                progress_percentage=0,
+            )
+            new_user_challenges.append(new_uc)
+            user_challenge_map[challenge.id] = new_uc
+            db.add(new_uc)
+
+    if new_user_challenges:
+        db.commit()
+        for uc in new_user_challenges:
+            db.refresh(uc)
+
     result = {"daily": [], "weekly": []}
 
     for challenge in daily_challenges:
-        user_challenge = (
-            db.query(UserChallenge)
-            .filter(
-                UserChallenge.user_id == user.id,
-                UserChallenge.challenge_id == challenge.id,
-            )
-            .first()
-        )
-
-        if not user_challenge:
-            user_challenge = UserChallenge(
-                user_id=user.id,
-                challenge_id=challenge.id,
-                progress_data={},
-                progress_percentage=0,
-            )
-            db.add(user_challenge)
-            db.commit()
-            db.refresh(user_challenge)
-
-        result["daily"].append({"challenge": challenge, "progress": user_challenge})
+        result["daily"].append({
+            "challenge": challenge,
+            "progress": user_challenge_map[challenge.id]
+        })
 
     for challenge in weekly_challenges:
-        user_challenge = (
-            db.query(UserChallenge)
-            .filter(
-                UserChallenge.user_id == user.id,
-                UserChallenge.challenge_id == challenge.id,
-            )
-            .first()
-        )
-
-        if not user_challenge:
-            user_challenge = UserChallenge(
-                user_id=user.id,
-                challenge_id=challenge.id,
-                progress_data={},
-                progress_percentage=0,
-            )
-            db.add(user_challenge)
-            db.commit()
-            db.refresh(user_challenge)
-
-        result["weekly"].append({"challenge": challenge, "progress": user_challenge})
+        result["weekly"].append({
+            "challenge": challenge,
+            "progress": user_challenge_map[challenge.id]
+        })
 
     return result
 
