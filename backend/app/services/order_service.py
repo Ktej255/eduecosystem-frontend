@@ -289,17 +289,20 @@ class OrderService:
                     .first()
                 )
                 if bundle and bundle.courses:
-                    for course in bundle.courses:
-                        existing_enrollment = (
-                            db.query(Enrollment)
-                            .filter(
-                                Enrollment.user_id == user_id,
-                                Enrollment.course_id == course.id,
-                            )
-                            .first()
+                    # Bulk load existing enrollments for this bundle
+                    course_ids = [course.id for course in bundle.courses]
+                    existing_enrollments = (
+                        db.query(Enrollment.course_id)
+                        .filter(
+                            Enrollment.user_id == user_id,
+                            Enrollment.course_id.in_(course_ids),
                         )
+                        .all()
+                    )
+                    enrolled_course_ids = {e.course_id for e in existing_enrollments}
 
-                        if not existing_enrollment:
+                    for course in bundle.courses:
+                        if course.id not in enrolled_course_ids:
                             enrollment = Enrollment(
                                 user_id=user_id,
                                 course_id=course.id,
