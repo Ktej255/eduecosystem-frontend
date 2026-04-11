@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import api from "@/lib/api";
 import {
   aiToolsService,
   QuizGenerationRequest,
@@ -70,7 +71,30 @@ function QuizGeneratorTab() {
   const [generatedQuiz, setGeneratedQuiz] =
     useState<QuizGenerationResponse | null>(null);
 
+  const [courses, setCourses] = useState<Array<{ id: number; title: string }>>([]);
+  const [selectedCourseId, setSelectedCourseId] = useState<string>("");
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const response = await api.get("/courses");
+        setCourses(response.data.items || []);
+        if (response.data.items && response.data.items.length > 0) {
+          setSelectedCourseId(response.data.items[0].id.toString());
+        }
+      } catch (error) {
+        console.error("Failed to fetch courses:", error);
+      }
+    };
+    fetchCourses();
+  }, []);
+
   const handleGenerate = async () => {
+    if (!selectedCourseId) {
+      alert("Please select a course");
+      return;
+    }
+
     if (!content.trim()) {
       alert("Please enter some content to generate a quiz from");
       return;
@@ -79,7 +103,7 @@ function QuizGeneratorTab() {
     setGenerating(true);
     try {
       const request: QuizGenerationRequest = {
-        course_id: 1, // TODO: Get from context
+        course_id: parseInt(selectedCourseId),
         content: content,
         num_questions: numQuestions,
         difficulty: difficulty,
@@ -111,6 +135,25 @@ function QuizGeneratorTab() {
           <CardTitle>Generate Quiz from Content</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="course">Course</Label>
+            <Select
+              value={selectedCourseId}
+              onValueChange={setSelectedCourseId}
+            >
+              <SelectTrigger id="course">
+                <SelectValue placeholder="Select a course" />
+              </SelectTrigger>
+              <SelectContent>
+                {courses.map((course) => (
+                  <SelectItem key={course.id} value={course.id.toString()}>
+                    {course.title}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
           <div className="space-y-2">
             <Label htmlFor="content">Lesson Content</Label>
             <Textarea
