@@ -10,7 +10,9 @@ from typing import Dict, Optional, Tuple
 from datetime import datetime, timedelta
 from sqlalchemy.orm import Session
 import logging
+from pathlib import Path
 
+from app.core.config import settings
 from app.models.sso import (
     Organization,
     SSOConfig,
@@ -311,9 +313,27 @@ class SAMLService:
         """
         Convert database config to python3-saml settings dict.
         """
+        sp_cert = settings.SAML_SP_CERT
+        if not sp_cert and settings.SAML_SP_CERT_PATH:
+            try:
+                cert_path = Path(settings.SAML_SP_CERT_PATH)
+                if cert_path.exists():
+                    sp_cert = cert_path.read_text().strip()
+            except Exception as e:
+                logger.error(f"Failed to read SAML SP Cert from {settings.SAML_SP_CERT_PATH}: {e}")
+
+        sp_key = settings.SAML_SP_PRIVATE_KEY
+        if not sp_key and settings.SAML_SP_PRIVATE_KEY_PATH:
+            try:
+                key_path = Path(settings.SAML_SP_PRIVATE_KEY_PATH)
+                if key_path.exists():
+                    sp_key = key_path.read_text().strip()
+            except Exception as e:
+                logger.error(f"Failed to read SAML SP Private Key from {settings.SAML_SP_PRIVATE_KEY_PATH}: {e}")
+
         return {
             "strict": True,
-            "debug": True,  # TODO: Disable in production
+            "debug": settings.DEBUG,
             "sp": {
                 "entityId": config.entity_id or "https://app.eduecosystem.com",
                 "assertionConsumerService": {
@@ -325,8 +345,8 @@ class SAMLService:
                     "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect",
                 },
                 "NameIDFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
-                "x509cert": "",  # TODO: Load SP cert from file/env
-                "privateKey": "",  # TODO: Load SP key from file/env
+                "x509cert": sp_cert,
+                "privateKey": sp_key,
             },
             "idp": {
                 "entityId": config.idp_entity_id,
