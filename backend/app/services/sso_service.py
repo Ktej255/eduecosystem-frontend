@@ -20,6 +20,7 @@ from app.models.sso import (
 )
 from app.models.user import User
 from app.core.security import get_password_hash
+from app.core.config import settings
 
 logger = logging.getLogger(__name__)
 
@@ -313,7 +314,7 @@ class SAMLService:
         """
         return {
             "strict": True,
-            "debug": True,  # TODO: Disable in production
+            "debug": settings.DEBUG,
             "sp": {
                 "entityId": config.entity_id or "https://app.eduecosystem.com",
                 "assertionConsumerService": {
@@ -369,8 +370,8 @@ class SAMLService:
             "post_data": {},
         }
 
-        settings = SAMLService._get_saml_settings(config)
-        auth = OneLogin_Saml2_Auth(req, settings)
+        saml_settings = SAMLService._get_saml_settings(config)
+        auth = OneLogin_Saml2_Auth(req, saml_settings)
 
         # return_to (RelayState)
         return_to = relay_state or "/"
@@ -399,8 +400,8 @@ class SAMLService:
             "post_data": {"SAMLResponse": saml_response},
         }
 
-        settings = SAMLService._get_saml_settings(config)
-        auth = OneLogin_Saml2_Auth(req, settings)
+        saml_settings = SAMLService._get_saml_settings(config)
+        auth = OneLogin_Saml2_Auth(req, saml_settings)
 
         auth.process_response()
 
