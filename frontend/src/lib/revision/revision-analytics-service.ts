@@ -5,6 +5,14 @@
  */
 
 import { TreeBranch, MOCK_TREE_DATA } from '../../components/revision/immersive/tree-data';
+export interface TopicPerformanceResult {
+    topicName: string;
+    totalSessions: number;
+    avgRecallScore: number;
+    lastSessionDate: string;
+    masteryLevel: number;
+    strength: "strong" | "average" | "weak";
+}
 
 export interface CycleSession {
     id: string;
@@ -261,5 +269,46 @@ export async function fetchKnowledgeTree(): Promise<TreeBranch[]> {
     } catch (error) {
         console.error('Failed to fetch knowledge tree from Anti-Gravity API:', error);
         return MOCK_TREE_DATA;
+    }
+}
+
+export interface BackendTopicPerformanceNode {
+    topic_name: string;
+    metrics: {
+        sessions_completed: number;
+        ai_recall_score_avg: number;
+        last_session_date: string;
+        mastery_percentage: number;
+    };
+}
+
+export async function fetchTopicPerformance(): Promise<TopicPerformanceResult[]> {
+    try {
+        const response = await fetch(`${API_URL}/antigravity/reports/topic-performance`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`API Error: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        return data.hierarchy.map((node: BackendTopicPerformanceNode) => ({
+            topicName: node.topic_name,
+            totalSessions: node.metrics.sessions_completed,
+            avgRecallScore: node.metrics.ai_recall_score_avg,
+            lastSessionDate: node.metrics.last_session_date,
+            masteryLevel: node.metrics.mastery_percentage,
+            strength: node.metrics.mastery_percentage > 80 ? 'strong' : node.metrics.mastery_percentage > 50 ? 'average' : 'weak'
+        }));
+
+    } catch (error) {
+        console.error("Error fetching topic performance from backend:", error);
+        // Fallback to local calculation for MVP compatibility
+        return [];
     }
 }
