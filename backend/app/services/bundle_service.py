@@ -193,17 +193,20 @@ class BundleService:
         # Enroll in all courses
         from app.models.enrollment import Enrollment
 
+        course_ids = [course.id for course in bundle.courses]
+
+        # Fetch all existing enrollments for these courses in a single query
+        existing_enrollments = (
+            db.query(Enrollment)
+            .filter(Enrollment.user_id == user_id, Enrollment.course_id.in_(course_ids))
+            .all()
+        )
+
+        enrolled_course_ids = {e.course_id for e in existing_enrollments}
+
         for course in bundle.courses:
             # Check if already enrolled in course
-            course_enrollment = (
-                db.query(Enrollment)
-                .filter(
-                    Enrollment.user_id == user_id, Enrollment.course_id == course.id
-                )
-                .first()
-            )
-
-            if not course_enrollment:
+            if course.id not in enrolled_course_ids:
                 course_enrollment = Enrollment(
                     user_id=user_id,
                     course_id=course.id,
@@ -320,15 +323,22 @@ class BundleService:
         completed_count = 0
         total_courses = len(enrollment.bundle.courses)
 
-        for course in enrollment.bundle.courses:
-            course_enrollment = (
-                db.query(Enrollment)
-                .filter(
-                    Enrollment.user_id == enrollment.user_id,
-                    Enrollment.course_id == course.id,
-                )
-                .first()
+        course_ids = [course.id for course in enrollment.bundle.courses]
+
+        # Fetch all course enrollments in a single query
+        course_enrollments = (
+            db.query(Enrollment)
+            .filter(
+                Enrollment.user_id == enrollment.user_id,
+                Enrollment.course_id.in_(course_ids),
             )
+            .all()
+        )
+
+        enrollment_map = {e.course_id: e for e in course_enrollments}
+
+        for course in enrollment.bundle.courses:
+            course_enrollment = enrollment_map.get(course.id)
 
             if course_enrollment and course_enrollment.completion_percentage == 100:
                 completed_count += 1
