@@ -3,14 +3,15 @@ Report Generation and Export Service
 PDF and CSV export functionality
 """
 
-from datetime import datetime, date
-from typing import Optional
-from sqlalchemy.orm import Session
 import csv
 import io
+from datetime import date, datetime
+from typing import Optional
 
-from app.models.order import Order, OrderStatus
+from sqlalchemy.orm import Session
+
 from app.models.course import Course
+from app.models.order import Order, OrderStatus
 from app.services.revenue_analytics_service import RevenueAnalyticsService
 
 
@@ -42,10 +43,12 @@ class ReportService:
         # Header
         writer.writerow(["Revenue Report"])
         writer.writerow(["Generated", datetime.now().strftime("%Y-%m-%d %H:%M:%S")])
+        start_dt = breakdown['period']['start_date']
+        end_dt = breakdown['period']['end_date']
         writer.writerow(
             [
                 "Period",
-                f"{breakdown['period']['start_date']} to {breakdown['period']['end_date']}",
+                f"{start_dt} to {end_dt}",
             ]
         )
         writer.writerow([])
@@ -265,8 +268,6 @@ class ReportService:
 
         return output.getvalue()
 
-    # Note: PDF generation would require reportlab
-    # Placeholder for future implementation
     def generate_revenue_pdf(
         self,
         instructor_id: Optional[int] = None,
@@ -274,17 +275,162 @@ class ReportService:
         end_date: Optional[date] = None,
     ) -> bytes:
         """
-        Generate PDF report (placeholder).
-        Full implementation would use ReportLab to create formatted PDF.
+        Generate PDF report with ReportLab.
         """
-        # TODO: Implement PDF generation with ReportLab
-        # This would include:
-        # - Company logo/branding
-        # - Charts and graphs
-        # - Formatted tables
-        # - Professional layout
-
-        raise NotImplementedError(
-            "PDF generation requires ReportLab library. "
-            "Use CSV export for now, or implement PDF generation."
+        from reportlab.graphics.charts.barcharts import VerticalBarChart
+        from reportlab.graphics.shapes import Drawing
+        from reportlab.lib import colors
+        from reportlab.lib.pagesizes import letter
+        from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+        from reportlab.lib.units import inch
+        from reportlab.platypus import (
+            Paragraph,
+            SimpleDocTemplate,
+            Spacer,
+            Table,
+            TableStyle,
         )
+
+        revenue_service = RevenueAnalyticsService(self.db)
+        breakdown = revenue_service.get_revenue_breakdown(
+            instructor_id=instructor_id, start_date=start_date, end_date=end_date
+        )
+
+        buffer = io.BytesIO()
+        doc = SimpleDocTemplate(
+            buffer,
+            pagesize=letter,
+            rightMargin=72,
+            leftMargin=72,
+            topMargin=72,
+            bottomMargin=18,
+        )
+
+        elements = []
+        styles = getSampleStyleSheet()
+
+        # Branding/Title
+        title_style = ParagraphStyle(
+            "TitleStyle",
+            parent=styles["Title"],
+            fontSize=24,
+            textColor=colors.HexColor("#2C3E50"),
+            spaceAfter=30,
+        )
+        elements.append(Paragraph("<b>Revenue Report</b>", title_style))
+
+        # Generation Info
+        elements.append(
+            Paragraph(
+                f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+                styles["Normal"],
+            )
+        )
+        start_dt = breakdown['period']['start_date']
+        end_dt = breakdown['period']['end_date']
+        elements.append(
+            Paragraph(
+                f"Period: {start_dt} to {end_dt}",
+                styles["Normal"],
+            )
+        )
+        elements.append(Spacer(1, 0.25 * inch))
+
+        # Summary Table
+        elements.append(Paragraph("<b>Summary</b>", styles["Heading2"]))
+        summary_data = [
+            ["Metric", "Value"],
+            ["Total Revenue", f"${breakdown['total_revenue']:.2f}"],
+            ["Order Count", str(breakdown["order_count"])],
+            ["Average Order Value", f"${breakdown['average_order_value']:.2f}"],
+        ]
+
+        summary_table = Table(summary_data, colWidths=[2.5 * inch, 2.5 * inch])
+        summary_table.setStyle(
+            TableStyle(
+                [
+                    ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#34495E")),
+                    ("TEXTCOLOR", (0, 0), (-1, 0), colors.whitesmoke),
+                    ("ALIGN", (0, 0), (-1, -1), "LEFT"),
+                    ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                    ("BOTTOMPADDING", (0, 0), (-1, 0), 12),
+                    ("BACKGROUND", (0, 1), (-1, -1), colors.HexColor("#F2F4F4")),
+                    ("GRID", (0, 0), (-1, -1), 1, colors.HexColor("#BDC3C7")),
+                    ("PADDING", (0, 0), (-1, -1), 6),
+                ]
+            )
+        )
+        elements.append(summary_table)
+        elements.append(Spacer(1, 0.5 * inch))
+
+        # Course Breakdown Table
+        if breakdown.get("by_course"):
+            elements.append(Paragraph("<b>Revenue by Course</b>", styles["Heading2"]))
+            course_data = [["Course", "Revenue", "Percentage"]]
+            for course in breakdown["by_course"]:
+                course_data.append(
+                    [
+                        course["course"],
+                        f"${course['revenue']:.2f}",
+                        f"{course['percentage']:.1f}%",
+                    ]
+                )
+
+            course_table = Table(course_data, colWidths=[3 * inch, 1 * inch, 1 * inch])
+            course_table.setStyle(
+                TableStyle(
+                    [
+                        ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#34495E")),
+                        ("TEXTCOLOR", (0, 0), (-1, 0), colors.whitesmoke),
+                        ("ALIGN", (0, 0), (0, -1), "LEFT"),
+                        ("ALIGN", (1, 0), (-1, -1), "RIGHT"),
+                        ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                        ("BOTTOMPADDING", (0, 0), (-1, 0), 12),
+                        ("GRID", (0, 0), (-1, -1), 1, colors.HexColor("#BDC3C7")),
+                        ("PADDING", (0, 0), (-1, -1), 6),
+                    ]
+                )
+            )
+            elements.append(course_table)
+            elements.append(Spacer(1, 0.5 * inch))
+
+        # Day of Week Chart
+        if breakdown.get("by_day_of_week"):
+            elements.append(
+                Paragraph("<b>Revenue by Day of Week</b>", styles["Heading2"])
+            )
+            elements.append(Spacer(1, 0.25 * inch))
+
+            days = [
+                d["day"][:3] for d in breakdown["by_day_of_week"]
+            ]  # Shorten day names
+            revenues = [d["revenue"] for d in breakdown["by_day_of_week"]]
+
+            drawing = Drawing(400, 200)
+            bc = VerticalBarChart()
+            bc.x = 50
+            bc.y = 50
+            bc.height = 125
+            bc.width = 300
+            bc.data = [revenues]
+            bc.strokeColor = colors.white
+            bc.valueAxis.valueMin = 0
+
+            max_rev = max(revenues) if revenues else 100
+            bc.valueAxis.valueMax = max_rev * 1.1 if max_rev > 0 else 100
+            bc.valueAxis.valueStep = max_rev / 5 if max_rev > 0 else 20
+
+            bc.categoryAxis.labels.boxAnchor = "ne"
+            bc.categoryAxis.labels.dx = 8
+            bc.categoryAxis.labels.dy = -2
+            bc.categoryAxis.categoryNames = days
+
+            drawing.add(bc)
+            elements.append(drawing)
+
+        # Build PDF
+        doc.build(elements)
+        pdf_bytes = buffer.getvalue()
+        buffer.close()
+
+        return pdf_bytes
