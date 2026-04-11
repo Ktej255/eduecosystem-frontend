@@ -79,6 +79,13 @@ class OrderService:
         db.add(order)
         db.flush()  # Get order ID
 
+        # Pre-fetch all coupons for the cart items to avoid N+1 queries
+        coupon_ids = [item.coupon_id for item in cart_items if item.coupon_id]
+        coupon_map = {}
+        if coupon_ids:
+            coupons = db.query(Coupon).filter(Coupon.id.in_(coupon_ids)).all()
+            coupon_map = {c.id: c.code for c in coupons}
+
         # Create order items from cart items
         for cart_item in cart_items:
             # Get item details
@@ -108,13 +115,7 @@ class OrderService:
                 continue  # Skip invalid items
 
             # Get coupon code if applied
-            coupon_code = None
-            if cart_item.coupon_id:
-                coupon = (
-                    db.query(Coupon).filter(Coupon.id == cart_item.coupon_id).first()
-                )
-                if coupon:
-                    coupon_code = coupon.code
+            coupon_code = coupon_map.get(cart_item.coupon_id) if cart_item.coupon_id else None
 
             # Create order item
             order_item = OrderItem(
