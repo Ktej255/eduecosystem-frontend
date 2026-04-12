@@ -147,10 +147,9 @@ class Settings(BaseSettings):
 
     # File Storage Configuration
     STORAGE_BACKEND: str = os.getenv("STORAGE_BACKEND", "local")  # Options: local, s3
-    AWS_ACCESS_KEY_ID: str = os.getenv("AWS_ACCESS_KEY_ID", "")
-    AWS_SECRET_ACCESS_KEY: str = os.getenv("AWS_SECRET_ACCESS_KEY", "")
-    AWS_S3_BUCKET: str = os.getenv("AWS_S3_BUCKET", "")
-    AWS_REGION: str = os.getenv("AWS_REGION", "us-east-1")
+    GCP_PROJECT_ID: str = os.getenv("GCP_PROJECT_ID", "")
+    GCP_CREDENTIALS_JSON: str = os.getenv("GCP_CREDENTIALS_JSON", "")
+    GCS_BUCKET_NAME: str = os.getenv("GCS_BUCKET_NAME", "")
 
     # Virus Scanning Configuration
     ENABLE_VIRUS_SCAN: bool = os.getenv("ENABLE_VIRUS_SCAN", "false").lower() == "true"

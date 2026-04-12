@@ -12,15 +12,14 @@ from typing import Optional, Tuple
 
 logger = logging.getLogger(__name__)
 
-# Try to import boto3 for S3 support
+# Try to import Google Cloud Storage
 try:
-    import boto3
-    from botocore.exceptions import ClientError, NoCredentialsError
-
-    S3_AVAILABLE = True
+    from google.cloud import storage
+    from google.oauth2 import service_account
+    GCS_AVAILABLE = True
 except ImportError:
-    S3_AVAILABLE = False
-    logger.warning("boto3 not installed. S3 storage unavailable.")
+    GCS_AVAILABLE = False
+    logger.warning("google-cloud-storage not installed. GCS storage unavailable.")
 
 
 class StorageBackend(ABC):
@@ -148,169 +147,114 @@ class LocalStorage(StorageBackend):
         return f"/uploads/files/{filename}"
 
 
-class S3Storage(StorageBackend):
-    """AWS S3 storage (for production)"""
+class GCSStorage(StorageBackend):
+    """Google Cloud Storage (for production)"""
 
     def __init__(
         self,
         bucket_name: str,
-        region: str = "us-east-1",
-        access_key: Optional[str] = None,
-        secret_key: Optional[str] = None,
+        project_id: Optional[str] = None,
+        credentials_json: Optional[str] = None,
     ):
         """
-        Initialize S3 storage.
+        Initialize GCS storage backend.
 
         Args:
-            bucket_name: S3 bucket name
-            region: AWS region
-            access_key: AWS access key (uses environment if not provided)
-            secret_key: AWS secret key (uses environment if not provided)
+            bucket_name: GCS bucket name
+            project_id: GCP project ID
+            credentials_json: Path to service account JSON or JSON string
         """
-        if not S3_AVAILABLE:
+        if not GCS_AVAILABLE:
             raise ImportError(
-                "boto3 is required for S3 storage. Install with: pip install boto3"
+                "google-cloud-storage is required for GCS storage. Install with: pip install google-cloud-storage"
             )
 
         self.bucket_name = bucket_name
-        self.region = region
+        self.project_id = project_id
 
-        # Initialize S3 client
-        try:
-            if access_key and secret_key:
-                self.s3_client = boto3.client(
-                    "s3",
-                    region_name=region,
-                    aws_access_key_id=access_key,
-                    aws_secret_access_key=secret_key,
-                )
+        if credentials_json:
+            import json
+            import os
+            if os.path.exists(credentials_json):
+                credentials = service_account.Credentials.from_service_account_file(credentials_json)
             else:
-                # Use environment variables or IAM role
-                self.s3_client = boto3.client("s3", region_name=region)
+                try:
+                    cred_info = json.loads(credentials_json)
+                    credentials = service_account.Credentials.from_service_account_info(cred_info)
+                except json.JSONDecodeError:
+                    logger.error("credentials_json is neither a valid file path nor valid JSON")
+                    credentials = None
 
-            # Verify bucket exists and is accessible
-            self.s3_client.head_bucket(Bucket=bucket_name)
-            logger.info(f"S3 storage initialized: s3://{bucket_name}")
-
-        except NoCredentialsError:
-            raise ValueError(
-                "AWS credentials not found. Set AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY."
-            )
-        except ClientError as e:
-            error_code = e.response.get("Error", {}).get("Code", "")
-            if error_code == "404":
-                raise ValueError(f"S3 bucket '{bucket_name}' not found")
-            elif error_code == "403":
-                raise ValueError(f"Access denied to S3 bucket '{bucket_name}'")
+            if credentials:
+                self.client = storage.Client(project=project_id, credentials=credentials)
             else:
-                raise ValueError(f"S3 error: {e}")
+                self.client = storage.Client(project=project_id)
+        else:
+            self.client = storage.Client(project=project_id)
+
+        self.bucket = self.client.bucket(self.bucket_name)
+        logger.info(f"GCS storage initialized: gs://{bucket_name}")
 
     def upload(
         self, file_content: bytes, filename: str, content_type: str
     ) -> Tuple[bool, Optional[str], Optional[str]]:
-        """Upload file to S3"""
+        """Upload file to GCS"""
         try:
-            # Determine S3 key (path) based on content type
             if content_type.startswith("image/"):
-                s3_key = f"images/{filename}"
+                gcs_key = f"images/{filename}"
             elif content_type.startswith("video/"):
-                s3_key = f"videos/{filename}"
+                gcs_key = f"videos/{filename}"
             else:
-                s3_key = f"files/{filename}"
+                gcs_key = f"files/{filename}"
 
-            # Upload to S3
-            self.s3_client.put_object(
-                Bucket=self.bucket_name,
-                Key=s3_key,
-                Body=file_content,
-                ContentType=content_type,
-                # Make file publicly readable (adjust based on your security requirements)
-                # ACL='public-read'  # Uncomment if you want public access
-            )
+            blob = self.bucket.blob(gcs_key)
+            blob.upload_from_string(file_content, content_type=content_type)
+            try:
+                blob.make_public()
+            except Exception as e:
+                logger.warning(f"Could not make blob public: {e}")
 
-            # Generate URL
-            file_url = (
-                f"https://{self.bucket_name}.s3.{self.region}.amazonaws.com/{s3_key}"
-            )
-            logger.info(f"File uploaded to S3: {file_url}")
-
+            file_url = blob.public_url
+            logger.info(f"File uploaded to GCS: {file_url}")
             return True, file_url, None
 
-        except ClientError as e:
-            logger.error(f"Failed to upload file to S3: {e}")
+        except Exception as e:
+            logger.error(f"Failed to upload file to GCS: {e}")
             return False, None, str(e)
 
     def delete(self, filename: str) -> Tuple[bool, Optional[str]]:
-        """Delete file from S3"""
+        """Delete file from GCS"""
         try:
-            # Try all possible prefixes
             for prefix in ["images/", "videos/", "files/"]:
-                s3_key = f"{prefix}{filename}"
-
-                try:
-                    self.s3_client.delete_object(Bucket=self.bucket_name, Key=s3_key)
-                    logger.info(f"File deleted from S3: {s3_key}")
+                gcs_key = f"{prefix}{filename}"
+                blob = self.bucket.blob(gcs_key)
+                if blob.exists():
+                    blob.delete()
+                    logger.info(f"File deleted from GCS: {gcs_key}")
                     return True, None
-                except ClientError:
-                    continue
-
             return False, "File not found"
-
         except Exception as e:
-            logger.error(f"Failed to delete file from S3: {e}")
+            logger.error(f"Failed to delete file from GCS: {e}")
             return False, str(e)
 
     def exists(self, filename: str) -> bool:
-        """Check if file exists in S3"""
+        """Check if file exists in GCS"""
         for prefix in ["images/", "videos/", "files/"]:
-            s3_key = f"{prefix}{filename}"
-            try:
-                self.s3_client.head_object(Bucket=self.bucket_name, Key=s3_key)
+            gcs_key = f"{prefix}{filename}"
+            blob = self.bucket.blob(gcs_key)
+            if blob.exists():
                 return True
-            except ClientError:
-                continue
         return False
 
     def get_url(self, filename: str) -> str:
         """Get public URL for file"""
-        # Try to find the file
         for prefix in ["images/", "videos/", "files/"]:
-            s3_key = f"{prefix}{filename}"
-            if self.exists(s3_key.split("/")[-1]):
-                return f"https://{self.bucket_name}.s3.{self.region}.amazonaws.com/{s3_key}"
+            gcs_key = f"{prefix}{filename}"
+            blob = self.bucket.blob(gcs_key)
+            if blob.exists():
+                return blob.public_url
 
-        # Default to files prefix
-        return f"https://{self.bucket_name}.s3.{self.region}.amazonaws.com/files/{filename}"
-
-    def get_presigned_url(self, filename: str, expiration: int = 3600) -> Optional[str]:
-        """
-        Generate a presigned URL for secure file access.
-
-        Args:
-            filename: File to generate URL for
-            expiration: URL validity in seconds (default 1 hour)
-
-        Returns:
-            Presigned URL or None if file not found
-        """
-        for prefix in ["images/", "videos/", "files/"]:
-            s3_key = f"{prefix}{filename}"
-            try:
-                self.s3_client.head_object(Bucket=self.bucket_name, Key=s3_key)
-
-                # Generate presigned URL
-                url = self.s3_client.generate_presigned_url(
-                    "get_object",
-                    Params={"Bucket": self.bucket_name, "Key": s3_key},
-                    ExpiresIn=expiration,
-                )
-                return url
-            except ClientError:
-                continue
-
-        return None
-
-
+        return f"https://storage.googleapis.com/{self.bucket_name}/files/{filename}"
 # Global storage instance
 _storage: Optional[StorageBackend] = None
 
@@ -330,8 +274,8 @@ def init_storage(backend: str = "local", **kwargs) -> StorageBackend:
 
     if backend == "local":
         _storage = LocalStorage(**kwargs)
-    elif backend == "s3":
-        _storage = S3Storage(**kwargs)
+    elif backend in ["s3", "gcs"]:
+        _storage = GCSStorage(**kwargs)
     else:
         raise ValueError(f"Unknown storage backend: {backend}")
 

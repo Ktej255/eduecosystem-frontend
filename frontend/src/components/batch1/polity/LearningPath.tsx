@@ -229,19 +229,19 @@ function DayCard({ day, defaultOpen }: { day: StudyDay; defaultOpen?: boolean })
                                     className="mt-0.5 flex-shrink-0">
                                     {isDone
                                         ? <CheckCircle2 className="w-5 h-5 text-green-400" />
-                                        : <div className="w-5 h-5 rounded-full border-2" style={{ borderColor: slotCfg.border }} />
+                                        : <div className="w-5 h-5 rounded-full border-2" style={{ borderColor: (slotCfg as {border?: string})?.border }} />
                                     }
                                 </button>
 
                                 <div className="flex-1 min-w-0">
                                     <div className="flex items-center gap-2 mb-0.5 flex-wrap">
-                                        <SlotIcon className="w-3 h-3 flex-shrink-0" style={{ color: slotCfg.color }} />
-                                        <span className="text-[10px] font-mono" style={{ color: slotCfg.color }}>
+                                        {React.createElement(SlotIcon as React.ElementType, { className: "w-3 h-3 flex-shrink-0", style: { color: (slotCfg as {color?: string})?.color } })}
+                                        <span className="text-[10px] font-mono" style={{ color: (slotCfg as {color?: string})?.color }}>
                                             {slotCfg.label}
                                         </span>
                                         <span className="text-[10px] font-mono font-bold px-1.5 rounded"
-                                            style={{ backgroundColor: '#0A0C10', color: ACTIVITY_COLOR[task.activity] }}>
-                                            {ACTIVITY_LABEL[task.activity]}
+                                            style={{ backgroundColor: '#0A0C10', color: ACTIVITY_COLOR[(task as {activity: keyof typeof ACTIVITY_COLOR}).activity] }}>
+                                            {ACTIVITY_LABEL[(task as {activity: keyof typeof ACTIVITY_LABEL}).activity]}
                                         </span>
                                         <span className="text-[10px] font-mono" style={{ color: '#374151' }}>
                                             {task.durationMin}min

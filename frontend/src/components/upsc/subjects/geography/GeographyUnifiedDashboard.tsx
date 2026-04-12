@@ -56,8 +56,8 @@ export default function GeographyUnifiedDashboard() {
 
     // Derive stats directly from the geography-store (re-computed on every storeTick)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const overallStats = getOverallStats(GEOGRAPHY_REGISTRY);
-    const branchStats = getBranchStats(GEOGRAPHY_REGISTRY);
+    const overallStats = getOverallStats(GEOGRAPHY_REGISTRY as unknown as {id: number, branch: GeoBranch}[]);
+    const branchStats = getBranchStats(GEOGRAPHY_REGISTRY as unknown as {id: number, branch: GeoBranch}[]);
     const totalTopics = overallStats.total;
     const totalCompleted = overallStats.mastered;
     const overallProgress = overallStats.masteryPercentage;
@@ -287,7 +287,7 @@ export default function GeographyUnifiedDashboard() {
                     const filteredModuleTopics = moduleTopics.filter(t => 
                         filteredTopics.some(ft => ft.id === t.id)
                     );
-                    const completedInModule = moduleTopics.filter(t => progress[t.id]?.completed).length;
+                    const completedInModule = moduleTopics.filter(t => (getGeographyStore().topics[t.id] as {completed?: boolean})?.completed === true).length;
                     const isExpanded = expandedParts[module.id];
 
                     if (searchQuery && filteredModuleTopics.length === 0) return null;
