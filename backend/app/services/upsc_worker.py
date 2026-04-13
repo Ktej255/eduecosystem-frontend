@@ -147,18 +147,21 @@ def initialize_student_progress_task(plan_id: str):
             .all()
         )
 
-        for student in students:
-            # Check if progress record exists
-            existing = (
-                db.query(UPSCStudentProgress)
-                .filter(
-                    UPSCStudentProgress.student_id == student.user_id,
-                    UPSCStudentProgress.plan_id == plan.id,
-                )
-                .first()
+        # Optimization: Fetch existing progress records in bulk to avoid N+1 queries
+        student_ids = [student.user_id for student in students]
+        existing_progress = (
+            db.query(UPSCStudentProgress.student_id)
+            .filter(
+                UPSCStudentProgress.student_id.in_(student_ids),
+                UPSCStudentProgress.plan_id == plan.id,
             )
+            .all()
+        )
+        existing_student_ids = {progress.student_id for progress in existing_progress}
 
-            if not existing:
+        for student in students:
+            # Check if progress record exists using the pre-fetched set
+            if student.user_id not in existing_student_ids:
                 progress = UPSCStudentProgress(
                     student_id=student.user_id, plan_id=plan.id, is_locked=True
                 )
