@@ -14,6 +14,7 @@ import { Check, CreditCard, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/contexts/auth-context";
 
 declare global {
   interface Window {
@@ -23,8 +24,8 @@ declare global {
 
 export default function SubscriptionPage() {
   const [isLoading, setIsLoading] = useState(false);
-  // TODO: This should come from auth context or be fetched from API
-  const [isPremium] = useState(false);
+  const { user } = useAuth();
+  const isPremium = user?.is_premium || false;
   const router = useRouter();
 
   const loadCashfreeScript = () => {

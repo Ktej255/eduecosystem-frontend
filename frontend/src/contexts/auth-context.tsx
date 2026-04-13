@@ -21,6 +21,7 @@ interface User {
   is_ras_authorized?: boolean;
   is_batch1_authorized?: boolean;
   is_batch2_authorized?: boolean;
+  is_premium?: boolean;
 }
 
 interface AuthContextType {
