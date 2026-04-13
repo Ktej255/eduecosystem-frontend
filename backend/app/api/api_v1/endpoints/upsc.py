@@ -8,6 +8,8 @@ from sqlalchemy.orm import Session
 
 from app import crud, models, schemas
 from app.api import deps
+from app.core.storage import get_storage
+from app.api.api_v1.endpoints.upload import generate_unique_filename
 from app.models.upsc import (
     UPSCBatch, UPSCPlan, UPSCQuestion, UPSCContent, UPSCDrill, 
     UPSCAttempt, UPSCReport, UPSCStudentProgress
@@ -209,28 +211,23 @@ def submit_attempt(
     image_url = None
     audio_url = None
 
+    storage = get_storage()
+
     if image:
-        # TODO: Upload to S3
-        import shutil
-        import os
-        upload_dir = "uploads/images"
-        os.makedirs(upload_dir, exist_ok=True)
-        image_file_path = f"{upload_dir}/{uuid.uuid4()}_{image.filename}"
-        with open(image_file_path, "wb") as buffer:
-            shutil.copyfileobj(image.file, buffer)
-        image_url = image_file_path # Placeholder for S3 URL
+        content = image.file.read()
+        filename = generate_unique_filename(image.filename or "image.jpg")
+        success, image_url, error = storage.upload(content, filename, image.content_type or "image/jpeg")
+        if not success:
+            raise HTTPException(status_code=500, detail=f"Failed to upload image: {error}")
+        image_file_path = image_url # Pass URL to background task
     
     if audio:
-        # TODO: Upload to S3
-        # For now, save locally for testing or mock URL
-        import shutil
-        import os
-        upload_dir = "uploads/audio"
-        os.makedirs(upload_dir, exist_ok=True)
-        file_path = f"{upload_dir}/{uuid.uuid4()}_{audio.filename}"
-        with open(file_path, "wb") as buffer:
-            shutil.copyfileobj(audio.file, buffer)
-        audio_url = file_path # In real app, this would be S3 URL
+        content = audio.file.read()
+        filename = generate_unique_filename(audio.filename or "audio.mp3")
+        success, audio_url, error = storage.upload(content, filename, audio.content_type or "audio/mpeg")
+        if not success:
+            raise HTTPException(status_code=500, detail=f"Failed to upload audio: {error}")
+        file_path = audio_url # Pass URL to background task
 
     attempt = UPSCAttempt(
         student_id=current_user.id,

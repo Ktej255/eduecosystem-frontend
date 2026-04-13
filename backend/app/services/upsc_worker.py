@@ -187,11 +187,20 @@ def transcribe_audio_task(attempt_id: str, file_path_arg: str):
             logger.error(f"Attempt not found: {attempt_id}")
             return
 
-        # Read file from path and encode to base64
+        # Read file from path (URL or local) and encode to base64
         try:
-            with open(file_path_arg, "rb") as audio_file:
-                audio_data = audio_file.read()
-                encoded_string = base64.b64encode(audio_data).decode("utf-8")
+            import urllib.request
+            if file_path_arg.startswith("http://") or file_path_arg.startswith("https://"):
+                # Fetch remote URL
+                with urllib.request.urlopen(file_path_arg) as response:
+                    audio_data = response.read()
+            else:
+                # Local path (strip leading slash if present to make it relative)
+                local_path = file_path_arg.lstrip("/")
+                with open(local_path, "rb") as audio_file:
+                    audio_data = audio_file.read()
+
+            encoded_string = base64.b64encode(audio_data).decode("utf-8")
         except Exception as e:
             logger.error(f"Failed to read audio file at {file_path_arg}: {e}")
             return {"status": "error", "message": f"File read failed: {e}"}
