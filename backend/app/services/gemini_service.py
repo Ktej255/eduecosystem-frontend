@@ -233,10 +233,18 @@ class GeminiService:
         
         last_error = ""
         
-        # Load Image once
+        # Load Image once (URL or local path)
         try:
              print(f"DEBUG: Processing image at {image_path}")
-             img = PIL.Image.open(image_path)
+             import urllib.request
+             import io
+             if image_path.startswith("http://") or image_path.startswith("https://"):
+                 with urllib.request.urlopen(image_path) as response:
+                     img_data = response.read()
+                 img = PIL.Image.open(io.BytesIO(img_data))
+             else:
+                 local_path = image_path.lstrip("/")
+                 img = PIL.Image.open(local_path)
         except Exception as e:
              print(f"DEBUG: Image Load Error: {e}")
              return f"Error loading image: {e}"
