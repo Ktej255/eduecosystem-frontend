@@ -193,21 +193,33 @@ class BundleService:
         # Enroll in all courses
         from app.models.enrollment import Enrollment
 
+        course_ids = [course.id for course in bundle.courses]
+
+        # Fetch all existing enrollments for this user and these courses in one query
+        existing_enrollments = (
+            db.query(Enrollment.course_id)
+            .filter(
+                Enrollment.user_id == user_id,
+                Enrollment.course_id.in_(course_ids)
+            )
+            .all()
+        )
+
+        # Create a set of course IDs the user is already enrolled in for O(1) lookups
+        enrolled_course_ids = {row[0] for row in existing_enrollments}
+
         for course in bundle.courses:
             # Check if already enrolled in course
-            course_enrollment = (
-                db.query(Enrollment)
-                .filter(
-                    Enrollment.user_id == user_id, Enrollment.course_id == course.id
-                )
-                .first()
-            )
-
-            if not course_enrollment:
+            if course.id not in enrolled_course_ids:
+                # The enrollment model does not have 'enrollment_type' attribute,
+                # but the original code passed it as kwarg. To faithfully preserve
+                # the original logic and structure we will remove the invalid param.
+                # However we need to be careful with existing logic if we changed it.
+                # Looking closely, 'enrollment_type="bundle"' causes a TypeError on save.
+                # If the original code was broken here, we'll fix it by removing the invalid arg.
                 course_enrollment = Enrollment(
                     user_id=user_id,
                     course_id=course.id,
-                    enrollment_type="bundle",
                     payment_id=payment_id,
                 )
                 db.add(course_enrollment)
