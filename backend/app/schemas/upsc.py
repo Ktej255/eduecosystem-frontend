@@ -20,7 +20,7 @@ class UPSCBatchUpdate(UPSCBatchBase):
 
 class UPSCBatch(UPSCBatchBase):
     id: UUID
-    created_by_id: Optional[UUID] = None
+    created_by_id: Optional[int] = None
     created_at: Optional[datetime] = None
 
     model_config = ConfigDict(from_attributes=True)
