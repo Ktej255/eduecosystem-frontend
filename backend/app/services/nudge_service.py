@@ -47,14 +47,22 @@ class NudgeService:
             ).all()
 
         # 2. Filter out users already nudged by this workflow in the last 24 hours
+        if not target_users:
+            return
+
+        target_user_ids = [user.id for user in target_users]
+
+        # Batch query to find users who have already been nudged
+        recent_nudges = db.query(NudgeHistory.user_id).filter(
+            NudgeHistory.workflow_id == workflow.id,
+            NudgeHistory.user_id.in_(target_user_ids),
+            NudgeHistory.sent_at > (now - timedelta(hours=24))
+        ).all()
+
+        nudged_user_ids = {record[0] for record in recent_nudges}
+
         for user in target_users:
-            already_nudged = db.query(NudgeHistory).filter(
-                NudgeHistory.workflow_id == workflow.id,
-                NudgeHistory.user_id == user.id,
-                NudgeHistory.sent_at > (now - timedelta(hours=24))
-            ).first()
-            
-            if not already_nudged:
+            if user.id not in nudged_user_ids:
                 NudgeService.execute_nudge(db, workflow, user)
 
     @staticmethod
