@@ -9,6 +9,12 @@ from fastapi import HTTPException
 from datetime import datetime, timedelta
 import os
 import json
+import io
+from reportlab.lib.pagesizes import letter
+from reportlab.lib import colors
+from reportlab.lib.units import inch
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
+from reportlab.lib.styles import getSampleStyleSheet
 
 from app.models.invoice import Invoice
 from app.models.order import Order, OrderItem
@@ -121,11 +127,8 @@ class InvoiceService:
     @staticmethod
     def generate_pdf(db: Session, invoice_id: int) -> str:
         """
-        Generate PDF for invoice.
+        Generate PDF for invoice using ReportLab.
         Returns path to PDF file.
-
-        Note: This is a placeholder implementation.
-        Full implementation would use ReportLab or similar library.
         """
         invoice = db.query(Invoice).filter(Invoice.id == invoice_id).first()
         if not invoice:
@@ -134,22 +137,103 @@ class InvoiceService:
         # Get order for additional details
         order = db.query(Order).filter(Order.id == invoice.order_id).first()
 
-        # In a real implementation, you would:
-        # 1. Use ReportLab to generate PDF
-        # 2. Add company logo and branding
-        # 3. Format invoice details nicely
-        # 4. Save to uploads directory
-        # 5. Return file path
-
-        # For now, create placeholder path
         pdf_filename = f"invoice_{invoice.invoice_number}.pdf"
         pdf_path = f"uploads/invoices/{pdf_filename}"
 
         # Create directory if it doesn't exist
         os.makedirs("uploads/invoices", exist_ok=True)
 
-        # TODO: Actual PDF generation with ReportLab
-        # This is a placeholder - in production, implement proper PDF generation
+        # Initialize PDF document
+        doc = SimpleDocTemplate(pdf_path, pagesize=letter)
+        story = []
+        styles = getSampleStyleSheet()
+
+        # Add Company Header
+        header = Paragraph(f"<b>{InvoiceService.COMPANY_NAME}</b><br/>"
+                           f"{InvoiceService.COMPANY_ADDRESS}<br/>"
+                           f"Tax ID: {InvoiceService.COMPANY_TAX_ID}", styles['Normal'])
+        story.append(header)
+        story.append(Spacer(1, 0.2 * inch))
+
+        # Add Title
+        title = Paragraph("<b>INVOICE</b>", styles['Heading1'])
+        story.append(title)
+        story.append(Spacer(1, 0.2 * inch))
+
+        # Add Invoice Info and Billing Info
+        invoice_info_data = [
+            ["Invoice Number:", invoice.invoice_number, "Billing To:"],
+            ["Date Issued:", invoice.issued_date.strftime('%Y-%m-%d') if invoice.issued_date else "", invoice.billing_name or "N/A"],
+            ["Due Date:", invoice.due_date.strftime('%Y-%m-%d') if invoice.due_date else "", invoice.billing_email or "N/A"],
+            ["Status:", invoice.status.upper() if invoice.status else "N/A", Paragraph(invoice.billing_address or "N/A", styles['Normal'])],
+        ]
+
+        if order:
+            invoice_info_data.append(["Order Number:", order.id, ""])
+
+        info_table = Table(invoice_info_data, colWidths=[1.5*inch, 2*inch, 2.5*inch])
+        info_table.setStyle(TableStyle([
+            ('FONTNAME', (0, 0), (0, -1), 'Helvetica-Bold'),
+            ('FONTNAME', (2, 0), (2, 0), 'Helvetica-Bold'),
+            ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+            ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
+        ]))
+        story.append(info_table)
+        story.append(Spacer(1, 0.4 * inch))
+
+        # Add Items
+        items_data = [["Item Description", "Quantity", "Unit Price", "Total"]]
+
+        if invoice.items_json:
+            try:
+                items = json.loads(invoice.items_json)
+                for item in items:
+                    items_data.append([
+                        item.get("item_name", "Unknown"),
+                        str(item.get("quantity", 1)),
+                        f"{invoice.currency} {item.get('unit_price', 0):.2f}",
+                        f"{invoice.currency} {item.get('total', 0):.2f}"
+                    ])
+            except json.JSONDecodeError:
+                pass
+
+        items_table = Table(items_data, colWidths=[3.5*inch, 1*inch, 1.25*inch, 1.25*inch])
+        items_table.setStyle(TableStyle([
+            ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor("#1f77b4")),
+            ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+            ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+            ('ALIGN', (1, 0), (-1, -1), 'RIGHT'),
+            ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+            ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+            ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
+            ('GRID', (0, 0), (-1, -1), 1, colors.black),
+        ]))
+        story.append(items_table)
+        story.append(Spacer(1, 0.2 * inch))
+
+        # Add Totals
+        totals_data = [
+            ["Subtotal:", f"{invoice.currency} {invoice.subtotal:.2f}"],
+            ["Discount:", f"{invoice.currency} {invoice.discount:.2f}"],
+            ["Tax:", f"{invoice.currency} {invoice.tax:.2f}"],
+            ["Total:", f"{invoice.currency} {invoice.total:.2f}"]
+        ]
+
+        totals_table = Table(totals_data, colWidths=[5.75*inch, 1.25*inch])
+        totals_table.setStyle(TableStyle([
+            ('ALIGN', (0, 0), (-1, -1), 'RIGHT'),
+            ('FONTNAME', (0, 3), (-1, 3), 'Helvetica-Bold'),
+            ('LINEABOVE', (0, 3), (-1, 3), 1, colors.black),
+        ]))
+        story.append(totals_table)
+
+        if invoice.notes:
+            story.append(Spacer(1, 0.4 * inch))
+            story.append(Paragraph("<b>Notes:</b>", styles['Normal']))
+            story.append(Paragraph(invoice.notes, styles['Normal']))
+
+        # Build PDF
+        doc.build(story)
 
         # Update invoice
         invoice.pdf_url = pdf_path
