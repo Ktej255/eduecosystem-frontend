@@ -152,6 +152,7 @@ export default function FunnelOrchestrator({ examId, examName }: FunnelOrchestra
                         {level === 'advanced' ? (
                             <Suspense fallback={<RevisionLoading />}>
                                 <AdvancedRecallEngine
+                                    examId={examId}
                                     topicName="Fundamental Rights"
                                     onRecallComplete={(data) => {
                                         console.log("Advanced Recall Complete", data);
@@ -161,6 +162,7 @@ export default function FunnelOrchestrator({ examId, examName }: FunnelOrchestra
                         ) : level === 'intermediate' ? (
                             <Suspense fallback={<RevisionLoading />}>
                                 <IntermediatePDFSession
+                                    examId={examId}
                                     topicName="Fundamental Rights"
                                     onComplete={(data) => {
                                         console.log("PDF Session Complete", data);
@@ -171,6 +173,7 @@ export default function FunnelOrchestrator({ examId, examName }: FunnelOrchestra
                         ) : (
                             <Suspense fallback={<RevisionLoading />}>
                                 <CycleEngine
+                                    examId={examId}
                                     subjectId="polity"
                                     topicName="Fundamental Rights"
                                     topicId={102}

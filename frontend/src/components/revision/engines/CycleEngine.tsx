@@ -29,6 +29,7 @@ type CyclePhase = 'video' | 'recall' | 'mcq' | 'transition';
 
 
 interface CycleEngineProps {
+    examId: string;
     onComplete: (data: any) => void;
     durationMinutes: number;
     subjectId: string;
@@ -36,7 +37,7 @@ interface CycleEngineProps {
     topicId: number;
 }
 
-export default function CycleEngine({ onComplete, durationMinutes = 25, subjectId, topicName, topicId }: CycleEngineProps) {
+export default function CycleEngine({ examId, onComplete, durationMinutes = 25, subjectId, topicName, topicId }: CycleEngineProps) {
     const [phase, setPhase] = useState<CyclePhase>('video');
     const [timeLeft, setTimeLeft] = useState(durationMinutes * 60);
     const [isActive, setIsActive] = useState(false);
@@ -89,7 +90,7 @@ export default function CycleEngine({ onComplete, durationMinutes = 25, subjectI
             // Persist session data
             const session: CycleSession = {
                 id: `cycle-${Date.now()}`,
-                examId: 'upsc', // TODO: Get from context
+                examId: examId,
                 subjectId,
                 topicName,
                 topicId,

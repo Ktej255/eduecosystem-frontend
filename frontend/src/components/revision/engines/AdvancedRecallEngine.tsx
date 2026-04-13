@@ -23,11 +23,12 @@ import { Progress } from '@/components/ui/progress';
 import { saveCycleSession, CycleSession } from '@/lib/revision/revision-analytics-service';
 
 interface AdvancedRecallEngineProps {
+    examId: string;
     topicName: string;
     onRecallComplete: (data: any) => void;
 }
 
-export default function AdvancedRecallEngine({ topicName = "Executive Branch: The President", onRecallComplete }: AdvancedRecallEngineProps) {
+export default function AdvancedRecallEngine({ examId, topicName = "Executive Branch: The President", onRecallComplete }: AdvancedRecallEngineProps) {
     const [step, setStep] = useState<'prompt' | 'recalling' | 'analyzing' | 'result'>('prompt');
     const [result, setResult] = useState<any>(null);
 
@@ -260,7 +261,7 @@ export default function AdvancedRecallEngine({ topicName = "Executive Branch: Th
                                 onClick={async () => {
                                     const session: CycleSession = {
                                         id: `recall-${Date.now()}`,
-                                        examId: 'upsc',
+                                        examId: examId,
                                         subjectId: 'polity',
                                         topicId: 1, // Default topic ID for advanced recall
                                         topicName,
