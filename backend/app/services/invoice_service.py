@@ -243,9 +243,24 @@ class InvoiceService:
         if not invoice.pdf_generated:
             InvoiceService.generate_pdf(db, invoice_id)
 
-        # TODO: Actual email sending implementation
-        # This would integrate with your EmailService or similar
-        # For now, just mark as sent
+        from app.services.background_tasks import send_email_task
+
+        email_subject = f"Invoice {invoice.invoice_number}" if invoice.invoice_number else f"Invoice {invoice.id}"
+        email_body = message or f"Please find attached your invoice for order {invoice.order_id}."
+
+        # Attach the invoice PDF
+        attachments = []
+        if invoice.pdf_url and os.path.exists(invoice.pdf_url):
+            attachments = [{"file": invoice.pdf_url, "filename": os.path.basename(invoice.pdf_url)}]
+
+        # Dispatch email sending task
+        send_email_task.delay(
+            to_email=to_email,
+            subject=email_subject,
+            body=email_body,
+            html=False,
+            attachments=attachments
+        )
 
         InvoiceService.mark_as_sent(db, invoice_id)
 

@@ -19,14 +19,18 @@ conf = ConnectionConfig(
 
 
 async def send_email(
-    email_to: str, subject: str, template_name: str, template_body: dict
+    email_to: str, subject: str, template_name: str, template_body: dict, attachments: list = None
 ):
-    message = MessageSchema(
-        subject=subject,
-        recipients=[email_to],
-        template_body=template_body,
-        subtype=MessageType.html,
-    )
+    kwargs = {
+        "subject": subject,
+        "recipients": [email_to],
+        "template_body": template_body,
+        "subtype": MessageType.html,
+    }
+    if attachments:
+        kwargs["attachments"] = attachments
+
+    message = MessageSchema(**kwargs)
 
     fm = FastMail(conf)
     await fm.send_message(message, template_name=template_name)

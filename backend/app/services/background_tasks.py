@@ -37,7 +37,7 @@ def cleanup_stale_presence():
 
 
 @celery_app.task(name="send_email")
-def send_email_task(to_email: str, subject: str, body: str, html: bool = False):
+def send_email_task(to_email: str, subject: str, body: str, html: bool = False, template_name: str = "welcome.html", attachments: list = None, template_body: dict = None):
     """
     Send email asynchronously.
 
@@ -46,32 +46,38 @@ def send_email_task(to_email: str, subject: str, body: str, html: bool = False):
         subject: Email subject
         body: Email body
         html: Whether body is HTML
+        template_name: Email template to use
+        attachments: List of attachments
+        template_body: Template variables
     """
-    from app.services.email_notification_service import email_notification_service
+    from app.core.email import send_email
+    import asyncio
 
     try:
         logger.info(f"Sending email to {to_email}: {subject}")
 
-        # Use email notification service to send email
-        db = SessionLocal()
         try:
-            # Send the email
-            success = email_notification_service.send_email(
-                db=db, to_email=to_email, subject=subject, body=body, is_html=html
-            )
+            loop = asyncio.get_event_loop()
+        except RuntimeError:
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
 
-            if success:
-                logger.info(f"Email sent successfully to {to_email}")
-                return {"status": "success", "to": to_email}
-            else:
-                logger.error(f"Failed to send email to {to_email}")
-                return {
-                    "status": "error",
-                    "to": to_email,
-                    "message": "Email sending failed",
-                }
-        finally:
-            db.close()
+        if template_body is None:
+            template_body = {"content": body, "name": to_email, "dashboard_url": ""}
+
+        # Send the email
+        loop.run_until_complete(
+            send_email(
+                email_to=to_email,
+                subject=subject,
+                template_name=template_name,
+                template_body=template_body,
+                attachments=attachments
+            )
+        )
+
+        logger.info(f"Email sent successfully to {to_email}")
+        return {"status": "success", "to": to_email}
 
     except Exception as e:
         logger.error(f"Error sending email to {to_email}: {e}")
