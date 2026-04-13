@@ -6,7 +6,11 @@ Handles PayPal payment processing, order creation, and webhooks.
 
 from typing import Optional, Dict, Any
 import os
+import logging
+from datetime import datetime
 from decimal import Decimal
+
+logger = logging.getLogger(__name__)
 
 # PayPal SDK would be imported here when installed
 # from paypalcheckoutsdk.core import PayPalHttpClient, SandboxEnvironment, LiveEnvironment
@@ -163,6 +167,20 @@ class PayPalService:
         elif event_type == "PAYMENT.CAPTURE.REFUNDED":
             # Payment was refunded
             pass
+
+    def create_payout(self, paypal_email: str, amount: Decimal) -> str:
+        """
+        Create a PayPal payout (placeholder).
+
+        Args:
+            paypal_email: PayPal email
+            amount: Payout amount
+
+        Returns:
+            Transaction ID
+        """
+        logger.info(f"PayPal payout to {paypal_email}: ${amount}")
+        return f"PAYPAL_{datetime.utcnow().timestamp()}"
 
     def refund_payment(
         self,

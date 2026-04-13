@@ -231,9 +231,10 @@ class PayoutService:
         Returns:
             Transaction ID
         """
-        # TODO: Implement PayPal Payouts API integration
-        logger.info(f"PayPal payout to {paypal_email}: ${amount}")
-        return f"PAYPAL_{datetime.utcnow().timestamp()}"
+        from app.services.paypal_service import paypal_service
+
+        # Delegate to PayPal Payouts API integration service
+        return paypal_service.create_payout(paypal_email, amount)
 
     @staticmethod
     def get_instructor_payout_history(
