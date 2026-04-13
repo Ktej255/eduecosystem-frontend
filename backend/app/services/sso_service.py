@@ -20,6 +20,7 @@ from app.models.sso import (
 )
 from app.models.user import User
 from app.core.security import get_password_hash
+from app.core.config import settings
 
 logger = logging.getLogger(__name__)
 
@@ -325,8 +326,8 @@ class SAMLService:
                     "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect",
                 },
                 "NameIDFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
-                "x509cert": "",  # TODO: Load SP cert from file/env
-                "privateKey": "",  # TODO: Load SP key from file/env
+                "x509cert": settings.SAML_SP_CERT,
+                "privateKey": settings.SAML_SP_KEY,
             },
             "idp": {
                 "entityId": config.idp_entity_id,

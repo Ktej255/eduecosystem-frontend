@@ -177,6 +177,26 @@ class Settings(BaseSettings):
     # Default AI model to use
     DEFAULT_AI_MODEL: str = os.getenv("DEFAULT_AI_MODEL", "google/gemini-3-flash-preview")
 
+    # SAML SP Credentials
+    SAML_SP_CERT: str = ""
+    SAML_SP_KEY: str = ""
+
+    @field_validator("SAML_SP_CERT", "SAML_SP_KEY", mode="after")
+    @classmethod
+    def resolve_saml_secrets(cls, v: str) -> str:
+        """Resolve SAML secrets, potentially from a file path."""
+        if not v:
+            return ""
+        if os.path.isfile(v):
+            try:
+                with open(v, "r") as f:
+                    return f.read().strip()
+            except Exception as e:
+                import logging
+                logging.getLogger(__name__).error(f"Error reading secret file {v}: {e}")
+                return ""
+        return v
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
