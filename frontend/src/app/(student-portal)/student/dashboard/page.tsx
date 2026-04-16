@@ -29,9 +29,15 @@ import LifeMasteryReport from "@/components/dashboard/LifeMasteryReport";
 import { logStudySession } from "@/services/progressStorage";
 import InnerSpaceWidget from "@/components/meditation/features/InnerSpaceWidget";
 import DailyMissionCard from "@/components/dashboard/DailyMissionCard";
+import TodayMissionCard from "@/components/dashboard/TodayMissionCard";
 import { pullCloudProgress, processRetryQueue } from "@/services/progressStorage";
 import QuickReviewWidget from "@/components/dashboard/QuickReviewWidget";
 import { subscribeToPushNotifications } from "@/lib/PushSubscriptionManager";
+import OnboardingFlow from "@/components/onboarding/OnboardingFlow";
+import ExitIntentOverlay from "@/components/onboarding/ExitIntentOverlay";
+import DayTransitionTrigger from "@/components/dashboard/DayTransitionTrigger";
+import MilestoneCommitmentModal from "@/components/onboarding/MilestoneCommitmentModal";
+import { useDashboardData } from "@/hooks/useDashboardData";
 
 export default function StudentDashboard() {
     const { user } = useAuth();
@@ -59,6 +65,7 @@ export default function StudentDashboard() {
 
     // State
     const [aiMode, setAiMode] = useState(false);
+    const [aiMissionStatus, setAiMissionStatus] = useState<{ recovery_mode: boolean, recommended_subject: string } | null>(null);
     
     useEffect(() => {
         const savedMode = localStorage.getItem("aiMode");
@@ -75,6 +82,34 @@ export default function StudentDashboard() {
     const [lastUpdated, setLastUpdated] = useState<Date>(new Date());
     const [isRefreshing, setIsRefreshing] = useState(false);
     const [completedSteps, setCompletedSteps] = useState<string[]>([]);
+    const [isOnboarded, setIsOnboarded] = useState<boolean>(true); // Default to true to avoid flicker
+    const [showMilestone, setShowMilestone] = useState(false);
+
+    // AI Dashboard Data (from StudentDashboardService)
+    const { data: dashboardData, loading: dashboardLoading } = useDashboardData();
+
+    // Check onboarding status
+    useEffect(() => {
+        if (user) {
+            setIsOnboarded(user.is_onboarded ?? true);
+        }
+    }, [user]);
+
+    // Check Day 7 Milestone
+    useEffect(() => {
+        if (dashboardData?.habit_lock?.day === 7 && !localStorage.getItem('day7_committed')) {
+            const timer = setTimeout(() => {
+                setShowMilestone(true);
+            }, 1000); // Show after transition toast clears
+            return () => clearTimeout(timer);
+        }
+    }, [dashboardData]);
+
+    const handleCommit = () => {
+        setShowMilestone(false);
+        localStorage.setItem('day7_committed', 'true');
+        // Future: Trigger backend record_commitment endpoint
+    };
 
     // Load stats from storage
     const loadStats = useCallback(async () => {
@@ -102,6 +137,28 @@ export default function StudentDashboard() {
     useEffect(() => {
         loadStats();
         loadCompletedSteps();
+
+        // Check overarching AI mission
+        const fetchAiMissionStatus = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) return;
+                const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+                const response = await fetch(`${baseUrl}/ai-learning/dashboard/mission`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    setAiMissionStatus({
+                        recovery_mode: data.recovery_mode,
+                        recommended_subject: data.recommended_subject
+                    });
+                }
+            } catch (err) {
+                console.error("Error fetching AI Mission status", err);
+            }
+        };
+        fetchAiMissionStatus();
 
         // Log session start (simplified for demo: log 15 mins activity every time dashboard is opened)
         logStudySession(15);
@@ -162,7 +219,24 @@ export default function StudentDashboard() {
 
 
     return (
-        <div className="min-h-screen bg-muted dark:bg-[#000] pb-20">
+        <>
+        {!isOnboarded && <OnboardingFlow user={user} onComplete={() => setIsOnboarded(true)} />}
+        <ExitIntentOverlay isOnboarded={isOnboarded} />
+        <MilestoneCommitmentModal 
+            show={showMilestone} 
+            onCommit={handleCommit} 
+            onSkip={() => setShowMilestone(false)} 
+        />
+        
+        {dashboardData && (
+            <DayTransitionTrigger 
+                habitDay={dashboardData.habit_lock?.day || 0}
+                lastSeenDay={user?.last_habit_day_seen || 0}
+                config={dashboardData.habit_lock || {}}
+            />
+        )}
+        
+        <div className={`min-h-screen bg-muted dark:bg-[#000] pb-20 transition-all duration-700 ${!isOnboarded ? 'blur-xl grayscale pointer-events-none' : ''}`}>
             {/* Top Bar */}
             <div className="sticky top-0 z-30 bg-card/80 dark:bg-[#000]/80 backdrop-blur-md border-b border-border px-4 py-3">
                 <div className="max-w-4xl mx-auto flex justify-between items-center">
@@ -211,6 +285,36 @@ export default function StudentDashboard() {
                 </div>
             </div>
 
+            {/* UPSC Store Discovery CTA */}
+            <div className="max-w-4xl mx-auto px-4 mt-6">
+                <Link href="/student/upsc-store">
+                    <Card className="bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-800 border-none shadow-xl hover:shadow-2xl transition-all cursor-pointer group overflow-hidden relative">
+                        <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform">
+                            <Sparkles className="w-32 h-32 text-white" />
+                        </div>
+                        <CardContent className="p-6 relative z-10">
+                            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                <div>
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <div className="bg-white/20 px-2 py-0.5 rounded text-[10px] font-bold text-white uppercase tracking-wider uppercase tracking-wider">New Modules Active</div>
+                                    </div>
+                                    <h2 className="text-xl md:text-2xl font-black text-white mb-1">
+                                        Master UPSC 2026 with Logic
+                                    </h2>
+                                    <p className="text-blue-100 text-sm max-w-lg leading-relaxed">
+                                        Get exclusive access to Polity Navigator, Ancient History, and more. 
+                                        Start your specialized prep today.
+                                    </p>
+                                </div>
+                                <Button className="bg-white text-blue-700 hover:bg-blue-50 font-bold px-8 h-12 rounded-xl shadow-lg border-none flex items-center gap-2 w-fit transform group-hover:translate-x-1 transition-transform">
+                                    Explore UPSC Plans <ArrowRight className="w-5 h-5" />
+                                </Button>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </Link>
+            </div>
+
             <div className={`max-w-4xl mx-auto px-4 pt-6 ${aiMode ? 'border-x border-blue-500/10 shadow-[0_0_15px_rgba(59,130,246,0.02)]' : ''}`}>
                 <div className={`flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 rounded-2xl mb-6 transition-all border ${aiMode ? 'bg-blue-50/50 border-blue-200 dark:bg-blue-900/10 dark:border-blue-800' : 'bg-card border-border'}`}>
                   <div className="flex items-center gap-3">
@@ -243,6 +347,7 @@ export default function StudentDashboard() {
                 </div>
 
                 <div className="grid grid-cols-1 gap-6">
+                    <TodayMissionCard />
                     <DailyMissionCard />
                     <LifeMasteryReport />
                     <InnerSpaceWidget />
@@ -309,7 +414,7 @@ export default function StudentDashboard() {
 
             {/* Dynamic Timeline */}
             <div className="pt-8">
-                <JourneyTimeline plan={dayPlan} />
+                <JourneyTimeline plan={dayPlan} aiOverride={aiMissionStatus?.recovery_mode} />
             </div>
 
             {/* Quick Access Modules */}
@@ -320,42 +425,49 @@ export default function StudentDashboard() {
                 </h2>
                 <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                     {[
-                        { id: 'smart-meditation', name: t('dashboard.meditation'), href: '/student/meditation', emoji: '🧘', color: 'from-indigo-500 to-purple-600', accessKey: 'meditation' },
-                        { id: 'grapho-kit', name: t('dashboard.graphotherapy'), href: '/student/graphotherapy', emoji: '✍️', color: 'from-emerald-500 to-teal-600', accessKey: 'graphotherapy' },
-                        { id: 'evening-session', name: 'Evening Section', href: '/student/batch1-1/evening', emoji: '🔦', color: 'from-purple-500 to-pink-600', accessKey: 'batch1' },
-                        { id: 'revision-portal', name: t('dashboard.drill'), href: '/student/revision', emoji: '🧠', color: 'from-amber-500 to-orange-600', accessKey: 'revisionPortal' },
-                        { id: 'polity', name: "Laxmikanth Navigator", href: "/student/batch1-1/polity", emoji: '📚', color: 'from-blue-500 to-cyan-600', accessKey: 'batch1Polity' },
-                        { id: 'geography', name: 'Geography Study', href: '/student/batch1/geography', emoji: '🌍', color: 'from-emerald-500 to-green-600', accessKey: 'geography' },
-                        { id: 'history_ancient', name: 'Ancient History', href: '/student/batch1-1/ancient-history', emoji: '🏛️', color: 'from-stone-500 to-amber-700', accessKey: 'batch1Polity' }, // Reusing Polity access for now as per current schema
-                        { id: 'deep-report', name: 'Deep Report', href: '/student/batch1-1/deep-report', emoji: '📊', color: 'from-indigo-500 to-violet-600', accessKey: 'batch1' },
+                        { id: 'smart-meditation', name: t('dashboard.meditation'), href: '/student/meditation', emoji: '🧘', color: 'from-indigo-500 to-purple-600', accessKey: 'meditation', subjectKey: 'meditation' },
+                        { id: 'grapho-kit', name: t('dashboard.graphotherapy'), href: '/student/graphotherapy', emoji: '✍️', color: 'from-emerald-500 to-teal-600', accessKey: 'graphotherapy', subjectKey: 'graphotherapy' },
+                        { id: 'evening-session', name: 'Evening Section', href: '/student/batch1-1/evening', emoji: '🔦', color: 'from-purple-500 to-pink-600', accessKey: 'batch1', subjectKey: 'evening' },
+                        { id: 'revision-portal', name: t('dashboard.drill'), href: '/student/revision', emoji: '🧠', color: 'from-amber-500 to-orange-600', accessKey: 'revisionPortal', subjectKey: 'revision' },
+                        { id: 'polity', name: "Laxmikanth Navigator", href: "/student/batch1-1/polity", emoji: '📚', color: 'from-blue-500 to-cyan-600', accessKey: 'batch1Polity', subjectKey: 'polity' },
+                        { id: 'geography', name: 'Geography Study', href: '/student/batch1/geography', emoji: '🌍', color: 'from-emerald-500 to-green-600', accessKey: 'geography', subjectKey: 'geography' },
+                        { id: 'history_ancient', name: 'Ancient History', href: '/student/batch1-1/ancient-history', emoji: '🏛️', color: 'from-stone-500 to-amber-700', accessKey: 'batch1Polity', subjectKey: 'history' }, // Reusing Polity access for now as per current schema
+                        { id: 'deep-report', name: 'Deep Report', href: '/student/batch1-1/deep-report', emoji: '📊', color: 'from-indigo-500 to-violet-600', accessKey: 'batch1', subjectKey: 'report' },
                     ]
                         .map((module) => {
                             const userConfig = getUserAccess(user?.email);
                             const accessKey = module.accessKey as keyof typeof userConfig.access;
                             const isLocked = userConfig.access[accessKey] !== true;
+                            const isRecommended = aiMissionStatus?.recommended_subject?.toLowerCase() === module.subjectKey;
                             
                             return (
                                 <Link
                                     key={module.name}
                                     href={isLocked ? `/student/upsc-store?subject=${module.id}` : module.href}
                                     className={`group relative overflow-hidden rounded-2xl border transition-all duration-300 p-5 ${
-                                        isLocked 
-                                            ? 'bg-neutral-100/50 dark:bg-neutral-900/20 border-border/50 grayscale-[0.5] hover:grayscale-0' 
-                                            : 'bg-card/50 border-border hover:shadow-xl hover:-translate-y-1'
+                                        isRecommended 
+                                            ? 'bg-amber-500/10 border-amber-500/40 shadow-[0_0_15px_rgba(245,158,11,0.2)] hover:shadow-[0_0_25px_rgba(245,158,11,0.4)]'
+                                            : isLocked 
+                                                ? 'bg-neutral-100/50 dark:bg-neutral-900/20 border-border/50 grayscale-[0.5] hover:grayscale-0' 
+                                                : 'bg-card/50 border-border hover:shadow-xl hover:-translate-y-1'
                                     }`}
                                 >
-                                    <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${module.color} opacity-10 rounded-bl-full group-hover:opacity-20 transition-opacity`} />
+                                    <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${isRecommended ? 'from-amber-500' : module.color} opacity-10 rounded-bl-full group-hover:opacity-20 transition-opacity`} />
                                     
                                     <div className="flex justify-between items-start mb-3">
                                         <div className="text-3xl">{module.emoji}</div>
-                                        {isLocked && (
+                                        {isLocked ? (
                                             <div className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 p-1.5 rounded-lg">
                                                 <Lock className="w-3.5 h-3.5" />
                                             </div>
-                                        )}
+                                        ) : isRecommended ? (
+                                            <div className="bg-amber-500 text-black text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-lg shadow-amber-500/20 animate-pulse">
+                                                <Sparkles className="w-3 h-3" /> AI Pick
+                                            </div>
+                                        ) : null}
                                     </div>
                                     
-                                    <div className={`font-bold ${isLocked ? 'text-muted-foreground' : 'text-foreground'}`}>
+                                    <div className={`font-bold ${isLocked ? 'text-muted-foreground' : isRecommended ? 'text-amber-500' : 'text-foreground'}`}>
                                         {module.name}
                                     </div>
                                     
@@ -376,6 +488,7 @@ export default function StudentDashboard() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 
