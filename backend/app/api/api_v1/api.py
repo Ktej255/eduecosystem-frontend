@@ -7,35 +7,47 @@ from app.api.api_v1.endpoints import tasks
 from app.api.api_v1.endpoints import daily_actions
 from app.api.api_v1.endpoints import graphotherapy
 from app.api.api_v1.endpoints import (
-     meditation,
-     admin_meditation,
-     prelims_recall,
-     batch1_content,
-     batch1_tests,
-     ai_debug,
-     ai,
-     drill,
-     pdf_study,
-     retention,
-     certificates,
-     categories,
-     courses,
-     notes,
-     announcements,
-     discussions,
-     live_classes,
-     learning_paths,
-     peer_reviews,
-     order,
-     reviews,
-     subscriptions,
-     progress,
-     quizzes,
-     assignments,
-     holistic,
-     upsc,
-     payment,
-     adaptive_dashboard,
+    meditation,
+    admin_meditation,
+    prelims_recall,
+    batch1_content,
+    batch1_tests,
+    ai_debug,
+    ai,
+    drill,
+    pdf_study,
+    retention,
+    certificates,
+    categories,
+    courses,
+    notes,
+    announcements,
+    discussions,
+    live_classes,
+    learning_paths,
+    peer_reviews,
+    order,
+    reviews,
+    subscriptions,
+    progress,
+    quizzes,
+    assignments,
+    holistic,
+    upsc,
+    payment,
+    adaptive_dashboard,
+    onboarding,
+    coach_booking,
+    coach_availability,
+)
+from app.api.api_v1.endpoints import (
+    ai_workflows,
+    ai_approvals,
+    ai_artifacts,
+    ai_dispatch_records,
+    ai_style_profiles,
+    ai_admin_metrics,
+    teacher_command_center,
 )
 
 
@@ -45,8 +57,10 @@ api_router = APIRouter()
 
 # Authentication
 api_router.include_router(auth.router, prefix="/login", tags=["login"])
+api_router.include_router(auth.router, prefix="/auth", tags=["auth-compat"])
 from app.api.api_v1.endpoints import auth_2fa
 api_router.include_router(auth_2fa.router, prefix="/2fa", tags=["2fa"])
+api_router.include_router(auth_2fa.router, prefix="/auth/2fa", tags=["2fa-compat"])
 
 # Users
 api_router.include_router(users.router, prefix="/users", tags=["users"])
@@ -55,6 +69,8 @@ api_router.include_router(users.router, prefix="/users", tags=["users"])
 api_router.include_router(admin.router, prefix="/admin", tags=["admin"])
 # api_router.include_router(retention.router, prefix="/retention", tags=["retention"])
 api_router.include_router(graphotherapy.router, prefix="/graphotherapy", tags=["graphotherapy"])
+api_router.include_router(coach_booking.router, prefix="/coach-booking", tags=["coach-booking"])
+api_router.include_router(coach_availability.router, prefix="/coach-availability", tags=["coach-availability"])
 
 # Grapho Upload (Handwriting Analysis)
 from app.api.api_v1.endpoints import grapho
@@ -80,6 +96,14 @@ api_router.include_router(batch1_tests.router, prefix="/batch1", tags=["batch1-t
 
 # AI Debug (Teacher Portal Transparency Dashboard)
 api_router.include_router(ai_debug.router, prefix="/ai-debug", tags=["ai-debug"])
+api_router.include_router(ai_workflows.router, prefix="/ai-workflows", tags=["ai-workflows"])
+api_router.include_router(ai_approvals.router, prefix="/ai-approvals", tags=["ai-approvals"])
+api_router.include_router(ai_artifacts.router, prefix="/ai-artifacts", tags=["ai-artifacts"])
+api_router.include_router(ai_dispatch_records.router, prefix="/ai-dispatch-records", tags=["ai-dispatch-records"])
+api_router.include_router(ai_style_profiles.router, prefix="/ai-style-profiles", tags=["ai-style-profiles"])
+api_router.include_router(ai_admin_metrics.router, prefix="/admin/ai-metrics", tags=["admin-ai-metrics"])
+api_router.include_router(teacher_command_center.router, prefix="/teacher/command-center", tags=["teacher-command-center"])
+api_router.include_router(ai.router, prefix="/ai", tags=["ai"])
 
 # Leads Management
 from app.api.api_v1.endpoints import leads
@@ -143,15 +167,16 @@ api_router.include_router(admin_teacher_performance.router, prefix="/admin/teach
 
 # Marketing Automation
 from app.api.api_v1.endpoints import marketing_automation
-# api_router.include_router(marketing_automation.router, prefix="/marketing-automation", tags=["marketing-automation"])
+api_router.include_router(marketing_automation.router, prefix="/marketing-automation", tags=["marketing-automation"])
 
 # Retention System (FSRS-based knowledge decay tracking)
 # from app.api.api_v1.endpoints import retention
 # # api_router.include_router(retention.router, prefix="/retention", tags=["retention"])
 
 # AI Learning (MCQ Generator, Coaching)
-from app.api.api_v1.endpoints import ai_learning
+from app.api.api_v1.endpoints import ai_learning, onboarding
 api_router.include_router(ai_learning.router, prefix="/ai-learning", tags=["ai-learning"])
+api_router.include_router(onboarding.router, prefix="/onboarding", tags=["onboarding"])
 
 # RAS Revision Planner (40-Day Plan)
 from app.api.api_v1.endpoints import planner
@@ -209,7 +234,7 @@ api_router.include_router(branding.router, prefix="/public", tags=["branding"])
 
 # Admin Organizations Management (Multi-Tenancy Phase 7)
 from app.api.api_v1.endpoints import admin_organizations
-# api_router.include_router(admin_organizations.router, prefix="/admin", tags=["admin-organizations"])
+api_router.include_router(admin_organizations.router, prefix="/admin", tags=["admin-organizations"])
 
 # Productivity (Daily Briefing, News Quiz)
 from app.api.api_v1.endpoints import productivity
@@ -271,7 +296,7 @@ api_router.include_router(voice_tutor.router, prefix="/voice-tutor", tags=["voic
 
 # Holographic Graphotherapy (Vision AI)
 from app.api.api_v1.endpoints import grapho_vision
-# api_router.include_router(grapho_vision.router, prefix="/grapho-vision", tags=["grapho-vision"])
+api_router.include_router(grapho_vision.router, prefix="/grapho-vision", tags=["grapho-vision"])
 
 # Predictive Analytics (Admin)
 from app.api.api_v1.endpoints import analytics
@@ -323,6 +348,10 @@ from app.api.api_v1.endpoints import instructor_analytics
 from app.api.api_v1.endpoints import ai_tutor
 api_router.include_router(ai_tutor.router, prefix="/ai/tutor", tags=["ai-tutor"])
 
+# Practice Mains Answer Evaluation (Vision-first + KG Sync)
+from app.api.api_v1.endpoints import practice_mains
+api_router.include_router(practice_mains.router, prefix="/ai", tags=["practice-mains"])
+
 # Pack Battles (PvP)
 from app.api.api_v1.endpoints import pack_battles
 # api_router.include_router(pack_battles.router, prefix="/pack-battles", tags=["pack-battles"])
@@ -365,11 +394,13 @@ from app.api.api_v1.endpoints import discussions
 
 # Live Classes
 from app.api.api_v1.endpoints import live_classes
-# api_router.include_router(live_classes.router, prefix="/live-classes", tags=["live-classes"])
+api_router.include_router(live_classes.router, prefix="/live-classes", tags=["live-classes"])
 
 # Orders
 from app.api.api_v1.endpoints import order
+from app.api.api_v1.endpoints import bundles
 # api_router.include_router(order.router, prefix="/orders", tags=["orders"])
+api_router.include_router(bundles.router, prefix="/bundles", tags=["bundles"])
 
 # Payment Gateway
 from app.api.api_v1.endpoints import payment
@@ -506,3 +537,25 @@ api_router.include_router(adaptive_dashboard.router, prefix='/adaptive-navigator
 
 # Exam Intelligence Layer (Phase-10)
 api_router.include_router(intelligence.router, prefix='/intelligence', tags=['intelligence'])
+
+# AI Endpoints Reconnection
+from app.api.api_v1.endpoints import mains_evaluation
+from app.api.api_v1.endpoints import adaptive_learning
+from app.api.api_v1.endpoints import learning_paths
+from app.api.api_v1.endpoints import tutor
+from app.api.api_v1.endpoints import admin_ai
+from app.api.api_v1.endpoints import email_notifications
+
+api_router.include_router(mains_evaluation.router, prefix="/mains-evaluation", tags=["Mains Evaluation"])
+api_router.include_router(adaptive_learning.router, prefix="/adaptive-learning", tags=["Adaptive Learning"])
+api_router.include_router(learning_paths.router, prefix="/learning-paths", tags=["Learning Paths"])
+api_router.include_router(tutor.router, prefix="/tutor", tags=["AI Tutor"])
+api_router.include_router(admin_ai.router, prefix="/admin-ai", tags=["Admin AI"])
+api_router.include_router(email_notifications.router, prefix="/email-notifications", tags=["Email"])
+
+# ── Sarit Central CRM (Multi-Tenant B2B SaaS) ──
+from app.api.api_v1.endpoints import crm_ingest, crm_dashboard, crm_partners, crm_promises
+api_router.include_router(crm_ingest.router, prefix="/crm", tags=["crm-ingest"])
+api_router.include_router(crm_dashboard.router, prefix="/crm/dashboard", tags=["crm-dashboard"])
+api_router.include_router(crm_partners.router, prefix="/crm", tags=["crm-partners"])
+api_router.include_router(crm_promises.router, prefix="/crm", tags=["crm-promises"])
