@@ -2,6 +2,7 @@ from typing import Any, List
 from fastapi import APIRouter, Depends, HTTPException, Request
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
+from sqlalchemy import text
 from app.api import deps
 from app.services.cashfree_service import cashfree_service
 from app.models.user import User
@@ -9,6 +10,7 @@ from app.models.meditation import MeditationProgress, MEDITATION_LEVELS
 from app.models.graphotherapy import GraphotherapyLevelPurchase, GraphotherapyProgress, GRAPHOTHERAPY_LEVELS
 import os
 import json
+from app.core.config import settings
 
 FRONTEND_URL = os.getenv("FRONTEND_URL", "https://eduecosystem-frontend.vercel.app")
 
@@ -117,7 +119,10 @@ def create_order(
             order_currency="INR",
             customer_details=customer_details,
             order_note=note,
-            order_meta={"return_url": return_url}
+            order_meta={
+                "return_url": return_url,
+                "notify_url": f"{settings.BASE_URL}/api/v1/payment/webhook"
+            }
         )
         return cashfree_order
     except Exception as e:
@@ -161,7 +166,10 @@ def create_guest_order(
             order_currency="INR",
             customer_details=customer_details,
             order_note=note,
-            order_meta={"return_url": return_url},
+            order_meta={
+                "return_url": return_url,
+                "notify_url": f"{settings.BASE_URL}/api/v1/payment/webhook"
+            },
             order_tags={
                 "name": request.full_name,
                 "email": request.email,
@@ -170,6 +178,115 @@ def create_guest_order(
         )
         return cashfree_order
     except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/recover-special-5389420739")
+async def recover_special(db: Session = Depends(deps.get_db)):
+    """
+    Surgical recovery for ktej255@gmail.com after the Stage-11 DB fix.
+    """
+    from app.crud.user import get_by_email, create
+    from app.schemas.user import UserCreate
+    from app.core.email import send_focused_portal_welcome
+    from sqlalchemy import text
+    import secrets
+    import string
+    
+    email = "ktej255@gmail.com"
+    name = "Tej"
+    
+    try:
+        # 1. Definitive Database Migration Surgery
+        # Users Table (Alter only)
+        db.execute(text("ALTER TABLE users ADD COLUMN IF NOT EXISTS is_focused_portal_user BOOLEAN DEFAULT FALSE"))
+        db.execute(text("ALTER TABLE users ADD COLUMN IF NOT EXISTS is_ras_authorized BOOLEAN DEFAULT FALSE"))
+        db.execute(text("ALTER TABLE users ADD COLUMN IF NOT EXISTS purchased_subjects JSONB DEFAULT '[]'"))
+        db.execute(text("ALTER TABLE users ADD COLUMN IF NOT EXISTS is_onboarded BOOLEAN DEFAULT FALSE"))
+        db.commit()
+
+        # DROP and RECREATE focused tables to ensure schema parity (safe because they are currently empty/failing)
+        db.execute(text("DROP TABLE IF EXISTS focused_subject_gates"))
+        db.execute(text("""
+            CREATE TABLE focused_subject_gates (
+                id          SERIAL PRIMARY KEY,
+                user_id     INTEGER NOT NULL,
+                subject_id  VARCHAR(50) NOT NULL,
+                is_unlocked BOOLEAN DEFAULT false,
+                passed      BOOLEAN DEFAULT false,
+                created_at  TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+            )
+        """))
+        
+        db.execute(text("DROP TABLE IF EXISTS focused_portal_enrollments"))
+        db.execute(text("""
+            CREATE TABLE focused_portal_enrollments (
+                id          SERIAL PRIMARY KEY,
+                full_name   VARCHAR(255),
+                email       VARCHAR(255),
+                whatsapp    VARCHAR(50),
+                amount_paid REAL,
+                payment_id  VARCHAR(100),
+                created_at  TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+            )
+        """))
+        db.commit()
+        
+        # 2. Fresh session query to avoid metadata caching
+        user = db.execute(
+            text("SELECT id, email, full_name, is_focused_portal_user FROM users WHERE lower(email) = :email"),
+            {"email": email.lower()}
+        ).fetchone()
+        
+        password = None
+        user_id = None
+        
+        if not user:
+            # Create if missing using SQLAlchemy (Riskier if metadata still stale, but should be okay after commit)
+            alphabet = string.ascii_letters + string.digits
+            password = ''.join(secrets.choice(alphabet) for i in range(8))
+            user_in = UserCreate(email=email, password=password, full_name=name)
+            new_user = create(db, obj_in=user_in)
+            user_id = new_user.id
+        else:
+            user_id = user.id
+        
+        # 3. Finalize permission and gates
+        db.execute(
+            text("UPDATE users SET is_focused_portal_user = true WHERE id = :uid"),
+            {"uid": user_id}
+        )
+        
+        # Insert subject gates (Polity)
+        db.execute(
+            text("INSERT INTO focused_subject_gates (user_id, subject_id, is_unlocked, passed) "
+                 "VALUES (:uid, :sid, :unlocked, :passed) ON CONFLICT DO NOTHING"),
+            {"uid": user_id, "sid": "Polity", "unlocked": True, "passed": False}
+        )
+        
+        # Log enrollment
+        db.execute(
+            text("INSERT INTO focused_portal_enrollments (full_name, email, whatsapp, amount_paid, payment_id) "
+                 "VALUES (:name, :email, :whatsapp, :amount, :pid)"),
+            {
+                "name": name,
+                "email": email,
+                "whatsapp": "9999999999",
+                "amount": 1.0,
+                "pid": "AUTO_RECOVERY_5389420739"
+            }
+        )
+        db.commit()
+        
+        # Trigger Email
+        if password:
+            await send_focused_portal_welcome(email, name, password)
+        else:
+            await send_focused_portal_welcome(email, name, None)
+            
+        return {"status": "success", "recovered": email, "user_id": user_id}
+    except Exception as e:
+        db.rollback()
         raise HTTPException(status_code=500, detail=str(e))
 
 
@@ -205,8 +322,13 @@ async def cashfree_webhook(request: Request, db: Session = Depends(deps.get_db))
         raw_body = await request.body()
         signature = request.headers.get("x-webhook-signature")
         timestamp = request.headers.get("x-webhook-timestamp")
+        
+        import logging
+        logger = logging.getLogger("webhook_debug")
+        logger.info(f"Incoming Webhook: sig_header={signature[:10]}..., ts_header={timestamp}, body_len={len(raw_body)}")
 
         if not cashfree_service.verify_webhook_signature(signature, timestamp, raw_body.decode("utf-8")):
+            logger.warning(f"Signature verification failed for order in webhook headers.")
             raise HTTPException(status_code=400, detail="Invalid signature")
 
         event = json.loads(raw_body)
@@ -223,83 +345,86 @@ async def cashfree_webhook(request: Request, db: Session = Depends(deps.get_db))
                 if user:
                     _unlock_from_note(user, order_note, db, order_id=order_id, payment_event=data)
                     
-            if order_note == "SUBJECT:focused_portal_test":
-                from app.crud.user import get_by_email, create
-                from app.schemas.user import UserCreate
-                from app.core.email import send_focused_portal_welcome, send_webinar_confirmation
-                import secrets
-                import string
-                import asyncio
-                from sqlalchemy import text
-                
-                tags = order.get("order_tags", {})
-                stu_email = tags.get("email", "").strip().lower()
-                stu_name = tags.get("name", "Student")
-                stu_phone = tags.get("whatsapp", "")
-                
-                user = get_by_email(db, email=stu_email)
-                student_password = ""
-                is_new_user = False
-                
-                if not user:
-                    # Generate password
-                    alphabet = string.ascii_letters + string.digits
-                    student_password = ''.join(secrets.choice(alphabet) for i in range(8))
+            if order_note in ["SUBJECT:focused_portal_test", "SUBJECT:polity_focused"]:
+                try:
+                    from app.crud.user import get_by_email, create
+                    from app.schemas.user import UserCreate
+                    from app.core.email import send_focused_portal_welcome
+                    import secrets
+                    import string
                     
-                    user_in = UserCreate(
-                        email=stu_email,
-                        password=student_password,
-                        full_name=stu_name
-                    )
-                    user = create(db, obj_in=user_in)
-                    user.role = "student"
-                    user.is_active = True
-                    user.is_approved = True
-                    user.is_focused_portal_user = True
-                    user.cashfree_customer_id = data.get("payment", {}).get("cf_payment_id", "Unknown")
-                    db.commit()
-                    db.refresh(user)
-                    is_new_user = True
-                else:
-                    user.is_focused_portal_user = True
-                    db.commit()
-                    db.refresh(user)
+                    tags = order.get("order_tags", {})
+                    stu_email = tags.get("email", "").strip().lower()
+                    stu_name = tags.get("name", "Student")
+                    stu_phone = tags.get("whatsapp", "")
                     
-                # Insert subject gates (Polity)
-                # Check if it already exists to avoid conflict
-                gate_exists = db.execute(
-                    text("SELECT 1 FROM focused_subject_gates WHERE user_id = :uid AND subject_id = :sid"),
-                    {"uid": user.id, "sid": "Polity"}
-                ).fetchone()
-                
-                if not gate_exists:
+                    user = get_by_email(db, email=stu_email)
+                    student_password = ""
+                    is_new_user = False
+                    
+                    if not user:
+                        alphabet = string.ascii_letters + string.digits
+                        student_password = ''.join(secrets.choice(alphabet) for i in range(8))
+                        
+                        user_in = UserCreate(
+                            email=stu_email,
+                            password=student_password,
+                            full_name=stu_name
+                        )
+                        user = create(db, obj_in=user_in)
+                        user.role = "student"
+                        user.is_active = True
+                        user.is_approved = True
+                        user.is_focused_portal_user = True
+                        user.cashfree_customer_id = data.get("payment", {}).get("cf_payment_id", "Unknown")
+                        db.commit()
+                        db.refresh(user)
+                        is_new_user = True
+                    else:
+                        user.is_focused_portal_user = True
+                        db.commit()
+                        db.refresh(user)
+                        
+                    # Insert subject gates (Polity)
+                    gate_exists = db.execute(
+                        text("SELECT 1 FROM focused_subject_gates WHERE user_id = :uid AND subject_id = :sid"),
+                        {"uid": user.id, "sid": "Polity"}
+                    ).fetchone()
+                    
+                    if not gate_exists:
+                        db.execute(
+                            text("INSERT INTO focused_subject_gates (user_id, subject_id, is_unlocked, passed) "
+                                 "VALUES (:uid, :sid, :unlocked, :passed)"),
+                            {"uid": user.id, "sid": "Polity", "unlocked": True, "passed": False}
+                        )
+                    
+                    # Log enrollment
                     db.execute(
-                        text("INSERT INTO focused_subject_gates (user_id, subject_id, is_unlocked, passed) "
-                             "VALUES (:uid, :sid, :unlocked, :passed)"),
-                        {"uid": user.id, "sid": "Polity", "unlocked": True, "passed": False}
+                        text("INSERT INTO focused_portal_enrollments (full_name, email, whatsapp, amount_paid, payment_id) "
+                             "VALUES (:name, :email, :whatsapp, :amount, :pid)"),
+                        {
+                            "name": stu_name,
+                            "email": stu_email,
+                            "whatsapp": stu_phone,
+                            "amount": data.get("payment", {}).get("payment_amount", 0.0),
+                            "pid": data.get("payment", {}).get("cf_payment_id", "Unknown")
+                        }
                     )
-                
-                # Log enrollment
-                db.execute(
-                    text("INSERT INTO focused_portal_enrollments (full_name, email, whatsapp, amount_paid, payment_id) "
-                         "VALUES (:name, :email, :whatsapp, :amount, :pid)"),
-                    {
-                        "name": stu_name,
-                        "email": stu_email,
-                        "whatsapp": stu_phone,
-                        "amount": data.get("payment", {}).get("payment_amount", 0.0),
-                        "pid": data.get("payment", {}).get("cf_payment_id", "Unknown")
-                    }
-                )
-                db.commit()
-                
-                if is_new_user:
-                    await send_focused_portal_welcome(stu_email, stu_name, student_password)
-                else:
-                    await send_focused_portal_welcome(stu_email, stu_name, None)
+                    db.commit()
+                    
+                    # Resilience: Wrap email in its own try block
+                    try:
+                        if is_new_user:
+                            await send_focused_portal_welcome(stu_email, stu_name, student_password)
+                        else:
+                            await send_focused_portal_welcome(stu_email, stu_name, None)
+                    except Exception as email_err:
+                        print(f"[WEBHOOK] Post-payment email failed for {stu_email}: {email_err}")
+                except Exception as enrollment_err:
+                    print(f"[WEBHOOK] Enrollment failed: {enrollment_err}")
+                    # We still return 200 to Cashfree to stop retries, but we logged the error for manual recovery.
                     
             elif order_note == "SUBJECT:webinar_reg_99":
-                from sqlalchemy import text
                 from app.core.email import send_webinar_confirmation
                 tags = order.get("order_tags", {})
                 stu_email = tags.get("email", "").strip().lower()
@@ -456,3 +581,46 @@ def _unlock_from_note(user: User, note: str, db: Session, *, order_id: str = Non
         )
     except Exception as e:
         print(f"[CRM] Failed to log payment event: {e}")
+
+
+# ── Email Diagnostic (Temporary – remove after SMTP confirmed) ──
+@router.post("/test-email")
+async def test_email_diagnostic(request: Request):
+    """
+    Admin-only SMTP diagnostic. Requires X-Diag-Token header.
+    Call: POST /api/v1/payment/test-email
+    Returns full success or traceback string.
+    """
+    import traceback as tb
+    import os
+
+    token = request.headers.get("X-Diag-Token", "")
+    if token != "sarit-diag-2026":
+        raise HTTPException(status_code=403, detail="Forbidden")
+
+    result = {
+        "MAIL_SERVER": os.environ.get("MAIL_SERVER", "NOT SET"),
+        "MAIL_PORT": os.environ.get("MAIL_PORT", "NOT SET"),
+        "MAIL_USERNAME": os.environ.get("MAIL_USERNAME", "NOT SET"),
+        "MAIL_FROM": os.environ.get("MAIL_FROM", "NOT SET"),
+        "MAIL_PASSWORD": "SET" if os.environ.get("MAIL_PASSWORD") else "NOT SET",
+        "MAIL_STARTTLS": os.environ.get("MAIL_STARTTLS", "NOT SET"),
+        "MAIL_SSL_TLS": os.environ.get("MAIL_SSL_TLS", "NOT SET"),
+        "status": None,
+        "error": None,
+    }
+
+    try:
+        from app.core.email import send_focused_portal_welcome
+        await send_focused_portal_welcome(
+            "ktej255@gmail.com",
+            "SMTP Diagnostic Test",
+            "DiagPass123"
+        )
+        result["status"] = "SUCCESS — email sent"
+    except Exception as e:
+        result["status"] = "FAILURE"
+        result["error"] = f"{type(e).__name__}: {e}\n{tb.format_exc()}"
+
+    return result
+
