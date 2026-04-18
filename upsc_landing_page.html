@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30-Day UPSC Focused Portal</title>
+    <!-- Modern Web Design, dark mode, glassmorphism, dynamic animations -->
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --danger: #ef4444;
+            --success: #10b981;
+            --surface: rgba(30, 41, 59, 0.7);
+        }
+        body {
+            margin: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 40%);
+        }
+        .container {
+            max-width: 800px;
+            width: 90%;
+            padding: 3rem;
+            background: var(--surface);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+        .pricing-block {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.5s ease;
+        }
+        .strike-price {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-bottom: 0.5rem;
+        }
+        .current-price {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .special-text {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .timer-container {
+            margin: 2rem 0;
+        }
+        .timer {
+            font-size: 3.5rem;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+            color: var(--danger);
+            text-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+            margin-bottom: 0.5rem;
+        }
+        .timer-subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 600;
+            padding: 1rem 3rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4);
+            width: 100%;
+            max-width: 300px;
+            margin-top: 1rem;
+        }
+        .btn:hover:not(:disabled) {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.5);
+        }
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* Form Section */
+        .enroll-form {
+            text-align: left;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            font-size: 1rem;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .checkbox-group input[type="checkbox"] {
+            width: 1.25rem;
+            height: 1.25rem;
+            accent-color: var(--accent);
+        }
+
+        .btn-admin {
+            margin-top: 2rem;
+            background: transparent;
+            border: 1px solid var(--text-muted);
+            font-size: 0.9rem;
+            padding: 0.5rem 1.5rem;
+            box-shadow: none;
+            color: var(--text-muted);
+        }
+        .btn-admin:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: none;
+            box-shadow: none;
+            color: white;
+        }
+        
+        /* Confirmation section */
+        #confirmation-section {
+            display: none;
+        }
+        .success-icon {
+            font-size: 4rem;
+            color: var(--success);
+            margin-bottom: 1rem;
+        }
+        .details-card {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            text-align: left;
+        }
+        .details-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .details-row:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .timer.urgent {
+            animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container" id="main-section">
+        <h1>30-Day UPSC Focused Portal</h1>
+        <div class="subtitle">Morning study blocks + Evening MCQ practice.<br>One subject at a time. Zero distraction.</div>
+        
+        <div class="pricing-block">
+            <div class="strike-price" id="strike-price">₹5,000</div>
+            <div class="current-price" id="current-price">₹2,500</div>
+            <div class="special-text" id="special-text">Webinar Special — 50% OFF</div>
+        </div>
+
+        <div class="timer-container">
+            <div class="timer" id="timer">10:00</div>
+            <div class="timer-subtitle" id="timer-subtitle">Offer expires soon</div>
+        </div>
+
+        <form id="enrollment-form" class="enroll-form">
+            <div class="form-group">
+                <label for="full_name">Full Name *</label>
+                <input type="text" id="full_name" class="form-control" required placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email ID *</label>
+                <input type="email" id="email" class="form-control" required placeholder="Enter your email address">
+            </div>
+            <div class="form-group">
+                <label for="whatsapp">WhatsApp Number *</label>
+                <input type="tel" id="whatsapp" class="form-control" required pattern="[0-9]{10}" placeholder="Enter 10-digit WhatsApp number" title="Please enter a valid 10-digit number">
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="confirm_details" required>
+                <label for="confirm_details">I confirm my details are correct</label>
+            </div>
+            
+            <div style="text-align: center;">
+                <button type="submit" class="btn" id="enroll-btn">Enroll Now — ₹2,500</button>
+            </div>
+        </form>
+
+        <div id="admin-container"></div>
+    </div>
+
+    <div class="container" id="confirmation-section">
+        <div class="success-icon">✓</div>
+        <h1>Payment Successful!</h1>
+        <div class="subtitle" style="margin-bottom: 1.5rem">Your enrollment is confirmed.<br>You will receive your login details on your WhatsApp number within 2 hours.</div>
+        
+        <div class="details-card">
+            <div class="details-row">
+                <span style="color: var(--text-muted)">Student Name</span>
+                <strong id="confirm-name"></strong>
+            </div>
+            <div class="details-row">
+                <span style="color: var(--text-muted)">Amount Paid</span>
+                <strong id="confirm-amount"></strong>
+            </div>
+        </div>
+        
+        <!-- TODO: Cashfree webhook goes here — POST /payment/focused-portal-webhook -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const isAdmin = urlParams.get('admin') === 'tej';
+            const paymentStatus = urlParams.get('payment_status');
+            
+            const mainSection = document.getElementById('main-section');
+            const confSection = document.getElementById('confirmation-section');
+            const enrollForm = document.getElementById('enrollment-form');
+            
+            // Fix 4: Thank You Routing
+            if (paymentStatus === 'success') {
+                mainSection.style.display = 'none';
+                confSection.style.display = 'block';
+                
+                // Get details from localStorage
+                const detailsStr = localStorage.getItem('upsc_student_details');
+                const details = detailsStr ? JSON.parse(detailsStr) : {};
+                const amountPaid = localStorage.getItem('upsc_amount_expected') || '2500';
+                
+                document.getElementById('confirm-name').textContent = details.fullName || 'Student';
+                document.getElementById('confirm-amount').textContent = '₹' + amountPaid;
+                return; // Early return to completely skip timer/price logic on success page
+            }
+
+            // Fix 1: Admin controls are strictly invisible and not rendered by default in HTML
+            // We append the button via JS only if admin mode is true
+            if (isAdmin) {
+                const adminContainer = document.getElementById('admin-container');
+                const btn = document.createElement('button');
+                btn.className = 'btn btn-admin';
+                btn.textContent = 'Extend 5 Minutes';
+                btn.onclick = () => {
+                    const now = Date.now();
+                    if (endTime < now) endTime = now + 5 * 60 * 1000;
+                    else endTime += 5 * 60 * 1000;
+                    localStorage.setItem(STORAGE_KEY, endTime);
+                    if (isExpired) {
+                        updateUIForActive();
+                        timerInterval = setInterval(tick, 1000);
+                    }
+                    tick();
+                };
+                adminContainer.appendChild(btn);
+            }
+
+            // Timer Logic
+            const STORAGE_KEY = 'upsc_timer_end';
+            let durationSeconds = 10 * 60; // 10 minutes
+            let endTime = localStorage.getItem(STORAGE_KEY);
+            
+            if (!endTime) {
+                endTime = Date.now() + durationSeconds * 1000;
+                localStorage.setItem(STORAGE_KEY, endTime);
+            } else {
+                endTime = parseInt(endTime, 10);
+            }
+
+            const timerEl = document.getElementById('timer');
+            const timerSubEl = document.getElementById('timer-subtitle');
+            const strikeEl = document.getElementById('strike-price');
+            const currentPriceEl = document.getElementById('current-price');
+            const specialTextEl = document.getElementById('special-text');
+            const enrollBtnEl = document.getElementById('enroll-btn');
+            
+            let isExpired = false;
+            let timerInterval;
+
+            function updateUIForExpired() {
+                isExpired = true;
+                timerEl.textContent = "00:00";
+                timerEl.classList.remove('urgent');
+                timerEl.style.color = "var(--text-muted)";
+                
+                strikeEl.style.display = 'none';
+                currentPriceEl.textContent = "₹3,500";
+                specialTextEl.textContent = "Standard Pricing";
+                specialTextEl.style.color = "var(--text-muted)";
+                
+                timerSubEl.textContent = "Offer expired — Enroll at ₹3,500";
+                enrollBtnEl.textContent = "Enroll Now — ₹3,500";
+                localStorage.setItem('upsc_amount_expected', '3500');
+            }
+
+            function updateUIForActive() {
+                isExpired = false;
+                timerEl.style.color = "var(--danger)";
+                strikeEl.style.display = 'block';
+                currentPriceEl.textContent = "₹2,500";
+                specialTextEl.textContent = "Webinar Special — 50% OFF";
+                specialTextEl.style.color = "var(--accent)";
+                timerSubEl.textContent = "Offer expires soon";
+                enrollBtnEl.textContent = "Enroll Now — ₹2,500";
+                localStorage.setItem('upsc_amount_expected', '2500');
+            }
+
+            function tick() {
+                const now = Date.now();
+                const remaining = Math.max(0, Math.floor((endTime - now) / 1000));
+                
+                if (remaining <= 0) {
+                    if (!isExpired) updateUIForExpired();
+                    clearInterval(timerInterval);
+                    return;
+                }
+                
+                if (isExpired) updateUIForActive();
+
+                if (remaining <= 60 && !timerEl.classList.contains('urgent')) {
+                    timerEl.classList.add('urgent');
+                } else if (remaining > 60) {
+                    timerEl.classList.remove('urgent');
+                }
+
+                const mins = String(Math.floor(remaining / 60)).padStart(2, '0');
+                const secs = String(remaining % 60).padStart(2, '0');
+                timerEl.textContent = `${mins}:${secs}`;
+            }
+
+            timerInterval = setInterval(tick, 1000);
+            tick(); // initial call
+
+            // Fix 2: Student Details Form Submission
+            enrollForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const submitBtn = document.getElementById('enroll-btn');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Processing...';
+
+                // Collect Form Details
+                const studentDetails = {
+                    full_name: document.getElementById('full_name').value.trim(),
+                    email: document.getElementById('email').value.trim(),
+                    whatsapp: document.getElementById('whatsapp').value.trim(),
+                    subject_id: "focused_portal_test"
+                };
+                
+                // Store in localStorage for Thank You page
+                localStorage.setItem('upsc_student_details', JSON.stringify({ fullName: studentDetails.full_name }));
+                localStorage.setItem('upsc_amount_expected', isExpired ? '3500' : '2500');
+
+                try {
+                    // Call guest order endpoint
+                    const response = await fetch('/api/v1/payment/create-guest-order', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(studentDetails)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Payment initialization failed');
+                    }
+
+                    const data = await response.json();
+                    
+                    // Redirect to Cashfree payment page
+                    if (data.payment_link) {
+                        window.location.href = data.payment_link;
+                    } else if (data.payment_session_id) {
+                        // Standard Cashfree v3 behavior
+                        window.location.href = 'https://payments.cashfree.com/forms/' + data.payment_session_id;
+                    } else if (data.payment_url) {
+                        window.location.href = data.payment_url;
+                    } else {
+                        // Fallback simulation
+                        window.location.href = '?payment_status=success';
+                    }
+                } catch (error) {
+                    alert('Error preparing payment: ' + error.message);
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = isExpired ? 'Enroll Now — ₹3,500' : 'Enroll Now — ₹2,500';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

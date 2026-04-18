@@ -30,3 +30,34 @@ async def send_email(
 
     fm = FastMail(conf)
     await fm.send_message(message, template_name=template_name)
+
+
+async def send_focused_portal_welcome(email_to: str, full_name: str, password: str = None):
+    import os
+    frontend_url = os.getenv("FRONTEND_URL", "https://eduecosystem-frontend.vercel.app")
+    
+    if password:
+        message_text = "Your 30-day access starts today. Login and begin your first study session."
+        pwd_text = f"<p><strong>Password:</strong> {password}</p>"
+    else:
+        message_text = "Your existing account has been upgraded. Login with your existing password."
+        pwd_text = ""
+
+    html_content = f"""
+    <h2>Your 30-Day UPSC Focused Portal Access is Ready</h2>
+    <p>Hi {full_name},</p>
+    <p>{message_text}</p>
+    <p><strong>Login URL:</strong> <a href="{frontend_url}/student/focused">{frontend_url}/student/focused</a></p>
+    <p><strong>Email:</strong> {email_to}</p>
+    {pwd_text}
+    """
+    
+    message = MessageSchema(
+        subject="Your 30-Day UPSC Focused Portal Access is Ready",
+        recipients=[email_to],
+        body=html_content,
+        subtype=MessageType.html
+    )
+    
+    fm = FastMail(conf)
+    await fm.send_message(message)

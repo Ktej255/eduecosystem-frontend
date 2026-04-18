@@ -6,7 +6,7 @@ from app.api import deps
 from app.services.cashfree_service import cashfree_service
 from app.models.user import User
 from app.models.meditation import MeditationProgress, MEDITATION_LEVELS
-from app.models.graphotherapy import GraphotherapyProgress, GRAPHOTHERAPY_LEVELS
+from app.models.graphotherapy import GraphotherapyLevelPurchase, GraphotherapyProgress, GRAPHOTHERAPY_LEVELS
 import os
 import json
 
@@ -26,21 +26,30 @@ SUBJECT_PRODUCTS = {
     "full_upsc": {"name": "Full UPSC Bundle (All Subjects)", "price": 2499.0},
     "geography_polity": {"name": "Geography + Polity Bundle", "price": 449.0},
     "geography_history": {"name": "Geography + History Bundle", "price": 748.0},
+    "focused_portal_test": {"name": "30-Day UPSC Focused Portal", "price": 1.0},
     # Meditation
     "meditation_l2": {"name": "Meditation Level 2", "price": 1499.0},
     "meditation_l3": {"name": "Meditation Level 3", "price": 1999.0},
     "meditation_l4": {"name": "Meditation Level 4", "price": 2499.0},
     "meditation_bundle": {"name": "Complete Meditation Journey", "price": 5999.0},
     # Graphotherapy
-    "grapho_l2": {"name": "Graphotherapy Level 2", "price": 5000.0},
-    "grapho_l3": {"name": "Graphotherapy Level 3", "price": 5000.0},
-    "grapho_l4": {"name": "Graphotherapy Level 4", "price": 5000.0},
+    "grapho_l1": {"name": "Graphotherapy Level 1", "price": float(GRAPHOTHERAPY_LEVELS[1]["price"])},
+    "grapho_l2": {"name": "Graphotherapy Level 2", "price": float(GRAPHOTHERAPY_LEVELS[2]["price"])},
+    "grapho_l3": {"name": "Graphotherapy Level 3", "price": float(GRAPHOTHERAPY_LEVELS[3]["price"])},
+    "grapho_l4": {"name": "Graphotherapy Level 4", "price": float(GRAPHOTHERAPY_LEVELS[4]["price"])},
 }
 
 
 class OrderRequest(BaseModel):
     tier: str = None  # Legacy
     subject_id: str = None  # Generic product ID
+
+
+class GuestOrderRequest(BaseModel):
+    full_name: str
+    email: str
+    whatsapp: str
+    subject_id: str
 
 
 class SubjectAccessResponse(BaseModel):
@@ -114,6 +123,55 @@ def create_order(
         raise HTTPException(status_code=500, detail=str(e))
 
 
+@router.post("/create-guest-order")
+def create_guest_order(
+    request: GuestOrderRequest,
+    db: Session = Depends(deps.get_db),
+) -> Any:
+    subject_id = request.subject_id
+
+    if subject_id and subject_id in SUBJECT_PRODUCTS:
+        product = SUBJECT_PRODUCTS[subject_id]
+        amount = product["price"]
+        
+        # Determine prefix for webhook handling
+        if "meditation" in subject_id:
+            note = f"MEDITATION:{subject_id}"
+        elif "grapho" in subject_id:
+            note = f"GRAPHO:{subject_id}"
+        else:
+            note = f"SUBJECT:{subject_id}"
+    else:
+        raise HTTPException(status_code=400, detail="Invalid product.")
+
+    try:
+        customer_details = {
+            "customer_id": f"guest_{request.whatsapp}",
+            "customer_email": request.email,
+            "customer_phone": request.whatsapp,
+            "customer_name": request.full_name
+        }
+
+        # Redirect URL for Cashfree
+        return_url = f"{FRONTEND_URL}/student/payment/status?order_id={{order_id}}"
+
+        cashfree_order = cashfree_service.create_order(
+            order_amount=amount,
+            order_currency="INR",
+            customer_details=customer_details,
+            order_note=note,
+            order_meta={"return_url": return_url},
+            order_tags={
+                "name": request.full_name,
+                "email": request.email,
+                "whatsapp": request.whatsapp
+            }
+        )
+        return cashfree_order
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 @router.get("/verify/{order_id}")
 def verify_payment(
     order_id: str,
@@ -131,7 +189,7 @@ def verify_payment(
 
         if order_status == "PAID":
             # Proactively unlock even if webhook is delayed
-            _unlock_from_note(current_user, order_note, db)
+            _unlock_from_note(current_user, order_note, db, order_id=order_id, payment_event=cf_order)
             return {"status": "success", "order_status": order_status}
         
         return {"status": "pending", "order_status": order_status}
@@ -162,13 +220,166 @@ async def cashfree_webhook(request: Request, db: Session = Depends(deps.get_db))
                 user_id = int(parts[1])
                 user = db.query(User).filter(User.id == user_id).first()
                 if user:
-                    _unlock_from_note(user, order_note, db)
+                    _unlock_from_note(user, order_note, db, order_id=order_id, payment_event=data)
+                    
+            if order_note == "SUBJECT:focused_portal_test":
+                from app.crud.user import get_by_email, create
+                from app.schemas.user import UserCreate
+                from app.core.email import send_focused_portal_welcome
+                import secrets
+                import string
+                import asyncio
+                from sqlalchemy import text
+                
+                tags = order.get("order_tags", {})
+                stu_email = tags.get("email", "").strip().lower()
+                stu_name = tags.get("name", "Student")
+                stu_phone = tags.get("whatsapp", "")
+                
+                user = get_by_email(db, email=stu_email)
+                student_password = ""
+                is_new_user = False
+                
+                if not user:
+                    # Generate password
+                    alphabet = string.ascii_letters + string.digits
+                    student_password = ''.join(secrets.choice(alphabet) for i in range(8))
+                    
+                    user_in = UserCreate(
+                        email=stu_email,
+                        password=student_password,
+                        full_name=stu_name
+                    )
+                    user = create(db, obj_in=user_in)
+                    user.role = "student"
+                    user.is_active = True
+                    user.is_approved = True
+                    user.is_focused_portal_user = True
+                    user.cashfree_customer_id = data.get("payment", {}).get("cf_payment_id", "Unknown")
+                    db.commit()
+                    db.refresh(user)
+                    is_new_user = True
+                else:
+                    user.is_focused_portal_user = True
+                    db.commit()
+                    db.refresh(user)
+                    
+                # Insert subject gates (Polity)
+                # Check if it already exists to avoid conflict
+                gate_exists = db.execute(
+                    text("SELECT 1 FROM focused_subject_gates WHERE user_id = :uid AND subject_id = :sid"),
+                    {"uid": user.id, "sid": "Polity"}
+                ).fetchone()
+                
+                if not gate_exists:
+                    db.execute(
+                        text("INSERT INTO focused_subject_gates (user_id, subject_id, is_unlocked, passed) "
+                             "VALUES (:uid, :sid, :unlocked, :passed)"),
+                        {"uid": user.id, "sid": "Polity", "unlocked": True, "passed": False}
+                    )
+                
+                # Log enrollment
+                db.execute(
+                    text("INSERT INTO focused_portal_enrollments (full_name, email, whatsapp, amount_paid, payment_id) "
+                         "VALUES (:name, :email, :whatsapp, :amount, :pid)"),
+                    {
+                        "name": stu_name,
+                        "email": stu_email,
+                        "whatsapp": stu_phone,
+                        "amount": data.get("payment", {}).get("payment_amount", 0.0),
+                        "pid": data.get("payment", {}).get("cf_payment_id", "Unknown")
+                    }
+                )
+                db.commit()
+                
+                if is_new_user:
+                    await send_focused_portal_welcome(stu_email, stu_name, student_password)
+                else:
+                    await send_focused_portal_welcome(stu_email, stu_name, None)
+                
         return {"status": "success"}
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
 
-def _unlock_from_note(user: User, note: str, db: Session):
+def _record_graphotherapy_purchase(
+    user: User,
+    prod_id: str,
+    db: Session,
+    *,
+    order_id: str = None,
+    payment_event: dict = None,
+) -> None:
+    payment_event = payment_event or {}
+    order_payload = payment_event.get("order") or {}
+    payment_payload = payment_event.get("payment") or {}
+    level_token = prod_id.rsplit("_l", 1)[-1]
+    if not level_token.isdigit():
+        return
+
+    level = int(level_token)
+    payment_id = (
+        payment_event.get("cf_payment_id")
+        or payment_event.get("payment_id")
+        or payment_payload.get("cf_payment_id")
+        or payment_payload.get("payment_id")
+        or payment_event.get("order_id")
+        or order_payload.get("order_id")
+        or order_id
+        or f"{prod_id}_{user.id}"
+    )
+    existing = (
+        db.query(GraphotherapyLevelPurchase)
+        .filter(GraphotherapyLevelPurchase.payment_id == str(payment_id))
+        .first()
+    )
+    if existing:
+        return
+
+    amount_paid = (
+        payment_event.get("order_amount")
+        or payment_event.get("payment_amount")
+        or order_payload.get("order_amount")
+        or payment_payload.get("payment_amount")
+        or SUBJECT_PRODUCTS.get(prod_id, {}).get("price")
+        or GRAPHOTHERAPY_LEVELS.get(level, {}).get("price")
+        or 0
+    )
+    db.add(
+        GraphotherapyLevelPurchase(
+            user_id=user.id,
+            tenant_id=getattr(user, "tenant_id", None) or 1,
+            level=level,
+            amount_paid=float(amount_paid),
+            currency=(
+                payment_event.get("order_currency")
+                or payment_event.get("payment_currency")
+                or order_payload.get("order_currency")
+                or payment_payload.get("payment_currency")
+                or "INR"
+            ),
+            payment_gateway="cashfree",
+            payment_id=str(payment_id),
+            order_id=order_id or payment_event.get("order_id") or order_payload.get("order_id"),
+            payment_status=(
+                payment_event.get("order_status")
+                or payment_event.get("payment_status")
+                or order_payload.get("order_status")
+                or payment_payload.get("payment_status")
+                or "paid"
+            ).lower(),
+            payment_method=(
+                payment_event.get("payment_group")
+                or payment_event.get("payment_method")
+                or payment_payload.get("payment_group")
+                or payment_payload.get("payment_method")
+            ),
+            notes=f"Unlocked from product {prod_id}",
+        )
+    )
+
+
+def _unlock_from_note(user: User, note: str, db: Session, *, order_id: str = None, payment_event: dict = None):
     if note.startswith("SUBJECT:"):
         subject_id = note.replace("SUBJECT:", "").strip()
         existing = list(user.purchased_subjects or [])
@@ -198,11 +409,24 @@ def _unlock_from_note(user: User, note: str, db: Session):
             progress = GraphotherapyProgress(user_id=user.id, current_level=1)
             db.add(progress)
             
-        if "l2" in prod_id: progress.current_level = max(progress.current_level, 2)
+        if "l1" in prod_id: progress.current_level = max(progress.current_level, 1)
+        elif "l2" in prod_id: progress.current_level = max(progress.current_level, 2)
         elif "l3" in prod_id: progress.current_level = max(progress.current_level, 3)
         elif "l4" in prod_id: progress.current_level = max(progress.current_level, 4)
+        _record_graphotherapy_purchase(user, prod_id, db, order_id=order_id, payment_event=payment_event)
 
     elif note == "TIER:premium":
         user.is_premium = True
 
     db.commit()
+
+    # ── CRM Automation Bridge: Auto-log payment & convert lead ──
+    try:
+        from app.services.crm_events import on_payment_success
+        on_payment_success(
+            user, note, db,
+            order_id=order_id,
+            payment_event=payment_event,
+        )
+    except Exception as e:
+        print(f"[CRM] Failed to log payment event: {e}")

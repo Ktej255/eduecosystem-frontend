@@ -40,6 +40,9 @@ class User(Base):
     # Graphotherapy Separation
     graphotherapy_enrollment_date = Column(DateTime, nullable=True)
     is_graphotherapy_exclusive = Column(Boolean, default=False)  # If True, hides UPSC dashboard
+    
+    # Focused Portal
+    is_focused_portal_user = Column(Boolean, default=False, index=True)
 
     # Organization (for Enterprise SSO)
     organization_id = Column(
@@ -205,7 +208,8 @@ class User(Base):
     organization = relationship("Organization", back_populates="users")
 
     # Lead Management
-    leads = relationship("Lead", back_populates="assigned_to")
+    leads = relationship("Lead", back_populates="assigned_to", foreign_keys="[Lead.assigned_to_id]")
+    coached_leads = relationship("Lead", back_populates="coach", foreign_keys="[Lead.coach_id]")
 
     # Mobile CRM - Field Activities
     field_activities = relationship("FieldActivity", back_populates="user", cascade="all, delete-orphan")
@@ -226,6 +230,11 @@ class User(Base):
     # Revision Portal Preferences
     revision_level = Column(String, nullable=True)  # beginner, intermediate, advanced
     revision_exam_id = Column(String, nullable=True)  # e.g., 'upsc-cse'
+
+    # Onboarding & Habit Status
+    is_onboarded = Column(Boolean, default=False)
+    onboarding_score = Column(JSON, nullable=True)
+    last_habit_day_seen = Column(Integer, default=0) # For 7-Day Habit Lock persistence
 
     # Push Notifications
     push_subscription = Column(JSON, nullable=True)

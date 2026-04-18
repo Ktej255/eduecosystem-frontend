@@ -32,7 +32,8 @@ class CashfreeService:
         order_amount: float, 
         customer_details: dict,
         order_note: str = "",
-        order_meta: Optional[dict] = None
+        order_meta: Optional[dict] = None,
+        order_tags: Optional[dict] = None
     ) -> Dict[str, Any]:
         """
         Creates a new order on Cashfree.
@@ -54,6 +55,8 @@ class CashfreeService:
 
         if order_meta:
             payload["order_meta"] = order_meta
+        if order_tags:
+            payload["order_tags"] = order_tags
 
         try:
             response = requests.post(url, json=payload, headers=self._get_headers(), timeout=15)
