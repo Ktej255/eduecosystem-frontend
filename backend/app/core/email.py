@@ -61,3 +61,24 @@ async def send_focused_portal_welcome(email_to: str, full_name: str, password: s
     
     fm = FastMail(conf)
     await fm.send_message(message)
+
+
+async def send_webinar_confirmation(email_to: str, full_name: str):
+    import os
+    html_content = f"""
+    <h2>You're Registered! UPSC Focused Portal Webinar</h2>
+    <p>Hi {full_name},</p>
+    <p>Your registration is confirmed.</p>
+    <p><strong>Date:</strong> Tomorrow at 6:00 PM</p>
+    <p><strong>Google Meet Link:</strong> <a href="https://meet.google.com/esi-kkyb-vws">https://meet.google.com/esi-kkyb-vws</a></p>
+    <p>See you there!</p>
+    <p>— Tej, Sarit Classes</p>
+    """
+    message = MessageSchema(
+        subject="You're Registered — UPSC Webinar at 6 PM Tomorrow",
+        recipients=[email_to],
+        body=html_content,
+        subtype=MessageType.html
+    )
+    fm = FastMail(conf)
+    await fm.send_message(message)

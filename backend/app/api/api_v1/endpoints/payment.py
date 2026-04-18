@@ -27,6 +27,7 @@ SUBJECT_PRODUCTS = {
     "geography_polity": {"name": "Geography + Polity Bundle", "price": 449.0},
     "geography_history": {"name": "Geography + History Bundle", "price": 748.0},
     "focused_portal_test": {"name": "30-Day UPSC Focused Portal", "price": 1.0},
+    "webinar_reg_99": {"name": "UPSC Focused Portal Webinar — Registration", "price": 99.0},
     # Meditation
     "meditation_l2": {"name": "Meditation Level 2", "price": 1499.0},
     "meditation_l3": {"name": "Meditation Level 3", "price": 1999.0},
@@ -225,7 +226,7 @@ async def cashfree_webhook(request: Request, db: Session = Depends(deps.get_db))
             if order_note == "SUBJECT:focused_portal_test":
                 from app.crud.user import get_by_email, create
                 from app.schemas.user import UserCreate
-                from app.core.email import send_focused_portal_welcome
+                from app.core.email import send_focused_portal_welcome, send_webinar_confirmation
                 import secrets
                 import string
                 import asyncio
@@ -296,6 +297,31 @@ async def cashfree_webhook(request: Request, db: Session = Depends(deps.get_db))
                     await send_focused_portal_welcome(stu_email, stu_name, student_password)
                 else:
                     await send_focused_portal_welcome(stu_email, stu_name, None)
+                    
+            elif order_note == "SUBJECT:webinar_reg_99":
+                from sqlalchemy import text
+                from app.core.email import send_webinar_confirmation
+                tags = order.get("order_tags", {})
+                stu_email = tags.get("email", "").strip().lower()
+                stu_name = tags.get("name", "Student")
+                stu_phone = tags.get("whatsapp", "")
+
+                # Log registration
+                db.execute(text(
+                    "INSERT INTO webinar_registrations (full_name, email, whatsapp, amount_paid, payment_id) "
+                    "VALUES (:name, :email, :whatsapp, :amount, :pid)"
+                ), {
+                    "name": stu_name,
+                    "email": stu_email,
+                    "whatsapp": stu_phone,
+                    "amount": data.get("payment", {}).get("payment_amount", 0.0),
+                    "pid": data.get("payment", {}).get("cf_payment_id", "Unknown")
+                })
+                db.commit()
+
+                # Send confirmation email
+                await send_webinar_confirmation(stu_email, stu_name)
+                
                 
         return {"status": "success"}
     except Exception as e:
