@@ -1,5 +1,6 @@
 import os
 import secrets
+import sqlite3
 from pathlib import Path
 from pydantic import ConfigDict, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -11,7 +12,7 @@ class Settings(BaseSettings):
         "ENVIRONMENT", "development"
     )  # development, staging, production
     LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO")
-    DEBUG: bool = os.getenv("DEBUG", "false").lower() == "true"
+    DEBUG: bool = False
 
     PROJECT_NAME: str = "Holistic Learning Ecosystem"
     BASE_URL: str = os.getenv("BASE_URL", "https://a7z4kjysmp.us-east-1.awsapprunner.com")
@@ -26,36 +27,55 @@ class Settings(BaseSettings):
     FIRST_SUPERUSER_PASSWORD: str = os.getenv("FIRST_SUPERUSER_PASSWORD", "CHANGE_ME_IN_PRODUCTION")
 
     # Phase 21: Environment & Safety Flags
-    ENVIRONMENT: str = os.getenv("ENVIRONMENT", "development")
-    DEV_MODE_ENABLED: bool = (ENVIRONMENT == "development")
-    
-    # Extra safety: Force disable DEV_MODE in production regardless of other settings
-    if ENVIRONMENT == "production":
-        DEV_MODE_ENABLED = False
+    DEV_MODE_ENABLED: bool = (os.getenv("ENVIRONMENT", "development") == "development")
 
     # Database URL - use PostgreSQL in production (set via env var), SQLite for development
+    def _is_sqlite_usable(self, db_path: Path) -> bool:
+        try:
+            if not db_path.exists():
+                return False
+            conn = sqlite3.connect(str(db_path), timeout=2)
+            cur = conn.cursor()
+            cur.execute("SELECT 1")
+            cur.fetchone()
+            cur.execute("SELECT name FROM sqlite_master LIMIT 1")
+            cur.fetchone()
+            conn.close()
+            return True
+        except Exception:
+            return False
+
     @property
     def DATABASE_URL(self) -> str:
         url = os.getenv("DATABASE_URL")
         if url:
             return url
-        # For SQLite, ensure absolute path to backend/eduecosystem_v2.db
         base_dir = Path(__file__).resolve().parent.parent.parent
-        db_path = base_dir / "eduecosystem_v2.db"
-        return f"sqlite:///{db_path}"
+        primary_db = base_dir / "eduecosystem_v2.db"
+        fallback_dbs = [
+            base_dir / "eduecosystem_v2_runtimefix.db",
+            base_dir / "FINAL_STG11.db",
+        ]
+
+        if self._is_sqlite_usable(primary_db):
+            return f"sqlite:///{primary_db}"
+
+        for fallback_db in fallback_dbs:
+            if self._is_sqlite_usable(fallback_db):
+                return f"sqlite:///{fallback_db}"
+
+        return "sqlite+pysqlite:///:memory:"
 
     MONGO_URL: str = os.getenv("MONGO_URL", "mongodb://127.0.0.1:27017")
 
     # Security - SECRET_KEY must be set in production
     SECRET_KEY: str = os.getenv(
         "SECRET_KEY",
-        # Generate a random key for development, but require it in production
         secrets.token_urlsafe(32)
         if os.getenv("ENVIRONMENT", "development") == "development"
-        else "",  # Empty string will trigger validation error in production
+        else "",
     )
-    # SESSION: Extended to 7 days for better UX during study sessions
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "10080"))  # 7 days default
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "10080"))  # 7 days
 
     @field_validator("SECRET_KEY")
     @classmethod
@@ -81,6 +101,21 @@ class Settings(BaseSettings):
         """Allow any password in production to unblock deployment."""
         return v
 
+    @field_validator("DEBUG", mode="before")
+    @classmethod
+    def validate_debug_flag(cls, v):
+        """Accept common environment-style debug values instead of only strict booleans."""
+        if isinstance(v, bool):
+            return v
+        if v is None:
+            return False
+        normalized = str(v).strip().lower()
+        if normalized in {"1", "true", "yes", "on", "debug", "development", "dev"}:
+            return True
+        if normalized in {"0", "false", "no", "off", "release", "production", "prod"}:
+            return False
+        return False
+
     # CORS Configuration - Parse from environment for production flexibility
     @property
     def BACKEND_CORS_ORIGINS(self) -> list[str]:
@@ -96,19 +131,21 @@ class Settings(BaseSettings):
     MAIL_USERNAME: str = os.getenv("MAIL_USERNAME", "your_email@gmail.com")
     MAIL_PASSWORD: str = os.getenv("MAIL_PASSWORD", "your_app_password")
     MAIL_FROM: str = os.getenv("MAIL_FROM", "your_email@gmail.com")
-    MAIL_PORT: int = int(os.getenv("MAIL_PORT", 587))
+    MAIL_PORT: int = int(os.getenv("MAIL_PORT", "587"))
     MAIL_SERVER: str = os.getenv("MAIL_SERVER", "smtp.gmail.com")
-    MAIL_FROM_NAME: str = os.getenv("MAIL_FROM_NAME", "Holistic Learning Ecosystem")
-    MAIL_STARTTLS: bool = True
-    MAIL_SSL_TLS: bool = False
+    MAIL_FROM_NAME: str = os.getenv("MAIL_FROM_NAME", "Sarit Classes")
+    # Read STARTTLS/SSL from env — Secret Manager stores them as "True"/"False" strings
+    MAIL_STARTTLS: bool = os.getenv("MAIL_STARTTLS", "True").strip().lower() in ("true", "1", "yes")
+    MAIL_SSL_TLS: bool = os.getenv("MAIL_SSL_TLS", "False").strip().lower() in ("true", "1", "yes")
     USE_CREDENTIALS: bool = True
     VALIDATE_CERTS: bool = True
-    MAIL_SUPPRESS_SEND: bool = os.getenv("MAIL_SUPPRESS_SEND", "1") == "1"  # Default to True for dev
+    # Default to NOT suppressing — emails must actually send in production
+    MAIL_SUPPRESS_SEND: bool = os.getenv("MAIL_SUPPRESS_SEND", "0") == "1"
 
     # Redis Configuration
     REDIS_HOST: str = os.getenv("REDIS_HOST", "localhost")
-    REDIS_PORT: int = int(os.getenv("REDIS_PORT", 6379))
-    REDIS_DB: int = int(os.getenv("REDIS_DB", 0))
+    REDIS_PORT: int = int(os.getenv("REDIS_PORT", "6379"))
+    REDIS_DB: int = int(os.getenv("REDIS_DB", "0"))
     REDIS_PASSWORD: str = os.getenv("REDIS_PASSWORD", "")
 
     @field_validator("REDIS_PASSWORD")
@@ -118,7 +155,6 @@ class Settings(BaseSettings):
         environment = info.data.get("ENVIRONMENT", "development")
         if environment == "production" and not v:
             import logging
-
             logger = logging.getLogger(__name__)
             logger.warning(
                 "REDIS_PASSWORD not set in production. "
@@ -145,6 +181,13 @@ class Settings(BaseSettings):
     CASHFREE_SECRET_KEY: str = os.getenv("CASHFREE_SECRET_KEY", "secret_key_placeholder")
     CASHFREE_WEBHOOK_SECRET: str = os.getenv("CASHFREE_WEBHOOK_SECRET", "webhook_placeholder")
 
+    @field_validator("CASHFREE_WEBHOOK_SECRET", mode="before")
+    @classmethod
+    def strip_webhook_secret(cls, v):
+        if isinstance(v, str):
+            return v.strip().strip('\r').strip('\n').strip('\ufeff')
+        return v
+
     # File Storage Configuration
     STORAGE_BACKEND: str = os.getenv("STORAGE_BACKEND", "local")  # Options: local, s3
     AWS_ACCESS_KEY_ID: str = os.getenv("AWS_ACCESS_KEY_ID", "")
@@ -162,19 +205,11 @@ class Settings(BaseSettings):
     APP_VERSION: str = os.getenv("APP_VERSION", "2.0.0")
 
     # AI Configuration
-    # Free Tier Gemini Key (15 RPM)
     FREE_GEMINI_API_KEY: str = os.getenv("FREE_GEMINI_API_KEY", os.getenv("GEMINI_API_KEY", ""))
-    
-    # Paid/Premium Gemini Key (Higher limits)
     PAID_GEMINI_API_KEY: str = os.getenv("PAID_GEMINI_API_KEY", "")
-    
-    # Fallback Keys (OpenRouter)
     GEMMA_API_KEY: str = os.getenv("GEMMA_API_KEY", "")
     LLAMA_API_KEY: str = os.getenv("LLAMA_API_KEY", "")
-    
     OPENROUTER_BASE_URL: str = "https://openrouter.ai/api/v1"
-    
-    # Default AI model to use
     DEFAULT_AI_MODEL: str = os.getenv("DEFAULT_AI_MODEL", "google/gemini-3-flash-preview")
 
     model_config = SettingsConfigDict(

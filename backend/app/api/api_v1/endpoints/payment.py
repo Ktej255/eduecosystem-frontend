@@ -325,6 +325,8 @@ async def cashfree_webhook(request: Request, db: Session = Depends(deps.get_db))
         
         import logging
         logger = logging.getLogger("webhook_debug")
+        logger.info(f"Webhook secret length: {len(settings.CASHFREE_WEBHOOK_SECRET)}")
+        logger.info(f"Webhook secret starts with: {settings.CASHFREE_WEBHOOK_SECRET[:3]}")
         logger.info(f"Incoming Webhook: sig_header={signature[:10]}..., ts_header={timestamp}, body_len={len(raw_body)}")
 
         if not cashfree_service.verify_webhook_signature(signature, timestamp, raw_body.decode("utf-8")):
@@ -581,46 +583,3 @@ def _unlock_from_note(user: User, note: str, db: Session, *, order_id: str = Non
         )
     except Exception as e:
         print(f"[CRM] Failed to log payment event: {e}")
-
-
-# ── Email Diagnostic (Temporary – remove after SMTP confirmed) ──
-@router.post("/test-email")
-async def test_email_diagnostic(request: Request):
-    """
-    Admin-only SMTP diagnostic. Requires X-Diag-Token header.
-    Call: POST /api/v1/payment/test-email
-    Returns full success or traceback string.
-    """
-    import traceback as tb
-    import os
-
-    token = request.headers.get("X-Diag-Token", "")
-    if token != "sarit-diag-2026":
-        raise HTTPException(status_code=403, detail="Forbidden")
-
-    result = {
-        "MAIL_SERVER": os.environ.get("MAIL_SERVER", "NOT SET"),
-        "MAIL_PORT": os.environ.get("MAIL_PORT", "NOT SET"),
-        "MAIL_USERNAME": os.environ.get("MAIL_USERNAME", "NOT SET"),
-        "MAIL_FROM": os.environ.get("MAIL_FROM", "NOT SET"),
-        "MAIL_PASSWORD": "SET" if os.environ.get("MAIL_PASSWORD") else "NOT SET",
-        "MAIL_STARTTLS": os.environ.get("MAIL_STARTTLS", "NOT SET"),
-        "MAIL_SSL_TLS": os.environ.get("MAIL_SSL_TLS", "NOT SET"),
-        "status": None,
-        "error": None,
-    }
-
-    try:
-        from app.core.email import send_focused_portal_welcome
-        await send_focused_portal_welcome(
-            "ktej255@gmail.com",
-            "SMTP Diagnostic Test",
-            "DiagPass123"
-        )
-        result["status"] = "SUCCESS — email sent"
-    except Exception as e:
-        result["status"] = "FAILURE"
-        result["error"] = f"{type(e).__name__}: {e}\n{tb.format_exc()}"
-
-    return result
-

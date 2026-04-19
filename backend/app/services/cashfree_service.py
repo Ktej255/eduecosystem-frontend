@@ -70,24 +70,43 @@ class CashfreeService:
     def verify_webhook_signature(self, signature: str, timestamp: str, raw_body: str) -> bool:
         """
         Verifies the signature sent by Cashfree in its webhooks.
-        Reconstruct the signature string: timestamp + raw body
-        Generate HMAC SHA256 using the client secret.
+        Cashfree signs webhooks using the CASHFREE_WEBHOOK_SECRET (configured in their
+        dashboard), NOT the API client secret. Algorithm: base64(HMAC-SHA256(webhook_secret,
+        timestamp + raw_body))
         """
+        import logging
+        logger = logging.getLogger("webhook_debug")
+        
         if not signature or not timestamp or not raw_body:
+            logger.error(f"Missing components for signature check: sig={bool(signature)}, ts={bool(timestamp)}, body={bool(raw_body)}")
             return False
 
         signature_string = timestamp + raw_body
+        webhook_secret = settings.CASHFREE_WEBHOOK_SECRET.strip().strip('\r').strip('\n').strip('\ufeff')
         
-        # Cashfree webhook signature uses Base64 encoding for API version 2023-08-01 (verified)
+        # Compute expected signature
         expected_signature = base64.b64encode(
             hmac.new(
-                self.secret_key.encode('utf-8'),
+                webhook_secret.encode('utf-8'),
                 signature_string.encode('utf-8'),
                 digestmod='sha256'
             ).digest()
         ).decode()
 
+        # DIAGNOSTIC LOGGING
+        logger.info(f"--- WEBHOOK SIGNATURE DEBUG ---")
+        logger.info(f"Secret Length: {len(webhook_secret)}")
+        logger.info(f"Secret Start/End: {webhook_secret[:2]}...{webhook_secret[-2:]}")
+        logger.info(f"Signing String Length: {len(signature_string)}")
+        logger.info(f"Signing String Start: {signature_string[:20]}")
+        logger.info(f"Signing String End: {signature_string[-20:]}")
+        logger.info(f"Received Signature: {signature}")
+        logger.info(f"Computed Signature: {expected_signature}")
+        logger.info(f"--- END DEBUG ---")
+
         return hmac.compare_digest(expected_signature, signature)
+
+
 
     def fetch_order_details(self, order_id: str) -> Dict[str, Any]:
         """
