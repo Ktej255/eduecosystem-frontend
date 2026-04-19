@@ -5,7 +5,7 @@ from typing import Any, List, Dict
 from app.api import deps
 from app.models.user import User
 from app.services.ai_planning_service import ai_planning_service
-from app.models.development import DevelopmentLog
+from app.models.development_history import DevelopmentLog
 
 router = APIRouter()
 

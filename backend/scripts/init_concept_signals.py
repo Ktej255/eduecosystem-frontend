@@ -12,7 +12,7 @@ def main():
     print("🛠️  Initializing 'concept_signals' table...")
     sql = """
     CREATE TABLE IF NOT EXISTS concept_signals (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id SERIAL PRIMARY KEY,
         node_id VARCHAR NOT NULL,
         signal_type VARCHAR NOT NULL,
         content_url TEXT NOT NULL,

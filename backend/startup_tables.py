@@ -18,7 +18,7 @@ engine = create_engine(str(settings.DATABASE_URL))
 TABLES = [
     """
     CREATE TABLE IF NOT EXISTS guided_clips (
-        id              INTEGER PRIMARY KEY AUTOINCREMENT,
+        id              SERIAL PRIMARY KEY,
         module_id       INTEGER NOT NULL,
         title           VARCHAR NOT NULL,
         description     TEXT,
@@ -32,7 +32,7 @@ TABLES = [
     """,
     """
     CREATE TABLE IF NOT EXISTS concept_nodes (
-        id                  INTEGER PRIMARY KEY AUTOINCREMENT,
+        id                  SERIAL PRIMARY KEY,
         node_id             VARCHAR UNIQUE NOT NULL,
         subject_slug        VARCHAR NOT NULL,
         module_id           INTEGER,
@@ -46,7 +46,7 @@ TABLES = [
     """,
     """
     CREATE TABLE IF NOT EXISTS concept_relationships (
-        id                  INTEGER PRIMARY KEY AUTOINCREMENT,
+        id                  SERIAL PRIMARY KEY,
         from_node_id        INTEGER NOT NULL,
         to_node_id          INTEGER NOT NULL,
         relationship_type   VARCHAR NOT NULL DEFAULT 'influences',
@@ -55,22 +55,22 @@ TABLES = [
     """,
     """
     CREATE TABLE IF NOT EXISTS student_concept_mastery (
-        id                  INTEGER PRIMARY KEY AUTOINCREMENT,
+        id                  SERIAL PRIMARY KEY,
         student_id          INTEGER NOT NULL,
         node_id             INTEGER NOT NULL,
         mastery_score       REAL DEFAULT 0.0,
         attempt_count       INTEGER DEFAULT 0,
-        last_activity_date  DATETIME,
+        last_activity_date  TIMESTAMP,
         next_review_date    DATE,
         ease_factor         REAL DEFAULT 2.5,
         interval            INTEGER DEFAULT 0,
-        created_at          DATETIME DEFAULT CURRENT_TIMESTAMP,
-        updated_at          DATETIME DEFAULT CURRENT_TIMESTAMP
+        created_at          TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at          TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
     """,
     """
     CREATE TABLE IF NOT EXISTS student_activity_log (
-        id                INTEGER PRIMARY KEY AUTOINCREMENT,
+        id                SERIAL PRIMARY KEY,
         student_id        INTEGER NOT NULL,
         node_id           INTEGER,
         content_id        VARCHAR,
@@ -79,45 +79,45 @@ TABLES = [
         duration          INTEGER,
         error_nodes       TEXT DEFAULT '[]',
         metadata          TEXT DEFAULT '{}',
-        timestamp         DATETIME DEFAULT CURRENT_TIMESTAMP
+        timestamp         TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
     """,
     """
     CREATE TABLE IF NOT EXISTS student_engine_decisions (
-        decision_id      INTEGER PRIMARY KEY AUTOINCREMENT,
+        decision_id      SERIAL PRIMARY KEY,
         student_id       INTEGER NOT NULL,
         activity_id      INTEGER,
         next_action      VARCHAR NOT NULL,
         target_concept   VARCHAR,
-        timestamp        DATETIME DEFAULT CURRENT_TIMESTAMP
+        timestamp        TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
     """,
     """
     CREATE TABLE IF NOT EXISTS content_concept_tags (
-        id              INTEGER PRIMARY KEY AUTOINCREMENT,
+        id              SERIAL PRIMARY KEY,
         content_type    VARCHAR NOT NULL,
         content_id      VARCHAR NOT NULL,
         node_id         VARCHAR NOT NULL,
         weight          REAL DEFAULT 1.0,
-        is_primary      BOOLEAN DEFAULT 1,
+        is_primary      BOOLEAN DEFAULT true,
         tagged_by       VARCHAR DEFAULT 'manual',
-        created_at      DATETIME DEFAULT CURRENT_TIMESTAMP
+        created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
     """,
     """
     CREATE TABLE IF NOT EXISTS mcq_attempt_concepts (
-        id              INTEGER PRIMARY KEY AUTOINCREMENT,
+        id              SERIAL PRIMARY KEY,
         student_id      INTEGER NOT NULL,
         mcq_id          VARCHAR NOT NULL,
         node_id         VARCHAR NOT NULL,
         is_correct      BOOLEAN NOT NULL,
         weight          REAL DEFAULT 1.0,
-        timestamp       DATETIME DEFAULT CURRENT_TIMESTAMP
+        timestamp       TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
     """,
     """
     CREATE TABLE IF NOT EXISTS concept_signals (
-        id              INTEGER PRIMARY KEY AUTOINCREMENT,
+        id              SERIAL PRIMARY KEY,
         node_id         VARCHAR NOT NULL,
         signal_type     VARCHAR NOT NULL,
         content_url     TEXT NOT NULL,
