@@ -4,6 +4,7 @@ const nextConfig = {
   experimental: {
     turbopack: false,
   },
+  generateBuildId: async () => 'build',
   productionBrowserSourceMaps: false,
   compress: true,
   images: {

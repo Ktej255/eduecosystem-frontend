@@ -17,7 +17,8 @@ ENV NEXT_TELEMETRY_DISABLED 1
 ARG NEXT_PUBLIC_API_URL
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
 
-RUN NODE_OPTIONS="--max-old-space-size=3072" npx next build
+RUN NODE_OPTIONS="--max-old-space-size=3072" \
+  NEXT_DISABLE_STATIC_GENERATION=1 npx next build
 
 
 # Production image, copy all the files and run next
