@@ -1,3 +1,4 @@
+"use client";
 /*
 GUIDED MODE — 4 TAB LAYOUT PROPOSAL
 
