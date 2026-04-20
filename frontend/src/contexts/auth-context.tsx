@@ -21,6 +21,8 @@ interface User {
   is_ras_authorized?: boolean;
   is_batch1_authorized?: boolean;
   is_batch2_authorized?: boolean;
+  is_focused_portal_user?: boolean;
+  is_graphotherapy_exclusive?: boolean;
 }
 
 interface AuthContextType {
@@ -136,7 +138,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // Fetch user data
     const userData = await fetchCurrentUser();
 
-    if (userData?.is_graphotherapy_exclusive) {
+    if (userData?.is_focused_portal_user) {
+      router.push("/student/focused");
+    } else if (userData?.is_graphotherapy_exclusive) {
       router.push("/graphotherapy-dashboard");
     } else {
       router.push("/student/dashboard");
