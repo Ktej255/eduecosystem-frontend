@@ -209,7 +209,7 @@ class User(Base):
 
     # Lead Management
     leads = relationship("Lead", back_populates="assigned_to", foreign_keys="[Lead.assigned_to_id]")
-    coached_leads = relationship("Lead", back_populates="coach", foreign_keys="[Lead.coach_id]")
+
 
     # Mobile CRM - Field Activities
     field_activities = relationship("FieldActivity", back_populates="user", cascade="all, delete-orphan")
