@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import api from "@/lib/api";
 
 /* ─── Minimal Verification Page (Ascetic Authority) ─────────────────────── */
-export default function FunnelPendingPage() {
+function PendingPageContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const orderId = searchParams.get("order_id");
@@ -153,5 +153,20 @@ export default function FunnelPendingPage() {
         }
       `}</style>
     </div>
+  );
+}
+
+export default function PendingPage() {
+  return (
+    <Suspense fallback={
+      <div style={{background:"#0c0c0e",
+        minHeight:"100vh", display:"flex",
+        alignItems:"center",
+        justifyContent:"center"}}>
+        <p style={{color:"#c9a84c"}}>Loading...</p>
+      </div>
+    }>
+      <PendingPageContent />
+    </Suspense>
   );
 }
