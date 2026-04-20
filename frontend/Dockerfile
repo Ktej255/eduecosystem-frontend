@@ -17,12 +17,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 ARG NEXT_PUBLIC_API_URL
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
 
-RUN \
-  if [ -f yarn.lock ]; then NODE_OPTIONS="--max-old-space-size=8192" yarn run build; \
-  elif [ -f package-lock.json ]; then NODE_OPTIONS="--max-old-space-size=8192" npm run build; \
-  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && NODE_OPTIONS="--max-old-space-size=8192" pnpm run build; \
-  else echo "Lockfile not found." && exit 1; \
-  fi
+RUN NODE_OPTIONS="--max-old-space-size=3072" npx next build --no-turbopack
 
 
 # Production image, copy all the files and run next
