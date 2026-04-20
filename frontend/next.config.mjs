@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
+  experimental: {
+    turbopack: false,
+  },
   productionBrowserSourceMaps: false,
   compress: true,
   images: {

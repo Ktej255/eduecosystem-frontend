@@ -22,9 +22,17 @@ venv/
 __pycache__/
 **/*.pyc
 .next/
+**/.next/
+.next-qa/
+**/.next-qa/
 **/dist/
 .git/
 .env*
+*.log
+**/*.log
+scratch/
+temp/
+*.tgz
 !backend/.env.example
 !frontend/.env.example
 
