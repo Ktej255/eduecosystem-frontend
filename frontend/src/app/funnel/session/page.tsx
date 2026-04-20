@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import api from "@/lib/api";
 import { Send, User, Bot, Sparkles, Clock, ArrowRight } from "lucide-react";
@@ -309,7 +309,7 @@ function OfferStep({ token, sessionData, T }: any) {
 }
 
 /* ─── MAIN PAGE ─────────────────────────────────────────────────────────── */
-export default function VSLSessionPage() {
+function VSLSessionPageContent() {
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
   const [step, setStep] = useState(1);
@@ -389,5 +389,20 @@ export default function VSLSessionPage() {
       )}
       {step === 7 && <OfferStep token={token} sessionData={sessionData} T={T} />}
     </div>
+  );
+}
+
+export default function VSLSessionPage() {
+  return (
+    <Suspense fallback={
+      <div style={{background:"#0c0c0e",
+        minHeight:"100vh", display:"flex",
+        alignItems:"center",
+        justifyContent:"center"}}>
+        <p style={{color:"#c9a84c"}}>Loading...</p>
+      </div>
+    }>
+      <VSLSessionPageContent />
+    </Suspense>
   );
 }
