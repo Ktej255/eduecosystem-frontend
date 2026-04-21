@@ -350,11 +350,8 @@ export default function FocusedPortalPage() {
   const [testStarted, setTestStarted] = useState(false);
   const [showConfidenceAfter, setShowConfidenceAfter] = useState(false);
   const [confidenceBeforeTest, setConfidenceBeforeTest] = useState<string | null>(null);
-  const [revealedAnswers, setRevealedAnswers] = useState<Record<number, boolean>>({});
-  
   const [testQuestions, setTestQuestions] = useState<any[]>([]);
   const [testAnswers, setTestAnswers] = useState<Record<number, string>>({});
-  const [currentQ, setCurrentQ] = useState(0);
   const [testSubmitted, setTestSubmitted] = useState(false);
   const [testReport, setTestReport] = useState<any>(null);
   const [testStartTime, setTestStartTime] = useState<number>(0);
@@ -502,7 +499,6 @@ export default function FocusedPortalPage() {
       setTestStartTime(Date.now());
       setCurrentQ(0);
       setTestAnswers({});
-      setRevealedAnswers({});
       setShowConfidenceAfter(false);
       setTestConfidence(new Array(data.questions.length).fill(""));
       setTimePerQuestion(new Array(data.questions.length).fill(0));
