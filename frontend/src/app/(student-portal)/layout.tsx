@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import StudentSidebar from "@/components/student-portal/StudentSidebar";
 import StudentHeader from "@/components/student-portal/StudentHeader";
 import ProtectedRoute from "@/components/protected-route";
@@ -14,6 +15,11 @@ export default function StudentPortalLayout({
     children: React.ReactNode;
 }) {
     const [isCollapsed, setIsCollapsed] = useState(false);
+    const pathname = usePathname();
+
+    if (pathname?.startsWith("/student/focused")) {
+        return <ProtectedRoute>{children}</ProtectedRoute>;
+    }
 
     return (
         <LanguageProvider>

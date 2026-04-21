@@ -559,3 +559,7 @@ api_router.include_router(crm_ingest.router, prefix="/crm", tags=["crm-ingest"])
 api_router.include_router(crm_dashboard.router, prefix="/crm/dashboard", tags=["crm-dashboard"])
 api_router.include_router(crm_partners.router, prefix="/crm", tags=["crm-partners"])
 api_router.include_router(crm_promises.router, prefix="/crm", tags=["crm-promises"])
+
+# Focused Portal (Kajal's 43-day UPSC sprint)
+from app.api.api_v1.endpoints import focused_portal
+api_router.include_router(focused_portal.router, prefix="/focused", tags=["focused"])
