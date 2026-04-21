@@ -67,7 +67,7 @@ def login_access_token(
 
         check_daily_login_and_streak(db, user)
     except Exception:
-        pass  # streaks table not yet created
+        db.rollback()  # prevent broken session from poisoning subsequent queries
 
     # Check for 2FA
     if user.is_2fa_enabled:
