@@ -447,7 +447,7 @@ def get_test(
     """
     rows = db.execute(
         text("""
-            SELECT id, question_text, options, correct_answer, explanation, topic_tag, tags
+            SELECT id, question_text, option_a, option_b, option_c, option_d, correct_answer, explanation, topic_tag
             FROM focused_questions
             WHERE subject ILIKE :subj
               AND cluster_number = :cl_num
@@ -459,23 +459,18 @@ def get_test(
 
     questions = []
     for r in rows:
-        try:
-            # Handle both JSON string and pre-parsed options
-            if isinstance(r[2], str):
-                options = json.loads(r[2])
-            else:
-                options = r[2]
-        except Exception:
-            options = {}
-            
         questions.append({
             "id": r[0],
             "question_text": r[1],
-            "options": options,
-            "correct_answer": r[3],
-            "explanation": r[4],
-            "topic_tag": r[5],
-            "tags": r[6],
+            "options": {
+                "A": r[2],
+                "B": r[3],
+                "C": r[4],
+                "D": r[5]
+            },
+            "correct_answer": r[6],
+            "explanation": r[7],
+            "topic_tag": r[8],
         })
 
     return {
