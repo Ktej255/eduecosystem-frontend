@@ -718,6 +718,11 @@ export default function FocusedPortalPage() {
     );
   };
 
+  const answeredCount = testStarted
+    ? testQuestions.filter((_, i) => testAnswers[i] !== undefined || testConfidence[i] === "Skip").length
+    : 0;
+  const hasWarning = (i: number) => !!(testConfidence[i] && testConfidence[i] !== "Skip" && !testAnswers[i]);
+
   return (
     <div style={{
       ...({
@@ -977,10 +982,7 @@ export default function FocusedPortalPage() {
                   >✕</button>
                 )}
 
-                {testStarted && !testSubmitted ? (() => {
-                  const answeredCount = testQuestions.filter((_, i) => testAnswers[i] !== undefined || testConfidence[i] === "Skip").length;
-                  const hasWarning = (i: number) => testConfidence[i] && testConfidence[i] !== "Skip" && !testAnswers[i];
-                  return (
+                {testStarted && !testSubmitted ? (
                   <>
                     {/* Scrollable question list */}
                     <div style={{ maxHeight: isFullscreen ? "calc(100vh - 120px)" : "68vh", overflowY: "auto", paddingRight: 4 }}>
@@ -1088,8 +1090,6 @@ export default function FocusedPortalPage() {
                       </button>
                     </div>
                   </>
-                  );
-                })()
                 ) : testSubmitted ? (
                   <div>
                     <p style={{ color: C.green, fontWeight: 700, fontSize: 16, marginBottom: 16 }}>✓ Report Ready</p>
