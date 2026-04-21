@@ -320,16 +320,16 @@ const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
 const API = API_BASE.includes("/api/v1") ? API_BASE : `${API_BASE}/api/v1`;
 
 const C = {
-  bg: "#0A0A0F",
-  surface: "#13131A",
-  border: "#1E1E2E",
-  gold: "#C9A84C",
-  goldGlow: "rgba(201,168,76,0.15)",
+  bg: "var(--fp-bg)",
+  surface: "var(--fp-card)",
+  border: "var(--fp-border)",
+  gold: "var(--fp-accent)",
+  goldGlow: "var(--fp-accent-glow)",
   red: "#FF4444",
   green: "#44FF88",
   amber: "#FFB344",
-  textPrimary: "#F0F0F5",
-  textMuted: "#6B7280",
+  textPrimary: "var(--fp-text)",
+  textMuted: "var(--fp-muted)",
 };
 
 export default function FocusedPortalPage() {
@@ -360,6 +360,16 @@ export default function FocusedPortalPage() {
   const [testStartTime, setTestStartTime] = useState<number>(0);
   const [error, setError] = useState<string | null>(null);
   const [cumulativeData, setCumulativeData] = useState<any>(null);
+
+  // ── Theme ──
+  const [isDark, setIsDark] = useState(true);
+  useEffect(() => {
+    const stored = localStorage.getItem("focused_portal_theme");
+    if (stored === "light") setIsDark(false);
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("focused_portal_theme", isDark ? "dark" : "light");
+  }, [isDark]);
 
   // ── Test v2 State ──
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -713,8 +723,31 @@ export default function FocusedPortalPage() {
   };
 
   return (
-    <div style={{ backgroundColor: C.bg, minHeight: "100vh", fontFamily: "'Inter', sans-serif", color: C.textPrimary }}>
+    <div style={{
+      ...({
+        "--fp-bg": isDark ? "#0A0A0F" : "#f5f5f5",
+        "--fp-card": isDark ? "#13131A" : "#ffffff",
+        "--fp-border": isDark ? "#1E1E2E" : "#dddddd",
+        "--fp-text": isDark ? "#F0F0F5" : "#1a1a1a",
+        "--fp-muted": isDark ? "#6B7280" : "#555555",
+        "--fp-accent": isDark ? "#C9A84C" : "#b8860b",
+        "--fp-accent-glow": isDark ? "rgba(201,168,76,0.15)" : "rgba(184,134,11,0.12)",
+      } as React.CSSProperties),
+      backgroundColor: C.bg, minHeight: "100vh", fontFamily: "'Inter', sans-serif", color: C.textPrimary
+    }}>
       
+      {/* ── Theme Toggle ── */}
+      {(!testStarted || testSubmitted) && (
+        <button onClick={() => setIsDark(d => !d)} style={{
+          position: "fixed", top: 16, right: 16, zIndex: 1000,
+          padding: "6px 12px", borderRadius: 999, border: `1px solid ${C.border}`,
+          backgroundColor: C.surface, cursor: "pointer", fontSize: 16,
+          color: C.textPrimary,
+        }}>
+          {isDark ? "☀️" : "🌙"}
+        </button>
+      )}
+
       {/* ── Desktop Header ── */}
       <div style={{ 
         position: "sticky", top: 0, zIndex: 100,
