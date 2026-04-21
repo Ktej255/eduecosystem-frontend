@@ -212,7 +212,10 @@ def check_daily_login_and_streak(db: Session, user: User) -> dict:
 
     now = datetime.utcnow()
     # Record login activity in the granular streaks table
-    gamification_service.record_activity(db, user, "login")
+    try:
+        gamification_service.record_activity(db, user, "login")
+    except Exception:
+        pass  # streaks table not yet created
     
     today = now.date()
 

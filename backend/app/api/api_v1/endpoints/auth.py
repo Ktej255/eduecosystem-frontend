@@ -66,8 +66,8 @@ def login_access_token(
         from app.services.coin_service import check_daily_login_and_streak
 
         check_daily_login_and_streak(db, user)
-    except Exception as e:
-        print(f"Failed to check daily login: {e}")
+    except Exception:
+        pass  # streaks table not yet created
 
     # Check for 2FA
     if user.is_2fa_enabled:
