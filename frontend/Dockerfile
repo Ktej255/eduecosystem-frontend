@@ -5,9 +5,9 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 # Install dependencies and build in one stage
-COPY frontend/package-lock.json frontend/package.json ./
+COPY package-lock.json package.json ./
 RUN npm install --legacy-peer-deps
-COPY frontend/ .
+COPY . .
 
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
