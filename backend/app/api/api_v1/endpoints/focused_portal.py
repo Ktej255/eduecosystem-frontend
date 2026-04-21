@@ -210,13 +210,13 @@ class PomodoroCompleteBody(BaseModel):
     duration_minutes: int = 25
 
 
-class TestSubmitBody(BaseModel):
-    user_id: int
+class TestSubmitUpdatedBody(BaseModel):
     subject: str
-    cluster_number: int
-    answers: List[dict]          # [{question_id, selected_option, correct_option, topic_tag}]
-    time_taken_seconds: int
-    confidence_before_test: Optional[str] = None
+    cluster_id: int
+    question_ids: List[int]
+    answers: List[str]
+    confidence: List[str]
+    time_per_question: List[int]
 
 
 class GateSubmitBody(BaseModel):
@@ -488,165 +488,146 @@ def get_test(
 
 @router.post("/test/submit")
 def submit_test(
-    body: TestSubmitBody,
+    body: TestSubmitUpdatedBody,
     db: Session = Depends(get_db),
     current_user=Depends(get_current_user),
 ):
-    answers = body.answers
-    total = len(answers)
+    user_id = current_user.id
+    q_ids = body.question_ids
+    u_ans = body.answers
+    u_conf = body.confidence
+    u_time = body.time_per_question
 
-    # 1. Score the test
-    correct = [a for a in answers if a.get("selected_option") == a.get("correct_option")]
-    wrong = [a for a in answers if a.get("selected_option") != a.get("correct_option")]
-    score = len(correct)
-    percentage = round((score / total) * 100, 1) if total > 0 else 0
+    # 1. Fetch Question Data
+    rows = db.execute(
+        text("SELECT id, correct_answer, topic_tag FROM focused_questions WHERE id = ANY(:ids)"),
+        {"ids": q_ids}
+    ).fetchall()
+    
+    q_data_map = {r[0]: {"ans": r[1], "tag": r[2]} for r in rows}
 
-    # 2. Identify weak topics (2+ wrong in same topic_tag)
-    topic_wrong: dict = {}
-    for a in wrong:
-        tag = a.get("topic_tag", "Unknown")
-        topic_wrong[tag] = topic_wrong.get(tag, 0) + 1
-    weak_topics = [t for t, count in topic_wrong.items() if count >= 2]
+    # 2. Scoring Logic
+    correct_ids = []
+    wrong_ids = []
+    skipped_count = 0
+    lucky_guesses = 0
+    trap_ids = []
+    
+    topic_stats = {} # {tag: {correct, total, time_sum, confidence_dist, lucky}}
 
-    # 3. Identify trap questions missed (tagged as trap)
-    trap_missed = [a for a in wrong if "trap" in str(a.get("tags", "")).lower()]
+    for i, qid in enumerate(q_ids):
+        q_info = q_data_map.get(qid, {"ans": None, "tag": "Unknown"})
+        tag = q_info["tag"] or "General"
+        correct_ans = q_info["ans"]
+        user_ans = u_ans[i]
+        conf = u_conf[i]
+        time_ms = u_time[i]
 
-    # 4. Calculate improvement vs yesterday
-    yesterday = (date.today() - timedelta(days=1)).isoformat()
-    prev = db.execute(
-        text("""
-            SELECT percentage FROM focused_test_reports
-            WHERE user_id = :uid AND subject = :subj
-            ORDER BY created_at DESC LIMIT 1
-        """),
-        {"uid": body.user_id, "subj": body.subject}
-    ).fetchone()
-    improvement = round(percentage - prev[0], 1) if prev else None
+        if tag not in topic_stats:
+            topic_stats[tag] = {
+                "correct": 0, "total": 0, "time_sum": 0, 
+                "lucky": 0, 
+                "conf_dist": {"Short Shot": 0, "50/50": 0, "Other": 0, "Only One Known": 0, "Blind Guess": 0, "Skip": 0}
+            }
 
-    # 5. Overconfidence check
-    overconfidence_alert = (
-        body.confidence_before_test == "GREEN" and percentage < 60
-    )
+        topic_stats[tag]["total"] += 1
+        topic_stats[tag]["time_sum"] += time_ms
+        topic_stats[tag]["conf_dist"][conf] = topic_stats[tag]["conf_dist"].get(conf, 0) + 1
 
-    # 6. Section 4 — Mechanism gaps (max 3 most critical weak topics)
-    mechanism_gaps = weak_topics[:3]
-
-    # 7. Section 5 — Tomorrow's focus generation
-    tomorrows_focus = []
-    if weak_topics:
-        tomorrows_focus.append(f"Start tomorrow's session by revising: {', '.join(weak_topics[:2])}")
-    if trap_missed:
-        tomorrows_focus.append(f"Review {len(trap_missed)} trap question(s) before starting your next pomodoro.")
-    red_count = db.execute(
-        text("""
-            SELECT COUNT(*) FROM focused_study_sessions
-            WHERE user_id = :uid AND subject = :subj AND cluster_number = :cl AND confidence_pulse = 'RED'
-        """),
-        {"uid": body.user_id, "subj": body.subject, "cl": body.cluster_number}
-    ).scalar()
-    if (red_count or 0) >= 2:
-        tomorrows_focus.append("Consider repeating this cluster before moving to the next — confidence has been Red 2+ times.")
-
-    # 8. Topic breakdown for the report (1 per unique topic_tag in the test)
-    topic_summary = {}
-    for a in answers:
-        tag = a.get("topic_tag", "Unknown")
-        if tag not in topic_summary:
-            topic_summary[tag] = {"correct": 0, "wrong": 0}
-        if a.get("selected_option") == a.get("correct_option"):
-            topic_summary[tag]["correct"] += 1
+        is_correct = (user_ans == correct_ans)
+        
+        if conf == "Skip":
+            skipped_count += 1
+        elif is_correct:
+            correct_ids.append(qid)
+            topic_stats[tag]["correct"] += 1
+            if conf == "Blind Guess":
+                topic_stats[tag]["lucky"] += 1
+                lucky_guesses += 1
         else:
-            topic_summary[tag]["wrong"] += 1
+            wrong_ids.append(qid)
+            # Trap Detection: Wrong AND Time < 8000ms
+            if time_ms < 8000:
+                trap_ids.append(qid)
 
-    topic_breakdown = []
-    for tag, counts in topic_summary.items():
-        if counts["wrong"] == 0:
-            status = "green"
-            label = None
-        elif counts["wrong"] == 1:
-            status = "yellow"
-            label = "Review Recommended"
-        else:
-            status = "red"
-            label = "Revise Before Next Session"
-        topic_breakdown.append({
+    # 3. Finalize Topic Breakdown
+    breakdown = []
+    weak_areas = []
+    for tag, stats in topic_stats.items():
+        avg_time = stats["time_sum"] / stats["total"]
+        accuracy = (stats["correct"] / stats["total"]) * 100
+        is_weak = accuracy < 50 or avg_time > 45000
+        
+        if is_weak:
+            weak_areas.append(tag)
+            
+        breakdown.append({
             "topic": tag,
-            "correct": counts["correct"],
-            "wrong": counts["wrong"],
-            "status": status,
-            "label": label,
+            "total": stats["total"],
+            "correct": stats["correct"],
+            "wrong": stats["total"] - stats["correct"],
+            "avg_time_ms": int(avg_time),
+            "confidence_distribution": stats["conf_dist"],
+            "weak": is_weak,
+            "lucky_guesses": stats["lucky"]
         })
 
-    # 9. Trap analysis
-    trap_analysis = []
-    for a in answers:
-        if "trap" in str(a.get("tags", "")).lower():
-            avoided = (a.get("selected_option") == a.get("correct_option"))
-            trap_analysis.append({
-                "question_id": a.get("question_id"),
-                "topic": a.get("topic_tag"),
-                "student_answer": a.get("selected_option"),
-                "correct_answer": a.get("correct_option"),
-                "avoided": avoided,
-                "verdict": "You avoided this trap" if avoided else "You fell for this trap",
-            })
-    traps_avoided = sum(1 for t in trap_analysis if t["avoided"])
+    # 4. Finalize Global Metrics
+    total = len(q_ids)
+    score = len(correct_ids)
+    percent = (score / total) * 100 if total > 0 else 0
+    total_time_s = sum(u_time) // 1000
 
-    # 10. Insert report into DB
-    db.execute(
+    # 5. Improvement vs Yesterday
+    prev = db.execute(
         text("""
-            INSERT INTO focused_test_reports
-                (user_id, date, subject, cluster_number, score, total_questions, percentage,
-                 weak_topics, trap_questions_missed, correct_answers, wrong_answers,
+            SELECT percentage FROM focused_test_reports 
+            WHERE user_id = :uid AND subject = :subj AND cluster_number = :cl
+            ORDER BY created_at DESC LIMIT 1
+        """),
+        {"uid": user_id, "subj": body.subject, "cl": body.cluster_id}
+    ).fetchone()
+    improvement = float(percent - float(prev[0])) if prev else 0.0
+
+    # 6. Save Report
+    non_skip = [c for c in u_conf if c != "Skip"]
+    conf_summary = max(set(non_skip), key=non_skip.count) if non_skip else "Skip"
+
+    res = db.execute(
+        text("""
+            INSERT INTO focused_test_reports 
+                (user_id, date, subject, cluster_number, score, total_questions, percentage, 
+                 weak_topics, trap_questions_missed, correct_answers, wrong_answers, 
                  time_taken_seconds, confidence_before_test, improvement_vs_yesterday, bkt_updates)
-            VALUES
-                (:uid, :d, :subj, :cl, :score, :total, :pct,
-                 :weak, :trap_missed, :correct_ans, :wrong_ans,
-                 :time_s, :conf, :improvement, :bkt)
+            VALUES 
+                (:uid, CURRENT_DATE, :subj, :cl, :score, :total, :pct, 
+                 :weak, :traps, :c_ids, :w_ids, :time_s, :conf, :imp, :bkt)
+            RETURNING id
         """),
         {
-            "uid": body.user_id,
-            "d": date.today().isoformat(),
-            "subj": body.subject,
-            "cl": body.cluster_number,
-            "score": score,
-            "total": total,
-            "pct": percentage,
-            "weak": json.dumps(weak_topics),
-            "trap_missed": json.dumps([a.get("question_id") for a in trap_missed]),
-            "correct_ans": json.dumps([a.get("question_id") for a in correct]),
-            "wrong_ans": json.dumps([a.get("question_id") for a in wrong]),
-            "time_s": body.time_taken_seconds,
-            "conf": body.confidence_before_test or "NEUTRAL",
-            "improvement": improvement,
-            "bkt": json.dumps([]),
+            "uid": user_id, "subj": body.subject, "cl": body.cluster_id, "score": score, "total": total, "pct": percent,
+            "weak": json.dumps(weak_areas), "traps": json.dumps(trap_ids), 
+            "c_ids": json.dumps(correct_ids), "w_ids": json.dumps(wrong_ids),
+            "time_s": total_time_s, "conf": conf_summary, 
+            "imp": improvement, "bkt": json.dumps({})
         }
     )
+    report_id = res.scalar()
     db.commit()
 
-    minutes, seconds = divmod(body.time_taken_seconds or 0, 60)
-
     return {
-        "report": {
-            "section_1_scorecard": {
-                "score": score,
-                "out_of": total,
-                "percentage": percentage,
-                "time_taken": f"{minutes}m {seconds}s",
-                "improvement_vs_yesterday": improvement,
-                "improvement_arrow": "up" if (improvement or 0) >= 0 else "down",
-                "overconfidence_alert": overconfidence_alert,
-            },
-            "section_2_topic_breakdown": topic_breakdown,
-            "section_3_trap_analysis": {
-                "traps": trap_analysis,
-                "traps_total": len(trap_analysis),
-                "traps_avoided": traps_avoided,
-                "summary": f"{traps_avoided} of {len(trap_analysis)} traps successfully avoided",
-            },
-            "section_4_mechanism_gaps": mechanism_gaps,
-            "section_5_tomorrows_focus": tomorrows_focus,
-        }
+        "report_id": report_id,
+        "total": total,
+        "correct": score,
+        "wrong": len(wrong_ids),
+        "skipped": skipped_count,
+        "score_percent": round(percent, 2),
+        "time_total_seconds": total_time_s,
+        "improvement_vs_yesterday": round(improvement, 2),
+        "topic_breakdown": breakdown,
+        "weak_areas": weak_areas,
+        "trap_questions_missed": trap_ids,
+        "lucky_guesses_total": lucky_guesses
     }
 
 
