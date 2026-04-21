@@ -2,6 +2,7 @@ import os
 from datetime import timedelta
 from typing import Any
 from fastapi import APIRouter, Depends, HTTPException, Request, Response
+from sqlalchemy import text
 from sqlalchemy.orm import Session
 from fastapi.security import OAuth2PasswordRequestForm
 
@@ -15,6 +16,12 @@ from app.models.activity_log import ActivityLog
 from app.middleware.rate_limit import limiter, RATE_LIMITS
 
 router = APIRouter()
+
+
+@router.get("/health")
+def health(db: Session = Depends(deps.get_db)):
+    db.execute(text("SELECT 1"))
+    return {"status": "ok"}
 
 
 @router.post("/access-token")
@@ -57,6 +64,7 @@ def login_access_token(
         from app.services.security_service import security_service
         security_service.check_ghost_login(db, user, client_ip)
     except Exception as e:
+        db.rollback()
         print(f"Ghost login check failed: {e}")
 
     access_token_expires = timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)

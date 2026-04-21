@@ -73,6 +73,7 @@ def award_coins(
         from app.services.pack_service import pack_service
         pack_service.sync_points_to_pack(db, user.id, amount)
     except Exception as pack_err:
+        db.rollback()
         print(f"Error syncing points to pack: {pack_err}")
 
     return transaction
@@ -157,6 +158,7 @@ def trigger_coin_reward(
         return transaction
 
     except Exception as e:
+        db.rollback()
         print(f"Error awarding coins: {e}")
         return None
 
@@ -215,7 +217,7 @@ def check_daily_login_and_streak(db: Session, user: User) -> dict:
     try:
         gamification_service.record_activity(db, user, "login")
     except Exception:
-        pass  # streaks table not yet created
+        db.rollback()  # streaks table not yet created
     
     today = now.date()
 
