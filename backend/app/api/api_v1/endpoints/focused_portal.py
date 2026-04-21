@@ -447,7 +447,7 @@ def get_test(
     """
     rows = db.execute(
         text("""
-            SELECT id, text, options, correct_answer, explanation, topic_tag, tags
+            SELECT id, question_text, options, correct_answer, explanation, topic_tag, tags
             FROM focused_questions
             WHERE subject ILIKE :subj
               AND cluster_number = :cl_num
@@ -470,7 +470,7 @@ def get_test(
             
         questions.append({
             "id": r[0],
-            "text": r[1],
+            "question_text": r[1],
             "options": options,
             "correct_answer": r[3],
             "explanation": r[4],
