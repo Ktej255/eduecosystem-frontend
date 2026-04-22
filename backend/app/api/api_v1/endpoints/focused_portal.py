@@ -776,3 +776,126 @@ def get_revision_priorities(
         "count": len(priorities),
         "subjects": priorities,
     }
+
+# ─────────────────────────────────────────────────────────────
+# ENDPOINT 9 — GET TEST HISTORY
+# ─────────────────────────────────────────────────────────────
+
+@router.get("/history")
+def get_test_history(
+    db: Session = Depends(get_db),
+    current_user = Depends(get_current_user)
+):
+    rows = db.execute(
+        text("""
+            SELECT id, subject, cluster_number, 
+                   score, total_questions, percentage,
+                   weak_topics, time_taken_seconds,
+                   improvement_vs_yesterday, created_at
+            FROM focused_test_reports
+            WHERE user_id = :uid
+            ORDER BY created_at DESC
+            LIMIT 50
+        """),
+        {"uid": current_user.id}
+    ).fetchall()
+
+    return {
+        "history": [
+            {
+                "id": r.id,
+                "subject": r.subject,
+                "cluster_number": r.cluster_number,
+                "score": r.score,
+                "total_questions": r.total_questions,
+                "percentage": float(r.percentage),
+                "weak_topics": json.loads(r.weak_topics or "[]"),
+                "time_taken_seconds": r.time_taken_seconds,
+                "improvement": float(r.improvement_vs_yesterday or 0),
+                "date": r.created_at.strftime("%b %d, %Y")
+            }
+            for r in rows
+        ]
+    }
+
+
+# ─────────────────────────────────────────────────────────────
+# ENDPOINT 10 — GET OVERALL PROGRESS
+# ─────────────────────────────────────────────────────────────
+
+@router.get("/progress")
+def get_progress(
+    db: Session = Depends(get_db),
+    current_user = Depends(get_current_user)
+):
+    # Clusters completed
+    clusters = db.execute(
+        text("""
+            SELECT cluster_number, subject,
+                   MAX(percentage) as best_pct,
+                   COUNT(*) as attempts
+            FROM focused_test_reports
+            WHERE user_id = :uid
+            GROUP BY cluster_number, subject
+            ORDER BY cluster_number
+        """),
+        {"uid": current_user.id}
+    ).fetchall()
+
+    # Overall accuracy
+    overall = db.execute(
+        text("""
+            SELECT AVG(percentage) as avg_pct,
+                   SUM(total_questions) as total_q,
+                   SUM(score) as total_correct,
+                   SUM(time_taken_seconds) as total_time
+            FROM focused_test_reports
+            WHERE user_id = :uid
+        """),
+        {"uid": current_user.id}
+    ).fetchone()
+
+    # Gate status
+    gates = db.execute(
+        text("""
+            SELECT subject, is_unlocked, passed
+            FROM focused_subject_gates
+            WHERE user_id = :uid
+        """),
+        {"uid": current_user.id}
+    ).fetchall()
+
+    # Days active
+    days = db.execute(
+        text("""
+            SELECT COUNT(DISTINCT DATE(created_at))
+            FROM focused_study_sessions
+            WHERE user_id = :uid
+        """),
+        {"uid": current_user.id}
+    ).fetchone()
+
+    return {
+        "clusters_attempted": [
+            {
+                "cluster_number": r.cluster_number,
+                "subject": r.subject,
+                "best_percentage": float(r.best_pct),
+                "attempts": r.attempts
+            }
+            for r in clusters
+        ],
+        "overall_accuracy": float(overall.avg_pct or 0),
+        "total_questions_attempted": overall.total_q or 0,
+        "total_correct": overall.total_correct or 0,
+        "total_time_seconds": overall.total_time or 0,
+        "gates": [
+            {
+                "subject": g.subject,
+                "unlocked": g.is_unlocked,
+                "passed": g.passed
+            }
+            for g in gates
+        ],
+        "days_active": days[0] or 0
+    }
