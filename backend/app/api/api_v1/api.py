@@ -563,3 +563,7 @@ api_router.include_router(crm_promises.router, prefix="/crm", tags=["crm-promise
 # Focused Portal (Kajal's 43-day UPSC sprint)
 from app.api.api_v1.endpoints import focused_portal
 api_router.include_router(focused_portal.router, prefix="/focused", tags=["focused"])
+
+# VSL Funnel (₹99 AI Diagnostic)
+from app.api.api_v1.endpoints import funnel
+api_router.include_router(funnel.router, prefix="/funnel", tags=["funnel"])

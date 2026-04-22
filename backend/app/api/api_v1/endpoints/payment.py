@@ -429,6 +429,11 @@ async def cashfree_webhook(request: Request, db: Session = Depends(deps.get_db))
                     
             elif order_note == "SUBJECT:webinar_reg_99":
                 from app.core.email import send_webinar_confirmation
+                from app.crud.user import get_by_email, create
+                from app.schemas.user import UserCreate
+                import secrets
+                import string
+
                 tags = order.get("order_tags", {})
                 stu_email = tags.get("email", "").strip().lower()
                 stu_name = tags.get("name", "Student")
@@ -447,8 +452,40 @@ async def cashfree_webhook(request: Request, db: Session = Depends(deps.get_db))
                 })
                 db.commit()
 
-                # Send confirmation email
-                await send_webinar_confirmation(stu_email, stu_name)
+                # FIX 2: Auto-create user account
+                user = get_by_email(db, email=stu_email)
+                student_password = None
+                
+                if not user:
+                    # Generate specific password EDU<3UPPER><4DIGITS>
+                    letters = "".join(secrets.choice(string.ascii_uppercase) for _ in range(3))
+                    digits = "".join(secrets.choice(string.digits) for _ in range(4))
+                    student_password = f"EDU{letters}{digits}"
+                    
+                    user_in = UserCreate(
+                        email=stu_email,
+                        password=student_password,
+                        full_name=stu_name
+                    )
+                    user = create(db, obj_in=user_in)
+                    user.role = "student"
+                    user.is_active = True
+                    user.is_focused_portal_user = True
+                    db.commit()
+                else:
+                    user.is_focused_portal_user = True
+                    db.commit()
+
+                # FIX 4: Grant Polity Access
+                db.execute(
+                    text("INSERT INTO focused_subject_gates (user_id, subject, is_unlocked, passed) "
+                         "VALUES (:uid, 'Polity', true, false) ON CONFLICT DO NOTHING"),
+                    {"uid": user.id}
+                )
+                db.commit()
+
+                # FIX 3: Send confirmation email with credentials
+                await send_webinar_confirmation(stu_email, stu_name, student_password)
                 
                 
         return {"status": "success"}

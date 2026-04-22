@@ -63,19 +63,36 @@ async def send_focused_portal_welcome(email_to: str, full_name: str, password: s
     await fm.send_message(message)
 
 
-async def send_webinar_confirmation(email_to: str, full_name: str):
-    import os
+async def send_webinar_confirmation(email_to: str, full_name: str, password: str = None):
+    if password:
+        cred_block = f"""
+<p style="background: #1a1a1a; padding: 20px; border-radius: 8px; border-left: 4px solid #d4af37;">
+<strong>Your Login Details:</strong><br><br>
+📧 Email: {email_to}<br>
+🔑 Password: {password}<br><br>
+<a href="https://eduecosystem-frontend-503001969959.us-central1.run.app" style="background: #d4af37; color: #000; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold;">Login Now →</a>
+</p>"""
+    else:
+        cred_block = f"""
+<p style="background: #1a1a1a; padding: 20px; border-radius: 8px; border-left: 4px solid #d4af37;">
+<strong>Welcome Back!</strong><br><br>
+Your account has been upgraded with Focused Portal access.<br>
+📧 Email: {email_to}<br><br>
+<a href="https://eduecosystem-frontend-503001969959.us-central1.run.app" style="background: #d4af37; color: #000; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold;">Login Now →</a>
+</p>"""
+
     html_content = f"""
-    <h2>You're Registered! UPSC Focused Portal Webinar</h2>
-    <p>Hi {full_name},</p>
-    <p>Your registration is confirmed.</p>
-    <p><strong>Date:</strong> Tomorrow at 6:00 PM</p>
-    <p><strong>Google Meet Link:</strong> <a href="https://meet.google.com/esi-kkyb-vws">https://meet.google.com/esi-kkyb-vws</a></p>
-    <p>See you there!</p>
-    <p>— Tej, Sarit Classes</p>
-    """
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0a0a0a; color: #ffffff; padding: 40px; border-radius: 12px;">
+<h1 style="color: #d4af37;">Welcome to EduEcosystem 🎯</h1>
+<p>Hi {full_name},</p>
+<p>Your payment is confirmed and your 30-day focused preparation portal is ready right now.</p>
+{cred_block}
+<p style="color: #888; font-size: 14px;">Your exam is in 30 days. Every day counts.<br>Log in today and start your first session.</p>
+<p>— Tej<br><span style="color: #888;">Sarit Classes | EduEcosystem</span></p>
+</div>
+"""
     message = MessageSchema(
-        subject="You're Registered — UPSC Webinar at 6 PM Tomorrow",
+        subject="Your UPSC Battle Plan is Ready — Login Now 🎯",
         recipients=[email_to],
         body=html_content,
         subtype=MessageType.html
