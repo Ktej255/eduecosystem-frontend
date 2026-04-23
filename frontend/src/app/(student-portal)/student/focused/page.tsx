@@ -319,6 +319,22 @@ import { useRouter } from "next/navigation";
 const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
 const API = API_BASE.includes("/api/v1") ? API_BASE : `${API_BASE}/api/v1`;
 
+// BUG 1: Format numbered-statement questions onto separate lines
+function formatQuestionText(text: string): JSX.Element {
+  const parts = text.split(/(?=\s*\d+\.\s)/g).filter(Boolean);
+  if (parts.length <= 1) return <span>{text}</span>;
+  return (
+    <span>
+      {parts.map((part, i) => (
+        <span key={i}>
+          {i > 0 && <br />}
+          {part.trim()}
+        </span>
+      ))}
+    </span>
+  );
+}
+
 const C = {
   bg: "var(--fp-bg)",
   surface: "var(--fp-card)",
@@ -357,6 +373,8 @@ export default function FocusedPortalPage() {
   const [testStartTime, setTestStartTime] = useState<number>(0);
   const [error, setError] = useState<string | null>(null);
   const [cumulativeData, setCumulativeData] = useState<any>(null);
+  const [historyData, setHistoryData] = useState<any>(null);
+  const [progressData, setProgressData] = useState<any>(null);
 
   // ── Theme ──
   const [isDark, setIsDark] = useState(true);
@@ -433,10 +451,28 @@ export default function FocusedPortalPage() {
     }
   }, [token]);
 
-  useEffect(() => { 
-    fetchDashboard(); 
-    fetchCumulative(); 
-  }, [fetchDashboard, fetchCumulative]);
+  const fetchHistory = useCallback(async () => {
+    if (!token) return;
+    try {
+      const res = await fetch(`${API}/focused/history`, { headers: { Authorization: `Bearer ${token}` } });
+      if (res.ok) setHistoryData(await res.json());
+    } catch (e) { console.error("History fetch failed", e); }
+  }, [token]);
+
+  const fetchProgress = useCallback(async () => {
+    if (!token) return;
+    try {
+      const res = await fetch(`${API}/focused/progress`, { headers: { Authorization: `Bearer ${token}` } });
+      if (res.ok) setProgressData(await res.json());
+    } catch (e) { console.error("Progress fetch failed", e); }
+  }, [token]);
+
+  useEffect(() => {
+    fetchDashboard();
+    fetchCumulative();
+    fetchHistory();
+    fetchProgress();
+  }, [fetchDashboard, fetchCumulative, fetchHistory, fetchProgress]);
 
   useEffect(() => {
     if (currentSubject) {
@@ -497,7 +533,6 @@ export default function FocusedPortalPage() {
       setTestQuestions(data.questions);
       setTestStarted(true);
       setTestStartTime(Date.now());
-      setCurrentQ(0);
       setTestAnswers({});
       setShowConfidenceAfter(false);
       setTestConfidence(new Array(data.questions.length).fill(""));
@@ -539,30 +574,21 @@ export default function FocusedPortalPage() {
     if (!token || !user) return;
     setIsSubmitting(true);
     if (document.fullscreenElement) document.exitFullscreen();
-    // Flush time for the last visible question
     timePerQuestionRef.current[lastVisibleIndexRef.current] += Date.now() - questionStartTimeRef.current;
-    const timeTaken = Math.floor((Date.now() - testStartTime) / 1000);
-    const answers = testQuestions.map((q, i) => ({
-      question_id: q.id,
-      selected_option: testAnswers[i] ?? null,
-      correct_option: q.correct_answer,
-      topic_tag: q.topic_tag,
-      tags: q.tags ?? "",
-    }));
+    const answersArray = testQuestions.map((q, i) => testAnswers[i] || "Skip");
+    const questionIds = testQuestions.map(q => q.id);
+    const timesArray = timePerQuestionRef.current.map(t => t || 0);
     try {
       const res = await fetch(`${API}/focused/test/submit`, {
         method: "POST",
-        headers: { ...authHeader, "Content-Type": "application/json" },
+        headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
         body: JSON.stringify({
-          user_id: user.id,
           subject: currentSubject,
-          cluster_number: currentCluster,
-          question_ids: testQuestionIds,
-          answers,
+          cluster_id: currentCluster,
+          question_ids: questionIds,
+          answers: answersArray,
           confidence: testConfidence,
-          time_per_question: timePerQuestionRef.current,
-          time_taken_seconds: timeTaken,
-          confidence_before_test: "NEUTRAL",
+          time_per_question: timesArray,
         }),
       });
       const data = await res.json();
@@ -570,6 +596,8 @@ export default function FocusedPortalPage() {
       setTestSubmitted(true);
       fetchDashboard();
       fetchCumulative();
+      fetchHistory();
+      fetchProgress();
     } catch (e) { console.error(e); }
     setIsSubmitting(false);
   };
@@ -769,8 +797,9 @@ export default function FocusedPortalPage() {
               onClick={() => setActiveTab(t)}
               style={{
                 padding: "6px 16px", borderRadius: 8, fontSize: 13, fontWeight: 600, border: "none", cursor: "pointer",
-                backgroundColor: activeTab === t ? C.gold : "transparent",
-                color: activeTab === t ? "#000" : C.textMuted,
+                backgroundColor: activeTab === t ? (isDark ? C.gold : '#1a1a1a') : 'transparent',
+                color: activeTab === t ? (isDark ? '#000' : '#ffffff') : (isDark ? '#888888' : '#333333'),
+                border: activeTab !== t && !isDark ? '1px solid #cccccc' : 'none',
                 transition: "all 0.2s",
               }}
             >
@@ -966,130 +995,11 @@ export default function FocusedPortalPage() {
                   </div>
                 )}
 
-                {/* Spinner keyframes */}
-                <style>{`@keyframes fspin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}`}</style>
-
-                {/* Fullscreen exit button */}
-                {isFullscreen && testStarted && !testSubmitted && (
-                  <button
-                    onClick={() => document.exitFullscreen()}
-                    style={{
-                      position: "fixed", top: 16, right: 16, zIndex: 9999,
-                      width: 40, height: 40, borderRadius: "50%", border: `1px solid ${C.border}`,
-                      backgroundColor: "rgba(10,10,15,0.9)", color: C.textPrimary,
-                      fontSize: 18, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center"
-                    }}
-                  >✕</button>
-                )}
-
                 {testStarted && !testSubmitted ? (
-                  <>
-                    {/* Scrollable question list */}
-                    <div style={{ maxHeight: isFullscreen ? "calc(100vh - 120px)" : "68vh", overflowY: "auto", paddingRight: 4 }}>
-                      {testQuestions.map((q, qIndex) => {
-                        const selected = testAnswers[qIndex];
-                        const conf = testConfidence[qIndex];
-                        const warn = hasWarning(qIndex);
-                        return (
-                          <div key={q.id}
-                            ref={(el) => {
-                              if (!el) return;
-                              const obs = new IntersectionObserver(([entry]) => {
-                                if (entry.isIntersecting && lastVisibleIndexRef.current !== qIndex) {
-                                  const now = Date.now();
-                                  timePerQuestionRef.current[lastVisibleIndexRef.current] += now - questionStartTimeRef.current;
-                                  questionStartTimeRef.current = now;
-                                  lastVisibleIndexRef.current = qIndex;
-                                }
-                              }, { threshold: 0.5 });
-                              obs.observe(el);
-                            }}
-                            style={{ marginBottom: 28, padding: 24, backgroundColor: "rgba(255,255,255,0.02)", borderRadius: 16, border: `1px solid ${warn ? C.red : C.border}` }}>
-                            <p style={{ color: C.textMuted, fontSize: 11, fontWeight: 700, marginBottom: 10 }}>Q{qIndex + 1} / {testQuestions.length}</p>
-                            <p style={{ fontSize: 15, fontWeight: 600, lineHeight: 1.7, marginBottom: 16 }}>{q.question_text ?? q.text}</p>
-
-                            {/* Confidence pills */}
-                            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 16 }}>
-                              {CONFIDENCE_PILLS.map(pill => {
-                                const isSkip = pill === "Skip";
-                                const isActive = conf === pill;
-                                return (
-                                  <button
-                                    key={pill}
-                                    onClick={() => setConfidenceByIndex(qIndex, pill)}
-                                    style={{
-                                      padding: "5px 14px", borderRadius: 999, fontSize: 12, fontWeight: 600, cursor: "pointer",
-                                      border: `1px solid ${isActive ? (isSkip ? "#555" : C.gold) : C.border}`,
-                                      backgroundColor: isActive ? (isSkip ? "rgba(255,255,255,0.06)" : C.goldGlow) : "transparent",
-                                      color: isActive ? (isSkip ? "#888" : C.gold) : isSkip ? "#555" : C.textMuted,
-                                      transition: "all 0.15s"
-                                    }}
-                                  >{pill}</button>
-                                );
-                              })}
-                            </div>
-
-                            {/* Warning */}
-                            {warn && (
-                              <p style={{ fontSize: 11, color: C.red, marginBottom: 10, fontWeight: 600 }}>⚠ Please select an answer</p>
-                            )}
-
-                            {/* Options — hidden when Skip selected */}
-                            {conf !== "Skip" && (
-                              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                                {(["A", "B", "C", "D"] as const).map(key => {
-                                  const optionText = q[`option_${key.toLowerCase()}`] ?? (q.options || {})[key];
-                                  if (!optionText) return null;
-                                  const isSelected = selected === key;
-                                  return (
-                                    <button
-                                      key={key}
-                                      onClick={() => selectAnswerByIndex(qIndex, key)}
-                                      style={{
-                                        textAlign: "left", padding: "13px 16px", borderRadius: 12, cursor: "pointer",
-                                        border: `1px solid ${isSelected ? "#4A90E2" : C.border}`,
-                                        backgroundColor: isSelected ? "rgba(74,144,226,0.1)" : "rgba(255,255,255,0.02)",
-                                        color: isSelected ? "#4A90E2" : C.textPrimary,
-                                        transition: "all 0.15s", fontWeight: isSelected ? 600 : 400
-                                      }}
-                                    >
-                                      <strong>{key}.</strong> {optionText}
-                                    </button>
-                                  );
-                                })}
-                              </div>
-                            )}
-                            {conf === "Skip" && (
-                              <p style={{ fontSize: 12, color: "#555", fontStyle: "italic" }}>Skipped — will count as wrong</p>
-                            )}
-                          </div>
-                        );
-                      })}
-                    </div>
-
-                    {/* Submit button */}
-                    <div style={{ marginTop: 20, borderTop: `1px solid ${C.border}`, paddingTop: 20 }}>
-                      <button
-                        onClick={submitTest}
-                        disabled={isSubmitting}
-                        style={{
-                          width: "100%", padding: "18px", borderRadius: 16, border: "none",
-                          cursor: isSubmitting ? "default" : "pointer",
-                          backgroundColor: isSubmitting ? "rgba(68,255,136,0.3)" : C.green,
-                          color: "#000", fontWeight: 800, fontSize: 16,
-                          display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
-                          opacity: isSubmitting ? 0.7 : 1
-                        }}
-                      >
-                        {isSubmitting ? (
-                          <>
-                            <span style={{ display: "inline-block", width: 16, height: 16, border: "2px solid #000", borderTopColor: "transparent", borderRadius: "50%", animation: "fspin 0.8s linear infinite" }} />
-                            Generating your report...
-                          </>
-                        ) : `Submit Test (${answeredCount}/${testQuestions.length})`}
-                      </button>
-                    </div>
-                  </>
+                  <div style={{ padding: "24px 0", textAlign: "center", color: C.textMuted }}>
+                    <p style={{ fontSize: 14, fontWeight: 600 }}>Test in progress...</p>
+                    <p style={{ fontSize: 12, marginTop: 8 }}>{answeredCount}/{testQuestions.length} answered</p>
+                  </div>
                 ) : testSubmitted ? (
                   <div>
                     <p style={{ color: C.green, fontWeight: 700, fontSize: 16, marginBottom: 16 }}>✓ Report Ready</p>
@@ -1141,9 +1051,9 @@ export default function FocusedPortalPage() {
                 <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                   {cumulativeData?.subjects?.length > 0 ? (
                     cumulativeData.subjects.map((s: any, i: number) => (
-                      <div key={i} style={{ 
-                        padding: 14, borderRadius: 16, backgroundColor: "rgba(255,68,68,0.04)", 
-                        border: `1px solid ${s.priority === "HIGH" ? "rgba(255,68,68,0.2)" : C.border}` 
+                      <div key={i} style={{
+                        padding: 14, borderRadius: 16, backgroundColor: "rgba(255,68,68,0.04)",
+                        border: `1px solid ${s.priority === "HIGH" ? "rgba(255,68,68,0.2)" : C.border}`
                       }}>
                         <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
                           <span style={{ fontSize: 14, fontWeight: 700 }}>{s.subject}</span>
@@ -1160,11 +1070,181 @@ export default function FocusedPortalPage() {
                   )}
                 </div>
               </div>
+
+              {/* BUG 7+8: Test History */}
+              {activeTab === 'history' && historyData?.history?.length > 0 && (
+                <div style={{ backgroundColor: C.surface, border: `1px solid ${C.border}`, borderRadius: 24, padding: 24, marginTop: 24 }}>
+                  <h3 style={{ fontSize: 13, fontWeight: 800, letterSpacing: "0.05em", color: C.gold, marginBottom: 20 }}>TEST HISTORY</h3>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                    {historyData.history.map((r: any) => (
+                      <div key={r.id} style={{ padding: 14, borderRadius: 16, backgroundColor: "rgba(255,255,255,0.02)", border: `1px solid ${C.border}` }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
+                          <span style={{ fontSize: 13, fontWeight: 700 }}>{r.subject} — Cluster {r.cluster_number}</span>
+                          <span style={{ fontSize: 12, fontWeight: 700, color: r.percentage >= 60 ? C.green : r.percentage >= 40 ? C.amber : C.red }}>
+                            {r.score}/{r.total_questions} ({r.percentage.toFixed(0)}%)
+                          </span>
+                        </div>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+                          <span style={{ fontSize: 11, color: C.textMuted }}>{r.date}</span>
+                          {r.improvement !== 0 && (
+                            <span style={{ fontSize: 11, color: r.improvement > 0 ? C.green : C.red, fontWeight: 600 }}>
+                              {r.improvement > 0 ? '↑' : '↓'} {Math.abs(r.improvement).toFixed(1)}%
+                            </span>
+                          )}
+                        </div>
+                        {r.weak_topics?.length > 0 && (
+                          <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+                            {r.weak_topics.slice(0, 4).map((t: string, i: number) => (
+                              <span key={i} style={{ fontSize: 10, padding: "2px 8px", borderRadius: 999, backgroundColor: "rgba(255,68,68,0.08)", color: C.red, border: `1px solid rgba(255,68,68,0.2)` }}>{t}</span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>
 
       </div>
+
+      {/* ── BUG 6 + BUG 2: MCQ Fullscreen Overlay (fixed position, correct pill order) ── */}
+      <style>{`@keyframes fspin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}`}</style>
+      {testStarted && !testSubmitted && (
+        <div style={{
+          position: 'fixed', top: 0, left: 0,
+          width: '100vw', height: '100vh',
+          zIndex: 9999, overflowY: 'auto',
+          backgroundColor: isDark ? '#0a0a0a' : '#f5f5f5',
+          padding: 0,
+        }}>
+          <button
+            onClick={() => { if (document.fullscreenElement) document.exitFullscreen(); setTestStarted(false); setTestAnswers({}); setTestConfidence([]); }}
+            style={{
+              position: 'fixed', top: 16, right: 16, zIndex: 10000,
+              width: 40, height: 40, borderRadius: '50%',
+              border: `1px solid ${C.border}`,
+              backgroundColor: isDark ? 'rgba(10,10,15,0.9)' : '#ffffff',
+              color: C.textPrimary, fontSize: 18, cursor: 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}
+          >✕</button>
+
+          <div style={{ maxWidth: 800, margin: '0 auto', padding: 16, paddingBottom: 80 }}>
+            <p style={{ color: C.textMuted, fontSize: 12, padding: '12px 0 8px', fontWeight: 600 }}>
+              {currentSubject} — {currentClusterName} · {answeredCount}/{testQuestions.length} answered
+            </p>
+
+            {testQuestions.map((q, qIndex) => {
+              const selected = testAnswers[qIndex];
+              const conf = testConfidence[qIndex];
+              const warn = hasWarning(qIndex);
+              return (
+                <div key={q.id}
+                  ref={(el) => {
+                    if (!el) return;
+                    const obs = new IntersectionObserver(([entry]) => {
+                      if (entry.isIntersecting && lastVisibleIndexRef.current !== qIndex) {
+                        const now = Date.now();
+                        timePerQuestionRef.current[lastVisibleIndexRef.current] += now - questionStartTimeRef.current;
+                        questionStartTimeRef.current = now;
+                        lastVisibleIndexRef.current = qIndex;
+                      }
+                    }, { threshold: 0.5 });
+                    obs.observe(el);
+                  }}
+                  style={{
+                    marginBottom: 24, padding: 20, borderRadius: 12,
+                    backgroundColor: isDark ? '#1a1a1a' : '#ffffff',
+                    border: `1px solid ${warn ? C.red : C.border}`,
+                  }}>
+                  <p style={{ color: C.textMuted, fontSize: 11, fontWeight: 700, marginBottom: 10 }}>Q{qIndex + 1} / {testQuestions.length}</p>
+                  <p style={{ fontSize: 15, fontWeight: 600, lineHeight: 1.7, marginBottom: 16 }}>
+                    {formatQuestionText(q.question_text ?? q.text ?? '')}
+                  </p>
+
+                  {/* Options first (BUG 2 fix) */}
+                  {conf !== 'Skip' ? (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 16 }}>
+                      {(['A', 'B', 'C', 'D'] as const).map(key => {
+                        const optionText = q[`option_${key.toLowerCase()}`] ?? (q.options || {})[key];
+                        if (!optionText) return null;
+                        const isSelected = selected === key;
+                        return (
+                          <button
+                            key={key}
+                            onClick={() => selectAnswerByIndex(qIndex, key)}
+                            style={{
+                              textAlign: 'left', padding: '13px 16px', borderRadius: 12, cursor: 'pointer',
+                              width: '100%', minHeight: 52,
+                              border: `1px solid ${isSelected ? '#4A90E2' : C.border}`,
+                              backgroundColor: isSelected ? 'rgba(74,144,226,0.1)' : isDark ? 'rgba(255,255,255,0.02)' : 'rgba(0,0,0,0.02)',
+                              color: isSelected ? '#4A90E2' : C.textPrimary,
+                              transition: 'all 0.15s', fontWeight: isSelected ? 600 : 400,
+                              whiteSpace: 'normal', wordBreak: 'break-word',
+                            }}
+                          >
+                            <strong>{key}.</strong> {optionText}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    <p style={{ fontSize: 12, color: '#555', fontStyle: 'italic', marginBottom: 16 }}>Skipped — will count as wrong</p>
+                  )}
+
+                  {/* Confidence pills below options (BUG 2 fix) */}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: warn ? 8 : 0 }}>
+                    {CONFIDENCE_PILLS.map(pill => {
+                      const isSkip = pill === 'Skip';
+                      const isActive = conf === pill;
+                      return (
+                        <button
+                          key={pill}
+                          onClick={() => setConfidenceByIndex(qIndex, pill)}
+                          style={{
+                            padding: '5px 14px', borderRadius: 999, fontSize: 12, fontWeight: 600, cursor: 'pointer',
+                            border: `1px solid ${isActive ? (isSkip ? '#555' : C.gold) : C.border}`,
+                            backgroundColor: isActive ? (isSkip ? 'rgba(255,255,255,0.06)' : C.goldGlow) : 'transparent',
+                            color: isActive ? (isSkip ? '#888' : C.gold) : isSkip ? '#555' : C.textMuted,
+                            transition: 'all 0.15s',
+                          }}
+                        >{pill}</button>
+                      );
+                    })}
+                  </div>
+
+                  {warn && (
+                    <p style={{ fontSize: 11, color: C.red, marginTop: 8, fontWeight: 600 }}>⚠ Please select an answer</p>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          <button
+            onClick={submitTest}
+            disabled={isSubmitting}
+            style={{
+              position: 'fixed', bottom: 0, left: 0, width: '100%',
+              padding: 16, zIndex: 10000,
+              backgroundColor: isSubmitting ? 'rgba(212,175,55,0.5)' : '#d4af37',
+              color: '#000', border: 'none', fontSize: 16, fontWeight: 700,
+              cursor: isSubmitting ? 'default' : 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+            }}
+          >
+            {isSubmitting ? (
+              <>
+                <span style={{ display: 'inline-block', width: 16, height: 16, border: '2px solid #000', borderTopColor: 'transparent', borderRadius: '50%', animation: 'fspin 0.8s linear infinite' }} />
+                Generating your report...
+              </>
+            ) : `Submit Test (${answeredCount}/${testQuestions.length})`}
+          </button>
+        </div>
+      )}
     </div>
   );
 }
