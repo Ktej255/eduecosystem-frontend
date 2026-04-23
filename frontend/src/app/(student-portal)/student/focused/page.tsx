@@ -632,11 +632,11 @@ export default function FocusedPortalPage() {
 
   const CONFIDENCE_PILLS = ["Short Shot", "50/50", "Other", "Only One Known", "Blind Guess", "Skip"];
 
-  const selectAnswerByIndex = (qIndex: number, option: string) => {
-    setTestAnswers(prev => ({ ...prev, [qIndex]: option }));
+  const selectAnswerById = (qId: number, option: string) => {
+    setTestAnswers(prev => ({ ...prev, [qId]: option }));
   };
 
-  const setConfidenceByIndex = (qIndex: number, value: string) => {
+  const setConfidenceByIndex = (qIndex: number, qId: number, value: string) => {
     setTestConfidence(prev => {
       const next = [...prev];
       next[qIndex] = value;
@@ -646,7 +646,7 @@ export default function FocusedPortalPage() {
     if (value === "Skip") {
       setTestAnswers(prev => {
         const next = { ...prev };
-        delete next[qIndex];
+        delete next[qId];
         return next;
       });
     }
@@ -1548,7 +1548,7 @@ export default function FocusedPortalPage() {
             </p>
 
             {testQuestions.map((q, qIndex) => {
-              const selected = testAnswers[qIndex];
+              const selected = testAnswers[q.id];
               const conf = testConfidence[qIndex];
               const warn = hasWarning(qIndex);
               return (
@@ -1585,7 +1585,7 @@ export default function FocusedPortalPage() {
                         return (
                           <button
                             key={key}
-                            onClick={() => selectAnswerByIndex(qIndex, key)}
+                            onClick={() => selectAnswerById(q.id, key)}
                             style={{
                               textAlign: 'left', padding: '13px 16px', borderRadius: 12, cursor: 'pointer',
                               width: '100%', minHeight: 52,
