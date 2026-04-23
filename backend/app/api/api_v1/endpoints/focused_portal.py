@@ -834,13 +834,6 @@ def get_test_history(
     db: Session = Depends(get_db),
     current_user = Depends(get_current_user)
 ):
-    # FIX 3 — Fix history endpoint JSON parsing.
-    def safe_json(value):
-        if value is None: return []
-        if isinstance(value, list): return value
-        try: return json.loads(value)
-        except: return []
-
     rows = db.execute(
         text("""
             SELECT id, subject, cluster_number, 
@@ -865,7 +858,7 @@ def get_test_history(
                 "score": r.score,
                 "total_questions": r.total_questions,
                 "percentage": float(r.percentage),
-                "weak_topics": safe_json(r.weak_topics),
+                "weak_topics": parse_json_field(r.weak_topics),
                 "trap_questions_missed": parse_json_field(r.trap_questions_missed),
                 "correct_answers": parse_json_field(r.correct_answers),
                 "wrong_answers": parse_json_field(r.wrong_answers),
@@ -882,13 +875,26 @@ def get_test_history(
 # ENDPOINT 10 — GET OVERALL PROGRESS
 # ─────────────────────────────────────────────────────────────
 
+
+
 @router.get("/progress")
 def get_progress(
     db: Session = Depends(get_db),
     current_user = Depends(get_current_user)
 ):
-    # Clusters completed (best attempt per cluster)
-    clusters = db.execute(
+    # 1. Fetch data from focused_cluster_progress (primary source for status)
+    progress_rows = db.execute(
+        text("""
+            SELECT subject, cluster_number, status, best_score, last_accessed_at
+            FROM focused_cluster_progress
+            WHERE user_id = :uid
+            ORDER BY subject, cluster_number
+        """),
+        {"uid": current_user.id}
+    ).fetchall()
+
+    # 2. Fetch data from focused_test_reports (detailed historical source)
+    reports = db.execute(
         text("""
             SELECT DISTINCT ON (cluster_number, subject) 
                    cluster_number, subject, percentage as best_pct,
@@ -900,6 +906,39 @@ def get_progress(
         """),
         {"uid": current_user.id}
     ).fetchall()
+
+    # Merge logic: prioritize reports for details, but use progress for status if report is missing
+    merged_clusters = []
+    report_map = {(r.subject, r.cluster_number): r for r in reports}
+    
+    # Process clusters with reports
+    for key, r in report_map.items():
+        merged_clusters.append({
+            "cluster_number": r.cluster_number,
+            "subject": r.subject,
+            "best_percentage": float(r.best_pct),
+            "attempts": r.attempts,
+            "weak_topics": parse_json_field(r.weak_topics),
+            "trap_questions_missed": parse_json_field(r.trap_questions_missed),
+            "correct_answers": parse_json_field(r.correct_answers),
+            "wrong_answers": parse_json_field(r.wrong_answers),
+            "status": "completed" if r.best_pct >= 70 else "attempted"
+        })
+
+    # Add any clusters from progress_rows that don't have reports (e.g. only study sessions)
+    for p in progress_rows:
+        if (p.subject, p.cluster_number) not in report_map:
+            merged_clusters.append({
+                "cluster_number": p.cluster_number,
+                "subject": p.subject,
+                "best_percentage": float(p.best_score or 0),
+                "attempts": 0,
+                "weak_topics": [],
+                "trap_questions_missed": [],
+                "correct_answers": [],
+                "wrong_answers": [],
+                "status": p.status
+            })
 
     # Overall accuracy
     overall = db.execute(
@@ -935,23 +974,11 @@ def get_progress(
     ).fetchone()
 
     return {
-        "clusters_attempted": [
-            {
-                "cluster_number": r.cluster_number,
-                "subject": r.subject,
-                "best_percentage": float(r.best_pct),
-                "attempts": r.attempts,
-                "weak_topics": parse_json_field(r.weak_topics),
-                "trap_questions_missed": parse_json_field(r.trap_questions_missed),
-                "correct_answers": parse_json_field(r.correct_answers),
-                "wrong_answers": parse_json_field(r.wrong_answers)
-            }
-            for r in clusters
-        ],
-        "overall_accuracy": float(overall.avg_pct or 0),
-        "total_questions_attempted": overall.total_q or 0,
-        "total_correct": overall.total_correct or 0,
-        "total_time_seconds": overall.total_time or 0,
+        "clusters_attempted": merged_clusters,
+        "overall_accuracy": float(overall.avg_pct or 0) if overall and overall.avg_pct else 0,
+        "total_questions_attempted": overall.total_q or 0 if overall else 0,
+        "total_correct": overall.total_correct or 0 if overall else 0,
+        "total_time_seconds": overall.total_time or 0 if overall else 0,
         "gates": [
             {
                 "subject": g.subject,
@@ -960,5 +987,5 @@ def get_progress(
             }
             for g in gates
         ],
-        "days_active": days[0] or 0
+        "days_active": days[0] or 0 if days else 0
     }
