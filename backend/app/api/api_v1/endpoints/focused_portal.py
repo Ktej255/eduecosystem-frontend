@@ -641,27 +641,27 @@ def submit_test(
         text("""
             INSERT INTO focused_cluster_progress 
             (user_id, subject, cluster_number, 
-             status, best_score, last_accessed_at)
+             status, last_accessed_at, first_completed_at)
             VALUES 
-            (:uid, :subj, :cl, :status, :score, NOW())
+            (:uid, :subj, :cl, :status, NOW(), 
+             CASE WHEN :status = 'completed' THEN NOW() ELSE NULL END)
             ON CONFLICT (user_id, subject, cluster_number)
             DO UPDATE SET
-                best_score = GREATEST(
-                    focused_cluster_progress.best_score, 
-                    :score
-                ),
                 last_accessed_at = NOW(),
                 status = CASE 
-                    WHEN :score >= 70 THEN 'completed'
-                    ELSE 'attempted'
+                    WHEN focused_cluster_progress.status = 'completed' THEN 'completed'
+                    ELSE :status
+                END,
+                first_completed_at = CASE
+                    WHEN focused_cluster_progress.first_completed_at IS NULL AND :status = 'completed' THEN NOW()
+                    ELSE focused_cluster_progress.first_completed_at
                 END
         """),
         {
             "uid": user_id,
             "subj": body.subject,
             "cl": body.cluster_id,
-            "status": "completed" if percent >= 70 else "attempted",
-            "score": round(percent, 2)
+            "status": "completed" if percent >= 70 else "attempted"
         }
     )
     db.commit()
