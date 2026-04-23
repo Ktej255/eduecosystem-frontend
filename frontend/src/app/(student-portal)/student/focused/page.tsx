@@ -987,8 +987,7 @@ export default function FocusedPortalPage() {
 
               {viewMode === 'overview' ? (
                 <ClusterOverviewScreen />
-              ) : (
-              {testSubmitted && testReport ? (
+              ) : (testSubmitted && testReport) ? (
                 <div style={{
                   padding: '24px',
                   maxWidth: 800,
