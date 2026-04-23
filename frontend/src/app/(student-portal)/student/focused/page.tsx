@@ -657,7 +657,7 @@ export default function FocusedPortalPage() {
     setIsSubmitting(true);
     if (document.fullscreenElement) document.exitFullscreen();
     timePerQuestionRef.current[lastVisibleIndexRef.current] += Date.now() - questionStartTimeRef.current;
-    const answersArray = testQuestions.map((q, i) => testAnswers[i] || "Skip");
+    const answersArray = testQuestions.map(q => testAnswers[q.id] || "Skip");
     const questionIds = testQuestions.map(q => q.id);
     const timesArray = timePerQuestionRef.current.map(t => t || 0);
     try {
