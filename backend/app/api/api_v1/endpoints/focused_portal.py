@@ -37,6 +37,23 @@ SUBJECT_SEQUENCE = [
     "Indian Society"
 ]
 
+def parse_json_field(value):
+    """
+    Safely load JSON data. Handles cases where the DB driver might have already
+    parsed it into a list/dict, or where it's stored as a JSON string.
+    """
+    if value is None:
+        return []
+    if isinstance(value, (list, dict)):
+        return value
+    if isinstance(value, str):
+        try:
+            return json.loads(value)
+        except Exception:
+            # Fallback for malformed or non-JSON strings
+            return [] if value.startswith('[') else {}
+    return []
+
 # Polity cluster names (from the 250Q file seeded in focused_questions)
 POLITY_CLUSTERS = {
     1: "Preamble & Basic Structure",
@@ -534,7 +551,7 @@ def submit_test(
         topic_stats[tag]["time_sum"] += time_ms
         topic_stats[tag]["conf_dist"][conf] = topic_stats[tag]["conf_dist"].get(conf, 0) + 1
 
-        is_correct = (user_ans == correct_ans)
+        is_correct = (correct_ans is not None and user_ans == correct_ans)
         
         if conf == "Skip":
             skipped_count += 1
@@ -577,6 +594,8 @@ def submit_test(
     score = len(correct_ids)
     percent = (score / total) * 100 if total > 0 else 0
     total_time_s = sum(u_time) // 1000
+
+    print(f"DEBUG: score={score}, total={total}, percent={percent}, correct_ids={correct_ids}")
 
     # 5. Improvement vs Yesterday
     prev = db.execute(
@@ -655,10 +674,7 @@ def get_gate_test(
 
     questions = []
     for r in rows:
-        try:
-            options = json.loads(r[2]) if r[2] else {}
-        except Exception:
-            options = {}
+        options = parse_json_field(r[2])
         questions.append({
             "id": r[0],
             "text": r[1],
@@ -790,7 +806,8 @@ def get_test_history(
         text("""
             SELECT id, subject, cluster_number, 
                    score, total_questions, percentage,
-                   weak_topics, time_taken_seconds,
+                   weak_topics, trap_questions_missed, correct_answers, wrong_answers,
+                   time_taken_seconds,
                    improvement_vs_yesterday, created_at
             FROM focused_test_reports
             WHERE user_id = :uid
@@ -809,7 +826,10 @@ def get_test_history(
                 "score": r.score,
                 "total_questions": r.total_questions,
                 "percentage": float(r.percentage),
-                "weak_topics": json.loads(r.weak_topics or "[]"),
+                "weak_topics": parse_json_field(r.weak_topics),
+                "trap_questions_missed": parse_json_field(r.trap_questions_missed),
+                "correct_answers": parse_json_field(r.correct_answers),
+                "wrong_answers": parse_json_field(r.wrong_answers),
                 "time_taken_seconds": r.time_taken_seconds,
                 "improvement": float(r.improvement_vs_yesterday or 0),
                 "date": r.created_at.strftime("%b %d, %Y")
@@ -828,16 +848,16 @@ def get_progress(
     db: Session = Depends(get_db),
     current_user = Depends(get_current_user)
 ):
-    # Clusters completed
+    # Clusters completed (best attempt per cluster)
     clusters = db.execute(
         text("""
-            SELECT cluster_number, subject,
-                   MAX(percentage) as best_pct,
-                   COUNT(*) as attempts
-            FROM focused_test_reports
+            SELECT DISTINCT ON (cluster_number, subject) 
+                   cluster_number, subject, percentage as best_pct,
+                   weak_topics, trap_questions_missed, correct_answers, wrong_answers,
+                   (SELECT COUNT(*) FROM focused_test_reports f2 WHERE f2.user_id = :uid AND f2.subject = f.subject AND f2.cluster_number = f.cluster_number) as attempts
+            FROM focused_test_reports f
             WHERE user_id = :uid
-            GROUP BY cluster_number, subject
-            ORDER BY cluster_number
+            ORDER BY cluster_number, subject, percentage DESC
         """),
         {"uid": current_user.id}
     ).fetchall()
@@ -858,7 +878,7 @@ def get_progress(
     # Gate status
     gates = db.execute(
         text("""
-            SELECT subject, is_unlocked, passed
+            SELECT subject, gate_score, passed
             FROM focused_subject_gates
             WHERE user_id = :uid
         """),
@@ -881,7 +901,11 @@ def get_progress(
                 "cluster_number": r.cluster_number,
                 "subject": r.subject,
                 "best_percentage": float(r.best_pct),
-                "attempts": r.attempts
+                "attempts": r.attempts,
+                "weak_topics": parse_json_field(r.weak_topics),
+                "trap_questions_missed": parse_json_field(r.trap_questions_missed),
+                "correct_answers": parse_json_field(r.correct_answers),
+                "wrong_answers": parse_json_field(r.wrong_answers)
             }
             for r in clusters
         ],
@@ -892,7 +916,7 @@ def get_progress(
         "gates": [
             {
                 "subject": g.subject,
-                "unlocked": g.is_unlocked,
+                "gate_score": g.gate_score,
                 "passed": g.passed
             }
             for g in gates
