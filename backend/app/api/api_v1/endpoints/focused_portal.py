@@ -324,10 +324,12 @@ def get_clusters(
     db: Session = Depends(get_db),
     current_user=Depends(get_current_user)
 ):
-    """
-    Step 2 - Phase 2: Cluster Navigation Logic.
-    Returns all clusters for a subject, their topics, and user progress.
-    """
+    # FIX 4 — Normalize subject name
+    if subject.upper() in ["IR", "INTERNATIONAL RELATIONS"]:
+        subject = "International Relations"
+    elif "Science" in subject and "Tech" in subject:
+        subject = "Science & Technology"
+    
     user_id = current_user.id
     
     # 1. Get all clusters and their topics from focused_questions
@@ -634,6 +636,36 @@ def submit_test(
     report_id = res.scalar()
     db.commit()
 
+    # FIX 1 — Insert into focused_cluster_progress after every test submission.
+    db.execute(
+        text("""
+            INSERT INTO focused_cluster_progress 
+            (user_id, subject, cluster_number, 
+             status, best_score, last_accessed_at)
+            VALUES 
+            (:uid, :subj, :cl, :status, :score, NOW())
+            ON CONFLICT (user_id, subject, cluster_number)
+            DO UPDATE SET
+                best_score = GREATEST(
+                    focused_cluster_progress.best_score, 
+                    :score
+                ),
+                last_accessed_at = NOW(),
+                status = CASE 
+                    WHEN :score >= 70 THEN 'completed'
+                    ELSE 'attempted'
+                END
+        """),
+        {
+            "uid": user_id,
+            "subj": body.subject,
+            "cl": body.cluster_id,
+            "status": "completed" if percent >= 70 else "attempted",
+            "score": round(percent, 2)
+        }
+    )
+    db.commit()
+
     return {
         "report_id": report_id,
         "total": total,
@@ -802,6 +834,13 @@ def get_test_history(
     db: Session = Depends(get_db),
     current_user = Depends(get_current_user)
 ):
+    # FIX 3 — Fix history endpoint JSON parsing.
+    def safe_json(value):
+        if value is None: return []
+        if isinstance(value, list): return value
+        try: return json.loads(value)
+        except: return []
+
     rows = db.execute(
         text("""
             SELECT id, subject, cluster_number, 
@@ -826,7 +865,7 @@ def get_test_history(
                 "score": r.score,
                 "total_questions": r.total_questions,
                 "percentage": float(r.percentage),
-                "weak_topics": parse_json_field(r.weak_topics),
+                "weak_topics": safe_json(r.weak_topics),
                 "trap_questions_missed": parse_json_field(r.trap_questions_missed),
                 "correct_answers": parse_json_field(r.correct_answers),
                 "wrong_answers": parse_json_field(r.wrong_answers),
