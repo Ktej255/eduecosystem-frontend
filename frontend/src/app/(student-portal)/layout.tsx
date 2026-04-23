@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import StudentSidebar from "@/components/student-portal/StudentSidebar";
 import StudentHeader from "@/components/student-portal/StudentHeader";
 import ProtectedRoute from "@/components/protected-route";
 import FloatingVoiceAssistant from "@/components/shared/voice/FloatingVoiceAssistant";
 import { Batch2UIProvider } from "@/components/batch2/context/Batch2UIContext";
 import { LanguageProvider } from "@/contexts/language-context";
+import { useAuth } from "@/contexts/auth-context";
 
 export default function StudentPortalLayout({
     children,
@@ -16,9 +17,22 @@ export default function StudentPortalLayout({
 }) {
     const [isCollapsed, setIsCollapsed] = useState(false);
     const pathname = usePathname();
+    const router = useRouter();
+    const { user, loading } = useAuth();
+
+    useEffect(() => {
+        if (!loading && user?.is_focused_portal_user && !pathname?.startsWith("/student/focused")) {
+            router.replace("/student/focused");
+        }
+    }, [user, loading, pathname, router]);
 
     if (pathname?.startsWith("/student/focused")) {
         return <ProtectedRoute>{children}</ProtectedRoute>;
+    }
+
+    // Prevent flashing main portal while redirect is pending
+    if (!loading && user?.is_focused_portal_user) {
+        return null;
     }
 
     return (
