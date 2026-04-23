@@ -320,23 +320,96 @@ const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
 const API = API_BASE.includes("/api/v1") ? API_BASE : `${API_BASE}/api/v1`;
 
 function formatQuestionText(text: string) {
-  if (!text) return null;
-  const withBreaks = text.replace(/\\n/g, '\n');
-  const lines = withBreaks.split('\n');
-  if (lines.length > 1) {
-    return (
-      <div>
-        {lines.map((line, i) =>
-          line.trim() ? (
-            <p key={i} style={{ margin: '4px 0', fontWeight: line.match(/^\d+\./) ? 600 : 400 }}>
-              {line.trim()}
-            </p>
-          ) : null
-        )}
-      </div>
-    );
+  if (!text) return null
+  
+  // Handle both actual newlines and escaped \n
+  const normalized = text
+    .replace(/\\n/g, '\n')  // literal \n → real newline
+    .replace(/\r\n/g, '\n') // Windows line endings
+    .replace(/\r/g, '\n')   // old Mac line endings
+  
+  const lines = normalized.split('\n').filter(l => l.trim())
+  
+  if (lines.length <= 1) {
+    return <span>{text}</span>
   }
-  return <span>{text}</span>;
+  
+  // Separate intro, numbered statements, final question
+  const intro: string[] = []
+  const statements: string[] = []
+  const finalQ: string[] = []
+  
+  const questionStarters = [
+    'Which of', 'How many', 'Select the',
+    'Choose the', 'Identify the', 'What is',
+    'Consider which'
+  ]
+  
+  let foundQuestion = false
+  
+  for (const line of lines) {
+    const trimmed = line.trim()
+    if (!trimmed) continue
+    
+    if (foundQuestion) {
+      finalQ.push(trimmed)
+      continue
+    }
+    
+    const isQuestion = questionStarters.some(
+      s => trimmed.startsWith(s)
+    )
+    
+    if (isQuestion) {
+      foundQuestion = true
+      finalQ.push(trimmed)
+      continue
+    }
+    
+    const isNumbered = /^\d+\./.test(trimmed)
+    
+    if (isNumbered) {
+      statements.push(trimmed)
+    } else {
+      if (statements.length === 0) {
+        intro.push(trimmed)
+      } else {
+        statements.push(trimmed)
+      }
+    }
+  }
+  
+  return (
+    <div style={{ lineHeight: 1.7 }}>
+      {intro.map((line, i) => (
+        <p key={`i${i}`} style={{ 
+          margin: '0 0 12px 0',
+          fontWeight: 500 
+        }}>
+          {line}
+        </p>
+      ))}
+      {statements.map((line, i) => (
+        <p key={`s${i}`} style={{ 
+          margin: '0 0 8px 0',
+          paddingLeft: 8,
+          borderLeft: '2px solid #d4af37',
+          fontWeight: /^\d+\./.test(line) ? 500 : 400
+        }}>
+          {line}
+        </p>
+      ))}
+      {finalQ.map((line, i) => (
+        <p key={`q${i}`} style={{ 
+          margin: '12px 0 0 0',
+          fontWeight: 600,
+          fontStyle: 'italic'
+        }}>
+          {line}
+        </p>
+      ))}
+    </div>
+  )
 }
 
 const C = {
@@ -379,6 +452,8 @@ export default function FocusedPortalPage() {
   const [cumulativeData, setCumulativeData] = useState<any>(null);
   const [historyData, setHistoryData] = useState<any>(null);
   const [progressData, setProgressData] = useState<any>(null);
+  const [reportFilter, setReportFilter] = useState<'all' | 'correct' | 'wrong' | 'skipped'>('all');
+  const [reviewQuestions, setReviewQuestions] = useState<any[]>([]);
 
   // ── Theme ──
   const [isDark, setIsDark] = useState(true);
@@ -597,7 +672,10 @@ export default function FocusedPortalPage() {
       });
       const data = await res.json();
       setTestReport(data.report ?? data);
+      setReviewQuestions(testQuestions);
       setTestSubmitted(true);
+      setStudyStarted(false);
+      setShowPulse(false);
       fetchDashboard();
       fetchCumulative();
       fetchHistory();
@@ -794,17 +872,22 @@ export default function FocusedPortalPage() {
           <span style={{ color: C.textPrimary, fontWeight: 800, fontSize: 16, letterSpacing: "-0.02em" }}>SARIT FOCUSED</span>
         </div>
 
-        <div style={{ display: "flex", backgroundColor: "rgba(255,255,255,0.05)", borderRadius: 12, padding: 4 }}>
+        <div style={{ display: "flex", backgroundColor: "rgba(128,128,128,0.1)", borderRadius: 12, padding: 4 }}>
           {(['focus', 'progress', 'history'] as const).map(t => (
             <button
               key={t}
               onClick={() => setActiveTab(t)}
               style={{
-                padding: "6px 16px", borderRadius: 8, fontSize: 13, fontWeight: 600, border: "none", cursor: "pointer",
-                backgroundColor: activeTab === t ? (isDark ? C.gold : '#1a1a1a') : 'transparent',
-                color: activeTab === t ? (isDark ? '#000' : '#ffffff') : (isDark ? '#888888' : '#333333'),
-                border: activeTab !== t && !isDark ? '1px solid #cccccc' : 'none',
+                padding: "6px 16px", borderRadius: 8, fontSize: 13, fontWeight: 600, cursor: "pointer",
                 transition: "all 0.2s",
+                ...(activeTab === t
+                  ? isDark
+                    ? { backgroundColor: '#d4af37', color: '#000000', border: '1px solid #d4af37' }
+                    : { backgroundColor: '#111111', color: '#ffffff', border: '1px solid #111111' }
+                  : isDark
+                    ? { backgroundColor: 'transparent', color: '#888888', border: '1px solid transparent' }
+                    : { backgroundColor: 'transparent', color: '#111111', border: '1px solid #999999' }
+                ),
               }}
             >
               {t.charAt(0).toUpperCase() + t.slice(1)}
@@ -905,126 +988,446 @@ export default function FocusedPortalPage() {
               {viewMode === 'overview' ? (
                 <ClusterOverviewScreen />
               ) : (
+              {testSubmitted && testReport ? (
+                <div style={{
+                  padding: '24px',
+                  maxWidth: 800,
+                  margin: '0 auto'
+                }}>
+                  
+                  {/* Header */}
+                  <div style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: 24
+                  }}>
+                    <button
+                      onClick={() => {
+                        setTestSubmitted(false)
+                        setTestStarted(false)
+                        setTestReport(null)
+                        setReviewQuestions([])
+                      }}
+                      style={{
+                        padding: '8px 16px',
+                        backgroundColor: 'transparent',
+                        border: `1px solid ${C.border}`,
+                        color: C.textPrimary,
+                        borderRadius: 8,
+                        cursor: 'pointer'
+                      }}
+                    >
+                      ← Back to Dashboard
+                    </button>
+                    <button
+                      onClick={startTestSequence}
+                      style={{
+                        padding: '8px 16px',
+                        backgroundColor: C.gold,
+                        border: 'none',
+                        color: '#000',
+                        borderRadius: 8,
+                        cursor: 'pointer',
+                        fontWeight: 700
+                      }}
+                    >
+                      Retake Cluster
+                    </button>
+                  </div>
+
+                  {/* Score Cards */}
+                  <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(4, 1fr)',
+                    gap: 12,
+                    marginBottom: 24
+                  }}>
+                    {[
+                      { 
+                        label: 'SCORE', 
+                        value: `${testReport.correct}/${testReport.total}`,
+                        color: testReport.score_percent >= 70 ? C.green 
+                             : testReport.score_percent >= 50 ? C.amber 
+                             : C.red
+                      },
+                      { 
+                        label: 'ACCURACY', 
+                        value: `${Math.round(testReport.score_percent)}%`,
+                        color: testReport.score_percent >= 70 ? C.green 
+                             : testReport.score_percent >= 50 ? C.amber 
+                             : C.red
+                      },
+                      { 
+                        label: 'TIME', 
+                        value: `${Math.floor(testReport.time_total_seconds/60)}m ${testReport.time_total_seconds%60}s`,
+                        color: C.textPrimary
+                      },
+                      { 
+                        label: 'VS YESTERDAY', 
+                        value: testReport.improvement_vs_yesterday === 0 
+                          ? 'First 🎯' 
+                          : testReport.improvement_vs_yesterday > 0 
+                            ? `▲ +${Math.round(testReport.improvement_vs_yesterday)}%`
+                            : `▼ ${Math.round(testReport.improvement_vs_yesterday)}%`,
+                        color: testReport.improvement_vs_yesterday > 0 ? C.green 
+                             : testReport.improvement_vs_yesterday < 0 ? C.red 
+                             : C.gold
+                      }
+                    ].map((card, i) => (
+                      <div key={i} style={{
+                        backgroundColor: isDark ? '#1a1a1a' : '#ffffff',
+                        border: `1px solid ${C.border}`,
+                        borderRadius: 12,
+                        padding: '16px',
+                        textAlign: 'center'
+                      }}>
+                        <div style={{
+                          fontSize: 11,
+                          color: C.textMuted,
+                          letterSpacing: 1,
+                          marginBottom: 8
+                        }}>
+                          {card.label}
+                        </div>
+                        <div style={{
+                          fontSize: 24,
+                          fontWeight: 700,
+                          color: card.color
+                        }}>
+                          {card.value}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Weak Areas */}
+                  {testReport.weak_areas?.length > 0 && (
+                    <div style={{
+                      backgroundColor: isDark ? '#1a1a1a' : '#ffffff',
+                      border: `1px solid ${C.red}`,
+                      borderRadius: 12,
+                      padding: '16px',
+                      marginBottom: 24
+                    }}>
+                      <div style={{
+                        fontSize: 13,
+                        fontWeight: 700,
+                        color: C.red,
+                        marginBottom: 12
+                      }}>
+                        ⚠ Weak Areas — Revise These
+                      </div>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                        {testReport.weak_areas.map((area: string, i: number) => (
+                          <span key={i} style={{
+                            padding: '4px 12px',
+                            backgroundColor: 'rgba(255,68,68,0.1)',
+                            border: '1px solid rgba(255,68,68,0.3)',
+                            borderRadius: 20,
+                            fontSize: 12,
+                            color: C.red
+                          }}>
+                            {area}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Trap Questions Warning */}
+                  {testReport.trap_questions_missed?.length > 0 && (
+                    <div style={{
+                      backgroundColor: isDark ? '#1a1a1a' : '#ffffff',
+                      border: `1px solid ${C.amber}`,
+                      borderRadius: 12,
+                      padding: '16px',
+                      marginBottom: 24
+                    }}>
+                      <div style={{
+                        fontSize: 13,
+                        fontWeight: 700,
+                        color: C.amber
+                      }}>
+                        ⚡ {testReport.trap_questions_missed.length} Trap Questions — 
+                        You answered these fast but got them wrong. Slow down next time.
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Question Review */}
+                  <div style={{
+                    fontSize: 16,
+                    fontWeight: 700,
+                    color: C.textPrimary,
+                    marginBottom: 16
+                  }}>
+                    Question Review
+                  </div>
+
+                  {/* Filter tabs */}
+                  <div style={{
+                    display: 'flex',
+                    gap: 8,
+                    marginBottom: 16
+                  }}>
+                    {(['all','correct','wrong','skipped'] as const).map(f => (
+                      <button
+                        key={f}
+                        onClick={() => setReportFilter(f)}
+                        style={{
+                          padding: '6px 14px',
+                          borderRadius: 20,
+                          border: `1px solid ${C.border}`,
+                          cursor: 'pointer',
+                          fontSize: 12,
+                          fontWeight: reportFilter === f ? 700 : 400,
+                          backgroundColor: reportFilter === f 
+                            ? C.gold : 'transparent',
+                          color: reportFilter === f 
+                            ? '#000' : C.textMuted
+                        }}
+                      >
+                        {f.charAt(0).toUpperCase() + f.slice(1)}
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Questions */}
+                  {reviewQuestions
+                    .filter((q: any) => {
+                      const userAns = testAnswers[q.id]
+                      const correct = q.correct_answer?.toUpperCase()
+                      if (reportFilter === 'correct') 
+                        return userAns === correct
+                      if (reportFilter === 'wrong') 
+                        return userAns && userAns !== correct
+                      if (reportFilter === 'skipped') 
+                        return !userAns
+                      return true
+                    })
+                    .map((q: any, idx: number) => {
+                      const userAns = testAnswers[q.id]
+                      const correct = q.correct_answer?.toUpperCase()
+                      const isCorrect = userAns === correct
+                      const isSkipped = !userAns
+
+                      return (
+                        <div key={q.id} style={{
+                          backgroundColor: isDark ? '#1a1a1a' : '#ffffff',
+                          border: `1px solid ${
+                            isSkipped ? C.border
+                            : isCorrect ? C.green 
+                            : C.red
+                          }`,
+                          borderRadius: 12,
+                          padding: '20px',
+                          marginBottom: 16
+                        }}>
+                          <div style={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            marginBottom: 12
+                          }}>
+                            <span style={{
+                              fontSize: 12,
+                              color: C.textMuted
+                            }}>
+                              Q{idx + 1}
+                            </span>
+                            <span style={{
+                              fontSize: 12,
+                              fontWeight: 700,
+                              color: isSkipped ? C.textMuted
+                                   : isCorrect ? C.green 
+                                   : C.red
+                            }}>
+                              {isSkipped ? 'Skipped' 
+                               : isCorrect ? '✓ Correct' 
+                               : '✗ Wrong'}
+                            </span>
+                          </div>
+
+                          <div style={{
+                            fontSize: 14,
+                            color: C.textPrimary,
+                            marginBottom: 16
+                          }}>
+                            {formatQuestionText(
+                              q.question_text ?? q.text ?? ''
+                            )}
+                          </div>
+
+                          {(['A','B','C','D'] as const).map(key => {
+                            const optText = q[`option_${key.toLowerCase()}`] 
+                              ?? (q.options || {})[key]
+                            if (!optText) return null
+                            const isUserChoice = userAns === key
+                            const isCorrectAns = correct === key
+                            let bg = 'transparent'
+                            let border = C.border
+                            let color = C.textMuted
+                            if (isCorrectAns) {
+                              bg = 'rgba(68,255,136,0.08)'
+                              border = C.green
+                              color = C.green
+                            }
+                            if (isUserChoice && !isCorrectAns) {
+                              bg = 'rgba(255,68,68,0.08)'
+                              border = C.red
+                              color = C.red
+                            }
+                            return (
+                              <div key={key} style={{
+                                padding: '10px 14px',
+                                borderRadius: 8,
+                                border: `1px solid ${border}`,
+                                backgroundColor: bg,
+                                color: color,
+                                fontSize: 13,
+                                marginBottom: 8
+                              }}>
+                                <strong>{key}.</strong> {optText}
+                                {isCorrectAns && 
+                                  <span style={{float:'right'}}>✓</span>}
+                                {isUserChoice && !isCorrectAns && 
+                                  <span style={{float:'right'}}>✗</span>}
+                              </div>
+                            )
+                          })}
+
+                          {q.explanation && (
+                            <div style={{
+                              marginTop: 12,
+                              padding: '12px',
+                              borderLeft: `3px solid ${C.gold}`,
+                              backgroundColor: isDark 
+                                ? 'rgba(212,175,55,0.05)' 
+                                : 'rgba(212,175,55,0.1)',
+                              borderRadius: '0 8px 8px 0',
+                              fontSize: 13,
+                              color: C.textMuted
+                            }}>
+                              <strong style={{color: C.gold}}>
+                                Why: 
+                              </strong> {q.explanation}
+                            </div>
+                          )}
+                        </div>
+                      )
+                    })
+                  }
+                </div>
+              ) : (
                 <>
                   {/* Study Block */}
                   <div style={{ backgroundColor: C.surface, border: `1px solid ${C.border}`, borderRadius: 24, padding: 32, marginBottom: 24, position: "relative", overflow: "hidden" }}>
-                <div style={{ position: "absolute", top: 0, left: 0, width: 4, height: "100%", backgroundColor: C.gold }} />
-                
-                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 32 }}>
-                  <div>
-                    <p style={{ color: C.gold, fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 4 }}>☀ Morning Block</p>
-                    <h2 style={{ fontSize: 20, fontWeight: 700 }}>Intensive Study</h2>
-                  </div>
-                  <div style={{ textAlign: "right" }}>
-                    <p style={{ color: C.textMuted, fontSize: 11, fontWeight: 600 }}>POMODOROS</p>
-                    <p style={{ fontSize: 18, fontWeight: 700, color: C.gold }}>{currentPomodoro}/4</p>
-                  </div>
-                </div>
+                    <div style={{ position: "absolute", top: 0, left: 0, width: 4, height: "100%", backgroundColor: C.gold }} />
+                    
+                    <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 32 }}>
+                      <div>
+                        <p style={{ color: C.gold, fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 4 }}>☀ Morning Block</p>
+                        <h2 style={{ fontSize: 20, fontWeight: 700 }}>Intensive Study</h2>
+                      </div>
+                      <div style={{ textAlign: "right" }}>
+                        <p style={{ color: C.textMuted, fontSize: 11, fontWeight: 600 }}>POMODOROS</p>
+                        <p style={{ fontSize: 18, fontWeight: 700, color: C.gold }}>{currentPomodoro}/4</p>
+                      </div>
+                    </div>
 
-                {/* Pomodoro Timer or Confidence Pulse */}
-                {showPulse ? (
-                  <div style={{ textAlign: "center", padding: "40px 0" }}>
-                     <p style={{ fontSize: 18, fontWeight: 600, marginBottom: 24 }}>How do you feel about Cluster {currentCluster}?</p>
-                     <div style={{ display: "flex", gap: 16, justifyContent: "center" }}>
-                        {(["RED", "YELLOW", "GREEN"] as const).map(p => (
-                          <button key={p} onClick={() => submitPulse(p)} style={{
-                            padding: "16px 32px", borderRadius: 16, fontWeight: 700, border: "none", cursor: "pointer",
-                            backgroundColor: p === "RED" ? "rgba(255,68,68,0.15)" : p === "YELLOW" ? "rgba(255,179,68,0.15)" : "rgba(68,255,136,0.15)",
-                            color: p === "RED" ? C.red : p === "YELLOW" ? C.amber : C.green,
-                          }}>
-                              {p === "RED" ? "🔴 Low" : p === "YELLOW" ? "🟡 Mid" : "🟢 High"}
-                          </button>
-                        ))}
-                     </div>
+                    {/* Pomodoro Timer or Confidence Pulse */}
+                    {showPulse ? (
+                      <div style={{ textAlign: "center", padding: "40px 0" }}>
+                         <p style={{ fontSize: 18, fontWeight: 600, marginBottom: 24 }}>How do you feel about Cluster {currentCluster}?</p>
+                         <div style={{ display: "flex", gap: 16, justifyContent: "center" }}>
+                            {(["RED", "YELLOW", "GREEN"] as const).map(p => (
+                              <button key={p} onClick={() => submitPulse(p)} style={{
+                                padding: "16px 32px", borderRadius: 16, fontWeight: 700, border: "none", cursor: "pointer",
+                                backgroundColor: p === "RED" ? "rgba(255,68,68,0.15)" : p === "YELLOW" ? "rgba(255,179,68,0.15)" : "rgba(68,255,136,0.15)",
+                                color: p === "RED" ? C.red : p === "YELLOW" ? C.amber : C.green,
+                              }}>
+                                  {p === "RED" ? "🔴 Low" : p === "YELLOW" ? "🟡 Mid" : "🟢 High"}
+                              </button>
+                            ))}
+                         </div>
+                      </div>
+                    ) : studyStarted ? (
+                      <div style={{ display: "flex", alignItems: "center", gap: 40, backgroundColor: "rgba(255,255,255,0.02)", padding: 24, borderRadius: 20 }}>
+                         <div style={{ position: "relative", width: 120, height: 120 }}>
+                            <svg width="120" height="120" style={{ transform: "rotate(-90deg)" }}>
+                              <circle cx="60" cy="60" r="54" fill="none" stroke={C.border} strokeWidth="6" />
+                              <circle cx="60" cy="60" r="54" fill="none" stroke={C.gold} strokeWidth="6"
+                                strokeDasharray={`${2 * Math.PI * 54}`}
+                                strokeDashoffset={`${2 * Math.PI * 54 * (1 - timerPercent / 100)}`}
+                                strokeLinecap="round" style={{ transition: "stroke-dashoffset 1s linear" }}
+                              />
+                            </svg>
+                            <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 24, fontWeight: 700 }}>
+                              {timerDisplay.split(':')[0]}
+                            </div>
+                         </div>
+                         <div style={{ flex: 1 }}>
+                            <p style={{ color: C.textMuted, fontSize: 13, marginBottom: 12 }}>Time remaining for Pomodoro {currentPomodoro}</p>
+                            <div style={{ display: "flex", gap: 12 }}>
+                              <button onClick={() => setTimerRunning(!timerRunning)} style={{
+                                padding: "12px 24px", borderRadius: 12, backgroundColor: C.gold, color: "#000", fontWeight: 700, border: "none", cursor: "pointer"
+                              }}>
+                                {timerRunning ? "Pause" : "Resume"}
+                              </button>
+                              <button onClick={() => setStudyStarted(false)} style={{
+                                padding: "12px 24px", borderRadius: 12, backgroundColor: "transparent", color: C.textMuted, border: `1px solid ${C.border}`, cursor: "pointer"
+                              }}>Reset</button>
+                            </div>
+                         </div>
+                      </div>
+                    ) : (
+                      <div>
+                        <button onClick={() => setStudyStarted(true)} style={{
+                          width: "100%", padding: "20px", borderRadius: 16, backgroundColor: C.gold, color: "#000", fontWeight: 800, fontSize: 16, border: "none", cursor: "pointer"
+                        }}>
+                          🚀 BEGIN STUDY SESSION
+                        </button>
+                        <p style={{ textAlign: "center", marginTop: 16, color: C.textMuted, fontSize: 12 }}>Estimated duration: 25 mins + 5 min break</p>
+                      </div>
+                    )}
                   </div>
-                ) : studyStarted ? (
-                  <div style={{ display: "flex", alignItems: "center", gap: 40, backgroundColor: "rgba(255,255,255,0.02)", padding: 24, borderRadius: 20 }}>
-                     <div style={{ position: "relative", width: 120, height: 120 }}>
-                        <svg width="120" height="120" style={{ transform: "rotate(-90deg)" }}>
-                          <circle cx="60" cy="60" r="54" fill="none" stroke={C.border} strokeWidth="6" />
-                          <circle cx="60" cy="60" r="54" fill="none" stroke={C.gold} strokeWidth="6"
-                            strokeDasharray={`${2 * Math.PI * 54}`}
-                            strokeDashoffset={`${2 * Math.PI * 54 * (1 - timerPercent / 100)}`}
-                            strokeLinecap="round" style={{ transition: "stroke-dashoffset 1s linear" }}
-                          />
-                        </svg>
-                        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 24, fontWeight: 700 }}>
-                          {timerDisplay.split(':')[0]}
-                        </div>
-                     </div>
-                     <div style={{ flex: 1 }}>
-                        <p style={{ color: C.textMuted, fontSize: 13, marginBottom: 12 }}>Time remaining for Pomodoro {currentPomodoro}</p>
-                        <div style={{ display: "flex", gap: 12 }}>
-                          <button onClick={() => setTimerRunning(!timerRunning)} style={{
-                            padding: "12px 24px", borderRadius: 12, backgroundColor: C.gold, color: "#000", fontWeight: 700, border: "none", cursor: "pointer"
-                          }}>
-                            {timerRunning ? "Pause" : "Resume"}
-                          </button>
-                          <button onClick={() => setStudyStarted(false)} style={{
-                            padding: "12px 24px", borderRadius: 12, backgroundColor: "transparent", color: C.textMuted, border: `1px solid ${C.border}`, cursor: "pointer"
-                          }}>Reset</button>
-                        </div>
-                     </div>
-                  </div>
-                ) : (
-                  <div>
-                    <button onClick={() => setStudyStarted(true)} style={{
-                      width: "100%", padding: "20px", borderRadius: 16, backgroundColor: C.gold, color: "#000", fontWeight: 800, fontSize: 16, border: "none", cursor: "pointer"
-                    }}>
-                      🚀 BEGIN STUDY SESSION
-                    </button>
-                    <p style={{ textAlign: "center", marginTop: 16, color: C.textMuted, fontSize: 12 }}>Estimated duration: 25 mins + 5 min break</p>
-                  </div>
-                )}
-              </div>
 
-              {/* Evening Block */}
-              <div style={{ backgroundColor: C.surface, border: `1px solid ${C.border}`, borderRadius: 24, padding: 32, position: "relative", overflow: "hidden" }}>
-                <div style={{ position: "absolute", top: 0, left: 0, width: 4, height: "100%", backgroundColor: eveningDone ? C.green : C.amber }} />
-                
-                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 32 }}>
-                  <div>
-                    <p style={{ color: eveningDone ? C.green : C.amber, fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 4 }}>🌙 Evening Practice</p>
-                    <h2 style={{ fontSize: 20, fontWeight: 700 }}>Knowledge Verification</h2>
-                  </div>
-                  <div style={{ textAlign: "right" }}>
-                    <p style={{ color: C.textMuted, fontSize: 11, fontWeight: 600 }}>STATUS</p>
-                    <p style={{ fontSize: 14, fontWeight: 700, color: eveningDone ? C.green : C.amber }}>{eveningDone ? "COMPLETED" : "PENDING"}</p>
-                  </div>
-                </div>
+                  {/* Evening Block */}
+                  <div style={{ backgroundColor: C.surface, border: `1px solid ${C.border}`, borderRadius: 24, padding: 32, position: "relative", overflow: "hidden" }}>
+                    <div style={{ position: "absolute", top: 0, left: 0, width: 4, height: "100%", backgroundColor: eveningDone ? C.green : C.amber }} />
+                    
+                    <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 32 }}>
+                      <div>
+                        <p style={{ color: eveningDone ? C.green : C.amber, fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 4 }}>🌙 Evening Practice</p>
+                        <h2 style={{ fontSize: 20, fontWeight: 700 }}>Knowledge Verification</h2>
+                      </div>
+                      <div style={{ textAlign: "right" }}>
+                        <p style={{ color: C.textMuted, fontSize: 11, fontWeight: 600 }}>STATUS</p>
+                        <p style={{ fontSize: 14, fontWeight: 700, color: eveningDone ? C.green : C.amber }}>{eveningDone ? "COMPLETED" : "PENDING"}</p>
+                      </div>
+                    </div>
 
-                {error && (
-                  <div style={{ backgroundColor: "rgba(255,68,68,0.1)", border: `1px solid ${C.red}`, borderRadius: 12, padding: 16, marginBottom: 20, fontSize: 13, color: C.red }}>
-                    ⚠ {error}
-                  </div>
-                )}
+                    {error && (
+                      <div style={{ backgroundColor: "rgba(255,68,68,0.1)", border: `1px solid ${C.red}`, borderRadius: 12, padding: 16, marginBottom: 20, fontSize: 13, color: C.red }}>
+                        ⚠ {error}
+                      </div>
+                    )}
 
-                {testStarted && !testSubmitted ? (
-                  <div style={{ padding: "24px 0", textAlign: "center", color: C.textMuted }}>
-                    <p style={{ fontSize: 14, fontWeight: 600 }}>Test in progress...</p>
-                    <p style={{ fontSize: 12, marginTop: 8 }}>{answeredCount}/{testQuestions.length} answered</p>
+                    {testStarted && !testSubmitted ? (
+                      <div style={{ padding: "24px 0", textAlign: "center", color: C.textMuted }}>
+                        <p style={{ fontSize: 14, fontWeight: 600 }}>Test in progress...</p>
+                        <p style={{ fontSize: 12, marginTop: 8 }}>{answeredCount}/{testQuestions.length} answered</p>
+                      </div>
+                    ) : (
+                      <button onClick={startTestSequence} style={{
+                        width: "100%", padding: "20px", borderRadius: 16, backgroundColor: "transparent", color: C.amber, fontWeight: 700, border: `2px dashed ${C.amber}`, cursor: "pointer",
+                      }}>
+                        {eveningDone ? "✓ COMPLETED TODAY" : "START VERIFICATION"}
+                      </button>
+                    )}
                   </div>
-                ) : (testSubmitted && testReport) ? (
-                  <div>
-                    <p style={{ color: C.green, fontWeight: 700, fontSize: 16, marginBottom: 16 }}>✓ Report Ready</p>
-                    <pre style={{
-                      backgroundColor: "rgba(255,255,255,0.02)", border: `1px solid ${C.border}`,
-                      borderRadius: 12, padding: 16, fontSize: 11, color: C.textMuted,
-                      overflowX: "auto", whiteSpace: "pre-wrap", maxHeight: 400, overflowY: "auto"
-                    }}>
-                      {JSON.stringify(testReport, null, 2)}
-                    </pre>
-                  </div>
-                ) : (
-                  <button onClick={startTestSequence} style={{
-                    width: "100%", padding: "20px", borderRadius: 16, backgroundColor: "transparent", color: C.amber, fontWeight: 700, border: `2px dashed ${C.amber}`, cursor: "pointer",
-                  }}>
-                    {eveningDone ? "✓ COMPLETED TODAY" : "START VERIFICATION"}
-                  </button>
-                )}
-              </div>
-            </>
-          )}
+                </>
+              )}
         </div>
       )}
 
