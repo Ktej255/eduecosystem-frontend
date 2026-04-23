@@ -4,8 +4,9 @@ Graphotherapy Progress Tracking Backend
 """
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, status
 from sqlalchemy.orm import Session
-from typing import List
+from typing import List, Optional
 from datetime import datetime, timedelta, date
+from pydantic import BaseModel
 import os
 import uuid
 import shutil
@@ -14,11 +15,12 @@ from app.api import deps
 from app.db.session import get_db
 from app.models.user import User
 from app.models.graphotherapy import (
-    GraphotherapyProgress, 
-    GraphotherapyDayCompletion, 
+    GraphotherapyProgress,
+    GraphotherapyDayCompletion,
     GraphoBook,
     GraphoPage,
     GraphoSubmission,
+    GraphoLead,
     GRAPHOTHERAPY_LEVELS
 )
 from app.schemas.graphotherapy import (
@@ -984,3 +986,132 @@ def purchase_level(
         message=f"Purchase successful! ({discount_msg})",
         new_coin_balance=current_user.coins
     )
+# --- Free Analysis Funnel Endpoints ---
+
+class FreeAnalysisRequest(BaseModel):
+    name: str
+    email: str
+    phone: Optional[str] = None
+    image_path: Optional[str] = None
+    analysis_json: Optional[dict] = None
+    recommended_level: Optional[int] = None
+    utm_source: Optional[str] = None
+    utm_medium: Optional[str] = None
+    utm_campaign: Optional[str] = None
+
+
+class FreeAnalysisResponse(BaseModel):
+    id: int
+    name: str
+    email: str
+    phone: Optional[str]
+    analysis_status: str
+    recommended_level: Optional[int]
+    converted: bool
+    created_at: datetime
+
+
+@router.post("/free-analysis/submit", response_model=FreeAnalysisResponse)
+def submit_free_analysis(
+    request: FreeAnalysisRequest,
+    db: Session = Depends(get_db)
+):
+    """
+    Submit a free graphotherapy analysis lead.
+    Called after the user uploads their handwriting image and receives AI analysis.
+    """
+    # Check if email already exists
+    existing = db.query(GraphoLead).filter(GraphoLead.email == request.email).first()
+    if existing:
+        # Update existing lead
+        existing.name = request.name
+        if request.phone:
+            existing.phone = request.phone
+        if request.analysis_json:
+            existing.analysis_json = request.analysis_json
+            existing.analysis_status = "completed"
+        if request.recommended_level:
+            existing.recommended_level = request.recommended_level
+        existing.updated_at = datetime.utcnow()
+        db.commit()
+        db.refresh(existing)
+        return existing
+
+    # Create new lead
+    lead = GraphoLead(
+        name=request.name,
+        email=request.email,
+        phone=request.phone,
+        image_path=request.image_path,
+        analysis_json=request.analysis_json,
+        analysis_status="completed" if request.analysis_json else "pending",
+        recommended_level=request.recommended_level,
+        utm_source=request.utm_source,
+        utm_medium=request.utm_medium,
+        utm_campaign=request.utm_campaign,
+    )
+    db.add(lead)
+    db.commit()
+    db.refresh(lead)
+    return lead
+
+
+@router.get("/free-analysis/leads", response_model=List[FreeAnalysisResponse])
+def list_free_analysis_leads(
+    skip: int = 0,
+    limit: int = 100,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(deps.get_current_active_user)
+):
+    """
+    List all free analysis leads.
+    Requires authentication.
+    """
+    # Only admins/instructors can view leads
+    if current_user.role not in ["admin", "instructor", "teacher", "coach"]:
+        raise HTTPException(status_code=403, detail="Not authorized to view leads")
+    
+    leads = db.query(GraphoLead).order_by(GraphoLead.created_at.desc()).offset(skip).limit(limit).all()
+    return leads
+
+
+@router.get("/free-analysis/leads/{lead_id}", response_model=FreeAnalysisResponse)
+def get_free_analysis_lead(
+    lead_id: int,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(deps.get_current_active_user)
+):
+    """
+    Get a specific lead by ID.
+    Requires authentication.
+    """
+    if current_user.role not in ["admin", "instructor", "teacher", "coach"]:
+        raise HTTPException(status_code=403, detail="Not authorized to view leads")
+    
+    lead = db.query(GraphoLead).filter(GraphoLead.id == lead_id).first()
+    if not lead:
+        raise HTTPException(status_code=404, detail="Lead not found")
+    return lead
+
+
+@router.patch("/free-analysis/leads/{lead_id}/convert")
+def mark_lead_converted(
+    lead_id: int,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(deps.get_current_active_user)
+):
+    """
+    Mark a lead as converted (purchased a level).
+    """
+    if current_user.role not in ["admin", "instructor", "teacher", "coach"]:
+        raise HTTPException(status_code=403, detail="Not authorized")
+    
+    lead = db.query(GraphoLead).filter(GraphoLead.id == lead_id).first()
+    if not lead:
+        raise HTTPException(status_code=404, detail="Lead not found")
+    
+    lead.converted = True
+    lead.updated_at = datetime.utcnow()
+    db.commit()
+    return {"success": True, "lead_id": lead_id, "converted": True}
+
