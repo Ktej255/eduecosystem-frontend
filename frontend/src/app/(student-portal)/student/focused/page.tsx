@@ -486,6 +486,9 @@ export default function FocusedPortalPage() {
   const activeTask = dashData?.current_active;
   const currentSubject = activeTask?.subject ?? "Polity";
   const currentCluster = activeTask?.cluster_number ?? 1;
+
+  const [selectedCluster, setSelectedCluster] = useState<number>(currentCluster);
+
   const currentClusterName = activeTask?.cluster_name ?? getClusterName(currentSubject, currentCluster);
 
   const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -605,7 +608,7 @@ export default function FocusedPortalPage() {
     if (!token) return;
     setError(null);
     try {
-      const res = await fetch(`${API}/focused/test/${encodeURIComponent(currentSubject)}/${currentCluster}`, { headers: authHeader });
+      const res = await fetch(`${API}/focused/test/${encodeURIComponent(currentSubject)}/${selectedCluster}`, { headers: authHeader });
       if (!res.ok) throw new Error("Could not load test questions.");
       const data = await res.json();
       if (!data.questions?.length) throw new Error("No questions available for this cluster yet.");
@@ -663,7 +666,7 @@ export default function FocusedPortalPage() {
         headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
         body: JSON.stringify({
           subject: currentSubject,
-          cluster_id: currentCluster,
+          cluster_id: selectedCluster,
           question_ids: questionIds,
           answers: answersArray,
           confidence: testConfidence,
@@ -696,6 +699,7 @@ export default function FocusedPortalPage() {
   // ── Handlers ──
   const handleClusterSelect = (cluster: any) => {
     setSelectedClusterInfo(cluster);
+    setSelectedCluster(cluster.cluster_number);
     setViewMode('session');
     // If the cluster has a custom cluster_number, we can use it, otherwise fall back
     // The session view currently uses currentCluster from dashData
