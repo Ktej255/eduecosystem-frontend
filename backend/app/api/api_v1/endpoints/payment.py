@@ -389,18 +389,25 @@ async def cashfree_webhook(request: Request, db: Session = Depends(deps.get_db))
                         db.commit()
                         db.refresh(user)
                         
-                    # Insert subject gates (Polity)
-                    gate_exists = db.execute(
-                        text("SELECT 1 FROM focused_subject_gates WHERE user_id = :uid AND subject_id = :sid"),
-                        {"uid": user.id, "sid": "Polity"}
-                    ).fetchone()
-                    
-                    if not gate_exists:
-                        db.execute(
-                            text("INSERT INTO focused_subject_gates (user_id, subject_id, is_unlocked, passed) "
-                                 "VALUES (:uid, :sid, :unlocked, :passed)"),
-                            {"uid": user.id, "sid": "Polity", "unlocked": True, "passed": False}
-                        )
+                    # Insert full subject sequence gates (43-Day Sprint)
+                    # Note: Sequence derived from focused_portal.py
+                    FOCUSED_SEQUENCE = [
+                        "Polity", "Environment", "Science & Technology", "Economy", 
+                        "Agriculture", "Geography", "Ancient History", "Medieval History", 
+                        "Modern History", "Art and Culture", "International Relations", "Indian Society"
+                    ]
+                    for subj in FOCUSED_SEQUENCE:
+                        gate_exists = db.execute(
+                            text("SELECT 1 FROM focused_subject_gates WHERE user_id = :uid AND subject = :sid"),
+                            {"uid": user.id, "sid": subj}
+                        ).fetchone()
+                        
+                        if not gate_exists:
+                            db.execute(
+                                text("INSERT INTO focused_subject_gates (user_id, subject, is_unlocked, passed) "
+                                     "VALUES (:uid, :sid, :unlocked, :passed)"),
+                                {"uid": user.id, "sid": subj, "unlocked": True, "passed": False}
+                            )
                     
                     # Log enrollment
                     db.execute(
@@ -583,9 +590,12 @@ def _unlock_from_note(user: User, note: str, db: Session, *, order_id: str = Non
         if subject_id not in existing:
             existing.append(subject_id)
             user.purchased_subjects = existing
-        user.is_batch1_authorized = True
-        if subject_id == "full_upsc":
-            user.is_premium = True
+        
+        # Focused Portal products do NOT grant main batch access
+        if "focused_portal" not in subject_id:
+            user.is_batch1_authorized = True
+            if subject_id == "full_upsc":
+                user.is_premium = True
 
     elif note.startswith("MEDITATION:"):
         prod_id = note.replace("MEDITATION:", "").strip()
