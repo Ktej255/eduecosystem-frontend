@@ -319,20 +319,24 @@ import { useRouter } from "next/navigation";
 const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
 const API = API_BASE.includes("/api/v1") ? API_BASE : `${API_BASE}/api/v1`;
 
-// BUG 1: Format numbered-statement questions onto separate lines
-function formatQuestionText(text: string): JSX.Element {
-  const parts = text.split(/(?=\s*\d+\.\s)/g).filter(Boolean);
-  if (parts.length <= 1) return <span>{text}</span>;
-  return (
-    <span>
-      {parts.map((part, i) => (
-        <span key={i}>
-          {i > 0 && <br />}
-          {part.trim()}
-        </span>
-      ))}
-    </span>
-  );
+function formatQuestionText(text: string) {
+  if (!text) return null;
+  const withBreaks = text.replace(/\\n/g, '\n');
+  const lines = withBreaks.split('\n');
+  if (lines.length > 1) {
+    return (
+      <div>
+        {lines.map((line, i) =>
+          line.trim() ? (
+            <p key={i} style={{ margin: '4px 0', fontWeight: line.match(/^\d+\./) ? 600 : 400 }}>
+              {line.trim()}
+            </p>
+          ) : null
+        )}
+      </div>
+    );
+  }
+  return <span>{text}</span>;
 }
 
 const C = {
@@ -1000,7 +1004,7 @@ export default function FocusedPortalPage() {
                     <p style={{ fontSize: 14, fontWeight: 600 }}>Test in progress...</p>
                     <p style={{ fontSize: 12, marginTop: 8 }}>{answeredCount}/{testQuestions.length} answered</p>
                   </div>
-                ) : testSubmitted ? (
+                ) : (testSubmitted && testReport) ? (
                   <div>
                     <p style={{ color: C.green, fontWeight: 700, fontSize: 16, marginBottom: 16 }}>✓ Report Ready</p>
                     <pre style={{

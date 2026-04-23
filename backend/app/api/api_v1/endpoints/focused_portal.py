@@ -517,7 +517,7 @@ def submit_test(
 
     for i, qid in enumerate(q_ids):
         q_info = q_data_map.get(qid, {"ans": None, "tag": "Unknown"})
-        tag = q_info["tag"] or "General"
+        tag = q_info["tag"] or f"Cluster {body.cluster_id}"
         correct_ans = q_info["ans"]
         user_ans = u_ans[i]
         conf = u_conf[i]
