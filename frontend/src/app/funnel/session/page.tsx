@@ -274,7 +274,7 @@ function OfferStep({ token, sessionData, T }: any) {
       });
       const cf = (window as any).Cashfree;
       if (cf) {
-        cf({ mode: "sandbox" }).checkout({ paymentSessionId: res.data.payment_session_id, redirectTarget: "_self" });
+        cf({ mode: "production" }).checkout({ paymentSessionId: res.data.payment_session_id, redirectTarget: "_self" });
       } else {
         window.location.href = `https://payments.cashfree.com/forms/session/${res.data.payment_session_id}`;
       }
@@ -349,7 +349,7 @@ function VSLSessionPageContent() {
       )}
       {step === 2 && (
         <VideoStep 
-          playerId="vsl-player-1" videoId={sessionData?.config?.vsl_video_1_id || "dQw4w9WgXcQ"}
+          playerId="vsl-player-1" videoId={sessionData?.config?.vsl_video_1_id || "PENDING"}
           title="STEP 2/7: THE PERSPECTIVE" nextStepLabel="I'm ready to continue →"
           onComplete={() => updateStep(3)} sessionData={sessionData}
         />
@@ -365,7 +365,7 @@ function VSLSessionPageContent() {
       )}
       {step === 4 && (
         <VideoStep 
-          playerId="vsl-player-2" videoId={sessionData?.config?.vsl_video_2_id || "dQw4w9WgXcQ"}
+          playerId="vsl-player-2" videoId={sessionData?.config?.vsl_video_2_id || "PENDING"}
           title="STEP 4/7: THE METHOD" nextStepLabel="Continue →"
           onComplete={() => updateStep(5)} sessionData={sessionData}
         />
@@ -381,7 +381,7 @@ function VSLSessionPageContent() {
       )}
       {step === 6 && (
         <VideoStep 
-          playerId="vsl-player-3" videoId={sessionData?.config?.vsl_video_3_id || "dQw4w9WgXcQ"}
+          playerId="vsl-player-3" videoId={sessionData?.config?.vsl_video_3_id || "PENDING"}
           title="STEP 6/7: TEJ'S VISION" nextStepLabel="See the offer →"
           onComplete={() => updateStep(7)} sessionData={sessionData}
           autoAdvance={true}

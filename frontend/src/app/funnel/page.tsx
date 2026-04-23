@@ -170,7 +170,7 @@ export default function FunnelLandingPage() {
       } | undefined;
 
       if (cf) {
-        cf.init({ mode: "sandbox" });
+        cf.init({ mode: "production" });
         cf.open({
           paymentSessionId: payment_session_id,
           redirectTarget: "_self",

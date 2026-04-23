@@ -37,6 +37,7 @@ SUBJECT_PRODUCTS = {
     "meditation_l3": {"name": "Meditation Level 3", "price": 1999.0},
     "meditation_l4": {"name": "Meditation Level 4", "price": 2499.0},
     "meditation_bundle": {"name": "Complete Meditation Journey", "price": 5999.0},
+    "vsl_funnel_99": {"name": "30-Day UPSC Diagnosis Session", "price": 99.0},
     # Graphotherapy
     "grapho_l1": {"name": "Graphotherapy Level 1", "price": float(GRAPHOTHERAPY_LEVELS[1]["price"])},
     "grapho_l2": {"name": "Graphotherapy Level 2", "price": float(GRAPHOTHERAPY_LEVELS[2]["price"])},
@@ -349,7 +350,7 @@ async def cashfree_webhook(request: Request, db: Session = Depends(deps.get_db))
                 if user:
                     _unlock_from_note(user, order_note, db, order_id=order_id, payment_event=data)
                     
-            if order_note in ["SUBJECT:focused_portal_test", "SUBJECT:polity_focused", "SUBJECT:focused_portal_2500", "SUBJECT:focused_portal_299"]:
+            if order_note in ["SUBJECT:focused_portal_test", "SUBJECT:polity_focused", "SUBJECT:focused_portal_2500", "SUBJECT:focused_portal_299", "SUBJECT:vsl_funnel_99"]:
                 try:
                     from app.crud.user import get_by_email, create
                     from app.schemas.user import UserCreate
