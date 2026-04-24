@@ -402,40 +402,46 @@ def complete_pomodoro(
     if pulse not in ("RED", "YELLOW", "GREEN"):
         raise HTTPException(status_code=400, detail="confidence_pulse must be RED, YELLOW, or GREEN")
 
-    db.execute(
-        text("""
-            INSERT INTO focused_study_sessions
-                (user_id, date, subject, cluster_number, cluster_name, pomodoro_number, confidence_pulse, duration_minutes)
-            VALUES (:uid, :d, :subj, :cl_num, :cl_name, :pomo, :pulse, :dur)
-        """),
-        {
-            "uid": current_user.id,
-            "d": date.today().isoformat(),
-            "subj": body.subject,
-            "cl_num": body.cluster_number,
-            "cl_name": body.cluster_name,
-            "pomo": body.pomodoro_number,
-            "pulse": pulse,
-            "dur": body.duration_minutes,
+    try:
+        db.execute(
+            text("""
+                INSERT INTO focused_study_sessions
+                    (user_id, date, subject, cluster_number, cluster_name, pomodoro_number, confidence_pulse, duration_minutes)
+                VALUES (:uid, :d, :subj, :cl_num, :cl_name, :pomo, :pulse, :dur)
+            """),
+            {
+                "uid": current_user.id,
+                "d": date.today().isoformat(),
+                "subj": body.subject,
+                "cl_num": body.cluster_number,
+                "cl_name": body.cluster_name,
+                "pomo": body.pomodoro_number,
+                "pulse": pulse,
+                "dur": body.duration_minutes,
+            }
+        )
+        db.commit()
+
+        # Check needs_attention: RED >= 2 for same subject+cluster
+        red_count = db.execute(
+            text("""
+                SELECT COUNT(*) FROM focused_study_sessions
+                WHERE user_id = :uid AND subject = :subj AND cluster_number = :cl_num
+                  AND confidence_pulse = 'RED'
+            """),
+            {"uid": current_user.id, "subj": body.subject, "cl_num": body.cluster_number}
+        )
+        count_val = red_count.scalar()
+
+        return {
+            "status": "recorded",
+            "needs_attention": (count_val or 0) >= 2,
+            "message": "Confidence marked RED 2+ times on this cluster. Consider repeating before moving forward." if (count_val or 0) >= 2 else None,
         }
-    )
-    db.commit()
-
-    # Check needs_attention: RED >= 2 for same subject+cluster
-    red_count = db.execute(
-        text("""
-            SELECT COUNT(*) FROM focused_study_sessions
-            WHERE user_id = :uid AND subject = :subj AND cluster_number = :cl_num
-              AND confidence_pulse = 'RED'
-        """),
-        {"uid": current_user.id, "subj": body.subject, "cl_num": body.cluster_number}
-    ).scalar()
-
-    return {
-        "status": "recorded",
-        "needs_attention": (red_count or 0) >= 2,
-        "message": "Confidence marked RED 2+ times on this cluster. Consider repeating before moving forward." if (red_count or 0) >= 2 else None,
-    }
+    except Exception as e:
+        db.rollback()
+        print(f"Pomodoro save error: {e}")
+        return {"status": "error", "detail": str(e)}
 
 
 # ─────────────────────────────────────────────────────────────
@@ -849,6 +855,20 @@ def get_test_history(
         {"uid": current_user.id}
     ).fetchall()
 
+    pomodoros = db.execute(
+        text("""
+            SELECT date as study_date,
+            COUNT(*) as pomodoro_count,
+            SUM(duration_minutes) as total_minutes
+            FROM focused_study_sessions
+            WHERE user_id = :uid
+            GROUP BY date
+            ORDER BY date DESC
+            LIMIT 30
+        """),
+        {"uid": current_user.id}
+    ).fetchall()
+
     return {
         "history": [
             {
@@ -858,15 +878,23 @@ def get_test_history(
                 "score": r.score,
                 "total_questions": r.total_questions,
                 "percentage": float(r.percentage),
-                "weak_topics": parse_json_field(r.weak_topics),
-                "trap_questions_missed": parse_json_field(r.trap_questions_missed),
-                "correct_answers": parse_json_field(r.correct_answers),
-                "wrong_answers": parse_json_field(r.wrong_answers),
+                "weak_topics": r.weak_topics if isinstance(r.weak_topics, list) else json.loads(r.weak_topics or '[]'),
+                "trap_questions_missed": r.trap_questions_missed if isinstance(r.trap_questions_missed, list) else json.loads(r.trap_questions_missed or '[]'),
+                "correct_answers": r.correct_answers if isinstance(r.correct_answers, list) else json.loads(r.correct_answers or '[]'),
+                "wrong_answers": r.wrong_answers if isinstance(r.wrong_answers, list) else json.loads(r.wrong_answers or '[]'),
                 "time_taken_seconds": r.time_taken_seconds,
                 "improvement": float(r.improvement_vs_yesterday or 0),
                 "date": r.created_at.strftime("%b %d, %Y")
             }
             for r in rows
+        ],
+        "daily_pomodoros": [
+            {
+                "date": r.study_date.strftime("%b %d") if hasattr(r.study_date, 'strftime') else str(r.study_date),
+                "count": r.pomodoro_count,
+                "minutes": r.total_minutes or 0
+            }
+            for r in pomodoros
         ]
     }
 
@@ -940,6 +968,38 @@ def get_progress(
                 "status": p.status
             })
 
+    # Fallback: If merged_clusters is empty but focused_test_reports has data, 
+    # we already handled it by building from report_map above. 
+    # However, to be extra safe and explicitly follow instructions:
+    if not merged_clusters:
+        fallback_clusters = db.execute(
+            text("""
+                SELECT cluster_number, subject,
+                MAX(percentage) as best_pct,
+                COUNT(*) as attempts
+                FROM focused_test_reports
+                WHERE user_id = :uid
+                GROUP BY cluster_number, subject
+                ORDER BY cluster_number
+            """),
+            {"uid": current_user.id}
+        ).fetchall()
+        
+        merged_clusters = [
+            {
+                "cluster_number": r.cluster_number,
+                "subject": r.subject,
+                "best_percentage": float(r.best_pct),
+                "attempts": r.attempts,
+                "weak_topics": [],
+                "trap_questions_missed": [],
+                "correct_answers": [],
+                "wrong_answers": [],
+                "status": "completed" if r.best_pct >= 70 else "attempted"
+            }
+            for r in fallback_clusters
+        ]
+
     # Overall accuracy
     overall = db.execute(
         text("""
@@ -966,7 +1026,7 @@ def get_progress(
     # Days active
     days = db.execute(
         text("""
-            SELECT COUNT(DISTINCT DATE(created_at))
+            SELECT COUNT(DISTINCT date)
             FROM focused_study_sessions
             WHERE user_id = :uid
         """),
