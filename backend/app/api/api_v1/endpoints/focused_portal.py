@@ -227,13 +227,14 @@ class PomodoroCompleteBody(BaseModel):
     duration_minutes: int = 25
 
 
-class TestSubmitUpdatedBody(BaseModel):
+class TestSubmitBody(BaseModel):
     subject: str
-    cluster_id: int
-    question_ids: List[int]
-    answers: List[str]
-    confidence: List[str]
-    time_per_question: List[int]
+    cluster_number: int
+    answers: dict              # {str(question_id): selected_option}
+    confidence: List[str]      # per-question confidence, same order as test question list
+    time_per_question: List[int]  # ms per question, same order
+    start_time: Optional[str] = None
+    end_time: Optional[str] = None
 
 
 class GateSubmitBody(BaseModel):
@@ -513,45 +514,67 @@ def get_test(
 
 @router.post("/test/submit")
 def submit_test(
-    body: TestSubmitUpdatedBody,
+    body: TestSubmitBody,
     db: Session = Depends(get_db),
     current_user=Depends(get_current_user),
 ):
     user_id = current_user.id
-    q_ids = body.question_ids
-    u_ans = body.answers
+
+    # answers dict: {"qId": "A"|"B"|"C"|"D"}, confidence and time are ordered
+    # by the same question order as the test was served.
+    q_ids = [int(k) for k in body.answers.keys()]
+    u_ans = list(body.answers.values())
     u_conf = body.confidence
     u_time = body.time_per_question
 
-    # 1. Fetch Question Data
+    # Pad conf / time if they have fewer items than questions (defensive)
+    while len(u_conf) < len(q_ids):
+        u_conf.append("Other")
+    while len(u_time) < len(q_ids):
+        u_time.append(0)
+
+    # 1. Fetch full question data (including text/options for the response)
     rows = db.execute(
-        text("SELECT id, correct_answer, topic_tag FROM focused_questions WHERE id = ANY(:ids)"),
+        text("""
+            SELECT id, correct_answer, topic_tag,
+                   question_text, option_a, option_b, option_c, option_d, explanation
+            FROM focused_questions WHERE id = ANY(:ids)
+        """),
         {"ids": q_ids}
     ).fetchall()
-    
-    q_data_map = {r[0]: {"ans": r[1], "tag": r[2]} for r in rows}
+
+    q_data_map = {
+        r[0]: {
+            "ans": r[1], "tag": r[2],
+            "question_text": r[3],
+            "option_a": r[4], "option_b": r[5], "option_c": r[6], "option_d": r[7],
+            "explanation": r[8],
+        }
+        for r in rows
+    }
 
     # 2. Scoring Logic
     correct_ids = []
     wrong_ids = []
+    wrong_questions_detail = []  # Full data for report display
     skipped_count = 0
     lucky_guesses = 0
     trap_ids = []
-    
-    topic_stats = {} # {tag: {correct, total, time_sum, confidence_dist, lucky}}
+
+    topic_stats = {}  # {tag: {correct, total, time_sum, conf_dist, lucky}}
 
     for i, qid in enumerate(q_ids):
         q_info = q_data_map.get(qid, {"ans": None, "tag": "Unknown"})
-        tag = q_info["tag"] or f"Cluster {body.cluster_id}"
+        tag = q_info["tag"] or f"Cluster {body.cluster_number}"
         correct_ans = q_info["ans"]
-        user_ans = u_ans[i]
-        conf = u_conf[i]
-        time_ms = u_time[i]
+        user_ans = u_ans[i] if i < len(u_ans) else None
+        conf = u_conf[i] if i < len(u_conf) else "Other"
+        time_ms = u_time[i] if i < len(u_time) else 0
 
         if tag not in topic_stats:
             topic_stats[tag] = {
-                "correct": 0, "total": 0, "time_sum": 0, 
-                "lucky": 0, 
+                "correct": 0, "total": 0, "time_sum": 0,
+                "lucky": 0,
                 "conf_dist": {"Short Shot": 0, "50/50": 0, "Other": 0, "Only One Known": 0, "Blind Guess": 0, "Skip": 0}
             }
 
@@ -560,7 +583,7 @@ def submit_test(
         topic_stats[tag]["conf_dist"][conf] = topic_stats[tag]["conf_dist"].get(conf, 0) + 1
 
         is_correct = (correct_ans is not None and user_ans == correct_ans)
-        
+
         if conf == "Skip":
             skipped_count += 1
         elif is_correct:
@@ -571,90 +594,110 @@ def submit_test(
                 lucky_guesses += 1
         else:
             wrong_ids.append(qid)
-            # Trap Detection: Wrong AND Time < 8000ms
-            if time_ms < 8000:
+            # Trap Detection: Wrong AND answered in < 8 seconds (frontend sends seconds)
+            if time_ms < 8:
                 trap_ids.append(qid)
+            # Embed full question details for report
+            wrong_questions_detail.append({
+                "id": qid,
+                "question_text": q_info.get("question_text", ""),
+                "option_a": q_info.get("option_a", ""),
+                "option_b": q_info.get("option_b", ""),
+                "option_c": q_info.get("option_c", ""),
+                "option_d": q_info.get("option_d", ""),
+                "correct_answer": correct_ans,
+                "your_answer": user_ans,
+                "explanation": q_info.get("explanation", ""),
+                "topic_tag": tag,
+            })
 
-    # 3. Finalize Topic Breakdown
+    # 3. Topic Breakdown with domain health signal
     breakdown = []
     weak_areas = []
+    good_areas = []
     for tag, stats in topic_stats.items():
-        avg_time = stats["time_sum"] / stats["total"]
-        accuracy = (stats["correct"] / stats["total"]) * 100
-        is_weak = accuracy < 50 or avg_time > 45000
-        
+        avg_time = stats["time_sum"] / stats["total"] if stats["total"] > 0 else 0
+        accuracy = (stats["correct"] / stats["total"]) * 100 if stats["total"] > 0 else 0
+        is_weak = accuracy < 50 or avg_time > 45  # avg_time is in seconds
+
         if is_weak:
             weak_areas.append(tag)
-            
+        else:
+            good_areas.append(tag)
+
         breakdown.append({
             "topic": tag,
             "total": stats["total"],
             "correct": stats["correct"],
             "wrong": stats["total"] - stats["correct"],
-            "avg_time_ms": int(avg_time),
+            "accuracy_pct": round(accuracy, 1),
+            "avg_time_sec": round(avg_time, 1),  # already in seconds
             "confidence_distribution": stats["conf_dist"],
             "weak": is_weak,
-            "lucky_guesses": stats["lucky"]
+            "lucky_guesses": stats["lucky"],
+            "health": "needs_work" if is_weak else "good",
         })
 
-    # 4. Finalize Global Metrics
+    # Sort: weak areas first for quick scanning
+    breakdown.sort(key=lambda x: x["accuracy_pct"])
+
+    # 4. Global Metrics
     total = len(q_ids)
     score = len(correct_ids)
     percent = (score / total) * 100 if total > 0 else 0
     total_time_s = sum(u_time) // 1000
 
-    print(f"DEBUG: score={score}, total={total}, percent={percent}, correct_ids={correct_ids}")
+    print(f"DEBUG submit_test: subject={body.subject} cluster={body.cluster_number} score={score}/{total} wrong_q={len(wrong_ids)}")
 
-    # 5. Improvement vs Yesterday
+    # 5. Improvement vs Previous Attempt
     prev = db.execute(
         text("""
-            SELECT percentage FROM focused_test_reports 
+            SELECT percentage FROM focused_test_reports
             WHERE user_id = :uid AND subject = :subj AND cluster_number = :cl
             ORDER BY created_at DESC LIMIT 1
         """),
-        {"uid": user_id, "subj": body.subject, "cl": body.cluster_id}
+        {"uid": user_id, "subj": body.subject, "cl": body.cluster_number}
     ).fetchone()
     improvement = float(percent - float(prev[0])) if prev else 0.0
 
-    # 6. Save Report
+    # 6. Persist Report
     non_skip = [c for c in u_conf if c != "Skip"]
     conf_summary = max(set(non_skip), key=non_skip.count) if non_skip else "Skip"
 
     res = db.execute(
         text("""
-            INSERT INTO focused_test_reports 
-                (user_id, date, subject, cluster_number, score, total_questions, percentage, 
-                 weak_topics, trap_questions_missed, correct_answers, wrong_answers, 
+            INSERT INTO focused_test_reports
+                (user_id, date, subject, cluster_number, score, total_questions, percentage,
+                 weak_topics, trap_questions_missed, correct_answers, wrong_answers,
                  time_taken_seconds, confidence_before_test, improvement_vs_yesterday, bkt_updates)
-            VALUES 
-                (:uid, CURRENT_DATE, :subj, :cl, :score, :total, :pct, 
+            VALUES
+                (:uid, CURRENT_DATE, :subj, :cl, :score, :total, :pct,
                  :weak, :traps, :c_ids, :w_ids, :time_s, :conf, :imp, :bkt)
             RETURNING id
         """),
         {
-            "uid": user_id, "subj": body.subject, "cl": body.cluster_id, "score": score, "total": total, "pct": percent,
-            "weak": json.dumps(weak_areas), "traps": json.dumps(trap_ids), 
+            "uid": user_id, "subj": body.subject, "cl": body.cluster_number,
+            "score": score, "total": total, "pct": percent,
+            "weak": json.dumps(weak_areas), "traps": json.dumps(trap_ids),
             "c_ids": json.dumps(correct_ids), "w_ids": json.dumps(wrong_ids),
-            "time_s": total_time_s, "conf": conf_summary, 
+            "time_s": total_time_s, "conf": conf_summary,
             "imp": improvement, "bkt": json.dumps({})
         }
     )
     report_id = res.scalar()
     db.commit()
 
-    # FIX 1 — Insert into focused_cluster_progress after every test submission.
+    # 7. Update cluster progress
     db.execute(
         text("""
-            INSERT INTO focused_cluster_progress 
-            (user_id, subject, cluster_number, 
-             status, last_accessed_at, first_completed_at)
-            VALUES 
-            (:uid, :subj, :cl, :status, NOW(), 
-             CASE WHEN :status = 'completed' THEN NOW() ELSE NULL END)
+            INSERT INTO focused_cluster_progress
+            (user_id, subject, cluster_number, status, last_accessed_at, first_completed_at)
+            VALUES (:uid, :subj, :cl, :status, NOW(),
+                CASE WHEN :status = 'completed' THEN NOW() ELSE NULL END)
             ON CONFLICT (user_id, subject, cluster_number)
             DO UPDATE SET
                 last_accessed_at = NOW(),
-                status = CASE 
+                status = CASE
                     WHEN focused_cluster_progress.status = 'completed' THEN 'completed'
                     ELSE :status
                 END,
@@ -663,12 +706,8 @@ def submit_test(
                     ELSE focused_cluster_progress.first_completed_at
                 END
         """),
-        {
-            "uid": user_id,
-            "subj": body.subject,
-            "cl": body.cluster_id,
-            "status": "completed" if percent >= 70 else "attempted"
-        }
+        {"uid": user_id, "subj": body.subject, "cl": body.cluster_number,
+         "status": "completed" if percent >= 70 else "attempted"}
     )
     db.commit()
 
@@ -683,8 +722,11 @@ def submit_test(
         "improvement_vs_yesterday": round(improvement, 2),
         "topic_breakdown": breakdown,
         "weak_areas": weak_areas,
+        "good_areas": good_areas,
         "trap_questions_missed": trap_ids,
-        "lucky_guesses_total": lucky_guesses
+        "lucky_guesses_total": lucky_guesses,
+        # Full wrong question data for deep report rendering on frontend
+        "wrong_questions_detail": wrong_questions_detail,
     }
 
 
@@ -913,7 +955,7 @@ def get_progress(
     # 1. Fetch data from focused_cluster_progress (primary source for status)
     progress_rows = db.execute(
         text("""
-            SELECT subject, cluster_number, status, best_score, last_accessed_at
+            SELECT subject, cluster_number, status, last_accessed_at
             FROM focused_cluster_progress
             WHERE user_id = :uid
             ORDER BY subject, cluster_number
@@ -959,7 +1001,18 @@ def get_progress(
             merged_clusters.append({
                 "cluster_number": p.cluster_number,
                 "subject": p.subject,
-                "best_percentage": float(p.best_score or 0),
+                "best_percentage": float(
+                    db.execute(
+                        text("""SELECT MAX(percentage) 
+                        FROM focused_test_reports 
+                        WHERE user_id = :uid 
+                        AND subject = :subj 
+                        AND cluster_number = :cl"""),
+                        {"uid": current_user.id, 
+                         "subj": p.subject, 
+                         "cl": p.cluster_number}
+                    ).scalar() or 0
+                ),
                 "attempts": 0,
                 "weak_topics": [],
                 "trap_questions_missed": [],
