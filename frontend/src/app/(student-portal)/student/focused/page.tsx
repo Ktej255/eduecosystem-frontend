@@ -1,7 +1,7 @@
 "use client";
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// CONTENT CONFIG — UPDATE THIS OBJECT WHEN TEJ SHARES NEW SUBJECT PDFs
+// CONTENT CONFIG - UPDATE THIS OBJECT WHEN TEJ SHARES NEW SUBJECT PDFs
 // Do NOT hardcode cluster names or trap cards inside JSX. Edit only here.
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -30,7 +30,7 @@ const CLUSTER_NAMES: Record<string, Record<number, string>> = {
     9: "Indices & Reports",
     10: "Current Affairs 2024-25",
   },
-  // ── Add remaining subjects below when PDFs are shared ──
+  // // Add remaining subjects below when PDFs are shared //
     "Environment": {
     1: "ECOLOGY FUNDAMENTALS & ECOSYSTEM",
     2: "BIODIVERSITY",
@@ -40,7 +40,7 @@ const CLUSTER_NAMES: Record<string, Record<number, string>> = {
     6: "CLIMATE CHANGE",
     7: "POLLUTION",
     8: "ENVIRONMENTAL LAWS & GOVERNANCE",
-    9: "AGRICULTURE–ENVIRONMENT INTERFACE",
+    9: "AGRICULTURE-ENVIRONMENT INTERFACE",
     10: "RENEWABLE ENERGY + EMERGING",
   },
     "Science and Tech": {
@@ -70,11 +70,11 @@ const TRAP_CARDS: Record<string, Record<number, TrapCard[]>> = {
     1: [
       { wrong_belief: "The Berubari Union Case (1960) held that the Preamble IS part of the Constitution.", correct_fact: "Berubari held it is NOT. Kesavananda Bharati (1973) later overruled this." },
       { wrong_belief: "The words 'Socialist,' 'Secular,' 'Integrity' were in the original 1950 Constitution.", correct_fact: "They were added by the 42nd Amendment in 1976 during the Emergency." },
-      { wrong_belief: "Ideals of Liberty, Equality and Fraternity came from the Russian Revolution.", correct_fact: "Liberty, Equality, Fraternity → French Revolution. Justice ideals → Russian Revolution." },
+      { wrong_belief: "Ideals of Liberty, Equality and Fraternity came from the Russian Revolution.", correct_fact: "Liberty, Equality, Fraternity + French Revolution. Justice ideals + Russian Revolution." },
     ],
     2: [
       { wrong_belief: "Article 32 allows SC to enforce both FRs and other legal rights.", correct_fact: "Article 32 covers only Fundamental Rights. Article 226 (HC) has wider scope." },
-      { wrong_belief: "Article 23 only protects against State exploitation.", correct_fact: "Article 23 explicitly applies to private persons too — anyone who exploits." },
+      { wrong_belief: "Article 23 only protects against State exploitation.", correct_fact: "Article 23 explicitly applies to private persons too - anyone who exploits." },
       { wrong_belief: "Bharat Ratna is a 'Title' banned under Article 18.", correct_fact: "Bharat Ratna is a civilian honour, not a 'Title' under Art 18, but still cannot be used as a prefix." },
     ],
     3: [
@@ -84,7 +84,7 @@ const TRAP_CARDS: Record<string, Record<number, TrapCard[]>> = {
     ],
     4: [
       { wrong_belief: "The President can return a Money Bill once for reconsideration.", correct_fact: "The President CANNOT return a Money Bill. Assent is mandatory." },
-      { wrong_belief: "Speaker of Lok Sabha is removed by simple majority of members present.", correct_fact: "Speaker is removed by Effective Majority — majority of total membership of the House." },
+      { wrong_belief: "Speaker of Lok Sabha is removed by simple majority of members present.", correct_fact: "Speaker is removed by Effective Majority - majority of total membership of the House." },
       { wrong_belief: "Under Anti-Defection, a 1/3rd party split protects from disqualification.", correct_fact: "91st Amendment (2003) removed the 1/3rd split exception. Only a 2/3rd merger provides protection." },
     ],
     5: [
@@ -93,71 +93,71 @@ const TRAP_CARDS: Record<string, Record<number, TrapCard[]>> = {
       { wrong_belief: "The Governor is elected by the people of the state.", correct_fact: "The Governor is APPOINTED by the President, not elected." },
     ],
     6: [
-      { wrong_belief: "The Speaker of Lok Sabha can vote on all matters including ordinary bills.", correct_fact: "Speaker votes ONLY in case of tie — has casting vote only, no ordinary vote." },
-      { wrong_belief: "Constitutional Amendment under Article 368 requires ratification by all state legislatures.", correct_fact: "Only SOME amendments need ratification by HALF the states — not all. Most need special majority only." },
-      { wrong_belief: "The 42nd Amendment is called the Mini Constitution because it shortened the Constitution.", correct_fact: "42nd Amendment EXPANDED the Constitution — added Fundamental Duties, changed Preamble, extended Emergency provisions." },
+      { wrong_belief: "The Speaker of Lok Sabha can vote on all matters including ordinary bills.", correct_fact: "Speaker votes ONLY in case of tie - has casting vote only, no ordinary vote." },
+      { wrong_belief: "Constitutional Amendment under Article 368 requires ratification by all state legislatures.", correct_fact: "Only SOME amendments need ratification by HALF the states - not all. Most need special majority only." },
+      { wrong_belief: "The 42nd Amendment is called the Mini Constitution because it shortened the Constitution.", correct_fact: "42nd Amendment EXPANDED the Constitution - added Fundamental Duties, changed Preamble, extended Emergency provisions." },
     ],
     7: [
       { wrong_belief: "Panchayati Raj institutions are covered under the Sixth Schedule of the Constitution.", correct_fact: "Panchayati Raj is under the ELEVENTH Schedule (73rd Amendment). Sixth Schedule covers tribal autonomous districts." },
-      { wrong_belief: "The District Planning Committee is constituted under the 73rd Constitutional Amendment.", correct_fact: "DPC is constituted under the 74TH Amendment — it plans for both rural and urban areas in a district." },
-      { wrong_belief: "Gram Sabha and Gram Panchayat are the same body.", correct_fact: "Gram Sabha = all registered voters of village — the electorate. Gram Panchayat = elected body. Completely different." },
+      { wrong_belief: "The District Planning Committee is constituted under the 73rd Constitutional Amendment.", correct_fact: "DPC is constituted under the 74TH Amendment - it plans for both rural and urban areas in a district." },
+      { wrong_belief: "Gram Sabha and Gram Panchayat are the same body.", correct_fact: "Gram Sabha = all registered voters of village - the electorate. Gram Panchayat = elected body. Completely different." },
     ],
     8: [
-      { wrong_belief: "CAG audits the accounts of the Supreme Court of India.", correct_fact: "CAG audits government accounts — NOT courts. Supreme Court finances are administered separately." },
-      { wrong_belief: "The Finance Commission is a permanent constitutional body.", correct_fact: "Finance Commission is constituted every FIVE YEARS — it is not permanent. Each FC submits report and ceases." },
+      { wrong_belief: "CAG audits the accounts of the Supreme Court of India.", correct_fact: "CAG audits government accounts - NOT courts. Supreme Court finances are administered separately." },
+      { wrong_belief: "The Finance Commission is a permanent constitutional body.", correct_fact: "Finance Commission is constituted every FIVE YEARS - it is not permanent. Each FC submits report and ceases." },
       { wrong_belief: "UPSC conducts recruitment for state government services.", correct_fact: "UPSC conducts Central services recruitment. State Public Service Commissions handle state recruitment." },
     ],
     9: [
       { wrong_belief: "A proclamation of National Emergency automatically dissolves the state legislatures.", correct_fact: "National Emergency does NOT dissolve state legislatures. Only President's Rule dissolves state assembly." },
-      { wrong_belief: "Financial Emergency has been proclaimed three times in India's history.", correct_fact: "Financial Emergency under Article 360 has NEVER been proclaimed in India — not even once." },
-      { wrong_belief: "During President's Rule the state legislature is always dissolved.", correct_fact: "State legislature can be SUSPENDED or dissolved during President's Rule — not automatic dissolution always." },
+      { wrong_belief: "Financial Emergency has been proclaimed three times in India's history.", correct_fact: "Financial Emergency under Article 360 has NEVER been proclaimed in India - not even once." },
+      { wrong_belief: "During President's Rule the state legislature is always dissolved.", correct_fact: "State legislature can be SUSPENDED or dissolved during President's Rule - not automatic dissolution always." },
     ],
     10: [
-      { wrong_belief: "The Supreme Court can strike down a constitutional amendment on any ground.", correct_fact: "SC can strike down amendments ONLY if they violate the Basic Structure doctrine — not on any ground." },
-      { wrong_belief: "Fundamental Rights can never be suspended under any circumstance.", correct_fact: "Fundamental Rights CAN be suspended during National Emergency — except Articles 20 and 21." },
-      { wrong_belief: "The right to property is a Fundamental Right under Article 300A.", correct_fact: "Right to property is a LEGAL RIGHT under Article 300A — NOT a Fundamental Right since 44th Amendment 1978." },
+      { wrong_belief: "The Supreme Court can strike down a constitutional amendment on any ground.", correct_fact: "SC can strike down amendments ONLY if they violate the Basic Structure doctrine - not on any ground." },
+      { wrong_belief: "Fundamental Rights can never be suspended under any circumstance.", correct_fact: "Fundamental Rights CAN be suspended during National Emergency - except Articles 20 and 21." },
+      { wrong_belief: "The right to property is a Fundamental Right under Article 300A.", correct_fact: "Right to property is a LEGAL RIGHT under Article 300A - NOT a Fundamental Right since 44th Amendment 1978." },
     ],
   },
   Economy: {
     1: [
-      { wrong_belief: "CRR increase leads to credit expansion in the economy.", correct_fact: "CRR increase CONTRACTS credit — banks must park more funds with RBI, reducing lending." },
+      { wrong_belief: "CRR increase leads to credit expansion in the economy.", correct_fact: "CRR increase CONTRACTS credit - banks must park more funds with RBI, reducing lending." },
       { wrong_belief: "MPC targets WPI for inflation control.", correct_fact: "MPC targets CPI at 4% (±2%) as the official inflation target." },
       { wrong_belief: "SDF replaced the Repo Rate as the policy rate in 2022.", correct_fact: "SDF replaced Reverse Repo as the LAF floor only. Repo Rate remains the policy rate." },
     ],
     2: [
-      { wrong_belief: "Interest received on loans given by Government is a Capital Receipt.", correct_fact: "It is a Revenue Receipt — interest income does not create or reduce a liability." },
+      { wrong_belief: "Interest received on loans given by Government is a Capital Receipt.", correct_fact: "It is a Revenue Receipt - interest income does not create or reduce a liability." },
       { wrong_belief: "15th Finance Commission gave 42% devolution same as the 14th FC.", correct_fact: "15th FC gave 41% because J&K became a UT, reducing state share." },
-      { wrong_belief: "Charged expenditure is voted on by Parliament.", correct_fact: "Charged expenditure is automatically drawn — Parliament only discusses, never votes on it." },
+      { wrong_belief: "Charged expenditure is voted on by Parliament.", correct_fact: "Charged expenditure is automatically drawn - Parliament only discusses, never votes on it." },
     ],
     3: [
       { wrong_belief: "WPI captures service sector prices.", correct_fact: "WPI covers goods only. CPI captures both goods and services." },
       { wrong_belief: "Higher Gini coefficient means more economic equality.", correct_fact: "Higher Gini = MORE inequality. 0 is perfect equality, 1 is maximum inequality." },
-      { wrong_belief: "Stagflation is resolved by raising interest rates alone.", correct_fact: "No clean monetary solution to stagflation — raising rates controls inflation but worsens unemployment." },
+      { wrong_belief: "Stagflation is resolved by raising interest rates alone.", correct_fact: "No clean monetary solution to stagflation - raising rates controls inflation but worsens unemployment." },
     ],
     4: [
-      { wrong_belief: "Payment Banks can give personal loans to customers.", correct_fact: "Payment Banks CANNOT give any loans or credit cards — deposits and payments only." },
+      { wrong_belief: "Payment Banks can give personal loans to customers.", correct_fact: "Payment Banks CANNOT give any loans or credit cards - deposits and payments only." },
       { wrong_belief: "DICGC insures bank deposits up to Rs 1 lakh.", correct_fact: "DICGC coverage was raised to Rs 5 lakh per depositor per bank in February 2020." },
-      { wrong_belief: "Atal Pension Yojana (APY) is market-linked like NPS.", correct_fact: "APY provides a GUARANTEED pension of Rs 1000–5000/month. NPS is market-linked." },
+      { wrong_belief: "Atal Pension Yojana (APY) is market-linked like NPS.", correct_fact: "APY provides a GUARANTEED pension of Rs 1000-5000/month. NPS is market-linked." },
     ],
     5: [
       { wrong_belief: "Bond prices rise when the Repo Rate rises.", correct_fact: "Inverse relationship: when Repo Rate rises, existing bond prices FALL." },
-      { wrong_belief: "Hedge Funds are Category I AIFs.", correct_fact: "Hedge Funds are Category III AIFs — high-risk, complex strategies." },
+      { wrong_belief: "Hedge Funds are Category I AIFs.", correct_fact: "Hedge Funds are Category III AIFs - high-risk, complex strategies." },
       { wrong_belief: "InvIT interest income is tax exempt for investors.", correct_fact: "InvIT interest income distributed to investors is TAXABLE in their hands." },
     ],
     6: [
       { wrong_belief: "REER increase means Indian exports become more competitive.", correct_fact: "REER up = rupee stronger in real terms = exports LESS competitive, imports cheaper." },
       { wrong_belief: "Currency depreciation and devaluation are the same phenomenon.", correct_fact: "Depreciation is market-driven. Devaluation is a deliberate government/RBI policy decision." },
-      { wrong_belief: "SDRs are a currency used in international trade settlements.", correct_fact: "SDRs are a reserve asset of the IMF — not a currency and not used in direct trade." },
+      { wrong_belief: "SDRs are a currency used in international trade settlements.", correct_fact: "SDRs are a reserve asset of the IMF - not a currency and not used in direct trade." },
     ],
     7: [
       { wrong_belief: "Cess revenue is shared with states in the divisible pool.", correct_fact: "Cess is 0% shared with states. 100% retained by the Centre. States get no share." },
       { wrong_belief: "GST covers all goods and services in India.", correct_fact: "Petroleum, alcohol for human consumption, and electricity are OUTSIDE the GST framework." },
-      { wrong_belief: "Sale of rural agricultural land attracts capital gains tax.", correct_fact: "Rural agricultural land is NOT a capital asset under the Income Tax Act — no capital gains tax." },
+      { wrong_belief: "Sale of rural agricultural land attracts capital gains tax.", correct_fact: "Rural agricultural land is NOT a capital asset under the Income Tax Act - no capital gains tax." },
     ],
     8: [
       { wrong_belief: "PLI provides incentive on total production volume.", correct_fact: "PLI incentive is on INCREMENTAL production above the base year threshold only." },
-      { wrong_belief: "NaBFID is a commercial bank that accepts public deposits.", correct_fact: "NaBFID is a Development Finance Institution (DFI) — it does NOT accept public deposits." },
-      { wrong_belief: "NITI Aayog allocates plan funds to states.", correct_fact: "NITI Aayog is purely advisory — it has NO fund allocation powers at all." },
+      { wrong_belief: "NaBFID is a commercial bank that accepts public deposits.", correct_fact: "NaBFID is a Development Finance Institution (DFI) - it does NOT accept public deposits." },
+      { wrong_belief: "NITI Aayog allocates plan funds to states.", correct_fact: "NITI Aayog is purely advisory - it has NO fund allocation powers at all." },
     ],
     9: [
       { wrong_belief: "Higher GHI rank number means better food security performance.", correct_fact: "Higher GHI rank = MORE hunger. Lower rank = better performance." },
@@ -167,54 +167,54 @@ const TRAP_CARDS: Record<string, Record<number, TrapCard[]>> = {
     10: [
       { wrong_belief: "Repo Rate is currently 6.5%.", correct_fact: "Two cuts in 2025 brought Repo Rate down to 6.0%. Always verify latest RBI policy." },
       { wrong_belief: "UPS provides the same pension calculation method as OPS.", correct_fact: "OPS = last drawn pay. UPS = average of last 12 months' basic pay. Different calculation." },
-      { wrong_belief: "CBDC is a form of cryptocurrency like Bitcoin.", correct_fact: "CBDC is issued by RBI, is legal tender, fully centralized — the opposite of decentralized crypto." },
+      { wrong_belief: "CBDC is a form of cryptocurrency like Bitcoin.", correct_fact: "CBDC is issued by RBI, is legal tender, fully centralized - the opposite of decentralized crypto." },
     ],
   },
   Environment: {
     1: [
-      { wrong_belief: "Pyramid of energy can be inverted in aquatic ecosystems.", correct_fact: "Energy pyramid is ALWAYS upright — no exceptions. Only biomass pyramid is inverted in aquatic systems." },
-      { wrong_belief: "Pyramid of numbers is always upright in all ecosystems.", correct_fact: "Numbers pyramid CAN be inverted — example: one tree supporting thousands of insects." },
+      { wrong_belief: "Pyramid of energy can be inverted in aquatic ecosystems.", correct_fact: "Energy pyramid is ALWAYS upright - no exceptions. Only biomass pyramid is inverted in aquatic systems." },
+      { wrong_belief: "Pyramid of numbers is always upright in all ecosystems.", correct_fact: "Numbers pyramid CAN be inverted - example: one tree supporting thousands of insects." },
       { wrong_belief: "Pyramid of biomass is always inverted in all ecosystems.", correct_fact: "Biomass pyramid is inverted ONLY in aquatic systems. Always upright in terrestrial ecosystems." },
     ],
     2: [
-      { wrong_belief: "India has only 3 biodiversity hotspots.", correct_fact: "India has FOUR hotspots: Western Ghats, Eastern Himalayas, Indo-Burma, Sundaland (Nicobar only)." },
+      { wrong_belief: "India has only 3 biodiversity hotspots.", correct_fact: "India has FOUR hotspots: Western Ghats, Eastern Himalayas, Ind✗Burma, Sundaland (Nicobar only)." },
       { wrong_belief: "Both Andaman and Nicobar Islands are part of the Sundaland hotspot.", correct_fact: "Only NICOBAR Islands are in Sundaland. Andaman Islands are NOT part of any hotspot." },
-      { wrong_belief: "High species richness alone qualifies a region as a biodiversity hotspot.", correct_fact: "Hotspot requires 1500+ endemic vascular plants AND 70%+ habitat lost — both criteria simultaneously." },
+      { wrong_belief: "High species richness alone qualifies a region as a biodiversity hotspot.", correct_fact: "Hotspot requires 1500+ endemic vascular plants AND 70%+ habitat lost - both criteria simultaneously." },
     ],
     3: [
-      { wrong_belief: "NTCA was established in 1973 when Project Tiger was launched.", correct_fact: "NTCA was established by Wildlife Protection Amendment Act 2006 — NOT 1973." },
-      { wrong_belief: "Asiatic Lion is found in Gir Forest and Nagarhole National Park.", correct_fact: "Asiatic Lion is found ONLY in Gir Forest, Gujarat — nowhere else in India or the world." },
-      { wrong_belief: "Reintroduced cheetahs in India are the same subspecies as the extinct Indian Cheetah.", correct_fact: "Extinct Indian Cheetah = Asiatic subspecies. Reintroduced = African Cheetah — different subspecies entirely." },
+      { wrong_belief: "NTCA was established in 1973 when Project Tiger was launched.", correct_fact: "NTCA was established by Wildlife Protection Amendment Act 2006 - NOT 1973." },
+      { wrong_belief: "Asiatic Lion is found in Gir Forest and Nagarhole National Park.", correct_fact: "Asiatic Lion is found ONLY in Gir Forest, Gujarat - nowhere else in India or the world." },
+      { wrong_belief: "Reintroduced cheetahs in India are the same subspecies as the extinct Indian Cheetah.", correct_fact: "Extinct Indian Cheetah = Asiatic subspecies. Reintroduced = African Cheetah - different subspecies entirely." },
     ],
     4: [
-      { wrong_belief: "Eco-Sensitive Zones are declared under the Wildlife Protection Act 1972.", correct_fact: "ESZ declared under ENVIRONMENT PROTECTION ACT 1986 — NOT Wildlife Protection Act." },
-      { wrong_belief: "Ramsar sites are fully protected areas where no human activity is allowed.", correct_fact: "Ramsar principle is WISE USE — sustainable use allowed if ecological character is maintained." },
-      { wrong_belief: "India's first National Park Jim Corbett was established in 1973.", correct_fact: "Jim Corbett established 1936 — NOT 1973. It became first Tiger Reserve in 1973 — different thing." },
+      { wrong_belief: "Ec✗Sensitive Zones are declared under the Wildlife Protection Act 1972.", correct_fact: "ESZ declared under ENVIRONMENT PROTECTION ACT 1986 - NOT Wildlife Protection Act." },
+      { wrong_belief: "Ramsar sites are fully protected areas where no human activity is allowed.", correct_fact: "Ramsar principle is WISE USE - sustainable use allowed if ecological character is maintained." },
+      { wrong_belief: "India's first National Park Jim Corbett was established in 1973.", correct_fact: "Jim Corbett established 1936 - NOT 1973. It became first Tiger Reserve in 1973 - different thing." },
     ],
     5: [
       { wrong_belief: "Cartagena Protocol deals with access and benefit sharing from genetic resources.", correct_fact: "Cartagena = BIOSAFETY and GMOs. Access and Benefit Sharing = NAGOYA Protocol. Different protocols." },
-      { wrong_belief: "Kigali Amendment is a separate international convention from Montreal Protocol.", correct_fact: "Kigali is an AMENDMENT TO Montreal Protocol — not a separate convention. Adds HFC phase-down." },
+      { wrong_belief: "Kigali Amendment is a separate international convention from Montreal Protocol.", correct_fact: "Kigali is an AMENDMENT TO Montreal Protocol - not a separate convention. Adds HFC phase-down." },
       { wrong_belief: "Basel, Rotterdam and Stockholm conventions have different secretariats.", correct_fact: "All THREE share a COMMON secretariat in Geneva. Direct UPSC test point." },
     ],
     6: [
-      { wrong_belief: "IPCC conducts original research on climate change.", correct_fact: "IPCC does NOT conduct research — it ASSESSES and synthesises existing scientific literature only." },
-      { wrong_belief: "India's NDC commits to Net Zero by 2050.", correct_fact: "India's Net Zero target is 2070 — NOT 2050. 2050 is the target for many developed nations." },
-      { wrong_belief: "National Solar Mission is under Ministry of Environment Forest and Climate Change.", correct_fact: "National Solar Mission is under MNRE — Ministry of New and Renewable Energy. Not MoEFCC." },
+      { wrong_belief: "IPCC conducts original research on climate change.", correct_fact: "IPCC does NOT conduct research - it ASSESSES and synthesises existing scientific literature only." },
+      { wrong_belief: "India's NDC commits to Net Zero by 2050.", correct_fact: "India's Net Zero target is 2070 - NOT 2050. 2050 is the target for many developed nations." },
+      { wrong_belief: "National Solar Mission is under Ministry of Environment Forest and Climate Change.", correct_fact: "National Solar Mission is under MNRE - Ministry of New and Renewable Energy. Not MoEFCC." },
     ],
     7: [
       { wrong_belief: "High BOD in water indicates clean oxygen-rich water.", correct_fact: "HIGH BOD = high organic pollution = dissolved oxygen DECREASES. Low BOD = clean water." },
       { wrong_belief: "London smog is an oxidising smog formed in hot sunny weather.", correct_fact: "London smog = REDUCING smog, cold foggy weather. Photochemical smog = oxidising, hot sunny weather." },
-      { wrong_belief: "Thermal pollution increases dissolved oxygen in water bodies.", correct_fact: "Thermal pollution DECREASES dissolved oxygen — warm water holds less DO, harming aquatic life." },
+      { wrong_belief: "Thermal pollution increases dissolved oxygen in water bodies.", correct_fact: "Thermal pollution DECREASES dissolved oxygen - warm water holds less DO, harming aquatic life." },
     ],
     8: [
-      { wrong_belief: "Forest Rights Act 2006 is administered by MoEFCC.", correct_fact: "FRA 2006 is under MINISTRY OF TRIBAL AFFAIRS — not MoEFCC. Frequently tested ministry trap." },
-      { wrong_belief: "Van Sanrakshan Evam Samvardhan Adhiniyam 2023 is a completely new environmental law.", correct_fact: "VSSEA 2023 is the RENAMED Forest Conservation Act 1980 — not a new law." },
+      { wrong_belief: "Forest Rights Act 2006 is administered by MoEFCC.", correct_fact: "FRA 2006 is under MINISTRY OF TRIBAL AFFAIRS - not MoEFCC. Frequently tested ministry trap." },
+      { wrong_belief: "Van Sanrakshan Evam Samvardhan Adhiniyam 2023 is a completely new environmental law.", correct_fact: "VSSEA 2023 is the RENAMED Forest Conservation Act 1980 - not a new law." },
       { wrong_belief: "NGT has jurisdiction over cases under Wildlife Protection Act 1972.", correct_fact: "NGT CANNOT hear WPA cases. WPA is NOT in NGT's Schedule I jurisdiction list." },
     ],
     9: [
-      { wrong_belief: "GEAC approves GM crops under the Ministry of Agriculture.", correct_fact: "GEAC is under MoEFCC under EPA 1986 — NOT Ministry of Agriculture." },
+      { wrong_belief: "GEAC approves GM crops under the Ministry of Agriculture.", correct_fact: "GEAC is under MoEFCC under EPA 1986 - NOT Ministry of Agriculture." },
       { wrong_belief: "Bt Rice is commercially cultivated in India.", correct_fact: "Only BT COTTON is commercially approved. Bt Brinjal has moratorium. HT Mustard approved but not released." },
-      { wrong_belief: "Mycorrhizae help plants in nitrogen fixation.", correct_fact: "Mycorrhizae help absorb PHOSPHORUS — not nitrogen. Nitrogen fixation = Rhizobium, Azotobacter." },
+      { wrong_belief: "Mycorrhizae help plants in nitrogen fixation.", correct_fact: "Mycorrhizae help absorb PHOSPHORUS - not nitrogen. Nitrogen fixation = Rhizobium, Azotobacter." },
     ],
     10: [
       { wrong_belief: "Blue carbon refers to all carbon stored in the ocean.", correct_fact: "Blue carbon = ONLY mangroves, seagrasses, salt marshes. Open ocean phytoplankton is NOT blue carbon." },
@@ -226,48 +226,48 @@ const TRAP_CARDS: Record<string, Record<number, TrapCard[]>> = {
     1: [
       { wrong_belief: "Aryabhata was launched by PSLV, India's first launch vehicle.", correct_fact: "Aryabhata (1975) was launched by a Soviet rocket. Rohini (1980) was first launched by Indian SLV-3." },
       { wrong_belief: "Chandrayaan-1 made India the first country to soft-land on the Moon.", correct_fact: "Chandrayaan-1 deliberately CRASHED MIP probe. Chandrayaan-3 (2023) made India's first soft landing." },
-      { wrong_belief: "James Webb Space Telescope is positioned at L1 Lagrange point like Aditya-L1.", correct_fact: "JWST is at L2 — away from Sun, opposite side from L1. Aditya-L1 is at L1 between Earth and Sun." },
+      { wrong_belief: "James Webb Space Telescope is positioned at L1 Lagrange point like Aditya-L1.", correct_fact: "JWST is at L2 - away from Sun, opposite side from L1. Aditya-L1 is at L1 between Earth and Sun." },
     ],
     2: [
-      { wrong_belief: "mRNA vaccines alter the DNA of the recipient permanently.", correct_fact: "mRNA vaccines do NOT alter DNA. mRNA degrades within days — DNA is never involved." },
-      { wrong_belief: "CRISPR-Cas9 uses DNA as a guide to locate the target sequence.", correct_fact: "CRISPR-Cas9 uses GUIDE RNA (gRNA) — not DNA — to locate the target sequence." },
-      { wrong_belief: "Covaxin uses mRNA technology like Pfizer and Moderna vaccines.", correct_fact: "Covaxin uses INACTIVATED VIRUS platform — NOT mRNA. Pfizer and Moderna use mRNA technology." },
+      { wrong_belief: "mRNA vaccines alter the DNA of the recipient permanently.", correct_fact: "mRNA vaccines do NOT alter DNA. mRNA degrades within days - DNA is never involved." },
+      { wrong_belief: "CRISPR-Cas9 uses DNA as a guide to locate the target sequence.", correct_fact: "CRISPR-Cas9 uses GUIDE RNA (gRNA) - not DNA - to locate the target sequence." },
+      { wrong_belief: "Covaxin uses mRNA technology like Pfizer and Moderna vaccines.", correct_fact: "Covaxin uses INACTIVATED VIRUS platform - NOT mRNA. Pfizer and Moderna use mRNA technology." },
     ],
     3: [
-      { wrong_belief: "Deep learning is broader than machine learning as it uses more complex algorithms.", correct_fact: "Deep Learning is a SUBSET of Machine Learning which is a subset of AI — DL is narrower, not broader." },
-      { wrong_belief: "Majorana 1 quantum chip was developed by Amazon Web Services.", correct_fact: "Majorana 1 was developed by MICROSOFT — directly tested in UPSC 2025. Not AWS." },
+      { wrong_belief: "Deep learning is broader than machine learning as it uses more complex algorithms.", correct_fact: "Deep Learning is a SUBSET of Machine Learning which is a subset of AI - DL is narrower, not broader." },
+      { wrong_belief: "Majorana 1 quantum chip was developed by Amazon Web Services.", correct_fact: "Majorana 1 was developed by MICROSOFT - directly tested in UPSC 2025. Not AWS." },
       { wrong_belief: "Blockchain technology can only be used for cryptocurrency transactions.", correct_fact: "Blockchain has many non-crypto uses: land records, supply chain, voting, health records, smart contracts." },
     ],
     4: [
       { wrong_belief: "BrahMos is India's hypersonic missile.", correct_fact: "BrahMos is SUPERSONIC (Mach 2.8). Hypersonic = Mach 5+. BrahMos-II under development will be hypersonic." },
-      { wrong_belief: "IL-76 is a supersonic combat aircraft operated by the Indian Air Force.", correct_fact: "IL-76 is a HEAVY TRANSPORT aircraft — not a combat jet. Tested directly in UPSC 2025." },
+      { wrong_belief: "IL-76 is a supersonic combat aircraft operated by the Indian Air Force.", correct_fact: "IL-76 is a HEAVY TRANSPORT aircraft - not a combat jet. Tested directly in UPSC 2025." },
       { wrong_belief: "INS Vikrant is India's first aircraft carrier overall.", correct_fact: "INS Vikrant (2022) is India's first DOMESTICALLY BUILT carrier. INS Vikrant (1961) was purchased from UK." },
     ],
     5: [
       { wrong_belief: "Nuclear fusion produces more radioactive waste than fission.", correct_fact: "Fusion produces FAR LESS long-lived radioactive waste. Products are helium and short-lived materials." },
-      { wrong_belief: "RTGs are miniature fission reactors used in space probes.", correct_fact: "RTGs use radioactive DECAY heat — not a fission chain reaction. Tested directly in UPSC 2024." },
-      { wrong_belief: "ITER demonstrates nuclear fission power generation at commercial scale.", correct_fact: "ITER is a FUSION experiment — not fission. Located in France. India is a partner country." },
+      { wrong_belief: "RTGs are miniature fission reactors used in space probes.", correct_fact: "RTGs use radioactive DECAY heat - not a fission chain reaction. Tested directly in UPSC 2024." },
+      { wrong_belief: "ITER demonstrates nuclear fission power generation at commercial scale.", correct_fact: "ITER is a FUSION experiment - not fission. Located in France. India is a partner country." },
     ],
     6: [
-      { wrong_belief: "No virus can infect bacteria.", correct_fact: "BACTERIOPHAGES are viruses that infect bacteria. Directly tested in UPSC 2025 — statement was FALSE." },
-      { wrong_belief: "Monoclonal antibodies are naturally produced antibodies extracted from humans.", correct_fact: "Monoclonal antibodies are LABORATORY-PRODUCED by cloning a single immune cell — not natural extracts." },
-      { wrong_belief: "RT-PCR is used to detect DNA viruses like Hepatitis B.", correct_fact: "RT-PCR is for RNA VIRUSES — it converts RNA to DNA first. COVID-19 detection used RT-PCR." },
+      { wrong_belief: "No virus can infect bacteria.", correct_fact: "BACTERIOPHAGES are viruses that infect bacteria. Directly tested in UPSC 2025 - statement was FALSE." },
+      { wrong_belief: "Monoclonal antibodies are naturally produced antibodies extracted from humans.", correct_fact: "Monoclonal antibodies are LABORATORY-PRODUCED by cloning a single immune cell - not natural extracts." },
+      { wrong_belief: "RT-PCR is used to detect DNA viruses like Hepatitis B.", correct_fact: "RT-PCR is for RNA VIRUSES - it converts RNA to DNA first. COVID-19 detection used RT-PCR." },
     ],
     7: [
-      { wrong_belief: "Quantum computers use binary bits like classical computers but process faster.", correct_fact: "Quantum computers use QUBITS which can be 0, 1, or both simultaneously (superposition) — fundamentally different." },
-      { wrong_belief: "Nanotechnology only refers to making objects smaller at nanoscale.", correct_fact: "Nanotechnology involves manipulating matter at 1-100 nanometre scale — materials gain NEW properties at this scale." },
-      { wrong_belief: "Quantum entanglement allows faster than light communication between particles.", correct_fact: "Entanglement does NOT allow faster-than-light communication — no information is transmitted through entanglement." },
+      { wrong_belief: "Quantum computers use binary bits like classical computers but process faster.", correct_fact: "Quantum computers use QUBITS which can be 0, 1, or both simultaneously (superposition) - fundamentally different." },
+      { wrong_belief: "Nanotechnology only refers to making objects smaller at nanoscale.", correct_fact: "Nanotechnology involves manipulating matter at 1-100 nanometre scale - materials gain NEW properties at this scale." },
+      { wrong_belief: "Quantum entanglement allows faster than light communication between particles.", correct_fact: "Entanglement does NOT allow faster-than-light communication - no information is transmitted through entanglement." },
     ],
     8: [
       { wrong_belief: "Graphene is a form of diamond with enhanced electrical properties.", correct_fact: "Graphene and diamond are both carbon but completely different structures. Graphene = single atomic layer, hexagonal lattice." },
-      { wrong_belief: "Quantum dots are quantum computers in nanoscale form.", correct_fact: "Quantum dots are semiconductor NANOCRYSTALS that emit light — used in QLED displays and imaging. Not computers." },
-      { wrong_belief: "China has the largest rare earth reserves globally therefore produces the most.", correct_fact: "China dominates PRODUCTION (60%+) due to low-cost processing — but does not have the largest reserves globally." },
+      { wrong_belief: "Quantum dots are quantum computers in nanoscale form.", correct_fact: "Quantum dots are semiconductor NANOCRYSTALS that emit light - used in QLED displays and imaging. Not computers." },
+      { wrong_belief: "China has the largest rare earth reserves globally therefore produces the most.", correct_fact: "China dominates PRODUCTION (60%+) due to low-cost processing - but does not have the largest reserves globally." },
     ],
   },
 };
 
 const GENERIC_TRAP: TrapCard[] = [
-  { wrong_belief: "All facts in isolation are enough for UPSC preparation.", correct_fact: "UPSC tests connections — cause, effect, and constitutional linkage matter most." },
+  { wrong_belief: "All facts in isolation are enough for UPSC preparation.", correct_fact: "UPSC tests connections - cause, effect, and constitutional linkage matter most." },
   { wrong_belief: "Memorizing answers is more important than understanding mechanisms.", correct_fact: "Understanding the WHY behind each fact prevents trap questions from tricking you." },
   { wrong_belief: "Recent amendments and current affairs don't matter much for prelims.", correct_fact: "Recent amendments and current affairs are the highest-yield exam traps. Always check the latest position." },
 ];
@@ -312,19 +312,31 @@ const SUBJECT_SEQUENCE = [
 // REACT COMPONENT
 // ═══════════════════════════════════════════════════════════════
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { useAuth } from "@/contexts/auth-context";
 import { useRouter } from "next/navigation";
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
-const API = API_BASE.includes("/api/v1") ? API_BASE : `${API_BASE}/api/v1`;
+const API = process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app/api/v1";
+
+const CLUSTER_PDFS: Record<number, string> = {
+  1: "https://drive.google.com/file/d/1Xy_Jz-8w9L9W9V9U9T9S9R9Q9P9O9N9/view",
+  2: "",
+  3: "",
+  4: "",
+  5: "",
+  6: "",
+  7: "",
+  8: "",
+  9: "",
+  10: "",
+};
 
 function formatQuestionText(text: string) {
   if (!text) return null
   
   // Handle both actual newlines and escaped \n
   const normalized = text
-    .replace(/\\n/g, '\n')  // literal \n → real newline
+    .replace(/\\n/g, '\n')  // literal \n + real newline
     .replace(/\r\n/g, '\n') // Windows line endings
     .replace(/\r/g, '\n')   // old Mac line endings
   
@@ -429,7 +441,7 @@ export default function FocusedPortalPage() {
   const { user, token } = useAuth();
   const router = useRouter();
 
-  // ── State ──
+  // //// State ////
   const [activeTab, setActiveTab] = useState<'focus' | 'progress' | 'history'>('focus');
   const [dashData, setDashData] = useState<any>(null);
   const [trapFlipped, setTrapFlipped] = useState<boolean[]>([false, false, false]);
@@ -439,14 +451,16 @@ export default function FocusedPortalPage() {
   const [pomodoroCount, setPomodoroCount] = useState(0);
   const [showPulse, setShowPulse] = useState(false);
   const [currentPomodoro, setCurrentPomodoro] = useState(1);
+  const [loading, setLoading] = useState(false);
   
   const [testStarted, setTestStarted] = useState(false);
   const [showConfidenceAfter, setShowConfidenceAfter] = useState(false);
   const [confidenceBeforeTest, setConfidenceBeforeTest] = useState<string | null>(null);
   const [testQuestions, setTestQuestions] = useState<any[]>([]);
   const [testAnswers, setTestAnswers] = useState<Record<number, string>>({});
-  const [testSubmitted, setTestSubmitted] = useState(false);
+  const [testConfidence, setTestConfidence] = useState<Record<number, string>>({});
   const [testReport, setTestReport] = useState<any>(null);
+  const [testSubmitted, setTestSubmitted] = useState(false);
   const [testStartTime, setTestStartTime] = useState<number>(0);
   const [error, setError] = useState<string | null>(null);
   const [cumulativeData, setCumulativeData] = useState<any>(null);
@@ -454,8 +468,10 @@ export default function FocusedPortalPage() {
   const [progressData, setProgressData] = useState<any>(null);
   const [reportFilter, setReportFilter] = useState<'all' | 'correct' | 'wrong' | 'skipped'>('all');
   const [reviewQuestions, setReviewQuestions] = useState<any[]>([]);
+  const [isGateTest, setIsGateTest] = useState(false);
+  const [gateResult, setGateResult] = useState<{score: number, passed: boolean} | null>(null);
 
-  // ── Theme ──
+  // //// Theme ////
   const [isDark, setIsDark] = useState(true);
   useEffect(() => {
     const stored = localStorage.getItem("focused_portal_theme");
@@ -465,9 +481,8 @@ export default function FocusedPortalPage() {
     localStorage.setItem("focused_portal_theme", isDark ? "dark" : "light");
   }, [isDark]);
 
-  // ── Test v2 State ──
+  // //// Test v2 State ////
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [testConfidence, setTestConfidence] = useState<string[]>([]);
   const [timePerQuestion, setTimePerQuestion] = useState<number[]>([]);
   const [questionStartTime, setQuestionStartTime] = useState<number>(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -476,13 +491,12 @@ export default function FocusedPortalPage() {
   const questionStartTimeRef = useRef<number>(0);
   const lastVisibleIndexRef = useRef<number>(0);
 
-  // ── Cluster Navigation State ──
+  // //// Cluster Navigation State ////
   const [viewMode, setViewMode] = useState<'overview' | 'session'>('overview');
   const [clusters, setClusters] = useState<any[]>([]);
   const [loadingClusters, setLoadingClusters] = useState(false);
   const [selectedClusterInfo, setSelectedClusterInfo] = useState<any>(null);
 
-  // Derived from dashData — subject/cluster come from focused_subject_gates, not a calendar
   const activeTask = dashData?.current_active;
   const currentSubject = activeTask?.subject ?? "Polity";
   const currentCluster = activeTask?.cluster_number ?? 1;
@@ -498,7 +512,7 @@ export default function FocusedPortalPage() {
 
   const authHeader = { Authorization: `Bearer ${token}` };
 
-  // ── Fetch dashboard ──
+  // //// Fetch dashboard ////
   const fetchDashboard = useCallback(async () => {
     if (!token) return;
     try {
@@ -562,7 +576,7 @@ export default function FocusedPortalPage() {
     }
   }, [currentSubject, fetchClusters]);
 
-  // ── Timer ──
+  // //// Timer ////
   useEffect(() => {
     if (timerRunning && timerSeconds > 0) {
       timerRef.current = setTimeout(() => setTimerSeconds(s => s - 1), 1000);
@@ -602,107 +616,144 @@ export default function FocusedPortalPage() {
     fetchDashboard();
   };
 
-  // ── Test ──
-  // Flow: START → load questions → answer each (reveal after each) → confidence → submit
+  // //// Test ////
   const startTestSequence = async () => {
     if (!token) return;
-    setError(null);
+    setLoading(true);
+    setIsGateTest(false);
+    setGateResult(null);
     try {
       const res = await fetch(`${API}/focused/test/${encodeURIComponent(currentSubject)}/${selectedCluster}`, { headers: authHeader });
-      if (!res.ok) throw new Error("Could not load test questions.");
-      const data = await res.json();
-      if (!data.questions?.length) throw new Error("No questions available for this cluster yet.");
-      setTestQuestions(data.questions);
-      setTestStarted(true);
-      setTestStartTime(Date.now());
-      setTestAnswers({});
-      setShowConfidenceAfter(false);
-      setTestConfidence(new Array(data.questions.length).fill(""));
-      setTimePerQuestion(new Array(data.questions.length).fill(0));
-      setQuestionStartTime(Date.now());
-      setTestQuestionIds(data.questions.map((q: any) => q.id));
-      timePerQuestionRef.current = new Array(data.questions.length).fill(0);
-      questionStartTimeRef.current = Date.now();
-      lastVisibleIndexRef.current = 0;
-      document.documentElement.requestFullscreen().catch(() => {});
-    } catch (e: any) {
-      setError(e.message);
-    }
+      if (res.ok) {
+        const data = await res.json();
+        setTestQuestions(data.questions || []);
+        setTestStarted(true);
+        setTestStartTime(Date.now());
+        setTestAnswers({});
+        setTestConfidence({});
+        setQuestionStartTime(Date.now());
+        questionStartTimeRef.current = Date.now();
+        timePerQuestionRef.current = new Array(data.questions.length).fill(0);
+      }
+    } catch (e) { setError("Failed to fetch cluster test"); }
+    finally { setLoading(false); }
+  };
+
+  const startGateTest = async () => {
+    if (!token) return;
+    setLoading(true);
+    setIsGateTest(true);
+    setGateResult(null);
+    try {
+      const res = await fetch(`${API}/focused/gate/${encodeURIComponent(currentSubject)}`, { headers: authHeader });
+      if (res.ok) {
+        const data = await res.json();
+        setTestQuestions(data.questions || []);
+        setTestStarted(true);
+        setTestStartTime(Date.now());
+        setTestAnswers({});
+        setTestConfidence({});
+        setQuestionStartTime(Date.now());
+        questionStartTimeRef.current = Date.now();
+        timePerQuestionRef.current = new Array(data.questions.length).fill(0);
+      }
+    } catch (e) { setError("Failed to fetch gate test"); }
+    finally { setLoading(false); }
   };
 
   const CONFIDENCE_PILLS = ["Short Shot", "50/50", "Other", "Only One Known", "Blind Guess", "Skip"];
+
+  const setConfidenceById = (qId: number, label: string) => {
+    setTestConfidence(prev => ({
+      ...prev,
+      [qId]: label
+    }));
+    if (label === 'Skip') {
+      const newAnswers = { ...testAnswers };
+      delete newAnswers[qId];
+      setTestAnswers(newAnswers);
+    }
+  };
 
   const selectAnswerById = (qId: number, option: string) => {
     setTestAnswers(prev => ({ ...prev, [qId]: option }));
   };
 
-  const setConfidenceByIndex = (qIndex: number, qId: number, value: string) => {
-    setTestConfidence(prev => {
-      const next = [...prev];
-      next[qIndex] = value;
-      return next;
-    });
-    // Skip clears any selected answer for this question
-    if (value === "Skip") {
-      setTestAnswers(prev => {
-        const next = { ...prev };
-        delete next[qId];
-        return next;
-      });
-    }
-  };
-
   const submitTest = async () => {
-    if (!token || !user) return;
+    if (Object.keys(testAnswers).length < testQuestions.length) {
+      if (Object.keys(testAnswers).length === 0 && Object.keys(testConfidence).length === 0) {
+        setError("Please answer at least one question");
+        return;
+      }
+    }
+
     setIsSubmitting(true);
-    if (document.fullscreenElement) document.exitFullscreen();
-    timePerQuestionRef.current[lastVisibleIndexRef.current] += Date.now() - questionStartTimeRef.current;
-    const answersArray = testQuestions.map(q => testAnswers[q.id] || "Skip");
-    const questionIds = testQuestions.map(q => q.id);
-    const timesArray = timePerQuestionRef.current.map(t => t || 0);
+    const endTime = Date.now();
+    
+    const finalNow = Date.now();
+    timePerQuestionRef.current[lastVisibleIndexRef.current] += finalNow - questionStartTimeRef.current;
+
     try {
-      const res = await fetch(`${API}/focused/test/submit`, {
+      const endpoint = isGateTest ? `${API}/focused/gate/submit` : `${API}/focused/test/submit`;
+      const body = isGateTest ? {
+        subject: currentSubject,
+        score: testQuestions.filter(q => testAnswers[q.id] === q.correct_answer).length,
+        total_questions: testQuestions.length,
+        answers: testAnswers
+      } : {
+        subject: currentSubject,
+        cluster_number: selectedCluster,
+        answers: testAnswers,
+        confidence: testQuestions.map(q => testConfidence[q.id] || "Other"),
+        time_per_question: timePerQuestionRef.current.map(ms => Math.floor(ms / 1000)),
+        start_time: new Date(testStartTime).toISOString(),
+        end_time: new Date(endTime).toISOString()
+      };
+
+      const res = await fetch(endpoint, {
         method: "POST",
-        headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
-        body: JSON.stringify({
-          subject: currentSubject,
-          cluster_id: selectedCluster,
-          question_ids: questionIds,
-          answers: answersArray,
-          confidence: testConfidence,
-          time_per_question: timesArray,
-        }),
+        headers: { ...authHeader, "Content-Type": "application/json" },
+        body: JSON.stringify(body)
       });
-      const data = await res.json();
-      setTestReport(data.report ?? data);
-      setReviewQuestions(testQuestions);
-      setTestSubmitted(true);
-      setStudyStarted(false);
-      setShowPulse(false);
-      fetchDashboard();
-      fetchCumulative();
-      fetchHistory();
-      fetchProgress();
-    } catch (e) { console.error(e); }
-    setIsSubmitting(false);
+
+      if (res.ok) {
+        const data = await res.json();
+        if (isGateTest) {
+          setGateResult({ score: body.score, passed: data.passed });
+        } else {
+          setTestReport(data);
+        }
+        setTestSubmitted(true);
+        fetchDashboard();
+        fetchCumulative();
+        fetchHistory();
+        fetchProgress();
+      }
+    } catch (e) { setError("Submission failed"); }
+    finally { setIsSubmitting(false); }
   };
 
-  // ── Timer display ──
+  const answeredCount = useMemo(() => {
+    return testQuestions.filter(q => testAnswers[q.id] || testConfidence[q.id] === 'Skip').length;
+  }, [testQuestions, testAnswers, testConfidence]);
+
+  const hasWarning = (qId: number) => {
+    const isSkipped = testConfidence[qId] === 'Skip';
+    const hasAnswer = !!testAnswers[qId];
+    return !isSkipped && !hasAnswer;
+  };
+
   const timerDisplay = `${String(Math.floor(timerSeconds / 60)).padStart(2, "0")}:${String(timerSeconds % 60).padStart(2, "0")}`;
   const timerPercent = ((25 * 60 - timerSeconds) / (25 * 60)) * 100;
 
-  // ── Helpers ──
   const dateStr = new Date().toLocaleDateString("en-IN", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
   const morningDone = dashData?.morning_pomodoros_done ?? pomodoroCount;
   const eveningDone = dashData?.evening_test_done ?? testSubmitted;
 
-  // ── Handlers ──
   const handleClusterSelect = (cluster: any) => {
     setSelectedClusterInfo(cluster);
     setSelectedCluster(cluster.cluster_number);
     setViewMode('session');
-    // If the cluster has a custom cluster_number, we can use it, otherwise fall back
-    // The session view currently uses currentCluster from dashData
   };
 
   const handleBackToOverview = () => {
@@ -710,7 +761,6 @@ export default function FocusedPortalPage() {
     fetchClusters(currentSubject);
   };
 
-  // ── Sub-Components ──
   const ClusterOverviewScreen = () => {
     if (loadingClusters) {
       return <div style={{ padding: 40, textAlign: "center", color: C.textMuted }}>Mapping neural clusters...</div>;
@@ -832,11 +882,6 @@ export default function FocusedPortalPage() {
     );
   };
 
-  const answeredCount = testStarted
-    ? testQuestions.filter((_, i) => testAnswers[i] !== undefined || testConfidence[i] === "Skip").length
-    : 0;
-  const hasWarning = (i: number) => !!(testConfidence[i] && testConfidence[i] !== "Skip" && !testAnswers[i]);
-
   return (
     <div style={{
       ...({
@@ -851,7 +896,6 @@ export default function FocusedPortalPage() {
       backgroundColor: C.bg, minHeight: "100vh", fontFamily: "'Inter', sans-serif", color: C.textPrimary
     }}>
       
-      {/* ── Theme Toggle ── */}
       {(!testStarted || testSubmitted) && (
         <button onClick={() => setIsDark(d => !d)} style={{
           position: "fixed", top: 16, right: 16, zIndex: 1000,
@@ -863,7 +907,6 @@ export default function FocusedPortalPage() {
         </button>
       )}
 
-      {/* ── Desktop Header ── */}
       <div style={{ 
         position: "sticky", top: 0, zIndex: 100,
         backgroundColor: "rgba(10,12,14,0.8)", backdropFilter: "blur(12px)", 
@@ -906,7 +949,6 @@ export default function FocusedPortalPage() {
 
       <div style={{ maxWidth: 1400, margin: "0 auto", padding: "32px 24px" }}>
         
-        {/* Layout Grid */}
         <div style={{ 
           display: "grid", 
           gridTemplateColumns: activeTab === 'focus' ? "300px 1fr 340px" : "1fr",
@@ -914,57 +956,171 @@ export default function FocusedPortalPage() {
           alignItems: "start"
         }}>
 
-          {/* ═══════════════════════════════════════════════════════════════
-              ZONE 1: SUBJECT PROGRESS (Left)
-          ═══════════════════════════════════════════════════════════════ */}
           {(activeTab === 'focus' || activeTab === 'progress') && (
-            <div style={{ display: activeTab === 'progress' ? 'grid' : 'block', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24 }}>
-              <div style={{ backgroundColor: C.surface, border: `1px solid ${C.border}`, borderRadius: 20, padding: 24 }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
-                  <h3 style={{ fontSize: 13, fontWeight: 800, letterSpacing: "0.05em", color: C.gold }}>SUBJECT PROGRESS</h3>
-                  <span style={{ fontSize: 11, color: C.textMuted }}>{dashData?.gate_completions ?? 0}/12 Completed</span>
-                </div>
-
-                <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                  {SUBJECT_SEQUENCE.map((s, idx) => {
-                    const status = dashData?.subject_map?.[s] ?? "LOCKED";
-                    const isActive = currentSubject === s;
-                    const isDone = status === "COMPLETED" || status === "PASSED";
-                    
-                    return (
-                      <div key={idx} style={{ 
-                        display: "flex", alignItems: "center", gap: 12, padding: "12px 14px", 
-                        borderRadius: 12, backgroundColor: isActive ? "rgba(201,168,76,0.08)" : "transparent",
-                        border: `1px solid ${isActive ? C.gold : "transparent"}`,
-                        opacity: status === "LOCKED" ? 0.4 : 1
-                      }}>
-                        <div style={{ 
-                          width: 24, height: 24, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center",
-                          backgroundColor: isDone ? "rgba(68,255,136,0.1)" : isActive ? C.gold : "rgba(255,255,255,0.05)",
-                          border: `1px solid ${isDone ? C.green : isActive ? C.gold : C.border}`,
-                          fontSize: 10, color: isDone ? C.green : isActive ? "#000" : C.textMuted
+            <div style={{ display: activeTab === 'progress' ? 'block' : 'block', width: '100%' }}>
+              {activeTab === 'progress' ? (
+                !progressData ? (
+                  <div style={{ textAlign: 'center', padding: 80, backgroundColor: C.surface, borderRadius: 24, border: `1px solid ${C.border}` }}>
+                    <div style={{ width: 40, height: 40, border: `3px solid ${C.gold}`, borderTopColor: 'transparent', borderRadius: '50%', animation: 'fspin 1s linear infinite', margin: '0 auto 20px' }} />
+                    <p style={{ color: C.textMuted, fontSize: 16, fontWeight: 500 }}>Syncing your UPSC progress...</p>
+                  </div>
+                ) : progressData.clusters_attempted?.length === 0 ? (
+                  <div style={{ textAlign: 'center', padding: 80, backgroundColor: C.surface, borderRadius: 24, border: `1px solid ${C.border}` }}>
+                    <div style={{ fontSize: 48, marginBottom: 16 }}>🚀</div>
+                    <h3 style={{ fontSize: 24, fontWeight: 800, color: C.gold, marginBottom: 8 }}>Your Journey Begins Here</h3>
+                    <p style={{ color: C.textMuted, fontSize: 16, maxWidth: 400, margin: '0 auto', lineHeight: 1.6 }}>
+                      You haven't attempted any clusters yet. Head over to the Focus tab and start your first study session to track your progress and uncover your weaknesses.
+                    </p>
+                    <button 
+                      onClick={() => setActiveTab('focus')}
+                      style={{ 
+                        marginTop: 24, padding: "12px 24px", borderRadius: 12, backgroundColor: C.gold, color: "#000", 
+                        fontSize: 14, fontWeight: 700, border: "none", cursor: "pointer"
+                      }}
+                    >
+                      START STUDYING
+                    </button>
+                  </div>
+                ) : (
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 32, maxWidth: 1200, margin: '0 auto' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20 }}>
+                      {[
+                        { label: 'Neural Clusters', value: `${progressData.clusters_attempted?.length || 0}`, sub: 'Attempted', icon: '🎯', color: C.gold },
+                        { label: 'Global Accuracy', value: `${Math.round(progressData.overall_accuracy || 0)}%`, sub: 'Average', icon: '📈', color: C.green },
+                        { label: 'Deep Study', value: `${Math.floor((progressData.total_time_seconds || 0) / 3600)}h ${Math.floor(((progressData.total_time_seconds || 0) % 3600) / 60)}m`, sub: 'Total Time', icon: '⏱', color: C.amber },
+                        { label: 'Battle Streak', value: `${progressData.days_active || 0} Days`, sub: 'Active', icon: '🔥', color: C.red },
+                      ].map((stat, i) => (
+                        <div key={i} style={{ 
+                          backgroundColor: C.surface, border: `1px solid ${C.border}`, borderRadius: 24, padding: 24,
+                          position: 'relative', overflow: 'hidden', transition: 'transform 0.2s', cursor: 'default'
                         }}>
-                          {isDone ? "✓" : idx + 1}
+                          <div style={{ position: 'absolute', top: 0, right: 0, padding: 20, fontSize: 24, opacity: 0.1 }}>{stat.icon}</div>
+                          <p style={{ fontSize: 11, color: C.textMuted, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 8 }}>{stat.label}</p>
+                          <p style={{ fontSize: 32, fontWeight: 800, color: stat.color, marginBottom: 4 }}>{stat.value}</p>
+                          <p style={{ fontSize: 10, color: C.textMuted, fontWeight: 600 }}>{stat.sub}</p>
                         </div>
-                        <div style={{ flex: 1 }}>
-                          <p style={{ fontSize: 13, fontWeight: 600, color: isActive ? C.gold : C.textPrimary }}>{s}</p>
-                          <p style={{ fontSize: 10, color: C.textMuted, textTransform: "uppercase" }}>{status}</p>
+                      ))}
+                    </div>
+
+                    <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr', gap: 32 }}>
+                      <div style={{ backgroundColor: C.surface, border: `1px solid ${C.border}`, borderRadius: 24, padding: 32 }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
+                          <h3 style={{ fontSize: 16, fontWeight: 800, color: C.gold }}>{currentSubject.toUpperCase()}: CLUSTER PERFORMANCE</h3>
+                          <div style={{ display: 'flex', gap: 12 }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}><div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: C.green }} /><span style={{ fontSize: 10, color: C.textMuted }}>70%+</span></div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}><div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: C.amber }} /><span style={{ fontSize: 10, color: C.textMuted }}>50%+</span></div>
+                          </div>
                         </div>
-                        {isActive && <div style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: C.gold, boxShadow: `0 0 6px ${C.gold}` }} />}
+                        
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 16 }}>
+                          {[...Array(10)].map((_, i) => {
+                            const num = i + 1;
+                            const attempt = Array.isArray(progressData.clusters_attempted) 
+                              ? progressData.clusters_attempted.find((c: any) => c.cluster_number === num && c.subject === currentSubject)
+                              : null;
+                            const pct = attempt?.best_percentage || 0;
+                            const hasAttempted = !!attempt;
+                            
+                            let bg = 'rgba(255,255,255,0.02)';
+                            let border = C.border;
+                            let color = C.textMuted;
+                            let glow = 'none';
+
+                            if (hasAttempted) {
+                              if (pct >= 70) { 
+                                bg = 'rgba(68,255,136,0.08)'; border = C.green; color = C.green;
+                                glow = `0 0 15px rgba(68,255,136,0.1)`;
+                              }
+                              else if (pct >= 50) { bg = 'rgba(255,179,68,0.08)'; border = C.amber; color = C.amber; }
+                              else { bg = 'rgba(255,68,68,0.08)'; border = C.red; color = C.red; }
+                            }
+
+                            return (
+                              <div key={i} style={{ 
+                                aspectRatio: '1/1', borderRadius: 16, border: `1px solid ${border}`, backgroundColor: bg,
+                                display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 6,
+                                transition: 'all 0.2s', boxShadow: glow, position: 'relative'
+                              }}>
+                                <span style={{ fontSize: 18, fontWeight: 800, color: hasAttempted ? color : C.textMuted }}>{num}</span>
+                                {hasAttempted ? (
+                                  <span style={{ fontSize: 11, fontWeight: 700, color }}>{Math.round(pct)}%</span>
+                                ) : (
+                                  <span style={{ fontSize: 9, fontWeight: 600, color: 'rgba(255,255,255,0.2)' }}>LOCKED</span>
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
                       </div>
-                    );
-                  })}
+
+                      <div style={{ backgroundColor: C.surface, border: `1px solid ${C.border}`, borderRadius: 24, padding: 32 }}>
+                        <h3 style={{ fontSize: 16, fontWeight: 800, color: C.gold, marginBottom: 24 }}>SUBJECT GATE STATUS</h3>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                          {Array.isArray(progressData.gates) && progressData.gates.map((g: any, i: number) => (
+                            <div key={i} style={{ 
+                              display: 'flex', justifyContent: 'space-between', alignItems: 'center', 
+                              padding: '14px 18px', borderRadius: 16, 
+                              backgroundColor: g.unlocked ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.01)',
+                              border: `1px solid ${g.unlocked ? (g.passed ? C.green : C.gold) : C.border}`,
+                              opacity: g.unlocked ? 1 : 0.5
+                            }}>
+                              <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                                <div style={{ fontSize: 16 }}>{g.passed ? '✅' : g.unlocked ? '🔓' : '🔒'}</div>
+                                <span style={{ fontSize: 14, fontWeight: 600 }}>{g.subject}</span>
+                              </div>
+                              <span style={{ fontSize: 11, fontWeight: 700, color: g.passed ? C.green : g.unlocked ? C.gold : C.textMuted }}>
+                                {g.passed ? 'PASSED' : g.unlocked ? 'IN PROGRESS' : 'LOCKED'}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+
+              ) : (
+                <div style={{ backgroundColor: C.surface, border: `1px solid ${C.border}`, borderRadius: 20, padding: 24 }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
+                    <h3 style={{ fontSize: 13, fontWeight: 800, letterSpacing: "0.05em", color: C.gold }}>SUBJECT PROGRESS</h3>
+                    <span style={{ fontSize: 11, color: C.textMuted }}>{dashData?.gate_completions ?? 0}/12 Completed</span>
+                  </div>
+
+                  <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                    {SUBJECT_SEQUENCE.map((s, idx) => {
+                      const status = dashData?.subject_map?.[s] ?? "LOCKED";
+                      const isActive = currentSubject === s;
+                      const isDone = status === "COMPLETED" || status === "PASSED";
+                      
+                      return (
+                        <div key={idx} style={{ 
+                          display: "flex", alignItems: "center", gap: 12, padding: "12px 14px", 
+                          borderRadius: 12, backgroundColor: isActive ? "rgba(201,168,76,0.08)" : "transparent",
+                          border: `1px solid ${isActive ? C.gold : "transparent"}`,
+                          opacity: status === "LOCKED" ? 0.4 : 1
+                        }}>
+                          <div style={{ 
+                            width: 24, height: 24, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center",
+                            backgroundColor: isDone ? "rgba(68,255,136,0.1)" : isActive ? C.gold : "rgba(255,255,255,0.05)",
+                            border: `1px solid ${isDone ? C.green : isActive ? C.gold : C.border}`,
+                            fontSize: 10, color: isDone ? C.green : isActive ? "#000" : C.textMuted
+                          }}>
+                            {isDone ? "✓" : idx + 1}
+                          </div>
+                          <div style={{ flex: 1 }}>
+                            <p style={{ fontSize: 13, fontWeight: 600, color: isActive ? C.gold : C.textPrimary }}>{s}</p>
+                            <p style={{ fontSize: 10, color: C.textMuted, textTransform: "uppercase" }}>{status}</p>
+                          </div>
+                          {isActive && <div style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: C.gold, boxShadow: `0 0 6px ${C.gold}` }} />}
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           )}
 
-
-
-
-          {/* ═══════════════════════════════════════════════════════════════
-              ZONE 2: CONTENT GRID OR SESSION VIEW (Center)
-          ═══════════════════════════════════════════════════════════════ */}
           {(activeTab === 'focus') && (
             <div>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 24 }}>
@@ -973,7 +1129,7 @@ export default function FocusedPortalPage() {
                     {viewMode === 'overview' ? `${currentSubject} Clusters` : (selectedClusterInfo?.cluster_name ?? currentClusterName)}
                   </h1>
                   <p style={{ color: C.textMuted, fontSize: 14 }}>
-                    {currentSubject} {viewMode === 'session' && `· Cluster ${selectedClusterInfo?.cluster_number ?? currentCluster}`} · Path to 24th May
+                    {currentSubject} {viewMode === 'session' && `/ Cluster ${selectedClusterInfo?.cluster_number ?? currentCluster}`} / Path to 24th May
                   </p>
                 </div>
                 {viewMode === 'session' && (
@@ -992,19 +1148,8 @@ export default function FocusedPortalPage() {
               {viewMode === 'overview' ? (
                 <ClusterOverviewScreen />
               ) : (testSubmitted && testReport) ? (
-                <div style={{
-                  padding: '24px',
-                  maxWidth: 800,
-                  margin: '0 auto'
-                }}>
-                  
-                  {/* Header */}
-                  <div style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    marginBottom: 24
-                  }}>
+                <div style={{ padding: '24px', maxWidth: 800, margin: '0 auto' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
                     <button
                       onClick={() => {
                         setTestSubmitted(false)
@@ -1012,201 +1157,69 @@ export default function FocusedPortalPage() {
                         setTestReport(null)
                         setReviewQuestions([])
                       }}
-                      style={{
-                        padding: '8px 16px',
-                        backgroundColor: 'transparent',
-                        border: `1px solid ${C.border}`,
-                        color: C.textPrimary,
-                        borderRadius: 8,
-                        cursor: 'pointer'
-                      }}
+                      style={{ padding: '8px 16px', backgroundColor: 'transparent', border: `1px solid ${C.border}`, color: C.textPrimary, borderRadius: 8, cursor: 'pointer' }}
                     >
                       ← Back to Dashboard
                     </button>
                     <button
                       onClick={startTestSequence}
-                      style={{
-                        padding: '8px 16px',
-                        backgroundColor: C.gold,
-                        border: 'none',
-                        color: '#000',
-                        borderRadius: 8,
-                        cursor: 'pointer',
-                        fontWeight: 700
-                      }}
+                      style={{ padding: '8px 16px', backgroundColor: C.gold, border: 'none', color: '#000', borderRadius: 8, cursor: 'pointer', fontWeight: 700 }}
                     >
                       Retake Cluster
                     </button>
                   </div>
 
-                  {/* Score Cards */}
-                  <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(4, 1fr)',
-                    gap: 12,
-                    marginBottom: 24
-                  }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 24 }}>
                     {[
-                      { 
-                        label: 'SCORE', 
-                        value: `${testReport.correct}/${testReport.total}`,
-                        color: testReport.score_percent >= 70 ? C.green 
-                             : testReport.score_percent >= 50 ? C.amber 
-                             : C.red
-                      },
-                      { 
-                        label: 'ACCURACY', 
-                        value: `${Math.round(testReport.score_percent)}%`,
-                        color: testReport.score_percent >= 70 ? C.green 
-                             : testReport.score_percent >= 50 ? C.amber 
-                             : C.red
-                      },
-                      { 
-                        label: 'TIME', 
-                        value: `${Math.floor(testReport.time_total_seconds/60)}m ${testReport.time_total_seconds%60}s`,
-                        color: C.textPrimary
-                      },
-                      { 
-                        label: 'VS YESTERDAY', 
-                        value: testReport.improvement_vs_yesterday === 0 
-                          ? 'First 🎯' 
-                          : testReport.improvement_vs_yesterday > 0 
-                            ? `▲ +${Math.round(testReport.improvement_vs_yesterday)}%`
-                            : `▼ ${Math.round(testReport.improvement_vs_yesterday)}%`,
-                        color: testReport.improvement_vs_yesterday > 0 ? C.green 
-                             : testReport.improvement_vs_yesterday < 0 ? C.red 
-                             : C.gold
-                      }
+                      { label: 'SCORE', value: `${testReport.correct}/${testReport.total}`, color: testReport.score_percent >= 70 ? C.green : testReport.score_percent >= 50 ? C.amber : C.red },
+                      { label: 'ACCURACY', value: `${Math.round(testReport.score_percent)}%`, color: testReport.score_percent >= 70 ? C.green : testReport.score_percent >= 50 ? C.amber : C.red },
+                      { label: 'TIME', value: `${Math.floor(testReport.time_total_seconds/60)}m ${testReport.time_total_seconds%60}s`, color: C.textPrimary },
+                      { label: 'VS YESTERDAY', value: testReport.improvement_vs_yesterday === 0 ? 'First 🎯' : testReport.improvement_vs_yesterday > 0 ? `▲ +${Math.round(testReport.improvement_vs_yesterday)}%` : `▼ ${Math.round(testReport.improvement_vs_yesterday)}%`, color: testReport.improvement_vs_yesterday > 0 ? C.green : testReport.improvement_vs_yesterday < 0 ? C.red : C.gold }
                     ].map((card, i) => (
-                      <div key={i} style={{
-                        backgroundColor: isDark ? '#1a1a1a' : '#ffffff',
-                        border: `1px solid ${C.border}`,
-                        borderRadius: 12,
-                        padding: '16px',
-                        textAlign: 'center'
-                      }}>
-                        <div style={{
-                          fontSize: 11,
-                          color: C.textMuted,
-                          letterSpacing: 1,
-                          marginBottom: 8
-                        }}>
-                          {card.label}
-                        </div>
-                        <div style={{
-                          fontSize: 24,
-                          fontWeight: 700,
-                          color: card.color
-                        }}>
-                          {card.value}
-                        </div>
+                      <div key={i} style={{ backgroundColor: isDark ? '#1a1a1a' : '#ffffff', border: `1px solid ${C.border}`, borderRadius: 12, padding: '16px', textAlign: 'center' }}>
+                        <div style={{ fontSize: 11, color: C.textMuted, letterSpacing: 1, marginBottom: 8 }}>{card.label}</div>
+                        <div style={{ fontSize: 24, fontWeight: 700, color: card.color }}>{card.value}</div>
                       </div>
                     ))}
                   </div>
 
-                  {/* Weak Areas */}
                   {testReport.weak_areas?.length > 0 && (
-                    <div style={{
-                      backgroundColor: isDark ? '#1a1a1a' : '#ffffff',
-                      border: `1px solid ${C.red}`,
-                      borderRadius: 12,
-                      padding: '16px',
-                      marginBottom: 24
-                    }}>
-                      <div style={{
-                        fontSize: 13,
-                        fontWeight: 700,
-                        color: C.red,
-                        marginBottom: 12
-                      }}>
-                        ⚠ Weak Areas — Revise These
-                      </div>
+                    <div style={{ backgroundColor: isDark ? '#1a1a1a' : '#ffffff', border: `1px solid ${C.red}`, borderRadius: 12, padding: '16px', marginBottom: 24 }}>
+                      <div style={{ fontSize: 13, fontWeight: 700, color: C.red, marginBottom: 12 }}>⚠ Weak Areas - Revise These</div>
                       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                         {testReport.weak_areas.map((area: string, i: number) => (
-                          <span key={i} style={{
-                            padding: '4px 12px',
-                            backgroundColor: 'rgba(255,68,68,0.1)',
-                            border: '1px solid rgba(255,68,68,0.3)',
-                            borderRadius: 20,
-                            fontSize: 12,
-                            color: C.red
-                          }}>
-                            {area}
-                          </span>
+                          <span key={i} style={{ padding: '4px 12px', backgroundColor: 'rgba(255,68,68,0.1)', border: '1px solid rgba(255,68,68,0.3)', borderRadius: 20, fontSize: 12, color: C.red }}>{area}</span>
                         ))}
                       </div>
                     </div>
                   )}
 
-                  {/* Trap Questions Warning */}
                   {testReport.trap_questions_missed?.length > 0 && (
-                    <div style={{
-                      backgroundColor: isDark ? '#1a1a1a' : '#ffffff',
-                      border: `1px solid ${C.amber}`,
-                      borderRadius: 12,
-                      padding: '16px',
-                      marginBottom: 24
-                    }}>
-                      <div style={{
-                        fontSize: 13,
-                        fontWeight: 700,
-                        color: C.amber
-                      }}>
-                        ⚡ {testReport.trap_questions_missed.length} Trap Questions — 
-                        You answered these fast but got them wrong. Slow down next time.
-                      </div>
+                    <div style={{ backgroundColor: isDark ? '#1a1a1a' : '#ffffff', border: `1px solid ${C.amber}`, borderRadius: 12, padding: '16px', marginBottom: 24 }}>
+                      <div style={{ fontSize: 13, fontWeight: 700, color: C.amber }}>⚡ {testReport.trap_questions_missed.length} Trap Questions - You answered these fast but got them wrong. Slow down next time.</div>
                     </div>
                   )}
 
-                  {/* Question Review */}
-                  <div style={{
-                    fontSize: 16,
-                    fontWeight: 700,
-                    color: C.textPrimary,
-                    marginBottom: 16
-                  }}>
-                    Question Review
-                  </div>
-
-                  {/* Filter tabs */}
-                  <div style={{
-                    display: 'flex',
-                    gap: 8,
-                    marginBottom: 16
-                  }}>
+                  <div style={{ fontSize: 16, fontWeight: 700, color: C.textPrimary, marginBottom: 16 }}>Question Review</div>
+                  <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
                     {(['all','correct','wrong','skipped'] as const).map(f => (
                       <button
                         key={f}
                         onClick={() => setReportFilter(f)}
-                        style={{
-                          padding: '6px 14px',
-                          borderRadius: 20,
-                          border: `1px solid ${C.border}`,
-                          cursor: 'pointer',
-                          fontSize: 12,
-                          fontWeight: reportFilter === f ? 700 : 400,
-                          backgroundColor: reportFilter === f 
-                            ? C.gold : 'transparent',
-                          color: reportFilter === f 
-                            ? '#000' : C.textMuted
-                        }}
+                        style={{ padding: '6px 14px', borderRadius: 20, border: `1px solid ${C.border}`, cursor: 'pointer', fontSize: 12, fontWeight: reportFilter === f ? 700 : 400, backgroundColor: reportFilter === f ? C.gold : 'transparent', color: reportFilter === f ? '#000' : C.textMuted }}
                       >
                         {f.charAt(0).toUpperCase() + f.slice(1)}
                       </button>
                     ))}
                   </div>
 
-                  {/* Questions */}
                   {reviewQuestions
                     .filter((q: any) => {
                       const userAns = testAnswers[q.id]
                       const correct = q.correct_answer?.toUpperCase()
-                      if (reportFilter === 'correct') 
-                        return userAns === correct
-                      if (reportFilter === 'wrong') 
-                        return userAns && userAns !== correct
-                      if (reportFilter === 'skipped') 
-                        return !userAns
+                      if (reportFilter === 'correct') return userAns === correct
+                      if (reportFilter === 'wrong') return userAns && userAns !== correct
+                      if (reportFilter === 'skipped') return !userAns
                       return true
                     })
                     .map((q: any, idx: number) => {
@@ -1216,104 +1229,36 @@ export default function FocusedPortalPage() {
                       const isSkipped = !userAns
 
                       return (
-                        <div key={q.id} style={{
-                          backgroundColor: isDark ? '#1a1a1a' : '#ffffff',
-                          border: `1px solid ${
-                            isSkipped ? C.border
-                            : isCorrect ? C.green 
-                            : C.red
-                          }`,
-                          borderRadius: 12,
-                          padding: '20px',
-                          marginBottom: 16
-                        }}>
-                          <div style={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            marginBottom: 12
-                          }}>
-                            <span style={{
-                              fontSize: 12,
-                              color: C.textMuted
-                            }}>
-                              Q{idx + 1}
-                            </span>
-                            <span style={{
-                              fontSize: 12,
-                              fontWeight: 700,
-                              color: isSkipped ? C.textMuted
-                                   : isCorrect ? C.green 
-                                   : C.red
-                            }}>
-                              {isSkipped ? 'Skipped' 
-                               : isCorrect ? '✓ Correct' 
-                               : '✗ Wrong'}
-                            </span>
+                        <div key={q.id} style={{ backgroundColor: isDark ? '#1a1a1a' : '#ffffff', border: `1px solid ${isSkipped ? C.border : isCorrect ? C.green : C.red}`, borderRadius: 12, padding: '20px', marginBottom: 16 }}>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}>
+                            <span style={{ fontSize: 12, color: C.textMuted }}>Q{idx + 1}</span>
+                            <span style={{ fontSize: 12, fontWeight: 700, color: isSkipped ? C.textMuted : isCorrect ? C.green : C.red }}>{isSkipped ? 'Skipped' : isCorrect ? '✓ Correct' : '✗ Wrong'}</span>
                           </div>
 
-                          <div style={{
-                            fontSize: 14,
-                            color: C.textPrimary,
-                            marginBottom: 16
-                          }}>
-                            {formatQuestionText(
-                              q.question_text ?? q.text ?? ''
-                            )}
-                          </div>
+                          <div style={{ fontSize: 14, color: C.textPrimary, marginBottom: 16 }}>{formatQuestionText(q.question_text ?? q.text ?? '')}</div>
 
                           {(['A','B','C','D'] as const).map(key => {
-                            const optText = q[`option_${key.toLowerCase()}`] 
-                              ?? (q.options || {})[key]
+                            const optText = q[`option_${key.toLowerCase()}`] ?? (q.options || {})[key]
                             if (!optText) return null
                             const isUserChoice = userAns === key
                             const isCorrectAns = correct === key
                             let bg = 'transparent'
                             let border = C.border
                             let color = C.textMuted
-                            if (isCorrectAns) {
-                              bg = 'rgba(68,255,136,0.08)'
-                              border = C.green
-                              color = C.green
-                            }
-                            if (isUserChoice && !isCorrectAns) {
-                              bg = 'rgba(255,68,68,0.08)'
-                              border = C.red
-                              color = C.red
-                            }
+                            if (isCorrectAns) { bg = 'rgba(68,255,136,0.08)'; border = C.green; color = C.green; }
+                            if (isUserChoice && !isCorrectAns) { bg = 'rgba(255,68,68,0.08)'; border = C.red; color = C.red; }
                             return (
-                              <div key={key} style={{
-                                padding: '10px 14px',
-                                borderRadius: 8,
-                                border: `1px solid ${border}`,
-                                backgroundColor: bg,
-                                color: color,
-                                fontSize: 13,
-                                marginBottom: 8
-                              }}>
+                              <div key={key} style={{ padding: '10px 14px', borderRadius: 8, border: `1px solid ${border}`, backgroundColor: bg, color: color, fontSize: 13, marginBottom: 8 }}>
                                 <strong>{key}.</strong> {optText}
-                                {isCorrectAns && 
-                                  <span style={{float:'right'}}>✓</span>}
-                                {isUserChoice && !isCorrectAns && 
-                                  <span style={{float:'right'}}>✗</span>}
+                                {isCorrectAns && <span style={{float:'right'}}>✓</span>}
+                                {isUserChoice && !isCorrectAns && <span style={{float:'right'}}>✗</span>}
                               </div>
                             )
                           })}
 
                           {q.explanation && (
-                            <div style={{
-                              marginTop: 12,
-                              padding: '12px',
-                              borderLeft: `3px solid ${C.gold}`,
-                              backgroundColor: isDark 
-                                ? 'rgba(212,175,55,0.05)' 
-                                : 'rgba(212,175,55,0.1)',
-                              borderRadius: '0 8px 8px 0',
-                              fontSize: 13,
-                              color: C.textMuted
-                            }}>
-                              <strong style={{color: C.gold}}>
-                                Why: 
-                              </strong> {q.explanation}
+                            <div style={{ marginTop: 12, padding: '12px', borderLeft: `3px solid ${C.gold}`, backgroundColor: isDark ? 'rgba(212,175,55,0.05)' : 'rgba(212,175,55,0.1)', borderRadius: '0 8px 8px 0', fontSize: 13, color: C.textMuted }}>
+                              <strong style={{color: C.gold}}>Why: </strong> {q.explanation}
                             </div>
                           )}
                         </div>
@@ -1323,10 +1268,8 @@ export default function FocusedPortalPage() {
                 </div>
               ) : (
                 <>
-                  {/* Study Block */}
                   <div style={{ backgroundColor: C.surface, border: `1px solid ${C.border}`, borderRadius: 24, padding: 32, marginBottom: 24, position: "relative", overflow: "hidden" }}>
                     <div style={{ position: "absolute", top: 0, left: 0, width: 4, height: "100%", backgroundColor: C.gold }} />
-                    
                     <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 32 }}>
                       <div>
                         <p style={{ color: C.gold, fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 4 }}>☀ Morning Block</p>
@@ -1338,7 +1281,6 @@ export default function FocusedPortalPage() {
                       </div>
                     </div>
 
-                    {/* Pomodoro Timer or Confidence Pulse */}
                     {showPulse ? (
                       <div style={{ textAlign: "center", padding: "40px 0" }}>
                          <p style={{ fontSize: 18, fontWeight: 600, marginBottom: 24 }}>How do you feel about Cluster {currentCluster}?</p>
@@ -1395,10 +1337,8 @@ export default function FocusedPortalPage() {
                     )}
                   </div>
 
-                  {/* Evening Block */}
                   <div style={{ backgroundColor: C.surface, border: `1px solid ${C.border}`, borderRadius: 24, padding: 32, position: "relative", overflow: "hidden" }}>
                     <div style={{ position: "absolute", top: 0, left: 0, width: 4, height: "100%", backgroundColor: eveningDone ? C.green : C.amber }} />
-                    
                     <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 32 }}>
                       <div>
                         <p style={{ color: eveningDone ? C.green : C.amber, fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 4 }}>🌙 Evening Practice</p>
@@ -1422,11 +1362,25 @@ export default function FocusedPortalPage() {
                         <p style={{ fontSize: 12, marginTop: 8 }}>{answeredCount}/{testQuestions.length} answered</p>
                       </div>
                     ) : (
-                      <button onClick={startTestSequence} style={{
-                        width: "100%", padding: "20px", borderRadius: 16, backgroundColor: "transparent", color: C.amber, fontWeight: 700, border: `2px dashed ${C.amber}`, cursor: "pointer",
-                      }}>
-                        {eveningDone ? "✓ COMPLETED TODAY" : "START VERIFICATION"}
-                      </button>
+                      <>
+                        {CLUSTER_PDFS[selectedCluster] && (
+                            <button 
+                              onClick={() => window.open(CLUSTER_PDFS[selectedCluster], '_blank')}
+                              style={{ 
+                                width: "100%", padding: "14px", borderRadius: 12, backgroundColor: "rgba(212,175,55,0.1)", 
+                                color: C.gold, fontWeight: 700, border: `1px solid ${C.gold}`, cursor: "pointer",
+                                marginBottom: 16, display: "flex", alignItems: "center", justifyContent: "center", gap: 8
+                              }}
+                            >
+                              📄 STUDY NOTES PDF
+                            </button>
+                        )}
+                        <button onClick={startTestSequence} style={{
+                          width: "100%", padding: "20px", borderRadius: 16, backgroundColor: "transparent", color: C.amber, fontWeight: 700, border: `2px dashed ${C.amber}`, cursor: "pointer",
+                        }}>
+                          {eveningDone ? "✓ COMPLETED TODAY" : "START VERIFICATION"}
+                        </button>
+                      </>
                     )}
                   </div>
                 </>
@@ -1434,93 +1388,124 @@ export default function FocusedPortalPage() {
         </div>
       )}
 
-          {/* ═══════════════════════════════════════════════════════════════
-              ZONE 3: INSIGHTS & HISTORY (Right)
-          ═══════════════════════════════════════════════════════════════ */}
           {(activeTab === 'focus' || activeTab === 'history') && (
-            <div style={{ display: activeTab === 'history' ? 'grid' : 'block', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 24 }}>
-              
-              {/* Stats Card */}
-              <div style={{ backgroundColor: C.surface, border: `1px solid ${C.border}`, borderRadius: 24, padding: 24, marginBottom: 24 }}>
-                <h3 style={{ fontSize: 13, fontWeight: 800, letterSpacing: "0.05em", color: C.gold, marginBottom: 20 }}>YOUR STATS</h3>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-                  <div style={{ backgroundColor: "rgba(255,255,255,0.03)", padding: 16, borderRadius: 16, border: `1px solid ${C.border}` }}>
-                    <p style={{ color: C.textMuted, fontSize: 10, fontWeight: 600 }}>STREAK</p>
-                    <p style={{ fontSize: 24, fontWeight: 700, color: C.gold }}>🔥 {dashData?.streak ?? 0}</p>
-                  </div>
-                  <div style={{ backgroundColor: "rgba(255,255,255,0.03)", padding: 16, borderRadius: 16, border: `1px solid ${C.border}` }}>
-                    <p style={{ color: C.textMuted, fontSize: 10, fontWeight: 600 }}>TOTAL POMO</p>
-                    <p style={{ fontSize: 24, fontWeight: 700, color: C.gold }}>🎯 {dashData?.total_pomodoros ?? 0}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Revision Priorities */}
-              <div style={{ backgroundColor: C.surface, border: `1px solid ${C.border}`, borderRadius: 24, padding: 24 }}>
-                <h3 style={{ fontSize: 13, fontWeight: 800, letterSpacing: "0.05em", color: C.red, marginBottom: 20 }}>REVISION PRIORITIES</h3>
-                <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                  {cumulativeData?.subjects?.length > 0 ? (
-                    cumulativeData.subjects.map((s: any, i: number) => (
-                      <div key={i} style={{
-                        padding: 14, borderRadius: 16, backgroundColor: "rgba(255,68,68,0.04)",
-                        border: `1px solid ${s.priority === "HIGH" ? "rgba(255,68,68,0.2)" : C.border}`
-                      }}>
-                        <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
-                          <span style={{ fontSize: 14, fontWeight: 700 }}>{s.subject}</span>
-                          <span style={{ fontSize: 10, padding: "2px 8px", borderRadius: 999, backgroundColor: s.priority === "HIGH" ? C.red : C.amber, color: "#000", fontWeight: 700 }}>{s.priority}</span>
-                        </div>
-                        <p style={{ fontSize: 11, color: C.textMuted }}>Last verification: {s.gate_score ?? 0}/10</p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+              {activeTab === 'focus' && (
+                <>
+                  <div style={{ backgroundColor: C.surface, border: `1px solid ${C.border}`, borderRadius: 24, padding: 24 }}>
+                    <h3 style={{ fontSize: 13, fontWeight: 800, letterSpacing: "0.05em", color: C.gold, marginBottom: 20 }}>YOUR STATS</h3>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                      <div style={{ backgroundColor: "rgba(255,255,255,0.03)", padding: 16, borderRadius: 16, border: `1px solid ${C.border}` }}>
+                        <p style={{ color: C.textMuted, fontSize: 10, fontWeight: 600 }}>STREAK</p>
+                        <p style={{ fontSize: 24, fontWeight: 700, color: C.gold }}>🔥 {dashData?.streak ?? 0}</p>
                       </div>
-                    ))
-                  ) : (
-                    <div style={{ textAlign: "center", padding: "20px 0", color: C.textMuted }}>
-                      <p style={{ fontSize: 13 }}>No flags yet.</p>
-                      <p style={{ fontSize: 11, marginTop: 4 }}>Complete your first gate test to see insights.</p>
+                      <div style={{ backgroundColor: "rgba(255,255,255,0.03)", padding: 16, borderRadius: 16, border: `1px solid ${C.border}` }}>
+                        <p style={{ color: C.textMuted, fontSize: 10, fontWeight: 600 }}>TOTAL POMO</p>
+                        <p style={{ fontSize: 24, fontWeight: 700, color: C.gold }}>🎯 {dashData?.total_pomodoros ?? 0}</p>
+                      </div>
                     </div>
-                  )}
-                </div>
-              </div>
+                  </div>
 
-              {/* BUG 7+8: Test History */}
-              {activeTab === 'history' && historyData?.history?.length > 0 && (
-                <div style={{ backgroundColor: C.surface, border: `1px solid ${C.border}`, borderRadius: 24, padding: 24, marginTop: 24 }}>
-                  <h3 style={{ fontSize: 13, fontWeight: 800, letterSpacing: "0.05em", color: C.gold, marginBottom: 20 }}>TEST HISTORY</h3>
-                  <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                    {historyData.history.map((r: any) => (
-                      <div key={r.id} style={{ padding: 14, borderRadius: 16, backgroundColor: "rgba(255,255,255,0.02)", border: `1px solid ${C.border}` }}>
-                        <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
-                          <span style={{ fontSize: 13, fontWeight: 700 }}>{r.subject} — Cluster {r.cluster_number}</span>
-                          <span style={{ fontSize: 12, fontWeight: 700, color: r.percentage >= 60 ? C.green : r.percentage >= 40 ? C.amber : C.red }}>
-                            {r.score}/{r.total_questions} ({r.percentage.toFixed(0)}%)
-                          </span>
+                  <div style={{ backgroundColor: C.surface, border: `1px solid ${C.border}`, borderRadius: 24, padding: 24 }}>
+                    <h3 style={{ fontSize: 13, fontWeight: 800, letterSpacing: "0.05em", color: C.red, marginBottom: 20 }}>REVISION PRIORITIES</h3>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                      {cumulativeData?.subjects?.length > 0 ? (
+                        cumulativeData.subjects.map((s: any, i: number) => (
+                          <div key={i} style={{
+                            padding: 14, borderRadius: 16, backgroundColor: "rgba(255,68,68,0.04)",
+                            border: `1px solid ${s.priority === "HIGH" ? "rgba(255,68,68,0.2)" : C.border}`
+                          }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
+                              <span style={{ fontSize: 14, fontWeight: 700 }}>{s.subject}</span>
+                              <span style={{ fontSize: 10, padding: "2px 8px", borderRadius: 999, backgroundColor: s.priority === "HIGH" ? C.red : C.amber, color: "#000", fontWeight: 700 }}>{s.priority}</span>
+                            </div>
+                            <p style={{ fontSize: 11, color: C.textMuted }}>Last verification: {s.gate_score ?? 0}/10</p>
+                          </div>
+                        ))
+                      ) : (
+                        <div style={{ textAlign: "center", padding: "20px 0", color: C.textMuted }}>
+                          <p style={{ fontSize: 13 }}>No flags yet.</p>
+                          <p style={{ fontSize: 11, marginTop: 4 }}>Complete your first gate test to see insights.</p>
                         </div>
-                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
-                          <span style={{ fontSize: 11, color: C.textMuted }}>{r.date}</span>
-                          {r.improvement !== 0 && (
-                            <span style={{ fontSize: 11, color: r.improvement > 0 ? C.green : C.red, fontWeight: 600 }}>
-                              {r.improvement > 0 ? '↑' : '↓'} {Math.abs(r.improvement).toFixed(1)}%
-                            </span>
-                          )}
+                      )}
+                    </div>
+                  </div>
+                </>
+              )}
+              
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                <h3 style={{ fontSize: 13, fontWeight: 800, letterSpacing: "0.05em", color: C.gold, marginBottom: activeTab === 'history' ? 8 : 0 }}>
+                  {activeTab === 'history' ? 'FULL PERFORMANCE HISTORY' : 'RECENT HISTORY'}
+                </h3>
+                
+                {historyData?.history?.length > 0 ? (
+                  historyData.history.slice(0, activeTab === 'history' ? 50 : 3).map((r: any) => (
+                    <div key={r.id} style={{ backgroundColor: C.surface, border: `1px solid ${C.border}`, borderRadius: 24, padding: activeTab === 'history' ? 32 : 24, boxShadow: activeTab === 'history' ? '0 8px 32px rgba(0,0,0,0.15)' : 'none', transition: 'all 0.2s' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 20 }}>
+                        <div>
+                          <h4 style={{ fontSize: activeTab === 'history' ? 18 : 15, fontWeight: 800, color: C.textPrimary, marginBottom: 4 }}>{r.subject}</h4>
+                          <p style={{ fontSize: 12, color: C.textMuted, fontWeight: 600 }}>Cluster {r.cluster_number} • {r.date}</p>
                         </div>
-                        {r.weak_topics?.length > 0 && (
-                          <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
-                            {r.weak_topics.slice(0, 4).map((t: string, i: number) => (
-                              <span key={i} style={{ fontSize: 10, padding: "2px 8px", borderRadius: 999, backgroundColor: "rgba(255,68,68,0.08)", color: C.red, border: `1px solid rgba(255,68,68,0.2)` }}>{t}</span>
-                            ))}
+                        <div style={{ textAlign: 'right' }}>
+                          <div style={{ fontSize: activeTab === 'history' ? 28 : 20, fontWeight: 800, color: r.percentage >= 70 ? C.green : r.percentage >= 50 ? C.amber : C.red }}>
+                            {Math.round(r.percentage)}%
+                          </div>
+                          <div style={{ fontSize: 11, color: C.textMuted, fontWeight: 700 }}>{r.score}/{r.total_questions} CORRECT</div>
+                        </div>
+                      </div>
+                      
+                      <div style={{ height: 8, backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: 4, overflow: 'hidden', marginBottom: 20 }}>
+                        <div style={{ width: `${r.percentage}%`, height: '100%', backgroundColor: r.percentage >= 70 ? C.green : r.percentage >= 50 ? C.amber : C.red }} />
+                      </div>
+
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                          {Array.isArray(r.weak_topics) && r.weak_topics.slice(0, 3).map((topic: string, i: number) => (
+                            <span key={i} style={{ fontSize: 10, padding: '4px 10px', borderRadius: 8, backgroundColor: 'rgba(255,68,68,0.08)', color: C.red, border: `1px solid rgba(255,68,68,0.15)`, fontWeight: 700, textTransform: 'uppercase' }}>{topic}</span>
+                          ))}
+                        </div>
+                        {r.improvement !== 0 && (
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, fontWeight: 800, color: r.improvement > 0 ? C.green : C.red, backgroundColor: r.improvement > 0 ? 'rgba(68,255,136,0.08)' : 'rgba(255,68,68,0.08)', padding: '4px 10px', borderRadius: 8 }}>
+                            {r.improvement > 0 ? '▲' : '▼'} {Math.abs(Math.round(r.improvement))}%
                           </div>
                         )}
                       </div>
-                    ))}
+                    </div>
+                  ))
+                ) : (
+                  <div style={{ textAlign: 'center', padding: 60, color: C.textMuted, backgroundColor: C.surface, border: `1px dashed ${C.border}`, borderRadius: 24 }}>
+                    <div style={{ fontSize: 32, marginBottom: 16 }}>📉</div>
+                    <p style={{ fontSize: 16, fontWeight: 600 }}>No performance history yet</p>
+                    <p style={{ fontSize: 13, marginTop: 4 }}>Complete your first cluster test to unlock insights.</p>
                   </div>
+                )}
+
+                <div style={{ marginTop: 16 }}>
+                  <h3 style={{ fontSize: 13, fontWeight: 800, letterSpacing: "0.05em", color: C.gold, marginBottom: 16 }}>STUDY SESSIONS</h3>
+                  {historyData?.daily_pomodoros?.length > 0 ? (
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 12 }}>
+                      {historyData.daily_pomodoros.map((p: any, i: number) => (
+                        <div key={i} style={{ backgroundColor: C.surface, border: `1px solid ${C.border}`, borderRadius: 16, padding: 16 }}>
+                          <p style={{ fontSize: 12, color: C.gold, fontWeight: 700, marginBottom: 4 }}>{p.date}</p>
+                          <p style={{ fontSize: 15, fontWeight: 800, color: C.textPrimary }}>{p.count} Pomodoros</p>
+                          <p style={{ fontSize: 11, color: C.textMuted, fontWeight: 600 }}>{p.minutes}m studied</p>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div style={{ textAlign: 'center', padding: 40, color: C.textMuted, backgroundColor: C.surface, border: `1px dashed ${C.border}`, borderRadius: 20 }}>
+                      <p style={{ fontSize: 13 }}>No study sessions logged yet</p>
+                    </div>
+                  )}
                 </div>
-              )}
+
+              </div>
             </div>
           )}
         </div>
 
       </div>
 
-      {/* ── BUG 6 + BUG 2: MCQ Fullscreen Overlay (fixed position, correct pill order) ── */}
       <style>{`@keyframes fspin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}`}</style>
       {testStarted && !testSubmitted && (
         <div style={{
@@ -1528,10 +1513,10 @@ export default function FocusedPortalPage() {
           width: '100vw', height: '100vh',
           zIndex: 9999, overflowY: 'auto',
           backgroundColor: isDark ? '#0a0a0a' : '#f5f5f5',
-          padding: 0,
+          padding: 'clamp(12px, 4vw, 24px)',
         }}>
           <button
-            onClick={() => { if (document.fullscreenElement) document.exitFullscreen(); setTestStarted(false); setTestAnswers({}); setTestConfidence([]); }}
+            onClick={() => { if (document.fullscreenElement) document.exitFullscreen(); setTestStarted(false); setTestAnswers({}); setTestConfidence({}); }}
             style={{
               position: 'fixed', top: 16, right: 16, zIndex: 10000,
               width: 40, height: 40, borderRadius: '50%',
@@ -1544,13 +1529,13 @@ export default function FocusedPortalPage() {
 
           <div style={{ maxWidth: 800, margin: '0 auto', padding: 16, paddingBottom: 80 }}>
             <p style={{ color: C.textMuted, fontSize: 12, padding: '12px 0 8px', fontWeight: 600 }}>
-              {currentSubject} — {currentClusterName} · {answeredCount}/{testQuestions.length} answered
+              {currentSubject} - {currentClusterName} / {answeredCount}/{testQuestions.length} answered
             </p>
 
             {testQuestions.map((q, qIndex) => {
               const selected = testAnswers[q.id];
-              const conf = testConfidence[qIndex];
-              const warn = hasWarning(qIndex);
+              const conf = testConfidence[q.id];
+              const warn = hasWarning(q.id);
               return (
                 <div key={q.id}
                   ref={(el) => {
@@ -1569,13 +1554,14 @@ export default function FocusedPortalPage() {
                     marginBottom: 24, padding: 20, borderRadius: 12,
                     backgroundColor: isDark ? '#1a1a1a' : '#ffffff',
                     border: `1px solid ${warn ? C.red : C.border}`,
+                    maxWidth: 'min(800px, 100%)',
+                    margin: '0 auto',
                   }}>
                   <p style={{ color: C.textMuted, fontSize: 11, fontWeight: 700, marginBottom: 10 }}>Q{qIndex + 1} / {testQuestions.length}</p>
                   <p style={{ fontSize: 15, fontWeight: 600, lineHeight: 1.7, marginBottom: 16 }}>
                     {formatQuestionText(q.question_text ?? q.text ?? '')}
                   </p>
 
-                  {/* Options first (BUG 2 fix) */}
                   {conf !== 'Skip' ? (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 16 }}>
                       {(['A', 'B', 'C', 'D'] as const).map(key => {
@@ -1602,7 +1588,7 @@ export default function FocusedPortalPage() {
                       })}
                     </div>
                   ) : (
-                    <p style={{ fontSize: 12, color: '#555', fontStyle: 'italic', marginBottom: 16 }}>Skipped — will count as wrong</p>
+                    <p style={{ fontSize: 12, color: '#555', fontStyle: 'italic', marginBottom: 16 }}>Skipped - will count as wrong</p>
                   )}
 
                   {/* Confidence pills below options (BUG 2 fix) */}
@@ -1613,7 +1599,7 @@ export default function FocusedPortalPage() {
                       return (
                         <button
                           key={pill}
-                          onClick={() => setConfidenceByIndex(qIndex, pill)}
+                          onClick={() => setConfidenceById(q.id, pill)}
                           style={{
                             padding: '5px 14px', borderRadius: 999, fontSize: 12, fontWeight: 600, cursor: 'pointer',
                             border: `1px solid ${isActive ? (isSkip ? '#555' : C.gold) : C.border}`,
