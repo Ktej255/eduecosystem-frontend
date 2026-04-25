@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Playfair_Display, DM_Sans, Kalam } from "next/font/google";
+import { Geist, Geist_Mono, Playfair_Display, DM_Sans, Kalam, Plus_Jakarta_Sans, Noto_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/contexts/auth-context";
 import { ToastProvider } from "@/components/ui/Toast";
@@ -44,7 +44,17 @@ const kalam = Kalam({
   subsets: ["latin"],
   weight: ["300", "400", "700"],
   display: "swap",
-});
+})
+
+const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], weight: ['400','600','700'], variable: '--font-display' })
+const notoSans = Noto_Sans({ subsets: ['latin'], weight: ['400','600'], variable: '--font-body' })
+const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], weight: ['400'], variable: '--font-mono' });
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+}
 
 export const metadata: Metadata = {
   title: "Holistic Learning Ecosystem",
@@ -57,7 +67,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${plusJakarta.variable} ${notoSans.variable} ${jetbrainsMono.variable}`}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} ${dmSans.variable} ${kalam.variable} antialiased`}
         suppressHydrationWarning

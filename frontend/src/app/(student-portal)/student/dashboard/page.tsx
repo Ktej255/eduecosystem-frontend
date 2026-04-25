@@ -38,6 +38,8 @@ import ExitIntentOverlay from "@/components/onboarding/ExitIntentOverlay";
 import DayTransitionTrigger from "@/components/dashboard/DayTransitionTrigger";
 import MilestoneCommitmentModal from "@/components/onboarding/MilestoneCommitmentModal";
 import { useDashboardData } from "@/hooks/useDashboardData";
+import { SaritLogo, SaritGlobe, SaritIcon, StreakBadge } from "@/components/ui/sarit-primitives";
+import { getSubjectColor } from "@/lib/subject-colors";
 
 export default function StudentDashboard() {
     const { user } = useAuth();
@@ -66,12 +68,12 @@ export default function StudentDashboard() {
     // State
     const [aiMode, setAiMode] = useState(false);
     const [aiMissionStatus, setAiMissionStatus] = useState<{ recovery_mode: boolean, recommended_subject: string } | null>(null);
-    
+
     useEffect(() => {
         const savedMode = localStorage.getItem("aiMode");
         if (savedMode === "true") setAiMode(true);
     }, []);
-    
+
     const toggleAiMode = () => {
         const newMode = !aiMode;
         setAiMode(newMode);
@@ -220,276 +222,383 @@ export default function StudentDashboard() {
 
     return (
         <>
-        {!isOnboarded && <OnboardingFlow user={user} onComplete={() => setIsOnboarded(true)} />}
-        <ExitIntentOverlay isOnboarded={isOnboarded} />
-        <MilestoneCommitmentModal 
-            show={showMilestone} 
-            onCommit={handleCommit} 
-            onSkip={() => setShowMilestone(false)} 
-        />
-        
-        {dashboardData && (
-            <DayTransitionTrigger 
-                habitDay={dashboardData.habit_lock?.day || 0}
-                lastSeenDay={user?.last_habit_day_seen || 0}
-                config={dashboardData.habit_lock || {}}
+            {/* ── Preserved overlays ───────────────────────────────────────── */}
+            {!isOnboarded && <OnboardingFlow user={user} onComplete={() => setIsOnboarded(true)} />}
+            <ExitIntentOverlay isOnboarded={isOnboarded} />
+            <MilestoneCommitmentModal
+                show={showMilestone}
+                onCommit={handleCommit}
+                onSkip={() => setShowMilestone(false)}
             />
-        )}
-        
-        <div className={`min-h-screen bg-muted dark:bg-[#000] pb-20 transition-all duration-700 ${!isOnboarded ? 'blur-xl grayscale pointer-events-none' : ''}`}>
-            {/* Top Bar */}
-            <div className="sticky top-0 z-30 bg-card/80 dark:bg-[#000]/80 backdrop-blur-md border-b border-border px-4 py-3">
-                <div className="max-w-4xl mx-auto flex justify-between items-center">
-                    <div>
-                        <h2 className="text-[10px] font-bold text-muted-foreground/60 uppercase tracking-wider mb-0.5">
-                            {t("dashboard.welcome")}, {user?.full_name?.split(' ')[0] || 'Student'}!
-                        </h2>
-                        <h1 className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
-                            {t("dashboard.day")} {dayPlan.dayNumber}
-                        </h1>
-                        <p className="text-xs text-muted-foreground capitalize">
-                            {new Date().toLocaleDateString(language === 'hi' ? 'hi-IN' : 'en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
-                        </p>
-                    </div>
+            {dashboardData && (
+                <DayTransitionTrigger
+                    habitDay={dashboardData.habit_lock?.day || 0}
+                    lastSeenDay={user?.last_habit_day_seen || 0}
+                    config={dashboardData.habit_lock || {}}
+                />
+            )}
 
-                    <div className="flex items-center gap-3">
-                        <LanguageToggle />
-                        <div className="hidden md:block">
-                            <StreakWidget
-                                data={{
-                                    currentStreak: streak || stats?.overallStreak || 0,
-                                    longestStreak: longestStreak || streak || 0,
-                                    freezeTokens: 1,
-                                    totalActiveDays: streak || 0,
-                                    coinsEarned: xp,
-                                    milestones: {
-                                        "7_day": (streak || 0) >= 7,
-                                        "30_day": (streak || 0) >= 30,
-                                        "100_day": (streak || 0) >= 100
-                                    }
-                                }}
-                                compact={true}
+            {/* ── Main page ────────────────────────────────────────────────── */}
+            <div
+                className="topo"
+                style={{
+                    minHeight: '100vh',
+                    background: 'var(--surface)',
+                    paddingBottom: 80,
+                    transition: 'filter 0.7s',
+                    ...(!isOnboarded ? { filter: 'blur(12px) grayscale(1)', pointerEvents: 'none' } : {}),
+                }}
+            >
+                {/* ── SECTION A: Top Navigation ──────────────────────────────── */}
+                <nav style={{
+                    position: 'sticky',
+                    top: 0,
+                    zIndex: 30,
+                    background: 'var(--paper)',
+                    borderBottom: '1px solid var(--line)',
+                }}>
+                    <div style={{
+                        maxWidth: 1240,
+                        margin: '0 auto',
+                        padding: '0 40px',
+                        height: 56,
+                        display: 'flex',
+                        alignItems: 'center',
+                    }}>
+                        {/* Logo */}
+                        <div style={{ flexShrink: 0 }}>
+                            <SaritLogo size={22} />
+                        </div>
+
+                        {/* Center nav links — visual only, Today is active */}
+                        <div style={{ flex: 1, display: 'flex', justifyContent: 'center', gap: 4 }}>
+                            {(['Today', 'Study', 'Revise', 'Report', 'Syllabus'] as string[]).map(link => (
+                                <button
+                                    key={link}
+                                    style={{
+                                        fontFamily: 'var(--font-display)',
+                                        fontSize: 13.5,
+                                        fontWeight: link === 'Today' ? 600 : 500,
+                                        color: link === 'Today' ? 'var(--forest)' : 'var(--ink-70)',
+                                        background: link === 'Today' ? 'var(--surface-2)' : 'transparent',
+                                        border: 'none',
+                                        padding: '8px 14px',
+                                        borderRadius: 999,
+                                        cursor: 'pointer',
+                                        lineHeight: 1,
+                                    }}
+                                >
+                                    {link}
+                                </button>
+                            ))}
+                        </div>
+
+                        {/* Right: streak badge + divider + name + avatar */}
+                        <div style={{ flexShrink: 0, display: 'flex', alignItems: 'center', gap: 12 }}>
+                            <StreakBadge days={streak || stats.overallStreak || 0} compact />
+                            <div style={{ width: 1, height: 20, background: 'var(--line-strong)' }} />
+                            <span style={{
+                                fontFamily: 'var(--font-display)',
+                                fontSize: 13,
+                                fontWeight: 500,
+                                color: 'var(--ink-70)',
+                            }}>
+                                {user?.full_name || 'Student'}
+                            </span>
+                            <div style={{
+                                width: 34,
+                                height: 34,
+                                borderRadius: '50%',
+                                background: 'var(--forest)',
+                                color: 'white',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                fontFamily: 'var(--font-display)',
+                                fontWeight: 600,
+                                fontSize: 13,
+                                userSelect: 'none',
+                                flexShrink: 0,
+                            }}>
+                                {(user?.full_name || 'S').split(' ').map((n: string) => n[0]).join('').toUpperCase().slice(0, 2)}
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
+                {/* Content wrapper */}
+                <div style={{ maxWidth: 1240, margin: '0 auto', padding: '0 40px' }}>
+
+                    {/* ── SECTION B: Hero ──────────────────────────────────────── */}
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: '1.3fr 1fr',
+                        gap: 40,
+                        paddingTop: 56,
+                        paddingBottom: 48,
+                        alignItems: 'center',
+                    }}>
+                        {/* Left column */}
+                        <div>
+                            <span
+                                className="sl-chip teal"
+                                style={{ marginBottom: 20, display: 'inline-flex' }}
+                            >
+                                {new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                                {' · Day '}{dayPlan.dayNumber}{' of 30'}
+                            </span>
+                            <h1 style={{
+                                fontFamily: 'var(--font-display)',
+                                fontWeight: 700,
+                                fontSize: 42,
+                                lineHeight: 1.12,
+                                color: 'var(--ink)',
+                                margin: '0 0 16px 0',
+                                letterSpacing: '-0.02em',
+                            }}>
+                                Today you command
+                                <br />
+                                <span style={{ color: 'var(--teal-600)' }}>
+                                    {aiMissionStatus?.recommended_subject || 'Your UPSC Journey'}
+                                </span>
+                            </h1>
+                            <p style={{
+                                fontFamily: 'var(--font-body)',
+                                fontSize: 15,
+                                color: 'var(--ink-55)',
+                                lineHeight: 1.6,
+                                margin: '0 0 28px 0',
+                                maxWidth: 440,
+                            }}>
+                                {(stats.overallStreak ?? 0) > 0
+                                    ? `${stats.overallStreak} days strong. Keep the momentum going.`
+                                    : 'Begin your first session today.'}
+                            </p>
+                            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                                <Link href="/student/batch1">
+                                    <button style={{
+                                        display: 'inline-flex',
+                                        alignItems: 'center',
+                                        gap: 8,
+                                        height: 44,
+                                        padding: '0 24px',
+                                        borderRadius: 999,
+                                        background: 'var(--forest)',
+                                        color: 'white',
+                                        border: 'none',
+                                        fontFamily: 'var(--font-display)',
+                                        fontWeight: 600,
+                                        fontSize: 14,
+                                        cursor: 'pointer',
+                                    }}>
+                                        <SaritIcon name="play" size={15} color="white" />
+                                        Begin today's topic
+                                    </button>
+                                </Link>
+                                <Link href="/student/my-plan">
+                                    <button style={{
+                                        display: 'inline-flex',
+                                        alignItems: 'center',
+                                        height: 44,
+                                        padding: '0 24px',
+                                        borderRadius: 999,
+                                        background: 'transparent',
+                                        color: 'var(--forest)',
+                                        border: '1.5px solid var(--forest)',
+                                        fontFamily: 'var(--font-display)',
+                                        fontWeight: 600,
+                                        fontSize: 14,
+                                        cursor: 'pointer',
+                                    }}>
+                                        See the plan
+                                    </button>
+                                </Link>
+                            </div>
+                        </div>
+
+                        {/* Right column — globe */}
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <SaritGlobe
+                                size={260}
+                                label={aiMissionStatus?.recommended_subject || 'UPSC'}
+                                monthDay={dayPlan.dayNumber}
+                                totalDays={30}
                             />
                         </div>
-
-                        <Button
-                            variant="ghost"
-                            size="icon"
-                            onClick={loadStats}
-                            disabled={isRefreshing}
-                            className="text-muted-foreground hover:text-blue-600"
-                        >
-                            <RefreshCw className={`h-4 w-4 ${isRefreshing ? 'animate-spin' : ''}`} />
-                        </Button>
                     </div>
-                </div>
-            </div>
 
-            {/* UPSC Store Discovery CTA */}
-            <div className="max-w-4xl mx-auto px-4 mt-6">
-                <Link href="/student/upsc-store">
-                    <Card className="bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-800 border-none shadow-xl hover:shadow-2xl transition-all cursor-pointer group overflow-hidden relative">
-                        <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform">
-                            <Sparkles className="w-32 h-32 text-white" />
-                        </div>
-                        <CardContent className="p-6 relative z-10">
-                            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    {/* ── SECTION C: Stats row ─────────────────────────────────── */}
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(3, 1fr)',
+                        gap: 16,
+                        marginBottom: 48,
+                    }}>
+                        {[
+                            { value: streak || stats.overallStreak || 0, icon: 'flame',  label: 'Day Streak' },
+                            { value: xp,                                  icon: 'spark',  label: 'Total XP' },
+                            { value: 8,                                   icon: 'layers', label: 'Active Subjects' },
+                        ].map(({ value, icon, label }) => (
+                            <div key={label} style={{
+                                background: 'var(--paper)',
+                                borderRadius: 'var(--r-lg)',
+                                padding: '20px 24px',
+                                border: '1px solid var(--line)',
+                                boxShadow: 'var(--shadow-card)',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 16,
+                            }}>
+                                <div style={{
+                                    width: 44,
+                                    height: 44,
+                                    borderRadius: 'var(--r-md)',
+                                    background: 'var(--teal-50)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    flexShrink: 0,
+                                }}>
+                                    <SaritIcon name={icon} size={20} color="var(--teal)" />
+                                </div>
                                 <div>
-                                    <div className="flex items-center gap-2 mb-2">
-                                        <div className="bg-white/20 px-2 py-0.5 rounded text-[10px] font-bold text-white uppercase tracking-wider uppercase tracking-wider">New Modules Active</div>
+                                    <div style={{
+                                        fontFamily: 'var(--font-display)',
+                                        fontWeight: 700,
+                                        fontSize: 28,
+                                        color: 'var(--forest)',
+                                        lineHeight: 1,
+                                        marginBottom: 4,
+                                    }}>
+                                        {value}
                                     </div>
-                                    <h2 className="text-xl md:text-2xl font-black text-white mb-1">
-                                        Master UPSC 2026 with Logic
-                                    </h2>
-                                    <p className="text-blue-100 text-sm max-w-lg leading-relaxed">
-                                        Get exclusive access to Polity Navigator, Ancient History, and more. 
-                                        Start your specialized prep today.
-                                    </p>
+                                    <div style={{
+                                        fontFamily: 'var(--font-body)',
+                                        fontSize: 13,
+                                        color: 'var(--ink-55)',
+                                    }}>
+                                        {label}
+                                    </div>
                                 </div>
-                                <Button className="bg-white text-blue-700 hover:bg-blue-50 font-bold px-8 h-12 rounded-xl shadow-lg border-none flex items-center gap-2 w-fit transform group-hover:translate-x-1 transition-transform">
-                                    Explore UPSC Plans <ArrowRight className="w-5 h-5" />
-                                </Button>
                             </div>
-                        </CardContent>
-                    </Card>
-                </Link>
-            </div>
-
-            <div className={`max-w-4xl mx-auto px-4 pt-6 ${aiMode ? 'border-x border-blue-500/10 shadow-[0_0_15px_rgba(59,130,246,0.02)]' : ''}`}>
-                <div className={`flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 rounded-2xl mb-6 transition-all border ${aiMode ? 'bg-blue-50/50 border-blue-200 dark:bg-blue-900/10 dark:border-blue-800' : 'bg-card border-border'}`}>
-                  <div className="flex items-center gap-3">
-                    <span className="text-sm font-medium text-muted-foreground">
-                      {t("dashboard.studyMode")}:
-                    </span>
-                    <button
-                      onClick={toggleAiMode}
-                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                        aiMode 
-                          ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20' 
-                          : 'bg-muted text-muted-foreground hover:bg-muted/80'
-                      }`}
-                    >
-                      {aiMode ? t("dashboard.aiModeOn") : t("dashboard.manualMode")}
-                    </button>
-                  </div>
-                  {aiMode && (
-                    <div className="flex flex-col sm:items-end gap-2">
-                      <span className="text-xs text-blue-600 dark:text-blue-400 font-medium">
-                        {t("dashboard.voiceActive")}
-                      </span>
-                      <Link href="/student/ai-portal">
-                        <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full text-sm px-6 h-9">
-                           {t("dashboard.openPortal")} <Sparkles className="w-3.5 h-3.5 ml-2" />
-                        </Button>
-                      </Link>
+                        ))}
                     </div>
-                  )}
-                </div>
 
-                <div className="grid grid-cols-1 gap-6">
-                    <TodayMissionCard />
-                    <DailyMissionCard />
-                    <LifeMasteryReport />
-                    <InnerSpaceWidget />
-                    <StudentDNAWidget />
-                    <HabitTracker />
-                </div>
-            </div>
+                    {/* ── SECTION D: Module cards ───────────────────────────────── */}
+                    <div style={{ marginBottom: 56 }}>
+                        <h2 style={{
+                            fontFamily: 'var(--font-display)',
+                            fontWeight: 700,
+                            fontSize: 18,
+                            color: 'var(--ink)',
+                            margin: '0 0 20px 0',
+                        }}>
+                            Your Modules
+                        </h2>
+                        <div style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(3, 1fr)',
+                            gap: 16,
+                        }}>
+                            {[
+                                { id: 'smart-meditation', name: t('dashboard.meditation'),    href: '/student/meditation',              emoji: '🧘', accessKey: 'meditation',     subjectKey: 'meditation'    },
+                                { id: 'grapho-kit',       name: t('dashboard.graphotherapy'), href: '/student/graphotherapy',            emoji: '✍️', accessKey: 'graphotherapy',  subjectKey: 'graphotherapy' },
+                                { id: 'evening-session',  name: 'Evening Section',            href: '/student/batch1-1/evening',         emoji: '🔦', accessKey: 'batch1',         subjectKey: 'evening'       },
+                                { id: 'revision-portal',  name: t('dashboard.drill'),         href: '/student/revision',                 emoji: '🧠', accessKey: 'revisionPortal', subjectKey: 'revision'      },
+                                { id: 'polity',           name: 'Laxmikanth Navigator',       href: '/student/batch1-1/polity',          emoji: '📚', accessKey: 'batch1Polity',   subjectKey: 'polity'        },
+                                { id: 'geography',        name: 'Geography Study',            href: '/student/batch1/geography',         emoji: '🌍', accessKey: 'geography',      subjectKey: 'geography'     },
+                                { id: 'history_ancient',  name: 'Ancient History',            href: '/student/batch1-1/ancient-history', emoji: '🏛️', accessKey: 'batch1Polity',   subjectKey: 'history'       },
+                                { id: 'deep-report',      name: 'Deep Report',                href: '/student/batch1-1/deep-report',     emoji: '📊', accessKey: 'batch1',         subjectKey: 'report'        },
+                            ].map((module) => {
+                                const userConfig = getUserAccess(user?.email);
+                                const accessKey = module.accessKey as keyof typeof userConfig.access;
+                                const isLocked = userConfig.access[accessKey] !== true;
+                                const isRecommended = aiMissionStatus?.recommended_subject?.toLowerCase() === module.subjectKey;
+                                const subjectColor = getSubjectColor(module.subjectKey);
+                                const href = isLocked ? `/student/upsc-store?subject=${module.id}` : module.href;
 
-            {/* Engagement Widgets Section */}
-            <div className="max-w-4xl mx-auto px-4 pt-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <QuickReviewWidget />
-                    <DailyChallengeWidget />
+                                return (
+                                    <Link key={module.id} href={href}>
+                                        <div style={{
+                                            background: 'var(--paper)',
+                                            borderRadius: 'var(--r-lg)',
+                                            border: `1px solid ${isRecommended ? 'rgba(239,159,39,0.4)' : 'var(--line)'}`,
+                                            boxShadow: isRecommended
+                                                ? '0 0 0 2px rgba(239,159,39,0.12), var(--shadow-card)'
+                                                : 'var(--shadow-card)',
+                                            overflow: 'hidden',
+                                            opacity: isLocked ? 0.75 : 1,
+                                            cursor: 'pointer',
+                                            transition: 'box-shadow 0.18s, opacity 0.18s',
+                                        }}>
+                                            {/* Colored subject bar */}
+                                            <div style={{ height: 4, background: subjectColor }} />
 
-                    <Link href="/student/holistic/skills">
-                        <Card className="bg-gradient-to-br from-purple-900 to-indigo-950 border-purple-500/20 hover:border-purple-500/40 transition-all cursor-pointer group overflow-hidden relative">
-                            <div className="absolute top-0 right-0 p-4 opacity-10">
-                                <Sparkles className="w-24 h-24 text-purple-400" />
-                            </div>
-                            <CardContent className="p-6 relative z-10 flex items-center justify-between">
-                                <div className="flex items-center gap-3">
-                                    <div className="p-2 bg-purple-500/20 rounded-lg">
-                                        <Sparkles className="w-5 h-5 text-purple-400" />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-bold text-white">36 Skills Hub</h3>
-                                        <p className="text-xs text-white/40">Financial, Digital, & Mindset Mastery</p>
-                                    </div>
-                                </div>
-                                <ChevronRight className="w-5 h-5 text-white/20 group-hover:text-white transition-all transform group-hover:translate-x-1" />
-                            </CardContent>
-                        </Card>
-                    </Link>
+                                            <div style={{ padding: '16px 18px 18px' }}>
+                                                <div style={{
+                                                    display: 'flex',
+                                                    justifyContent: 'space-between',
+                                                    alignItems: 'flex-start',
+                                                    marginBottom: 8,
+                                                }}>
+                                                    <span style={{ fontSize: 22 }}>{module.emoji}</span>
+                                                    {isLocked
+                                                        ? <SaritIcon name="lock" size={14} color="var(--ink-35)" />
+                                                        : isRecommended
+                                                            ? <span className="sl-chip amber" style={{ fontSize: 9, padding: '2px 8px' }}>AI Pick</span>
+                                                            : null}
+                                                </div>
 
-                    {/* Wolf Pack Widget */}
-                    <Card className="bg-gradient-to-br from-cyan-950/40 to-black border-cyan-500/20 shadow-lg shadow-cyan-950/10">
-                        <CardHeader className="pb-2">
-                            <CardTitle className="flex items-center justify-between">
-                                <div className="flex items-center gap-2">
-                                    <Users className="w-5 h-5 text-cyan-400" />
-                                    <span className="text-white">Your Wolf Pack</span>
-                                </div>
-                                <div className="text-[10px] bg-cyan-600 px-2 py-0.5 rounded text-white uppercase font-bold">House of Alpha</div>
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-center py-2">
-                                <div className="text-3xl font-black text-white mb-1">Rank #4</div>
-                                <p className="text-xs text-muted-foreground mb-4 italic">"Strength in Unity"</p>
-                                <Link href="/student/wolf-packs">
-                                    <Button
-                                        className="w-full bg-cyan-600 hover:bg-cyan-500 text-xs font-bold"
-                                    >
-                                        Enter Pack Hall
-                                    </Button>
-                                </Link>
-                            </div>
-                        </CardContent>
-                    </Card>
+                                                <div style={{
+                                                    fontFamily: 'var(--font-display)',
+                                                    fontWeight: 600,
+                                                    fontSize: 14,
+                                                    color: isLocked ? 'var(--ink-55)' : isRecommended ? '#8a5508' : 'var(--ink)',
+                                                    marginBottom: 12,
+                                                    lineHeight: 1.3,
+                                                }}>
+                                                    {module.name}
+                                                </div>
 
-                    <Leaderboard />
-                </div>
-            </div>
+                                                <div className="sl-bar" style={{ marginBottom: 14 }}>
+                                                    <span style={{ width: '0%' }} />
+                                                </div>
 
-            {/* Dynamic Timeline */}
-            <div className="pt-8">
-                <JourneyTimeline plan={dayPlan} aiOverride={aiMissionStatus?.recovery_mode} />
-            </div>
-
-            {/* Quick Access Modules */}
-            <div className="max-w-4xl mx-auto px-4 md:px-8 mt-12">
-                <h2 className="text-lg font-bold text-foreground mb-6 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                    {t("dashboard.jumpToModule")}
-                </h2>
-                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                    {[
-                        { id: 'smart-meditation', name: t('dashboard.meditation'), href: '/student/meditation', emoji: '🧘', color: 'from-indigo-500 to-purple-600', accessKey: 'meditation', subjectKey: 'meditation' },
-                        { id: 'grapho-kit', name: t('dashboard.graphotherapy'), href: '/student/graphotherapy', emoji: '✍️', color: 'from-emerald-500 to-teal-600', accessKey: 'graphotherapy', subjectKey: 'graphotherapy' },
-                        { id: 'evening-session', name: 'Evening Section', href: '/student/batch1-1/evening', emoji: '🔦', color: 'from-purple-500 to-pink-600', accessKey: 'batch1', subjectKey: 'evening' },
-                        { id: 'revision-portal', name: t('dashboard.drill'), href: '/student/revision', emoji: '🧠', color: 'from-amber-500 to-orange-600', accessKey: 'revisionPortal', subjectKey: 'revision' },
-                        { id: 'polity', name: "Laxmikanth Navigator", href: "/student/batch1-1/polity", emoji: '📚', color: 'from-blue-500 to-cyan-600', accessKey: 'batch1Polity', subjectKey: 'polity' },
-                        { id: 'geography', name: 'Geography Study', href: '/student/batch1/geography', emoji: '🌍', color: 'from-emerald-500 to-green-600', accessKey: 'geography', subjectKey: 'geography' },
-                        { id: 'history_ancient', name: 'Ancient History', href: '/student/batch1-1/ancient-history', emoji: '🏛️', color: 'from-stone-500 to-amber-700', accessKey: 'batch1Polity', subjectKey: 'history' }, // Reusing Polity access for now as per current schema
-                        { id: 'deep-report', name: 'Deep Report', href: '/student/batch1-1/deep-report', emoji: '📊', color: 'from-indigo-500 to-violet-600', accessKey: 'batch1', subjectKey: 'report' },
-                    ]
-                        .map((module) => {
-                            const userConfig = getUserAccess(user?.email);
-                            const accessKey = module.accessKey as keyof typeof userConfig.access;
-                            const isLocked = userConfig.access[accessKey] !== true;
-                            const isRecommended = aiMissionStatus?.recommended_subject?.toLowerCase() === module.subjectKey;
-                            
-                            return (
-                                <Link
-                                    key={module.name}
-                                    href={isLocked ? `/student/upsc-store?subject=${module.id}` : module.href}
-                                    className={`group relative overflow-hidden rounded-2xl border transition-all duration-300 p-5 ${
-                                        isRecommended 
-                                            ? 'bg-amber-500/10 border-amber-500/40 shadow-[0_0_15px_rgba(245,158,11,0.2)] hover:shadow-[0_0_25px_rgba(245,158,11,0.4)]'
-                                            : isLocked 
-                                                ? 'bg-neutral-100/50 dark:bg-neutral-900/20 border-border/50 grayscale-[0.5] hover:grayscale-0' 
-                                                : 'bg-card/50 border-border hover:shadow-xl hover:-translate-y-1'
-                                    }`}
-                                >
-                                    <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${isRecommended ? 'from-amber-500' : module.color} opacity-10 rounded-bl-full group-hover:opacity-20 transition-opacity`} />
-                                    
-                                    <div className="flex justify-between items-start mb-3">
-                                        <div className="text-3xl">{module.emoji}</div>
-                                        {isLocked ? (
-                                            <div className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 p-1.5 rounded-lg">
-                                                <Lock className="w-3.5 h-3.5" />
+                                                {isLocked ? (
+                                                    <span style={{
+                                                        display: 'inline-flex',
+                                                        alignItems: 'center',
+                                                        gap: 4,
+                                                        fontFamily: 'var(--font-display)',
+                                                        fontWeight: 600,
+                                                        fontSize: 12,
+                                                        color: 'var(--teal)',
+                                                    }}>
+                                                        Unlock <SaritIcon name="arrow" size={12} color="var(--teal)" />
+                                                    </span>
+                                                ) : (
+                                                    <span style={{
+                                                        fontFamily: 'var(--font-display)',
+                                                        fontWeight: 500,
+                                                        fontSize: 12,
+                                                        color: 'var(--ink-55)',
+                                                    }}>
+                                                        Continue →
+                                                    </span>
+                                                )}
                                             </div>
-                                        ) : isRecommended ? (
-                                            <div className="bg-amber-500 text-black text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-lg shadow-amber-500/20 animate-pulse">
-                                                <Sparkles className="w-3 h-3" /> AI Pick
-                                            </div>
-                                        ) : null}
-                                    </div>
-                                    
-                                    <div className={`font-bold ${isLocked ? 'text-muted-foreground' : isRecommended ? 'text-amber-500' : 'text-foreground'}`}>
-                                        {module.name}
-                                    </div>
-                                    
-                                    <div className="text-xs mt-1 font-medium">
-                                        {isLocked ? (
-                                            <span className="text-blue-600 dark:text-blue-400 flex items-center gap-1">
-                                                Unlock Course <ArrowRight className="w-3 h-3" />
-                                            </span>
-                                        ) : (
-                                            <span className="text-muted-foreground">
-                                                {t('dashboard.explore')} →
-                                            </span>
-                                        )}
-                                    </div>
-                                </Link>
-                            );
-                        })}
+                                        </div>
+                                    </Link>
+                                );
+                            })}
+                        </div>
+                    </div>
+
+                    {/* ── Journey Timeline (preserved exactly) ─────────────────── */}
+                    <JourneyTimeline plan={dayPlan} aiOverride={aiMissionStatus?.recovery_mode} />
+
                 </div>
             </div>
-        </div>
         </>
     );
 }
-
-

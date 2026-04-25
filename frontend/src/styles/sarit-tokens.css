@@ -1,0 +1,102 @@
+/* Sarit Learn — Deep Earth design tokens */
+:root {
+  --forest: #1a3a2a;
+  --forest-700: #234a37;
+  --forest-600: #2d5a44;
+  --forest-ink: #0f2619;
+  --teal: #1D9E75;
+  --teal-600: #178a65;
+  --teal-50: #e8f5ef;
+  --amber: #EF9F27;
+  --amber-600: #d98912;
+  --amber-50: #fdf1d9;
+  --surface: #F5F3EF;
+  --surface-2: #ECE8E0;
+  --surface-3: #E2DCD1;
+  --paper: #FBFAF7;
+  --ink: #1C1C1A;
+  --ink-70: rgba(28,28,26,0.70);
+  --ink-55: rgba(28,28,26,0.55);
+  --ink-35: rgba(28,28,26,0.35);
+  --ink-15: rgba(28,28,26,0.12);
+  --ink-08: rgba(28,28,26,0.06);
+  --line: rgba(28,28,26,0.10);
+  --line-strong: rgba(28,28,26,0.18);
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Noto Sans', 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-xl: 28px;
+  --shadow-card: 0 1px 0 rgba(255,255,255,0.6) inset, 0 1px 2px rgba(20,30,20,0.04), 0 10px 30px -12px rgba(20,40,25,0.12);
+  --shadow-float: 0 1px 0 rgba(255,255,255,0.5) inset, 0 18px 40px -18px rgba(20,40,25,0.28), 0 6px 16px -8px rgba(20,40,25,0.12);
+}
+
+/* 12 Subject Colors */
+:root {
+  --subject-geography: #1D9E75;
+  --subject-environment: #639922;
+  --subject-science: #378ADD;
+  --subject-economy: #BA7517;
+  --subject-polity: #7F77DD;
+  --subject-ancient-history: #D85A30;
+  --subject-medieval-history: #993556;
+  --subject-modern-history: #5F5E5A;
+  --subject-art-culture: #D4537E;
+  --subject-society: #888780;
+  --subject-ir: #185FA5;
+  --subject-ethics: #0F6E56;
+}
+
+/* Animations */
+@keyframes sl-pulse { 0%,100% { opacity: 0.3; } 50% { opacity: 0.9; } }
+@keyframes sl-spin  { to { transform: rotate(360deg); } }
+@keyframes sl-shine { 0% { transform: translateX(-120%); } 100% { transform: translateX(220%); } }
+@keyframes sl-bounce-in { 0% { transform: scale(0.4); opacity: 0; } 60% { transform: scale(1.08); opacity: 1; } 100% { transform: scale(1); } }
+@keyframes sl-wave { 0%,100% { transform: scaleY(0.3); } 50% { transform: scaleY(1); } }
+@keyframes sl-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes sl-flame { 0%,100% { transform: scale(1) rotate(-1deg); } 50% { transform: scale(1.06) rotate(1deg); } }
+
+/* Topo background */
+.topo {
+  background-image:
+    radial-gradient(ellipse 600px 300px at 20% 20%, rgba(29,158,117,0.05), transparent 60%),
+    radial-gradient(ellipse 500px 280px at 85% 80%, rgba(26,58,42,0.06), transparent 60%);
+  position: relative;
+}
+.topo::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'><g fill='none' stroke='%231a3a2a' stroke-opacity='0.05' stroke-width='1'><ellipse cx='300' cy='300' rx='60' ry='30'/><ellipse cx='300' cy='300' rx='110' ry='55'/><ellipse cx='300' cy='300' rx='160' ry='80'/><ellipse cx='300' cy='300' rx='215' ry='108'/><ellipse cx='300' cy='300' rx='270' ry='135'/></g></svg>");
+  background-size: 900px 900px;
+  background-position: center;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* Utility classes */
+.sl-card {
+  background: var(--paper);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--line);
+}
+.sl-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px; border-radius: 999px;
+  font-family: var(--font-display); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  background: var(--ink-08); color: var(--ink-70);
+}
+.sl-chip.teal { background: rgba(29,158,117,0.10); color: var(--teal-600); }
+.sl-chip.amber { background: rgba(239,159,39,0.14); color: #8a5508; }
+.sl-chip.forest { background: rgba(26,58,42,0.10); color: var(--forest); }
+.sl-bar { height: 6px; background: var(--ink-08); border-radius: 999px; overflow: hidden; position: relative; }
+.sl-bar > span { position: absolute; inset: 0; background: linear-gradient(90deg, var(--teal), var(--forest-600)); border-radius: 999px; }
+.sl-wave { display: inline-flex; align-items: center; gap: 3px; height: 18px; }
+.sl-wave i { width: 3px; height: 100%; background: var(--teal); border-radius: 2px; transform-origin: center; display: block; animation: sl-wave 0.9s ease-in-out infinite; }
+.sl-wave i:nth-child(2) { animation-delay: .12s; }
+.sl-wave i:nth-child(3) { animation-delay: .24s; }
+.sl-wave i:nth-child(4) { animation-delay: .36s; }
+.sl-wave i:nth-child(5) { animation-delay: .18s; }
