@@ -37,6 +37,62 @@ export function getGamificationData(): GamificationData {
 export function saveGamificationData(data: GamificationData): void {
     if (typeof window === 'undefined') return;
     localStorage.setItem(GAMIFICATION_STORAGE_KEY, JSON.stringify(data));
+    syncXPToBackend(data); // fire-and-forget, never blocks
+}
+
+/**
+ * Sync XP state to backend (idempotent)
+ */
+export async function syncXPToBackend(data: GamificationData): Promise<void> {
+    try {
+        const token = localStorage.getItem('token');
+        if (!token) return;
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
+        await fetch(`${baseUrl}/api/v1/student-reports/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                report_type: 'xp_engine_state',
+                report_key: 'xp_engine_state_unified',
+                data: {
+                    totalXP: data.xp?.totalXP ?? 0,
+                    level: data.xp?.level ?? 1,
+                    streak: data.xp?.streak ?? 0,
+                    longestStreak: data.xp?.longestStreak ?? 0,
+                    lastActivityDate: data.xp?.lastActivityDate ?? null,
+                    achievements: data.achievements ?? {},
+                    stats: data.stats ?? {},
+                    savedAt: new Date().toISOString()
+                }
+            })
+        });
+    } catch {
+        // Silent fail - localStorage is the primary source of truth
+    }
+}
+
+/**
+ * Load XP state from backend
+ */
+export async function loadXPFromBackend(): Promise<Partial<GamificationData> | null> {
+    try {
+        const token = localStorage.getItem('token');
+        if (!token) return null;
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
+        const res = await fetch(
+            `${baseUrl}/api/v1/student-reports/?report_type=xp_engine_state&limit=1`,
+            { headers: { 'Authorization': `Bearer ${token}` } }
+        );
+        if (!res.ok) return null;
+        const reports = await res.json();
+        if (!Array.isArray(reports) || reports.length === 0) return null;
+        return reports[0]?.data ?? null;
+    } catch {
+        return null;
+    }
 }
 
 /**

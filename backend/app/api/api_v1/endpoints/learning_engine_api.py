@@ -190,6 +190,10 @@ def get_todays_dashboard(
         WHERE scm.student_id = :sid AND cn.subject_slug = :slug
     """), {"sid": current_user.id, "slug": subject_slug}).fetchone()
 
+    # Null handling for new users with no mastery records
+    if not mastery_rows:
+        mastery_rows = (0, 0, 0, 0)
+
     mastery_summary = {
         "strong":  int(mastery_rows[0] or 0),
         "medium":  int(mastery_rows[1] or 0),
@@ -206,7 +210,7 @@ def get_todays_dashboard(
     """), {"sid": current_user.id}).scalar() or 0
 
     today_mins = db.execute(text("""
-        SELECT COALESCE(SUM(duration_seconds), 0) / 60
+        SELECT COALESCE(SUM(duration), 0) / 60
         FROM student_activity_log
         WHERE student_id = :sid
           AND DATE(timestamp) = CURRENT_DATE
@@ -264,6 +268,10 @@ def get_exam_readiness(
         JOIN concept_nodes cn ON cn.id = scm.node_id
         WHERE scm.student_id = :sid AND cn.subject_slug = :slug
     """), {"sid": current_user.id, "slug": subject_slug}).fetchone()
+
+    # Null handling for new users with no mastery records
+    if not row:
+        row = (0, 0, 0)
 
     avg_mastery = float(row[0] or 0)
     attempted   = int(row[1] or 0)
@@ -407,7 +415,7 @@ def activity_complete(
         node_id=node_db_id,
         activity_type=act_type,
         score=req.score,
-        duration_seconds=req.duration_seconds,
+        duration=req.duration_seconds,
         metadata_=req.metadata or {},
         timestamp=datetime.utcnow(),
     )

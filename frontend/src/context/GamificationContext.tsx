@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback, useRef } from 'react';
 import activityService from '@/services/activityService';
 import AchievementToast from '@/components/gamification/AchievementToast';
 import LevelUpModal from '@/components/gamification/LevelUpModal';
@@ -74,6 +74,7 @@ const GamificationContext = createContext<GamificationContextType | null>(null);
 const STORAGE_KEY = 'upsc_gamification_state_v2';
 
 export function GamificationProvider({ children }: { children: ReactNode }) {
+    const lastSyncRef = useRef<number>(0);
     const [state, setState] = useState<GamificationState>({
         totalXP: 0,
         currentLevel: 1,
@@ -83,52 +84,133 @@ export function GamificationProvider({ children }: { children: ReactNode }) {
         xpHistory: [],
         reviewQueue: [],
         badges: [],
-        visitedVisuals: []
+        visitedVisuals: [],
     });
 
     const [toast, setToast] = useState<{ message: string; subMessage: string; visible: boolean } | null>(null);
     const [levelUp, setLevelUp] = useState<{ level: number; visible: boolean } | null>(null);
 
-    // Load from localStorage
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            try {
-                const stored = localStorage.getItem(STORAGE_KEY);
-                if (stored) {
-                    const parsed = JSON.parse(stored);
-                    if (parsed && typeof parsed === 'object') {
-                        // Safe merge: Ensure arrays are actually arrays
-                        setState(prev => ({
-                            ...prev,
-                            ...parsed,
-                            // Defensively ensure critical array fields are arrays if parsed value is null/invalid
-                            badges: Array.isArray(parsed.badges) ? parsed.badges : prev.badges,
-                            visitedVisuals: Array.isArray(parsed.visitedVisuals) ? parsed.visitedVisuals : prev.visitedVisuals,
-                            xpHistory: Array.isArray(parsed.xpHistory) ? parsed.xpHistory : prev.xpHistory,
-                            reviewQueue: Array.isArray(parsed.reviewQueue) ? parsed.reviewQueue : prev.reviewQueue,
-                        }));
+    const syncContextToBackend = useCallback(async (state: GamificationState): Promise<void> => {
+        try {
+            const token = localStorage.getItem('token');
+            if (!token) return;
+            const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
+            await fetch(`${baseUrl}/api/v1/student-reports/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    report_type: 'gamification_context_state',
+                    report_key: 'gamification_context_state_unified',
+                    data: {
+                        totalXP: state.totalXP,
+                        currentLevel: state.currentLevel,
+                        currentStreak: state.currentStreak,
+                        longestStreak: state.longestStreak,
+                        xpHistory: state.xpHistory ?? [],
+                        badges: state.badges ?? [],
+                        savedAt: new Date().toISOString()
+                        // NOTE: reviewQueue intentionally excluded — too large, local only
                     }
-                }
-            } catch (error) {
-                console.error("Failed to load gamification state:", error);
-                // Fallback to default state is already set
-            }
+                })
+            });
+        } catch (error) {
+            // Silent fail
         }
+    }, []);
 
+    const loadContextFromBackend = useCallback(async (): Promise<Partial<GamificationState> | null> => {
+        try {
+            const token = localStorage.getItem('token');
+            if (!token) return null;
+            const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
+            const res = await fetch(
+                `${baseUrl}/api/v1/student-reports/?report_type=gamification_context_state&limit=1`,
+                { headers: { 'Authorization': `Bearer ${token}` } }
+            );
+            if (!res.ok) return null;
+            const reports = await res.json();
+            if (!Array.isArray(reports) || reports.length === 0) return null;
+            return reports[0]?.data ?? null;
+        } catch (error) {
+            return null;
+        }
+    }, []);
+
+    // Load from localStorage & Backend
+    useEffect(() => {
+        const initGamification = async () => {
+            let localState: GamificationState | null = null;
+            
+            // Step 1: Load from localStorage first (instant)
+            if (typeof window !== 'undefined') {
+                try {
+                    const stored = localStorage.getItem(STORAGE_KEY);
+                    if (stored) {
+                        localState = JSON.parse(stored);
+                        if (localState) {
+                            setState(prev => ({ 
+                                ...prev, 
+                                ...localState,
+                                // Defensively ensure critical array fields are arrays if parsed value is null/invalid
+                                badges: Array.isArray(localState?.badges) ? localState.badges : [],
+                                visitedVisuals: Array.isArray(localState?.visitedVisuals) ? localState.visitedVisuals : [],
+                                xpHistory: Array.isArray(localState?.xpHistory) ? localState.xpHistory : [],
+                                reviewQueue: Array.isArray(localState?.reviewQueue) ? localState.reviewQueue : [],
+                            }));
+                        }
+                    }
+                } catch (error) {
+                    console.error("Failed to load local gamification state:", error);
+                }
+            }
+
+            // Step 2: Try to load from backend
+            const backendState = await loadContextFromBackend();
+
+            // Step 3: Merge — highest XP wins
+            if (backendState) {
+                setState(prev => {
+                    const backendXP = backendState.totalXP ?? 0;
+                    const localXP = prev.totalXP ?? 0;
+
+                    if (backendXP > localXP) {
+                        // Backend has more progress — merge backend data, keep local queue
+                        const merged = { ...prev, ...backendState, reviewQueue: prev.reviewQueue };
+                        // Update localStorage to match
+                        if (typeof window !== 'undefined') {
+                            localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+                        }
+                        return merged;
+                    }
+                    return prev;
+                });
+            }
+        };
+
+        initGamification();
 
         // Subscribe to Activity Service events
         const unsubscribe = activityService.subscribe((action, details) => {
             handleActivityEvent(action, details);
         });
         return () => unsubscribe();
-    }, []);
+    }, [loadContextFromBackend]);
 
-    // Save to localStorage
+    // Save to localStorage & Backend (Debounced)
     useEffect(() => {
         if (typeof window !== 'undefined') {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+            
+            const now = Date.now();
+            if (now - lastSyncRef.current > 30000) { // 30 second debounce
+                lastSyncRef.current = now;
+                syncContextToBackend(state);
+            }
         }
-    }, [state]);
+    }, [state, syncContextToBackend]);
 
     const calculateLevel = (xp: number) => {
         for (let i = LEVEL_THRESHOLDS.length - 1; i >= 0; i--) {

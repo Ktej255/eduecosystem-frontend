@@ -295,19 +295,19 @@ class LearningEngine:
             WITH McqSummary AS (
                 SELECT node_id, AVG(score) as avg_score
                 FROM student_activity_log
-                WHERE student_id = :sid AND activity_type = 'mcq'
+                WHERE student_id = :sid AND activity_type = 'MCQ'
                 GROUP BY node_id
             ),
             RecallSummary AS (
                 SELECT node_id, score, 
                        ROW_NUMBER() OVER(PARTITION BY node_id ORDER BY timestamp DESC) as rn
                 FROM student_activity_log
-                WHERE student_id = :sid AND activity_type = 'recall'
+                WHERE student_id = :sid AND activity_type = 'RECALL'
             ),
             VideoMetrics AS (
                 SELECT node_id, COUNT(*) > 0 as watched
                 FROM student_activity_log
-                WHERE student_id = :sid AND activity_type = 'video_watch'
+                WHERE student_id = :sid AND activity_type = 'VIDEO_WATCH'
                 GROUP BY node_id
             )
             SELECT
@@ -321,7 +321,7 @@ class LearningEngine:
                 scm.next_review_date,
                 ms.avg_score                  AS recent_mcq_accuracy,
                 rs.score                      AS recall_performance,
-                COALESCE(vm.watched, 0)       AS video_watched,
+                COALESCE(vm.watched, false)     AS video_watched,
                 cn.exam_relevance
             FROM concept_nodes cn
             LEFT JOIN student_concept_mastery scm ON scm.node_id = cn.id AND scm.student_id = :sid
@@ -542,7 +542,7 @@ class LearningEngine:
             SELECT score FROM student_activity_log
             WHERE student_id = :sid
               AND node_id = (SELECT id FROM concept_nodes WHERE node_id = :nid LIMIT 1)
-              AND activity_type = 'mcq'
+              AND activity_type = 'MCQ'
             ORDER BY timestamp DESC LIMIT 5
         """), {"sid": student_id, "nid": node.node_id}).fetchall()
 
