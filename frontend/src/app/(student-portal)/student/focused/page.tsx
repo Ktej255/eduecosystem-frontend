@@ -578,10 +578,10 @@ export default function FocusedPortalPage() {
   }, [fetchDashboard, fetchCumulative, fetchHistory, fetchProgress]);
 
   useEffect(() => {
-    if (currentSubject) {
+    if (currentSubject && token) {
       fetchClusters(currentSubject);
     }
-  }, [currentSubject, fetchClusters]);
+  }, [currentSubject, fetchClusters, token]);
 
   // //// Timer ////
   useEffect(() => {
