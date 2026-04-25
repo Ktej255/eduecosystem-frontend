@@ -319,16 +319,23 @@ import { useRouter } from "next/navigation";
 const API = process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app/api/v1";
 
 const CLUSTER_PDFS: Record<number, string> = {
-  1: "https://drive.google.com/file/d/1Xy_Jz-8w9L9W9V9U9T9S9R9Q9P9O9N9/view",
-  2: "",
-  3: "",
-  4: "",
-  5: "",
-  6: "",
-  7: "",
-  8: "",
-  9: "",
-  10: "",
+  1: "https://drive.google.com/file/d/1gHYG9AdCCUyvSOlYsbilXpJ015OSCZJE/view",
+  2: "https://drive.google.com/file/d/1gHYG9AdCCUyvSOlYsbilXpJ015OSCZJE/view",
+  3: "https://drive.google.com/file/d/1gHYG9AdCCUyvSOlYsbilXpJ015OSCZJE/view",
+  4: "https://drive.google.com/file/d/1gHYG9AdCCUyvSOlYsbilXpJ015OSCZJE/view",
+  5: "https://drive.google.com/file/d/1gHYG9AdCCUyvSOlYsbilXpJ015OSCZJE/view",
+  6: "https://drive.google.com/file/d/1gHYG9AdCCUyvSOlYsbilXpJ015OSCZJE/view",
+  7: "https://drive.google.com/file/d/1gHYG9AdCCUyvSOlYsbilXpJ015OSCZJE/view",
+  8: "https://drive.google.com/file/d/1gHYG9AdCCUyvSOlYsbilXpJ015OSCZJE/view",
+  9: "https://drive.google.com/file/d/1gHYG9AdCCUyvSOlYsbilXpJ015OSCZJE/view",
+  10: "https://drive.google.com/file/d/1gHYG9AdCCUyvSOlYsbilXpJ015OSCZJE/view",
+};
+
+const SUBJECT_PDFS: Record<string, string> = {
+  "Polity": "https://drive.google.com/file/d/1gHYG9AdCCUyvSOlYsbilXpJ015OSCZJE/view",
+  "Environment": "https://drive.google.com/file/d/1rtoqFKCDlikdtJzV7EbCoWOVuGK9YbJ3/view",
+  "Science and Technology": "https://drive.google.com/file/d/1hcIX4qmPqHc81PD-UGA6_i_hdDN1bjDk/view",
+  "Economy": "https://drive.google.com/file/d/1NMBrQg-K_b1y1JzuoX683ZO0QQeXL2Ve/view",
 };
 
 function formatQuestionText(text: string) {
@@ -722,6 +729,17 @@ export default function FocusedPortalPage() {
           setGateResult({ score: body.score, passed: data.passed });
         } else {
           setTestReport(data);
+          // Populate review questions: use testQuestions (already in state) as the
+          // primary source, then merge in backend-supplied wrong_questions_detail so
+          // explanations and correct_answers are always fresh even if local state drifts.
+          const wrongDetailMap: Record<number, any> = {};
+          (data.wrong_questions_detail || []).forEach((q: any) => { wrongDetailMap[q.id] = q; });
+          const enriched = testQuestions.map((q: any) => ({
+            ...q,
+            // Overwrite with backend detail where available (authoritative source)
+            ...(wrongDetailMap[q.id] || {}),
+          }));
+          setReviewQuestions(enriched);
         }
         setTestSubmitted(true);
         fetchDashboard();
@@ -1200,6 +1218,89 @@ export default function FocusedPortalPage() {
                     </div>
                   )}
 
+                  {/* ─── DEEP DOMAIN ANALYSIS ─── */}
+                  {testReport.topic_breakdown?.length > 0 && (
+                    <div style={{ marginBottom: 24 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
+                        <div style={{ fontSize: 16, fontWeight: 700, color: C.textPrimary }}>Domain Performance Analysis</div>
+                        <div style={{ display: 'flex', gap: 12 }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                            <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: C.green }} />
+                            <span style={{ fontSize: 10, color: C.textMuted }}>Good (≥50%)</span>
+                          </div>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                            <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: C.red }} />
+                            <span style={{ fontSize: 10, color: C.textMuted }}>Needs Work (&lt;50%)</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                        {testReport.topic_breakdown.map((t: any, i: number) => {
+                          const isWeak = t.weak;
+                          const pct = t.accuracy_pct ?? Math.round((t.correct / t.total) * 100);
+                          const barColor = isWeak ? C.red : C.green;
+                          return (
+                            <div key={i} style={{
+                              backgroundColor: isDark ? '#1a1a1a' : '#ffffff',
+                              border: `1px solid ${isWeak ? 'rgba(255,68,68,0.25)' : 'rgba(68,255,136,0.2)'}`,
+                              borderRadius: 12, padding: '14px 16px',
+                            }}>
+                              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                                  <span style={{ fontSize: 14, fontWeight: 700, color: isWeak ? C.red : C.green }}>
+                                    {isWeak ? '⚠' : '✓'}
+                                  </span>
+                                  <span style={{ fontSize: 13, fontWeight: 600, color: C.textPrimary }}>{t.topic}</span>
+                                  <span style={{
+                                    fontSize: 9, fontWeight: 700, padding: '2px 8px', borderRadius: 999,
+                                    backgroundColor: isWeak ? 'rgba(255,68,68,0.1)' : 'rgba(68,255,136,0.1)',
+                                    color: isWeak ? C.red : C.green, textTransform: 'uppercase' as const
+                                  }}>
+                                    {isWeak ? 'NEEDS WORK' : 'GOOD'}
+                                  </span>
+                                </div>
+                                <div style={{ textAlign: 'right' as const }}>
+                                  <span style={{ fontSize: 18, fontWeight: 800, color: barColor }}>{pct}%</span>
+                                  <span style={{ fontSize: 11, color: C.textMuted, marginLeft: 8 }}>{t.correct}/{t.total}</span>
+                                </div>
+                              </div>
+                              <div style={{ height: 5, backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: 3, overflow: 'hidden', marginBottom: 6 }}>
+                                <div style={{ width: `${pct}%`, height: '100%', backgroundColor: barColor, borderRadius: 3, transition: 'width 0.5s ease' }} />
+                              </div>
+                              <div style={{ display: 'flex', gap: 16 }}>
+                                <span style={{ fontSize: 10, color: C.textMuted }}>⏱ Avg {t.avg_time_sec}s/q</span>
+                                {t.lucky_guesses > 0 && <span style={{ fontSize: 10, color: C.amber }}>🎲 {t.lucky_guesses} lucky</span>}
+                                <span style={{ fontSize: 10, color: isWeak ? C.red : C.textMuted }}>{t.wrong} wrong</span>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* ─── GOOD / WEAK SECTORS SUMMARY ─── */}
+                  {(testReport.good_areas?.length > 0 || testReport.weak_areas?.length > 0) && (
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 24 }}>
+                      {testReport.good_areas?.length > 0 && (
+                        <div style={{ backgroundColor: isDark ? '#1a1a1a' : '#ffffff', border: `1px solid ${C.green}`, borderRadius: 12, padding: '14px 16px' }}>
+                          <div style={{ fontSize: 12, fontWeight: 700, color: C.green, marginBottom: 8 }}>✅ Strong Sectors</div>
+                          {testReport.good_areas.map((a: string, i: number) => (
+                            <div key={i} style={{ fontSize: 11, color: C.textMuted, padding: '3px 0', borderBottom: `1px solid rgba(68,255,136,0.08)` }}>{a}</div>
+                          ))}
+                        </div>
+                      )}
+                      {testReport.weak_areas?.length > 0 && (
+                        <div style={{ backgroundColor: isDark ? '#1a1a1a' : '#ffffff', border: `1px solid ${C.red}`, borderRadius: 12, padding: '14px 16px' }}>
+                          <div style={{ fontSize: 12, fontWeight: 700, color: C.red, marginBottom: 8 }}>⚠ Revision Needed</div>
+                          {testReport.weak_areas.map((a: string, i: number) => (
+                            <div key={i} style={{ fontSize: 11, color: C.textMuted, padding: '3px 0', borderBottom: `1px solid rgba(255,68,68,0.08)` }}>{a}</div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
+
                   <div style={{ fontSize: 16, fontWeight: 700, color: C.textPrimary, marginBottom: 16 }}>Question Review</div>
                   <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
                     {(['all','correct','wrong','skipped'] as const).map(f => (
@@ -1215,23 +1316,26 @@ export default function FocusedPortalPage() {
 
                   {reviewQuestions
                     .filter((q: any) => {
-                      const userAns = testAnswers[q.id]
+                      const userAns = testAnswers[q.id] ?? q.your_answer
                       const correct = q.correct_answer?.toUpperCase()
-                      if (reportFilter === 'correct') return userAns === correct
+                      if (reportFilter === 'correct') return userAns && userAns === correct
                       if (reportFilter === 'wrong') return userAns && userAns !== correct
                       if (reportFilter === 'skipped') return !userAns
                       return true
                     })
                     .map((q: any, idx: number) => {
-                      const userAns = testAnswers[q.id]
+                      const userAns = testAnswers[q.id] ?? q.your_answer
                       const correct = q.correct_answer?.toUpperCase()
-                      const isCorrect = userAns === correct
+                      const isCorrect = userAns && userAns === correct
                       const isSkipped = !userAns
 
                       return (
                         <div key={q.id} style={{ backgroundColor: isDark ? '#1a1a1a' : '#ffffff', border: `1px solid ${isSkipped ? C.border : isCorrect ? C.green : C.red}`, borderRadius: 12, padding: '20px', marginBottom: 16 }}>
                           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}>
-                            <span style={{ fontSize: 12, color: C.textMuted }}>Q{idx + 1}</span>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                              <span style={{ fontSize: 12, color: C.textMuted }}>Q{idx + 1}</span>
+                              {q.topic_tag && <span style={{ fontSize: 10, padding: '2px 8px', borderRadius: 6, backgroundColor: 'rgba(255,255,255,0.05)', color: C.textMuted, border: `1px solid ${C.border}` }}>{q.topic_tag}</span>}
+                            </div>
                             <span style={{ fontSize: 12, fontWeight: 700, color: isSkipped ? C.textMuted : isCorrect ? C.green : C.red }}>{isSkipped ? 'Skipped' : isCorrect ? '✓ Correct' : '✗ Wrong'}</span>
                           </div>
 
@@ -1251,7 +1355,7 @@ export default function FocusedPortalPage() {
                               <div key={key} style={{ padding: '10px 14px', borderRadius: 8, border: `1px solid ${border}`, backgroundColor: bg, color: color, fontSize: 13, marginBottom: 8 }}>
                                 <strong>{key}.</strong> {optText}
                                 {isCorrectAns && <span style={{float:'right'}}>✓</span>}
-                                {isUserChoice && !isCorrectAns && <span style={{float:'right'}}>✗</span>}
+                                {isUserChoice && !isCorrectAns && <span style={{float:'right'}}>✗ Your answer</span>}
                               </div>
                             )
                           })}
@@ -1363,9 +1467,11 @@ export default function FocusedPortalPage() {
                       </div>
                     ) : (
                       <>
-                        {CLUSTER_PDFS[selectedCluster] && (
+                        {(() => {
+                          const pdfLink = SUBJECT_PDFS[currentSubject] || CLUSTER_PDFS[selectedCluster];
+                          return pdfLink && (
                             <button 
-                              onClick={() => window.open(CLUSTER_PDFS[selectedCluster], '_blank')}
+                              onClick={() => window.open(pdfLink, '_blank')}
                               style={{ 
                                 width: "100%", padding: "14px", borderRadius: 12, backgroundColor: "rgba(212,175,55,0.1)", 
                                 color: C.gold, fontWeight: 700, border: `1px solid ${C.gold}`, cursor: "pointer",
@@ -1374,7 +1480,8 @@ export default function FocusedPortalPage() {
                             >
                               📄 STUDY NOTES PDF
                             </button>
-                        )}
+                          );
+                        })()}
                         <button onClick={startTestSequence} style={{
                           width: "100%", padding: "20px", borderRadius: 16, backgroundColor: "transparent", color: C.amber, fontWeight: 700, border: `2px dashed ${C.amber}`, cursor: "pointer",
                         }}>
