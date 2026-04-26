@@ -18,7 +18,9 @@ ARG NEXT_PUBLIC_API_URL=https://eduecosystem-backend-503001969959.us-central1.ru
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
 
 RUN NODE_OPTIONS="--max-old-space-size=4096" \
-  NEXT_DISABLE_STATIC_GENERATION=1 npx next build
+  NEXT_DISABLE_STATIC_GENERATION=1 \
+  NEXT_WORKER_COUNT=4 \
+  npx next build
 
 
 # Production image, copy all the files and run next
