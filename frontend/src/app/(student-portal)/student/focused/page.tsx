@@ -315,6 +315,7 @@ const SUBJECT_SEQUENCE = [
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { useAuth } from "@/contexts/auth-context";
 import { useRouter } from "next/navigation";
+import { getSubjectColor } from '@/lib/subject-colors';
 
 const API = process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app/api/v1";
 
@@ -1035,7 +1036,7 @@ export default function FocusedPortalPage() {
           {(activeTab === 'focus' || activeTab === 'progress') && (
             <div 
               className={`focused-sidebar${sidebarOpen ? ' open' : ''}`}
-              style={{ display: activeTab === 'progress' ? 'block' : 'block', width: '100%' }}>
+              style={{ display: 'flex', flexDirection: 'column', width: 280, background: 'var(--forest-ink)', borderRight: '1px solid rgba(255,255,255,0.08)', padding: '24px 0', flexShrink: 0, overflowY: 'auto' }}>
               {activeTab === 'progress' ? (
                 !progressData ? (
                   <div style={{ textAlign: 'center', padding: 80, backgroundColor: C.surface, borderRadius: 24, border: `1px solid ${C.border}` }}>
@@ -1158,10 +1159,10 @@ export default function FocusedPortalPage() {
                 )
 
               ) : (
-                <div style={{ backgroundColor: C.surface, border: `1px solid ${C.border}`, borderRadius: 20, padding: 24 }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
-                    <h3 style={{ fontSize: 13, fontWeight: 800, letterSpacing: "0.05em", color: C.gold }}>SUBJECT PROGRESS</h3>
-                    <span style={{ fontSize: 11, color: C.textMuted }}>{dashData?.gate_completions ?? 0}/12 Completed</span>
+                <div style={{ padding: '0 16px' }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20, paddingBottom: 12, borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+                    <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: 'var(--teal)' }}>SUBJECT PROGRESS</h3>
+                    <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)' }}>{dashData?.gate_completions ?? 0}/12</span>
                   </div>
 
                   <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -1171,25 +1172,27 @@ export default function FocusedPortalPage() {
                       const isDone = status === "COMPLETED" || status === "PASSED";
                       
                       return (
-                        <div key={idx} style={{ 
-                          display: "flex", alignItems: "center", gap: 12, padding: "12px 14px", 
-                          borderRadius: 12, backgroundColor: isActive ? "rgba(201,168,76,0.08)" : "transparent",
-                          border: `1px solid ${isActive ? C.gold : "transparent"}`,
-                          opacity: status === "LOCKED" ? 0.4 : 1
+                        <div key={idx} style={{
+                          display: "flex", alignItems: "center", gap: 10, padding: "10px 12px",
+                          borderRadius: "0 8px 8px 0",
+                          borderLeft: `3px solid ${isActive || isDone ? getSubjectColor(s) : 'transparent'}`,
+                          backgroundColor: isActive ? 'rgba(255,255,255,0.06)' : 'transparent',
+                          opacity: status === "LOCKED" ? 0.35 : 1,
+                          transition: 'all 0.15s ease',
                         }}>
-                          <div style={{ 
-                            width: 24, height: 24, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center",
-                            backgroundColor: isDone ? "rgba(68,255,136,0.1)" : isActive ? C.gold : "rgba(255,255,255,0.05)",
-                            border: `1px solid ${isDone ? C.green : isActive ? C.gold : C.border}`,
-                            fontSize: 10, color: isDone ? C.green : isActive ? "#000" : C.textMuted
+                          <div style={{
+                            width: 22, height: 22, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+                            backgroundColor: isDone ? 'rgba(29,158,117,0.15)' : isActive ? getSubjectColor(s) : 'rgba(255,255,255,0.06)',
+                            border: `1px solid ${isDone ? 'var(--teal)' : isActive ? getSubjectColor(s) : 'rgba(255,255,255,0.12)'}`,
+                            fontSize: 9, fontWeight: 700, color: isDone ? 'var(--teal)' : isActive ? '#fff' : 'rgba(255,255,255,0.3)'
                           }}>
                             {isDone ? "✓" : idx + 1}
                           </div>
-                          <div style={{ flex: 1 }}>
-                            <p style={{ fontSize: 13, fontWeight: 600, color: isActive ? C.gold : C.textPrimary }}>{s}</p>
-                            <p style={{ fontSize: 10, color: C.textMuted, textTransform: "uppercase" }}>{status}</p>
+                          <div style={{ flex: 1, minWidth: 0 }}>
+                            <p style={{ fontSize: 12, fontWeight: 600, color: isActive ? '#fff' : isDone ? 'rgba(255,255,255,0.7)' : 'rgba(255,255,255,0.45)', margin: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{s}</p>
+                            <p style={{ fontSize: 9, fontWeight: 600, color: isActive || isDone ? 'var(--teal)' : 'rgba(255,255,255,0.25)', textTransform: "uppercase", letterSpacing: '0.05em', margin: 0 }}>{status === 'IN_PROGRESS' ? 'IN PROGRESS' : status}</p>
                           </div>
-                          {isActive && <div style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: C.gold, boxShadow: `0 0 6px ${C.gold}` }} />}
+                          {isActive && <div style={{ width: 5, height: 5, borderRadius: "50%", backgroundColor: 'var(--teal)', flexShrink: 0 }} />}
                         </div>
                       );
                     })}
