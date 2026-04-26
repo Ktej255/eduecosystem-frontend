@@ -510,7 +510,10 @@ export default function FocusedPortalPage() {
 
   const [selectedCluster, setSelectedCluster] = useState<number>(currentCluster);
 
-  const currentClusterName = activeTask?.cluster_name ?? getClusterName(currentSubject, currentCluster);
+  const currentClusterName = selectedClusterInfo?.topics?.join(', ') 
+    ?? activeTask?.cluster_name 
+    ?? getClusterName(currentSubject, currentCluster) 
+    ?? `Cluster ${currentCluster}`;
 
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const plannerRef = useRef<HTMLDivElement>(null);
