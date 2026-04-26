@@ -503,6 +503,7 @@ export default function FocusedPortalPage() {
   const [clusters, setClusters] = useState<any[]>([]);
   const [loadingClusters, setLoadingClusters] = useState(false);
   const [selectedClusterInfo, setSelectedClusterInfo] = useState<any>(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const activeTask = dashData?.current_active;
   const currentSubject = activeTask?.subject ?? "Polity";
@@ -904,6 +905,41 @@ export default function FocusedPortalPage() {
   };
 
   return (
+    <>
+      <style>{`
+        @media (max-width: 768px) {
+          .mobile-hamburger { display: block !important; }
+          .focused-sidebar {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 280px;
+            z-index: 1000;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            background-color: var(--fp-card) !important;
+            padding: 24px !important;
+            overflow-y: auto;
+          }
+          .focused-sidebar.open {
+            transform: translateX(0);
+          }
+          .sidebar-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+          }
+          .sidebar-overlay.open {
+            display: block;
+          }
+          .focused-main-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     <div style={{
       ...({
         "--fp-bg": isDark ? "#0A0A0F" : "#f5f5f5",
@@ -964,21 +1000,42 @@ export default function FocusedPortalPage() {
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <button
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            style={{
+              display: "none",
+              background: "none",
+              border: "none",
+              color: C.text,
+              fontSize: 22,
+              cursor: "pointer",
+              padding: "4px 8px",
+            }}
+            className="mobile-hamburger"
+          >☰</button>
           <span style={{ color: C.textMuted, fontSize: 12 }}>{getDaysToExam()} days to D-Day</span>
         </div>
       </div>
 
       <div style={{ maxWidth: 1400, margin: "0 auto", padding: "32px 24px" }}>
         
-        <div style={{ 
-          display: "grid", 
-          gridTemplateColumns: activeTab === 'focus' ? "300px 1fr 340px" : "1fr",
-          gap: 32, 
-          alignItems: "start"
-        }}>
+        <div 
+          className="focused-main-grid"
+          style={{ 
+            display: "grid", 
+            gridTemplateColumns: activeTab === 'focus' ? "300px 1fr 340px" : "1fr",
+            gap: 32, 
+            alignItems: "start"
+          }}>
 
+          <div 
+            className={`sidebar-overlay${sidebarOpen ? ' open' : ''}`}
+            onClick={() => setSidebarOpen(false)}
+          />
           {(activeTab === 'focus' || activeTab === 'progress') && (
-            <div style={{ display: activeTab === 'progress' ? 'block' : 'block', width: '100%' }}>
+            <div 
+              className={`focused-sidebar${sidebarOpen ? ' open' : ''}`}
+              style={{ display: activeTab === 'progress' ? 'block' : 'block', width: '100%' }}>
               {activeTab === 'progress' ? (
                 !progressData ? (
                   <div style={{ textAlign: 'center', padding: 80, backgroundColor: C.surface, borderRadius: 24, border: `1px solid ${C.border}` }}>
