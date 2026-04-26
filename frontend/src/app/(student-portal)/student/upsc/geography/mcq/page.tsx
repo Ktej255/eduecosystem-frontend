@@ -3,7 +3,7 @@
 import React, { Suspense, useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { Loader2, Target } from 'lucide-react';
-import { geographyMCQs } from '@/components/upsc/subjects/geography/data/mcqs/geography-mcqs';
+import api from '@/lib/api';
 
 // Standard Components
 import StandardMCQInterface, { MCQ } from '@/components/common/mcq/StandardMCQInterface';
@@ -29,41 +29,45 @@ function GeographyMCQContent() {
     const [testResult, setTestResult] = useState<TestResult | null>(null);
 
     useEffect(() => {
-        if (chapterIds.length > 0) {
-            const timer = setTimeout(() => {
-                // In geography-mcqs.ts, the chapter field is a number or string
-                const filtered = geographyMCQs.filter(m =>
-                    chapterIds.includes(Number(m.chapter)) &&
-                    (m.difficulty === (level === 3 ? 'hard' : level === 2 ? 'medium' : 'easy')) &&
-                    (patternParam === 'statement_based' ? m.question_type === 'statement_based' : m.question_type !== 'statement_based')
-                );
-
-                const formattedMCQs: MCQ[] = filtered.map((m, idx) => ({
-                    id: m.id || `geo-${m.chapter}-${idx}`,
-                    question: m.question,
-                    options: m.options,
-                    correctAnswer: m.correctAnswer,
-                    explanation: m.explanation || "No explanation provided.",
-                    chapter: `Day ${m.chapter}`,
-                    subtopic: m.topic || "General",
+        const fetchQuestions = async () => {
+            setLoading(true)
+            try {
+                const difficulty = level === 3 ? 'hard' : level === 2 ? 'medium' : 'easy'
+                const response = await api.get('/drill/questions', {
+                    params: {
+                        subject: 'Geography',
+                        difficulty,
+                        limit: 30
+                    }
+                })
+                const raw = response.data
+                const mappedQuestions = raw.map((q: any) => ({
+                    id: q.id,
+                    question: q.question_text || q.question,
+                    options: q.options || [],
+                    correctAnswer: q.correct_option !== undefined ? q.correct_option : q.correctAnswer,
+                    explanation: q.explanation || '',
+                    chapter: q.topic || q.chapter || 'Geography',
+                    subtopic: q.subtopic || 'General',
                     difficulty: level === 3 ? 'Hard' : level === 2 ? 'Moderate' : 'Easy'
-                }));
-
-                setQuestions(formattedMCQs);
-                setLoading(false);
-            }, 800);
-            return () => clearTimeout(timer);
-        } else {
-            setLoading(false);
+                }))
+                setQuestions(mappedQuestions)
+            } catch (err) {
+                console.error('Failed to fetch Geography MCQs:', err)
+                setQuestions([])
+            } finally {
+                setLoading(false)
+            }
         }
-    }, [chapterParam, level]);
+        fetchQuestions()
+    }, [level, chapterParam, patternParam])
 
     const handleComplete = (results: QuestionResult[], timeTaken: number) => {
         const correct = results.filter(r => r.isCorrect).length;
         const accuracy = Math.round((correct / questions.length) * 100) || 0;
 
         const resultData: TestResult = {
-            questions: results, // Explicitly assign questions array
+            questions: results,
             totalQuestions: questions.length,
             correctCount: correct,
             incorrectCount: questions.length - correct,
