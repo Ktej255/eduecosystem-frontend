@@ -783,12 +783,22 @@ def get_gate_test(
         text("""
             SELECT id, text, options, correct_answer, explanation, topic_tag
             FROM bank_questions
-            WHERE LOWER(subject) = LOWER(:subj)
-              AND LOWER(type) = 'pyq'
+            WHERE (
+                LOWER(subject) = LOWER(:subj)
+                OR (
+                    LOWER(:subj) = 'history' 
+                    AND subject ILIKE ANY(ARRAY['%ancient history%', '%medieval history%', '%modern history%'])
+                )
+                OR subject ILIKE :subj_like
+            )
+            AND LOWER(type) = 'pyq'
             ORDER BY RANDOM()
             LIMIT 10
         """),
-        {"subj": subject}
+        {
+            "subj": subject, 
+            "subj_like": f"%{subject}%"
+        }
     ).fetchall()
 
     questions = []
