@@ -34,7 +34,10 @@ SUBJECT_SEQUENCE = [
     "Modern History",
     "Art and Culture",
     "International Relations",
-    "Indian Society"
+    "Indian Society",
+    "Ethics",
+    "Disaster Management",
+    "CSAT"
 ]
 
 
@@ -44,6 +47,10 @@ def get_subject_gates(db: Session = Depends(get_db), current_user = Depends(get_
     Get the unlock and pass status for all subjects in the 43-day sweep.
     Progression is sequential: pass a subject gate to unlock the next.
     """
+    # 0. Fetch subject availability (those with >0 questions seeded)
+    avail_raw = db.execute(text("SELECT subject FROM focused_questions GROUP BY subject HAVING COUNT(*) > 0")).fetchall()
+    available_set = {r[0].lower() for r in avail_raw}
+
     # 1. Fetch pass/fail status from focused_subject_gates
     gates_raw = db.execute(text("""
         SELECT subject, gate_score, passed 
@@ -64,11 +71,20 @@ def get_subject_gates(db: Session = Depends(get_db), current_user = Depends(get_
         # Polity is the root node, always accessible.
         is_unlocked = True if subject == "Polity" else prev_passed
         
+        # Check availability (normalization for & vs and)
+        s_low = subject.lower()
+        is_available = (
+            s_low in available_set or 
+            s_low.replace(" & ", " and ") in available_set or
+            s_low.replace(" and ", " & ") in available_set
+        )
+
         results.append({
             "subject": subject,
             "gate_score": g.gate_score if g else 0,
             "passed": g.passed if g else False,
-            "unlocked": is_unlocked
+            "unlocked": is_unlocked,
+            "is_available": is_available
         })
         
         # Update prev_passed for the next subject in sequence
