@@ -1,7 +1,7 @@
 "use client";
 
-import React from 'react';
-import { useRouter } from 'next/navigation';
+import React, { useState, useEffect, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useSubjectAccess } from '@/hooks/useSubjectAccess';
 import { Lock, ShoppingBag, ArrowRight, Globe2, BookOpen, Loader2, Leaf } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -38,18 +38,22 @@ interface SubjectAccessGateProps {
     children: React.ReactNode;
 }
 
-/**
- * SubjectAccessGate — wraps a page/component and blocks access
- * if the student hasn't purchased the given subject.
- *
- * Usage:
- *   <SubjectAccessGate subject="geography">
- *     <GeographyHome />
- *   </SubjectAccessGate>
- */
-export default function SubjectAccessGate({ subject, children }: SubjectAccessGateProps) {
-    const { hasAccess, isLoading } = useSubjectAccess();
+function SubjectAccessGateInner({ subject, children }: SubjectAccessGateProps) {
+    const { hasAccess, isLoading, refetch } = useSubjectAccess();
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const justUnlocked = searchParams.get('unlocked') === '1';
+    const [settling, setSettling] = useState(justUnlocked);
+
+    useEffect(() => {
+        if (!justUnlocked) return;
+        const timer = setTimeout(() => {
+            refetch();
+            setSettling(false);
+        }, 3000);
+        return () => clearTimeout(timer);
+    }, [justUnlocked, refetch]);
+
     const meta = SUBJECT_META[subject] || {
         label: subject,
         icon: <Lock className="w-10 h-10" />,
@@ -57,12 +61,14 @@ export default function SubjectAccessGate({ subject, children }: SubjectAccessGa
         price: 499,
     };
 
-    if (isLoading) {
+    if (isLoading || settling) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-muted">
                 <div className="flex flex-col items-center gap-4 text-muted-foreground">
                     <Loader2 className="w-10 h-10 animate-spin text-indigo-500" />
-                    <p className="text-sm font-medium">Verifying access...</p>
+                    <p className="text-sm font-medium">
+                        {settling ? 'Setting up your access...' : 'Verifying access...'}
+                    </p>
                 </div>
             </div>
         );
@@ -70,7 +76,7 @@ export default function SubjectAccessGate({ subject, children }: SubjectAccessGa
 
     // Dev/Staff Bypass
     const isStaff = hasAccess('teacher') || hasAccess('admin');
-    
+
     if (!hasAccess(subject) && !isStaff) {
         return (
             <div className="min-h-screen bg-[#0a0a1a] flex items-center justify-center p-6">
@@ -144,4 +150,19 @@ export default function SubjectAccessGate({ subject, children }: SubjectAccessGa
     }
 
     return <>{children}</>;
+}
+
+export default function SubjectAccessGate({ subject, children }: SubjectAccessGateProps) {
+    return (
+        <Suspense fallback={
+            <div className="min-h-screen flex items-center justify-center bg-muted">
+                <div className="flex flex-col items-center gap-4 text-muted-foreground">
+                    <Loader2 className="w-10 h-10 animate-spin text-indigo-500" />
+                    <p className="text-sm font-medium">Loading...</p>
+                </div>
+            </div>
+        }>
+            <SubjectAccessGateInner subject={subject}>{children}</SubjectAccessGateInner>
+        </Suspense>
+    );
 }
