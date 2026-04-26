@@ -3,6 +3,7 @@ const nextConfig = {
   output: 'standalone',
   experimental: {
     turbopack: false,
+    staticGenerationMaxConcurrency: 2,
   },
   generateBuildId: async () => 'build',
   productionBrowserSourceMaps: false,

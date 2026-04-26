@@ -17,7 +17,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 ARG NEXT_PUBLIC_API_URL=https://eduecosystem-backend-503001969959.us-central1.run.app
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
 
-RUN NODE_OPTIONS="--max-old-space-size=3072" \
+RUN NODE_OPTIONS="--max-old-space-size=4096" \
   NEXT_DISABLE_STATIC_GENERATION=1 npx next build
 
 
