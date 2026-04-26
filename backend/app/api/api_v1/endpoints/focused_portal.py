@@ -37,6 +37,45 @@ SUBJECT_SEQUENCE = [
     "Indian Society"
 ]
 
+
+@router.get("/subject-gates")
+def get_subject_gates(db: Session = Depends(get_db), current_user = Depends(get_current_user)):
+    """
+    Get the unlock and pass status for all subjects in the 43-day sweep.
+    Progression is sequential: pass a subject gate to unlock the next.
+    """
+    # 1. Fetch pass/fail status from focused_subject_gates
+    gates_raw = db.execute(text("""
+        SELECT subject, gate_score, passed 
+        FROM focused_subject_gates 
+        WHERE user_id = :uid
+    """), {"uid": current_user.id}).fetchall()
+    
+    gate_map = {g.subject: g for g in gates_raw}
+    
+    # 2. Build the sequential status list
+    results = []
+    prev_passed = True # Polity (first subject) is always unlocked
+    
+    for subject in SUBJECT_SEQUENCE:
+        g = gate_map.get(subject)
+        
+        # A subject is unlocked if the previous one in the sequence was passed
+        # Polity is the root node, always accessible.
+        is_unlocked = True if subject == "Polity" else prev_passed
+        
+        results.append({
+            "subject": subject,
+            "gate_score": g.gate_score if g else 0,
+            "passed": g.passed if g else False,
+            "unlocked": is_unlocked
+        })
+        
+        # Update prev_passed for the next subject in sequence
+        prev_passed = g.passed if g else False
+        
+    return results
+
 def parse_json_field(value):
     """
     Safely load JSON data. Handles cases where the DB driver might have already
@@ -290,7 +329,7 @@ def get_focused_dashboard(
     check_date = date.today()
     while True:
         count = db.execute(
-            text("SELECT COUNT(*) FROM focused_study_sessions WHERE user_id = :uid AND date = :d"),
+            text("SELECT COUNT(*) FROM focused_test_reports WHERE user_id = :uid AND date = :d"),
             {"uid": user_id, "d": check_date.isoformat()}
         ).scalar()
         if (count or 0) > 0:

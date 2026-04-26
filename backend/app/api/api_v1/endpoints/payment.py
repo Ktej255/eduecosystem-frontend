@@ -161,8 +161,11 @@ def create_guest_order(
             "customer_name": request.full_name
         }
 
-        # Redirect URL for Cashfree
-        return_url = f"{FRONTEND_URL}/student/payment/status?order_id={{order_id}}"
+        # Redirect URL for Cashfree - use graphotherapy success page for grapho products
+        if "grapho" in subject_id:
+            return_url = f"{FRONTEND_URL}/graphotherapy/payment/success?order_id={{order_id}}"
+        else:
+            return_url = f"{FRONTEND_URL}/student/payment/status?order_id={{order_id}}"
 
         cashfree_order = cashfree_service.create_order(
             order_amount=amount,

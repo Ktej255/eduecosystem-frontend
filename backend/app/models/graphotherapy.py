@@ -6,10 +6,10 @@ from app.db.session import Base
 
 # Level configuration constants
 GRAPHOTHERAPY_LEVELS = {
-    1: {"days": 30, "name": "Foundations of Flow", "price": 0}, # Free
-    2: {"days": 30, "name": "Neuro-Linguistic Integration", "price": 5000}, # Paid
-    3: {"days": 30, "name": "Mastery of Subconscious", "price": 5000}, # Paid
-    4: {"days": 30, "name": "Architect of Reality", "price": 5000} # Paid
+    1: {"days": 21, "name": "The Awakening", "price": 2599}, # 21 Days
+    2: {"days": 30, "name": "The Scholar", "price": 5999}, # 30 Days
+    3: {"days": 40, "name": "The Architect", "price": 9999}, # 40 Days
+    4: {"days": 90, "name": "The Healer", "price": 15999} # 90 Days
 }
 
 class VerificationStatus(str, enum.Enum):
@@ -85,11 +85,31 @@ class GraphotherapyProgress(Base):
     user = relationship("User", back_populates="graphotherapy_progress")
 
 class GraphotherapyDayCompletion(Base):
-    __tablename__ = "graphotherapy_day_completions"
+ __tablename__ = "graphotherapy_day_completions"
 
-    id = Column(Integer, primary_key=True, index=True)
-    user_id = Column(Integer, ForeignKey("users.id"))
-    level = Column(Integer)
-    day = Column(Integer)
-    completed_at = Column(DateTime, default=datetime.utcnow)
-    image_url = Column(String, nullable=True)
+ id = Column(Integer, primary_key=True, index=True)
+ user_id = Column(Integer, ForeignKey("users.id"))
+ level = Column(Integer)
+ day = Column(Integer)
+ completed_at = Column(DateTime, default=datetime.utcnow)
+ image_url = Column(String, nullable=True)
+
+
+class GraphoLead(Base):
+ """Model for capturing leads from the free graphotherapy analysis funnel."""
+ __tablename__ = "grapho_leads"
+
+ id = Column(Integer, primary_key=True, index=True)
+ name = Column(String(255), nullable=False)
+ email = Column(String(255), nullable=False, index=True)
+ phone = Column(String(20), nullable=True)
+ image_path = Column(String(500), nullable=True)
+ analysis_json = Column(JSON, nullable=True)
+ analysis_status = Column(String(50), default="pending")
+ recommended_level = Column(Integer, nullable=True)
+ converted = Column(Boolean, default=False)
+ utm_source = Column(String(100), nullable=True)
+ utm_medium = Column(String(100), nullable=True)
+ utm_campaign = Column(String(100), nullable=True)
+ created_at = Column(DateTime, default=datetime.utcnow)
+ updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)

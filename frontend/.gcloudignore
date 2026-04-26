@@ -15,3 +15,4 @@ src/components/upsc/subjects/polity/data/raw_mcqs/
 **/*.tar
 **/*.zip
 # But keep important ones if needed (none are needed for build)
+.next-qa/

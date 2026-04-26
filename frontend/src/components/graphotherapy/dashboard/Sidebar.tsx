@@ -12,7 +12,8 @@ import {
   Settings,
   LogOut,
   BrainCircuit,
-  Award
+  Award,
+  Calendar
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -40,6 +41,13 @@ const routes = [
     icon: Award,
     href: "/graphotherapy-dashboard/achievements",
     color: "text-orange-700",
+  },
+  {
+    label: "Book Session",
+    icon: Calendar,
+    href: "/graphotherapy/book-session",
+    color: "text-emerald-500",
+    external: true,
   },
   {
     label: "Settings",

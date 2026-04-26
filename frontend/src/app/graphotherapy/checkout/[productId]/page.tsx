@@ -26,8 +26,8 @@ const PRODUCTS = {
     'level-1': {
         title: "Level 1 Graphotherapy",
         description: "Foundation course to reprogram your subconscious mind.",
-        price: 4999,
-        originalPrice: 7999,
+        price: 2599,
+        originalPrice: 4999,
         duration: "21 Days",
         features: [
             "21-Day Guided Practice",
@@ -41,7 +41,7 @@ const PRODUCTS = {
     'level-2': {
         title: "Level 2 Graphotherapy",
         description: "Advanced techniques for deeper behavioral changes.",
-        price: 6999,
+        price: 5999,
         originalPrice: 9999,
         duration: "30 Days",
         features: [
@@ -58,8 +58,8 @@ const PRODUCTS = {
     'level-3': {
         title: "Level 3 Graphotherapy",
         description: "Mastery level for complete transformation.",
-        price: 7999,
-        originalPrice: 12999,
+        price: 9999,
+        originalPrice: 14999,
         duration: "40 Days",
         features: [
             "40-Day Mastery Course",
@@ -164,13 +164,36 @@ export default function CheckoutPage() {
 
         setIsProcessing(true);
 
-        // TODO: Integrate with actual payment gateway (Razorpay/PhonePe)
-        // For now, simulate processing
-        setTimeout(() => {
+        try {
+            // Call backend to create Cashfree order
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/payment/create-guest-order`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    full_name: formData.name,
+                    email: formData.email,
+                    whatsapp: formData.phone,
+                    subject_id: productId
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to create order');
+            }
+
+            const orderData = await response.json();
+
+            // Redirect to Cashfree payment page
+            if (orderData.payment_link) {
+                window.location.href = orderData.payment_link;
+            } else {
+                throw new Error('No payment link received');
+            }
+        } catch (error) {
+            console.error('Payment error:', error);
             setIsProcessing(false);
-            // Redirect to success page or payment gateway
-            alert('Payment integration coming soon! Your details have been captured.');
-        }, 2000);
+            setErrors({ ...errors, submit: 'Payment failed. Please try again.' });
+        }
     };
 
     return (
@@ -315,8 +338,8 @@ export default function CheckoutPage() {
                                                 type="button"
                                                 onClick={() => setFormData({ ...formData, paymentMethod: 'upi' })}
                                                 className={`p-4 border-2 rounded-lg flex flex-col items-center gap-2 transition-all ${formData.paymentMethod === 'upi'
-                                                        ? 'border-purple-600 bg-purple-50 dark:bg-purple-900/20'
-                                                        : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
+                                                    ? 'border-purple-600 bg-purple-50 dark:bg-purple-900/20'
+                                                    : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
                                                     }`}
                                             >
                                                 <Smartphone className="h-6 w-6 text-purple-600" />
@@ -326,8 +349,8 @@ export default function CheckoutPage() {
                                                 type="button"
                                                 onClick={() => setFormData({ ...formData, paymentMethod: 'card' })}
                                                 className={`p-4 border-2 rounded-lg flex flex-col items-center gap-2 transition-all ${formData.paymentMethod === 'card'
-                                                        ? 'border-purple-600 bg-purple-50 dark:bg-purple-900/20'
-                                                        : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
+                                                    ? 'border-purple-600 bg-purple-50 dark:bg-purple-900/20'
+                                                    : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
                                                     }`}
                                             >
                                                 <CreditCard className="h-6 w-6 text-purple-600" />
@@ -337,8 +360,8 @@ export default function CheckoutPage() {
                                                 type="button"
                                                 onClick={() => setFormData({ ...formData, paymentMethod: 'netbanking' })}
                                                 className={`p-4 border-2 rounded-lg flex flex-col items-center gap-2 transition-all ${formData.paymentMethod === 'netbanking'
-                                                        ? 'border-purple-600 bg-purple-50 dark:bg-purple-900/20'
-                                                        : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
+                                                    ? 'border-purple-600 bg-purple-50 dark:bg-purple-900/20'
+                                                    : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
                                                     }`}
                                             >
                                                 <Building2 className="h-6 w-6 text-purple-600" />

@@ -18,6 +18,7 @@ class UserBase(BaseModel):
     is_graphotherapy_exclusive: Optional[bool] = False
     revision_level: Optional[str] = None
     revision_exam_id: Optional[str] = None
+    is_focused_portal_user: bool = False
 
 
 # Properties to receive via API on creation

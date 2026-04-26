@@ -444,7 +444,7 @@
 
                 try {
                     // Call guest order endpoint
-                    const response = await fetch('/api/v1/payment/create-guest-order', {
+                    const response = await fetch('https://eduecosystem-backend-503001969959.us-central1.run.app/api/v1/payment/create-guest-order', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'

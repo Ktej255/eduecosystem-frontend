@@ -149,6 +149,7 @@ all_cors_origins = [
     "https://www.saritclasses.com",
     "http://localhost:3000",
     "http://localhost:3001",
+    "http://localhost:8000",
 ]
 
 # Merge with settings if available
@@ -266,12 +267,6 @@ def read_root():
         "version": APP_VERSION,
         "docs": "/docs"
     }
-
-@app.get("/routes")
-def get_routes():
-    """List all registered routes."""
-    return [{"path": route.path, "name": route.name} for route in app.routes]
-
 
 # Health check endpoint
 @app.get("/health")

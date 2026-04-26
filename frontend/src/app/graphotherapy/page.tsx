@@ -44,7 +44,7 @@ export default function GraphotherapyLandingPage() {
             subtitle: "Foundation & Mindfulness",
             description: "Begin your transformation journey. Master the basic strokes that rewire your subconscious for calm and clarity.",
             duration: "21 Days",
-            price: "4,999",
+            price: "2,599",
             features: [
                 "21-Day Guided Daily Practice",
                 "Foundational Stroke Correction (t-bars, loops)",
@@ -61,7 +61,7 @@ export default function GraphotherapyLandingPage() {
             subtitle: "Focus & Academic Excellence",
             description: "Unlock laser-sharp focus and memory retention. Designed for students and professionals seeking peak mental performance.",
             duration: "30 Days",
-            price: "6,999",
+            price: "5,999",
             features: [
                 "30-Day Intensive Program",
                 "Concentration & Memory Strokes",
@@ -208,7 +208,7 @@ export default function GraphotherapyLandingPage() {
                                 <Button
                                     size="lg"
                                     className="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-foreground text-lg px-8 py-6 h-auto rounded-full shadow-xl shadow-amber-500/30 font-semibold btn-ink-hover group"
-                                    onClick={() => setShowFreeAnalysisPopup(true)}
+                                    onClick={() => router.push('/graphotherapy/free-analysis')}
                                 >
                                     <span className="relative z-10 flex items-center gap-2">
                                         Get Free Analysis
@@ -425,7 +425,7 @@ export default function GraphotherapyLandingPage() {
                                 >
                                     <LevelCard
                                         {...level}
-                                        onSelect={() => router.push(`/student/graphotherapy/level/${level.level}`)}
+                                        onSelect={() => router.push(`/graphotherapy/checkout/level-${level.level}`)}
                                     />
                                 </motion.div>
                             ))}
@@ -499,7 +499,7 @@ export default function GraphotherapyLandingPage() {
                             <Button
                                 size="lg"
                                 className="bg-gray-900 text-white hover:bg-gray-800 text-lg px-10 py-6 h-auto rounded-full font-semibold shadow-xl"
-                                onClick={() => router.push('/graphotherapy/funnel')}
+                                onClick={() => router.push('/graphotherapy/free-analysis')}
                             >
                                 Start Free Analysis
                                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -560,7 +560,7 @@ export default function GraphotherapyLandingPage() {
 
                             <Button
                                 className="w-full h-14 text-lg bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-foreground shadow-lg font-bold rounded-xl"
-                                onClick={() => router.push('/graphotherapy/funnel')}
+                                onClick={() => router.push('/graphotherapy/free-analysis')}
                             >
                                 Yes! Analyze My Handwriting
                             </Button>

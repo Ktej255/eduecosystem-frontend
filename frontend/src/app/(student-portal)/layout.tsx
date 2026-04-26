@@ -31,7 +31,7 @@ export default function StudentPortalLayout({
     }
 
     // Prevent flashing main portal while redirect is pending
-    if (!loading && user?.is_focused_portal_user) {
+    if (!loading && user?.is_focused_portal_user && !pathname?.startsWith('/student/focused')) {
         return null;
     }
 
