@@ -215,7 +215,7 @@ from app.api.api_v1.endpoints import knowledge_graph
 
 # Study Sessions (Pomodoro, Revision)
 from app.api.api_v1.endpoints import study
-# api_router.include_router(study.router, prefix="/study", tags=["study"])
+api_router.include_router(study.router, prefix="/study", tags=["study"])
 
 # Polity Chapter Tracker
 from app.api.api_v1.endpoints import polity
@@ -332,7 +332,7 @@ from app.api.api_v1.endpoints import admin_student_activity
 
 # User Sessions (Heartbeat & Usage Tracking)
 from app.api.api_v1.endpoints import user_sessions
-# api_router.include_router(user_sessions.router, prefix="/user-sessions", tags=["user-sessions"])
+api_router.include_router(user_sessions.router, prefix="/user-sessions", tags=["user-sessions"])
 
 # Admin Teacher Management
 from app.api.api_v1.endpoints import admin_teachers
