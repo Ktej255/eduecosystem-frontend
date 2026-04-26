@@ -932,6 +932,22 @@ export default function FocusedPortalPage() {
   return (
     <>
       <style>{`
+        @media (min-width: 769px) {
+          .mobile-hamburger { display: none !important; }
+          .focused-sidebar {
+            position: relative !important;
+            transform: none !important;
+            height: auto !important;
+            width: 100% !important;
+            padding: 0 !important;
+            overflow-y: visible !important;
+          }
+          .sidebar-overlay { display: none !important; }
+          .focused-main-grid {
+            grid-template-columns: 300px 1fr 340px !important;
+          }
+        }
+
         @media (max-width: 768px) {
           .mobile-hamburger { display: block !important; }
           .focused-sidebar {
@@ -1048,7 +1064,6 @@ export default function FocusedPortalPage() {
           className="focused-main-grid"
           style={{ 
             display: "grid", 
-            gridTemplateColumns: activeTab === 'focus' ? "300px 1fr 340px" : "1fr",
             gap: 32, 
             alignItems: "start"
           }}>
@@ -1168,11 +1183,11 @@ export default function FocusedPortalPage() {
                               opacity: g.unlocked ? 1 : 0.5
                             }}>
                               <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                                <div style={{ fontSize: 16 }}>{g.passed ? '✅' : g.unlocked ? '🔓' : '🔒'}</div>
+                                <div style={{ fontSize: 16 }}>{g.passed ? '✅' : g.unlocked ? '🔓' : ''}</div>
                                 <span style={{ fontSize: 14, fontWeight: 600 }}>{g.subject}</span>
                               </div>
                               <span style={{ fontSize: 11, fontWeight: 700, color: g.passed ? C.green : g.unlocked ? C.gold : C.textMuted }}>
-                                {g.passed ? 'PASSED' : g.unlocked ? 'IN PROGRESS' : 'LOCKED'}
+                                {g.passed ? 'PASSED' : g.unlocked ? 'IN PROGRESS' : ''}
                               </span>
                             </div>
                           ))}
