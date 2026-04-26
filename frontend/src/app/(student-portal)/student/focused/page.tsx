@@ -614,13 +614,37 @@ export default function FocusedPortalPage() {
         method: "POST",
         headers: { ...authHeader, "Content-Type": "application/json" },
         body: JSON.stringify({
-          subject: currentSubject, 
-          cluster_number: currentCluster, 
+          subject: currentSubject,
+          cluster_number: currentCluster,
           cluster_name: currentClusterName,
           pomodoro_number: currentPomodoro, confidence_pulse: pulse, duration_minutes: 25,
         }),
       });
     } catch (e) { console.error(e); }
+
+    // Record study session
+    try {
+      const sessionStart = new Date(Date.now() - 25 * 60 * 1000).toISOString();
+      const sessionEnd = new Date().toISOString();
+      const formData = new FormData();
+      formData.append('email', user?.email || '');
+      formData.append('session_type', 'study');
+      formData.append('start_time', sessionStart);
+      formData.append('end_time', sessionEnd);
+      formData.append('duration_seconds', String(25 * 60));
+      formData.append('topic_name', currentClusterName || '');
+      formData.append('subject_name', currentSubject || '');
+      formData.append('cycle_number', String(currentPomodoro));
+      formData.append('phase_number', '1');
+      await fetch(`${API}/study/sessions/record`, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}` },
+        body: formData,
+      });
+    } catch {
+      // Silent fail — session recording should never block the Pomodoro flow
+    }
+
     setPomodoroCount(c => c + 1);
     setCurrentPomodoro(p => p + 1);
     setShowPulse(false);
