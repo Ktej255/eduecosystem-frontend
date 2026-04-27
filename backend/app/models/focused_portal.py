@@ -19,8 +19,12 @@ class FocusedSubjectGate(Base):
     user_id = Column(Integer, ForeignKey("users.id"), nullable=True)
     subject = Column(String(100))
     gate_score = Column(Float, default=0)
+    total_questions = Column(Integer, default=10)
     passed = Column(Boolean, default=False)
     is_unlocked = Column(Boolean, default=False)
+    flagged_for_revision = Column(Boolean, default=False)
+    completed_at = Column(DateTime, nullable=True)
+    updated_at = Column(DateTime, nullable=True)
     created_at = Column(DateTime, server_default=func.now())
 
 class FocusedStudySession(Base):
@@ -57,3 +61,12 @@ class FocusedQuestion(Base):
     option_d = Column(Text)
     correct_answer = Column(String(1))
     topic_tag = Column(String(200))
+
+class FocusedClusterProgress(Base):
+    __tablename__ = "focused_cluster_progress"
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=True)
+    subject = Column(String(100))
+    cluster_number = Column(Integer)
+    status = Column(String(50))
+    last_accessed_at = Column(DateTime, nullable=True)
