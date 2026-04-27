@@ -354,6 +354,90 @@ def get_focused_dashboard(
         else:
             break
 
+    # ── TASK 2: revision_due_today from student_concept_mastery ──
+    revision_due_today = []
+    try:
+        overdue_rows = db.execute(
+            text("""
+                SELECT cn.subject_slug, cn.node_name, scm.next_review_date
+                FROM student_concept_mastery scm
+                JOIN concept_nodes cn ON cn.id = scm.node_id
+                WHERE scm.student_id = :uid
+                  AND scm.next_review_date <= CURRENT_DATE
+                ORDER BY scm.next_review_date ASC
+                LIMIT 5
+            """),
+            {"uid": user_id}
+        ).fetchall()
+
+        for r in overdue_rows:
+            due_date = r[2]
+            if due_date:
+                delta = (date.today() - due_date).days
+                if delta == 0:
+                    since = "today"
+                elif delta == 1:
+                    since = "1 day"
+                else:
+                    since = f"{delta} days"
+            else:
+                since = "today"
+            revision_due_today.append({
+                "subject": r[0] or "Unknown",
+                "topic": r[1] or "Unknown",
+                "due_since": since,
+            })
+    except Exception as e:
+        print(f"DEBUG revision_due_today error: {e}")
+
+    # ── TASK 3: todays_plan — adaptive daily recommendation ──
+    todays_plan = {
+        "primary_focus": None,
+        "revision_topic": None,
+        "estimated_time_minutes": 45,
+    }
+    try:
+        # 1. Find subject+cluster with lowest avg score in last 3 tests
+        lowest = db.execute(
+            text("""
+                SELECT subject, cluster_number, AVG(percentage) as avg_pct
+                FROM focused_test_reports
+                WHERE user_id = :uid
+                  AND created_at >= NOW() - INTERVAL '3 days'
+                GROUP BY subject, cluster_number
+                ORDER BY avg_pct ASC
+                LIMIT 1
+            """),
+            {"uid": user_id}
+        ).fetchone()
+
+        if lowest:
+            cluster_name = f"Cluster {lowest[1]}"
+            if lowest[0] == "Polity":
+                cluster_name = POLITY_CLUSTERS.get(lowest[1], cluster_name)
+            todays_plan["primary_focus"] = {
+                "subject": lowest[0],
+                "cluster": cluster_name,
+                "reason": "Lowest score in last 3 tests",
+            }
+
+        # 2. Find most overdue revision topic
+        if revision_due_today:
+            top = revision_due_today[0]
+            todays_plan["revision_topic"] = {
+                "subject": top["subject"],
+                "topic": top["topic"],
+                "reason": "Due for revision",
+            }
+
+        # 3. Estimate time
+        todays_plan["estimated_time_minutes"] = (
+            (30 if todays_plan["primary_focus"] else 0) +
+            (15 if todays_plan["revision_topic"] else 0)
+        ) or 45
+    except Exception as e:
+        print(f"DEBUG todays_plan error: {e}")
+
     return {
         "subject_map": subject_map,
         "current_active": current,
@@ -363,6 +447,8 @@ def get_focused_dashboard(
         "evening_test_done": evening_test_done,
         "streak": streak,
         "date": today_str,
+        "revision_due_today": revision_due_today,
+        "todays_plan": todays_plan,
     }
 
 
@@ -765,6 +851,32 @@ def submit_test(
          "status": "completed" if percent >= 70 else "attempted"}
     )
     db.commit()
+
+    # Write gap analysis records
+    try:
+        for tag, stats in topic_stats.items():
+            avg_time = stats["time_sum"] / stats["total"] if stats["total"] > 0 else 0
+            accuracy = (stats["correct"] / stats["total"]) * 100 if stats["total"] > 0 else 0
+            if accuracy < 60:
+                sev = "high" if accuracy < 30 else ("medium" if accuracy < 45 else "low")
+                db.execute(text("""
+                    INSERT INTO upsc_gap_analysis
+                    (user_id, subject, topic_tag, gap_type, severity, created_at)
+                    VALUES (:uid, :subj, :topic, 'score', :sev, NOW())
+                    ON CONFLICT DO NOTHING
+                """), {"uid": user_id, "subj": body.subject, "topic": tag, "sev": sev})
+            if avg_time > 45:
+                sev = "high" if avg_time > 90 else ("medium" if avg_time > 60 else "low")
+                db.execute(text("""
+                    INSERT INTO upsc_gap_analysis
+                    (user_id, subject, topic_tag, gap_type, severity, created_at)
+                    VALUES (:uid, :subj, :topic, 'time', :sev, NOW())
+                    ON CONFLICT DO NOTHING
+                """), {"uid": user_id, "subj": body.subject, "topic": tag, "sev": sev})
+        db.commit()
+    except Exception as e:
+        db.rollback()
+        print(f"Gap analysis write error (non-fatal): {e}")
 
     return {
         "report_id": report_id,
