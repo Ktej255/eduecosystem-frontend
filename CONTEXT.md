@@ -126,7 +126,7 @@ Commits awaiting deployment:
 - Science & Technology: 250 questions, 10 clusters ✅
 - Ancient History: 125 questions, 5 clusters ✅
 - Medieval History: 125 questions, 5 clusters ✅
-- Geography: seeding pending
+- Geography: 250 questions, 10 clusters ✅
 
 ### Frontend Revision
 - Live revision: eduecosystem-frontend-new-deploy (non-standard name — needs proper redeploy)
