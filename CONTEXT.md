@@ -117,3 +117,16 @@ Commits awaiting deployment:
 ### Pending Deploy
 - cbcf398d — frontend fix
 - 1646d845 — FocusedQuestion model fix
+
+### Seeding Complete (April 27 2026)
+- Polity: 250 questions, 10 clusters ✅
+- Environment: 250 questions, 10 clusters ✅
+- Economy: 250 questions, 10 clusters ✅
+- Modern History: 250 questions, 10 clusters ✅
+- Science & Technology: 250 questions, 10 clusters ✅
+- Ancient History: 125 questions, 5 clusters ✅
+- Medieval History: 125 questions, 5 clusters ✅
+- Geography: seeding pending
+
+### Frontend Revision
+- Live revision: eduecosystem-frontend-new-deploy (non-standard name — needs proper redeploy)
