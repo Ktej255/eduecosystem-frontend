@@ -4,7 +4,10 @@ from sqlalchemy.orm import Session
 from app.api import deps
 from app.models.user import User
 from app.services.gemini_service import gemini_service
-from app.services.rag_service import rag_service
+try:
+    from app.services.rag_service import rag_service
+except Exception:
+    rag_service = None
 from pydantic import BaseModel
 
 router = APIRouter()

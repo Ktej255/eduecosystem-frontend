@@ -1,7 +1,10 @@
 from typing import Any, List, Optional, Dict
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
-from app.services.rag_service import rag_service
+try:
+    from app.services.rag_service import rag_service
+except Exception:
+    rag_service = None
 from app.api import deps
 from app.models.user import User
 from sqlalchemy.orm import Session
