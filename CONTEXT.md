@@ -97,3 +97,23 @@ Commits awaiting deployment:
 - 211dfe4a — models registered in __init__.py
 - ff950195 — FocusedStudySession columns fixed
 - ba4e338a — all columns fixed + FocusedClusterProgress added
+
+## WEEK 2 PROGRESS (April 27 2026)
+
+### Seeding Scripts — Verified and Ready
+- seed_environment_focused.py — 10 clusters, 250 questions
+- seed_economy_focused.py — 10 clusters, 250 questions
+- seed_history_focused.py — 10 clusters, 250 questions
+- seed_modern_history_focused.py — 10 clusters, 250 questions
+- seed_geography_focused.py — already seeded, 250 questions
+
+### Frontend Fixes Applied
+- cbcf398d — silent catch blocks now log errors visibly
+
+### Models Complete
+- All 6 focused portal tables have correct SQLAlchemy models
+- FocusedQuestion now has all 14 production columns
+
+### Pending Deploy
+- cbcf398d — frontend fix
+- 1646d845 — FocusedQuestion model fix
