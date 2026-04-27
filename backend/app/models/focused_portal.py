@@ -43,10 +43,20 @@ class FocusedTestReport(Base):
     __tablename__ = "focused_test_reports"
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey("users.id"), nullable=True)
+    date = Column(String(20))
     subject = Column(String(100))
     cluster_number = Column(Integer)
     score = Column(Float)
     total_questions = Column(Integer)
+    percentage = Column(Float)
+    weak_topics = Column(Text)
+    trap_questions_missed = Column(Text)
+    correct_answers = Column(Text)
+    wrong_answers = Column(Text)
+    time_taken_seconds = Column(Integer)
+    confidence_before_test = Column(Text)
+    improvement_vs_yesterday = Column(Float)
+    bkt_updates = Column(Text)
     submitted_at = Column(DateTime, server_default=func.now())
 
 class FocusedQuestion(Base):
