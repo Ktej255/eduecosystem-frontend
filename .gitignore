@@ -162,3 +162,35 @@ app_runner_error.json
 latest_crash_logs.json
 proxy_log.txt
 build_log.txt
+
+# Agent temp directories
+.antigravity/
+.kilo/
+.claude/
+backend/.runtime_tmp/
+
+# Random agent-generated no-extension files
+# Audit and debug scripts dumped in root
+audit_*.py
+check_*.py
+fix*.py
+seed_*.py
+activate_*.py
+query_*.py
+analyze_*.py
+db_fixes*.py
+finalize_*.py
+*.ps1
+audit_*.txt
+alembic_hist*.txt
+api_results.txt
+admin_diff.txt
+audit_data.json
+all_logs.json
+
+# Graphotherapy and subject audit docs dumped in root
+GRAPHOTHERAPY_*.md
+Geography_Subject_Bible.md
+History_Subject_Bible.md
+Polity_Subject_Bible.md
+MASTER_SYSTEM_STATE.md
