@@ -306,5 +306,5 @@ from app.models.student_concept_mastery import StudentConceptMastery
 from app.models.student_activity_log import StudentActivityLog
 
 # Focused Portal
-from app.models.focused_portal import FocusedPortalEnrollment, FocusedSubjectGate, FocusedStudySession, FocusedTestReport, FocusedQuestion
+from app.models.focused_portal import FocusedPortalEnrollment, FocusedSubjectGate, FocusedStudySession, FocusedTestReport, FocusedQuestion, FocusedClusterProgress
 

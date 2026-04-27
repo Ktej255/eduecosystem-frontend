@@ -74,3 +74,26 @@ These exist in code but are NOT yet connected to students:
 - adaptive_learning.py — BKT mastery
 - knowledge_graph.py — concept nodes
 - rag_service.py — DO NOT INITIALIZE AT STARTUP (causes 403 crash)
+
+## WEEK 1 FINDINGS (April 27 2026)
+
+### Real Production Tables Confirmed
+- focused_portal_enrollments ✅
+- focused_subject_gates ✅ (has: gate_score, total_questions, passed, flagged_for_revision, completed_at, updated_at)
+- focused_study_sessions ✅ (has: date, subject, cluster_number, cluster_name, pomodoro_number, confidence_pulse, duration_minutes)
+- focused_test_reports ✅ (has: percentage, weak_topics, trap_questions_missed, correct_answers, wrong_answers)
+- focused_questions ✅ (has: question_text, option_a/b/c/d, correct_answer, topic_tag)
+- focused_cluster_progress ✅ (has: subject, cluster_number, status, last_accessed_at)
+- bank_questions ✅ (16,700+ questions)
+
+### Known Issues Found This Week
+- focused_test_reports model missing columns: percentage, weak_topics, trap_questions_missed, correct_answers, wrong_answers
+- RAG service was crashing backend at startup — FIXED in commit 220c0c41
+- Backend was not deploying — FIXED in revision 00198-6x9
+
+### Pending Deploy
+Commits awaiting deployment:
+- 01f274e1 — focused portal models created
+- 211dfe4a — models registered in __init__.py
+- ff950195 — FocusedStudySession columns fixed
+- ba4e338a — all columns fixed + FocusedClusterProgress added
