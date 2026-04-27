@@ -64,13 +64,17 @@ class FocusedQuestion(Base):
     id = Column(Integer, primary_key=True, index=True)
     subject = Column(String(100))
     cluster_number = Column(Integer)
+    cluster_name = Column(String(200))
+    question_number = Column(Integer)
     question_text = Column(Text)
     option_a = Column(Text)
     option_b = Column(Text)
     option_c = Column(Text)
     option_d = Column(Text)
-    correct_answer = Column(String(1))
+    correct_answer = Column(String(10))
+    explanation = Column(Text)
     topic_tag = Column(String(200))
+    created_at = Column(DateTime, server_default=func.now())
 
 class FocusedClusterProgress(Base):
     __tablename__ = "focused_cluster_progress"
