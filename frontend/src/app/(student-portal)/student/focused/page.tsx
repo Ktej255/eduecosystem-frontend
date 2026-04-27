@@ -532,6 +532,7 @@ export default function FocusedPortalPage() {
       if (res.ok) setDashData(await res.json());
     } catch (e) {
       console.error("Dashboard fetch failed", e);
+      setError("Dashboard failed to load. Please refresh.");
     }
   }, [token]);
 
@@ -554,6 +555,7 @@ export default function FocusedPortalPage() {
       }
     } catch (e) {
       console.error("Clusters fetch failed", e);
+      setError("Failed to load questions. Please refresh.");
     } finally {
       setLoadingClusters(false);
     }
@@ -620,7 +622,7 @@ export default function FocusedPortalPage() {
           pomodoro_number: currentPomodoro, confidence_pulse: pulse, duration_minutes: 25,
         }),
       });
-    } catch (e) { console.error(e); }
+    } catch (e) { console.error("Pomodoro save failed", e); }
 
     // Record study session
     try {
@@ -641,7 +643,8 @@ export default function FocusedPortalPage() {
         headers: { Authorization: `Bearer ${token}` },
         body: formData,
       });
-    } catch {
+    } catch (e) {
+      console.error("Study session record failed", e);
       // Silent fail — session recording should never block the Pomodoro flow
     }
 
