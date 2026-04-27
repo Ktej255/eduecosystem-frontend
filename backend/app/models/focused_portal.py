@@ -27,9 +27,13 @@ class FocusedStudySession(Base):
     __tablename__ = "focused_study_sessions"
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey("users.id"), nullable=True)
+    date = Column(String(20))
     subject = Column(String(100))
+    cluster_number = Column(Integer)
+    cluster_name = Column(String(200))
+    pomodoro_number = Column(Integer)
+    confidence_pulse = Column(String(10))
     duration_minutes = Column(Integer)
-    session_date = Column(DateTime, server_default=func.now())
 
 class FocusedTestReport(Base):
     __tablename__ = "focused_test_reports"
