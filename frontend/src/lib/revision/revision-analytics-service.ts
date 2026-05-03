@@ -5,6 +5,7 @@
  */
 
 import { TreeBranch, MOCK_TREE_DATA } from '../../components/revision/immersive/tree-data';
+import { API_BASE as API_URL } from '@/lib/api';
 
 export interface CycleSession {
     id: string;
@@ -44,7 +45,6 @@ export interface RevisionAnalytics {
 }
 
 const STORAGE_KEY = 'revision_cycle_sessions';
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
 export async function saveCycleSession(session: CycleSession): Promise<void> {
     // 1. Save locally first (Offline persistence)
@@ -212,7 +212,6 @@ function isToday(date: Date): boolean {
 
 export async function fetchKnowledgeTree(): Promise<TreeBranch[]> {
     const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
     try {
         // Redirect to new Anti-Gravity Mastery API

@@ -5,6 +5,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Button } from "@/components/ui/button";
 import { Compass, Calendar, Clock, CheckCircle, Play, BrainCircuit } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { api } from '@/lib/api';
 
 export default function UPSCOnboarding() {
     const [isOpen, setIsOpen] = useState(false);
@@ -20,11 +21,9 @@ export default function UPSCOnboarding() {
                 return;
             }
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/student-reports/upsc_onboarding`, {
-                    headers: { 'Authorization': `Bearer ${token}` }
-                });
-                if (res.ok) {
-                    const report = await res.json();
+                const res = await api.get('/student-reports/upsc_onboarding');
+                if (res.status === 200) {
+                    const report = res.data;
                     if (report?.data?.completed) {
                         return; // Already onboarded on the backend
                     }
@@ -46,20 +45,13 @@ export default function UPSCOnboarding() {
         const token = localStorage.getItem("token");
         if (token) {
             try {
-                await fetch(`${process.env.NEXT_PUBLIC_API_URL}/student-reports/`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    },
-                    body: JSON.stringify({
-                        report_type: 'onboarding',
-                        report_key: 'upsc_onboarding',
-                        data: {
-                            completed: true,
-                            plan: { days: surveyData.days, dailyHours: surveyData.dailyHours, path: pathType }
-                        }
-                    })
+                await api.post('/student-reports/', {
+                    report_type: 'onboarding',
+                    report_key: 'upsc_onboarding',
+                    data: {
+                        completed: true,
+                        plan: { days: surveyData.days, dailyHours: surveyData.dailyHours, path: pathType }
+                    }
                 });
             } catch (err) { }
         }

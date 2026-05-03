@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Newspaper, CheckCircle, XCircle, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { toast } from 'react-hot-toast';
+import { API_BASE } from '@/lib/api';
 
 interface MCQ {
     id: number;
@@ -27,7 +28,7 @@ export default function DailyBriefing() {
         setLoading(true);
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/productivity/news-quiz`, {
+            const response = await fetch(`${API_BASE}/productivity/news-quiz`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

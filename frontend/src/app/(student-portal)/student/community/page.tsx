@@ -15,6 +15,7 @@ import Leaderboard from '@/components/upsc/Leaderboard';
 import StudyGroups from '@/components/social/StudyGroups';
 import MessageThread from '@/components/social/MessageThread';
 import SuccessCard from '@/components/community/SuccessCard';
+import { API_BASE } from '@/lib/api';
 
 // Mock friends for messaging
 const MOCK_FRIENDS = [
@@ -38,7 +39,7 @@ export default function CommunityPage() {
     useEffect(() => {
         const fetchPresence = async () => {
             try {
-                const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+                const baseUrl = API_BASE;
                 const token = localStorage.getItem('edueco_auth_token');
                 const response = await fetch(`${baseUrl}/community/presence`, {
                     headers: { 'Authorization': `Bearer ${token}` }
@@ -54,7 +55,7 @@ export default function CommunityPage() {
 
         // Update presence on load
         const updateMyPresence = async () => {
-            const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+            const baseUrl = API_BASE;
             const token = localStorage.getItem('edueco_auth_token');
             await fetch(`${baseUrl}/community/presence?status=online`, {
                 method: 'POST',
@@ -69,7 +70,7 @@ export default function CommunityPage() {
     }, []);
 
     const handleChallenge = async (opponentId: number) => {
-        const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1/pack-battles';
+        const baseUrl = `${API_BASE}/pack-battles`;
         const token = localStorage.getItem('edueco_auth_token');
         try {
             const response = await fetch(`${baseUrl}/challenge?defender_id=${opponentId}`, {

@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { toast } from 'react-hot-toast';
 import { useAuth } from '@/contexts/auth-context';
 import { isMasterUser } from '@/config/user-access-config';
+import { API_BASE } from '@/lib/api';
 
 
 interface Message {
@@ -46,7 +47,7 @@ export default function SocraticChatWidget() {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/ai/socratic`, {
+            const response = await fetch(`${API_BASE}/ai/socratic`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

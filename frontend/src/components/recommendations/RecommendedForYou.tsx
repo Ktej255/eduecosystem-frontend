@@ -39,7 +39,7 @@ export default function RecommendedForYou({
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/recommendations/for-you?limit=${limit}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/recommendations/for-you?limit=${limit}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },

@@ -165,7 +165,10 @@ class Settings(BaseSettings):
 
     @property
     def REDIS_URL(self) -> str:
-        """Construct Redis URL from components"""
+        """Construct Redis URL from components or respect the environment variable if provided."""
+        url = os.getenv("REDIS_URL")
+        if url:
+            return url
         if self.REDIS_PASSWORD:
             return f"redis://:{self.REDIS_PASSWORD}@{self.REDIS_HOST}:{self.REDIS_PORT}/{self.REDIS_DB}"
         return f"redis://{self.REDIS_HOST}:{self.REDIS_PORT}/{self.REDIS_DB}"
@@ -211,6 +214,8 @@ class Settings(BaseSettings):
     LLAMA_API_KEY: str = os.getenv("LLAMA_API_KEY", "")
     OPENROUTER_BASE_URL: str = "https://openrouter.ai/api/v1"
     DEFAULT_AI_MODEL: str = os.getenv("DEFAULT_AI_MODEL", "google/gemini-3-flash-preview")
+    INTERNAL_TASK_TOKEN: str = os.getenv("INTERNAL_TASK_TOKEN", "sarit-wisdom-2026-prod")
+    ALERT_WEBHOOK_URL: str = os.getenv("ALERT_WEBHOOK_URL", "placeholder")
 
     model_config = SettingsConfigDict(
         env_file=".env",

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import NotificationItem from "./NotificationItem";
 import { CheckCheck } from "lucide-react";
+import { API_BASE } from "@/lib/api";
 
 interface NotificationPanelProps {
   onClose: () => void;
@@ -23,7 +24,7 @@ export default function NotificationPanel({ onClose }: NotificationPanelProps) {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/notifications?limit=20`,
+        `${API_BASE}/notifications?limit=20`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -42,7 +43,7 @@ export default function NotificationPanel({ onClose }: NotificationPanelProps) {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/notifications/read-all`,
+        `${API_BASE}/notifications/read-all`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },

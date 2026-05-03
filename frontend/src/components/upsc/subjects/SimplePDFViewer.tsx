@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { FileText, ChevronLeft, ChevronRight, ExternalLink, ZoomIn, ZoomOut, Maximize2 } from "lucide-react";
+import { API_BASE } from "@/lib/api";
 
 interface PDFFile {
     url: string;
@@ -65,8 +66,8 @@ export default function SimplePDFViewer({ segmentTitle, pdfFiles, onBack, onComp
             return pdf.url;
         }
         // Relative path - prepend API base
-        const apiBase = process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app";
-        return `${apiBase.replace(/\/api\/v1$/, "")}${pdf.url}`;
+        const apiRoot = API_BASE.replace(/\/api\/v1$/, "");
+        return `${apiRoot}${pdf.url}`;
     };
 
     if (!currentPdf) {

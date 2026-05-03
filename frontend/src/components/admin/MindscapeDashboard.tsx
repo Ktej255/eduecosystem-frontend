@@ -16,8 +16,7 @@ import {
 import { Brain, TrendingUp, Users, Activity, AlertCircle } from "lucide-react";
 import ChartErrorBoundary from "@/components/ui/ChartErrorBoundary";
 import axios from "axios";
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+import { API_BASE as API_URL } from "@/lib/api";
 
 interface PulseData {
     dominant_vibe: string;

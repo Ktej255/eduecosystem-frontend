@@ -1,5 +1,5 @@
 from typing import Generator, Optional, Any
-from fastapi import Depends, HTTPException, status
+from fastapi import Depends, HTTPException, status, Request
 from fastapi.security import OAuth2PasswordBearer
 from jose import jwt
 from pydantic import ValidationError
@@ -29,8 +29,14 @@ def get_db() -> Generator:
 
 
 def get_current_user(
-    db: Session = Depends(get_db), token: Optional[str] = Depends(reusable_oauth2)
+    request: Request,
+    db: Session = Depends(get_db), 
+    token: Optional[str] = Depends(reusable_oauth2)
 ) -> Any:
+    # If token is not in header, check cookies
+    if not token:
+        token = request.cookies.get("token")
+    
     if not token:
         if settings.DEV_MODE_ENABLED:
             logger.warning("DEV_MODE auth bypass triggered: No token provided")
@@ -100,8 +106,13 @@ reusable_oauth2_optional = OAuth2PasswordBearer(
 
 
 def get_current_user_optional(
-    db: Session = Depends(get_db), token: str = Depends(reusable_oauth2_optional)
+    request: Request,
+    db: Session = Depends(get_db), 
+    token: str = Depends(reusable_oauth2_optional)
 ) -> Any:
+    if not token:
+        token = request.cookies.get("token")
+    
     if not token:
         return None
     try:
@@ -135,12 +146,22 @@ def get_current_active_user(
 
 
 def get_admin_user(
+    request: Request,
     current_user: User = Depends(get_current_active_user),
 ) -> Any:
     if current_user.role != "admin" and not current_user.is_superuser:
         raise HTTPException(
             status_code=403, detail="Not authorized. Admin access required."
         )
+        
+    from app.core.system_guard import system_guard
+    if system_guard.get_mode() == "CRITICAL":
+        if request.method not in ["GET", "HEAD", "OPTIONS"]:
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN, 
+                detail="System is in CRITICAL mode. Admin API is READ-ONLY."
+            )
+            
     return current_user
 
 
@@ -213,3 +234,66 @@ async def get_current_user_ws(token: str, db: Session) -> Any:
 get_current_admin = get_admin_user
 get_current_superuser = get_current_active_superuser
 get_current_active_admin = get_admin_user  # Alias for backward compatibility
+
+
+# ─────────────────────────────────────────────────────────────
+# FOCUSED PORTAL (KAJAL'S SPRINT) ACCESS GATING
+# ─────────────────────────────────────────────────────────────
+
+def check_focused_portal_access(
+    current_user=Depends(get_current_user),
+) -> Any:
+    """
+    Validates if the user has access to the Focused Portal (General).
+    """
+    # Check for direct enrollment or full UPSC bundle
+    if current_user.is_superuser:
+        return current_user
+
+    # Logic: must have is_premium OR specific flag
+    if not current_user.is_premium and not current_user.is_batch1_authorized:
+         raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="UPSC Focused Portal access requires enrollment. Please upgrade your account."
+        )
+    return current_user
+
+def check_subject_access(
+    subject: str,
+    db: Session,
+    current_user: Any
+) -> bool:
+    """
+    Validates if the user has purchased a specific subject within the Focused Portal.
+    """
+    if current_user.is_superuser:
+        return True
+
+    # 1. Fetch purchased subjects from user model
+    purchased = current_user.purchased_subjects or []
+    if isinstance(purchased, str):
+        purchased = json.loads(purchased)
+
+    # 2. Check for "Full UPSC Bundle" or specific subject
+    # Mapping for grouped subjects
+    subject_map = {
+        "Science & Technology": ["Science & Technology", "S&T", "Science and Technology"],
+        "Environment": ["Environment", "Environment & Ecology"],
+        "Economy": ["Economy", "Economics"],
+        "Polity": ["Polity", "Indian Polity"],
+        "History": ["History", "Modern History", "Ancient History", "Medieval History"]
+    }
+
+    if "Full UPSC Bundle" in purchased:
+        return True
+
+    if subject in purchased:
+        return True
+
+    # Check mapping
+    if subject in subject_map:
+        for alias in subject_map[subject]:
+            if alias in purchased:
+                return True
+
+    return False

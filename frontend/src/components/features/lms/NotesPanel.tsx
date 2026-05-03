@@ -19,7 +19,7 @@ import {
 import { StickyNote, Plus, Trash2, Edit, Save, X } from "lucide-react";
 import { toast } from "sonner";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API_URL = `${(process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000").replace(/\/$/, "")}/api/v1`;
 
 interface Note {
   id: number;

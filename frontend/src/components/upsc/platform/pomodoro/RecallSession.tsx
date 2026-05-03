@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mic, MicOff, Loader2, CheckCircle2, AlertTriangle, Brain } from "lucide-react";
 import VoiceRecorder from "@/components/ui/VoiceRecorder";
+import { api } from "@/lib/api";
 
 interface RecallSessionProps {
     topics: string[]; // List of topic names covered in last 2 Pomodoros
@@ -32,7 +33,6 @@ export default function RecallSession({
     const [result, setResult] = useState<RecallResult | null>(null);
     const [error, setError] = useState<string | null>(null);
 
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app/api/v1";
 
     const handleRecordingComplete = async (base64Audio: string) => {
         setIsRecording(false);
@@ -40,19 +40,13 @@ export default function RecallSession({
         setError(null);
 
         try {
-            const response = await fetch(`${API_URL}/audio-analysis/analyze-recall`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    audio_base64: base64Audio,
-                    topics: topics.join(", "),
-                    session_context: `Pomodoro Recall Session ${sessionNumber}`
-                })
+            const response = await api.post("/audio-analysis/analyze-recall", {
+                audio_base64: base64Audio,
+                topics: topics.join(", "),
+                session_context: `Pomodoro Recall Session ${sessionNumber}`
             });
 
-            if (!response.ok) throw new Error("Analysis failed");
-
-            const data = await response.json();
+            const data = response.data;
 
             const recallResult: RecallResult = {
                 sessionNumber,

@@ -1,5 +1,4 @@
 from typing import List, Dict, Any, Optional
-import google.generativeai as genai
 import numpy as np
 from app.core.config import settings
 from app.services.gemini_service import gemini_service
@@ -46,15 +45,10 @@ class SimpleVectorStore:
             return
 
         try:
-            # Use Gemini Embeddings
-            # model="models/embedding-001"
-            result = genai.embed_content(
-                model="models/embedding-001",
-                content=texts_to_embed,
+            embeddings = gemini_service.get_embeddings_batch(
+                texts=texts_to_embed,
                 task_type="retrieval_document"
             )
-            
-            embeddings = result['embedding']
             
             for doc_id, emb in zip(ids_to_embed, embeddings):
                 self.documents[doc_id]["embedding"] = np.array(emb)
@@ -66,12 +60,11 @@ class SimpleVectorStore:
         """Find top-k relevant documents."""
         try:
             # Embed query
-            result = genai.embed_content(
-                model="models/embedding-001",
-                content=query,
+            emb = gemini_service.get_embeddings(
+                text=query,
                 task_type="retrieval_query"
             )
-            query_embedding = np.array(result['embedding'])
+            query_embedding = np.array(emb)
 
             scores = []
             for doc_id, doc in self.documents.items():

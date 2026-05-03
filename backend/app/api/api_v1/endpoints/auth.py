@@ -15,13 +15,15 @@ from app.crud import user as crud_user
 from app.models.activity_log import ActivityLog
 from app.middleware.rate_limit import limiter, RATE_LIMITS
 
+from app.utils.response_wrapper import wrap_response
+
 router = APIRouter()
 
 
 @router.get("/health")
 def health(db: Session = Depends(deps.get_db)):
     db.execute(text("SELECT 1"))
-    return {"status": "ok"}
+    return wrap_response(data={"status": "ok"}, message="Health check successful")
 
 
 @router.post("/access-token")
@@ -79,23 +81,26 @@ def login_access_token(
 
     # Check for 2FA
     if user.is_2fa_enabled:
-        return {
-            "access_token": security.create_access_token(
-                user.id,
-                expires_delta=timedelta(minutes=5),  # Short expiry for 2FA step
-                token_version=user.token_version,
-            ),
-            "token_type": "bearer",
-            "require_2fa": True,
-        }
+        return wrap_response(
+            data={
+                "access_token": security.create_access_token(
+                    user.id,
+                    expires_delta=timedelta(minutes=5),  # Short expiry for 2FA step
+                    token_version=user.token_version,
+                ),
+                "token_type": "bearer",
+                "require_2fa": True,
+            },
+            message="2FA required"
+        )
 
     access_token = security.create_access_token(
         user.id, expires_delta=access_token_expires, token_version=user.token_version
     )
 
-    # Set httpOnly cookie
+    # Set secure cookie for middleware and API access
     response.set_cookie(
-        key="access_token",
+        key="token",
         value=access_token,
         httponly=True,
         max_age=int(access_token_expires.total_seconds()),
@@ -104,11 +109,14 @@ def login_access_token(
         secure=os.getenv("ENVIRONMENT") == "production",
     )
 
-    return {
-        "access_token": access_token,
-        "token_type": "bearer",
-        "require_2fa": False,
-    }
+    return wrap_response(
+        data={
+            "access_token": access_token,
+            "token_type": "bearer",
+            "require_2fa": False,
+        },
+        message="Login successful"
+    )
 
 
 @router.post("/register")
@@ -191,9 +199,9 @@ def register(
             user.id, expires_delta=access_token_expires
         )
         
-        # Set httpOnly cookie
+        # Set secure cookie for middleware and API access
         response.set_cookie(
-            key="access_token",
+            key="token",
             value=access_token,
             httponly=True,
             max_age=int(access_token_expires.total_seconds()),
@@ -202,31 +210,36 @@ def register(
             secure=os.getenv("ENVIRONMENT") == "production",
         )
         
-        return {
-            "id": user.id,
-            "email": user.email,
-            "full_name": user.full_name,
-            "is_active": user.is_active,
-            "is_approved": user.is_approved,
-            "role": user.role,
-            "access_token": access_token,
-            "token_type": "bearer",
-            "pending_approval": False,
-        }
+        return wrap_response(
+            data={
+                "id": user.id,
+                "email": user.email,
+                "full_name": user.full_name,
+                "is_active": user.is_active,
+                "is_approved": user.is_approved,
+                "role": user.role,
+                "access_token": access_token,
+                "token_type": "bearer",
+                "pending_approval": False,
+            },
+            message="Registration successful"
+        )
     else:
         # Teachers/Admins don't get token until approved
-        return {
-            "id": user.id,
-            "email": user.email,
-            "full_name": user.full_name,
-            "is_active": user.is_active,
-            "is_approved": user.is_approved,
-            "role": user.role,
-            "access_token": None,
-            "token_type": None,
-            "pending_approval": True,
-            "message": f"Your {role} account is pending approval. You will receive an email once approved.",
-        }
+        return wrap_response(
+            data={
+                "id": user.id,
+                "email": user.email,
+                "full_name": user.full_name,
+                "is_active": user.is_active,
+                "is_approved": user.is_approved,
+                "role": user.role,
+                "access_token": None,
+                "token_type": None,
+                "pending_approval": True,
+            },
+            message=f"Your {role} account is pending approval. You will receive an email once approved."
+        )
 
 
 from app.schemas.password_recovery import PasswordRecovery
@@ -247,7 +260,10 @@ def recover_password(
     if not user:
         # Return success even if user not found to prevent enumeration
         print(f"User not found: {body.email}")
-        return {"msg": "If an account with this email exists, a password recovery email has been sent."}
+        return wrap_response(
+            data={"email": body.email},
+            message="If an account with this email exists, a password recovery email has been sent."
+        )
     
     password_reset_token = security.create_access_token(
         user.id, expires_delta=timedelta(hours=1)
@@ -271,7 +287,10 @@ def recover_password(
         except Exception as e:
             print(f"Failed to send email: {e}")
             
-    return {"msg": "If an account with this email exists, a password recovery email has been sent."}
+    return wrap_response(
+        data={"email": body.email},
+        message="If an account with this email exists, a password recovery email has been sent."
+    )
 
 
 @router.post("/reset-password/")
@@ -300,4 +319,7 @@ def reset_password(
     user.hashed_password = hashed_password
     db.add(user)
     db.commit()
-    return {"msg": "Password updated successfully"}
+    return wrap_response(
+        data={"email": email},
+        message="Password updated successfully"
+    )

@@ -22,7 +22,7 @@ export function QuickRecallModal({ isOpen, onClose, topic, topicId, onResult }: 
         if (!recallText.trim()) return;
         setIsSubmitting(true);
         try {
-            const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/antigravity/recall/quick`, {
+            const res = await axios.post(`${(process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app").replace(/\/$/, "")}/api/v1/antigravity/recall/quick`, {
                 topic_id: topicId,
                 topic_name: topic,
                 recall_text: recallText

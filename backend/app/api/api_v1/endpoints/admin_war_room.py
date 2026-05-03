@@ -22,52 +22,119 @@ def get_war_room_pulse(
 ) -> Any:
     """
     Real-time platform pulse across all domains (LMS, CRM, Wellness, Marketing).
-    Used for the 'War Room' dashboard.
+    All metrics sourced from live Redis keys and DB queries — no placeholders.
     """
     now = datetime.utcnow()
     hour_ago = now - timedelta(hours=1)
     day_ago = now - timedelta(days=1)
 
-    # 1. Active Incidents (Low Latency Heuristics)
-    # E.g., failed logins or sudden drops in activity
-    failed_attempts = db.query(func.count(ActivityLog.id)).filter(
-        ActivityLog.timestamp >= hour_ago,
-        ActivityLog.action == "login_failed"
+    # ── 1. System Health — Redis + SystemGuard ────────────────────────────────
+    from app.core.system_guard import system_guard
+    from app.models.security import SecurityAuditLog
+    from app.services.cache_service import cache_service
+    import time
+
+    system_mode = system_guard.get_mode()
+
+    # Real RPS: sum last 60 sliding-window Redis keys
+    now_ts = int(time.time())
+    rps_total = 0
+    for i in range(60):
+        val = cache_service.client.get(f"metrics:rps:{now_ts - i}")
+        rps_total += int(val) if val else 0
+    rps = round(rps_total / 60, 2)  # avg req/sec over last 60s
+
+    # Real Latency: average from Redis list
+    latency_raw = cache_service.client.lrange("metrics:latency:list", 0, 99)
+    if latency_raw:
+        latency_avg = round(sum(float(v) for v in latency_raw) / len(latency_raw), 2)
+    else:
+        latency_avg = 0.0
+
+    security_alerts = db.query(func.count(SecurityAuditLog.id)).filter(
+        SecurityAuditLog.timestamp >= hour_ago,
+        SecurityAuditLog.severity.in_(["WARNING", "CRITICAL"])
     ).scalar() or 0
 
-    # 2. CRM Pulse (New Leads in last hour)
-    new_leads_hr = db.query(func.count(Lead.id)).filter(
-        Lead.created_at >= hour_ago
-    ).scalar() or 0
+    # ── 2. Revenue & Conversion — Live DB ────────────────────────────────────
+    from app.models.analytics import AnalyticsEvent
+
+    total_sessions = (
+        db.query(func.count(AnalyticsEvent.id))
+        .filter(AnalyticsEvent.event_type == "session_start")
+        .scalar() or 0
+    )
+    total_purchases = (
+        db.query(func.count(CoursePayment.id))
+        .filter(CoursePayment.status == "succeeded")
+        .scalar() or 0
+    )
+    revenue_total = float(
+        db.query(func.sum(CoursePayment.amount))
+        .filter(CoursePayment.status == "succeeded")
+        .scalar() or 0.0
+    )
+    revenue_today = float(
+        db.query(func.sum(CoursePayment.amount))
+        .filter(
+            CoursePayment.status == "succeeded",
+            CoursePayment.created_at >= now.replace(hour=0, minute=0, second=0, microsecond=0)
+        )
+        .scalar() or 0.0
+    )
+    conversion_rate = round((total_purchases / total_sessions * 100), 4) if total_sessions > 0 else 0.0
+
+    # Current autopilot strategy (from Redis fast-path)
+    current_strategy = cache_service.client.get("config:pricing_strategy") or "STANDARD"
+    recovery_active = cache_service.client.get("config:recovery_active") or "false"
+    last_autopilot_run = cache_service.client.get("autopilot:last_run") or "never"
+
+    # ── 3. CRM ────────────────────────────────────────────────────────────────
+    new_leads_hr = db.query(func.count(Lead.id)).filter(Lead.created_at >= hour_ago).scalar() or 0
     total_unassigned = db.query(func.count(Lead.id)).filter(Lead.assigned_to_id.is_(None)).scalar() or 0
 
-    # 3. LMS Pulse (Students currently studying/drilling)
+    # ── 4. LMS ────────────────────────────────────────────────────────────────
     live_students = db.query(func.count(StudySession.id)).filter(
         StudySession.start_time >= hour_ago,
         StudySession.end_time.is_(None)
     ).scalar() or 0
 
-    # 4. Wellness Pulse (Meditation/Grapho)
+    # ── 5. Wellness ───────────────────────────────────────────────────────────
     grapho_submissions_today = db.query(func.count(GraphoSubmission.id)).filter(
         GraphoSubmission.completed_at >= day_ago
     ).scalar() or 0
-    meditation_mins_today = db.query(func.sum(MeditationSession.minutes_listened)).filter(
-        MeditationSession.created_at >= day_ago
-    ).scalar() or 0
-    meditation_mins_today = round(float(meditation_mins_today), 1)
+    meditation_mins_today = round(float(
+        db.query(func.sum(MeditationSession.minutes_listened))
+        .filter(MeditationSession.created_at >= day_ago)
+        .scalar() or 0
+    ), 1)
 
-    # 5. Marketing Pulse (Messages sent/opened in last 24h)
-    msgs_sent_24h = db.query(func.count(MessageLog.id)).filter(
-        MessageLog.created_at >= day_ago
-    ).scalar() or 0
-    active_workflows = db.query(func.count(MarketingWorkflow.id)).filter(
-        MarketingWorkflow.status == "ACTIVE"
-    ).scalar() or 0
+    # ── 6. Marketing ──────────────────────────────────────────────────────────
+    msgs_sent_24h = db.query(func.count(MessageLog.id)).filter(MessageLog.created_at >= day_ago).scalar() or 0
+    active_workflows = db.query(func.count(MarketingWorkflow.id)).filter(MarketingWorkflow.status == "ACTIVE").scalar() or 0
 
     return {
-        "incidents": {
-            "failed_logins_hr": failed_attempts,
-            "status": "CRITICAL" if failed_attempts > 10 else "HEALTHY"
+        "system": {
+            "mode": system_mode,
+            "status": "CRITICAL" if system_mode == "CRITICAL" else ("WARNING" if system_mode == "SAFE_MODE" else "HEALTHY"),
+            "rps": rps,
+            "latency_avg_ms": latency_avg,
+            "security_alerts_hr": security_alerts,
+            "data_sources": ["Redis:metrics:rps:*", "Redis:metrics:latency:list", "DB:security_audit_log"]
+        },
+        "revenue": {
+            "total_all_time": revenue_total,
+            "today": revenue_today,
+            "conversion_rate_pct": conversion_rate,
+            "total_sessions": total_sessions,
+            "total_purchases": total_purchases,
+            "data_sources": ["DB:course_payments", "DB:analytics_events"]
+        },
+        "autopilot": {
+            "current_strategy": current_strategy,
+            "recovery_active": recovery_active == "true",
+            "last_run": last_autopilot_run,
+            "data_sources": ["Redis:config:pricing_strategy", "Redis:autopilot:last_run"]
         },
         "crm": {
             "new_leads_hr": new_leads_hr,
@@ -186,6 +253,31 @@ def get_critical_alerts(
     Specific actionable alerts across domains.
     """
     alerts = []
+    from app.core.system_guard import system_guard
+    from app.models.security import SecurityAuditLog
+    
+    # System Mode Alerts
+    mode = system_guard.get_mode()
+    if mode != "NORMAL":
+        alerts.append({
+            "domain": "System",
+            "level": "HIGH" if mode == "CRITICAL" else "MEDIUM",
+            "message": f"SYSTEM IN {mode} MODE. Throttling active.",
+            "action_link": "/admin/system-guard"
+        })
+
+    # Security Alerts
+    security_incidents = db.query(SecurityAuditLog).filter(
+        SecurityAuditLog.severity.in_(["WARNING", "CRITICAL"])
+    ).order_by(desc(SecurityAuditLog.timestamp)).limit(5).all()
+    
+    for inc in security_incidents:
+        alerts.append({
+            "domain": "Security",
+            "level": inc.severity,
+            "message": f"{inc.event_type}: {inc.ip_address}",
+            "action_link": "/admin/security-logs"
+        })
     
     # Check for unassigned leads (CRM)
     unassigned = db.query(func.count(Lead.id)).filter(Lead.assigned_to_id.is_(None)).scalar() or 0

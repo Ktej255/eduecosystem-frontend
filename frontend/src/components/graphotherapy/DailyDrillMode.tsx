@@ -212,10 +212,17 @@ export default function DailyDrillMode({ drill, level }: DailyDrillModeProps) {
                     </Button>
                     <Button
                         className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4"
-                        onClick={() => {
-                            // Mark graphotherapy as complete in localStorage
-                            markStepComplete(drill.day, `grapho-${drill.day}`);
-                            setStep('complete');
+                        onClick={async () => {
+                            try {
+                                await graphotherapyService.submitDrill(drill.level, drill.day);
+                                // Mark graphotherapy as complete in localStorage
+                                markStepComplete(drill.day, `grapho-${drill.day}`);
+                                setStep('complete');
+                            } catch (error) {
+                                console.error("Failed to submit drill:", error);
+                                // Fallback to complete even if API fails to not block user
+                                setStep('complete');
+                            }
                         }}
                     >
                         Yes, Done ✓
@@ -315,24 +322,40 @@ export default function DailyDrillMode({ drill, level }: DailyDrillModeProps) {
                                 <PenTool className="w-6 h-6" />
                             </div>
                         </div>
-                        <h2 className="text-2xl font-bold mb-2">Page {currentPage} - {drill.focus}</h2>
+                        <h2 className="text-2xl font-bold mb-2">Page {currentPage} - {drill.title}</h2>
                         <p className="text-neutral-400 mb-6 font-medium text-amber-500">
-                            Current Focus: {drill.focus} ({drill.trait})
+                            Current Focus: {drill.focus}
                         </p>
-                        <p className="text-neutral-400 mb-6 text-sm">{drill.instruction}</p>
+                        <p className="text-neutral-400 mb-6 text-sm">{(drill as any).instructions || drill.instruction}</p>
 
-                        <div className="bg-neutral-900/50 rounded-2xl p-6 border border-neutral-700/50 mb-8 text-left">
+                        <div className="bg-neutral-900/50 rounded-2xl p-6 border border-neutral-700/50 mb-6 text-left">
                             <div className="text-xs font-bold text-neutral-500 uppercase mb-4 flex items-center gap-2">
                                 <Info className="w-4 h-4" /> Practice Lines
                             </div>
                             <ul className="space-y-3 font-serif text-xl italic text-green-100">
-                                {drill.sampleText.map((line, i) => (
+                                {(drill as any).sampleText.map((line: string, i: number) => (
                                     <li key={i} className="flex gap-4">
                                         <span className="text-neutral-700 not-italic text-sm pt-1">{i + 1}</span>
                                         {line}
                                     </li>
                                 ))}
                             </ul>
+                        </div>
+
+                        {/* Why it works / Expected Result Sections */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 text-left">
+                            {(drill as any).why_it_works && (
+                                <div className="bg-blue-500/5 rounded-2xl p-4 border border-blue-500/20">
+                                    <div className="text-[10px] font-black text-blue-400 uppercase tracking-widest mb-2">Why it works</div>
+                                    <p className="text-xs text-neutral-300 leading-relaxed">{(drill as any).why_it_works}</p>
+                                </div>
+                            )}
+                            {(drill as any).expected_result && (
+                                <div className="bg-emerald-500/5 rounded-2xl p-4 border border-emerald-500/20">
+                                    <div className="text-[10px] font-black text-emerald-400 uppercase tracking-widest mb-2">Expected Result</div>
+                                    <p className="text-xs text-neutral-300 leading-relaxed">{(drill as any).expected_result}</p>
+                                </div>
+                            )}
                         </div>
 
                         <p className="text-neutral-500 text-sm mb-6">

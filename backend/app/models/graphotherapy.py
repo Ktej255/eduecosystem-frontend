@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, JSON, Boolean, Enum
+from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, JSON, Boolean, Enum, Float, Text, BigInteger
 from sqlalchemy.orm import relationship
 from datetime import datetime
 import enum
@@ -76,10 +76,16 @@ class GraphotherapyProgress(Base):
     user_id = Column(Integer, ForeignKey("users.id"), unique=True)
     current_level = Column(Integer, default=1)
     current_day = Column(Integer, default=1)
+    
+    # Retention Engine Fields
+    streak_count = Column(Integer, default=0)
+    last_active_date = Column(DateTime, nullable=True)
+    
+    # Legacy fields (optional: keep for migration or remove if clean)
     total_streak = Column(Integer, default=0)
     last_practice_date = Column(DateTime, nullable=True)
     
-    # Simple JSON to store completions if not using relational table before
+    # Simple JSON to store completions
     completed_days = Column(JSON, default={}) 
 
     user = relationship("User", back_populates="graphotherapy_progress")
@@ -93,6 +99,7 @@ class GraphotherapyDayCompletion(Base):
  day = Column(Integer)
  completed_at = Column(DateTime, default=datetime.utcnow)
  image_url = Column(String, nullable=True)
+
 
 
 class GraphoLead(Base):
@@ -113,3 +120,78 @@ class GraphoLead(Base):
  utm_campaign = Column(String(100), nullable=True)
  created_at = Column(DateTime, default=datetime.utcnow)
  updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+
+class GraphotherapyLevelPurchase(Base):
+    """Model to track official level purchases and payment identifiers."""
+    __tablename__ = "graphotherapy_level_purchases"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    tenant_id = Column(Integer, default=1)
+    level = Column(Integer, nullable=False)
+    amount_paid = Column(Float, nullable=False)
+    currency = Column(String(10), default="INR")
+    payment_gateway = Column(String(50), default="cashfree")
+    payment_id = Column(String(255), unique=True, nullable=False)
+    order_id = Column(String(255), nullable=True)
+    payment_status = Column(String(50), default="paid")
+    payment_method = Column(String(100), nullable=True)
+    notes = Column(String(500), nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    user = relationship("User")
+
+
+class HandwritingSnapshot(Base):
+    """Daily handwriting samples for 7-day/21-day transformation tracking."""
+    __tablename__ = "handwriting_snapshots"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False, index=True)
+    day_number = Column(Integer, nullable=False)
+    image_url = Column(String(500), nullable=False)
+    
+    # AI Analysis Data
+    extracted_features = Column(JSON, nullable=True) # slant, pressure, size, etc.
+    trait_scores = Column(JSON, nullable=True) # Psychological scores
+    
+    # Status Tracking
+    status = Column(String(50), default="pending_analysis") # queued, processing, complete, failed
+    error_message = Column(Text, nullable=True)
+    retry_count = Column(Integer, default=0)
+    
+    # Timeline
+    submitted_at = Column(DateTime, default=datetime.utcnow)
+    analysis_started_at = Column(DateTime, nullable=True)
+    analysis_completed_at = Column(DateTime, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    user = relationship("User")
+
+
+class WeeklyProgressReport(Base):
+    """Aggregated progress reports generated every 7 days."""
+    __tablename__ = "weekly_progress_reports"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False, index=True)
+    week_number = Column(Integer, nullable=False)
+    
+    # Narrative Analysis
+    narrative_summary = Column(Text, nullable=False)
+    improvement_direction = Column(String(500), nullable=True)
+    behavioral_insight = Column(Text, nullable=True)
+    
+    # Comparison Data
+    start_snapshot_id = Column(Integer, ForeignKey("handwriting_snapshots.id"))
+    end_snapshot_id = Column(Integer, ForeignKey("handwriting_snapshots.id"))
+    
+    # Metrics
+    improvement_metrics = Column(JSON, nullable=True) # Delta in trait scores
+    regression_detected = Column(Boolean, default=False)
+    corrective_suggestions = Column(Text, nullable=True)
+    
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    user = relationship("User")

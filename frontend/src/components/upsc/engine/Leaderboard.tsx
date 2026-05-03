@@ -24,9 +24,9 @@ export default function Leaderboard() {
     useEffect(() => {
         const fetchLeaderboard = async () => {
             try {
-                const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+                const baseUrl = (process.env.NEXT_PUBLIC_API_URL || 'https://eduecosystem-backend-503001969959.us-central1.run.app').replace(/\/$/, \"\");
                 const token = localStorage.getItem('edueco_auth_token');
-                const response = await fetch(`${baseUrl}/community/leaderboard`, {
+                const response = await fetch(`${baseUrl}/api/v1/community/leaderboard`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
 

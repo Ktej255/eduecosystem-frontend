@@ -20,7 +20,8 @@ export default function UPSCOnboarding() {
                 return;
             }
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/student-reports/upsc_onboarding`, {
+                const baseUrl = (process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app").replace(/\/$/, "");
+                const res = await fetch(`${baseUrl}/api/v1/student-reports/upsc_onboarding`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 if (res.ok) {
@@ -46,7 +47,8 @@ export default function UPSCOnboarding() {
         const token = localStorage.getItem("token");
         if (token) {
             try {
-                await fetch(`${process.env.NEXT_PUBLIC_API_URL}/student-reports/`, {
+                const baseUrl = (process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app").replace(/\/$/, "");
+                await fetch(`${baseUrl}/api/v1/student-reports/`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

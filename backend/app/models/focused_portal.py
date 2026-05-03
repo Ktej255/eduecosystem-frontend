@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Boolean, DateTime, Float, Text, ForeignKey
+from sqlalchemy import Column, Integer, String, Boolean, DateTime, Float, Text, ForeignKey, JSON
 from sqlalchemy.sql import func
 from app.db.base_class import Base
 
@@ -84,3 +84,22 @@ class FocusedClusterProgress(Base):
     cluster_number = Column(Integer)
     status = Column(String(50))
     last_accessed_at = Column(DateTime, nullable=True)
+
+class FocusedActiveSession(Base):
+    """
+    Storage for test sessions to ensure integrity and capture behavioral insights.
+    States: INITIATED, ACTIVE, SUBMITTED, EXPIRED, INVALIDATED
+    """
+    __tablename__ = "focused_active_sessions"
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), index=True)
+    session_id = Column(String(100), unique=True, index=True)
+    test_id = Column(Integer, nullable=True)
+    subject = Column(String(100))
+    cluster_number = Column(Integer)
+    status = Column(String(50), default="ACTIVE", index=True)
+    start_time = Column(DateTime, server_default=func.now())
+    submission_time = Column(DateTime, nullable=True)
+    expires_at = Column(DateTime)
+    session_metadata = Column(JSON, nullable=True) # Captured behavioral data
+    created_at = Column(DateTime, server_default=func.now())

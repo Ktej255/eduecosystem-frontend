@@ -11,6 +11,8 @@ import json
 from functools import wraps
 
 
+from app.core.config import settings
+
 class RedisClient:
     """Singleton Redis client for the application"""
 
@@ -18,23 +20,21 @@ class RedisClient:
 
     @classmethod
     def get_instance(cls) -> Redis:
-        """Get or create Redis instance"""
+        """Get or create Redis instance with strict connectivity check"""
         if cls._instance is None:
-            redis_url = os.getenv("REDIS_URL", "redis://localhost:6379/0")
+            redis_url = settings.REDIS_URL
+            
+            # STRICT VALIDATION: FAIL FAST IF REDIS IS DOWN
             cls._instance = redis.from_url(
                 redis_url,
                 decode_responses=True,
-                socket_connect_timeout=5,
-                socket_timeout=5,
+                socket_connect_timeout=2,
+                socket_timeout=2,
             )
+            # This will raise an exception if Redis is unreachable
+            cls._instance.ping()
+                
         return cls._instance
-
-    @classmethod
-    def close(cls):
-        """Close Redis connection"""
-        if cls._instance:
-            cls._instance.close()
-            cls._instance = None
 
 
 # Cache decorator for functions
@@ -208,3 +208,6 @@ def invalidate_cache(pattern: str):
     redis_client = RedisClient.get_instance()
     for key in redis_client.scan_iter(match=pattern):
         redis_client.delete(key)
+
+# Global instance for easy import
+redis_client = RedisClient.get_instance()

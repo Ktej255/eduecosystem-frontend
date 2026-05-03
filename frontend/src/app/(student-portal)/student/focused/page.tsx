@@ -495,6 +495,15 @@ export default function FocusedPortalPage() {
   const [questionStartTime, setQuestionStartTime] = useState<number>(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [testQuestionIds, setTestQuestionIds] = useState<number[]>([]);
+
+  // Hardened Session State
+  const [sessionId, setSessionId] = useState<string | null>(null);
+  const [answerChangeCount, setAnswerChangeCount] = useState(0);
+  const [inactivityGaps, setInactivityGaps] = useState(0);
+  const [lastInteractionTime, setLastInteractionTime] = useState<number>(Date.now());
+  const [isSessionExpired, setIsSessionExpired] = useState(false);
+  const [isTabHidden, setIsTabHidden] = useState(false);
+
   const timePerQuestionRef = useRef<number[]>([]);
   const questionStartTimeRef = useRef<number>(0);
   const lastVisibleIndexRef = useRef<number>(0);
@@ -577,6 +586,64 @@ export default function FocusedPortalPage() {
     } catch (e) { console.error("Progress fetch failed", e); }
   }, [token]);
 
+  // Browser Refresh Warning
+  useEffect(() => {
+    if (testStarted && !testSubmitted) {
+      const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+        e.preventDefault();
+        e.returnValue = "Your test progress will be lost if you leave.";
+        return e.returnValue;
+      };
+      window.addEventListener('beforeunload', handleBeforeUnload);
+      return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+    }
+  }, [testStarted, testSubmitted]);
+
+  // Hard Session Cutoff (60 Minutes)
+  useEffect(() => {
+    if (testStarted && !testSubmitted && testStartTime) {
+      const interval = setInterval(() => {
+        const elapsedMinutes = (Date.now() - testStartTime) / 60000;
+        if (elapsedMinutes >= 60) {
+          setIsSessionExpired(true);
+          clearInterval(interval);
+        }
+      }, 5000); // Check every 5 seconds
+      return () => clearInterval(interval);
+    }
+  }, [testStarted, testSubmitted, testStartTime]);
+
+  // Inactivity and Tab Switch Tracking
+  useEffect(() => {
+    if (testStarted && !testSubmitted) {
+      const handleVisibilityChange = () => {
+        const hidden = document.visibilityState === 'hidden';
+        setIsTabHidden(hidden);
+        if (hidden) {
+          // If tab hidden, immediately treat as inactivity gap start
+          setLastInteractionTime(prev => prev - 30000); // Force trigger gap check
+        }
+      };
+
+      document.addEventListener('visibilitychange', handleVisibilityChange);
+
+      const interval = setInterval(() => {
+        const now = Date.now();
+        const diff = now - lastInteractionTime;
+        // Increment gap ONLY if 30s threshold reached
+        if (diff >= 30000 || document.visibilityState === 'hidden' && diff >= 30000) {
+          setInactivityGaps(prev => prev + 1);
+          setLastInteractionTime(now); 
+        }
+      }, 5000); // Check more frequently (5s) but only increment on 30s diff
+
+      return () => {
+        document.removeEventListener('visibilitychange', handleVisibilityChange);
+        clearInterval(interval);
+      };
+    }
+  }, [testStarted, testSubmitted, lastInteractionTime]);
+
   useEffect(() => {
     fetchDashboard();
     fetchCumulative();
@@ -600,6 +667,20 @@ export default function FocusedPortalPage() {
     }
     return () => { if (timerRef.current) clearTimeout(timerRef.current); };
   }, [timerRunning, timerSeconds]);
+
+  // //// Inactivity Tracking ////
+  useEffect(() => {
+    if (!testStarted || testSubmitted) return;
+    const interval = setInterval(() => {
+      const now = Date.now();
+      // If no interaction for more than 30 seconds
+      if (lastInteractionTime > 0 && now - lastInteractionTime > 30000) {
+        setInactivityGaps(prev => prev + 1);
+        setLastInteractionTime(now); // Reset interaction window
+      }
+    }, 10000); // Check every 10s for performance
+    return () => clearInterval(interval);
+  }, [testStarted, testSubmitted, lastInteractionTime]);
 
   const startTimer = () => { setStudyStarted(true); setTimerRunning(true); };
 
@@ -661,11 +742,19 @@ export default function FocusedPortalPage() {
     setLoading(true);
     setIsGateTest(false);
     setGateResult(null);
+
+    // Reset behavioral counters
+    setSessionId(null);
+    setAnswerChangeCount(0);
+    setInactivityGaps(0);
+    setLastInteractionTime(Date.now());
+
     try {
       const res = await fetch(`${API}/focused/test/${encodeURIComponent(currentSubject)}/${selectedCluster}`, { headers: authHeader });
       if (res.ok) {
         const data = await res.json();
         setTestQuestions(data.questions || []);
+        setSessionId(data.session_id); // Capture session_id
         setTestStarted(true);
         setTestStartTime(Date.now());
         setTestAnswers({});
@@ -683,11 +772,20 @@ export default function FocusedPortalPage() {
     setLoading(true);
     setIsGateTest(true);
     setGateResult(null);
+    setError(null);
+    
+    // Reset telemetry
+    setSessionId(null);
+    setAnswerChangeCount(0);
+    setInactivityGaps(0);
+    setLastInteractionTime(Date.now());
+
     try {
       const res = await fetch(`${API}/focused/gate/${encodeURIComponent(currentSubject)}`, { headers: authHeader });
       if (res.ok) {
         const data = await res.json();
         setTestQuestions(data.questions || []);
+        setSessionId(data.session_id); // CRITICAL: Capture session_id
         setTestStarted(true);
         setTestStartTime(Date.now());
         setTestAnswers({});
@@ -695,6 +793,9 @@ export default function FocusedPortalPage() {
         setQuestionStartTime(Date.now());
         questionStartTimeRef.current = Date.now();
         timePerQuestionRef.current = new Array(data.questions.length).fill(0);
+      } else if (res.status === 403) {
+        const data = await res.json();
+        setError(data.detail || "Access denied. Please check your subscription.");
       }
     } catch (e) { setError("Failed to fetch gate test"); }
     finally { setLoading(false); }
@@ -712,13 +813,21 @@ export default function FocusedPortalPage() {
       delete newAnswers[qId];
       setTestAnswers(newAnswers);
     }
+    setLastInteractionTime(Date.now());
   };
 
   const selectAnswerById = (qId: number, option: string) => {
+    // Increment answerChangeCount if an answer already exists for this question and it is DIFFERENT
+    if (testAnswers[qId] && testAnswers[qId] !== option) {
+      setAnswerChangeCount(prev => prev + 1);
+    }
     setTestAnswers(prev => ({ ...prev, [qId]: option }));
+    setLastInteractionTime(Date.now());
   };
 
   const submitTest = async () => {
+    if (isSubmitting) return; // Prevent double submission
+    
     if (Object.keys(testAnswers).length < testQuestions.length) {
       if (Object.keys(testAnswers).length === 0 && Object.keys(testConfidence).length === 0) {
         setError("Please answer at least one question");
@@ -727,26 +836,38 @@ export default function FocusedPortalPage() {
     }
 
     setIsSubmitting(true);
+    setError(null);
     const endTime = Date.now();
     
     const finalNow = Date.now();
     timePerQuestionRef.current[lastVisibleIndexRef.current] += finalNow - questionStartTimeRef.current;
 
+    const gateScore = isGateTest ? testQuestions.filter(q => testAnswers[q.id] === q.correct_answer).length : 0;
+
     try {
       const endpoint = isGateTest ? `${API}/focused/gate/submit` : `${API}/focused/test/submit`;
-      const body = isGateTest ? {
+      const body = {
         subject: currentSubject,
-        score: testQuestions.filter(q => testAnswers[q.id] === q.correct_answer).length,
-        total_questions: testQuestions.length,
-        answers: testAnswers
-      } : {
-        subject: currentSubject,
-        cluster_number: selectedCluster,
-        answers: testAnswers,
-        confidence: testQuestions.map(q => testConfidence[q.id] || "Other"),
-        time_per_question: timePerQuestionRef.current.map(ms => Math.floor(ms / 1000)),
+        session_id: sessionId, // MANDATORY
+        answer_change_count: answerChangeCount,
+        inactivity_gaps: inactivityGaps,
         start_time: new Date(testStartTime).toISOString(),
-        end_time: new Date(endTime).toISOString()
+        end_time: new Date(endTime).toISOString(),
+        ...(isGateTest ? {
+          score: gateScore,
+          total_questions: testQuestions.length,
+          answers: testQuestions.map(q => ({
+            question_id: q.id,
+            selected_option: testAnswers[q.id] || null,
+            correct_option: q.correct_answer,
+            topic_tag: q.topic_tag
+          }))
+        } : {
+          cluster_number: selectedCluster,
+          answers: testAnswers,
+          confidence: testQuestions.map(q => testConfidence[q.id] || "Other"),
+          time_per_question: timePerQuestionRef.current.map(ms => Math.floor(ms / 1000)),
+        })
       };
 
       const res = await fetch(endpoint, {
@@ -758,12 +879,11 @@ export default function FocusedPortalPage() {
       if (res.ok) {
         const data = await res.json();
         if (isGateTest) {
-          setGateResult({ score: body.score, passed: data.passed });
+          setGateResult({ score: gateScore, passed: data.passed });
         } else {
           setTestReport(data);
-          // Populate review questions: use testQuestions (already in state) as the
-          // primary source, then merge in backend-supplied wrong_questions_detail so
-          // explanations and correct_answers are always fresh even if local state drifts.
+          
+          // Enrich review questions with backend details
           const wrongDetailMap: Record<number, any> = {};
           (data.wrong_questions_detail || []).forEach((q: any) => { wrongDetailMap[q.id] = q; });
           const enriched = testQuestions.map((q: any) => ({
@@ -772,14 +892,30 @@ export default function FocusedPortalPage() {
             ...(wrongDetailMap[q.id] || {}),
           }));
           setReviewQuestions(enriched);
+          
+          setTestSubmitted(true);
+          fetchDashboard();
+          fetchCumulative();
+          fetchHistory();
+          fetchProgress();
         }
-        setTestSubmitted(true);
-        fetchDashboard();
-        fetchCumulative();
-        fetchHistory();
-        fetchProgress();
+      } else if (res.status === 403) {
+        const data = await res.json();
+        const msg = data.detail || "Session expired or invalid.";
+        setError(msg);
+        
+        // Handle specific cases for UI logic
+        if (msg.includes("already submitted")) {
+          // If already submitted, we can fetch history to show the result
+          fetchHistory();
+        }
+      } else {
+        setError("Submission failed. Please try again.");
       }
-    } catch (e) { setError("Submission failed"); }
+    } catch (e) { 
+      console.error("Submission error:", e);
+      setError("Connection error. Please check your internet."); 
+    }
     finally { setIsSubmitting(false); }
   };
 
@@ -1050,7 +1186,7 @@ export default function FocusedPortalPage() {
               display: "none",
               background: "none",
               border: "none",
-              color: C.text,
+              color: C.textPrimary,
               fontSize: 22,
               cursor: "pointer",
               padding: "4px 8px",
@@ -1726,11 +1862,28 @@ export default function FocusedPortalPage() {
           zIndex: 9999, overflowY: 'auto',
           backgroundColor: isDark ? '#0a0a0a' : '#f5f5f5',
           padding: 'clamp(12px, 4vw, 24px)',
+          pointerEvents: isSessionExpired ? 'none' : 'auto', // Disable interaction if expired
+          filter: isSessionExpired ? 'blur(4px)' : 'none'
         }}>
+          {/* Secure Session Indicator */}
+          <div style={{
+            position: 'fixed', top: 0, left: 0, right: 0, height: 32,
+            backgroundColor: '#0a0a0f', borderBottom: `1px solid ${C.gold}`,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            gap: 8, zIndex: 10001,
+          }}>
+            <span style={{ fontSize: 10, fontWeight: 800, color: C.gold, letterSpacing: '0.05em' }}>
+              🔒 SECURE TEST SESSION ACTIVE
+            </span>
+            <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.4)' }}>
+              (Refreshing or leaving will reset progress)
+            </span>
+          </div>
+
           <button
             onClick={() => { if (document.fullscreenElement) document.exitFullscreen(); setTestStarted(false); setTestAnswers({}); setTestConfidence({}); }}
             style={{
-              position: 'fixed', top: 16, right: 16, zIndex: 10000,
+              position: 'fixed', top: 40, right: 16, zIndex: 10000,
               width: 40, height: 40, borderRadius: '50%',
               border: `1px solid ${C.border}`,
               backgroundColor: isDark ? 'rgba(10,10,15,0.9)' : '#ffffff',
@@ -1830,29 +1983,71 @@ export default function FocusedPortalPage() {
                 </div>
               );
             })}
+            <div style={{ height: 100 }} />
           </div>
 
-          <button
-            onClick={submitTest}
-            disabled={isSubmitting}
-            style={{
-              position: 'fixed', bottom: 0, left: 0, width: '100%',
-              padding: 16, zIndex: 10000,
-              backgroundColor: isSubmitting ? 'rgba(212,175,55,0.5)' : '#d4af37',
-              color: '#000', border: 'none', fontSize: 16, fontWeight: 700,
-              cursor: isSubmitting ? 'default' : 'pointer',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-            }}
-          >
-            {isSubmitting ? (
-              <>
-                <span style={{ display: 'inline-block', width: 16, height: 16, border: '2px solid #000', borderTopColor: 'transparent', borderRadius: '50%', animation: 'fspin 0.8s linear infinite' }} />
-                Generating your report...
-              </>
-            ) : `Submit Test (${answeredCount}/${testQuestions.length})`}
-          </button>
-        </div>
-      )}
+              {/* Submit Fixed Footer */}
+              <div style={{
+                position: 'fixed', bottom: 0, left: 0, right: 0,
+                backgroundColor: isDark ? 'rgba(10,10,15,0.95)' : 'rgba(255,255,255,0.95)',
+                backdropFilter: 'blur(10px)', borderTop: `1px solid ${C.border}`,
+                padding: '16px 24px', display: 'flex', justifyContent: 'center', zIndex: 10000
+              }}>
+                <button
+                  disabled={isSubmitting || isSessionExpired}
+                  onClick={submitTest}
+                  style={{
+                    width: 'min(400px, 100%)', padding: '16px', borderRadius: 16,
+                    backgroundColor: isSessionExpired ? C.textMuted : C.gold, color: '#000',
+                    fontSize: 16, fontWeight: 800, border: 'none', cursor: isSessionExpired ? 'not-allowed' : 'pointer',
+                    opacity: isSubmitting || isSessionExpired ? 0.6 : 1,
+                    boxShadow: `0 8px 24px ${C.goldGlow}`
+                  }}
+                >
+                  {isSubmitting ? "SYNCING RESULTS..." : isSessionExpired ? "SESSION EXPIRED" : "SUBMIT FINAL RESPONSES"}
+                </button>
+              </div>
+
+              {/* FULL-SCREEN SESSION EXPIRED OVERLAY */}
+              {isSessionExpired && (
+                <div style={{
+                  position: 'fixed', inset: 0, zIndex: 10002,
+                  backgroundColor: 'rgba(0,0,0,0.9)', backdropFilter: 'blur(10px)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  padding: 24, textAlign: 'center'
+                }}>
+                  <div style={{
+                    maxWidth: 400, width: '100%',
+                    backgroundColor: C.surface, border: `1px solid ${C.red}`,
+                    borderRadius: 24, padding: 40,
+                    boxShadow: `0 0 50px rgba(255,68,68,0.2)`
+                  }}>
+                    <div style={{ fontSize: 48, marginBottom: 20 }}>⏳</div>
+                    <h2 style={{ fontSize: 24, fontWeight: 800, color: C.red, marginBottom: 12 }}>Session Expired</h2>
+                    <p style={{ color: C.textMuted, fontSize: 15, lineHeight: 1.6, marginBottom: 32 }}>
+                      Time limit reached (60 minutes). To maintain session integrity, this test has been locked.
+                    </p>
+                    <button
+                      onClick={() => {
+                        setIsSessionExpired(false);
+                        setTestStarted(false);
+                        setTestAnswers({});
+                        setTestConfidence({});
+                        setSessionId(null);
+                      }}
+                      style={{
+                        width: '100%', padding: '16px', borderRadius: 14,
+                        backgroundColor: C.gold, color: '#000',
+                        fontSize: 14, fontWeight: 800, border: 'none', cursor: 'pointer'
+                      }}
+                    >
+                      RESTART TEST
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
     </div>
   </>
   );

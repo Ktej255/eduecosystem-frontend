@@ -10,10 +10,11 @@ import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
 import { motion, AnimatePresence } from 'framer-motion';
+import { API_BASE } from "@/lib/api";
 
 // Backend API Service placeholder (should assume fetch wrapper exists or use fetch direct)
 // Assuming we have a way to call the backend.
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+
 
 interface VoiceRecallSessionProps {
     card: FlexibleFlashcard;
@@ -129,7 +130,7 @@ export default function VoiceRecallSession({ card, onNext, onComplete }: VoiceRe
             // Assuming auth token is handled by interceptor or we retrieve it
             const token = localStorage.getItem('token');
 
-            const response = await fetch(`${API_URL}/audio-analysis/analyze-flashcard-form`, {
+            const response = await fetch(`${API_BASE}/audio-analysis/analyze-flashcard-form`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`

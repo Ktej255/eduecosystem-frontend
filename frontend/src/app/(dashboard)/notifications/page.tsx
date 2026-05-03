@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 export const dynamic = "force-dynamic";
 
@@ -36,8 +36,8 @@ export default function NotificationsPage() {
       const token = localStorage.getItem("token");
       const url =
         filter === "unread"
-          ? `${process.env.NEXT_PUBLIC_API_URL}/notifications?unread_only=true&limit=100`
-          : `${process.env.NEXT_PUBLIC_API_URL}/notifications?limit=100`;
+          ? `${process.env.NEXT_PUBLIC_API_URL}/api/v1/notifications?unread_only=true&limit=100`
+          : `${process.env.NEXT_PUBLIC_API_URL}/api/v1/notifications?limit=100`;
 
       const response = await axios.get(url, {
         headers: { Authorization: `Bearer ${token}` },
@@ -56,7 +56,7 @@ export default function NotificationsPage() {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/notifications/read-all`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/notifications/read-all`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },

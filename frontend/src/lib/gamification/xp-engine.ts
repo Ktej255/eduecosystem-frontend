@@ -8,6 +8,8 @@ import {
     LEVEL_THRESHOLDS,
     XP_REWARDS
 } from './gamification-types';
+import { api } from '../api';
+import { getCookie } from '../cookies';
 
 const GAMIFICATION_STORAGE_KEY = 'eduecosystem_gamification';
 
@@ -45,29 +47,21 @@ export function saveGamificationData(data: GamificationData): void {
  */
 export async function syncXPToBackend(data: GamificationData): Promise<void> {
     try {
-        const token = localStorage.getItem('token');
+        const token = getCookie('token');
         if (!token) return;
-        const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
-        await fetch(`${baseUrl}/api/v1/student-reports/`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({
-                report_type: 'xp_engine_state',
-                report_key: 'xp_engine_state_unified',
-                data: {
-                    totalXP: data.xp?.totalXP ?? 0,
-                    level: data.xp?.level ?? 1,
-                    streak: data.xp?.streak ?? 0,
-                    longestStreak: data.xp?.longestStreak ?? 0,
-                    lastActivityDate: data.xp?.lastActivityDate ?? null,
-                    achievements: data.achievements ?? {},
-                    stats: data.stats ?? {},
-                    savedAt: new Date().toISOString()
-                }
-            })
+        await api.post('/student-reports/', {
+            report_type: 'xp_engine_state',
+            report_key: 'xp_engine_state_unified',
+            data: {
+                totalXP: data.xp?.totalXP ?? 0,
+                level: data.xp?.level ?? 1,
+                streak: data.xp?.streak ?? 0,
+                longestStreak: data.xp?.longestStreak ?? 0,
+                lastActivityDate: data.xp?.lastActivityDate ?? null,
+                achievements: data.achievements ?? {},
+                stats: data.stats ?? {},
+                savedAt: new Date().toISOString()
+            }
         });
     } catch {
         // Silent fail - localStorage is the primary source of truth
@@ -79,15 +73,15 @@ export async function syncXPToBackend(data: GamificationData): Promise<void> {
  */
 export async function loadXPFromBackend(): Promise<Partial<GamificationData> | null> {
     try {
-        const token = localStorage.getItem('token');
+        const token = getCookie('token');
         if (!token) return null;
-        const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
-        const res = await fetch(
-            `${baseUrl}/api/v1/student-reports/?report_type=xp_engine_state&limit=1`,
-            { headers: { 'Authorization': `Bearer ${token}` } }
-        );
-        if (!res.ok) return null;
-        const reports = await res.json();
+        const res = await api.get('/student-reports/', {
+            params: {
+                report_type: 'xp_engine_state',
+                limit: 1
+            }
+        });
+        const reports = res.data;
         if (!Array.isArray(reports) || reports.length === 0) return null;
         return reports[0]?.data ?? null;
     } catch {

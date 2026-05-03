@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback, useRef } from 'react';
 import activityService from '@/services/activityService';
+import { API_BASE } from '@/lib/api';
 import AchievementToast from '@/components/gamification/AchievementToast';
 import LevelUpModal from '@/components/gamification/LevelUpModal';
 
@@ -94,8 +95,7 @@ export function GamificationProvider({ children }: { children: ReactNode }) {
         try {
             const token = localStorage.getItem('token');
             if (!token) return;
-            const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
-            await fetch(`${baseUrl}/api/v1/student-reports/`, {
+            await fetch(`${API_BASE}/student-reports/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -125,9 +125,8 @@ export function GamificationProvider({ children }: { children: ReactNode }) {
         try {
             const token = localStorage.getItem('token');
             if (!token) return null;
-            const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
             const res = await fetch(
-                `${baseUrl}/api/v1/student-reports/?report_type=gamification_context_state&limit=1`,
+                `${API_BASE}/student-reports/?report_type=gamification_context_state&limit=1`,
                 { headers: { 'Authorization': `Bearer ${token}` } }
             );
             if (!res.ok) return null;

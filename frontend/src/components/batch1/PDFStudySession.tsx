@@ -62,7 +62,7 @@ export default function PDFStudySession({ segmentKey, onBack, onComplete }: PDFS
     // Extension state
     const [showExtensionPrompt, setShowExtensionPrompt] = useState(false);
 
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+    const API_URL = `${(process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000").replace(/\/$/, "")}/api/v1`;
 
     useEffect(() => {
         loadPdfData();

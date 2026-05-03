@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
-const API_PREFIX = '/api/v1/adaptive-exams';
+import { API_BASE } from '@/lib/api';
+
+const API_PREFIX = `${API_BASE}/adaptive-exams`;
 
 export interface StartExamRequest {
     subject: string;
@@ -46,12 +47,12 @@ export interface ExamReport {
 
 export const adaptiveExamApi = {
     startExam: async (data: StartExamRequest): Promise<ExamSessionResponse> => {
-        const response = await axios.post(`${BASE_URL}${API_PREFIX}/start`, data);
+        const response = await axios.post(`${API_PREFIX}/start`, data);
         return response.data;
     },
 
     getNextQuestion: async (examId: string): Promise<AdaptiveQuestion | null> => {
-        const response = await axios.get(`${BASE_URL}${API_PREFIX}/next-question`, {
+        const response = await axios.get(`${API_PREFIX}/next-question`, {
             params: { exam_id: examId }
         });
         if (response.status === 204) return null;
@@ -59,12 +60,12 @@ export const adaptiveExamApi = {
     },
 
     submitAnswer: async (data: SubmitAnswerRequest) => {
-        const response = await axios.post(`${BASE_URL}${API_PREFIX}/submit`, data);
+        const response = await axios.post(`${API_PREFIX}/submit`, data);
         return response.data;
     },
 
     getReport: async (examId: string): Promise<ExamReport> => {
-        const response = await axios.get(`${BASE_URL}${API_PREFIX}/report/${examId}`);
+        const response = await axios.get(`${API_PREFIX}/report/${examId}`);
         return response.data;
     }
 };

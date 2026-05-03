@@ -188,6 +188,12 @@ class User(Base):
         uselist=False,
         cascade="all, delete-orphan",
     )
+    
+    graphotherapy_purchases = relationship(
+        "GraphotherapyLevelPurchase",
+        back_populates="user",
+        cascade="all, delete-orphan",
+    )
 
     # Meditation Progress
     meditation_progress = relationship(

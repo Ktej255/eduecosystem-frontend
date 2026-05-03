@@ -10,8 +10,10 @@ import json
 from pathlib import Path
 from typing import List, Optional
 from fastapi import APIRouter, UploadFile, File, HTTPException, Depends, Form
+from sqlalchemy.orm import Session
 from app.services.gemini_service import gemini_service
 from app.api import deps
+from app import crud, models, schemas
 import asyncio
 import random
 from starlette.concurrency import run_in_threadpool
@@ -84,17 +86,19 @@ Return the analysis in this JSON structure:
 
 @router.post("/analyze")
 async def analyze_handwriting(
-    files: List[UploadFile] = File(...)
+    files: List[UploadFile] = File(...),
+    email: Optional[str] = Form(None),
+    name: Optional[str] = Form(None),
+    purchase_type: str = Form("free"),
+    db: Session = Depends(deps.get_db),
+    current_user: Optional[models.User] = Depends(deps.get_current_user_optional)
 ):
     """
-    Analyze uploaded handwriting samples using Gemini Vision.
-    Returns structured JSON analysis.
+    Analyze uploaded handwriting samples using the unified Graphotherapy Orchestrator.
     """
     if not files:
         raise HTTPException(status_code=400, detail="No files uploaded")
 
-    # Save first file temporarily (Gemini Vision usually needs one good sample or we can collage them)
-    # For now, analyze the first image
     file = files[0]
     file_ext = file.filename.split(".")[-1]
     temp_filename = f"{uuid.uuid4()}.{file_ext}"
@@ -104,104 +108,110 @@ async def analyze_handwriting(
         with temp_path.open("wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
 
-        # Call Gemini Service with Timeout Protection
-        # 30s Timeout to prevent User waiting >5m (frontend timeout)
-        try:
-            # OPTIMIZATION: Run synchronous Gemini call in threadpool to allow async timeout
-            response_text = await asyncio.wait_for(
-                run_in_threadpool(
-                    gemini_service.analyze_image,
-                    image_path=str(temp_path),
-                    prompt=ANALYSIS_PROMPT,
-                    temperature=0.2
-                ),
-                timeout=60.0
-            )
-            
-            # Cleanup json markdown if present
-            cleaned_response = response_text.replace("```json", "").replace("```", "").strip()
-            analysis_data = json.loads(cleaned_response)
-            
-        except asyncio.TimeoutError:
-            # FALLBACK: Return a generic but valid analysis to keep the funnel moving
-            analysis_data = {
-                "hook": "Your handwriting reveals a mind that is constantly processing—faster than your hand can keep up.",
-                "insights": [
-                    {
-                        "title": "Insight 1: The Mind (The Strategist)",
-                        "analysis": "Your connection strokes suggest a fluid thinker who connects dots quickly. Like a chess player, you are often moves ahead.",
-                        "shadow_hint": "However, this speed can sometimes lead to impatience with slower details."
-                    },
-                    {
-                        "title": "Insight 2: The Heart (The Guarded Core)",
-                        "analysis": "Your slant indicates you keep your deepest emotions in a vault. You feel deeply but share selectively.",
-                        "shadow_hint": "This protection serves you, but may block spontaneous joy."
-                    },
-                    {
-                        "title": "Insight 3: The Drive (The Climber)",
-                        "analysis": "Your t-bars show decent willpower, but they fluctuate. You have bursts of high energy followed by retreats.",
-                        "shadow_hint": "Consistency is your next level of mastery."
-                    }
-                ],
-                "blind_spot": {
-                    "title": "The Blind Spot",
-                    "description": "You may be carrying a 'silent burden'—a goal or worry you haven't verbalized but that weighs on your baseline."
-                },
-                "verdict": {
-                    "title": "The Verdict",
-                    "description": "You are a High-Potential Individual with a strong engine, but your brakes (hesitations) are currently on partial lock."
-                },
-                "upsell": {
-                    "problem": "This analysis is just a surface scan. We detected specific friction points in your 'g' loops (Money/Success) that need deep work.",
-                    "solution": "Your full 45-Page 'Blueprint of You' is ready to be unlocked."
-                },
-                "overall_score": 85
+        # Prepare Payload
+        user_id = str(current_user.id) if current_user else "anonymous_" + str(uuid.uuid4())[:8]
+        
+        payload = {
+            "user_id": user_id,
+            "image": str(temp_path),
+            "purchase_type": purchase_type,
+            "session_data": {
+                "purchase_history": [], 
+                "current_state": "new_upload"
             }
+        }
+
+        # Execute Unified Pipeline
+        from app.graphotherapy_engine.orchestrator import orchestrator
+        
+        analysis_data = await run_in_threadpool(
+            orchestrator.run_pipeline,
+            payload=payload
+        )
+
+        if not analysis_data or analysis_data.get("status") == "error":
+            raise HTTPException(status_code=500, detail=analysis_data.get("message", "Analysis failed"))
+
+        # Persist for Funnel Retrieval
+        if email or current_user:
+            target_email = email or current_user.email
+            # Use the UI-ready report data for persistence
+            report_data = analysis_data.get("report")
+            
+            lead_data = {
+                "email": target_email,
+                "name": name or (current_user.full_name if current_user else target_email.split("@")[0]),
+                "analysis_json": report_data,
+                "analysis_status": "ready",
+                "image_path": str(temp_path),
+                "purchase_type": purchase_type
+            }
+            
+            existing_lead = db.query(models.graphotherapy.GraphoLead).filter(
+                models.graphotherapy.GraphoLead.email == target_email
+            ).first()
+            
+            if existing_lead:
+                for key, value in lead_data.items():
+                    setattr(existing_lead, key, value)
+            else:
+                new_lead = models.graphotherapy.GraphoLead(**lead_data)
+                db.add(new_lead)
+            
+            db.commit()
             
         return analysis_data
 
-    except (json.JSONDecodeError, Exception) as e:
-        print(f"Analysis Failed or JSON Invalid: {str(e)}")
-        # EMERGENCY FALLBACK: If real AI fails, use the hardcoded fallback to ensure the user gets a report.
-        # This is critical for the funnel to not lose the lead.
-        return {
-                "hook": "Your handwriting reveals a mind that is constantly processing—faster than your hand can keep up.",
-                "insights": [
-                    {
-                        "title": "Insight 1: The Mind (The Strategist)",
-                        "analysis": "Your connection strokes suggest a fluid thinker who connects dots quickly. Like a chess player, you are often moves ahead.",
-                        "shadow_hint": "However, this speed can sometimes lead to impatience with slower details."
-                    },
-                    {
-                        "title": "Insight 2: The Heart (The Guarded Core)",
-                        "analysis": "Your slant indicates you keep your deepest emotions in a vault. You feel deeply but share selectively.",
-                        "shadow_hint": "This protection serves you, but may block spontaneous joy."
-                    },
-                    {
-                        "title": "Insight 3: The Drive (The Climber)",
-                        "analysis": "Your t-bars show decent willpower, but they fluctuate. You have bursts of high energy followed by retreats.",
-                        "shadow_hint": "Consistency is your next level of mastery."
-                    }
-                ],
-                "blind_spot": {
-                    "title": "The Blind Spot",
-                    "description": "You may be carrying a 'silent burden'—a goal or worry you haven't verbalized but that weighs on your baseline."
-                },
-                "verdict": {
-                    "title": "The Verdict",
-                    "description": "You are a High-Potential Individual with a strong engine, but your brakes (hesitations) are currently on partial lock."
-                },
-                "upsell": {
-                    "problem": "This analysis is just a surface scan. We detected specific friction points in your 'g' loops (Money/Success) that need deep work.",
-                    "solution": "Your full 45-Page 'Blueprint of You' is ready to be unlocked."
-                },
-                "overall_score": 85,
-                "note": "Generated via Emergency Protocol"
-            }
+    except HTTPException:
+        raise
     except Exception as e:
-        print(f"Analysis Error: {str(e)}")
+        print(f"Analysis Pipeline Error: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
     finally:
-        # Cleanup
         if temp_path.exists():
             temp_path.unlink()
+
+@router.get("/report/latest")
+def get_latest_report(
+    email: Optional[str] = None,
+    session_id: Optional[str] = None,
+    db: Session = Depends(deps.get_db)
+):
+    """
+    Retrieves the latest analysis report for a lead or session.
+    Used by the frontend polling mechanism.
+    """
+    if not email and not session_id:
+        raise HTTPException(status_code=400, detail="Email or Session ID required")
+    
+    lead = None
+    if email:
+        lead = db.query(models.graphotherapy.GraphoLead).filter(
+            models.graphotherapy.GraphoLead.email == email
+        ).order_by(models.graphotherapy.GraphoLead.created_at.desc()).first()
+    
+    if not lead:
+        # Fallback to checking student reports if user exists
+        from app.models.student_report import StudentReport
+        from app.models.user import User
+        user = db.query(User).filter(User.email == email).first()
+        if user:
+            report = db.query(StudentReport).filter(
+                StudentReport.user_id == user.id,
+                StudentReport.report_type == "graphotherapy"
+            ).order_by(StudentReport.created_at.desc()).first()
+            if report:
+                 return {
+                    "status": "success",
+                    "report_data": report.report_content,
+                    "purchase_type": report.purchase_type or "free",
+                    "analysis_status": "ready"
+                }
+        raise HTTPException(status_code=404, detail="No recent report found")
+    
+    return {
+        "status": "success",
+        "report_data": lead.analysis_json,
+        "purchase_type": "full" if lead.converted else "free",
+        "analysis_status": lead.analysis_status
+    }

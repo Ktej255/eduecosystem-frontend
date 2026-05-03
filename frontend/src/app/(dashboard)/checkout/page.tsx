@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 export const dynamic = "force-dynamic";
 
@@ -16,7 +16,7 @@ import { Badge } from "@/components/ui/badge";
 import { Loader2, CreditCard, Lock, Plus } from "lucide-react";
 import axios from "axios";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API_URL = `${(process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000").replace(/\/$/, "")}/api/v1`;
 
 interface PaymentMethod {
   id: number;

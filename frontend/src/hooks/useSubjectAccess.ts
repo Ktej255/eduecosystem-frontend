@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '@/contexts/auth-context';
+import { API_BASE } from '@/lib/api';
 
 interface SubjectAccess {
     purchasedSubjects: string[];
@@ -35,7 +36,7 @@ export function useSubjectAccess(): SubjectAccess {
                 return;
             }
             const res = await fetch(
-                `${process.env.NEXT_PUBLIC_API_URL}/payment/access`,
+                `${API_BASE}/payment/access`,
                 { headers: { Authorization: `Bearer ${token}` } }
             );
             if (res.ok) {

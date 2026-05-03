@@ -6,6 +6,8 @@
  */
 
 import { SadhanaProgress, DEFAULT_SADHANA_PROGRESS } from '../components/batch2/sadhana/data/sadhana-data';
+import { api, API_BASE } from '../lib/api';
+import { getCookie } from '../lib/cookies';
 
 // Storage keys
 const STORAGE_KEYS = {
@@ -184,32 +186,24 @@ const MAX_RETRIES = 5;
 const INITIAL_BACKOFF = 1000; // 1 second
 
 async function syncWithCloud(progressState: LearningProgress, retryCount = 0) {
-    const token = localStorage.getItem('token');
+    const token = getCookie('token');
     if (!token) return;
 
     try {
-        const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+        const baseUrl = API_BASE;
 
-        // Batch all local data for full persistence
         const reports = getAnalysisReports();
         const stats = getStudentStats();
 
-        const response = await fetch(`${baseUrl}/progress/sync`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({
-                state_blob: {
-                    progress: progressState,
-                    reports: reports,
-                    stats: stats
-                }
-            })
+        const response = await api.post('/progress/sync', {
+            state_blob: {
+                progress: progressState,
+                reports: reports,
+                stats: stats
+            }
         });
 
-        if (!response.ok) throw new Error('Failed to sync progress');
+        if (response.status !== 200) throw new Error('Failed to sync progress');
 
         // Success: Clear any pending retries if this was a manual retry
         console.log('☁️ Universal state synced with cloud');
@@ -256,17 +250,14 @@ export async function processRetryQueue() {
  * Pull latest state from cloud (Call on login/dashboard load)
  */
 export async function pullCloudProgress(): Promise<void> {
-    const token = localStorage.getItem('token');
+    const token = getCookie('token');
     if (!token) return;
 
     try {
-        const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
-        const response = await fetch(`${baseUrl}/progress/sync`, {
-            headers: { 'Authorization': `Bearer ${token}` }
-        });
+        const response = await api.get('/progress/sync');
 
-        if (response.ok) {
-            const data = await response.json();
+        if (response.status === 200) {
+            const data = response.data;
             const blob = data.state_blob;
 
             if (blob) {

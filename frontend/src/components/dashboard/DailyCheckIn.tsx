@@ -6,8 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Sunrise, CheckCircle, Loader2 } from "lucide-react";
 import axios from "axios";
 import { toast } from "sonner";
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+import { API_BASE as API_URL } from "@/lib/api";
 
 export function DailyCheckIn() {
     const [checkedIn, setCheckedIn] = useState(false);

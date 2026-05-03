@@ -5,8 +5,8 @@
  */
 
 import axios from "axios";
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+import { API_BASE as API_URL } from "@/lib/api";
+import { getCookie } from "@/lib/cookies";
 
 export interface TwoFactorSetupResponse {
   secret: string;
@@ -107,7 +107,7 @@ class TwoFactorService {
    */
   private getToken(): string {
     if (typeof window === "undefined") return "";
-    return localStorage.getItem("token") || "";
+    return getCookie("token") || "";
   }
 }
 

@@ -27,7 +27,8 @@ export interface DayInfo {
     is_completed: boolean;
     completed_at: string | null;
     upload_url: string | null;
-    unlock_date: string | null;  // When this day will unlock (for display)
+    unlock_date: string | null;
+    focus_area?: string;
 }
 
 export interface LevelDetailResponse {
@@ -46,6 +47,13 @@ export interface DayDetailResponse {
     completed_at: string | null;
     upload_url: string | null;
     can_complete_today: boolean;
+
+    // Program Content
+    focus_area?: string;
+    exercise?: string;
+    instructions?: string;
+    why_it_works?: string;
+    expected_result?: string;
 }
 
 export interface DayCompleteResponse {
@@ -55,6 +63,7 @@ export interface DayCompleteResponse {
     new_streak: number;
     level_completed: boolean;
     next_level_unlocked: boolean;
+    progress_percentage: number;
 }
 
 export interface StreakResponse {
@@ -125,6 +134,17 @@ export const graphotherapyService = {
      */
     async getStreak(): Promise<StreakResponse> {
         const response = await api.get("/graphotherapy/streak");
+        return response.data;
+    },
+
+    /**
+     * Finalize a daily drill (after upload and reflection)
+     */
+    async submitDrill(levelId: number, dayNumber: number): Promise<DayCompleteResponse> {
+        const response = await api.post("/graphotherapy/drill/submit", {
+            level_id: levelId,
+            day_number: dayNumber
+        });
         return response.data;
     },
 

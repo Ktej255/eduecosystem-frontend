@@ -46,7 +46,7 @@ export default function AntiGravityDashboard() {
 
     const fetchDashboard = async () => {
         try {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/antigravity/dashboard`);
+            const res = await fetch(`${(process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000').replace(/\/$/, '')}/api/v1/antigravity/dashboard`);
             if (!res.ok) throw new Error('Failed to fetch gravity data');
             const jsonData = await res.json();
             setData(jsonData);
@@ -73,7 +73,7 @@ export default function AntiGravityDashboard() {
         }
 
         try {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/antigravity/progress/toggle`, {
+            const res = await fetch(`${(process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000').replace(/\/$/, '')}/api/v1/antigravity/progress/toggle`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -307,7 +307,7 @@ export default function AntiGravityDashboard() {
                             onClick={async () => {
                                 try {
                                     const toastId = toast.loading("Decrypting Test Papers...");
-                                    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/antigravity/test/sunday`);
+                                    const res = await fetch(`${(process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000').replace(/\/$/, '')}/api/v1/antigravity/test/sunday`);
                                     const data = await res.json();
 
                                     setTestModalData({

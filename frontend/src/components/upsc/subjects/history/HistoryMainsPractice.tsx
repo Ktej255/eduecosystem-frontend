@@ -5,6 +5,7 @@ import { SubjectConfig, SubjectTopic } from '../../common/framework/SubjectPlann
 import { PenTool, CheckCircle, Clock, BookOpen, ChevronDown, ChevronUp, Loader2, Sparkles, ThumbsUp, AlertTriangle, Eye } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { api } from '@/lib/api';
 
 interface HistoryMainsPracticeProps {
     config: SubjectConfig;
@@ -71,19 +72,8 @@ export default function HistoryMainsPractice({ config }: HistoryMainsPracticePro
         setEvaluationError({ ...evaluationError, [questionId]: "" });
 
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || ''}/mains/evaluate`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ question, answer, marks })
-            });
-
-            if (!response.ok) {
-                const errorData = await response.json().catch(() => ({}));
-                throw new Error(errorData.detail || `Evaluation failed (${response.status})`);
-            }
-
-            const result: EvaluationResult = await response.json();
-            setEvaluations({ ...evaluations, [questionId]: result });
+            const response = await api.post('/mains/evaluate', { question, answer, marks });
+            setEvaluations({ ...evaluations, [questionId]: response.data });
         } catch (error: any) {
             console.error("Evaluation error:", error);
             setEvaluationError({ ...evaluationError, [questionId]: error.message || "Evaluation failed. Please try again." });

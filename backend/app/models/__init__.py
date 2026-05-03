@@ -110,6 +110,7 @@ from app.models.cart import ShoppingCart, CartItem
 # Orders
 from app.models.nudge import StudentNudgeWorkflow, NudgeHistory
 from app.models.development import DailySummary
+from app.models.decision_memory import DecisionMemory
 from app.models.order import Order, OrderItem, OrderStatus
 
 # Invoices
@@ -228,7 +229,12 @@ from app.models.marketing_automation import (
 # Graphotherapy
 from app.models.graphotherapy import (
     GraphotherapyProgress,
-    GraphotherapyDayCompletion
+    GraphotherapyDayCompletion,
+    GraphoBook,
+    GraphoPage,
+    GraphoSubmission,
+    GraphoLead,
+    GraphotherapyLevelPurchase
 )
 
 # Meditation

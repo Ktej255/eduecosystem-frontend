@@ -4,8 +4,7 @@ import { useEffect, useState } from "react";
 import { Flame } from "lucide-react";
 // import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import axios from "axios";
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+import { API_BASE as API_URL } from "@/lib/api";
 
 export function SadhanaStreak() {
   const [streak, setStreak] = useState(0);

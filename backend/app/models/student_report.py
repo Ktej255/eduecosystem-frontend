@@ -16,9 +16,23 @@ class StudentReport(Base):
     # Acts as a unique idempotent key to prevent duplicates (e.g., "batch11_saturday_v2_1")
     report_key = Column(String, index=True, nullable=False)
     
-    # The actual JSON payload from the frontend
+    # The actual JSON payload from the frontend (Legacy/Generic)
     data = Column(JSON, nullable=True)
     
+    # PHASE 14: Structured Graphotherapy Data
+    traits = Column(JSON, nullable=True)
+    dimensions = Column(JSON, nullable=True)
+    report_content = Column(JSON, nullable=True) # Full structured report
+    purchase_type = Column(String, nullable=True) # free, upsell_59, etc.
+
+    # PHASE 22: Detailed Graphotherapy Intelligence Storage
+    features_json = Column(JSON, nullable=True)
+    traits_json = Column(JSON, nullable=True)
+    conflicts_json = Column(JSON, nullable=True)
+    personality_json = Column(JSON, nullable=True)
+    report_text = Column(String, nullable=True)
+    pdf_url = Column(String, nullable=True)
+
     # Tracking
     created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
     updated_at = Column(DateTime(timezone=True), onupdate=func.now(), nullable=True)

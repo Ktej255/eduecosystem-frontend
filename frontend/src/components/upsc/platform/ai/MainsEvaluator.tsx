@@ -9,6 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Upload, FileText, Loader2, CheckCircle, AlertCircle, ChevronRight, PenTool } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { toast } from 'react-hot-toast';
+import { API_BASE } from '@/lib/api';
 
 interface EvaluationResult {
     scores: {
@@ -56,7 +57,7 @@ export default function MainsEvaluator() {
 
         try {
             const token = localStorage.getItem('token'); // Simplistic auth handling
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/mains/evaluate-image`, {
+            const response = await fetch(`${API_BASE}/mains/evaluate-image`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`

@@ -1,8 +1,5 @@
 import axios from 'axios';
-
-let _baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app";
-_baseUrl = _baseUrl.replace(/\/$/, "");
-const API_BASE = _baseUrl.endsWith("/api/v1") ? _baseUrl : `${_baseUrl}/api/v1`;
+import { API_BASE } from '@/lib/api';
 
 export interface SegmentData {
     id: number;

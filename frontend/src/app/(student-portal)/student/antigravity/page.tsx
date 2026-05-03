@@ -79,7 +79,7 @@ export default function AntiGravityPage() {
             setLoading(true);
             try {
                 // Pass selectedDate if it's not today (or always pass it for consistency)
-                const url = `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/antigravity/dashboard?date_str=${selectedDate}`;
+                const url = `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/antigravity/dashboard?date_str=${selectedDate}`;
                 const res = await axios.get(url);
                 setData(res.data);
 
@@ -203,7 +203,7 @@ export default function AntiGravityPage() {
 
         // API Call
         try {
-            const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/antigravity/progress/toggle`, {
+            const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/antigravity/progress/toggle`, {
                 db_topic_id: targetSlot.db_topic_id,
                 completed: isNowCompleted
             });

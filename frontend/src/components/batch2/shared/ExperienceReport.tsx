@@ -7,6 +7,7 @@ import { X, Sparkles, Brain, Flame, Droplets, CheckCircle2, Loader2 } from "luci
 import { useAuth } from "@/contexts/auth-context";
 import { ThemeProvider } from "@/components/theme-provider";
 import { useBatch2Events } from "../hooks/useBatch2Events";
+import { API_BASE } from "@/lib/api";
 
 
 interface ExperienceReportProps {
@@ -46,7 +47,7 @@ export default function ExperienceReport({ isOpen, onClose, onSubmit, title = "P
 
         try {
             // Real API Call
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/retention/experience`, {
+            const response = await fetch(`${API_BASE}/retention/experience`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

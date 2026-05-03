@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Trophy, Crown, Medal, TrendingUp, User as UserIcon } from 'lucide-react';
 import { useGamification } from '@/context/GamificationContext';
 import { useAuth } from '@/contexts/auth-context';
+import { api } from '@/lib/api';
 
 interface LeaderboardEntry {
     rank: number;
@@ -24,14 +25,10 @@ export default function Leaderboard() {
     useEffect(() => {
         const fetchLeaderboard = async () => {
             try {
-                const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
-                const token = localStorage.getItem('edueco_auth_token');
-                const response = await fetch(`${baseUrl}/community/leaderboard`, {
-                    headers: { 'Authorization': `Bearer ${token}` }
-                });
+                const response = await api.get('/community/leaderboard');
 
-                if (response.ok) {
-                    const data: LeaderboardEntry[] = await response.json();
+                if (response.status === 200) {
+                    const data: LeaderboardEntry[] = response.data;
 
                     // Identify current user
                     const ranked = data.map(entry => ({

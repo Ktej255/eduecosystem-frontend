@@ -1,4 +1,5 @@
 import { ConfidenceLevel } from "@/lib/gamification/gamification-types";
+import { API_BASE } from "@/lib/api";
 
 export type ActivityType = 'MCQ_EVENING' | 'MCQ_PYQ' | 'MCQ_SATURDAY' | 'FLASHCARD_REVIEW' | 'MCQ_CSAT' | 'MCQ_POMODORO' | 'MCQ_CHAPTER';
 
@@ -50,7 +51,7 @@ export const ActivityLogger = {
             const token = localStorage.getItem("token");
             if (!token) return;
 
-            await fetch(`${process.env.NEXT_PUBLIC_API_URL}/student-reports/`, {
+            await fetch(`${API_BASE}/student-reports/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -72,7 +73,7 @@ export const ActivityLogger = {
         try {
             const token = localStorage.getItem("token");
             if (token) {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/student-reports/?report_type=activity_log&report_key=${ACTIVITY_STORAGE_KEY}`, {
+                const res = await fetch(`${API_BASE}/student-reports/?report_type=activity_log&report_key=${ACTIVITY_STORAGE_KEY}`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 if (res.ok) {

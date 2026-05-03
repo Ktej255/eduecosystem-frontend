@@ -1,7 +1,4 @@
-/**
- * WebSocket Client for Frontend
- * Manages WebSocket connections for real-time features
- */
+import { API_BASE } from "@/lib/api";
 
 type WebSocketMessage = {
   type: string;
@@ -25,11 +22,16 @@ class WebSocketClient {
   private isIntentionalClose = false;
 
   constructor(endpoint: string) {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-    // Convert http(s) to ws(s)
-    const wsProtocol = apiUrl.startsWith("https") ? "wss" : "ws";
-    const wsUrl = apiUrl.replace(/^https?/, wsProtocol);
-    this.url = `${wsUrl}${endpoint}`;
+    // API_BASE already includes /api/v1
+    const wsProtocol = API_BASE.startsWith("https") ? "wss" : "ws";
+    const wsUrl = API_BASE.replace(/^https?/, wsProtocol);
+    
+    // Ensure endpoint doesn't double-prefix /api/v1
+    const cleanEndpoint = endpoint.startsWith("/api/v1") 
+      ? endpoint.substring(7) 
+      : endpoint;
+      
+    this.url = `${wsUrl}${cleanEndpoint}`;
   }
 
   /**

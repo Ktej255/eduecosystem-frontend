@@ -6,8 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ShieldAlert, Map, Clock, CheckCircle2, AlertTriangle, User } from "lucide-react";
 import axios from "axios";
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+import { API_BASE as API_URL } from "@/lib/api";
 
 export function SecurityAlertsDashboard() {
     const [alerts, setAlerts] = useState<any[]>([]);

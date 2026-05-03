@@ -2,8 +2,7 @@
 // Token key: "token" from localStorage (auth-context.tsx line 135)
 // Replaces localStorage stub. Real data confirmed working for user Kajal (user_id 12)
 import { useState, useEffect } from "react";
-
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app";
+import { API_BASE } from "@/lib/api";
 
 export interface DashboardData {
   student_name: string;
@@ -49,7 +48,7 @@ export function useDashboardData() {
         }
 
         const response = await fetch(
-          `${API_BASE}/api/v1/engine/todays-dashboard`,
+          `${API_BASE}/engine/todays-dashboard`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

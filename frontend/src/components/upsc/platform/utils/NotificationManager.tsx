@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Bell, BellOff } from 'lucide-react';
 import { toast } from 'react-hot-toast';
+import { api } from '@/lib/api';
 
 export default function NotificationManager() {
     const [permission, setPermission] = useState('default');
@@ -34,15 +35,7 @@ export default function NotificationManager() {
                     applicationServerKey: vapidPublicKey
                 });
 
-                const token = localStorage.getItem('token');
-                await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/notifications/subscribe`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    },
-                    body: JSON.stringify(subscription)
-                });
+                await api.post('/notifications/subscribe', subscription);
 
                 toast.success("Notifications enabled! You'll get study reminders.");
             } catch (error) {

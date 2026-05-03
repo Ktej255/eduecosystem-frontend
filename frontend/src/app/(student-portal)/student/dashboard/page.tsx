@@ -28,15 +28,10 @@ import StudentDNAWidget from "@/components/dashboard/StudentDNAWidget";
 import LifeMasteryReport from "@/components/dashboard/LifeMasteryReport";
 import { logStudySession } from "@/services/progressStorage";
 import InnerSpaceWidget from "@/components/meditation/features/InnerSpaceWidget";
-import DailyMissionCard from "@/components/dashboard/DailyMissionCard";
-import TodayMissionCard from "@/components/dashboard/TodayMissionCard";
+
 import { pullCloudProgress, processRetryQueue } from "@/services/progressStorage";
 import QuickReviewWidget from "@/components/dashboard/QuickReviewWidget";
 import { subscribeToPushNotifications } from "@/lib/PushSubscriptionManager";
-import OnboardingFlow from "@/components/onboarding/OnboardingFlow";
-import ExitIntentOverlay from "@/components/onboarding/ExitIntentOverlay";
-import DayTransitionTrigger from "@/components/dashboard/DayTransitionTrigger";
-import MilestoneCommitmentModal from "@/components/onboarding/MilestoneCommitmentModal";
 import { useDashboardData } from "@/hooks/useDashboardData";
 import { SaritLogo, SaritGlobe, SaritIcon, StreakBadge } from "@/components/ui/sarit-primitives";
 import { getSubjectColor } from "@/lib/subject-colors";
@@ -222,22 +217,6 @@ export default function StudentDashboard() {
 
     return (
         <>
-            {/* ── Preserved overlays ───────────────────────────────────────── */}
-            {!isOnboarded && <OnboardingFlow user={user} onComplete={() => setIsOnboarded(true)} />}
-            <ExitIntentOverlay isOnboarded={isOnboarded} />
-            <MilestoneCommitmentModal
-                show={showMilestone}
-                onCommit={handleCommit}
-                onSkip={() => setShowMilestone(false)}
-            />
-            {dashboardData && (
-                <DayTransitionTrigger
-                    habitDay={dashboardData.habit_lock?.day || 0}
-                    lastSeenDay={user?.last_habit_day_seen || 0}
-                    config={dashboardData.habit_lock || {}}
-                />
-            )}
-
             {/* ── Main page ────────────────────────────────────────────────── */}
             <div
                 className="topo"

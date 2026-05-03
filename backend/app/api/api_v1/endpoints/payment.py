@@ -7,7 +7,8 @@ from app.api import deps
 from app.services.cashfree_service import cashfree_service
 from app.models.user import User
 from app.models.meditation import MeditationProgress, MEDITATION_LEVELS
-from app.models.graphotherapy import GraphotherapyProgress, GRAPHOTHERAPY_LEVELS
+from app.models.graphotherapy import GraphotherapyProgress, GRAPHOTHERAPY_LEVELS, GraphotherapyLevelPurchase, GraphoLead
+from app.models.student_report import StudentReport
 import os
 import json
 from app.core.config import settings
@@ -43,6 +44,8 @@ SUBJECT_PRODUCTS = {
     "grapho_l2": {"name": "Graphotherapy Level 2", "price": float(GRAPHOTHERAPY_LEVELS[2]["price"])},
     "grapho_l3": {"name": "Graphotherapy Level 3", "price": float(GRAPHOTHERAPY_LEVELS[3]["price"])},
     "grapho_l4": {"name": "Graphotherapy Level 4", "price": float(GRAPHOTHERAPY_LEVELS[4]["price"])},
+    "report_full": {"name": "Full Handwriting Analysis", "price": 1599.0},
+    "report_discounted": {"name": "Full Handwriting Analysis (Discounted)", "price": 999.0},
 }
 
 
@@ -127,6 +130,13 @@ def create_order(
                 "notify_url": f"{settings.BASE_URL}/api/v1/payment/webhook"
             }
         )
+        # Track in Funnel Analytics
+        try:
+            from app.graphotherapy_engine.funnel_analytics import funnel_analytics
+            funnel_analytics.track_event("payment_initiated", str(current_user.id), db=db, metadata={"product": note})
+        except Exception as funnel_err:
+            import logging; logging.getLogger(__name__).warning(f"Funnel track failed (non-fatal): {funnel_err}")
+
         return cashfree_order
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -182,6 +192,13 @@ def create_guest_order(
                 "whatsapp": request.whatsapp
             }
         )
+        # Track in Funnel Analytics
+        try:
+            from app.graphotherapy_engine.funnel_analytics import funnel_analytics
+            funnel_analytics.track_event("payment_initiated", f"guest_{request.whatsapp}", db=db, metadata={"product": note})
+        except Exception as funnel_err:
+            import logging; logging.getLogger(__name__).warning(f"Funnel track failed (non-fatal): {funnel_err}")
+
         return cashfree_order
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -347,13 +364,27 @@ async def cashfree_webhook(request: Request, db: Session = Depends(deps.get_db))
             order_note = order.get("order_note", "")
 
             parts = order_id.split("_")
+            user = None
             if len(parts) >= 2 and parts[1].isdigit():
                 user_id = int(parts[1])
                 user = db.query(User).filter(User.id == user_id).first()
-                if user:
-                    _unlock_from_note(user, order_note, db, order_id=order_id, payment_event=data)
+            
+            # Fallback: Find by email if ID is missing (guest transition)
+            if not user:
+                tags = order.get("order_tags", {})
+                stu_email = tags.get("email", "").strip().lower()
+                if stu_email:
+                    user = db.query(User).filter(User.email == stu_email).first()
+
+            if user:
+                _unlock_from_note(user, order_note, db, order_id=order_id, payment_event=data)
                     
-            if order_note in ["SUBJECT:focused_portal_test", "SUBJECT:polity_focused", "SUBJECT:focused_portal_2500", "SUBJECT:focused_portal_299", "SUBJECT:vsl_funnel_99"]:
+            CONVERSION_NOTES = [
+                "SUBJECT:focused_portal_test", "SUBJECT:polity_focused", 
+                "SUBJECT:focused_portal_2500", "SUBJECT:focused_portal_299", 
+                "SUBJECT:vsl_funnel_99", "GRAPHO:report_discounted", "GRAPHO:report_full"
+            ]
+            if order_note in CONVERSION_NOTES:
                 try:
                     from app.crud.user import get_by_email, create
                     from app.schemas.user import UserCreate
@@ -393,25 +424,29 @@ async def cashfree_webhook(request: Request, db: Session = Depends(deps.get_db))
                         db.commit()
                         db.refresh(user)
                         
-                    # Insert full subject sequence gates (43-Day Sprint)
-                    # Note: Sequence derived from focused_portal.py
-                    FOCUSED_SEQUENCE = [
-                        "Polity", "Environment", "Science & Technology", "Economy", 
-                        "Agriculture", "Geography", "Ancient History", "Medieval History", 
-                        "Modern History", "Art and Culture", "International Relations", "Indian Society"
-                    ]
-                    for subj in FOCUSED_SEQUENCE:
-                        gate_exists = db.execute(
-                            text("SELECT 1 FROM focused_subject_gates WHERE user_id = :uid AND subject = :sid"),
-                            {"uid": user.id, "sid": subj}
-                        ).fetchone()
-                        
-                        if not gate_exists:
-                            db.execute(
-                                text("INSERT INTO focused_subject_gates (user_id, subject, is_unlocked, passed) "
-                                     "VALUES (:uid, :sid, :unlocked, :passed)"),
-                                {"uid": user.id, "sid": subj, "unlocked": True, "passed": False}
-                            )
+                    # Insert full subject sequence gates (43-Day Sprint) only for subject products
+                    if order_note.startswith("SUBJECT:"):
+                        FOCUSED_SEQUENCE = [
+                            "Polity", "Environment", "Science & Technology", "Economy", 
+                            "Agriculture", "Geography", "Ancient History", "Medieval History", 
+                            "Modern History", "Art and Culture", "International Relations", "Indian Society"
+                        ]
+                        for subj in FOCUSED_SEQUENCE:
+                            gate_exists = db.execute(
+                                text("SELECT 1 FROM focused_subject_gates WHERE user_id = :uid AND subject = :sid"),
+                                {"uid": user.id, "sid": subj}
+                            ).fetchone()
+                            
+                            if not gate_exists:
+                                db.execute(
+                                    text("INSERT INTO focused_subject_gates (user_id, subject, is_unlocked, passed) "
+                                         "VALUES (:uid, :sid, :unlocked, :passed)"),
+                                    {"uid": user.id, "sid": subj, "unlocked": True, "passed": False}
+                                )
+                    
+                    # Ensure report is unlocked if this was a report purchase
+                    if order_note.startswith("GRAPHO:report"):
+                        _unlock_from_note(user, order_note, db, order_id=order_id, payment_event=data)
                     
                     # Log enrollment
                     db.execute(
@@ -517,10 +552,14 @@ def _record_graphotherapy_purchase(
     order_payload = payment_event.get("order") or {}
     payment_payload = payment_event.get("payment") or {}
     level_token = prod_id.rsplit("_l", 1)[-1]
-    if not level_token.isdigit():
+    
+    # Map report products to Level 1
+    if "report" in prod_id:
+        level = 1
+    elif level_token.isdigit():
+        level = int(level_token)
+    else:
         return
-
-    level = int(level_token)
     payment_id = (
         payment_event.get("cf_payment_id")
         or payment_event.get("payment_id")
@@ -548,10 +587,7 @@ def _record_graphotherapy_purchase(
         or GRAPHOTHERAPY_LEVELS.get(level, {}).get("price")
         or 0
     )
-    # Disabling GraphotherapyLevelPurchase recording as the model is missing
-    # To restore, ensure GraphotherapyLevelPurchase exists in app.models.graphotherapy
-    pass
-    """
+    # Enabling GraphotherapyLevelPurchase recording
     db.add(
         GraphotherapyLevelPurchase(
             user_id=user.id,
@@ -584,7 +620,6 @@ def _record_graphotherapy_purchase(
             notes=f"Unlocked from product {prod_id}",
         )
     )
-    """
 
 
 def _unlock_from_note(user: User, note: str, db: Session, *, order_id: str = None, payment_event: dict = None):
@@ -620,11 +655,58 @@ def _unlock_from_note(user: User, note: str, db: Session, *, order_id: str = Non
             progress = GraphotherapyProgress(user_id=user.id, current_level=1)
             db.add(progress)
             
-        if "l1" in prod_id: progress.current_level = max(progress.current_level, 1)
+        if "report" in prod_id or "l1" in prod_id: progress.current_level = max(progress.current_level, 1)
         elif "l2" in prod_id: progress.current_level = max(progress.current_level, 2)
         elif "l3" in prod_id: progress.current_level = max(progress.current_level, 3)
         elif "l4" in prod_id: progress.current_level = max(progress.current_level, 4)
+        
+        # Handle report unlocks via GRAPHO: prefix
+        if "report" in prod_id:
+            lead = db.query(GraphoLead).filter(GraphoLead.email == user.email).first()
+            if lead:
+                lead.converted = True
+                if lead.analysis_json:
+                    current_json = dict(lead.analysis_json)
+                    current_json["purchase_type"] = "full"
+                    lead.analysis_json = current_json
+                db.add(lead)
+            
+            # Update StudentReport table
+            report = db.query(StudentReport).filter(
+                StudentReport.user_id == user.id, 
+                StudentReport.report_type == "graphotherapy"
+            ).order_by(StudentReport.created_at.desc()).first()
+            
+            if report:
+                report.purchase_type = "full"
+                db.add(report)
+
         _record_graphotherapy_purchase(user, prod_id, db, order_id=order_id, payment_event=payment_event)
+
+    elif note.startswith("REPORT:"):
+        report_type = note.replace("REPORT:", "").strip() # full | partial
+        lead = db.query(GraphoLead).filter(GraphoLead.email == user.email).first()
+        if lead:
+            lead.converted = True
+            # Update the JSON directly for faster retrieval if needed
+            if lead.analysis_json:
+                current_json = dict(lead.analysis_json)
+                current_json["purchase_type"] = "full"
+                lead.analysis_json = current_json
+            db.add(lead)
+            
+            # ALSO update StudentReport for the user
+            from app.models.student_report import StudentReport
+            report = db.query(StudentReport).filter(
+                StudentReport.user_id == user.id, 
+                StudentReport.report_type == "graphotherapy"
+            ).order_by(StudentReport.created_at.desc()).first()
+            
+            if report:
+                report.purchase_type = "full"
+                db.add(report)
+            
+            db.commit()
 
     elif note == "TIER:premium":
         user.is_premium = True

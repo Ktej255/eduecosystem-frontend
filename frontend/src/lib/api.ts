@@ -1,9 +1,9 @@
 import axios from "axios";
+import { getCookie, removeCookie } from "./cookies";
 
 // API Base URL - ensure /api/v1 suffix is always present
-let baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app";
-baseUrl = baseUrl.replace(/\/$/, ""); // Remove trailing slash
-const API_BASE = baseUrl.endsWith("/api/v1") ? baseUrl : `${baseUrl}/api/v1`;
+const baseUrl = (process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app").replace(/\/$/, "");
+export const API_BASE = baseUrl.endsWith("/api/v1") ? baseUrl : `${baseUrl}/api/v1`;
 
 const api = axios.create({
   baseURL: API_BASE,
@@ -14,7 +14,8 @@ const api = axios.create({
 });
 
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token") || localStorage.getItem("access_token");
+  // Use cookies exclusively for authentication tokens
+  const token = getCookie("token");
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
@@ -25,9 +26,8 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      // Clear local storage on unauthorized
-      localStorage.removeItem("token");
-      localStorage.removeItem("user");
+      // Clear auth data on unauthorized
+      removeCookie("token");
 
       // Redirect to login if not already there
       if (typeof window !== "undefined" && !window.location.pathname.includes("/login")) {

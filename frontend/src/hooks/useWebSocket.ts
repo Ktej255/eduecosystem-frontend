@@ -7,6 +7,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useAuth } from "@/contexts/auth-context";
+import { API_BASE } from "@/lib/api";
 
 export interface WebSocketMessage {
   type: string;
@@ -72,11 +73,15 @@ export function useWebSocket(
   const getWebSocketUrl = useCallback(() => {
     if (!url || !token) return null;
 
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-    const wsProtocol = apiUrl.startsWith("https") ? "wss" : "ws";
-    const wsHost = apiUrl.replace(/^https?:\/\//, "").replace(/\/$/, "");
+    const wsProtocol = API_BASE.startsWith("https") ? "wss" : "ws";
+    const wsHost = API_BASE.replace(/^https?:\/\//, "").replace(/\/$/, "");
+    
+    // Ensure endpoint doesn't double-prefix /api/v1
+    const cleanEndpoint = url.startsWith("/api/v1") 
+      ? url.substring(7) 
+      : url;
 
-    return `${wsProtocol}://${wsHost}${url}?token=${token}`;
+    return `${wsProtocol}://${wsHost}${cleanEndpoint}?token=${token}`;
   }, [url, token]);
 
   /**

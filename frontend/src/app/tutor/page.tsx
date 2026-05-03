@@ -33,7 +33,7 @@ export default function TutorPage() {
         if (!token) return;
 
         const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/tutor/history`,
+          `${process.env.NEXT_PUBLIC_API_URL}/api/v1/tutor/history`,
           {
             headers: { Authorization: `Bearer ${token}` },
           },
@@ -72,7 +72,7 @@ export default function TutorPage() {
       setMessages(newMessages);
 
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/tutor/chat`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/tutor/chat`,
         {
           message: content,
           conversation_id: conversationId,

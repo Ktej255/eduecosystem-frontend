@@ -1,8 +1,10 @@
 import os
 import httpx
 import time
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 from typing import Optional, List, Dict, Any, Tuple
+import asyncio
 from app.core.config import settings
 import logging
 
@@ -23,16 +25,17 @@ class GeminiService:
         self.free_key = settings.FREE_GEMINI_API_KEY
         self.paid_key = settings.PAID_GEMINI_API_KEY
         
-        # Configure Google GenAI
+        # Configure Google GenAI Client
+        self.client = None
         if self.free_key:
-            genai.configure(api_key=self.free_key)
+            self.client = genai.Client(api_key=self.free_key)
         
         # Fallback Keys (OpenRouter)
         self.gemma_key = settings.GEMMA_API_KEY
         self.llama_key = settings.LLAMA_API_KEY
         
         self.base_url = settings.OPENROUTER_BASE_URL
-        self.default_model = "gemini-2.5-flash" # Updated for 2026
+        self.default_model = os.getenv("GEMINI_MODEL", "gemini-flash-latest")
 
     def _get_execution_plan(self, user: Any = None, is_complex: bool = False) -> List[Tuple[str, str, str]]:
         """
@@ -46,11 +49,11 @@ class GeminiService:
         # Primary: Google Direct (Fast, Free/Paid)
         if is_premium and self.paid_key:
              # Paid Pro -> Free Flash
-             plan.append(("google", self.paid_key, "gemini-2.5-pro"))
-             plan.append(("google", self.free_key, "gemini-2.5-flash"))
+             plan.append(("google", self.paid_key, os.getenv("PRO_MODEL", "gemini-1.5-pro")))
+             plan.append(("google", self.free_key, self.default_model))
         else:
              # Free Flash
-             plan.append(("google", self.free_key, "gemini-2.5-flash"))
+             plan.append(("google", self.free_key, self.default_model))
              
         # Fallbacks (OpenRouter)
         if self.gemma_key:
@@ -65,19 +68,21 @@ class GeminiService:
         Generates embeddings for the given text using Gemini.
         Returns a list of floats (vector).
         """
-        if not self.free_key:
-            logger.error("Gemini API key missing for embeddings")
+        if not self.client:
+            logger.error("Gemini Client not initialized (missing API key)")
             return []
 
         try:
-            genai.configure(api_key=self.free_key)
-            result = genai.embed_content(
+            result = self.client.models.embed_content(
                 model="models/gemini-embedding-001",
-                content=text,
-                task_type=task_type,
-                title="Knowledge Graph Node" if task_type == "retrieval_document" else None
+                contents=text,
+                config=types.EmbedContentConfig(
+                    task_type=task_type,
+                    output_dimensionality=768,
+                    title="Knowledge Graph Node" if task_type == "retrieval_document" else None
+                )
             )
-            return result['embedding']
+            return result.embeddings[0].values
         except Exception as e:
             logger.error(f"Gemini Embeddings Error: {e}")
             return []
@@ -85,36 +90,29 @@ class GeminiService:
     def get_embeddings_batch(self, texts: List[str], task_type: str = "retrieval_document") -> List[List[float]]:
         """
         Generates embeddings for a list of texts in batch.
-        Note: Handles 15 RPM free tier limits by sleeping if needed.
+        Uses native SDK batching.
         """
         if not texts: return []
-        
-        results = []
-        # Free tier is 15 RPM. For 200 nodes, we might need multiple batches.
-        # However, genai.embed_content supports multiple contents in one call (up to 100 usually)
+        if not self.client:
+            logger.error("Gemini Client not initialized (missing API key)")
+            return []
         
         try:
-            genai.configure(api_key=self.free_key)
-            
-            # Process in chunks of 50 to avoid payload limits
-            chunk_size = 50
-            for i in range(0, len(texts), chunk_size):
-                chunk = texts[i:i + chunk_size]
-                batch_result = genai.embed_content(
-                    model="models/gemini-embedding-001",
-                    content=chunk,
-                    task_type=task_type
+            # SDK native batching handles multiple contents
+            batch_result = self.client.models.embed_content(
+                model="models/gemini-embedding-001",
+                contents=texts,
+                config=types.EmbedContentConfig(
+                    task_type=task_type,
+                    output_dimensionality=768
                 )
-                results.extend(batch_result['embedding'])
-                
-            return results
+            )
+            return [emb.values for emb in batch_result.embeddings]
         except Exception as e:
             logger.error(f"Gemini Batch Embeddings Error: {e}")
             # Fallback to sequential if batch fails
             sequential_results = []
             for t in texts:
-                # Add delay to stay within 15-100 RPM limits
-                time.sleep(1.0)
                 emb = self.get_embeddings(t, task_type)
                 # Ensure we always return a vector of the same dimension even on error
                 if not emb:
@@ -123,15 +121,15 @@ class GeminiService:
             return sequential_results
 
     def _call_google(self, api_key: str, model_name: str, messages: List[Dict[str, str]], temperature: float) -> str:
-        """Call Google Generic AI SDK"""
-        # Configure specifically for this call (in case of multiple keys)
-        genai.configure(api_key=api_key)
+        """Call Google Generic AI SDK using the new Client instance."""
+        # Use existing client if key matches, otherwise create temporary one
+        call_client = self.client
+        if not call_client or api_key != self.free_key:
+            call_client = genai.Client(api_key=api_key)
         
-        # Convert OpenAI format messages to Gemini format
-        # User -> user, Assistant -> model
-        history = []
+        # Convert OpenAI format messages to Gemini parts
+        contents = []
         system_instruction = None
-        current_user_message = ""
 
         for msg in messages:
             role = msg["role"]
@@ -140,35 +138,36 @@ class GeminiService:
             if role == "system":
                 system_instruction = content
             elif role == "user":
-                current_user_message = content # Last message is the prompt
-            elif role == "assistant":
-                history.append({"role": "model", "parts": [content]})
-            else: # previous user messages
-                 history.append({"role": "user", "parts": [content]})
+                contents.append(types.Content(role="user", parts=[types.Part.from_text(text=content)]))
+            elif role == "assistant" or role == "model":
+                contents.append(types.Content(role="model", parts=[types.Part.from_text(text=content)]))
 
-        # Instantiate Model
-        model = genai.GenerativeModel(
-            model_name=model_name,
-            system_instruction=system_instruction
-        )
-        
-        # Generate
-        # Note: Gemini python lib chat history is stateful, but here we just want generation
-        # passing history as 'contents' if needed, generally usually just text generation for simple usage
-        # or chat.
-        
-        generation_config = genai.types.GenerationConfig(
-            temperature=temperature,
-            candidate_count=1,
-        )
-        
-        if history:
-             chat = model.start_chat(history=history)
-             response = chat.send_message(current_user_message, generation_config=generation_config)
-             return response.text
-        else:
-             response = model.generate_content(current_user_message, generation_config=generation_config)
-             return response.text
+        max_retries = 5
+        base_delay = 5.0  # Increased for stability
+
+        for attempt in range(max_retries):
+            try:
+                response = call_client.models.generate_content(
+                    model=model_name,
+                    contents=contents,
+                    config=types.GenerateContentConfig(
+                        system_instruction=system_instruction,
+                        temperature=temperature,
+                        candidate_count=1
+                    )
+                )
+                return response.text
+            except Exception as e:
+                err_msg = str(e)
+                # Handle 503 (Service Unavailable / High Demand) or 429 (Rate Limit)
+                if ("503" in err_msg or "demand" in err_msg.lower() or "429" in err_msg) and attempt < max_retries - 1:
+                    delay = base_delay * (2 ** attempt)
+                    logger.warning(f"Gemini API overloaded/rate-limited (attempt {attempt+1}/{max_retries}). Retrying in {delay}s...")
+                    time.sleep(delay)
+                    continue
+                
+                logger.error(f"Google GenAI Error: {e}")
+                raise e
 
 
     def _call_openrouter_sync(self, api_key: str, model: str, messages: List[Dict[str, str]], temperature: float, max_tokens: int) -> str:
@@ -223,10 +222,16 @@ class GeminiService:
         
         return f"AI Service Unavailable. Last error: {last_error}"
 
+    async def generate_text_async(self, prompt: str, user: Any = None, is_complex: bool = False, temperature: float = 0.7, max_tokens: int = 2000) -> str:
+        """Async version of generate_text"""
+        # For now, wrap sync in thread to avoid blocking if aio is not fully configured
+        # But ideally we use self.client.aio
+        loop = asyncio.get_event_loop()
+        return await loop.run_in_executor(None, self.generate_text, prompt, user, is_complex, temperature, max_tokens)
+
+
     def analyze_image(self, image_path: str, prompt: str, user: Any = None, temperature: float = 0.4) -> str:
-        """Analyze image using Gemini Vision"""
-        import PIL.Image
-        
+        """Analyze image using Gemini Vision (new SDK)"""
         plan = self._get_execution_plan(user, is_complex=True)
         # Filter for Google only
         google_plan = [p for p in plan if p[0] == "google"]
@@ -235,69 +240,88 @@ class GeminiService:
         
         # Load Image once
         try:
-             print(f"DEBUG: Processing image at {image_path}")
-             img = PIL.Image.open(image_path)
+             with open(image_path, "rb") as f:
+                 image_bytes = f.read()
         except Exception as e:
-             print(f"DEBUG: Image Load Error: {e}")
+             logger.error(f"Image Load Error: {e}")
              return f"Error loading image: {e}"
 
-        print(f"DEBUG: Google Plan length: {len(google_plan)}")
         for provider, api_key, model in google_plan:
             try:
-                if not api_key: 
-                    print(f"DEBUG: Missing API Key for {model}")
-                    continue
-                MASKED_KEY = api_key[:4] + "..." + api_key[-4:]
-                print(f"DEBUG: Calling Google {model} with key {MASKED_KEY}")
+                if not api_key: continue
                 
-                genai.configure(api_key=api_key)
-                m = genai.GenerativeModel(model)
-                response = m.generate_content([prompt, img])
-                print("DEBUG: Google Response Received")
-                return response.text
-            except Exception as e:
-                last_error = str(e)
-                print(f"DEBUG: Google Error: {e}")
+                # Use existing client if key matches, otherwise create temporary one
+                call_client = self.client
+                if not call_client or api_key != self.free_key:
+                    call_client = genai.Client(api_key=api_key)
                 
-                # Check for key validity issues
-                if "API key not valid" in last_error or "API key was reported as leaked" in last_error or "403" in last_error:
-                    return f"API_ERROR: {last_error}"
+                max_retries = 5
+                base_delay = 6.0
                 
+                for attempt in range(max_retries):
+                    try:
+                        response = call_client.models.generate_content(
+                            model=model,
+                            contents=[
+                                prompt,
+                                types.Part.from_bytes(data=image_bytes, mime_type="image/jpeg")
+                            ],
+                            config=types.GenerateContentConfig(temperature=temperature)
+                        )
+                        return response.text
+                    except Exception as e:
+                        last_error = str(e)
+                        if ("503" in last_error or "demand" in last_error.lower() or "429" in last_error) and attempt < max_retries - 1:
+                            delay = base_delay * (2 ** attempt)
+                            logger.warning(f"Vision API overloaded/rate-limited (attempt {attempt+1}/{max_retries}). Retrying in {delay}s...")
+                            time.sleep(delay)
+                            continue
+                        logger.warning(f"Google Vision Error ({model}): {e}")
+                        if "403" in last_error or "leaked" in last_error:
+                            return f"API_ERROR: {last_error}"
+                        break # Break out of attempt loop to try next key/model
+                continue # Next provider/key/model
+            except Exception as outer_e:
+                last_error = str(outer_e)
+                logger.warning(f"Google Vision Outer Error ({model}): {outer_e}")
                 continue
                 
         return f"Image Analysis Error: {last_error}"
 
     def compare_images(self, image_path1: str, image_path2: str, prompt: str, user: Any = None, temperature: float = 0.4) -> str:
-        """Compare two images using Gemini Vision"""
-        import PIL.Image
-        
+        """Compare two images using Gemini Vision (new SDK)"""
         plan = self._get_execution_plan(user, is_complex=True)
-        # Filter for Google only
         google_plan = [p for p in plan if p[0] == "google"]
         
         last_error = ""
         
-        # Load Images
         try:
-             print(f"DEBUG: Comparing images: {image_path1} vs {image_path2}")
-             img1 = PIL.Image.open(image_path1)
-             img2 = PIL.Image.open(image_path2)
+             with open(image_path1, "rb") as f1, open(image_path2, "rb") as f2:
+                 bytes1 = f1.read()
+                 bytes2 = f2.read()
         except Exception as e:
-             print(f"DEBUG: Image Load Error: {e}")
              return f"Error loading images: {e}"
 
         for provider, api_key, model in google_plan:
             try:
                 if not api_key: continue
                 
-                genai.configure(api_key=api_key)
-                m = genai.GenerativeModel(model)
-                # Pass both images
-                response = m.generate_content([prompt, img1, img2])
+                call_client = self.client
+                if not call_client or api_key != self.free_key:
+                    call_client = genai.Client(api_key=api_key)
+                
+                response = call_client.models.generate_content(
+                    model=model,
+                    contents=[
+                        prompt,
+                        types.Part.from_bytes(data=bytes1, mime_type="image/jpeg"),
+                        types.Part.from_bytes(data=bytes2, mime_type="image/jpeg")
+                    ],
+                    config=types.GenerateContentConfig(temperature=temperature)
+                )
                 return response.text
             except Exception as e:
                 last_error = str(e)
-                print(f"DEBUG: Google Compare Error: {e}")
                 continue
                 
         return f"Image Comparison Error: {last_error}"
@@ -352,29 +376,27 @@ Student: {student_summary}"""
              return {"score": 0.5, "grade": 2, "feedback": "AI Error", "missing_concepts": []}
 
     def transcribe_audio(self, audio_base64: str) -> str:
-        """Transcribe audio using Gemini's multimodal capability."""
+        """Transcribe audio using Gemini's multimodal capability (new SDK)."""
         import base64
         
         prompt = """Transcribe the following audio recording exactly as spoken. 
 Return ONLY the transcription text, nothing else."""
         
         try:
-            # For audio, we need to handle it as a file upload or use a specialized endpoint
-            # Gemini 1.5 supports audio in the API
-            genai.configure(api_key=self.free_key)
-            model = genai.GenerativeModel("gemini-1.5-flash")
-            
-            # Create audio part
+            if not self.client:
+                return "[Client not initialized]"
+                
             audio_bytes = base64.b64decode(audio_base64)
-            audio_part = {
-                "mime_type": "audio/webm",
-                "data": audio_bytes
-            }
-            
-            response = model.generate_content([prompt, audio_part])
+            response = self.client.models.generate_content(
+                model="gemini-1.5-flash",
+                contents=[
+                    prompt,
+                    types.Part.from_bytes(data=audio_bytes, mime_type="audio/webm")
+                ]
+            )
             return response.text.strip()
         except Exception as e:
-            print(f"Audio transcription error: {e}")
+            logger.error(f"Audio transcription error: {e}")
             return "[Audio transcription failed]"
 
     def evaluate_recall(self, original_text: str, student_recall: str) -> Dict[str, Any]:
@@ -415,13 +437,14 @@ Focus on main concepts, facts, and key details. Be fair but accurate."""
             }
 
     def evaluate_mains_answer(self, image_bytes: bytes, question: str) -> Dict[str, Any]:
-        """Evaluates a handwritten mains answer using Vision API."""
-        import PIL.Image
+        """Evaluates a handwritten mains answer using Vision API (new SDK)."""
         import io
         import json
         
         try:
-            img = PIL.Image.open(io.BytesIO(image_bytes))
+             # Just verify image is openable, but we use bytes for the SDK
+             import PIL.Image
+             PIL.Image.open(io.BytesIO(image_bytes))
         except Exception as e:
             return {"error": f"Invalid image: {e}", "scores": {"total": 0}}
 
@@ -451,17 +474,22 @@ Return JSON ONLY in this exact format:
     "model_answer_summary": "Brief summary of what the ideal answer should have covered."
 }}"""
 
-        # Reuse Google Plan logic for Vision
-        genai.configure(api_key=self.free_key)
-        model = genai.GenerativeModel("gemini-1.5-flash") # Vision capable and fast
-        
         try:
-            response = model.generate_content([prompt, img])
+            if not self.client:
+                return {"scores": {"total": 0}, "feedback": {"error": "Client not initialized"}}
+
+            response = self.client.models.generate_content(
+                model="gemini-1.5-flash",
+                contents=[
+                    prompt,
+                    types.Part.from_bytes(data=image_bytes, mime_type="image/jpeg")
+                ]
+            )
             text = response.text
             clean = text.replace("```json", "").replace("```", "").strip()
             return json.loads(clean)
         except Exception as e:
-            print(f"Mains Eval Error: {e}")
+            logger.error(f"Mains Eval Error: {e}")
             return {
                 "scores": {"total": 0},
                 "feedback": {"error": str(e)},
@@ -470,7 +498,7 @@ Return JSON ONLY in this exact format:
 
     def analyze_audio(self, audio_base64: str, context: str = "General Speaking Practice") -> Dict[str, Any]:
         """
-        Analyze audio for pronunciation, tone, confidence and content using Gemini 1.5 Flash.
+        Analyze audio for pronunciation, tone, confidence and content using Gemini 1.5 Flash (new SDK).
         Returns a structured assessment.
         """
         import base64
@@ -502,24 +530,24 @@ Return JSON ONLY in this exact format:
         """
         
         try:
-            # Re-use free key for Flash model
-            genai.configure(api_key=self.free_key)
-            model = genai.GenerativeModel("gemini-1.5-flash")
-            
+            if not self.client:
+                return {"transcription": "[Client not initialized]"}
+                
             # Decode audio
             audio_bytes = base64.b64decode(audio_base64)
-            audio_part = {
-                "mime_type": "audio/webm",
-                "data": audio_bytes
-            }
-            
-            response = model.generate_content([prompt, audio_part])
+            response = self.client.models.generate_content(
+                model="gemini-1.5-flash",
+                contents=[
+                    prompt,
+                    types.Part.from_bytes(data=audio_bytes, mime_type="audio/webm")
+                ]
+            )
             text = response.text
             clean = text.replace("```json", "").replace("```", "").strip()
             return json.loads(clean)
             
         except Exception as e:
-            print(f"Audio Analysis Error: {e}")
+            logger.error(f"Audio Analysis Error: {e}")
             return {
                 "transcription": "[Error analyzing audio]",
                 "metrics": {
@@ -536,7 +564,7 @@ Return JSON ONLY in this exact format:
 
     def analyze_handwriting_traits(self, image_base64: str) -> Dict[str, Any]:
         """
-        Quick vision analysis for AR overlay. Returns concise traits.
+        Quick vision analysis for AR overlay (new SDK). Returns concise traits.
         """
         import base64
         import json
@@ -555,23 +583,23 @@ Return JSON ONLY in this exact format:
         """
         
         try:
-             # Re-use free key for Flash model
-            genai.configure(api_key=self.free_key)
-            model = genai.GenerativeModel("gemini-1.5-flash")
-            
-            # Decode audio
+            if not self.client:
+                return {"traits": [], "overlay_coords": []}
+
+            # Decode image
             image_bytes = base64.b64decode(image_base64)
-            image_part = {
-                "mime_type": "image/jpeg",
-                "data": image_bytes
-            }
-            
-            response = model.generate_content([prompt, image_part])
+            response = self.client.models.generate_content(
+                model="gemini-1.5-flash",
+                contents=[
+                    prompt,
+                    types.Part.from_bytes(data=image_bytes, mime_type="image/jpeg")
+                ]
+            )
             text = response.text
             clean = text.replace("```json", "").replace("```", "").strip()
             return json.loads(clean)
         except Exception as e:
-            print(f"Grapho Vision Error: {e}")
+            logger.error(f"Grapho Vision Error: {e}")
             return {"traits": [], "overlay_coords": []}
 
     # ─────────────────────────────────────────────────────────────────

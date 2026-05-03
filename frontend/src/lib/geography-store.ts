@@ -42,10 +42,7 @@ const LEGACY_KEY_2 = 'geography-progress'; // GeographyDashboard (batch1) used t
 
 const GEO_SECTIONS: (keyof GeoTopicProgress)[] = ['readSection', 'flashcards', 'mcqs'];
 
-const API_BASE =
-    typeof window !== 'undefined'
-        ? process.env.NEXT_PUBLIC_API_URL || '/api/v1'
-        : '/api/v1';
+import { API_BASE } from './api';
 
 // ─── Empty Defaults ──────────────────────────────────────────────────────────
 

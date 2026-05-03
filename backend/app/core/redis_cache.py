@@ -31,13 +31,15 @@ class CacheManager:
                     socket_timeout=5,
                 )
                 # Test connection
-                self.redis_client.ping()
+                if not self.redis_client.ping():
+                    raise RedisError("Ping failed")
                 self.enabled = True
                 logger.info("Redis cache initialized successfully")
             except RedisError as e:
-                logger.warning(f"Redis connection failed: {e}. Caching disabled.")
-                self.redis_client = None
-                self.enabled = False
+                logger.critical(f"FATAL: Redis connection failed: {e}. System stopping.")
+                raise RuntimeError(f"REDIS_CRITICAL_FAILURE: {e}")
+        else:
+            raise RuntimeError("REDIS_URL NOT PROVIDED")
 
     def _generate_key(self, func_name: str, *args, **kwargs) -> str:
         """Generate a unique cache key from function name and arguments"""

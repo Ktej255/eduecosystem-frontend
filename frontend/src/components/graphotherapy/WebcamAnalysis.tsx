@@ -8,8 +8,9 @@ import { Camera, Scan, Sparkles, X, Loader2 } from "lucide-react";
 import axios from "axios";
 import { toast } from "sonner";
 import { motion, AnimatePresence } from "framer-motion";
+import { API_BASE } from "@/lib/api";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+
 
 type Trait = {
     name: string;
@@ -50,7 +51,7 @@ export function WebcamAnalysis() {
             // Strip prefix "data:image/jpeg;base64,"
             const rawBase64 = base64Image.split(",")[1];
 
-            const res = await axios.post(`${API_URL}/grapho-vision/analyze-stream`, {
+            const res = await axios.post(`${API_BASE}/grapho-vision/analyze-stream`, {
                 image_base64: rawBase64
             }, {
                 headers: { Authorization: `Bearer ${token}` }

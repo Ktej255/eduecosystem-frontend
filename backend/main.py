@@ -10,15 +10,16 @@ import logging
 import os
 import sys
 
-from fastapi import Request
+from fastapi import Request, Response
 from fastapi.responses import JSONResponse
-from slowapi.errors import RateLimitExceeded
-from slowapi import _rate_limit_exceeded_handler
-from slowapi.middleware import SlowAPIMiddleware
-from typing import List, Any
-from app.middleware.rate_limit import limiter
+from typing import List, Any, Callable
+from app.middleware.rate_limit import RateLimitMiddleware
+from app.middleware.security_headers import SecurityHeadersMiddleware
+from app.core.system_guard import system_guard
+from app.services.cache_service import cache_service
 import sentry_sdk
 from app.core.config import settings
+import time
 
 logger = logging.getLogger(__name__)
 
@@ -102,14 +103,15 @@ async def lifespan(app: FastAPI):
 
     # Initialize Adaptive Exam Engine Cache (Phase-7 Stabilization)
     try:
-        from app.db.session import SessionLocal
-        from app.services.adaptive_simulator_service import adaptive_simulator_service
-        db = SessionLocal()
-        try:
-            count = adaptive_simulator_service.refresh_cache(db)
-            logger.info(f"Adaptive Engine cache warmed up with {count} questions.")
-        finally:
-            db.close()
+        # from app.db.session import SessionLocal
+        # from app.services.adaptive_simulator_service import adaptive_simulator_service
+        # db = SessionLocal()
+        # try:
+        #     count = adaptive_simulator_service.refresh_cache(db)
+        #     logger.info(f"Adaptive Engine cache warmed up with {count} questions.")
+        # finally:
+        #     db.close()
+        pass
     except Exception as _e:
         logger.warning(f"Adaptive cache warm-up failed: {_e}")
 
@@ -143,13 +145,9 @@ else:
 # Define CORS origins
 all_cors_origins = [
     "https://eduecosystem-frontend-503001969959.us-central1.run.app",
-    "https://eduecosystem-frontend.vercel.app",
-    "https://eduecosystem-frontend-ktej255.vercel.app",
-    "https://saritclasses.com",
-    "https://www.saritclasses.com",
     "http://localhost:3000",
     "http://localhost:3001",
-    "http://localhost:8000",
+    "http://localhost:8080",
 ]
 
 # Merge with settings if available
@@ -172,18 +170,15 @@ logger.info(f"CORS origins configured: {all_cors_origins}")
 # 1. CORS Middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"] if os.getenv("ENVIRONMENT") != "production" else all_cors_origins,
-    allow_origin_regex="https://eduecosystem-frontend.*" if os.getenv("ENVIRONMENT") == "production" else None,
+    allow_origins=all_cors_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
     expose_headers=["*"],
 )
 
-# 3. Rate Limiting Middleware
-app.state.limiter = limiter
-app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
-app.add_middleware(SlowAPIMiddleware)
+# 3. Rate Limiting Middleware (Custom Redis-based)
+app.add_middleware(RateLimitMiddleware)
 
 # 4. Compression Middleware
 app.add_middleware(GZipMiddleware, minimum_size=1000)
@@ -194,10 +189,13 @@ if not os.path.exists("uploads"):
     os.makedirs("uploads")
 if not os.path.exists("static/content"):
     os.makedirs("static/content", exist_ok=True)
+if not os.path.exists("app/static/reports"):
+    os.makedirs("app/static/reports", exist_ok=True)
 
 # Mount directories for static access
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 app.mount("/content", StaticFiles(directory="static/content"), name="content")
+app.mount("/reports", StaticFiles(directory="app/static/reports"), name="reports")
 
 
 
@@ -205,34 +203,49 @@ app.mount("/content", StaticFiles(directory="static/content"), name="content")
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.responses import Response
 
-class SecurityHeadersMiddleware(BaseHTTPMiddleware):
-    """Add security headers to all responses to prevent common attacks."""
-    
-    async def dispatch(self, request: Request, call_next):
-        response = await call_next(request)
+app.add_middleware(SecurityHeadersMiddleware)
+
+class SystemMonitorMiddleware(BaseHTTPMiddleware):
+    """
+    Tracks real-time telemetry (RPS, Latency, Errors) and updates System Guard.
+    Uses Redis for distributed counting.
+    """
+    async def dispatch(self, request: Request, call_next: Callable) -> Response:
+        start_time = time.time()
         
-        # Prevent clickjacking attacks
-        response.headers["X-Frame-Options"] = "DENY"
+        # 1. Increment RPS in Redis (Window: 1s)
+        now_ts = int(start_time)
+        rps_key = f"metrics:rps:{now_ts}"
+        cache_service.client.incr(rps_key)
+        cache_service.client.expire(rps_key, 10) # TTL 10s
+
+        try:
+            response = await call_next(request)
+            status_code = response.status_code
+        except Exception as e:
+            # 2. Track Errors
+            error_key = f"metrics:errors:{now_ts}"
+            cache_service.client.incr(error_key)
+            cache_service.client.expire(error_key, 10)
+            raise e
+            
+        latency = (time.time() - start_time) * 1000 # ms
         
-        # Prevent MIME type sniffing
-        response.headers["X-Content-Type-Options"] = "nosniff"
-        
-        # Enable browser XSS filtering
-        response.headers["X-XSS-Protection"] = "1; mode=block"
-        
-        # Referrer policy
-        response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
-        
-        # Content Security Policy (allow only same origin for scripts)
-        response.headers["Content-Security-Policy"] = "frame-ancestors 'none'"
-        
-        # HSTS - Enforce HTTPS (only in production)
-        if os.getenv("ENVIRONMENT") == "production":
-            response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
-        
+        # 3. Update System Guard (Every minute or on significant change)
+        # For simplicity, we update based on current window estimates
+        if now_ts % 5 == 0: # Every 5 seconds update guard
+            rps = int(cache_service.client.get(rps_key) or 0)
+            errors = int(cache_service.client.get(f"metrics:errors:{now_ts}") or 0)
+            error_rate = errors / rps if rps > 0 else 0
+            system_guard.update_state(error_rate, latency, rps)
+            
+        # 4. Store latency for War Room
+        cache_service.client.lpush("metrics:latency:list", latency)
+        cache_service.client.ltrim("metrics:latency:list", 0, 99) # Keep last 100
+
         return response
 
-app.add_middleware(SecurityHeadersMiddleware)
+app.add_middleware(SystemMonitorMiddleware)
 
 # Multi-Tenant Detection Middleware (Phase 6)
 # from app.middleware.tenant import TenantMiddleware

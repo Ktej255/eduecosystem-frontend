@@ -1,45 +1,88 @@
-"""
-Rate limiting middleware using slowapi
-"""
+import time
+import logging
+from typing import Callable
+from fastapi import Request, Response
+from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.responses import JSONResponse
+from app.core.rate_limiter import rate_limiter
+from app.core.system_guard import system_guard
 
-from slowapi import Limiter
-from slowapi.util import get_remote_address
-from fastapi import Request
-from app.core.config import settings
+# ---------------------------------------------------------------------------
+# SlowAPI-compatible limiter + RATE_LIMITS used by endpoint decorators
+# ---------------------------------------------------------------------------
+try:
+    from slowapi import Limiter
+    from slowapi.util import get_remote_address
+    limiter = Limiter(key_func=get_remote_address, default_limits=["200/minute"])
+except Exception:  # slowapi not installed – create a no-op stub
+    class _NoopLimiter:  # pragma: no cover
+        def limit(self, *args, **kwargs):
+            def decorator(func):
+                return func
+            return decorator
+    limiter = _NoopLimiter()
 
-# Initialize rate limiter
-# Use memory storage by default unless a real external Redis host is configured.
-# This prevents 500 errors in environments without Redis (like App Runner).
-use_redis = bool(settings.REDIS_HOST and settings.REDIS_HOST != "localhost")
-
-redis_uri = f"redis://:{settings.REDIS_PASSWORD}@{settings.REDIS_HOST}:{settings.REDIS_PORT}" if settings.REDIS_PASSWORD else f"redis://{settings.REDIS_HOST}:{settings.REDIS_PORT}"
-
-limiter = Limiter(
-    key_func=get_remote_address,
-    default_limits=["200/hour"],  # Global default
-    storage_uri=redis_uri if use_redis else "memory://",
-    strategy="fixed-window",
-)
-
-
-def get_rate_limit_key(request: Request) -> str:
-    """
-    Custom rate limit key function
-    Uses user ID if authenticated, otherwise IP address
-    """
-    # Check if user is authenticated
-    if hasattr(request.state, "user") and request.state.user:
-        return f"user:{request.state.user.id}"
-
-    # Fall back to IP address
-    return get_remote_address(request)
-
-
-# Rate limit tiers for different endpoint types
 RATE_LIMITS = {
-    "auth": "5/minute",  # Authentication endpoints
-    "api_read": "100/minute",  # Read operations
-    "api_write": "30/minute",  # Write operations
-    "public": "20/minute",  # Public endpoints
-    "websocket": "10/minute",  # WebSocket connections
+    "auth": "10/minute",
+    "analyze": "10/minute",
+    "upload": "20/minute",
+    "default": "100/minute",
 }
+
+logger = logging.getLogger(__name__)
+
+class RateLimitMiddleware(BaseHTTPMiddleware):
+    """
+    Distributed Rate Limiting Middleware.
+    Enforces global and endpoint-specific limits using Redis Sliding Window.
+    """
+    
+    async def dispatch(self, request: Request, call_next: Callable) -> Response:
+        # Get identifier (IP address)
+        client_ip = request.client.host if request.client else "unknown"
+        path = request.url.path
+        
+        # 1. Define Limits
+        limit = 100
+        window = 60
+        
+        if path.startswith("/api/v1/grapho/analyze"):
+            limit = 10
+            
+            # System Guard check: Handle CRITICAL and SAFE_MODE
+            current_mode = system_guard.get_mode()
+            
+            if current_mode == "CRITICAL":
+                # Paid user bypass
+                is_paid = request.headers.get("x-paid-user", "false").lower() == "true"
+                if not is_paid:
+                    return JSONResponse(
+                        status_code=503,
+                        content={"detail": "Analysis service restricted to paid users during critical system state."}
+                    )
+            
+            if current_mode == "SAFE_MODE":
+                limit = 2 # Heavy throttling
+                
+        elif path.startswith("/api/v1/status"):
+            limit = 30
+            
+        # 2. Check Limit
+        allowed, remaining = rate_limiter.is_allowed(client_ip, limit, window)
+        
+        if not allowed:
+            logger.warning(f"Rate limit exceeded for {client_ip} on {path}")
+            return JSONResponse(
+                status_code=429,
+                content={"detail": "Too many requests. Please try again later."},
+                headers={"X-RateLimit-Limit": str(limit), "X-RateLimit-Remaining": "0"}
+            )
+            
+        # 3. Process Request
+        response = await call_next(request)
+        
+        # 4. Add Headers
+        response.headers["X-RateLimit-Limit"] = str(limit)
+        response.headers["X-RateLimit-Remaining"] = str(remaining)
+        
+        return response

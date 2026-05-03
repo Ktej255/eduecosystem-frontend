@@ -31,6 +31,7 @@ import {
 } from './progress-utils';
 import VoiceRecorder from '@/components/ui/VoiceRecorder';
 import { toast } from 'sonner';
+import { API_BASE } from '@/lib/api';
 
 // Reusing types from RevisionRegistry since we need access to raw topic data
 // But for now we might need to fetch topic data differently if passing ids
@@ -90,7 +91,7 @@ export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallM
     const [aiResult, setAiResult] = useState<any>(null);
     const [results, setResults] = useState<any[]>([]);
 
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app/api/v1";
+
 
     const toggleChapter = (id: number | string) => {
         if (selectedChapters.includes(id)) {
@@ -153,7 +154,7 @@ export default function VoiceRecallMode({ initialChapterIds = [] }: VoiceRecallM
         const currentCard = sessionCards[currentIndex];
 
         try {
-            const response = await fetch(`${API_URL}/audio-analysis/analyze-flashcard`, {
+            const response = await fetch(`${API_BASE}/audio-analysis/analyze-flashcard`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

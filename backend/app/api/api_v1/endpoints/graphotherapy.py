@@ -2,7 +2,7 @@
 Graphotherapy Progress Tracking Backend
 4-Level System with Sequential Day Completion and Image Uploads
 """
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, status
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, status, Body
 from sqlalchemy.orm import Session
 from typing import List, Optional
 from datetime import datetime, timedelta, date
@@ -21,8 +21,11 @@ from app.models.graphotherapy import (
     GraphoPage,
     GraphoSubmission,
     GraphoLead,
-    GRAPHOTHERAPY_LEVELS
+    GRAPHOTHERAPY_LEVELS,
+    HandwritingSnapshot,
+    WeeklyProgressReport
 )
+from app.core.graphotherapy_content import LEVEL_1_CONTENT
 from app.schemas.graphotherapy import (
     GraphotherapyProgressResponse,
     LevelInfo,
@@ -30,11 +33,16 @@ from app.schemas.graphotherapy import (
     DayDetailResponse,
     DayCompleteRequest,
     DayCompleteResponse,
+    DrillSubmitRequest,
     GraphoBookResponse,
     GraphoBookCreate,
     GraphoSubmissionResponse,
-    OverviewResponse
+    OverviewResponse,
+    SnapshotStatusResponse,
+    WeeklyProgressResponse
 )
+from app.services.snapshot_worker import analyze_snapshot_task
+from app.core.redis_client import redis_client
 
 router = APIRouter()
 
@@ -54,6 +62,7 @@ def get_or_create_progress(db: Session, user_id: int) -> GraphotherapyProgress:
             user_id=user_id,
             current_level=1,
             current_day=1,
+            streak_count=0,
             total_streak=0
         )
         db.add(progress)
@@ -63,20 +72,38 @@ def get_or_create_progress(db: Session, user_id: int) -> GraphotherapyProgress:
     return progress
 
 
+def get_progress_percentage(db: Session, user_id: int, level_id: int) -> float:
+    """Calculate percentage completion for a level"""
+    level_config = GRAPHOTHERAPY_LEVELS.get(level_id)
+    if not level_config:
+        return 0.0
+    
+    completions = db.query(GraphotherapyDayCompletion).filter(
+        GraphotherapyDayCompletion.user_id == user_id,
+        GraphotherapyDayCompletion.level == level_id
+    ).count()
+    
+    return min(100.0, round((completions / level_config["days"]) * 100.0, 1))
+
+
 def calculate_streak(progress: GraphotherapyProgress) -> int:
-    """Calculate current streak based on last practice date"""
-    if not progress.last_practice_date:
+    """
+    Calculate current streak based on last active date.
+    Rules:
+    - +1 streak if completed daily task (handled in submit_drill)
+    - Reset to 0 if > 48h inactive
+    """
+    if not progress.last_active_date:
         return 0
     
-    today = date.today()
-    last_practice = progress.last_practice_date.date()
+    now = datetime.utcnow()
+    last_active = progress.last_active_date
     
-    # If practiced today or yesterday, streak is maintained
-    if last_practice == today or last_practice == today - timedelta(days=1):
-        return progress.total_streak
-    else:
-        # Streak is broken
+    # If more than 48 hours have passed since last activity, reset streak
+    if (now - last_active).total_seconds() > (48 * 3600):
         return 0
+    
+    return progress.streak_count
 
 
 def is_day_unlocked_by_completion(completion, current_date: date = None) -> bool:
@@ -98,6 +125,43 @@ def is_day_unlocked_by_completion(completion, current_date: date = None) -> bool
     return completion_date < current_date
 
 
+def check_level_access(db: Session, user: User, level_id: int) -> bool:
+    """
+    Check if user has access to a specific graphotherapy level.
+    Rules:
+    1. Legacy users (before Jan 15, 2026) get access to all levels.
+    2. Superusers get access to all levels.
+    3. Users who have paid for the specific level get access.
+    4. Levels with price 0 are free for everyone.
+    """
+    # 1. Superuser override
+    if user.is_superuser:
+        return True
+
+    # 2. Legacy User Clause
+    cutoff_date = datetime(2026, 1, 15)
+    if user.created_at and user.created_at.replace(tzinfo=None) < cutoff_date:
+        return True
+
+    # 3. Free Level check
+    level_config = GRAPHOTHERAPY_LEVELS.get(level_id, {})
+    if level_config.get("price", 0) == 0:
+        return True
+
+    # 4. Purchase Check
+    from app.models.graphotherapy import GraphotherapyLevelPurchase
+    purchase = db.query(GraphotherapyLevelPurchase).filter(
+        GraphotherapyLevelPurchase.user_id == user.id,
+        GraphotherapyLevelPurchase.level == level_id,
+        GraphotherapyLevelPurchase.payment_status == "paid"
+    ).first()
+    
+    if purchase:
+        return True
+    
+    return False
+
+
 @router.get("/overview", response_model=OverviewResponse)
 def get_graphotherapy_overview(
     db: Session = Depends(deps.get_db),
@@ -108,7 +172,7 @@ def get_graphotherapy_overview(
     
     # Get all completions
     completions = db.query(GraphotherapyDayCompletion).filter(
-        GraphotherapyDayCompletion.progress_id == progress.id
+        GraphotherapyDayCompletion.user_id == current_user.id
     ).all()
     
     # Build completion map
@@ -116,7 +180,7 @@ def get_graphotherapy_overview(
     for c in completions:
         if c.level not in completion_map:
             completion_map[c.level] = set()
-        completion_map[c.level].add(c.day_number)
+        completion_map[c.level].add(c.day)
     
     # Build level info
     levels = []
@@ -128,32 +192,74 @@ def get_graphotherapy_overview(
         completed_days = len(completion_map.get(level_num, set()))
         total_days = level_config["days"]
         
-        is_unlocked = level_num == 1 or (level_num - 1) in completion_map and len(completion_map[level_num - 1]) >= GRAPHOTHERAPY_LEVELS[level_num - 1]["days"]
+        # Unlocked if:
+        # - Previous level is completed
+        # AND
+        # - User has paid access (or legacy/free)
+        prev_level_completed = level_num == 1 or (
+            (level_num - 1) in completion_map and 
+            len(completion_map[level_num - 1]) >= GRAPHOTHERAPY_LEVELS[level_num - 1]["days"]
+        )
+        
+        has_access = check_level_access(db, current_user, level_num)
+        
+        is_unlocked = prev_level_completed and has_access
         is_current = level_num == progress.current_level
         is_completed = completed_days >= total_days
         
         levels.append(LevelInfo(
             level=level_num,
             name=level_config["name"],
-            description=level_config["description"],
+            description=level_config.get("description", ""),
             total_days=total_days,
             completed_days=completed_days,
             is_unlocked=is_unlocked,
             is_current=is_current,
-            is_completed=is_completed
+            is_completed=is_completed,
+            price=level_config.get("price", 0)
         ))
         
         total_completed += completed_days
         total_remaining += total_days - completed_days
     
+    # Calculate user state
+    user_state = "NEW"
+    if progress.streak_count > 3:
+        user_state = "ENGAGED"
+    
+    now = datetime.utcnow()
+    if progress.last_active_date and (now - progress.last_active_date).total_seconds() > (36 * 3600):
+        user_state = "DROPPING"
+        
+    # Social proof (Mock logic for now)
+    percentile = 90 - (progress.streak_count * 2)
+    if percentile < 1: percentile = 1
+    social_proof = f"You are ahead of {100 - percentile}% users"
+    if progress.streak_count > 5:
+        social_proof = f"You are in the top 5% of most consistent learners!"
+
+    # Weekly report ready check (Task 5)
+    week_number = (total_completed // 7) or 1
+    weekly_report = db.query(WeeklyProgressReport).filter(
+        WeeklyProgressReport.user_id == current_user.id,
+        WeeklyProgressReport.week_number == week_number
+    ).first()
+
     return OverviewResponse(
         current_level=progress.current_level,
         current_day=progress.current_day,
-        total_streak=calculate_streak(progress),
+        streak_count=calculate_streak(progress),
+        last_active_date=progress.last_active_date,
+        total_streak=progress.total_streak, # Compatibility
         last_practice_date=progress.last_practice_date,
         levels=levels,
         total_days_completed=total_completed,
-        total_days_remaining=total_remaining
+        total_days_remaining=total_remaining,
+        user_state=user_state,
+        social_proof=social_proof,
+        coins_earned_today=10 if (progress.last_active_date and progress.last_active_date.date() == now.date()) else 0,
+        weekly_bonus_status=f"{total_completed % 7}/7 days this week",
+        weekly_report_ready=weekly_report is not None
     )
 
 
@@ -167,14 +273,21 @@ def get_level_detail(
     if level_id not in GRAPHOTHERAPY_LEVELS:
         raise HTTPException(status_code=404, detail="Level not found")
     
+    # 1. Check Level Access (Payment/Legacy)
+    if not check_level_access(db, current_user, level_id):
+        raise HTTPException(
+            status_code=403, 
+            detail=f"Access Denied. Please purchase {GRAPHOTHERAPY_LEVELS[level_id]['name']} to continue."
+        )
+
     progress = get_or_create_progress(db, current_user.id)
     level_config = GRAPHOTHERAPY_LEVELS[level_id]
     
-    # Check if level is unlocked
+    # 2. Check Prerequisites (Sequential Completion)
     if level_id > 1:
         prev_level_config = GRAPHOTHERAPY_LEVELS[level_id - 1]
         prev_completions = db.query(GraphotherapyDayCompletion).filter(
-            GraphotherapyDayCompletion.progress_id == progress.id,
+            GraphotherapyDayCompletion.user_id == current_user.id,
             GraphotherapyDayCompletion.level == level_id - 1
         ).count()
         
@@ -183,11 +296,11 @@ def get_level_detail(
     
     # Get completions for this level
     completions = db.query(GraphotherapyDayCompletion).filter(
-        GraphotherapyDayCompletion.progress_id == progress.id,
+        GraphotherapyDayCompletion.user_id == current_user.id,
         GraphotherapyDayCompletion.level == level_id
     ).all()
     
-    completion_map = {c.day_number: c for c in completions}
+    completion_map = {c.day: c for c in completions}
     
     # Build days list
     days = []
@@ -213,13 +326,19 @@ def get_level_detail(
             # Will unlock tomorrow (the day after completion)
             unlock_date = (prev_completion.completed_at.date() + timedelta(days=1)).isoformat()
         
+        # Get focus area from content
+        day_focus = None
+        if level_id == 1:
+            day_focus = LEVEL_1_CONTENT.get(day_num, {}).get("focus_area")
+
         days.append({
             "day_number": day_num,
             "is_unlocked": is_unlocked,
             "is_completed": completion is not None,
             "completed_at": completion.completed_at.isoformat() if completion else None,
-            "upload_url": completion.upload_url if completion else None,
-            "unlock_date": unlock_date
+            "upload_url": completion.image_url if completion else None,
+            "unlock_date": unlock_date,
+            "focus_area": day_focus
         })
     
     return LevelDetailResponse(
@@ -249,6 +368,13 @@ def get_day_detail(
     progress = get_or_create_progress(db, current_user.id)
     today = date.today()
     
+    # 1. Check Level Access (Payment/Legacy)
+    if not check_level_access(db, current_user, level_id):
+        raise HTTPException(
+            status_code=403, 
+            detail=f"Access Denied. Please purchase {GRAPHOTHERAPY_LEVELS[level_id]['name']} to continue."
+        )
+    
     # Check if day is unlocked
     # Day 1 is always unlocked
     # Other days are unlocked only if previous day was completed on a PREVIOUS calendar date
@@ -256,9 +382,9 @@ def get_day_detail(
     prev_completion = None
     if day_number > 1:
         prev_completion = db.query(GraphotherapyDayCompletion).filter(
-            GraphotherapyDayCompletion.progress_id == progress.id,
+            GraphotherapyDayCompletion.user_id == current_user.id,
             GraphotherapyDayCompletion.level == level_id,
-            GraphotherapyDayCompletion.day_number == day_number - 1
+            GraphotherapyDayCompletion.day == day_number - 1
         ).first()
         # Use time-based unlock check
         is_unlocked = is_day_unlocked_by_completion(prev_completion, today)
@@ -267,7 +393,7 @@ def get_day_detail(
     if level_id > 1:
         prev_level_config = GRAPHOTHERAPY_LEVELS[level_id - 1]
         prev_level_completions = db.query(GraphotherapyDayCompletion).filter(
-            GraphotherapyDayCompletion.progress_id == progress.id,
+            GraphotherapyDayCompletion.user_id == current_user.id,
             GraphotherapyDayCompletion.level == level_id - 1
         ).count()
         if prev_level_completions < prev_level_config["days"]:
@@ -275,13 +401,19 @@ def get_day_detail(
     
     # Get completion info
     completion = db.query(GraphotherapyDayCompletion).filter(
-        GraphotherapyDayCompletion.progress_id == progress.id,
+        GraphotherapyDayCompletion.user_id == current_user.id,
         GraphotherapyDayCompletion.level == level_id,
-        GraphotherapyDayCompletion.day_number == day_number
+        GraphotherapyDayCompletion.day == day_number
     ).first()
     
     # Can complete today if unlocked and not already completed
     can_complete = is_unlocked and completion is None
+    
+    # Get content for the day using the new mapping
+    from app.core.graphotherapy_content import LEVEL_CONTENT_MAP
+    
+    level_content = LEVEL_CONTENT_MAP.get(level_id, {})
+    day_content = level_content.get(day_number, {})
     
     return DayDetailResponse(
         level=level_id,
@@ -289,8 +421,15 @@ def get_day_detail(
         is_unlocked=is_unlocked,
         is_completed=completion is not None,
         completed_at=completion.completed_at if completion else None,
-        upload_url=completion.upload_url if completion else None,
-        can_complete_today=can_complete
+        upload_url=completion.image_url if completion else None,
+        can_complete_today=can_complete,
+        
+        # Content population
+        focus_area=day_content.get("focus_area"),
+        exercise=day_content.get("exercise"),
+        instructions=day_content.get("instructions"),
+        why_it_works=day_content.get("why_it_works"),
+        expected_result=day_content.get("expected_result")
     )
 
 
@@ -318,11 +457,18 @@ async def complete_day(
     
     progress = get_or_create_progress(db, current_user.id)
     
+    # 1. Check Level Access (Payment/Legacy)
+    if not check_level_access(db, current_user, level_id):
+        raise HTTPException(
+            status_code=403, 
+            detail=f"Access Denied. Please purchase {GRAPHOTHERAPY_LEVELS[level_id]['name']} to continue."
+        )
+    
     # Check if already completed
     existing = db.query(GraphotherapyDayCompletion).filter(
-        GraphotherapyDayCompletion.progress_id == progress.id,
+        GraphotherapyDayCompletion.user_id == current_user.id,
         GraphotherapyDayCompletion.level == level_id,
-        GraphotherapyDayCompletion.day_number == day_number
+        GraphotherapyDayCompletion.day == day_number
     ).first()
     
     if existing:
@@ -331,9 +477,9 @@ async def complete_day(
     # Check if day is unlocked
     if day_number > 1:
         prev_completion = db.query(GraphotherapyDayCompletion).filter(
-            GraphotherapyDayCompletion.progress_id == progress.id,
+            GraphotherapyDayCompletion.user_id == current_user.id,
             GraphotherapyDayCompletion.level == level_id,
-            GraphotherapyDayCompletion.day_number == day_number - 1
+            GraphotherapyDayCompletion.day == day_number - 1
         ).first()
         if not prev_completion:
             raise HTTPException(status_code=403, detail="Complete previous day first")
@@ -342,7 +488,7 @@ async def complete_day(
     if level_id > 1:
         prev_level_config = GRAPHOTHERAPY_LEVELS[level_id - 1]
         prev_level_completions = db.query(GraphotherapyDayCompletion).filter(
-            GraphotherapyDayCompletion.progress_id == progress.id,
+            GraphotherapyDayCompletion.user_id == current_user.id,
             GraphotherapyDayCompletion.level == level_id - 1
         ).count()
         if prev_level_completions < prev_level_config["days"]:
@@ -384,66 +530,210 @@ async def complete_day(
 
     # Create completion record
     completion = GraphotherapyDayCompletion(
-        progress_id=progress.id,
+        user_id=current_user.id,
         level=level_id,
-        day_number=day_number,
-        upload_url=upload_url,
-        upload_filename=file.filename
+        day=day_number,
+        image_url=upload_url
     )
     db.add(completion)
-    
-    # Update streak
-    today = date.today()
-    if progress.last_practice_date:
-        last_practice = progress.last_practice_date.date()
-        if last_practice == today - timedelta(days=1):
-            progress.total_streak += 1
-        elif last_practice != today:
-            progress.total_streak = 1
-    else:
-        progress.total_streak = 1
-    
-    progress.last_practice_date = datetime.now()
-    
-    # Check if level is completed
-    level_completions = db.query(GraphotherapyDayCompletion).filter(
-        GraphotherapyDayCompletion.progress_id == progress.id,
-        GraphotherapyDayCompletion.level == level_id
-    ).count() + 1  # +1 for current completion
-    
-    level_completed = level_completions >= level_config["days"]
-    next_level_unlocked = level_completed and level_id < 4
-    
-    # Update current level and day
-    if level_completed and level_id < 4:
-        # GRANDFATHER CLAUSE: Existing users (before Jan 15, 2026) get auto-unlock.
-        # New users must pay for priced levels.
-        cutoff_date = datetime(2026, 1, 15)
-        is_legacy = current_user.created_at and current_user.created_at < cutoff_date
-        
-        next_level_price = GRAPHOTHERAPY_LEVELS[level_id + 1]["price"]
-        
-        # Auto-advance if: Legacy User OR Next Level is Free
-        if is_legacy or next_level_price == 0:
-            progress.current_level = level_id + 1
-            progress.current_day = 1
-        else:
-            # New User + Paid Level = Paywall (Do not advance level)
-            pass
-            
-    elif not level_completed:
-        progress.current_day = day_number + 1
-    
     db.commit()
     
     return DayCompleteResponse(
         success=True,
-        message=f"Day {day_number} completed successfully!",
+        message="Page uploaded successfully!",
         upload_url=upload_url,
         new_streak=progress.total_streak,
-        level_completed=level_completed,
-        next_level_unlocked=next_level_unlocked
+        progress_percentage=get_progress_percentage(db, current_user.id, level_id)
     )
+
+
+@router.post("/drill/submit", response_model=DayCompleteResponse)
+async def submit_drill(
+    request: DrillSubmitRequest,
+    db: Session = Depends(deps.get_db),
+    current_user: User = Depends(deps.get_current_user)
+):
+    """
+    Finalize a daily drill.
+    Increments the current day, updates the streak, and checks for level completion.
+    """
+    level_id = request.level_id
+    day_number = request.day_number
+    
+    if level_id not in GRAPHOTHERAPY_LEVELS:
+        raise HTTPException(status_code=404, detail="Level not found")
+    
+    level_config = GRAPHOTHERAPY_LEVELS[level_id]
+    progress = get_or_create_progress(db, current_user.id)
+    
+    # Verify completion exists
+    completion = db.query(GraphotherapyDayCompletion).filter(
+        GraphotherapyDayCompletion.user_id == current_user.id,
+        GraphotherapyDayCompletion.level == level_id,
+        GraphotherapyDayCompletion.day == day_number
+    ).first()
+    
+    if not completion:
+        raise HTTPException(status_code=400, detail="Please upload your practice page first.")
+    
+    # Update streak (Retention Engine Logic)
+    now = datetime.utcnow()
+    if progress.last_active_date:
+        diff = (now - progress.last_active_date).total_seconds()
+        if diff <= (48 * 3600):
+            # If completed on a new day, increment streak
+            if progress.last_active_date.date() < now.date():
+                progress.streak_count += 1
+                progress.total_streak += 1 # Compatibility
+        else:
+            # Reset streak if > 48h
+            progress.streak_count = 1
+            progress.total_streak = 1
+    else:
+        progress.streak_count = 1
+        progress.total_streak = 1
+    
+    progress.last_active_date = now
+    progress.last_practice_date = now # Compatibility
+    
+    # Progress Calculation
+    level_completions = db.query(GraphotherapyDayCompletion).filter(
+        GraphotherapyDayCompletion.user_id == current_user.id,
+        GraphotherapyDayCompletion.level == level_id
+    ).count()
+    
+    level_completed = level_completions >= level_config["days"]
+    next_level_unlocked = False
+    
+    if level_completed and level_id < 4:
+        cutoff_date = datetime(2026, 1, 15)
+        is_legacy = current_user.created_at and current_user.created_at < cutoff_date
+        next_level_price = GRAPHOTHERAPY_LEVELS[level_id + 1]["price"]
+        
+        if is_legacy or next_level_price == 0:
+            progress.current_level = level_id + 1
+            progress.current_day = 1
+            next_level_unlocked = True
+    elif not level_completed:
+        # Increment day if it matches current progress
+        if progress.current_level == level_id and progress.current_day <= day_number:
+            progress.current_day = day_number + 1
+            
+    db.commit()
+    
+    # --- TASK 1, 2, 7: AI Snapshot Queue & Protection ---
+    # Check if snapshot already exists for this day to avoid duplicate queueing
+    existing_snapshot = db.query(HandwritingSnapshot).filter(
+        HandwritingSnapshot.user_id == current_user.id,
+        HandwritingSnapshot.day_number == day_number
+    ).first()
+    
+    if not existing_snapshot:
+        snapshot = HandwritingSnapshot(
+            user_id=current_user.id,
+            day_number=day_number,
+            image_url=completion.image_url,
+            status="queued"
+        )
+        db.add(snapshot)
+        db.commit()
+        db.refresh(snapshot)
+        
+        # Trigger async analysis (Task 1)
+        analyze_snapshot_task.delay(snapshot.id)
+        
+        # Redis Real-time Signal (Task 2)
+        redis_client.set(f"snapshot:{snapshot.id}:status", "queued", ex=3600)
+    # ----------------------------------------------------
+    
+    # Award coins (Task 5, 6)
+    coins_earned = 10
+    current_user.coins += coins_earned
+    redis_client.set(f"user:{current_user.id}:coins_updated", "true", ex=10)
+    db.commit()
+
+    return DayCompleteResponse(
+        success=True,
+        message="Drill completed! Neuro-pathways updated.",
+        new_streak=progress.total_streak,
+        level_completed=level_completed,
+        next_level_unlocked=next_level_unlocked,
+        progress_percentage=get_progress_percentage(db, current_user.id, level_id)
+    )
+
+@router.get("/snapshots/status", response_model=SnapshotStatusResponse)
+def get_snapshot_status(
+    db: Session = Depends(deps.get_db),
+    current_user: User = Depends(deps.get_current_user)
+):
+    """
+    Get the status of the latest handwriting analysis.
+    Task 1, 3, 4: Returns status, progress timeline, and fallback message.
+    """
+    latest = db.query(HandwritingSnapshot).filter(
+        HandwritingSnapshot.user_id == current_user.id
+    ).order_by(HandwritingSnapshot.submitted_at.desc()).first()
+    
+    if not latest:
+        raise HTTPException(status_code=404, detail="No snapshots found")
+    
+    # Logic for Task 4: Safe Fallback Message
+    fallback_msg = None
+    if latest.status in ["queued", "processing"]:
+        now = datetime.utcnow()
+        elapsed = (now - latest.submitted_at).total_seconds()
+        if elapsed > 10:
+            fallback_msg = "Your analysis is being processed. Results will appear shortly."
+            
+    # Human readable progress
+    progress_map = {
+        "queued": "In queue for analysis",
+        "processing": "AI is analyzing your handwriting...",
+        "complete": "Analysis complete",
+        "failed": "Analysis failed, will retry"
+    }
+
+    return SnapshotStatusResponse(
+        snapshot_id=latest.id,
+        day_number=latest.day_number,
+        status=latest.status,
+        analysis_progress=progress_map.get(latest.status, "Unknown"),
+        submitted_at=latest.submitted_at,
+        analysis_started_at=latest.analysis_started_at,
+        analysis_completed_at=latest.analysis_completed_at,
+        fallback_message=fallback_msg
+    )
+
+@router.get("/weekly-report/{week_number}", response_model=WeeklyProgressResponse)
+async def get_weekly_report(
+    week_number: int,
+    db: Session = Depends(deps.get_db),
+    current_user: User = Depends(deps.get_current_user)
+):
+    """
+    Get or generate a weekly progress report.
+    Task 3, 5: Narrative summary, improvement direction, etc.
+    """
+    report = db.query(WeeklyProgressReport).filter(
+        WeeklyProgressReport.user_id == current_user.id,
+        WeeklyProgressReport.week_number == week_number
+    ).first()
+    
+    if not report:
+        # Try to generate it if all 7 days are complete
+        from app.services.progress_engine import progress_engine
+        report = await progress_engine.generate_weekly_report(db, current_user.id, week_number)
+        
+    if not report:
+        return WeeklyProgressResponse(
+            week_number=week_number,
+            narrative_summary="Your weekly report is being prepared. Keep up the consistency!",
+            weekly_report_ready=False,
+            regression_detected=False,
+            created_at=datetime.utcnow()
+        )
+        
+    return report
 
 
     return {
@@ -665,11 +955,11 @@ def compare_transformation(
     def get_image_for_day(day_num: int):
         # Check Day Completion
         completion = db.query(GraphotherapyDayCompletion).filter(
-            GraphotherapyDayCompletion.progress_id == progress.id,
-            GraphotherapyDayCompletion.day_number == day_num
+            GraphotherapyDayCompletion.user_id == user_id,
+            GraphotherapyDayCompletion.day == day_num
         ).first()
-        if completion and completion.upload_url:
-            return completion.upload_url
+        if completion and completion.image_url:
+            return completion.image_url
         
         # Check Submission (legacy/admin flow)
         submission = db.query(GraphoSubmission).filter(

@@ -44,7 +44,7 @@ export default function VerificationPage() {
   const verifyCertificate = async () => {
     try {
       const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/verification/verify/${hash}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/verification/verify/${hash}`,
       );
       setResult(response.data);
       setLoading(false);

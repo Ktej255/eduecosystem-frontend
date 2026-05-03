@@ -7,6 +7,8 @@
  * - Real-time updates across components
  */
 
+import { API_BASE } from './api';
+
 // Types
 export interface ChapterProgress {
     chapterId: number;
@@ -126,7 +128,7 @@ function saveProgressStore(store: PolityProgressStore) {
     try {
         const token = localStorage.getItem("token");
         if (token) {
-            fetch(`${process.env.NEXT_PUBLIC_API_URL}/student-reports/`, {
+            fetch(`${API_BASE}/student-reports/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

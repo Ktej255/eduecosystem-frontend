@@ -42,7 +42,7 @@ export default function PurchaseHistory() {
     useEffect(() => {
         const fetchHistory = async () => {
             try {
-                const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+                const baseUrl = (process.env.NEXT_PUBLIC_API_URL ? `${process.env.NEXT_PUBLIC_API_URL}/api/v1` : 'http://localhost:8000/api/v1');
                 const token = localStorage.getItem('edueco_auth_token');
 
                 if (!token) return;

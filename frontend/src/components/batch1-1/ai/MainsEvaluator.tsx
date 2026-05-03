@@ -56,7 +56,7 @@ export default function MainsEvaluator() {
 
         try {
             const token = localStorage.getItem('token'); // Simplistic auth handling
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/mains/evaluate-image`, {
+            const response = await fetch(`${(process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app").replace(/\/$/, "")}/api/v1/mains/evaluate-image`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`

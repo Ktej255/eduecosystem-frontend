@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { MEET_CONFIG as FALLBACK_MEET_CONFIG } from "@/config/meet-config";
+import { API_BASE } from "@/lib/api";
 
 export function useMeetConfig() {
     const [meetConfig, setMeetConfig] = useState(FALLBACK_MEET_CONFIG);
@@ -7,7 +8,7 @@ export function useMeetConfig() {
     useEffect(() => {
         const fetchConfig = async () => {
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/app-config/live_classes`);
+                const res = await fetch(`${API_BASE}/app-config/live_classes`);
                 if (res.ok) {
                     const data = await res.json();
                     if (data.value) {

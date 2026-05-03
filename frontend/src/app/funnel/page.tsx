@@ -151,7 +151,7 @@ export default function FunnelLandingPage() {
 
     try {
       const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/payment/create-guest-order`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/payment/create-guest-order`,
         {
           name: form.name.trim(),
           email: form.email.trim().toLowerCase(),

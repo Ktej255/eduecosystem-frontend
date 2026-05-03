@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Text, DateTime, Boolean, ForeignKey, Float
+from sqlalchemy import Column, Integer, String, Text, DateTime, Boolean, ForeignKey, Float, JSON
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from app.db.session import Base
@@ -25,6 +25,11 @@ class Lead(Base):
     is_verified = Column(Boolean, default=False)
     verification_method = Column(String, nullable=True) # EMAIL, SMS, WHATSAPP
     intent_score = Column(Float, default=0.0)
+    
+    # PHASE 14: Funnel & CRM Tracking
+    purchase_status = Column(String, nullable=True) # initialized, success, failed
+    funnel_stage = Column(String, nullable=True) # report_generated, offer_seen, etc.
+    dimension_tags = Column(JSON, default=list) # dimension-based tagging
     
     # Location (for geo-based lead allocation)
     location_latitude = Column(Float, nullable=True)

@@ -12,7 +12,10 @@ from pydantic import BaseModel
 import json
 
 from app.db.session import get_db
-from app.api.deps import get_current_user
+from app.api.deps import get_current_user, check_focused_portal_access, check_subject_access
+from app.models.focused_portal import FocusedActiveSession
+import uuid
+from app.utils.response_wrapper import wrap_response
 
 router = APIRouter()
 
@@ -42,7 +45,7 @@ SUBJECT_SEQUENCE = [
 
 
 @router.get("/subject-gates")
-def get_subject_gates(db: Session = Depends(get_db), current_user = Depends(get_current_user)):
+def get_subject_gates(db: Session = Depends(get_db), current_user = Depends(check_focused_portal_access)):
     """
     Get the unlock and pass status for all subjects in the 43-day sweep.
     Progression is sequential: pass a subject gate to unlock the next.
@@ -90,7 +93,7 @@ def get_subject_gates(db: Session = Depends(get_db), current_user = Depends(get_
         # Update prev_passed for the next subject in sequence
         prev_passed = g.passed if g else False
         
-    return results
+    return wrap_response(data=results, message="Subject gates retrieved")
 
 def parse_json_field(value):
     """
@@ -290,12 +293,22 @@ class TestSubmitBody(BaseModel):
     time_per_question: List[int]  # ms per question, same order
     start_time: Optional[str] = None
     end_time: Optional[str] = None
+    session_id: str
+    # Behavioral signals for hardening
+    answer_change_count: Optional[int] = 0
+    inactivity_gaps: Optional[int] = 0
+
 
 
 class GateSubmitBody(BaseModel):
     subject: str
     answers: List[dict]          # [{question_id, selected_option, correct_option}]
     score: int
+    session_id: str
+    answer_change_count: Optional[int] = 0
+    inactivity_gaps: Optional[int] = 0
+    start_time: Optional[str] = None
+    end_time: Optional[str] = None
 
 
 # ─────────────────────────────────────────────────────────────
@@ -305,7 +318,7 @@ class GateSubmitBody(BaseModel):
 @router.get("/dashboard")
 def get_focused_dashboard(
     db: Session = Depends(get_db),
-    current_user=Depends(get_current_user),
+    current_user=Depends(check_focused_portal_access),
 ):
     user_id = current_user.id
     today_str = date.today().isoformat()
@@ -403,7 +416,7 @@ def get_focused_dashboard(
                 SELECT subject, cluster_number, AVG(percentage) as avg_pct
                 FROM focused_test_reports
                 WHERE user_id = :uid
-                  AND created_at >= NOW() - INTERVAL '3 days'
+                  AND date >= date('now', '-3 days')
                 GROUP BY subject, cluster_number
                 ORDER BY avg_pct ASC
                 LIMIT 1
@@ -438,33 +451,39 @@ def get_focused_dashboard(
     except Exception as e:
         print(f"DEBUG todays_plan error: {e}")
 
-    return {
-        "subject_map": subject_map,
-        "current_active": current,
-        "is_intensive_mode": is_intensive_mode,
-        "days_to_exam": days_to_exam,
-        "morning_pomodoros_done": morning_pomodoros_done,
-        "evening_test_done": evening_test_done,
-        "streak": streak,
-        "date": today_str,
-        "revision_due_today": revision_due_today,
-        "todays_plan": todays_plan,
-    }
+    return wrap_response(
+        data={
+            "subject_map": subject_map,
+            "current_active": current,
+            "is_intensive_mode": is_intensive_mode,
+            "days_to_exam": days_to_exam,
+            "morning_pomodoros_done": morning_pomodoros_done,
+            "evening_test_done": evening_test_done,
+            "streak": streak,
+            "date": today_str,
+            "revision_due_today": revision_due_today,
+            "todays_plan": todays_plan,
+        },
+        message="Dashboard data retrieved"
+    )
 
 
 @router.get("/current-subject")
 def get_current_active_subject(
     db: Session = Depends(get_db),
-    current_user=Depends(get_current_user),
+    current_user=Depends(check_focused_portal_access),
 ):
-    return get_user_current_subject(db, current_user.id)
+    return wrap_response(
+        data=get_user_current_subject(db, current_user.id),
+        message="Current active subject retrieved"
+    )
 
 
 @router.get("/clusters/{subject}")
 def get_clusters(
     subject: str,
     db: Session = Depends(get_db),
-    current_user=Depends(get_current_user)
+    current_user=Depends(check_focused_portal_access)
 ):
     # FIX 4 — Normalize subject name
     if subject.upper() in ["IR", "INTERNATIONAL RELATIONS"]:
@@ -477,9 +496,9 @@ def get_clusters(
     # 1. Get all clusters and their topics from focused_questions
     cluster_rows = db.execute(
         text("""
-            SELECT cluster_number, ARRAY_AGG(DISTINCT topic_tag) as topics, MAX(cluster_name) as name
+            SELECT cluster_number, GROUP_CONCAT(DISTINCT topic_tag) as topics, MAX(cluster_name) as name
             FROM focused_questions
-            WHERE subject ILIKE :subj
+            WHERE subject LIKE :subj
             GROUP BY cluster_number
             ORDER BY cluster_number
         """),
@@ -487,7 +506,10 @@ def get_clusters(
     ).fetchall()
 
     if not cluster_rows:
-        return {"subject": subject, "clusters": []}
+        return wrap_response(
+            data={"subject": subject, "clusters": []},
+            message="No clusters found for subject"
+        )
 
     # 2. Get progress for this user
     progress_rows = db.execute(
@@ -524,10 +546,13 @@ def get_clusters(
             "is_recommended_next": is_recommended_next
         })
         
-    return {
-        "subject": subject,
-        "clusters": clusters
-    }
+    return wrap_response(
+        data={
+            "subject": subject,
+            "clusters": clusters
+        },
+        message=f"Clusters for {subject} retrieved"
+    )
 
 
 # ─────────────────────────────────────────────────────────────
@@ -538,7 +563,7 @@ def get_clusters(
 def complete_pomodoro(
     body: PomodoroCompleteBody,
     db: Session = Depends(get_db),
-    current_user=Depends(get_current_user),
+    current_user=Depends(check_focused_portal_access),
 ):
     pulse = body.confidence_pulse.upper()
     if pulse not in ("RED", "YELLOW", "GREEN"):
@@ -575,15 +600,22 @@ def complete_pomodoro(
         )
         count_val = red_count.scalar()
 
-        return {
-            "status": "recorded",
-            "needs_attention": (count_val or 0) >= 2,
-            "message": "Confidence marked RED 2+ times on this cluster. Consider repeating before moving forward." if (count_val or 0) >= 2 else None,
-        }
+        return wrap_response(
+            data={
+                "status": "recorded",
+                "needs_attention": (count_val or 0) >= 2,
+                "message": "Confidence marked RED 2+ times on this cluster. Consider repeating before moving forward." if (count_val or 0) >= 2 else None,
+            },
+            message="Pomodoro recorded"
+        )
     except Exception as e:
         db.rollback()
         print(f"Pomodoro save error: {e}")
-        return {"status": "error", "detail": str(e)}
+        return wrap_response(
+            success=False,
+            message=f"Error saving pomodoro: {str(e)}",
+            data={"status": "error", "detail": str(e)}
+        )
 
 
 # ─────────────────────────────────────────────────────────────
@@ -594,7 +626,10 @@ def complete_pomodoro(
 def get_trap_cards(subject: str, cluster_number: int):
     key = f"{subject}:{cluster_number}"
     cards = TRAP_CARDS.get(key, DEFAULT_TRAP)
-    return {"subject": subject, "cluster_number": cluster_number, "trap_cards": cards[:3]}
+    return wrap_response(
+        data={"subject": subject, "cluster_number": cluster_number, "trap_cards": cards[:3]},
+        message=f"Trap cards for {subject} Cluster {cluster_number} retrieved"
+    )
 
 
 # ─────────────────────────────────────────────────────────────
@@ -606,17 +641,25 @@ def get_test(
     subject: str,
     cluster_number: int,
     db: Session = Depends(get_db),
-    current_user=Depends(get_current_user),
+    current_user=Depends(check_focused_portal_access),
 ):
     """
     Evening practice session.
     Updated to read from focused_questions back (Project Decision).
     """
+    # 1. Subject Purchase Check
+    if not check_subject_access(subject, db, current_user):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail=f"Access to {subject} required. Please purchase this subject or the Full UPSC bundle."
+        )
+
     rows = db.execute(
+
         text("""
             SELECT id, question_text, option_a, option_b, option_c, option_d, correct_answer, explanation, topic_tag
             FROM focused_questions
-            WHERE subject ILIKE :subj
+            WHERE subject LIKE :subj
               AND cluster_number = :cl_num
             ORDER BY RANDOM()
             LIMIT 25
@@ -640,12 +683,42 @@ def get_test(
             "topic_tag": r[8],
         })
 
-    return {
-        "subject": subject,
-        "cluster_number": cluster_number,
-        "total_questions": len(questions),
-        "questions": questions,
-    }
+    # 2. Invalidate any existing ACTIVE sessions for this subject/cluster to prevent concurrent tampering
+    db.execute(
+        text("""
+            UPDATE focused_active_sessions 
+            SET status = 'INVALIDATED'
+            WHERE user_id = :uid AND subject = :subj AND cluster_number = :cl_num AND status = 'ACTIVE'
+        """),
+        {"uid": current_user.id, "subj": subject, "cl_num": cluster_number}
+    )
+
+    session_id = str(uuid.uuid4())
+    expires_at = datetime.now() + timedelta(minutes=60)
+
+    new_session = FocusedActiveSession(
+        user_id=current_user.id,
+        session_id=session_id,
+        subject=subject,
+        cluster_number=cluster_number,
+        status="ACTIVE",
+        expires_at=expires_at,
+        session_metadata={"init_platform": "web"}
+    )
+    db.add(new_session)
+    db.commit()
+
+    return wrap_response(
+        data={
+            "subject": subject,
+            "cluster_number": cluster_number,
+            "session_id": session_id,
+            "total_questions": len(questions),
+            "questions": questions,
+        },
+        message="Test generated successfully"
+    )
+
 
 
 
@@ -657,9 +730,45 @@ def get_test(
 def submit_test(
     body: TestSubmitBody,
     db: Session = Depends(get_db),
-    current_user=Depends(get_current_user),
+    current_user=Depends(check_focused_portal_access),
 ):
+    # 1. Session ID Validation
     user_id = current_user.id
+    active_session = db.query(FocusedActiveSession).filter(
+        FocusedActiveSession.user_id == user_id,
+        FocusedActiveSession.session_id == body.session_id,
+        FocusedActiveSession.status == "ACTIVE",
+        FocusedActiveSession.expires_at > datetime.now()
+    ).first()
+
+    if not active_session:
+        # Anti-Replay Check: Was it already submitted?
+        prev_session = db.query(FocusedActiveSession).filter(
+            FocusedActiveSession.user_id == user_id,
+            FocusedActiveSession.session_id == body.session_id,
+            FocusedActiveSession.status == "SUBMITTED"
+        ).first()
+        if prev_session:
+             raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail=f"Test already submitted on {prev_session.submission_time.strftime('%Y-%m-%d %H:%M:%S') if prev_session.submission_time else 'Unknown'}."
+            )
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Session expired or invalid. Please restart the test."
+        )
+
+    # 2. Transition State to SUBMITTED (Audit Trail preserved for analytics)
+    active_session.status = "SUBMITTED"
+    active_session.submission_time = datetime.now()
+    active_session.session_metadata = {
+        "answer_change_count": body.answer_change_count,
+        "inactivity_gaps": body.inactivity_gaps,
+        "start_time_client": body.start_time,
+        "end_time_client": body.end_time
+    }
+    db.commit()
+
 
     # answers dict: {"qId": "A"|"B"|"C"|"D"}, confidence and time are ordered
     # by the same question order as the test was served.
@@ -676,12 +785,11 @@ def submit_test(
 
     # 1. Fetch full question data (including text/options for the response)
     rows = db.execute(
-        text("""
+        text(f"""
             SELECT id, correct_answer, topic_tag,
                    question_text, option_a, option_b, option_c, option_d, explanation
-            FROM focused_questions WHERE id = ANY(:ids)
+            FROM focused_questions WHERE id IN ({','.join(map(str, q_ids))})
         """),
-        {"ids": q_ids}
     ).fetchall()
 
     q_data_map = {
@@ -795,7 +903,7 @@ def submit_test(
         text("""
             SELECT percentage FROM focused_test_reports
             WHERE user_id = :uid AND subject = :subj AND cluster_number = :cl
-            ORDER BY created_at DESC LIMIT 1
+            ORDER BY id DESC LIMIT 1
         """),
         {"uid": user_id, "subj": body.subject, "cl": body.cluster_number}
     ).fetchone()
@@ -814,7 +922,6 @@ def submit_test(
             VALUES
                 (:uid, CURRENT_DATE, :subj, :cl, :score, :total, :pct,
                  :weak, :traps, :c_ids, :w_ids, :time_s, :conf, :imp, :bkt)
-            RETURNING id
         """),
         {
             "uid": user_id, "subj": body.subject, "cl": body.cluster_number,
@@ -825,31 +932,26 @@ def submit_test(
             "imp": improvement, "bkt": json.dumps({})
         }
     )
-    report_id = res.scalar()
+    report_id = res.lastrowid
     db.commit()
 
-    # 7. Update cluster progress
-    db.execute(
-        text("""
-            INSERT INTO focused_cluster_progress
-            (user_id, subject, cluster_number, status, last_accessed_at, first_completed_at)
-            VALUES (:uid, :subj, :cl, :status, NOW(),
-                CASE WHEN :status = 'completed' THEN NOW() ELSE NULL END)
-            ON CONFLICT (user_id, subject, cluster_number)
-            DO UPDATE SET
-                last_accessed_at = NOW(),
-                status = CASE
-                    WHEN focused_cluster_progress.status = 'completed' THEN 'completed'
-                    ELSE :status
-                END,
-                first_completed_at = CASE
-                    WHEN focused_cluster_progress.first_completed_at IS NULL AND :status = 'completed' THEN NOW()
-                    ELSE focused_cluster_progress.first_completed_at
-                END
-        """),
-        {"uid": user_id, "subj": body.subject, "cl": body.cluster_number,
-         "status": "completed" if percent >= 70 else "attempted"}
-    )
+    # 7. Update cluster progress — manual upsert for SQLite compatibility
+    _new_status = "completed" if percent >= 70 else "attempted"
+    _existing = db.execute(
+        text("SELECT status FROM focused_cluster_progress WHERE user_id = :uid AND subject = :subj AND cluster_number = :cl"),
+        {"uid": user_id, "subj": body.subject, "cl": body.cluster_number}
+    ).fetchone()
+    if _existing:
+        _final_status = "completed" if _existing[0] == "completed" else _new_status
+        db.execute(
+            text("UPDATE focused_cluster_progress SET status = :status, last_accessed_at = CURRENT_TIMESTAMP WHERE user_id = :uid AND subject = :subj AND cluster_number = :cl"),
+            {"uid": user_id, "subj": body.subject, "cl": body.cluster_number, "status": _final_status}
+        )
+    else:
+        db.execute(
+            text("INSERT INTO focused_cluster_progress (user_id, subject, cluster_number, status, last_accessed_at) VALUES (:uid, :subj, :cl, :status, CURRENT_TIMESTAMP)"),
+            {"uid": user_id, "subj": body.subject, "cl": body.cluster_number, "status": _new_status}
+        )
     db.commit()
 
     # Write gap analysis records
@@ -862,39 +964,39 @@ def submit_test(
                 db.execute(text("""
                     INSERT INTO upsc_gap_analysis
                     (user_id, subject, topic_tag, gap_type, severity, created_at)
-                    VALUES (:uid, :subj, :topic, 'score', :sev, NOW())
-                    ON CONFLICT DO NOTHING
+                    VALUES (:uid, :subj, :topic, 'score', :sev, CURRENT_TIMESTAMP)
                 """), {"uid": user_id, "subj": body.subject, "topic": tag, "sev": sev})
             if avg_time > 45:
                 sev = "high" if avg_time > 90 else ("medium" if avg_time > 60 else "low")
                 db.execute(text("""
                     INSERT INTO upsc_gap_analysis
                     (user_id, subject, topic_tag, gap_type, severity, created_at)
-                    VALUES (:uid, :subj, :topic, 'time', :sev, NOW())
-                    ON CONFLICT DO NOTHING
+                    VALUES (:uid, :subj, :topic, 'time', :sev, CURRENT_TIMESTAMP)
                 """), {"uid": user_id, "subj": body.subject, "topic": tag, "sev": sev})
         db.commit()
     except Exception as e:
         db.rollback()
         print(f"Gap analysis write error (non-fatal): {e}")
 
-    return {
-        "report_id": report_id,
-        "total": total,
-        "correct": score,
-        "wrong": len(wrong_ids),
-        "skipped": skipped_count,
-        "score_percent": round(percent, 2),
-        "time_total_seconds": total_time_s,
-        "improvement_vs_yesterday": round(improvement, 2),
-        "topic_breakdown": breakdown,
-        "weak_areas": weak_areas,
-        "good_areas": good_areas,
-        "trap_questions_missed": trap_ids,
-        "lucky_guesses_total": lucky_guesses,
-        # Full wrong question data for deep report rendering on frontend
-        "wrong_questions_detail": wrong_questions_detail,
-    }
+    return wrap_response(
+        data={
+            "report_id": report_id,
+            "total": total,
+            "correct": score,
+            "wrong": len(wrong_ids),
+            "skipped": skipped_count,
+            "score_percent": round(percent, 2),
+            "time_total_seconds": total_time_s,
+            "improvement_vs_yesterday": round(improvement, 2),
+            "topic_breakdown": breakdown,
+            "weak_areas": weak_areas,
+            "good_areas": good_areas,
+            "trap_questions_missed": trap_ids,
+            "lucky_guesses_total": lucky_guesses,
+            "wrong_questions_detail": wrong_questions_detail,
+        },
+        message="Test submitted successfully"
+    )
 
 
 # ─────────────────────────────────────────────────────────────
@@ -905,7 +1007,7 @@ def submit_test(
 def get_gate_test(
     subject: str,
     db: Session = Depends(get_db),
-    current_user=Depends(get_current_user),
+    current_user=Depends(check_focused_portal_access),
 ):
     rows = db.execute(
         text("""
@@ -915,9 +1017,9 @@ def get_gate_test(
                 LOWER(subject) = LOWER(:subj)
                 OR (
                     LOWER(:subj) = 'history' 
-                    AND subject ILIKE ANY(ARRAY['%ancient history%', '%medieval history%', '%modern history%'])
+                    AND (subject LIKE '%ancient history%' OR subject LIKE '%medieval history%' OR subject LIKE '%modern history%')
                 )
-                OR subject ILIKE :subj_like
+                OR subject LIKE :subj_like
             )
             AND LOWER(type) = 'pyq'
             ORDER BY RANDOM()
@@ -939,7 +1041,40 @@ def get_gate_test(
             "topic_tag": r[5],
         })
 
-    return {"subject": subject, "total_questions": len(questions), "questions": questions}
+    # Invalidate any existing ACTIVE sessions for this subject gate to prevent tampering
+    db.execute(
+        text("""
+            UPDATE focused_active_sessions 
+            SET status = 'INVALIDATED'
+            WHERE user_id = :uid AND subject = :subj AND status = 'ACTIVE'
+        """),
+        {"uid": current_user.id, "subj": subject}
+    )
+
+    session_id = str(uuid.uuid4())
+    expires_at = datetime.now() + timedelta(minutes=60)
+
+    new_session = FocusedActiveSession(
+        user_id=current_user.id,
+        session_id=session_id,
+        subject=subject,
+        cluster_number=0, # 0 indicates a Subject Gate test
+        status="ACTIVE",
+        expires_at=expires_at,
+        session_metadata={"init_platform": "web", "test_type": "gate"}
+    )
+    db.add(new_session)
+    db.commit()
+
+    return wrap_response(
+        data={
+            "subject": subject,
+            "session_id": session_id,
+            "total_questions": len(questions),
+            "questions": questions
+        },
+        message="Gate test generated successfully"
+    )
 
 
 # ─────────────────────────────────────────────────────────────
@@ -950,8 +1085,45 @@ def get_gate_test(
 def submit_gate(
     body: GateSubmitBody,
     db: Session = Depends(get_db),
-    current_user=Depends(get_current_user),
+    current_user=Depends(check_focused_portal_access),
 ):
+    # 1. Session ID Validation
+    user_id = current_user.id
+    active_session = db.query(FocusedActiveSession).filter(
+        FocusedActiveSession.user_id == user_id,
+        FocusedActiveSession.session_id == body.session_id,
+        FocusedActiveSession.status == "ACTIVE",
+        FocusedActiveSession.expires_at > datetime.now()
+    ).first()
+
+    if not active_session:
+        # Anti-Replay Check: Was it already submitted?
+        prev_session = db.query(FocusedActiveSession).filter(
+            FocusedActiveSession.user_id == user_id,
+            FocusedActiveSession.session_id == body.session_id,
+            FocusedActiveSession.status == "SUBMITTED"
+        ).first()
+        if prev_session:
+             raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail=f"Test already submitted on {prev_session.submission_time.strftime('%Y-%m-%d %H:%M:%S') if prev_session.submission_time else 'Unknown'}."
+            )
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Session expired or invalid. Please restart the test."
+        )
+
+    # 2. Transition State to SUBMITTED
+    active_session.status = "SUBMITTED"
+    active_session.submission_time = datetime.now()
+    active_session.session_metadata = {
+        "answer_change_count": body.answer_change_count,
+        "inactivity_gaps": body.inactivity_gaps,
+        "start_time_client": body.start_time,
+        "end_time_client": body.end_time
+    }
+    db.commit()
+
     passed = body.score >= 6
     flagged = not passed
 
@@ -969,25 +1141,29 @@ def submit_gate(
         if a.get("selected_option") != a.get("correct_option")
     })
 
-    db.execute(
-        text("""
-            INSERT INTO focused_subject_gates
-                (user_id, subject, gate_score, total_questions, passed, flagged_for_revision)
-            VALUES (:uid, :subj, :score, 10, :passed, :flagged)
-            ON CONFLICT (user_id, subject) DO UPDATE SET
-                gate_score = EXCLUDED.gate_score,
-                passed = EXCLUDED.passed,
-                flagged_for_revision = EXCLUDED.flagged_for_revision,
-                updated_at = NOW()
-        """),
-        {
-            "uid": current_user.id,
-            "subj": subject,
-            "score": body.score,
-            "passed": passed,
-            "flagged": flagged,
-        }
-    )
+    # Manual upsert for SQLite (focused_subject_gates may lack a UNIQUE constraint)
+    _gate_existing = db.execute(
+        text("SELECT id FROM focused_subject_gates WHERE user_id = :uid AND subject = :subj"),
+        {"uid": current_user.id, "subj": subject}
+    ).fetchone()
+    if _gate_existing:
+        db.execute(
+            text("""
+                UPDATE focused_subject_gates
+                SET gate_score = :score, passed = :passed, flagged_for_revision = :flagged
+                WHERE user_id = :uid AND subject = :subj
+            """),
+            {"uid": current_user.id, "subj": subject, "score": body.score, "passed": passed, "flagged": flagged}
+        )
+    else:
+        db.execute(
+            text("""
+                INSERT INTO focused_subject_gates
+                    (user_id, subject, gate_score, total_questions, passed, flagged_for_revision)
+                VALUES (:uid, :subj, :score, 10, :passed, :flagged)
+            """),
+            {"uid": current_user.id, "subj": subject, "score": body.score, "passed": passed, "flagged": flagged}
+        )
     db.commit()
 
     # Find next subject
@@ -999,20 +1175,22 @@ def submit_gate(
     except ValueError:
         pass
 
-    return {
-        "subject": subject,
-        "score": body.score,
-        "out_of": 10,
-        "passed": passed,
-        "next_subject": next_subj if passed else subject,
-        "flagged_for_revision": flagged,
-        "weak_areas": wrong_topics,
-        "message": (
+    return wrap_response(
+        data={
+            "subject": subject,
+            "score": body.score,
+            "out_of": 10,
+            "passed": passed,
+            "next_subject": next_subj if passed else subject,
+            "flagged_for_revision": flagged,
+            "weak_areas": wrong_topics,
+        },
+        message=(
             f"Gate passed! {next_subj} is now unlocked."
             if passed
             else f"Score below 6 ({body.score}/10). Subject flagged for final week revision. Weak areas: {', '.join(wrong_topics)}"
-        ),
-    }
+        )
+    )
 
 
 # ─────────────────────────────────────────────────────────────
@@ -1022,7 +1200,7 @@ def submit_gate(
 @router.get("/revision-priorities")
 def get_revision_priorities(
     db: Session = Depends(get_db),
-    current_user=Depends(get_current_user),
+    current_user=Depends(check_focused_portal_access),
 ):
     rows = db.execute(
         text("""
@@ -1044,11 +1222,14 @@ def get_revision_priorities(
         for r in rows
     ]
 
-    return {
-        "revision_needed": len(priorities) > 0,
-        "count": len(priorities),
-        "subjects": priorities,
-    }
+    return wrap_response(
+        data={
+            "revision_needed": len(priorities) > 0,
+            "count": len(priorities),
+            "subjects": priorities,
+        },
+        message="Revision priorities retrieved"
+    )
 
 # ─────────────────────────────────────────────────────────────
 # ENDPOINT 9 — GET TEST HISTORY
@@ -1057,7 +1238,7 @@ def get_revision_priorities(
 @router.get("/history")
 def get_test_history(
     db: Session = Depends(get_db),
-    current_user = Depends(get_current_user)
+    current_user = Depends(check_focused_portal_access)
 ):
     rows = db.execute(
         text("""
@@ -1088,34 +1269,37 @@ def get_test_history(
         {"uid": current_user.id}
     ).fetchall()
 
-    return {
-        "history": [
-            {
-                "id": r.id,
-                "subject": r.subject,
-                "cluster_number": r.cluster_number,
-                "score": r.score,
-                "total_questions": r.total_questions,
-                "percentage": float(r.percentage),
-                "weak_topics": r.weak_topics if isinstance(r.weak_topics, list) else json.loads(r.weak_topics or '[]'),
-                "trap_questions_missed": r.trap_questions_missed if isinstance(r.trap_questions_missed, list) else json.loads(r.trap_questions_missed or '[]'),
-                "correct_answers": r.correct_answers if isinstance(r.correct_answers, list) else json.loads(r.correct_answers or '[]'),
-                "wrong_answers": r.wrong_answers if isinstance(r.wrong_answers, list) else json.loads(r.wrong_answers or '[]'),
-                "time_taken_seconds": r.time_taken_seconds,
-                "improvement": float(r.improvement_vs_yesterday or 0),
-                "date": r.created_at.strftime("%b %d, %Y")
-            }
-            for r in rows
-        ],
-        "daily_pomodoros": [
-            {
-                "date": r.study_date.strftime("%b %d") if hasattr(r.study_date, 'strftime') else str(r.study_date),
-                "count": r.pomodoro_count,
-                "minutes": r.total_minutes or 0
-            }
-            for r in pomodoros
-        ]
-    }
+    return wrap_response(
+        data={
+            "history": [
+                {
+                    "id": r.id,
+                    "subject": r.subject,
+                    "cluster_number": r.cluster_number,
+                    "score": r.score,
+                    "total_questions": r.total_questions,
+                    "percentage": float(r.percentage),
+                    "weak_topics": r.weak_topics if isinstance(r.weak_topics, list) else json.loads(r.weak_topics or '[]'),
+                    "trap_questions_missed": r.trap_questions_missed if isinstance(r.trap_questions_missed, list) else json.loads(r.trap_questions_missed or '[]'),
+                    "correct_answers": r.correct_answers if isinstance(r.correct_answers, list) else json.loads(r.correct_answers or '[]'),
+                    "wrong_answers": r.wrong_answers if isinstance(r.wrong_answers, list) else json.loads(r.wrong_answers or '[]'),
+                    "time_taken_seconds": r.time_taken_seconds,
+                    "improvement": float(r.improvement_vs_yesterday or 0),
+                    "date": r.created_at.strftime("%b %d, %Y")
+                }
+                for r in rows
+            ],
+            "daily_pomodoros": [
+                {
+                    "date": r.study_date.strftime("%b %d") if hasattr(r.study_date, 'strftime') else str(r.study_date),
+                    "count": r.pomodoro_count,
+                    "minutes": r.total_minutes or 0
+                }
+                for r in pomodoros
+            ]
+        },
+        message="Test history retrieved successfully"
+    )
 
 
 # ─────────────────────────────────────────────────────────────
@@ -1127,7 +1311,7 @@ def get_test_history(
 @router.get("/progress")
 def get_progress(
     db: Session = Depends(get_db),
-    current_user = Depends(get_current_user)
+    current_user = Depends(check_focused_portal_access)
 ):
     # 1. Fetch data from focused_cluster_progress (primary source for status)
     progress_rows = db.execute(
@@ -1143,13 +1327,13 @@ def get_progress(
     # 2. Fetch data from focused_test_reports (detailed historical source)
     reports = db.execute(
         text("""
-            SELECT DISTINCT ON (cluster_number, subject) 
-                   cluster_number, subject, percentage as best_pct,
+            SELECT cluster_number, subject, MAX(percentage) as best_pct,
                    weak_topics, trap_questions_missed, correct_answers, wrong_answers,
                    (SELECT COUNT(*) FROM focused_test_reports f2 WHERE f2.user_id = :uid AND f2.subject = f.subject AND f2.cluster_number = f.cluster_number) as attempts
             FROM focused_test_reports f
             WHERE user_id = :uid
-            ORDER BY cluster_number, subject, percentage DESC
+            GROUP BY cluster_number, subject
+            ORDER BY cluster_number, subject
         """),
         {"uid": current_user.id}
     ).fetchall()
@@ -1263,19 +1447,22 @@ def get_progress(
         {"uid": current_user.id}
     ).fetchone()
 
-    return {
-        "clusters_attempted": merged_clusters,
-        "overall_accuracy": float(overall.avg_pct or 0) if overall and overall.avg_pct else 0,
-        "total_questions_attempted": overall.total_q or 0 if overall else 0,
-        "total_correct": overall.total_correct or 0 if overall else 0,
-        "total_time_seconds": overall.total_time or 0 if overall else 0,
-        "gates": [
-            {
-                "subject": g.subject,
-                "gate_score": g.gate_score,
-                "passed": g.passed
-            }
-            for g in gates
-        ],
-        "days_active": days[0] or 0 if days else 0
-    }
+    return wrap_response(
+        data={
+            "clusters_attempted": merged_clusters,
+            "overall_accuracy": float(overall.avg_pct or 0) if overall and overall.avg_pct else 0,
+            "total_questions_attempted": overall.total_q or 0 if overall else 0,
+            "total_correct": overall.total_correct or 0 if overall else 0,
+            "total_time_seconds": overall.total_time or 0 if overall else 0,
+            "gates": [
+                {
+                    "subject": g.subject,
+                    "gate_score": g.gate_score,
+                    "passed": g.passed
+                }
+                for g in gates
+            ],
+            "days_active": days[0] or 0 if days else 0
+        },
+        message="Progress data retrieved successfully"
+    )

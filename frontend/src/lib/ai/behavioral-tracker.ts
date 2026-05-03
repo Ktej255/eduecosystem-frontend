@@ -1,4 +1,5 @@
 "use client";
+import { API_BASE } from "../api";
 
 /**
  * Behavioral Intelligence Tracker
@@ -76,7 +77,7 @@ class BehavioralTracker {
         if (metrics.lastSignal === 'focused') return;
 
         try {
-            const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+            const baseUrl = API_BASE;
             const token = localStorage.getItem('edueco_auth_token');
             if (!token) return;
 

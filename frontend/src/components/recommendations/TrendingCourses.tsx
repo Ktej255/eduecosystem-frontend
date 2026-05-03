@@ -38,7 +38,7 @@ export default function TrendingCourses({
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/recommendations/trending?limit=${limit}&days=${days}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/recommendations/trending?limit=${limit}&days=${days}`,
         {
           headers: token ? { Authorization: `Bearer ${token}` } : {},
         },

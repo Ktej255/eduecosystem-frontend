@@ -229,6 +229,8 @@ export default function ElaborationQA({ cycleId, day, onClose }: ElaborationQAPr
         }
     };
 
+import api from "@/lib/api";
+
     const analyzeRecording = async (optionIndex: number) => {
         // Set analyzing state
         setRecordings(prev => {
@@ -241,37 +243,30 @@ export default function ElaborationQA({ cycleId, day, onClose }: ElaborationQAPr
         });
 
         const isCorrectOption = optionIndex === currentQuestion.correctAnswer;
-        const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
 
         try {
             // Call backend API for AI analysis
-            const response = await fetch(`${API_BASE}/audio/analyze`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    audio_base64: '', // Would include actual audio in production
-                    option_text: currentQuestion.options[optionIndex],
-                    is_correct_option: isCorrectOption,
-                    correct_explanation: currentQuestion.explanations[optionIndex],
-                    topic: currentQuestion.topic
-                })
+            const response = await api.post('/audio/analyze', {
+                audio_base64: '', // Would include actual audio in production
+                option_text: currentQuestion.options[optionIndex],
+                is_correct_option: isCorrectOption,
+                correct_explanation: currentQuestion.explanations[optionIndex],
+                topic: currentQuestion.topic
             });
 
-            if (response.ok) {
-                const data = await response.json();
-                setRecordings(prev => {
-                    const newRecordings = [...prev];
-                    newRecordings[optionIndex] = {
-                        ...newRecordings[optionIndex],
-                        isAnalyzing: false,
-                        isAnalyzed: true,
-                        aiFeedback: data.feedback || (data.is_correct ? "✓ Good explanation!" : "⚠ Review needed"),
-                        isCorrect: data.is_correct
-                    };
-                    return newRecordings;
-                });
-                return;
-            }
+            const data = response.data;
+            setRecordings(prev => {
+                const newRecordings = [...prev];
+                newRecordings[optionIndex] = {
+                    ...newRecordings[optionIndex],
+                    isAnalyzing: false,
+                    isAnalyzed: true,
+                    aiFeedback: data.feedback || (data.is_correct ? "✓ Good explanation!" : "⚠ Review needed"),
+                    isCorrect: data.is_correct
+                };
+                return newRecordings;
+            });
+            return;
         } catch (error) {
             console.log('Falling back to simulated analysis:', error);
         }

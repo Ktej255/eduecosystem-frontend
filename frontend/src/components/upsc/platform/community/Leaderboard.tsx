@@ -5,6 +5,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Trophy, Flame, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { API_BASE } from '@/lib/api';
 
 interface LeaderboardEntry {
     rank: number;
@@ -18,24 +19,11 @@ interface LeaderboardEntry {
 export default function Leaderboard() {
     const [entries, setEntries] = useState<LeaderboardEntry[]>([]);
     const [loading, setLoading] = useState(true);
-
     useEffect(() => {
-        // Force offline mode while backend is down
-        const mockData: LeaderboardEntry[] = [
-            { rank: 1, user_id: 101, name: "Sidharth M.", xp: 15400, streak: 45, avatar: "" },
-            { rank: 2, user_id: 102, name: "Tara S.", xp: 14200, streak: 32, avatar: "" },
-            { rank: 3, user_id: 103, name: "Rohan K.", xp: 12800, streak: 28, avatar: "" },
-            { rank: 4, user_id: 104, name: "Vihaan", xp: 11500, streak: 12, avatar: "" },
-            { rank: 5, user_id: 105, name: "Kavya", xp: 10900, streak: 10, avatar: "" },
-        ];
-        setEntries(mockData);
-        setLoading(false);
-
-        /*
         const fetchLeaderboard = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/community/leaderboard`, {
+                const response = await fetch(`${API_BASE}/community/leaderboard`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 if (!response.ok) throw new Error("API Error");
@@ -57,7 +45,6 @@ export default function Leaderboard() {
             }
         };
         fetchLeaderboard();
-        */
     }, []);
 
     return (

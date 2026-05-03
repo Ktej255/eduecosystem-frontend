@@ -46,7 +46,7 @@ export default function SocraticChatWidget() {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/ai/socratic`, {
+            const response = await fetch(`${(process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app").replace(/\/$/, "")}/api/v1/ai/socratic`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

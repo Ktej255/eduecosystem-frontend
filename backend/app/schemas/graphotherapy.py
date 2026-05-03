@@ -40,6 +40,8 @@ class GraphotherapyProgressCreate(GraphotherapyProgressBase):
 class GraphotherapyProgressResponse(GraphotherapyProgressBase):
     id: int
     user_id: int
+    streak_count: int = 0
+    last_active_date: Optional[datetime] = None
     last_practice_date: Optional[datetime] = None
     created_at: datetime
     updated_at: Optional[datetime] = None
@@ -58,6 +60,7 @@ class LevelInfo(BaseModel):
     is_unlocked: bool
     is_current: bool
     is_completed: bool
+    price: int = 0
 
 
 class LevelDetailResponse(BaseModel):
@@ -76,6 +79,13 @@ class DayDetailResponse(BaseModel):
     completed_at: Optional[datetime] = None
     upload_url: Optional[str] = None
     can_complete_today: bool
+    
+    # Program Content
+    focus_area: Optional[str] = None
+    exercise: Optional[str] = None
+    instructions: Optional[str] = None
+    why_it_works: Optional[str] = None
+    expected_result: Optional[str] = None
 
 
 class DayCompleteRequest(BaseModel):
@@ -89,14 +99,33 @@ class DayCompleteResponse(BaseModel):
     new_streak: int
     level_completed: bool = False
     next_level_unlocked: bool = False
+    progress_percentage: float = 0.0
+
+
+class DrillSubmitRequest(BaseModel):
+    level_id: int
+    day_number: int
 
 
 class OverviewResponse(BaseModel):
     current_level: int
     current_day: int
-    total_streak: int
+    streak_count: int
+    last_active_date: Optional[datetime] = None
+    total_streak: int # Keep for UI compatibility if needed
     last_practice_date: Optional[datetime] = None
     levels: List[LevelInfo]
+    total_days_completed: int = 0
+    total_days_remaining: int = 0
+    
+    # Retention Engine Fields
+    user_state: str = "NEW" # NEW, ENGAGED, DROPPING
+    social_proof: str = "You are in the top 10% of learners!"
+    
+    # Progress Intelligence (Task 5)
+    coins_earned_today: int = 0
+    weekly_bonus_status: str = "In Progress" # e.g. "4/7 days complete"
+    weekly_report_ready: bool = False
 
 # --- V2 Schemas for Admin Portal ---
 
@@ -212,3 +241,67 @@ class PurchaseResponse(BaseModel):
     coins_deducted: int
     message: str
     new_coin_balance: int
+
+# --- Funnel & Lead Schemas ---
+
+class GraphoLeadBase(BaseModel):
+    name: str
+    email: str
+    phone: Optional[str] = None
+    utm_source: Optional[str] = None
+    utm_medium: Optional[str] = None
+    utm_campaign: Optional[str] = None
+
+class GraphoLeadCreate(GraphoLeadBase):
+    pass
+
+class GraphoLeadUpdate(BaseModel):
+    name: Optional[str] = None
+    email: Optional[str] = None
+    phone: Optional[str] = None
+    analysis_json: Optional[dict] = None
+    analysis_status: Optional[str] = None
+    recommended_level: Optional[int] = None
+    converted: Optional[bool] = None
+    image_path: Optional[str] = None
+
+class GraphoLeadResponse(GraphoLeadBase):
+    id: int
+    analysis_json: Optional[dict] = None
+    analysis_status: str
+    created_at: datetime
+    updated_at: datetime
+
+    class Config:
+        from_attributes = True
+
+
+# --- Real-time Visibility Schemas ---
+
+class SnapshotStatusResponse(BaseModel):
+    snapshot_id: int
+    day_number: int
+    status: str # "queued", "processing", "complete", "failed"
+    analysis_progress: str # Human readable version of status
+    submitted_at: datetime
+    analysis_started_at: Optional[datetime] = None
+    analysis_completed_at: Optional[datetime] = None
+    fallback_message: Optional[str] = None
+    
+    class Config:
+        from_attributes = True
+
+
+class WeeklyProgressResponse(BaseModel):
+    week_number: int
+    narrative_summary: str
+    improvement_direction: Optional[str] = None
+    behavioral_insight: Optional[str] = None
+    improvement_metrics: Optional[dict] = None
+    regression_detected: bool
+    corrective_suggestions: Optional[str] = None
+    weekly_report_ready: bool = True
+    created_at: datetime
+    
+    class Config:
+        from_attributes = True

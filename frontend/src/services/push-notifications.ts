@@ -1,6 +1,4 @@
-import axios from "axios";
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+import { api } from "@/lib/api";
 const VAPID_PUBLIC_KEY = "BJpM_... (Replace with real key) ...";
 
 // Helper to convert VAPID key
@@ -46,10 +44,7 @@ export const subscribeToNotifications = async () => {
     }
 
     // 3. Send to Backend
-    const token = localStorage.getItem("token") || localStorage.getItem("access_token");
-    await axios.post(`${API_URL}/notifications/subscribe`, subscription, {
-        headers: { Authorization: `Bearer ${token}` }
-    });
+    await api.post('/notifications/subscribe', subscription);
 
     return subscription;
 };

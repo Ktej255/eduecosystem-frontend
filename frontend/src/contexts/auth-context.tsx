@@ -7,8 +7,9 @@ import {
   useEffect,
   ReactNode,
 } from "react";
-import api from "@/lib/api";
+import api, { API_BASE } from "@/lib/api";
 import { useRouter } from "next/navigation";
+import { setCookie, removeCookie, getCookie } from "@/lib/cookies";
 
 interface User {
   id: number;
@@ -57,24 +58,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
-  // Check for existing token on mount
+  // Check for existing session on mount
   useEffect(() => {
-    const storedToken = localStorage.getItem("token");
-    if (storedToken) {
-      setToken(storedToken);
-      // Fetch current user
-      fetchCurrentUser();
-    } else {
-      setLoading(false);
-    }
+    // We rely on the HttpOnly cookie being sent by the browser.
+    // Calling fetchCurrentUser will succeed if the session is valid.
+    fetchCurrentUser();
   }, []);
 
   useEffect(() => {
     const fetchBranding = async () => {
       try {
-        const response = await fetch('https://eduecosystem-backend-503001969959.us-central1.run.app/api/v1/public/branding');
-        const data = await response.json();
-        setBranding(data);
+        const response = await api.get("/public/branding");
+        setBranding(response.data);
       } catch (error) {
         console.error('Error fetching branding:', error);
       }
@@ -85,12 +80,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const fetchCurrentUser = async () => {
     try {
       const response = await api.get("/users/me");
-      setUser(response.data);
-      return response.data;
+      // Handle standardized response wrapper { success, data, message }
+      const userData = response.data.success ? response.data.data : response.data;
+      setUser(userData);
+      return userData;
     } catch (error) {
       console.error("Failed to fetch user:", error);
-      localStorage.removeItem("token");
-      setToken(null);
+      setUser(null);
     } finally {
       setLoading(false);
     }
@@ -98,42 +94,28 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const login = async (email: string, password: string) => {
     const normalizedEmail = email.toLowerCase().trim();
-    // CRITICAL FIX: Ensure API URL always includes /api/v1 suffix
-    let baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app";
-    // Remove trailing slash if present
-    baseUrl = baseUrl.replace(/\/$/, "");
-    // Add /api/v1 if not already present
-    const AWS_API_URL = baseUrl.endsWith("/api/v1") ? baseUrl : `${baseUrl}/api/v1`;
 
     // FastAPI OAuth2 expects form data
     const formData = new URLSearchParams();
-    formData.append("username", normalizedEmail); // FastAPI uses 'username' field
+    formData.append("username", normalizedEmail);
     formData.append("password", password);
 
-    // Use direct fetch instead of api module to ensure correct URL
-    const response = await fetch(`${AWS_API_URL}/login/access-token`, {
-      method: "POST",
+    // Use centralized api instance
+    const response = await api.post("/login/access-token", formData, {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: formData.toString(),
     });
 
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      throw new Error(errorData.detail || "Invalid email or password");
-    }
-
-    const data = await response.json();
-
+    const { data } = response.data; // Response is wrapped in { success, data, message }
     const { access_token, require_2fa } = data;
 
-    // If 2FA is required, return the response data for handling
     if (require_2fa) {
       return data;
     }
 
-    // Standard login flow
-    localStorage.setItem("token", access_token);
+    // Backend sets the HttpOnly cookie automatically.
+    // We update local state and non-HttpOnly cookie for middleware/API layer.
     setToken(access_token);
+    setCookie("token", access_token);
 
     // Fetch user data
     const userData = await fetchCurrentUser();
@@ -177,7 +159,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const logout = () => {
-    localStorage.removeItem("token");
+    removeCookie("token");
     setToken(null);
     setUser(null);
     router.push("/login");

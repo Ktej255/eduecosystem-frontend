@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ShieldCheck, Smartphone, Loader2, CheckCircle } from "lucide-react";
 import { toast } from "sonner";
+import { api } from "@/lib/api";
 
 export default function TwoFactorSetup() {
     const [step, setStep] = useState<"initial" | "scan" | "verify" | "success">("initial");
@@ -18,17 +19,11 @@ export default function TwoFactorSetup() {
     const startSetup = async () => {
         setLoading(true);
         try {
-            const token = localStorage.getItem("token") || localStorage.getItem("access_token");
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/2fa/setup`, {
-                method: "POST",
-                headers: {
-                    "Authorization": `Bearer ${token}`
-                }
-            });
+            const res = await api.post('/2fa/setup');
 
-            if (!res.ok) throw new Error("Failed to start setup");
+            if (res.status !== 200) throw new Error("Failed to start setup");
 
-            const data = await res.json();
+            const data = res.data;
             setQrCode(data.qr_code_url);
             setSecret(data.secret);
             setStep("scan");
@@ -42,22 +37,13 @@ export default function TwoFactorSetup() {
     const verifyCode = async () => {
         setLoading(true);
         try {
-            const token = localStorage.getItem("token") || localStorage.getItem("access_token");
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/2fa/verify`, {
-                method: "POST",
-                headers: {
-                    "Authorization": `Bearer ${token}`,
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    code: verificationCode,
-                    secret: secret
-                })
+            const res = await api.post('/2fa/verify', {
+                code: verificationCode,
+                secret: secret
             });
 
-            if (!res.ok) {
-                const err = await res.json();
-                throw new Error(err.detail || "Invalid code");
+            if (res.status !== 200) {
+                throw new Error(res.data?.detail || "Invalid code");
             }
 
             setStep("success");

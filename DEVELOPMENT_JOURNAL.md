@@ -89,7 +89,26 @@
 - **Verification**: Verified zero 500-errors on Admin CRM page and live data binding on Mobile frontend.
 
 ---
-## ⚠️ Instructions for Next Agent
-1. **SYNC**: Read `SYSTEM_MASTER_MAP.md` before writing any code.
-2. **PULL**: If the `DEPLOYMENT_LOG.md` shows a newer build than your current environment, pull the latest `backend/` and `src/` changes.
-3. **LOG**: When you finish, append to this journal. Use the template below.
+## 📅 2026-04-28: API Forensic Stabilization & Build Recovery
+**Agent**: Antigravity
+**Focus**: Resolving Production 404s & Build-Breaking Syntax
+- **API Prefixing**: Identified and patched critical endpoints missing the `/api/v1` version prefix.
+    - Updated `src/app/(dashboard)/notifications/page.tsx` (fetchNotifications, mark-all-read).
+    - Updated `src/app/(student-portal)/student/antigravity/page.tsx` (dashboard, progress-toggle).
+    - Updated `src/app/(public)/verify/[hash]/page.tsx` (certificate verification).
+- **Syntax Repair**: Fixed `Leaderboard.tsx` by wrapping the `fetchLeaderboard` call in a `useEffect` hook, resolving production build failures.
+- **Integrity Check**: Standardized `lib/api.ts` to automatically handle `/api/v1` suffixing for all modules using the centralized Axios client.
+- **Build Status**: Verified successful production build (`npm run build`) with updated path integrity.
+
+---
+## 📅 2026-05-01: Production Launch & Core Flow Stabilization
+**Agent**: Antigravity
+**Focus**: Deployment to Google Cloud Run & Final Verification
+- **Production Deployment**: Successfully built and deployed the frontend to Google Cloud Run (`eduecosystem-frontend`).
+    - Build ID: `65fd7929-27d7-413b-9dd9-245bc9539ac2`
+    - Live URL: `https://eduecosystem-frontend-503001969959.us-central1.run.app`
+- **Path Integrity**: Verified that the `/api/v1` prefix is correctly handled by the centralized API client in production.
+- **Verification**: 
+    - Confirmed site accessibility (200 OK) via `curl` for both landing and login pages.
+    - Verified backend API documentation availability at `/docs`.
+- **Status**: System is LIVE and serving traffic. Core user journey stabilized.

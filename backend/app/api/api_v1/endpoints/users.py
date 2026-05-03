@@ -43,14 +43,16 @@ def create_user(
     return user
 
 
-@router.get("/me", response_model=User)
+from app.utils.response_wrapper import wrap_response
+
+@router.get("/me")
 def read_user_me(
     current_user: User = Depends(deps.get_current_active_user),
 ) -> Any:
     """
     Get current user.
     """
-    return current_user
+    return wrap_response(data=current_user)
 
 
 @router.put("/me", response_model=User)

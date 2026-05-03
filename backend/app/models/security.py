@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, DateTime, ForeignKey, Boolean
+from sqlalchemy import Column, Integer, String, Float, DateTime, ForeignKey, Boolean, JSON
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from app.db.session import Base
@@ -28,3 +28,17 @@ class GhostLoginAlert(Base):
     created_at = Column(DateTime, default=datetime.utcnow)
     
     user = relationship("User", backref="ghost_alerts")
+
+class SecurityAuditLog(Base):
+    """Immutable log of critical security events"""
+    __tablename__ = "security_audit_logs"
+
+    id = Column(Integer, primary_key=True, index=True)
+    timestamp = Column(DateTime, default=datetime.utcnow, index=True)
+    event_type = Column(String(100), index=True) # e.g., "RATE_LIMIT_EXCEEDED", "UNAUTHORIZED_ACCESS"
+    ip_address = Column(String(45))
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=True)
+    details = Column(JSON, nullable=False)
+    severity = Column(String(20), default="INFO") # INFO, WARNING, CRITICAL
+    
+    user = relationship("User")

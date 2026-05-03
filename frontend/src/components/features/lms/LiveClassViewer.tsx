@@ -34,7 +34,7 @@ import { LiveClassReactionBar } from "./LiveClassReactionBar";
 import { VideoPlayer } from "@/components/features/lms/VideoPlayer";
 
 // API Configuration
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API_URL = `${(process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000").replace(/\/$/, "")}/api/v1`;
 
 const getAuthHeader = () => {
   const token = localStorage.getItem("access_token");

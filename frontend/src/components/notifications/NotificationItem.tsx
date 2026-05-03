@@ -60,7 +60,7 @@ export default function NotificationItem({
       try {
         const token = localStorage.getItem("token");
         await axios.post(
-          `${process.env.NEXT_PUBLIC_API_URL}/notifications/${notification.id}/read`,
+          `${process.env.NEXT_PUBLIC_API_URL}/api/v1/notifications/${notification.id}/read`,
           {},
           {
             headers: { Authorization: `Bearer ${token}` },

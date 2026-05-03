@@ -19,42 +19,26 @@ class CacheService:
             self.client.ping()
             logger.info("CacheService: Successfully connected to Redis.")
         except Exception as e:
-            logger.error(f"CacheService: Redis connection failed: {e}")
-            self.client = None
+            logger.critical(f"CacheService: Redis connection FATAL: {e}")
+            raise RuntimeError(f"Redis is required but could not be reached at {settings.REDIS_URL}")
 
     def get(self, key: str) -> Optional[Any]:
-        """Fetch from cache."""
-        if not self.client: return None
-        try:
-            data = self.client.get(key)
-            return json.loads(data) if data else None
-        except Exception as e:
-            logger.error(f"Cache Get Error for {key}: {e}")
-            return None
+        """Fetch from cache. NO SILENT FALLBACK."""
+        data = self.client.get(key)
+        return json.loads(data) if data else None
 
     def set(self, key: str, value: Any, expire_seconds: int = 120) -> bool:
-        """Set in cache with TTL."""
-        if not self.client: return False
-        try:
-            self.client.set(key, json.dumps(value), ex=expire_seconds)
-            return True
-        except Exception as e:
-            logger.error(f"Cache Set Error for {key}: {e}")
-            return False
+        """Set in cache with TTL. NO SILENT FALLBACK."""
+        self.client.set(key, json.dumps(value), ex=expire_seconds)
+        return True
 
     def delete(self, key: str) -> bool:
-        """Invalidate cache."""
-        if not self.client: return False
-        try:
-            self.client.delete(key)
-            return True
-        except Exception as e:
-            logger.error(f"Cache Delete Error for {key}: {e}")
-            return False
+        """Invalidate cache. NO SILENT FALLBACK."""
+        self.client.delete(key)
+        return True
 
     def invalidate_student_dash(self, student_id: int):
         """Invalidate all dashboard keys for a student."""
-        if not self.client: return
         pattern = f"student_dash:{student_id}:*"
         keys = self.client.keys(pattern)
         if keys:

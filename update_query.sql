@@ -1,0 +1,1 @@
+UPDATE users SET is_focused_portal_user = true WHERE email = 'kajaldhannatar@gmail.com'; SELECT id, email, is_focused_portal_user FROM users WHERE email = 'kajaldhannatar@gmail.com';

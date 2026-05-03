@@ -102,5 +102,7 @@ from app.models import (
     student_concept_mastery,
     guided_clip,
     student_activity_log,
+    focused_portal,
+    decision_memory,
 )
 print("DEBUG: Models imported in base.py")

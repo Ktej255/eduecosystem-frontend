@@ -69,6 +69,13 @@ async def health_check():
     except Exception as e:
         checks["checks"]["websocket"] = {"status": "down", "error": str(e)}
 
+    # Graphotherapy Engine check (Phase 10)
+    try:
+        from app.graphotherapy_engine.monitoring import monitor
+        checks["checks"]["graphotherapy"] = monitor.get_health_status()
+    except Exception as e:
+        checks["checks"]["graphotherapy"] = {"status": "error", "error": str(e)}
+
     return checks
 
 

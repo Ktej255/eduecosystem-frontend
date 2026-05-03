@@ -36,7 +36,8 @@ export default function MorningMeditation({ onComplete, onBack }: { onComplete: 
     const recordAttendance = async () => {
         try {
             // Simple fire-and-forget logging
-            await fetch(`${process.env.NEXT_PUBLIC_API_URL}/attendance`, {
+            const baseUrl = (process.env.NEXT_PUBLIC_API_URL || "https://eduecosystem-backend-503001969959.us-central1.run.app").replace(/\/$/, "");
+            await fetch(`${baseUrl}/api/v1/attendance`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

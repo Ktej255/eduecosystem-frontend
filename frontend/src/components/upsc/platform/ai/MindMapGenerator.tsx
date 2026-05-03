@@ -9,6 +9,7 @@ import { Card } from '@/components/ui/card';
 import { Loader2, Search, Share2, Download } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 import dagre from 'dagre';
+import { API_BASE } from '@/lib/api';
 
 const dagreGraph = new dagre.graphlib.Graph();
 dagreGraph.setDefaultEdgeLabel(() => ({}));
@@ -57,7 +58,7 @@ export default function MindMapGenerator() {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/ai/mindmap`, {
+            const response = await fetch(`${API_BASE}/ai/mindmap`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -8,10 +8,15 @@ from app.crud import submission as crud_submission
 from app.schemas.submission import Submission, SubmissionCreate
 from app.schemas.handwriting import HandwritingAnalysisResponse, HandwritingFeatures # Updated imports
 from app.services.ocr import analyze_handwriting
+from app.graphotherapy_engine.orchestrator import orchestrator
+from app.schemas.handwriting import HandwritingAnalysisResponse, HandwritingFeatures, GraphoAnalyzeResponse
+from app.crud.crud_student_report import student_report as crud_student_report
+from app.schemas.student_report import StudentReportCreate
 from app.models.user import User
 import shutil
 import os
 import json
+import time
 
 router = APIRouter()
 
@@ -110,3 +115,78 @@ async def upload_handwriting(
         coins_earned=50,
         message="Handwriting analyzed successfully!",
     )
+
+
+@router.post("/analyze", response_model=GraphoAnalyzeResponse)
+async def analyze_handwriting_engine(
+    *,
+    db: Session = Depends(deps.get_db),
+    file: UploadFile = File(...),
+    current_user: User = Depends(deps.get_current_active_user),
+) -> Any:
+    """
+    CORE Intelligence Engine: Upload handwriting and get a deterministic, high-fidelity report.
+    """
+    # 1. Validation
+    if file.content_type not in ["image/jpeg", "image/png"]:
+        raise HTTPException(
+            status_code=400, detail="Invalid file type. Only JPEG and PNG are allowed."
+        )
+
+    # 2. Save file locally for processing
+    file_location = f"{UPLOAD_DIR}/core_{current_user.id}_{int(time.time())}_{file.filename}"
+    with open(file_location, "wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
+
+    # 3. Run Orchestrator Pipeline
+    session_id = f"sess_{current_user.id}_{int(time.time())}"
+    result = orchestrator.run_pipeline({
+        "user_id": current_user.id,
+        "image": file_location,
+        "session_id": session_id
+    })
+
+    if result["status"] == "error":
+        # Clean up file on failure
+        if os.path.exists(file_location):
+            os.remove(file_location)
+        raise HTTPException(status_code=400, detail=result["message"])
+
+    # 4. Create Submission Record for legacy tracking
+    submission_in = SubmissionCreate(
+        image_url=file_location,
+        quiz_data="{}",
+        report_content=json.dumps(result["report"]),
+        report_level=2, # Level 2 = Intelligence Engine
+    )
+    submission = crud_submission.create_with_owner(
+        db=db, obj_in=submission_in, owner_id=current_user.id
+    )
+
+    # 5. Persist to Detailed StudentReport (Premium Storage)
+    report_in = StudentReportCreate(
+        user_id=current_user.id,
+        report_type="graphotherapy",
+        report_key=result["report"]["signature"],
+        features_json=result["report"]["features"],
+        traits_json=result["report"]["trait_scores"],
+        conflicts_json=result["report"]["conflicts"],
+        personality_json=result["report"]["personality"],
+        report_text=result["report"]["narrative"],
+        pdf_url=result["pdf_url"],
+        data={"uniqueness_hash": result["meta"]["hash"], "session_id": session_id}
+    )
+    crud_student_report.create(db, obj_in=report_in)
+
+    # 6. Award Premium Coins
+    current_user.coins += 100
+    db.commit()
+
+    return {
+        "status": "success",
+        "submission_id": submission.id,
+        "report": result["report"],
+        "pdf_url": result["pdf_url"],
+        "message": "Deep intelligence analysis complete.",
+        "meta": result["meta"]
+    }

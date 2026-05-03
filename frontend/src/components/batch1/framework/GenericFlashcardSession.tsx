@@ -20,6 +20,7 @@ import {
 import { toast } from "sonner";
 import VoiceRecorder from "@/components/ui/VoiceRecorder";
 import { Flashcard, shuffleArray } from "../flashcard/flashcard-utils";
+import { API_BASE } from "@/lib/api";
 
 interface GenericFlashcardSessionProps {
     flashcards: Flashcard[];
@@ -45,7 +46,7 @@ export default function GenericFlashcardSession({ flashcards: initialFlashcards,
         missing_points: string[];
     } | null>(null);
 
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+
 
     useEffect(() => {
         if (initialFlashcards && initialFlashcards.length > 0) {
@@ -106,7 +107,7 @@ export default function GenericFlashcardSession({ flashcards: initialFlashcards,
     const handleAudioRecording = async (base64Audio: string) => {
         setIsAnalyzing(true);
         try {
-            const response = await fetch(`${API_URL}/audio-analysis/analyze-flashcard`, {
+            const response = await fetch(`${API_BASE}/audio-analysis/analyze-flashcard`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

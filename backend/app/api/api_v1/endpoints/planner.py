@@ -14,6 +14,7 @@ from app.db.session import get_db
 from app.models.user import User
 from app.models.ras_planner import RASTopicProgress
 from app.services.gemini_service import gemini_service
+from app.utils.response_wrapper import wrap_response
 
 router = APIRouter()
 
@@ -393,10 +394,13 @@ async def check_access(email: str, db: Session = Depends(get_db)):
     if email.lower() == "ktej255@gmail.com":
         has_access = True
 
-    return AccessCheckResponse(
-        email=email,
-        has_access=has_access,
-        message="Access granted" if has_access else "Access restricted. Contact admin for authorization."
+    return wrap_response(
+        data=AccessCheckResponse(
+            email=email,
+            has_access=has_access,
+            message="Access granted" if has_access else "Access restricted. Contact admin for authorization."
+        ),
+        message="Access check completed"
     )
 
 @router.get("/dashboard/{email}", response_model=DashboardResponse)
@@ -424,14 +428,17 @@ async def get_dashboard(email: str, db: Session = Depends(get_db)):
             percentage=round((completed / topic_count) * 100, 1) if topic_count > 0 else 0
         )
     
-    return DashboardResponse(
-        email=email,
-        overall_progress={
-            "total_topics": total_topics,
-            "completed_topics": total_completed,
-            "percentage": round((total_completed / total_topics) * 100, 1) if total_topics > 0 else 0
-        },
-        subject_progress=subject_progress
+    return wrap_response(
+        data=DashboardResponse(
+            email=email,
+            overall_progress={
+                "total_topics": total_topics,
+                "completed_topics": total_completed,
+                "percentage": round((total_completed / total_topics) * 100, 1) if total_topics > 0 else 0
+            },
+            subject_progress=subject_progress
+        ),
+        message="Dashboard data retrieved successfully"
     )
 
 @router.get("/calendar-overview/{email}", response_model=CalendarOverview)
@@ -447,11 +454,14 @@ async def get_calendar_overview(email: str, db: Session = Depends(get_db)):
     
     days = generate_40_day_calendar(db, user.id, start_date)
     
-    return CalendarOverview(
-        plan_start=start_date.strftime("%Y-%m-%d"),
-        plan_end=end_date.strftime("%Y-%m-%d"),
-        total_days=40,
-        days=days
+    return wrap_response(
+        data=CalendarOverview(
+            plan_start=start_date.strftime("%Y-%m-%d"),
+            plan_end=end_date.strftime("%Y-%m-%d"),
+            total_days=40,
+            days=days
+        ),
+        message="Calendar overview retrieved successfully"
     )
 
 @router.get("/plan-by-date/{email}/{date}", response_model=DayPlanResponse)
@@ -516,14 +526,17 @@ async def get_plan_by_date(email: str, date: str, db: Session = Depends(get_db))
         description="Daily retention test"
     ))
     
-    return DayPlanResponse(
-        email=email,
-        date=date,
-        day_number=day_number,
-        total_days=40,
-        slots=slots,
-        total_topics_today=len(day_topics),
-        status="active"
+    return wrap_response(
+        data=DayPlanResponse(
+            email=email,
+            date=date,
+            day_number=day_number,
+            total_days=40,
+            slots=slots,
+            total_topics_today=len(day_topics),
+            status="active"
+        ),
+        message=f"Plan for {date} retrieved successfully"
     )
 
 @router.post("/update-progress")
@@ -554,12 +567,14 @@ async def update_progress(request: ProgressUpdateRequest, db: Session = Depends(
     
     db.commit()
     
-    return {
-        "success": True,
-        "topic_id": request.topic_id,
-        "completed": request.completed,
-        "timestamp": datetime.utcnow().isoformat()
-    }
+    return wrap_response(
+        data={
+            "topic_id": request.topic_id,
+            "completed": request.completed,
+            "timestamp": datetime.utcnow().isoformat()
+        },
+        message="Progress updated successfully"
+    )
 
 @router.get("/syllabus-topics/{subject_key}")
 async def get_syllabus_topics(subject_key: str, email: str, db: Session = Depends(get_db)):
@@ -590,13 +605,16 @@ async def get_syllabus_topics(subject_key: str, email: str, db: Session = Depend
     
     completed_count = sum(1 for t in topics_with_status if t.completed)
     
-    return SubjectTopicsResponse(
-        subject_key=subject_key,
-        subject_name=subject["name"],
-        priority=subject["priority"],
-        total_topics=len(topics_with_status),
-        completed_count=completed_count,
-        topics=topics_with_status
+    return wrap_response(
+        data=SubjectTopicsResponse(
+            subject_key=subject_key,
+            subject_name=subject["name"],
+            priority=subject["priority"],
+            total_topics=len(topics_with_status),
+            completed_count=completed_count,
+            topics=topics_with_status
+        ),
+        message=f"Topics for {subject_key} retrieved successfully"
     )
 
 @router.get("/reports/{email}", response_model=ReportsResponse)
@@ -630,11 +648,14 @@ async def get_reports(email: str, db: Session = Depends(get_db)):
             "percentage": round((completed_count / topic_count) * 100, 1) if topic_count > 0 else 0
         }
     
-    return ReportsResponse(
-        overall_retention=round((completed / total_topics) * 100, 1) if total_topics > 0 else 0,
-        total_submissions=completed,
-        daily_retention=daily_retention,
-        subject_stats=subject_stats
+    return wrap_response(
+        data=ReportsResponse(
+            overall_retention=round((completed / total_topics) * 100, 1) if total_topics > 0 else 0,
+            total_submissions=completed,
+            daily_retention=daily_retention,
+            subject_stats=subject_stats
+        ),
+        message="Reports data retrieved successfully"
     )
 
 @router.post("/record-and-submit")
@@ -689,12 +710,14 @@ async def record_and_submit(request: RecallSubmissionRequest, db: Session = Depe
     
     db.commit()
     
-    return {
-        "success": True,
-        "evaluation": evaluation,
-        "mastery_level": mastery,
-        "completed": progress.completed
-    }
+    return wrap_response(
+        data={
+            "evaluation": evaluation,
+            "mastery_level": mastery,
+            "completed": progress.completed
+        },
+        message="Recall analysis completed and progress updated"
+    )
 
 @router.get("/daily-test/{email}/{date}")
 async def get_daily_test(email: str, date: str, db: Session = Depends(get_db)):
@@ -747,7 +770,10 @@ async def get_daily_test(email: str, date: str, db: Session = Depends(get_db)):
         }
     ]
     
-    return {"date": date, "questions": questions}
+    return wrap_response(
+        data={"date": date, "questions": questions},
+        message=f"Daily test for {date} retrieved successfully"
+    )
 
 # ============================================================
 # ADMIN/TEACHER ENDPOINTS
@@ -783,7 +809,10 @@ async def get_student_list(db: Session = Depends(get_db)):
             last_active=latest_progress.last_updated.isoformat() if latest_progress else None
         ))
     
-    return {"students": students, "total_count": len(students)}
+    return wrap_response(
+        data={"students": students, "total_count": len(students)},
+        message="Student list retrieved successfully"
+    )
 
 @router.get("/admin/student-progress/{email}")
 async def get_student_progress_admin(email: str, db: Session = Depends(get_db)):
@@ -800,7 +829,10 @@ async def authorize_user(email: str, db: Session = Depends(get_db)):
     
     user.is_ras_authorized = True
     db.commit()
-    return {"success": True, "email": email, "message": f"{email} has been authorized for RAS Revision Plan"}
+    return wrap_response(
+        data={"email": email},
+        message=f"{email} has been authorized for RAS Revision Plan"
+    )
 
 @router.delete("/admin/revoke-access/{email}")
 async def revoke_access(email: str, db: Session = Depends(get_db)):
@@ -811,7 +843,10 @@ async def revoke_access(email: str, db: Session = Depends(get_db)):
     
     user.is_ras_authorized = False
     db.commit()
-    return {"success": True, "email": email, "message": f"Access revoked for {email}"}
+    return wrap_response(
+        data={"email": email},
+        message=f"Access revoked for {email}"
+    )
 
 @router.post("/admin/reset-progress/{email}")
 async def reset_progress(email: str, db: Session = Depends(get_db)):
@@ -823,23 +858,23 @@ async def reset_progress(email: str, db: Session = Depends(get_db)):
     db.query(RASTopicProgress).filter(RASTopicProgress.user_id == user.id).delete()
     db.commit()
     
-    return {
-        "success": True, 
-        "email": email, 
-        "message": f"All progress has been reset for {email}",
-        "timestamp": datetime.utcnow().isoformat()
-    }
+    return wrap_response(
+        data={
+            "email": email, 
+            "timestamp": datetime.utcnow().isoformat()
+        },
+        message=f"All progress has been reset for {email}"
+    )
 
 @router.post("/admin/reset-all-progress")
 async def reset_all_progress(db: Session = Depends(get_db)):
     """Reset progress for all users (admin only)"""
     db.query(RASTopicProgress).delete()
     db.commit()
-    return {
-        "success": True, 
-        "message": "All user progress has been reset",
-        "timestamp": datetime.utcnow().isoformat()
-    }
+    return wrap_response(
+        data={"timestamp": datetime.utcnow().isoformat()},
+        message="All user progress has been reset"
+    )
 
 # ============================================================
 # PDF CONTENT INTEGRATION (Phase 2 - Future Implementation)
@@ -860,16 +895,18 @@ async def get_topic_materials(topic_id: str, email: str, db: Session = Depends(g
     for subject_key, subject_data in RAS_SUBJECTS.items():
         for topic in subject_data["topics"]:
             if topic["id"] == topic_id:
-                return {
-                    "topic_id": topic_id,
-                    "topic_name": topic["name"],
-                    "subject": subject_data["name"],
-                    "subtopics": topic["subtopics"],
-                    "note": topic.get("note", None),
-                    "pdf_available": False,  # Will be True when PDFs are uploaded
-                    "pdf_url": None,  # Future: S3/storage URL
-                    "message": "PDF content will be available soon. Contact admin to upload study materials."
-                }
+                return wrap_response(
+                    data={
+                        "topic_id": topic_id,
+                        "topic_name": topic["name"],
+                        "subject": subject_data["name"],
+                        "subtopics": topic["subtopics"],
+                        "note": topic.get("note", None),
+                        "pdf_available": False,
+                        "pdf_url": None
+                    },
+                    message="Study materials information retrieved. PDF content will be available soon."
+                )
     
     raise HTTPException(status_code=404, detail="Topic not found")
 

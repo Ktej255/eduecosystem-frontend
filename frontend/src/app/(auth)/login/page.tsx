@@ -9,6 +9,7 @@ import { TwoFactorVerification } from "@/components/auth/TwoFactorVerification";
 import { twoFactorService } from "@/services/twoFactorService";
 import { Eye, EyeOff } from "lucide-react";
 import api from "@/lib/api";
+import { setCookie } from "@/lib/cookies";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -41,15 +42,14 @@ export default function LoginPage() {
 
   const handle2FAVerification = async (code: string) => {
     try {
-      // Store temp token for the API call
-      if (tempToken) {
-        localStorage.setItem("token", tempToken);
-      }
+      // Temp token is used for the verification call
+      // We don't need to store it in localStorage anymore as the next call 
+      // will use the email and code to get the final token.
 
       const response = await twoFactorService.verifyLogin(code, email);
 
-      // Update with full access token
-      localStorage.setItem("token", response.access_token);
+      // Update with full access token via cookie
+      setCookie("token", response.access_token);
 
       // Check User Role for Redirection
       try {

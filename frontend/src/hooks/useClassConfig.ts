@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { CLASS_CONFIG as DEFAULT_CLASS_CONFIG } from "@/lib/journey/class-config";
+import { API_BASE } from "@/lib/api";
 
 export function useClassConfig() {
     const [config, setConfig] = useState(DEFAULT_CLASS_CONFIG);
@@ -8,7 +9,7 @@ export function useClassConfig() {
         const fetchConfig = async () => {
             try {
                 // E.g. /api/v1/app-config/journey_classes
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/app-config/journey_classes`);
+                const res = await fetch(`${API_BASE}/app-config/journey_classes`);
                 if (res.ok) {
                     const data = await res.json();
                     if (data.value) {

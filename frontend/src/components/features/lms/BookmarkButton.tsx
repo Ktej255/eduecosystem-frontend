@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Bookmark } from "lucide-react";
 import { toast } from "sonner";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API_URL = `${(process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000").replace(/\/$/, "")}/api/v1`;
 
 interface BookmarkButtonProps {
   lessonId?: number;

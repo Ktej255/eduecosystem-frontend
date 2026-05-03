@@ -5,7 +5,7 @@ import { Play, Video, CheckCircle, ArrowLeft } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useMeetConfig } from "@/hooks/useMeetConfig";
-import { useAuth } from "@/contexts/auth-context";
+import api from "@/lib/api";
 
 export default function MorningMeditation({ onComplete, onBack }: { onComplete: () => void, onBack: () => void }) {
     const { user } = useAuth();
@@ -35,17 +35,9 @@ export default function MorningMeditation({ onComplete, onBack }: { onComplete: 
 
     const recordAttendance = async () => {
         try {
-            // Simple fire-and-forget logging
-            await fetch(`${process.env.NEXT_PUBLIC_API_URL}/attendance`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                },
-                body: JSON.stringify({
-                    session_type: 'morning_meditation',
-                    timestamp: new Date().toISOString()
-                })
+            await api.post('/attendance', {
+                session_type: 'morning_meditation',
+                timestamp: new Date().toISOString()
             });
         } catch (error) {
             console.error("Failed to record attendance", error);

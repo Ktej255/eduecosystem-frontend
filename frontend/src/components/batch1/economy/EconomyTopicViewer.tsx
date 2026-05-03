@@ -87,70 +87,7 @@ export default function EconomyTopicViewer({ content, mcqs, flashcards, visualiz
                 )}
 
                 {/* Content Layout */}
-                <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-
-                    {/* Sidebar TOC */}
-                    <div className="lg:col-span-1 space-y-4">
-                        <div className="sticky top-24 space-y-4">
-                            <Card>
-                                <CardHeader className="pb-2">
-                                    <CardTitle className="text-xs uppercase tracking-wider text-muted-foreground font-bold">In this Chapter</CardTitle>
-                                </CardHeader>
-                                <CardContent className="space-y-1 p-2">
-                                    {content.sections?.map((sec, idx) => (
-                                        <button
-                                            key={idx}
-                                            onClick={() => {
-                                                const element = document.getElementById(`section-${idx}`);
-                                                element?.scrollIntoView({ behavior: 'smooth' });
-                                                setActiveSection(sec.heading);
-                                            }}
-                                            className={`w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-colors ${activeSection === sec.heading
-                                                ? 'bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300'
-                                                : 'text-muted-foreground hover:bg-muted dark:text-muted-foreground dark:hover:bg-slate-800'
-                                                }`}
-                                        >
-                                            {sec.heading}
-                                        </button>
-                                    ))}
-                                </CardContent>
-                            </Card>
-
-                            {/* Action Cards */}
-                            {flashcards && (
-                                <Card className="bg-amber-50 dark:bg-amber-900/10 border-amber-200 dark:border-amber-800">
-                                    <CardContent className="p-4">
-                                        <div className="flex items-center gap-2 mb-2 text-amber-700 dark:text-amber-400 font-bold">
-                                            <BrainCircuit className="w-4 h-4" />
-                                            <span>Flashcards</span>
-                                        </div>
-                                        <p className="text-xs text-amber-600/80 mb-3">Review key terms to boost retention.</p>
-                                        <Button size="sm" variant="outline" className="w-full border-amber-200 text-amber-700 hover:bg-amber-100 dark:hover:bg-amber-900/30">
-                                            Start Review
-                                        </Button>
-                                    </CardContent>
-                                </Card>
-                            )}
-
-                            {mcqs && (
-                                <Card className="bg-emerald-50 dark:bg-emerald-900/10 border-emerald-200 dark:border-emerald-800">
-                                    <CardContent className="p-4">
-                                        <div className="flex items-center gap-2 mb-2 text-emerald-700 dark:text-emerald-400 font-bold">
-                                            <GraduationCap className="w-4 h-4" />
-                                            <span>Practice Quiz</span>
-                                        </div>
-                                        <p className="text-xs text-emerald-600/80 mb-3">Test your understanding with {mcqs.questions.length} questions.</p>
-                                        <Button size="sm" variant="outline" className="w-full border-emerald-200 text-emerald-700 hover:bg-emerald-100 dark:hover:bg-emerald-900/30">
-                                            Start Quiz
-                                        </Button>
-                                    </CardContent>
-                                </Card>
-                            )}
-                        </div>
-                    </div>
-
-                    {/* Main Content */}
-                    <div className="lg:col-span-3 space-y-8">
+                <div className="space-y-8">
                         {content.sections?.map((sec, idx) => (
                             <section
                                 key={idx}

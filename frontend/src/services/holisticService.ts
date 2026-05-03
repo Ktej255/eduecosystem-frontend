@@ -1,4 +1,4 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+import { api } from "@/lib/api";
 
 export interface SkillProgress {
     id: string;
@@ -13,33 +13,14 @@ export interface SkillProgress {
 }
 
 class HolisticService {
-    private getHeaders() {
-        const token = localStorage.getItem('edueco_auth_token');
-        return {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        };
-    }
-
     async getSkills(): Promise<SkillProgress[]> {
-        const response = await fetch(`${API_BASE_URL}/holistic/skills`, {
-            headers: this.getHeaders()
-        });
-        if (!response.ok) {
-            throw new Error('Failed to fetch holistic skills');
-        }
-        return response.json();
+        const response = await api.get('/holistic/skills');
+        return response.data;
     }
 
     async unlockSkill(skillId: string): Promise<{ message: string }> {
-        const response = await fetch(`${API_BASE_URL}/holistic/skills/${skillId}/unlock`, {
-            method: 'POST',
-            headers: this.getHeaders()
-        });
-        if (!response.ok) {
-            throw new Error('Failed to unlock skill');
-        }
-        return response.json();
+        const response = await api.post(`/holistic/skills/${skillId}/unlock`);
+        return response.data;
     }
 }
 

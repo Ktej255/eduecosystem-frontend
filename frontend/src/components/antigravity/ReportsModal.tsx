@@ -82,7 +82,7 @@ export function ReportsModal({ isOpen, onClose }: ReportsModalProps) {
 
     const fetchMasteryHierarchy = async () => {
         try {
-            const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/antigravity/reports/mastery-hierarchy`);
+            const res = await axios.get(`${(process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000').replace(/\/$/, '')}/api/v1/antigravity/reports/mastery-hierarchy`);
             setMasteryData(res.data);
         } catch (error) {
             console.error("Failed to fetch mastery hierarchy", error);
@@ -91,7 +91,7 @@ export function ReportsModal({ isOpen, onClose }: ReportsModalProps) {
 
     const fetchAIReview = async () => {
         try {
-            const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/antigravity/reports/weekly-ai-review`);
+            const res = await axios.get(`${(process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000').replace(/\/$/, '')}/api/v1/antigravity/reports/weekly-ai-review`);
             setAiReview(res.data);
         } catch (error) {
             console.error("Failed to fetch AI review", error);
@@ -101,7 +101,7 @@ export function ReportsModal({ isOpen, onClose }: ReportsModalProps) {
     const fetchReports = async () => {
         setLoading(true);
         try {
-            const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/antigravity/reports`);
+            const res = await axios.get(`${(process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000').replace(/\/$/, '')}/api/v1/antigravity/reports`);
             setData(res.data);
         } catch (error) {
             console.error("Failed to fetch reports", error);

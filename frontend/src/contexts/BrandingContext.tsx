@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { API_BASE } from '@/lib/api';
 
 interface ThemeConfig {
     primary_color?: string;
@@ -42,7 +43,7 @@ export function BrandingProvider({ children }: { children: React.ReactNode }) {
     useEffect(() => {
         const fetchBranding = async () => {
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/public/branding`);
+                const res = await fetch(`${API_BASE}/public/branding`);
                 if (res.ok) {
                     const data = await res.json();
                     setBranding(data);

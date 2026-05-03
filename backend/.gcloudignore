@@ -1,10 +1,32 @@
-# BACKEND LOCAL GCLOUDIGNORE
-node_modules/
+# Ultra-Aggressive Backend Ignore
+*
+!requirements.txt
+!main.py
+!alembic.ini
+!Dockerfile
+!Dockerfile.production
+!app/
+!app/**
+!alembic/
+!alembic/**
+!migrations/
+!migrations/**
+
+# Forced blacklists (overrides un-ignores)
 venv/
-__pycache__/
-*.pyc
+venv_new/
+pg/
+.runtime_tmp/
+data/
+scratch/
+temp_uploads/
 uploads/
+tools/
+static/
 tests/
-.pytest_cache/
-.vscode/
-.env
+__pycache__/
+*.db
+*.sql
+*.log
+.git/
+.env*
