@@ -1,22 +1,25 @@
-"""
-ReportGenerator: Knowledge-grounded LLM narrative engine.
-Anti-generic: every prompt is injected with domain KB context, feature specifics,
-session entropy, and strict structural enforcement.
-"""
 import logging
 import hashlib
+import os
 from typing import Dict, Any, List
-from app.services.gemini_service import gemini_service
+from openai import OpenAI
 from .knowledge_engine import knowledge_engine
 
 logger = logging.getLogger(__name__)
+
+# NVIDIA NIM Client Initialization
+client = OpenAI(
+    base_url="https://integrate.api.nvidia.com/v1",
+    api_key=os.getenv("NVIDIA_API_KEY")
+)
 
 
 class ReportGenerator:
     """
     PHASE 5: Controlled, Knowledge-Grounded LLM Narrative
-    Produces unique, psychologically precise reports per user.
+    Produces unique, psychologically precise reports per user using NVIDIA NIM (MiniMax M2.7).
     """
+    MODEL_ID = "minimaxai/minimax-m2.7"
 
     def _generate_signature(self, features: Dict[str, str], trait_scores: Dict[str, Any]) -> str:
         feat_str = "".join([f"{k}:{v}" for k, v in sorted(features.items())])
@@ -175,15 +178,17 @@ STRICT CONSTRAINTS:
             prompt = self._generate_narrative_prompt(
                 features, trait_scores, personality, conflicts, session_id, signature
             )
-            narrative = gemini_service.generate_text(
-                prompt=prompt,
-                temperature=0.45,  # Lowered for more precise, forensic output
+            response = client.chat.completions.create(
+                model=self.MODEL_ID,
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0.45,
                 max_tokens=1500
             )
+            narrative = response.choices[0].message.content
             return narrative.strip()
         except Exception as e:
-            logger.error(f"Narrative Generation Failed: {e}")
-            return "Narrative generation failed. Please contact support with your report ID."
+            logger.error(f"Narrative Generation CRITICAL FAILURE: {e}")
+            raise RuntimeError(f"Narrative generation failed: {e}")
 
     def assemble_report(
         self,
@@ -192,7 +197,9 @@ STRICT CONSTRAINTS:
         personality: Dict[str, Any],
         conflicts: List[Dict[str, Any]],
         session_id: str,
+        purchase_type: str = "free"
     ) -> Dict[str, Any]:
+        print(f"[STRICT_VERIFICATION] report_generator.assemble_report triggered")
         enriched_conflicts = knowledge_engine.enrich_conflicts(conflicts)
         signature = self._generate_signature(features, trait_scores)
         
@@ -264,6 +271,7 @@ STRICT CONSTRAINTS:
             "roadmap": roadmap,
             "signature": signature,
             "session_id": session_id,
+            "purchase_type": purchase_type,
             "overall_score": overall_score,
             "metrics": metrics[:4],
             "insights": insights[:5],
