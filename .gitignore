@@ -299,4 +299,23 @@ verify_*.py
 trigger_autopilot.py
 cloudbuild*.yaml
 /frontend/tsc_output.txt
+# Root-level scratch files and audit artifacts
+/*.py
+/*.sql
+/*.txt
+/*.html
+/*.log
+/*.bak
+/*.tmp
+/*.ts
+/tmp/
 
+# Keep these essential root files if they ever exist
+!/README.md
+!/LICENSE
+!/CODEBASE.md
+!/ARCHITECTURE.md
+!/GEMINI.md
+!/package.json
+!/tsconfig.json
+!/.gitignore
