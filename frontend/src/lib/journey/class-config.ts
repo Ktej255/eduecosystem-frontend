@@ -9,7 +9,7 @@ export const CLASS_CONFIG = {
     morning: {
         liveStart: { hour: 5, minute: 50 },
         liveEnd: { hour: 6, minute: 30 },
-        meetLink: 'https://meet.google.com/xxx-xxxx-xxx', // TODO: Update with actual link
+        meetLink: 'https://meet.google.com/uax-brth-wpb',
         // YouTube embed with all controls hidden: autoplay, no controls, no annotations, no logo, fullscreen
         recordedVideo: 'https://www.youtube.com/embed/-kv1TaiCf14?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&fs=0&disablekb=1&loop=1&playlist=-kv1TaiCf14',
         title: 'Morning Meditation',
