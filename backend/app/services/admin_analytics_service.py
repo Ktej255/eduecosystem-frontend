@@ -5,6 +5,7 @@ Generates educational insights using Tiered Gemini AI.
 
 from sqlalchemy.orm import Session
 from sqlalchemy import func, and_
+from starlette.concurrency import run_in_threadpool
 from typing import Dict, List, Optional, Any
 from datetime import datetime, date, timedelta
 from uuid import UUID
@@ -27,21 +28,26 @@ class AdminAnalyticsService:
         end_date: Optional[date] = None
     ) -> Dict:
         """Get summarized performance for a single student."""
-        query = db.query(
-            func.count(DrillSession.id).label('total_drills'),
-            func.avg(DrillSession.overall_score).label('avg_score'),
-            func.avg(DrillSession.improvement).label('avg_improvement')
-        ).filter(DrillSession.student_id == student_id)
+        def _get_student_performance_sync():
+            query = db.query(
+                func.count(DrillSession.id).label('total_drills'),
+                func.avg(DrillSession.overall_score).label('avg_score'),
+                func.avg(DrillSession.improvement).label('avg_improvement')
+            ).filter(DrillSession.student_id == student_id)
+
+            if start_date:
+                query = query.filter(DrillSession.date >= start_date)
+            if end_date:
+                query = query.filter(DrillSession.date <= end_date)
+
+            stats = query.first()
+            return {
+                "total_drills": int(stats.total_drills or 0),
+                "average_score": round(float(stats.avg_score or 0), 1),
+                "average_improvement": round(float(stats.avg_improvement or 0), 1)
+            }
         
-        if start_date: query = query.filter(DrillSession.date >= start_date)
-        if end_date: query = query.filter(DrillSession.date <= end_date)
-        
-        stats = query.first()
-        return {
-            "total_drills": int(stats.total_drills or 0),
-            "average_score": round(float(stats.avg_score or 0), 1),
-            "average_improvement": round(float(stats.avg_improvement or 0), 1)
-        }
+        return await run_in_threadpool(_get_student_performance_sync)
 
     async def get_aggregate_analytics(
         self,
@@ -51,68 +57,79 @@ class AdminAnalyticsService:
         end_date: Optional[date] = None
     ) -> Dict:
         """Get aggregate metrics for all students."""
-        query = db.query(
-            func.count(func.distinct(DrillSession.student_id)).label('total_students'),
-            func.count(DrillSession.id).label('total_drills'),
-            func.avg(DrillSession.overall_score).label('avg_score'),
-            func.avg(DrillSession.improvement).label('avg_improvement')
-        )
-        
-        if gs_paper:
-            query = query.filter(DrillSession.gs_paper == gs_paper)
-        
-        if start_date: query = query.filter(DrillSession.date >= start_date)
-        if end_date: query = query.filter(DrillSession.date <= end_date)
+        def _get_aggregate_analytics_sync():
+            query = db.query(
+                func.count(func.distinct(DrillSession.student_id)).label('total_students'),
+                func.count(DrillSession.id).label('total_drills'),
+                func.avg(DrillSession.overall_score).label('avg_score'),
+                func.avg(DrillSession.improvement).label('avg_improvement')
+            )
 
-        stats = query.first()
-        return {
-            "total_students": int(stats.total_students or 0),
-            "total_drills": int(stats.total_drills or 0),
-            "average_score": round(float(stats.avg_score or 0), 1),
-            "average_improvement": round(float(stats.avg_improvement or 0), 1)
-        }
+            if gs_paper:
+                query = query.filter(DrillSession.gs_paper == gs_paper)
+
+            if start_date:
+                query = query.filter(DrillSession.date >= start_date)
+            if end_date:
+                query = query.filter(DrillSession.date <= end_date)
+
+            stats = query.first()
+            return {
+                "total_students": int(stats.total_students or 0),
+                "total_drills": int(stats.total_drills or 0),
+                "average_score": round(float(stats.avg_score or 0), 1),
+                "average_improvement": round(float(stats.avg_improvement or 0), 1)
+            }
+        
+        return await run_in_threadpool(_get_aggregate_analytics_sync)
 
     async def get_topic_performance(self, db: Session, gs_paper: Optional[str] = None) -> List[Dict]:
         """Break down performance by topic."""
-        query = db.query(
-            DrillSession.topic,
-            func.count(DrillSession.id).label('total_attempts'),
-            func.avg(DrillSession.overall_score).label('avg_score'),
-            func.avg(DrillSession.improvement).label('avg_improvement')
-        )
-        
-        if gs_paper:
-            query = query.filter(DrillSession.gs_paper == gs_paper)
+        def _get_topic_performance_sync():
+            query = db.query(
+                DrillSession.topic,
+                func.count(DrillSession.id).label('total_attempts'),
+                func.avg(DrillSession.overall_score).label('avg_score'),
+                func.avg(DrillSession.improvement).label('avg_improvement')
+            )
             
-        topics = query.group_by(DrillSession.topic).all()
-        
-        return [
-            {
-                "topic": t.topic or "Miscellaneous",
-                "total_attempts": int(t.total_attempts),
-                "average_score": round(float(t.avg_score or 0), 1),
-                "average_improvement": round(float(t.avg_improvement or 0), 1)
-            }
-            for t in topics
-        ]
+            if gs_paper:
+                query = query.filter(DrillSession.gs_paper == gs_paper)
+
+            topics = query.group_by(DrillSession.topic).all()
+
+            return [
+                {
+                    "topic": t.topic or "Miscellaneous",
+                    "total_attempts": int(t.total_attempts),
+                    "average_score": round(float(t.avg_score or 0), 1),
+                    "average_improvement": round(float(t.avg_improvement or 0), 1)
+                }
+                for t in topics
+            ]
+
+        return await run_in_threadpool(_get_topic_performance_sync)
 
     async def get_daily_trends(self, db: Session, days: int = 30) -> Dict:
         """Get daily performance averages."""
-        start_date = date.today() - timedelta(days=days)
-        daily_stats = db.query(
-            DrillSession.date,
-            func.avg(DrillSession.overall_score).label('avg_score')
-        ).filter(DrillSession.date >= start_date).group_by(DrillSession.date).all()
-        
-        return {
-            "trends": [
-                {
-                    "date": str(s.date), 
-                    "score": round(float(s.avg_score or 0), 1)
-                } 
-                for s in daily_stats
-            ]
-        }
+        def _get_daily_trends_sync():
+            start_date = date.today() - timedelta(days=days)
+            daily_stats = db.query(
+                DrillSession.date,
+                func.avg(DrillSession.overall_score).label('avg_score')
+            ).filter(DrillSession.date >= start_date).group_by(DrillSession.date).all()
+
+            return {
+                "trends": [
+                    {
+                        "date": str(s.date),
+                        "score": round(float(s.avg_score or 0), 1)
+                    }
+                    for s in daily_stats
+                ]
+            }
+
+        return await run_in_threadpool(_get_daily_trends_sync)
 
     async def generate_curriculum_insights(
         self,
