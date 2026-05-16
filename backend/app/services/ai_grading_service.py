@@ -46,16 +46,23 @@ Return JSON with: score, feedback, strengths (list), improvements (list)."""
             json_match = re.search(r"\{.*\}", response_text, re.DOTALL)
             data = json.loads(json_match.group()) if json_match else {}
 
+            # Construct feedback combining feedback, strengths, and improvements
+            feedback_parts = []
+            if "feedback" in data:
+                feedback_parts.append(data["feedback"])
+            if "strengths" in data and isinstance(data["strengths"], list) and data["strengths"]:
+                feedback_parts.append("Strengths:\n- " + "\n- ".join(data["strengths"]))
+            if "improvements" in data and isinstance(data["improvements"], list) and data["improvements"]:
+                feedback_parts.append("Areas for Improvement:\n- " + "\n- ".join(data["improvements"]))
+
+            ai_feedback = "\n\n".join(feedback_parts) if feedback_parts else "No feedback generated"
+
             grading_result = AIGradingResult(
-                submission_id=submission_id,
-                essay_text=essay_text,
-                score=Decimal(str(data.get("score", 0))),
-                max_score=Decimal(str(max_score)),
-                feedback=data.get("feedback", "No feedback generated"),
-                strengths=data.get("strengths", []),
-                improvements=data.get("improvements", []),
+                student_answer_id=submission_id,
+                ai_score=float(data.get("score", 0)),
+                ai_feedback=ai_feedback,
                 model_used="Gemini 3.0",
-                graded_at=datetime.utcnow(),
+                rubric_scores=json.dumps({"overall": float(data.get("score", 0))}) if data.get("score") is not None else None,
             )
             db.add(grading_result)
             db.commit()
