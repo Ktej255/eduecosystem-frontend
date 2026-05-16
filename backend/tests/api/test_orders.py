@@ -9,6 +9,7 @@ from sqlalchemy.orm import Session
 from main import app
 from app.models.order import Order
 from app.models.cart import ShoppingCart
+from app.models.enrollment import Enrollment
 
 
 client = TestClient(app)
@@ -171,7 +172,19 @@ class TestOrderEndpoints:
         data = response.json()
         assert data["order_status"] == "completed"
 
-        # TODO: Verify enrollments were created in database
+        # Verify enrollments were created in database
+        for item in test_pending_order_with_courses.items:
+            if item.course_id:
+                enrollment = (
+                    db.query(Enrollment)
+                    .filter(
+                        Enrollment.user_id == test_pending_order_with_courses.user_id,
+                        Enrollment.course_id == item.course_id,
+                    )
+                    .first()
+                )
+                assert enrollment is not None
+                assert enrollment.status == "active"
 
     def test_order_unauthorized_access(
         self,
