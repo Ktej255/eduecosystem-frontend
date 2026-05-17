@@ -12,6 +12,7 @@ import io
 from app.models.order import Order, OrderStatus
 from app.models.course import Course
 from app.services.revenue_analytics_service import RevenueAnalyticsService
+from app.services.pdf_service import PDFReportService
 
 
 class ReportService:
@@ -265,8 +266,6 @@ class ReportService:
 
         return output.getvalue()
 
-    # Note: PDF generation would require reportlab
-    # Placeholder for future implementation
     def generate_revenue_pdf(
         self,
         instructor_id: Optional[int] = None,
@@ -274,17 +273,42 @@ class ReportService:
         end_date: Optional[date] = None,
     ) -> bytes:
         """
-        Generate PDF report (placeholder).
-        Full implementation would use ReportLab to create formatted PDF.
+        Generate PDF report using ReportLab.
         """
-        # TODO: Implement PDF generation with ReportLab
-        # This would include:
-        # - Company logo/branding
-        # - Charts and graphs
-        # - Formatted tables
-        # - Professional layout
+        revenue_service = RevenueAnalyticsService(self.db)
 
-        raise NotImplementedError(
-            "PDF generation requires ReportLab library. "
-            "Use CSV export for now, or implement PDF generation."
+        breakdown = revenue_service.get_revenue_breakdown(
+            instructor_id=instructor_id,
+            start_date=start_date,
+            end_date=end_date
         )
+
+        comparison = revenue_service.compare_periods(
+            instructor_id=instructor_id,
+            comparison_type="mom"
+        )
+
+        revenue_data = {
+            "revenue_summary": {
+                "total": breakdown["total_revenue"],
+                "monthly": comparison["current_period"]["revenue"],
+                "growth_rate": comparison["change"]["percentage"],
+                "avg_order": breakdown["average_order_value"],
+            },
+            "monthly_data": [
+                {
+                    "month": comparison["previous_period"]["start"][:7],
+                    "revenue": comparison["previous_period"]["revenue"],
+                },
+                {
+                    "month": comparison["current_period"]["start"][:7],
+                    "revenue": comparison["current_period"]["revenue"],
+                },
+            ],
+            "top_courses": [
+                {"name": c["course"], "revenue": c["revenue"], "enrollments": 0}
+                for c in breakdown["by_course"][:5]
+            ],
+        }
+
+        return PDFReportService.generate_revenue_report(revenue_data)
