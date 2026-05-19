@@ -179,20 +179,6 @@ export const USER_ACCESS_MAP: Record<string, UserAccessConfig> = {
         access: RAS_STUDENT_ACCESS,
     },
 
-    // Batch 2 Students (Upanishads)
-    // TODO: Update these email IDs with actual emails for Ramesh and Mohit
-    "ramesh@example.com": {
-        email: "ramesh@example.com",
-        name: "Ramesh",
-        isMaster: false,
-        access: BATCH2_STUDENT_ACCESS,
-    },
-    "mohit@example.com": {
-        email: "mohit@example.com",
-        name: "Mohit",
-        isMaster: false,
-        access: BATCH2_STUDENT_ACCESS,
-    },
     // Batch 2 Students - Paid
     "hitvar040@gmail.com": {
         email: "hitvar040@gmail.com",
