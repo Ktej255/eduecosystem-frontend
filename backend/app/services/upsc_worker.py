@@ -8,6 +8,7 @@ import logging
 from datetime import datetime, timedelta
 from typing import List, Dict, Any
 from app.core.celery_app import celery_app
+from sqlalchemy.orm import Session
 from app.core.config import settings
 from app.db.session import SessionLocal
 from app.models.upsc import UPSCPlan, UPSCQuestion, UPSCAttempt, UPSCReport
@@ -129,9 +130,9 @@ Return JSON ONLY in this exact format:
 
 
 @celery_app.task(name="initialize_student_progress")
-def initialize_student_progress_task(plan_id: str):
+def initialize_student_progress_task(plan_id: str, db: Session = None):
     """Creates progress records for all students in the batch for a specific plan"""
-    db = SessionLocal()
+    db = db or SessionLocal()
     try:
         from app.models.upsc import UPSCPlan, UPSCStudentProfile, UPSCStudentProgress
 
