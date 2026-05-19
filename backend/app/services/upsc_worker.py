@@ -187,11 +187,29 @@ def transcribe_audio_task(attempt_id: str, file_path_arg: str):
             logger.error(f"Attempt not found: {attempt_id}")
             return
 
-        # Read file from path and encode to base64
+        # Fetch file content if URL, or read if local path
+        import requests
         try:
-            with open(file_path_arg, "rb") as audio_file:
-                audio_data = audio_file.read()
-                encoded_string = base64.b64encode(audio_data).decode("utf-8")
+            if file_path_arg.startswith("http://") or file_path_arg.startswith("https://"):
+                response = requests.get(file_path_arg, timeout=30)
+                response.raise_for_status()
+                audio_data = response.content
+            else:
+                # Handle relative urls like "/uploads/..." from local storage
+                if file_path_arg.startswith("/"):
+                    # LocalStorage writes to base_dir (usually "uploads/")
+                    # So we need to map the relative URL back to the file system path
+                    # E.g., "/uploads/audio/file.mp3" -> "uploads/audio/file.mp3" (or appropriate base path)
+                    # For simplicity, if LocalStorage base_dir is "uploads", and the URL starts with "/uploads",
+                    # the relative path from backend root is "uploads/...".
+                    local_path = file_path_arg.lstrip("/")
+                    with open(local_path, "rb") as audio_file:
+                        audio_data = audio_file.read()
+                else:
+                    with open(file_path_arg, "rb") as audio_file:
+                        audio_data = audio_file.read()
+
+            encoded_string = base64.b64encode(audio_data).decode("utf-8")
         except Exception as e:
             logger.error(f"Failed to read audio file at {file_path_arg}: {e}")
             return {"status": "error", "message": f"File read failed: {e}"}

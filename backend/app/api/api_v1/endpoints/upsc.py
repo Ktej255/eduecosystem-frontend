@@ -8,6 +8,8 @@ from sqlalchemy.orm import Session
 
 from app import crud, models, schemas
 from app.api import deps
+from app.core.storage import get_storage
+from app.api.api_v1.endpoints.upload import generate_unique_filename
 from app.models.upsc import (
     UPSCBatch, UPSCPlan, UPSCQuestion, UPSCContent, UPSCDrill, 
     UPSCAttempt, UPSCReport, UPSCStudentProgress
@@ -209,28 +211,27 @@ def submit_attempt(
     image_url = None
     audio_url = None
 
+    storage = get_storage()
+
     if image:
-        # TODO: Upload to S3
-        import shutil
-        import os
-        upload_dir = "uploads/images"
-        os.makedirs(upload_dir, exist_ok=True)
-        image_file_path = f"{upload_dir}/{uuid.uuid4()}_{image.filename}"
-        with open(image_file_path, "wb") as buffer:
-            shutil.copyfileobj(image.file, buffer)
-        image_url = image_file_path # Placeholder for S3 URL
+        content = image.file.read()
+        filename = generate_unique_filename(image.filename)
+        content_type = image.content_type or "image/jpeg"
+
+        success, url, error = storage.upload(content, filename, content_type)
+        if not success:
+            raise HTTPException(status_code=500, detail=f"Failed to upload image: {error}")
+        image_url = url
     
     if audio:
-        # TODO: Upload to S3
-        # For now, save locally for testing or mock URL
-        import shutil
-        import os
-        upload_dir = "uploads/audio"
-        os.makedirs(upload_dir, exist_ok=True)
-        file_path = f"{upload_dir}/{uuid.uuid4()}_{audio.filename}"
-        with open(file_path, "wb") as buffer:
-            shutil.copyfileobj(audio.file, buffer)
-        audio_url = file_path # In real app, this would be S3 URL
+        content = audio.file.read()
+        filename = generate_unique_filename(audio.filename)
+        content_type = audio.content_type or "audio/mpeg"
+
+        success, url, error = storage.upload(content, filename, content_type)
+        if not success:
+            raise HTTPException(status_code=500, detail=f"Failed to upload audio: {error}")
+        audio_url = url
 
     attempt = UPSCAttempt(
         student_id=current_user.id,
@@ -247,12 +248,14 @@ def submit_attempt(
     # Trigger Background Tasks
     if image:
         from app.services.upsc_worker import perform_ocr_task
-        perform_ocr_task.delay(str(attempt.id), image_file_path)
+        # Note: Workers might need adjustment to handle URLs instead of local file paths
+        perform_ocr_task.delay(str(attempt.id), image_url)
     
     if audio:
         # We need to import this task, assuming it will be in upsc_worker
         from app.services.upsc_worker import transcribe_audio_task
-        transcribe_audio_task.delay(str(attempt.id), file_path) # Passing path for now
+        # Note: Workers might need adjustment to handle URLs instead of local file paths
+        transcribe_audio_task.delay(str(attempt.id), audio_url)
     
     return attempt
 
