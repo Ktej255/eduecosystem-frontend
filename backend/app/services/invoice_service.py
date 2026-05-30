@@ -3,12 +3,19 @@ Invoice Service
 Business logic for invoice generation and management
 """
 
-from typing import Optional
-from sqlalchemy.orm import Session
-from fastapi import HTTPException
-from datetime import datetime, timedelta
-import os
 import json
+import os
+from datetime import datetime, timedelta
+from typing import Optional
+
+from fastapi import HTTPException
+from reportlab.lib import colors
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+from reportlab.lib.units import inch
+from reportlab.platypus import (Paragraph, SimpleDocTemplate, Spacer, Table,
+                                TableStyle)
+from sqlalchemy.orm import Session
 
 from app.models.invoice import Invoice
 from app.models.order import Order, OrderItem
@@ -134,22 +141,136 @@ class InvoiceService:
         # Get order for additional details
         order = db.query(Order).filter(Order.id == invoice.order_id).first()
 
-        # In a real implementation, you would:
-        # 1. Use ReportLab to generate PDF
-        # 2. Add company logo and branding
-        # 3. Format invoice details nicely
-        # 4. Save to uploads directory
-        # 5. Return file path
-
-        # For now, create placeholder path
         pdf_filename = f"invoice_{invoice.invoice_number}.pdf"
         pdf_path = f"uploads/invoices/{pdf_filename}"
-
-        # Create directory if it doesn't exist
         os.makedirs("uploads/invoices", exist_ok=True)
 
-        # TODO: Actual PDF generation with ReportLab
-        # This is a placeholder - in production, implement proper PDF generation
+        # Generate PDF with ReportLab
+        doc = SimpleDocTemplate(
+            pdf_path,
+            pagesize=letter,
+            rightMargin=72,
+            leftMargin=72,
+            topMargin=72,
+            bottomMargin=18,
+        )
+
+        styles = getSampleStyleSheet()
+        styles.add(ParagraphStyle(name="RightAlign", alignment=2))
+
+        elements = []
+
+        # Company Header
+        elements.append(
+            Paragraph(f"<b>{InvoiceService.COMPANY_NAME}</b>", styles["Heading1"])
+        )
+        elements.append(Paragraph(InvoiceService.COMPANY_ADDRESS, styles["Normal"]))
+        elements.append(
+            Paragraph(f"Tax ID: {InvoiceService.COMPANY_TAX_ID}", styles["Normal"])
+        )
+        elements.append(Spacer(1, 0.25 * inch))
+
+        # Invoice Header
+        elements.append(Paragraph("<b>INVOICE</b>", styles["Heading2"]))
+
+        invoice_info = [
+            ["Invoice Number:", invoice.invoice_number],
+            ["Date Issued:", invoice.issued_date.strftime("%Y-%m-%d")],
+            [
+                "Due Date:",
+                invoice.due_date.strftime("%Y-%m-%d") if invoice.due_date else "N/A",
+            ],
+            ["Order ID:", getattr(order, "order_number", str(invoice.order_id))],
+        ]
+
+        info_table = Table(invoice_info, colWidths=[2 * inch, 4 * inch])
+        info_table.setStyle(
+            TableStyle(
+                [
+                    ("ALIGN", (0, 0), (0, -1), "LEFT"),
+                    ("FONTNAME", (0, 0), (0, -1), "Helvetica-Bold"),
+                    ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+                ]
+            )
+        )
+        elements.append(info_table)
+        elements.append(Spacer(1, 0.25 * inch))
+
+        # Bill To
+        elements.append(Paragraph("<b>Bill To:</b>", styles["Normal"]))
+        elements.append(Paragraph(invoice.billing_name or "N/A", styles["Normal"]))
+        if invoice.billing_email:
+            elements.append(Paragraph(invoice.billing_email, styles["Normal"]))
+        if invoice.billing_address:
+            elements.append(
+                Paragraph(
+                    invoice.billing_address.replace("\n", "<br/>"), styles["Normal"]
+                )
+            )
+        elements.append(Spacer(1, 0.25 * inch))
+
+        # Items Table
+        data = [["Item", "Qty", "Unit Price", "Discount", "Total"]]
+
+        items = json.loads(invoice.items_json) if invoice.items_json else []
+        for item in items:
+            data.append(
+                [
+                    item.get("item_name", "N/A"),
+                    str(item.get("quantity", 0)),
+                    f"{invoice.currency} {item.get('unit_price', 0):.2f}",
+                    f"{invoice.currency} {item.get('discount', 0):.2f}",
+                    f"{invoice.currency} {item.get('total', 0):.2f}",
+                ]
+            )
+
+        # Totals
+        data.append(
+            ["", "", "", "Subtotal:", f"{invoice.currency} {invoice.subtotal:.2f}"]
+        )
+        data.append(
+            ["", "", "", "Discount:", f"{invoice.currency} {invoice.discount:.2f}"]
+        )
+        data.append(["", "", "", "Tax:", f"{invoice.currency} {invoice.tax:.2f}"])
+        data.append(["", "", "", "Total:", f"{invoice.currency} {invoice.total:.2f}"])
+
+        table = Table(
+            data, colWidths=[2.5 * inch, 0.6 * inch, 1.2 * inch, 1.2 * inch, 1.2 * inch]
+        )
+        table.setStyle(
+            TableStyle(
+                [
+                    ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#f2f2f2")),
+                    ("TEXTCOLOR", (0, 0), (-1, 0), colors.black),
+                    ("ALIGN", (0, 0), (-1, -1), "CENTER"),
+                    ("ALIGN", (0, 1), (0, -1), "LEFT"),  # Left align item names
+                    ("ALIGN", (2, 1), (-1, -1), "RIGHT"),  # Right align prices
+                    ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                    ("FONTNAME", (-2, -4), (-1, -1), "Helvetica-Bold"),  # Bold totals
+                    ("BOTTOMPADDING", (0, 0), (-1, 0), 12),
+                    ("BACKGROUND", (-2, -4), (-1, -1), colors.HexColor("#fcfcfc")),
+                    ("GRID", (0, 0), (-1, -5), 1, colors.lightgrey),
+                    (
+                        "LINEABOVE",
+                        (-2, -1),
+                        (-1, -1),
+                        1,
+                        colors.black,
+                    ),  # Line above grand total
+                ]
+            )
+        )
+
+        elements.append(table)
+
+        # Notes
+        if invoice.notes:
+            elements.append(Spacer(1, 0.5 * inch))
+            elements.append(Paragraph("<b>Notes:</b>", styles["Normal"]))
+            elements.append(Paragraph(invoice.notes, styles["Normal"]))
+
+        # Build PDF
+        doc.build(elements)
 
         # Update invoice
         invoice.pdf_url = pdf_path
