@@ -100,7 +100,7 @@ export const DrillStepWizard: React.FC<DrillStepWizardProps> = ({
             // Note: Since backend expects report_id but user requested session_id,
             // we'll try to fetch using sessionId first.
             if (sessionId) {
-                const data = await upscService.getReport(sessionId);
+                const data = await upscService.getReportById(sessionId);
                 setReport(data);
             }
         } catch (error) {

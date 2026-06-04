@@ -17,12 +17,6 @@ export default function ReportPage() {
     useEffect(() => {
         const fetchReport = async () => {
             if (!params.reportId) return;
-            // In a real app, we would fetch by ID. 
-            // For now, if it's "mock-report-id", we show mock data, else try to fetch (if API was ready for single report)
-            // Since I haven't implemented getReportById in service yet, I'll mock it or add it.
-            // Let's add getReportById to service first or mock it here.
-
-            // Mocking for now to match the drill page flow
             if (params.reportId === "mock-report-id") {
                 setReport({
                     id: "mock-report-id",
@@ -41,8 +35,14 @@ export default function ReportPage() {
                 });
                 setIsLoading(false);
             } else {
-                // TODO: Implement getReportById in upscService and use it
-                setIsLoading(false);
+                try {
+                    const data = await upscService.getReportById(params.reportId as string);
+                    setReport(data);
+                } catch (error) {
+                    console.error("Failed to fetch report:", error);
+                } finally {
+                    setIsLoading(false);
+                }
             }
         };
         fetchReport();
