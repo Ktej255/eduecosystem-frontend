@@ -68,6 +68,12 @@ class Settings(BaseSettings):
 
     MONGO_URL: str = os.getenv("MONGO_URL", "mongodb://127.0.0.1:27017")
 
+    # SAML Service Provider Configuration
+    SAML_SP_CERT: str = os.getenv("SAML_SP_CERT", "")
+    SAML_SP_CERT_PATH: str = os.getenv("SAML_SP_CERT_PATH", "")
+    SAML_SP_PRIVATE_KEY: str = os.getenv("SAML_SP_PRIVATE_KEY", "")
+    SAML_SP_PRIVATE_KEY_PATH: str = os.getenv("SAML_SP_PRIVATE_KEY_PATH", "")
+
     # Security - SECRET_KEY must be set in production
     SECRET_KEY: str = os.getenv(
         "SECRET_KEY",
