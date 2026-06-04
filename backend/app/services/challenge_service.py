@@ -225,15 +225,24 @@ def get_active_challenges_for_user(db: Session, user: User) -> dict:
     # Get or create UserChallenge records
     result = {"daily": [], "weekly": []}
 
-    for challenge in daily_challenges:
-        user_challenge = (
-            db.query(UserChallenge)
-            .filter(
-                UserChallenge.user_id == user.id,
-                UserChallenge.challenge_id == challenge.id,
-            )
-            .first()
+    all_challenges = daily_challenges + weekly_challenges
+    challenge_ids = [c.id for c in all_challenges]
+
+    # Bulk fetch existing UserChallenges
+    existing_user_challenges = (
+        db.query(UserChallenge)
+        .filter(
+            UserChallenge.user_id == user.id,
+            UserChallenge.challenge_id.in_(challenge_ids),
         )
+        .all()
+    )
+    user_challenges_by_id = {uc.challenge_id: uc for uc in existing_user_challenges}
+
+    new_user_challenges = []
+
+    for challenge in daily_challenges:
+        user_challenge = user_challenges_by_id.get(challenge.id)
 
         if not user_challenge:
             user_challenge = UserChallenge(
@@ -243,20 +252,13 @@ def get_active_challenges_for_user(db: Session, user: User) -> dict:
                 progress_percentage=0,
             )
             db.add(user_challenge)
-            db.commit()
-            db.refresh(user_challenge)
+            new_user_challenges.append(user_challenge)
+            user_challenges_by_id[challenge.id] = user_challenge
 
         result["daily"].append({"challenge": challenge, "progress": user_challenge})
 
     for challenge in weekly_challenges:
-        user_challenge = (
-            db.query(UserChallenge)
-            .filter(
-                UserChallenge.user_id == user.id,
-                UserChallenge.challenge_id == challenge.id,
-            )
-            .first()
-        )
+        user_challenge = user_challenges_by_id.get(challenge.id)
 
         if not user_challenge:
             user_challenge = UserChallenge(
@@ -266,10 +268,15 @@ def get_active_challenges_for_user(db: Session, user: User) -> dict:
                 progress_percentage=0,
             )
             db.add(user_challenge)
-            db.commit()
-            db.refresh(user_challenge)
+            new_user_challenges.append(user_challenge)
+            user_challenges_by_id[challenge.id] = user_challenge
 
         result["weekly"].append({"challenge": challenge, "progress": user_challenge})
+
+    if new_user_challenges:
+        db.commit()
+        for uc in new_user_challenges:
+            db.refresh(uc)
 
     return result
 
