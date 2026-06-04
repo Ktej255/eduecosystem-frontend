@@ -193,17 +193,21 @@ class BundleService:
         # Enroll in all courses
         from app.models.enrollment import Enrollment
 
-        for course in bundle.courses:
-            # Check if already enrolled in course
-            course_enrollment = (
-                db.query(Enrollment)
-                .filter(
-                    Enrollment.user_id == user_id, Enrollment.course_id == course.id
-                )
-                .first()
+        # Optimize by fetching existing enrollments in a single query
+        course_ids = [course.id for course in bundle.courses]
+        existing_enrollments = (
+            db.query(Enrollment)
+            .filter(
+                Enrollment.user_id == user_id,
+                Enrollment.course_id.in_(course_ids)
             )
+            .all()
+        )
+        existing_course_ids = {e.course_id for e in existing_enrollments}
 
-            if not course_enrollment:
+        for course in bundle.courses:
+            # Check if already enrolled in course using the set
+            if course.id not in existing_course_ids:
                 course_enrollment = Enrollment(
                     user_id=user_id,
                     course_id=course.id,
