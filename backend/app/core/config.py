@@ -217,6 +217,26 @@ class Settings(BaseSettings):
     INTERNAL_TASK_TOKEN: str = os.getenv("INTERNAL_TASK_TOKEN", "sarit-wisdom-2026-prod")
     ALERT_WEBHOOK_URL: str = os.getenv("ALERT_WEBHOOK_URL", "placeholder")
 
+    # SAML SP Credentials
+    SAML_SP_CERT: str = ""
+    SAML_SP_KEY: str = ""
+
+    @field_validator("SAML_SP_CERT", "SAML_SP_KEY", mode="after")
+    @classmethod
+    def resolve_saml_secrets(cls, v: str) -> str:
+        """Resolve SAML secrets, potentially from a file path."""
+        if not v:
+            return ""
+        if os.path.isfile(v):
+            try:
+                with open(v, "r") as f:
+                    return f.read().strip()
+            except Exception as e:
+                import logging
+                logging.getLogger(__name__).error(f"Error reading secret file {v}: {e}")
+                return ""
+        return v
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
