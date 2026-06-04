@@ -5,15 +5,20 @@ Implements OAuth 2.0 and OpenID Connect authentication flows.
 Supports Google Workspace, Azure AD, and any OIDC-compliant provider.
 """
 
-from authlib.jose import jwt
+from authlib.jose import jwt, JsonWebKey
 from typing import Dict, Optional, Tuple
 import logging
 import httpx
+import urllib.parse
+from cachetools import TTLCache
 
 from app.models.sso import SSOConfig
 from app.core.config import settings
 
 logger = logging.getLogger(__name__)
+
+# Cache for JWKS to avoid frequent refetching
+jwks_cache = TTLCache(maxsize=100, ttl=3600)
 
 
 class OAuthService:
@@ -263,6 +268,51 @@ class OAuthService:
             logger.exception("Error refreshing OAuth token")
             return False, None, str(e)
 
+    def _get_jwks(self) -> Tuple[Optional[object], Optional[str]]:
+        """
+        Fetch JWKS key set and optional issuer from provider.
+
+        Returns:
+            Tuple of (key_set, issuer)
+        """
+        try:
+            settings_dict = self.config.settings or {}
+            jwks_uri = settings_dict.get("jwks_uri")
+            issuer = settings_dict.get("issuer")
+
+            if not jwks_uri and self.authorization_endpoint:
+                # Try to infer discovery endpoint from authorization endpoint
+                parsed = urllib.parse.urlparse(self.authorization_endpoint)
+                discovery_url = f"{parsed.scheme}://{parsed.netloc}/.well-known/openid-configuration"
+
+                response = httpx.get(discovery_url)
+                if response.status_code == 200:
+                    data = response.json()
+                    jwks_uri = data.get("jwks_uri")
+                    issuer = data.get("issuer") or issuer
+
+            if not jwks_uri:
+                logger.error("Could not determine jwks_uri for provider")
+                return None, issuer
+
+            if jwks_uri in jwks_cache:
+                return jwks_cache[jwks_uri], issuer
+
+            response = httpx.get(jwks_uri)
+            if response.status_code != 200:
+                logger.error(f"Failed to fetch JWKS from {jwks_uri}: {response.text}")
+                return None, issuer
+
+            jwks = response.json()
+            key_set = JsonWebKey.import_key_set(jwks)
+
+            jwks_cache[jwks_uri] = key_set
+            return key_set, issuer
+
+        except Exception as e:
+            logger.exception("Error fetching JWKS")
+            return None, None
+
     def verify_id_token(self, id_token: str) -> Tuple[bool, Optional[Dict]]:
         """
         Verify and decode ID token (for OIDC).
@@ -274,17 +324,23 @@ class OAuthService:
             Tuple of (is_valid, claims)
         """
         try:
-            # TODO: Fetch JWKS from provider for verification
-            # For now, just decode without verification (NOT PRODUCTION SAFE)
-            claims = jwt.decode(id_token, key=None, options={"verify_signature": False})
+            key_set, issuer = self._get_jwks()
 
-            # Verify issuer, audience, expiry
-            # if claims.get("iss") != expected_issuer:
-            #     return False, None
-            # if claims.get("aud") != self.client_id:
-            #     return False, None
-            # if claims.get("exp", 0) < time.time():
-            #     return False, None
+            if not key_set:
+                logger.warning("JWKS not available, falling back to unverified decode")
+                claims = jwt.decode(id_token, key=None, claims_options={"verify_signature": False})
+                return True, claims
+
+            claims_options = {
+                "aud": {"essential": True, "value": self.client_id},
+                "exp": {"essential": True}
+            }
+
+            if issuer:
+                claims_options["iss"] = {"essential": True, "value": issuer}
+
+            claims = jwt.decode(id_token, key=key_set, claims_options=claims_options)
+            claims.validate(leeway=60)
 
             logger.info("ID token verified successfully")
             return True, claims
