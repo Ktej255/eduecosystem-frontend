@@ -54,7 +54,7 @@ export function getHistoryEraProgress(): HistoryEraProgress {
         if (raw) return JSON.parse(raw) as HistoryEraProgress;
         return migrateLegacyAncient();
     } catch {
-        return emptyProgress();
+        return migrateLegacyAncient();
     }
 }
 
