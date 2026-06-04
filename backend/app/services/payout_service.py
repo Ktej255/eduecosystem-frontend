@@ -6,6 +6,7 @@ Handles payout requests, Stripe Connect integration, and payment tracking.
 """
 
 from sqlalchemy.orm import Session
+from sqlalchemy import func
 from app.models.marketplace import InstructorPayout, InstructorPaymentInfo, RevenueShare
 from app.models.affiliate import AffiliatePayout
 from decimal import Decimal
@@ -280,33 +281,51 @@ class PayoutService:
         )
 
         payout_ids = []
+        if not payment_infos:
+            return payout_ids
+
+        instructor_ids = [info.instructor_id for info in payment_infos]
+
+        # Fetch the last payout date for each instructor in a single query
+        last_payouts_q = (
+            db.query(
+                InstructorPayout.instructor_id,
+                func.max(InstructorPayout.completed_at),
+            )
+            .filter(
+                InstructorPayout.instructor_id.in_(instructor_ids),
+                InstructorPayout.status == "completed",
+            )
+            .group_by(InstructorPayout.instructor_id)
+            .all()
+        )
+        last_payouts = dict(last_payouts_q)
+
+        # Fetch the available balance for each instructor in a single query
+        pending_balances_q = (
+            db.query(
+                RevenueShare.instructor_id,
+                func.sum(RevenueShare.pending_payout),
+            )
+            .filter(RevenueShare.instructor_id.in_(instructor_ids))
+            .group_by(RevenueShare.instructor_id)
+            .all()
+        )
+        pending_balances = dict(pending_balances_q)
+
+        thirty_days_ago = datetime.utcnow() - timedelta(days=30)
 
         for info in payment_infos:
             # Check if payout is due
-            last_payout = (
-                db.query(InstructorPayout)
-                .filter(
-                    InstructorPayout.instructor_id == info.instructor_id,
-                    InstructorPayout.status == "completed",
-                )
-                .order_by(InstructorPayout.completed_at.desc())
-                .first()
-            )
-
             # Skip if payout was made in last 30 days
-            if last_payout and last_payout.completed_at > datetime.utcnow() - timedelta(
-                days=30
-            ):
+            last_payout_date = last_payouts.get(info.instructor_id)
+            if last_payout_date and last_payout_date > thirty_days_ago:
                 continue
 
-            # Calculate available balance
-            revenue_shares = (
-                db.query(RevenueShare)
-                .filter(RevenueShare.instructor_id == info.instructor_id)
-                .all()
+            # Get available balance
+            available_balance = pending_balances.get(
+                info.instructor_id, Decimal("0.00")
             )
-
-            available_balance = sum(share.pending_payout for share in revenue_shares)
 
             # Create payout if above minimum
             if available_balance >= info.minimum_payout_amount:
@@ -397,9 +416,9 @@ class PayoutService:
         return {
             "total_paid": total_paid,
             "total_payouts": total_count,
-            "average_payout": total_paid / total_count
-            if total_count > 0
-            else Decimal("0.00"),
+            "average_payout": (
+                total_paid / total_count if total_count > 0 else Decimal("0.00")
+            ),
             "pending_amount": pending_amount,
             "pending_count": len(pending_payouts),
         }
