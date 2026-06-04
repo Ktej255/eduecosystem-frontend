@@ -222,7 +222,7 @@ class PayoutService:
     @staticmethod
     async def _process_paypal_payout(paypal_email: str, amount: Decimal) -> str:
         """
-        Process PayPal payout (placeholder).
+        Process PayPal payout.
 
         Args:
             paypal_email: PayPal email
@@ -231,9 +231,9 @@ class PayoutService:
         Returns:
             Transaction ID
         """
-        # TODO: Implement PayPal Payouts API integration
+        from app.services.paypal_service import paypal_service
         logger.info(f"PayPal payout to {paypal_email}: ${amount}")
-        return f"PAYPAL_{datetime.utcnow().timestamp()}"
+        return await paypal_service.create_payout(paypal_email, amount)
 
     @staticmethod
     def get_instructor_payout_history(

@@ -195,6 +195,90 @@ class PayPalService:
 
         return mock_response
 
+    @property
+    def base_url(self) -> str:
+        return (
+            "https://api-m.paypal.com"
+            if self.mode == "live"
+            else "https://api-m.sandbox.paypal.com"
+        )
+
+    async def _get_access_token(self) -> str:
+        """Get PayPal API access token"""
+        import httpx
+
+        auth_url = f"{self.base_url}/v1/oauth2/token"
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                auth_url,
+                auth=(self.client_id, self.client_secret),
+                data={"grant_type": "client_credentials"},
+                headers={"Accept": "application/json", "Accept-Language": "en_US"},
+            )
+            response.raise_for_status()
+            return response.json()["access_token"]
+
+    async def create_payout(self, paypal_email: str, amount: Decimal) -> str:
+        """
+        Process PayPal payout via PayPal Payouts API.
+
+        Args:
+            paypal_email: PayPal email
+            amount: Payout amount
+
+        Returns:
+            Transaction ID (Payout Batch ID)
+        """
+        import httpx
+        import uuid
+        import logging
+        from datetime import datetime
+
+        logger = logging.getLogger(__name__)
+
+        try:
+            token = await self._get_access_token()
+            payout_url = f"{self.base_url}/v1/payments/payouts"
+
+            payload = {
+                "sender_batch_header": {
+                    "sender_batch_id": f"Payout_{uuid.uuid4().hex[:10]}",
+                    "email_subject": "You have a payout!",
+                    "email_message": "You have received a payout from the system."
+                },
+                "items": [
+                    {
+                        "recipient_type": "EMAIL",
+                        "amount": {
+                            "value": str(amount),
+                            "currency": "USD"
+                        },
+                        "note": "Thanks for your work!",
+                        "sender_item_id": f"Item_{uuid.uuid4().hex[:10]}",
+                        "receiver": paypal_email,
+                    }
+                ]
+            }
+
+            async with httpx.AsyncClient() as client:
+                response = await client.post(
+                    payout_url,
+                    headers={
+                        "Content-Type": "application/json",
+                        "Authorization": f"Bearer {token}",
+                    },
+                    json=payload,
+                )
+                response.raise_for_status()
+                data = response.json()
+
+                # Returns the batch header ID as the transaction ID
+                return data.get("batch_header", {}).get("payout_batch_id", f"PAYPAL_{datetime.utcnow().timestamp()}")
+
+        except Exception as e:
+            logger.error(f"PayPal Payout API failed: {e}")
+            raise Exception(f"PayPal Payout failed: {e}")
+
 
 # Singleton instance
 paypal_service = PayPalService()
