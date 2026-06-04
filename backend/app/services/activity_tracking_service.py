@@ -7,9 +7,55 @@ from sqlalchemy.orm import Session
 from typing import Dict, Any, Optional
 from uuid import UUID
 from datetime import datetime, timezone
+from starlette.concurrency import run_in_threadpool
 
 from app.models.drill import StudentActivity
 from app.models.user import User
+
+
+def _sync_track_activity(
+    db: Session,
+    student_id: UUID,
+    activity_type: str,
+    activity_data: Dict[str, Any],
+    session_id: Optional[UUID]
+) -> StudentActivity:
+    activity = StudentActivity(
+        student_id=student_id,
+        session_id=session_id,
+        activity_type=activity_type,
+        activity_data=activity_data,
+        timestamp=datetime.now(timezone.utc)
+    )
+    db.add(activity)
+    db.commit()
+    db.refresh(activity)
+    return activity
+
+
+def _sync_get_student_activities(
+    db: Session,
+    student_id: UUID,
+    activity_type: Optional[str],
+    limit: int
+):
+    query = db.query(StudentActivity).filter(
+        StudentActivity.student_id == student_id
+    )
+
+    if activity_type:
+        query = query.filter(StudentActivity.activity_type == activity_type)
+
+    return query.order_by(StudentActivity.timestamp.desc()).limit(limit).all()
+
+
+def _sync_get_session_activities(
+    db: Session,
+    session_id: UUID
+):
+    return db.query(StudentActivity).filter(
+        StudentActivity.session_id == session_id
+    ).order_by(StudentActivity.timestamp.asc()).all()
 
 
 class ActivityTrackingService:
@@ -42,19 +88,14 @@ class ActivityTrackingService:
         - daily_summary_viewed: Student viewed daily summary
         """
         
-        activity = StudentActivity(
-            student_id=student_id,
-            session_id=session_id,
-            activity_type=activity_type,
-            activity_data=activity_data or {},
-            timestamp=datetime.now(timezone.utc)
+        return await run_in_threadpool(
+            _sync_track_activity,
+            db,
+            student_id,
+            activity_type,
+            activity_data or {},
+            session_id
         )
-        
-        db.add(activity)
-        db.commit()
-        db.refresh(activity)
-        
-        return activity
     
     @staticmethod
     async def get_student_activities(
@@ -64,14 +105,13 @@ class ActivityTrackingService:
         limit: int = 100
     ):
         """Get student activities with optional filtering"""
-        query = db.query(StudentActivity).filter(
-            StudentActivity.student_id == student_id
+        return await run_in_threadpool(
+            _sync_get_student_activities,
+            db,
+            student_id,
+            activity_type,
+            limit
         )
-        
-        if activity_type:
-            query = query.filter(StudentActivity.activity_type == activity_type)
-        
-        return query.order_by(StudentActivity.timestamp.desc()).limit(limit).all()
     
     @staticmethod
     async def get_session_activities(
@@ -79,9 +119,11 @@ class ActivityTrackingService:
         session_id: UUID
     ):
         """Get all activities for a specific session"""
-        return db.query(StudentActivity).filter(
-            StudentActivity.session_id == session_id
-        ).order_by(StudentActivity.timestamp.asc()).all()
+        return await run_in_threadpool(
+            _sync_get_session_activities,
+            db,
+            session_id
+        )
 
 
 # Global instance
