@@ -123,64 +123,6 @@ class ExportService:
         return buffer.getvalue()
 
     @staticmethod
-    def export_analytics(
-        db: Session,
-        user_id: int,
-        start_date: Optional[datetime] = None,
-        end_date: Optional[datetime] = None,
-        format: str = "csv",
-    ) -> Union[str, bytes]:
-        """
-        Export user analytics data.
-
-        Args:
-            db: Database session
-            user_id: User ID
-            start_date: Optional start date filter
-            end_date: Optional end date filter
-            format: Export format ('csv', 'pdf', 'json')
-
-        Returns:
-            Exported data as string (CSV/JSON) or bytes (PDF)
-        """
-        from app.models.analytics import CourseAnalytics
-
-        # Get analytics data
-        query = db.query(CourseAnalytics).filter(CourseAnalytics.user_id == user_id)
-
-        if start_date:
-            query = query.filter(CourseAnalytics.created_at >= start_date)
-        if end_date:
-            query = query.filter(CourseAnalytics.created_at <= end_date)
-
-        analytics = query.all()
-
-        # Convert to dict
-        data = []
-        for item in analytics:
-            data.append(
-                {
-                    "course_id": item.course_id,
-                    "date": item.created_at.isoformat() if item.created_at else "",
-                    "lessons_completed": item.lessons_completed,
-                    "quizzes_taken": item.quizzes_taken,
-                    "time_spent_minutes": item.time_spent,
-                    "engagement_score": item.engagement_score,
-                }
-            )
-
-        if format == "csv":
-            return ExportService.generate_csv(data)
-        elif format == "pdf":
-            return ExportService.generate_pdf(
-                data, f"Analytics Report - User {user_id}"
-            )
-        elif format == "json":
-            return json.dumps(data, indent=2)
-        else:
-            raise ValueError(f"Unsupported format: {format}")
-
-    @staticmethod
     def export_course_content(
         db: Session, course_id: int, format: str = "json"
     ) -> Union[str, bytes]:
