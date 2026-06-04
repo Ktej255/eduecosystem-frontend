@@ -10,7 +10,7 @@ from app import crud, models, schemas
 from app.api import deps
 from app.models.upsc import (
     UPSCBatch, UPSCPlan, UPSCQuestion, UPSCContent, UPSCDrill, 
-    UPSCAttempt, UPSCReport, UPSCStudentProgress
+    UPSCAttempt, UPSCReport, UPSCStudentProgress, UPSCStudentProfile
 )
 from app.services.upsc_worker import generate_ai_plan_task, analyze_answer_task
 from app.schemas.upsc import (
@@ -328,23 +328,14 @@ def get_student_plans(
     """
     Get plans available to the student.
     """
-    # Get student's batch
-    # Assuming student profile exists and links to batch
-    # For now, we'll fetch all plans for the batch the user is enrolled in
-    # This requires a way to link user to batch. 
-    # Let's assume we have a way, or just return all plans for now if user is admin/student
-    
-    # TODO: Fetch from student profile
-    # profile = db.query(UPSCStudentProfile).filter(UPSCStudentProfile.user_id == current_user.id).first()
-    # if not profile: return []
-    # batch_id = profile.batch_id
-    
-    # Fallback: Get first batch for demo
-    batch = db.query(UPSCBatch).first()
-    if not batch:
+    if current_user.is_superuser:
+        return db.query(UPSCPlan).all()
+
+    profile = db.query(UPSCStudentProfile).filter(UPSCStudentProfile.user_id == current_user.id).first()
+    if not profile or not profile.batch_id:
         return []
         
-    plans = db.query(UPSCPlan).filter(UPSCPlan.batch_id == batch.id).all()
+    plans = db.query(UPSCPlan).filter(UPSCPlan.batch_id == profile.batch_id).all()
     return plans
 
 @router.get("/student/plans/{plan_id}/status", response_model=PlanStatusResponse)
