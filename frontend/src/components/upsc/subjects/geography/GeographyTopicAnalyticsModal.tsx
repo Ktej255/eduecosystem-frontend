@@ -4,7 +4,8 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { 
     BarChart2, Calendar, CheckCircle2, AlertCircle, 
-    Brain, StickyNote, PlayCircle, BookOpen, Clock, Compass
+    Brain, StickyNote, PlayCircle, BookOpen, Clock, Compass,
+    Target
 } from "lucide-react";
 import { GEOGRAPHY_REGISTRY } from "./data/geography-registry";
 
@@ -14,6 +15,7 @@ interface TopicData {
     flashcardsDone?: boolean;
     mcqsDone?: boolean;
     score?: number;
+    readDone?: boolean;
 }
 
 interface GeographyTopicAnalyticsModalProps {

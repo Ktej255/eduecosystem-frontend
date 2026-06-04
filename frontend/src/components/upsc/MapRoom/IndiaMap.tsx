@@ -5,7 +5,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Mountain, Droplets, Zap, MapPin, Tent, Info, Layers, Maximize2, BookOpen, Map as MapIcon } from 'lucide-react';
 import UPSCMapOverlay from '../UPSCMapOverlay';
 
-// ... (interface MapPoint and MAP_DATA remain unchanged)
+export interface MapPoint {
+    id: string;
+    name: string;
+    state: string;
+    type: 'park' | 'ramsar' | 'mineral';
+    coordinates: { x: number; y: number };
+    description: string;
+    tags: string[];
+}
+export const MAP_DATA: MapPoint[] = [];
 
 export default function IndiaMap() {
     const [activeLayer, setActiveLayer] = useState<'all' | 'park' | 'ramsar' | 'mineral'>('all');

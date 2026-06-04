@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
     Calendar, CheckCircle, Clock, BookOpen,
     AlertCircle, Target, Lock, Play, ChevronRight,
-    TrendingUp, FileText, Award, StickyNote, BarChart2, Flame, Map, Globe
+    TrendingUp, FileText, Award, StickyNote, BarChart2, Flame, Map, Globe, Compass
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -140,7 +140,7 @@ export default function GeographySectionPlanner() {
                         <Card className="border-none shadow-lg bg-gradient-to-br from-indigo-600 to-violet-700 text-white overflow-hidden relative shrink-0">
                             {/* Background Pattern */}
                             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
-                            <Globe className="absolute -right-6 -bottom-6 w-32 h-32 text-white/5 rotate-12" />
+                            <Compass className="absolute -right-6 -bottom-6 w-32 h-32 text-white/5 rotate-12" />
 
                             <CardContent className="p-8 relative z-10">
                                 <div className="flex justify-between items-start mb-6">

@@ -10,13 +10,13 @@ const BACKEND = process.env.BACKEND_URL ?? 'http://localhost:8000';
 
 export async function GET(
   _req: NextRequest,
-  { params }: { params: { node_id: string } },
+  { params }: { params: Promise<{  node_id: string  }> },
 ) {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const token = cookieStore.get('access_token')?.value;
 
   const res = await fetch(
-    `${BACKEND}/api/v1/tagging/node/${params.node_id}/stats`,
+    `${BACKEND}/api/v1/tagging/node/${(await params).node_id}/stats`,
     {
       headers: {
         'Content-Type': 'application/json',

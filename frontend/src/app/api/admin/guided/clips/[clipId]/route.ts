@@ -4,12 +4,12 @@ const BACKEND = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
 export async function PATCH(
   req: NextRequest,
-  { params }: { params: { clipId: string } }
+  { params }: { params: Promise<{  clipId: string  }> }
 ) {
   try {
     const token = req.cookies.get('access_token')?.value || req.headers.get('authorization') || '';
     const body = await req.json();
-    const res = await fetch(`${BACKEND}/api/v1/admin/guided/clips/${params.clipId}`, {
+    const res = await fetch(`${BACKEND}/api/v1/admin/guided/clips/${(await params).clipId}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
       body: JSON.stringify(body),
@@ -22,11 +22,11 @@ export async function PATCH(
 
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { clipId: string } }
+  { params }: { params: Promise<{  clipId: string  }> }
 ) {
   try {
     const token = req.cookies.get('access_token')?.value || req.headers.get('authorization') || '';
-    const res = await fetch(`${BACKEND}/api/v1/admin/guided/clips/${params.clipId}`, {
+    const res = await fetch(`${BACKEND}/api/v1/admin/guided/clips/${(await params).clipId}`, {
       method: 'DELETE',
       headers: { Authorization: `Bearer ${token}` },
     });

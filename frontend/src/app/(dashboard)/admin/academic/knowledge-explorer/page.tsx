@@ -166,7 +166,7 @@ export default function KnowledgeExplorer() {
     };
 
     const onNodeClick = (_: any, node: Node) => {
-        setSelectedNode(node.data as GraphNode);
+        setSelectedNode(node.data as unknown as GraphNode);
     };
 
     const getSubjectIcon = (s: string) => {

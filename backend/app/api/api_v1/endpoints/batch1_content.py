@@ -24,9 +24,9 @@ from app.core.config import settings
 
 # Optional S3 import
 try:
-    import boto3
+    from google.cloud import storage
 except ImportError:
-    boto3 = None
+    storage = None
 
 router = APIRouter()
 
@@ -322,22 +322,19 @@ async def save_segment(
                     pdf_url = ""
                     local_pdf_path = None
 
-                    # Check if S3 is configured
-                    use_s3 = boto3 and hasattr(settings, 'STORAGE_BACKEND') and settings.STORAGE_BACKEND == 's3' and hasattr(settings, 'AWS_S3_BUCKET') and settings.AWS_S3_BUCKET
+                    # Check if GCS is configured
+                    from app.core.storage import storage_client, GCSStorage
+                    use_gcs = hasattr(settings, 'STORAGE_BACKEND') and settings.STORAGE_BACKEND == 'gcs' and hasattr(settings, 'GCS_BUCKET') and settings.GCS_BUCKET
                     
-                    if use_s3:
+                    if use_gcs and storage_client:
                         try:
-                            s3 = boto3.client('s3',
-                                              aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
-                                              aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
-                                              region_name=settings.AWS_REGION)
                             pdf.file.seek(0)
-                            s3.upload_fileobj(pdf.file, settings.AWS_S3_BUCKET, f"pdfs/{unique_name}", ExtraArgs={'ACL': 'public-read'})
-                            pdf_url = f"https://{settings.AWS_S3_BUCKET}.s3.{settings.AWS_REGION}.amazonaws.com/pdfs/{unique_name}"
-                            print(f"Uploaded PDF to S3: {pdf_url}")
+                            content = await pdf.read()
+                            pdf_url = storage_client.upload_file(content, f"pdfs/{unique_name}", content_type="application/pdf")
+                            print(f"Uploaded PDF to GCS: {pdf_url}")
                         except Exception as e:
-                            print(f"S3 Upload Failed for PDF: {e}")
-                            raise HTTPException(status_code=500, detail=f"S3 Upload Failed: {str(e)}")
+                            print(f"GCS Upload Failed for PDF: {e}")
+                            raise HTTPException(status_code=500, detail=f"GCS Upload Failed: {str(e)}")
                     else:
                         # Local Save
                         dest_path = os.path.join(PDF_UPLOAD_DIR, unique_name)
@@ -358,18 +355,18 @@ async def save_segment(
                             # Local file - process directly
                             pending_pdf_task = (key, local_pdf_path, current_pdf_name)
                         elif pdf_url.startswith("https://"):
-                            # S3 file - download to temp and process
+                            # Remote file - download to temp and process
                             try:
                                 # Create temp file but don't delete yet
                                 tmp_file = tempfile.NamedTemporaryFile(suffix='.pdf', delete=False)
-                                print(f"Downloading S3 PDF to temp: {pdf_url}")
+                                print(f"Downloading remote PDF to temp: {pdf_url}")
                                 urllib.request.urlretrieve(pdf_url, tmp_file.name)
                                 tmp_file.close() # Close handle
                                 
                                 pending_pdf_task = (key, tmp_file.name, current_pdf_name)
                                 pending_cleanup_file = tmp_file.name
                             except Exception as e:
-                                print(f"Error preparing S3 PDF for processing: {e}")
+                                print(f"Error preparing remote PDF for processing: {e}")
 
                     new_pdfs_uploaded.append({
                         "name": pdf_names[idx] if pdf_names and idx < len(pdf_names) else pdf.filename,

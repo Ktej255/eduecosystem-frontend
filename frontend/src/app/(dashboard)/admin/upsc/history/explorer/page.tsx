@@ -96,7 +96,7 @@ export default function HistoryAdminExplorer() {
     }, [fetchGraph]);
 
     const onNodeClick = (_: any, node: Node) => {
-        setSelectedNode(node.data as GraphNode);
+        setSelectedNode(node.data as unknown as unknown as GraphNode & {module_order?: number});
     };
 
     return (
@@ -200,7 +200,7 @@ export default function HistoryAdminExplorer() {
                                 </div>
                                 <div className="p-4 rounded-xl border bg-slate-50 dark:bg-slate-900 border-border">
                                     <div className="text-[10px] font-bold text-muted-foreground uppercase mb-1">Module Order</div>
-                                    <div className="text-lg font-black">{selectedNode.module_order || "N/A"}</div>
+                                    <div className="text-lg font-black">{(selectedNode as {module_order?: number}).module_order || "N/A"}</div>
                                 </div>
                             </div>
 
