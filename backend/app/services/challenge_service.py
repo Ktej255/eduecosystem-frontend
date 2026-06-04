@@ -225,15 +225,28 @@ def get_active_challenges_for_user(db: Session, user: User) -> dict:
     # Get or create UserChallenge records
     result = {"daily": [], "weekly": []}
 
-    for challenge in daily_challenges:
-        user_challenge = (
-            db.query(UserChallenge)
-            .filter(
-                UserChallenge.user_id == user.id,
-                UserChallenge.challenge_id == challenge.id,
-            )
-            .first()
+    # Collect all challenge IDs
+    all_challenges = daily_challenges + weekly_challenges
+    challenge_ids = [c.id for c in all_challenges]
+
+    # Bulk fetch existing UserChallenges
+    existing_user_challenges = (
+        db.query(UserChallenge)
+        .filter(
+            UserChallenge.user_id == user.id,
+            UserChallenge.challenge_id.in_(challenge_ids),
         )
+        .all()
+    )
+
+    # Map existing challenges for O(1) lookup
+    existing_map = {uc.challenge_id: uc for uc in existing_user_challenges}
+
+    new_user_challenges = []
+
+    # Process daily challenges
+    for challenge in daily_challenges:
+        user_challenge = existing_map.get(challenge.id)
 
         if not user_challenge:
             user_challenge = UserChallenge(
@@ -242,21 +255,15 @@ def get_active_challenges_for_user(db: Session, user: User) -> dict:
                 progress_data={},
                 progress_percentage=0,
             )
-            db.add(user_challenge)
-            db.commit()
-            db.refresh(user_challenge)
+            new_user_challenges.append(user_challenge)
+            # Add to map so we reference the identical object below
+            existing_map[challenge.id] = user_challenge
 
         result["daily"].append({"challenge": challenge, "progress": user_challenge})
 
+    # Process weekly challenges
     for challenge in weekly_challenges:
-        user_challenge = (
-            db.query(UserChallenge)
-            .filter(
-                UserChallenge.user_id == user.id,
-                UserChallenge.challenge_id == challenge.id,
-            )
-            .first()
-        )
+        user_challenge = existing_map.get(challenge.id)
 
         if not user_challenge:
             user_challenge = UserChallenge(
@@ -265,11 +272,17 @@ def get_active_challenges_for_user(db: Session, user: User) -> dict:
                 progress_data={},
                 progress_percentage=0,
             )
-            db.add(user_challenge)
-            db.commit()
-            db.refresh(user_challenge)
+            new_user_challenges.append(user_challenge)
+            existing_map[challenge.id] = user_challenge
 
         result["weekly"].append({"challenge": challenge, "progress": user_challenge})
+
+    # Batch insert and commit new user challenges if any
+    if new_user_challenges:
+        db.add_all(new_user_challenges)
+        db.commit()
+        for uc in new_user_challenges:
+            db.refresh(uc)
 
     return result
 
