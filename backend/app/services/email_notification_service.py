@@ -8,6 +8,9 @@ from typing import Optional, Dict, Any
 from sqlalchemy.orm import Session
 from datetime import datetime
 
+from fastapi_mail import FastMail, MessageSchema, MessageType
+from app.core.email import conf
+
 from app.models.email_notification import (
     UserEmailPreference,
     EmailTemplate,
@@ -94,9 +97,15 @@ async def send_notification_email(
     try:
         # Send email using FastMail
         if not settings.MAIL_SUPPRESS_SEND:
-            # For now, we'll use direct send since we don't have FastMail templates set up yet
-            # TODO: Implement proper template-based sending
-            pass
+            # Send using FastMail with rendered HTML
+            message = MessageSchema(
+                subject=rendered_subject,
+                recipients=[user.email],
+                body=rendered_html,
+                subtype=MessageType.html,
+            )
+            fm = FastMail(conf)
+            await fm.send_message(message)
 
         # Update log
         email_log.status = EmailStatus.SENT
