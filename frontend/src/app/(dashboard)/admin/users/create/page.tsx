@@ -8,18 +8,34 @@ import { ArrowLeft, UserPlus } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
+import { api } from '@/lib/api';
 
 export default function CreateUserPage() {
     const [loading, setLoading] = useState(false);
+    const router = useRouter();
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
-        // TODO: Implement user creation API call
-        setTimeout(() => {
-            toast.success("User creation feature coming soon!");
+
+        const formData = new FormData(e.currentTarget);
+        const data = {
+            full_name: formData.get('fullName'),
+            email: formData.get('email'),
+            password: formData.get('password'),
+            role: formData.get('role')
+        };
+
+        try {
+            await api.post('/users/', data);
+            toast.success('User created successfully!');
+            router.push('/admin/users');
+        } catch (error: any) {
+            console.error('Error creating user:', error);
+            toast.error(error.response?.data?.detail || 'Failed to create user');
             setLoading(false);
-        }, 1000);
+        }
     };
 
     return (
@@ -47,19 +63,19 @@ export default function CreateUserPage() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="space-y-2">
                                 <Label htmlFor="fullName">Full Name</Label>
-                                <Input id="fullName" placeholder="John Doe" required />
+                                <Input id="fullName" name="fullName" placeholder="John Doe" required />
                             </div>
                             <div className="space-y-2">
                                 <Label htmlFor="email">Email</Label>
-                                <Input id="email" type="email" placeholder="john@example.com" required />
+                                <Input id="email" name="email" type="email" placeholder="john@example.com" required />
                             </div>
                             <div className="space-y-2">
                                 <Label htmlFor="password">Password</Label>
-                                <Input id="password" type="password" placeholder="••••••••" required />
+                                <Input id="password" name="password" type="password" placeholder="••••••••" required />
                             </div>
                             <div className="space-y-2">
                                 <Label htmlFor="role">Role</Label>
-                                <select id="role" className="w-full h-10 px-3 rounded-md border border-input bg-background">
+                                <select id="role" name="role" className="w-full h-10 px-3 rounded-md border border-input bg-background">
                                     <option value="student">Student</option>
                                     <option value="instructor">Instructor</option>
                                     <option value="admin">Admin</option>
