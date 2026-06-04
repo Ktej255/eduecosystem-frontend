@@ -26,12 +26,14 @@ import { toast } from 'react-hot-toast';
 import { saveCycleSession, CycleSession } from '@/lib/revision/revision-analytics-service';
 
 interface IntermediatePDFSessionProps {
+    examId: string;
     topicName: string;
     onComplete: (data: any) => void;
     durationMinutes?: number;
 }
 
 export default function IntermediatePDFSession({
+    examId,
     topicName = "Indian Polity: Chapter 17",
     onComplete,
     durationMinutes = 45
@@ -56,7 +58,7 @@ export default function IntermediatePDFSession({
 
                 const session: CycleSession = {
                     id: `pdf-${Date.now()}`,
-                    examId: 'upsc',
+                    examId: examId,
                     subjectId: 'polity',
                     topicId: 1, // Default topic ID for PDF session
                     topicName,
